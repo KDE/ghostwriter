@@ -1,0 +1,32 @@
+Files: view-fullscreen-light.svg, view-fullscreen-light-hover.svg,
+       view-fullscreen-dark.svg, view-fullscreen-dark-hover.svg,
+       view-restore-light.svg, view-restore-light-hover.svg,
+       view-restore-dark.svg, view-restore-dark-hover.svg
+Author: wereturtle
+License: CC BY-SA3
+  Creative Commons Attribution 3.0 Share-Alike License
+  
+  These are derivative of the "Adwaita Icon Theme" by the GNOME Project
+  <http://www.gnome.org>, used under a Creative Commons Attribution 3.0
+  Share-Alike License. They are licened under Creative Commons Attribution
+  3.0 Share-Alike License by wereturtle. The original version from the
+  Gnome Project can be found at <https://github.com/GNOME/adwaita-icon-theme>.
+  
+  To view a copy of this licence, visit 
+  http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
+  Commons, 171 Second Street, Suite 300, San Francisco, California 94105, USA.
+
+
+Files: hicolor/*, ghostwriter.svg, ghostwriter.ico, ghostwriter.icns,
+       logo.svg, logo.png, close-delete.svg, size-grip.svg, unavailable.svg
+Author: wereturtle
+License: CC BY-SA3
+  Creative Commons Attribution 3.0 Share-Alike License
+    
+  This work is licenced under the Creative Commons Attribution-Share Alike 3.0
+  United States License. To view a copy of this licence, visit
+  http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
+  Commons, 171 Second Street, Suite 300, San Francisco, California 94105, USA.
+
+  When attributing the artwork, using "wereturtle" is enough. Please link to
+  http://github.com/wereturtle/ghostwriter where available.

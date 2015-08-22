@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleIconFile</key>
+    <string>@ICON@</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleExecutable</key>
+    <string>@EXECUTABLE@</string>
+    <key>CFBundleIdentifier</key>
+    <string>io.github.wereturtle.ghostwriter</string>
+    <key>CFBundleShortVersionString</key>
+    <string>@SHORT_VERSION@</string>
+    <key>CFBundleVersion</key>
+    <string>@SHORT_VERSION@</string>
+    <key>CFBundleName</key>
+    <string>ghostwriter</string>
+
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Markdown document</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.markdown</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeExtensions</key>
+            <array>
+                <string>md</string>
+                <string>mmd</string>
+                <string>markdown</string>
+            </array>
+            <key>CFBundleTypeMIMETypes</key>
+            <array>
+                <string>text/xml</string>
+                <string>text/x-markdown</string>
+                <string>text/markdown</string>
+            </array>
+            <key>CFBundleTypeIconFile</key>
+            <string>txt.icns</string>
+            <key>CFBundleTypeName</key>
+            <string>Markdown document</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+        </dict>
+        <dict>
+            <key>CFBundleTypeIconFile</key>
+            <string>txt.icns</string>
+            <key>CFBundleTypeName</key>
+            <string>NSStringPboardType</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.plain-text</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeIconFile</key>
+            <string>txt.icns</string>
+            <key>CFBundleTypeName</key>
+            <string>NSStringPboardType</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.text</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>

@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/icons/close-delete.svg</file>
+        <file>resources/icons/size-grip.svg</file>
+        <file>resources/icons/unavailable.svg</file>
+        <file>resources/icons/view-fullscreen-dark-hover.svg</file>
+        <file>resources/icons/view-fullscreen-dark.svg</file>
+        <file>resources/icons/view-fullscreen-light-hover.svg</file>
+        <file>resources/icons/view-fullscreen-light.svg</file>
+        <file>resources/icons/view-restore-dark-hover.svg</file>
+        <file>resources/icons/view-restore-dark.svg</file>
+        <file>resources/icons/view-restore-light-hover.svg</file>
+        <file>resources/icons/view-restore-light.svg</file>
+        <file>resources/icons/ghostwriter.svg</file>
+        <file>resources/github.css</file>
+        <file>resources/quickreferenceguide.html</file>
+    </qresource>
+</RCC>

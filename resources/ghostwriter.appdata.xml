@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>ghostwriter.desktop</id>
+  <metadata_license>CC BY-SA3</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>ghostwriter</name>
+  <summary>Distraction-free text editor for Markdown</summary>
+  <description>
+    <p>ghostwriter is a distraction-free text editor for Markdown featuring
+       a live HTML preview as you type, theme creation, and document navigation
+       in an aesthetic writing environment.  It comes with the Sundown Markdown
+       processor built in, and can integrate with Pandoc, MultiMarkdown, and
+       discount processors if they are installed.</p>
+  </description>
+  <!--screenshots>
+    <screenshot type="default">
+      <image></image>
+    </screenshot-->
+  </screenshots>
+  <url type="homepage">http://github.com/wereturtle/ghostwriter/</url>
+  <url type="bugtracker">http://github.com/wereturtle/ghostwriter/</url>
+  <url type="donation">http://github.com/wereturtle/ghostwriter/</url>
+  <developer_name>wereturtle</developer_name>
+  <updatecontact>wereturtle@users.noreply.github.com</updatecontact>
+  <provides>
+    <binary>ghostwriter</binary>
+  </provides>
+</component>
