@@ -8,18 +8,14 @@ About *ghostwriter*
 * Syntax highlighting of Markdown
 * Navigation of document headings
 * Full-screen mode
-* Focus mode that highlights the current
-    - Sentence
-    - Line
-    - Three lines
-    - Or paragraph
+* Focus mode that highlights the current sentence, line, three lines, or paragraph
 * Two built-in themes, one light and one dark
 * Theme creator for custom colors and background images
 * Spell checking with Hunspell
 * A live HTML preview as you type
 * Use of custom CSS style sheets for HTML preview
-* Preview and export with the [Sundown](http://github.com/vmg/sundown/) processor
-* Interoperability with other popular Markdown processors:
+* [Sundown](http://github.com/vmg/sundown/) processor built in for preview and export to HTML
+* Interoperability with the following Markdown processors (if installed) for preview and export to popular document formats, such as PDF, ODT, and RTF:
     - [Pandoc](http://johnmacfarlane.net/pandoc/)
     - [MultiMarkdown](http://fletcherpenney.net/multimarkdown/)
     - [Discount](http://www.pell.portland.or.us/~orc/Code/discount/)
@@ -29,17 +25,7 @@ The best part is that *ghostwriter* is entirely free and open source.  No longer
 Screenshots
 ===========
 
-*ghostwriter* comes with both classic light and dark themes, but you can also create your own.
-
-![ghostwriter light and dark themes](http://wereturtle.github.io/images/ghostwriterlightdarkthemes.png)
-
-The HTML Preview is in it's own window, so you can place it anywhere and not only side by side.
-
-![ghostwriter light and dark themes](http://wereturtle.github.io/images/ghostwriterhtmlpreview.png)
-
-Use the focus mode to better concentrate on the current sentence, line, three lines, or paragraph you are editing.
-
-![ghostwriter light and dark themes](http://wereturtle.github.io/images/ghostwriterfocusmode.png)
+You can view screenshots of the application at [ghostwriter's project page](http://wereturtle.github.io/ghostwriter).
 
 Installation
 ============
@@ -56,6 +42,8 @@ Linux
 
 An Ubuntu PPA for *ghostwriter* will be coming soon!  I also plan on begging the Debian maintainers to either adopt *ghostwriter* or my own packaging of it.  If you are a repository maintainer of any Linux distribution, I would appreciate your help in getting *ghostwriter* packaged.
 
+In the meantime, follow the build instructions below to install on Linux.
+
 Mac OS X - Help Wanted!
 -----------------------
 
@@ -68,7 +56,7 @@ Finally, I based *ghostwriter's* packaging structure off of FocusWriter, includi
 Build
 =====
 
-If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows or Mac OS X, or in your Linux OS repository. This documentation assumes you already have the source code unzipped in a folder.
+If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows or Mac OS X, or in your Linux distribution's repository. This documentation assumes you already have the source code unzipped in a folder.
 
 Windows
 -------
@@ -87,8 +75,6 @@ If you are using Microsoft's tools, enter the following:
     > nmake release
 
 Unless you have built a static version of Qt from it's source to be statically linked to *ghostwriter* as a standalone executable, you will need to copy the necessary Qt (and MinGW) .dll files to the same location as `ghostwriter.exe` so that the executable can find the required libraries.
-
-I typically use [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create a `setup.exe` Windows installer for *ghostwriter*.  However, you can also run *ghostwriter* in portable mode.  See the section below for details.
 
 Linux
 -----
@@ -143,9 +129,20 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 Contribute
 ==========
 
-Please submit any bugs you find through GitHub, with a detailed description on how to replicate the problem.  Also, if you happen to be a C++/Qt wizard yourself, feel free to submit pull requests for bug fixes.  I would also be grateful to anyone who can translate *ghostwriter* into other languages via *Qt Linguist*.
+Please submit any bugs you find through GitHub, with a detailed description on how to replicate the problem.  New feature requests are also welcome.  Please see the roadmap below for ideas for which you can submit pull requests.  Also, if you happen to be a C++/Qt wizard yourself, feel free to submit pull requests for bug fixes.
 
-Finally, if you wish to thank me by donating to the tip jar, you can flattr me from GitHub.  Simply sign up for [Flattr](http://flattr.com) if you haven't already, connect your Flattr account to your GitHub account, and then Star my repository from GitHub.  I'll use your generous tip to treat my family to fish tacos!  Yum!
+Finally, if you wish to thank me by donating to the tip jar, you can flattr me from GitHub.  Simply sign up for [Flattr](http://flattr.com) if you haven't already, connect your Flattr account to your GitHub account, and then Star my repository from GitHub.  You can also simply visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter) and click on the Flattr button at the bottom of the page.  I'll use your generous tip to treat my family to fish tacos!  Yum!
+
+Roadmap
+=======
+
+- A fancier export dialog, possibly with more options for the various Markdown processors with which *ghostwriter* integrates.
+- Ability to store custom Markdown processor configurations.  This way, other Markdown processors can be used, or custom options be passed in.  This would take the form of a command, such as what you would type in a command line.
+- Integration with cmark or some other Markdown processor that implements [CommonMark](http://commonmark.org/).  It would be nice to have cmark built in as Sundown is, but that will take some tweaking to the build process to incorporate cmake.
+- deb and RPM packages for Linux distributions  **Help wanted!**
+- *ghostwriter* added into the various Linux distribution repositories (Debian, Fedora, etc.)  **Help wanted!**
+- A fully-tested Mac OS X port. **Help wanted!**
+- Translatation of *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
 
 Licensing
 =========
