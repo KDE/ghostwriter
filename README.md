@@ -25,7 +25,7 @@ The best part is that *ghostwriter* is entirely free and open source.  No longer
 Screenshots
 ===========
 
-You can view screenshots of the application at [ghostwriter's project page](http://wereturtle.github.io/ghostwriter).
+You can view screenshots of the application at [*ghostwriter's* project page](http://wereturtle.github.io/ghostwriter).
 
 Installation
 ============
@@ -49,7 +49,7 @@ Mac OS X - Help Wanted!
 
 Unfortunately, since I do not own a Mac computer, I cannot reasonably create a Mac version of this application.  However, if you happen to be a Mac user yourself and have the knowledge, you can build the source code on your Mac.  Theoretically, it should work;  but you may run into some bugs since *ghostwriter* is untested on this platform.
 
-If you are willing to test *ghostwriter* on Mac OS X and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on Mac OS X, whereas there is hope that they will on version 5, based on the documentation.  Spell-checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* reused and modified it.
+If you are willing to test *ghostwriter* on Mac OS X and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on Mac OS X, whereas there is hope that they will on version 5, based on the documentation.  Spell checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* reused and modified it.
 
 Finally, I based *ghostwriter's* packaging structure off of FocusWriter, including for Mac OS X, to give you a head start.  You will want to once again look at FocusWriter's .pro file and resource files to ensure everything is in place within *ghostwriter* for a successful OS X build and installation.
 
@@ -102,7 +102,7 @@ Open a terminal window, and enter the following commands:
     $ qmake -spec macx-g++
     $ make
 
-**Note:** If you are a hobbyist OS X developer and can get *ghostwriter* to build, install, and run successfully, please put in a pull request through GitHub with improved instructions for this process.  Your help would be greatly appreciated.
+**Note:** If you are a hobbyist OS X developer and can get *ghostwriter* to build, install, and run successfully, please put in a pull request for this README file through GitHub with improved instructions for this process.  Your help would be greatly appreciated.
 
 Command Line Usage
 ==================
@@ -138,9 +138,9 @@ Roadmap
 
 - A fancier export dialog, possibly with more options for the various Markdown processors with which *ghostwriter* integrates.
 - Ability to store custom Markdown processor configurations.  This way, other Markdown processors can be used, or custom options be passed in.  This would take the form of a command, such as what you would type in a command line.
-- Integration with cmark or some other Markdown processor that implements [CommonMark](http://commonmark.org/).  It would be nice to have cmark built in as Sundown is, but that will take some tweaking to the build process to incorporate cmake.
-- deb and RPM packages for Linux distributions  **Help wanted!**
-- *ghostwriter* added into the various Linux distribution repositories (Debian, Fedora, etc.)  **Help wanted!**
+- Integration with cmark or some other Markdown processor that implements [CommonMark](http://commonmark.org/).  It would be nice to have cmark built into *ghostwriter* the same way Sundown is, but that will take some tweaking to the build process to incorporate cmake.
+- deb and RPM packages for Linux distributions.  **Help wanted!**
+- *ghostwriter* added into the various Linux distribution repositories (Debian, Fedora, etc.).  **Help wanted!**
 - A fully-tested Mac OS X port. **Help wanted!**
 - Translatation of *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
 
