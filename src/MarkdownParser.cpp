@@ -21,19 +21,19 @@
 #include <QChar>
 #include <QRegExp>
 
-#include "MarkdownTokenizer.h"
+#include "MarkdownParser.h"
 #include "MarkdownStates.h"
 
 // This character is used to replace escape characters and other characters
-// with special meaning in a dummy copy of the current line being ed,
+// with special meaning in a dummy copy of the current line being parsed,
 // for ease of parsing.
 //
-const QChar DUMMY_CHAR('@');
+static const QChar DUMMY_CHAR('@');
 
 static const int MAX_MARKDOWN_HEADING_LEVEL = 6;
 
 
-MarkdownTokenizer::MarkdownTokenizer()
+MarkdownParser::MarkdownParser()
 {
     paragraphBreakRegex.setPattern("^\\s*$");
     heading1SetextRegex.setPattern("^===+\\s*$");
@@ -70,12 +70,12 @@ MarkdownTokenizer::MarkdownTokenizer()
     htmlInlineCommentRegex.setMinimal(true);
 }
         
-MarkdownTokenizer::~MarkdownTokenizer()
+MarkdownParser::~MarkdownParser()
 {
     ;
 }
 
-void MarkdownTokenizer::tokenize
+void MarkdownParser::parseLine
 (
     const QString& text,
     int currentState,
@@ -120,24 +120,24 @@ void MarkdownTokenizer::tokenize
     }
     else if
     (
-        tokenizeSetextHeadingLine2(text)
-        || tokenizeCodeBlock(text)
-        || tokenizeMultilineComment(text)
-        || tokenizeHorizontalRule(text)
+        parseSetextHeadingLine2(text)
+        || parseCodeBlock(text)
+        || parseMultilineComment(text)
+        || parseHorizontalRule(text)
     )
     {
         ; // No further tokenizing required
     }
     else if 
     (
-        tokenizeAtxHeading(text)
-        || tokenizeSetextHeadingLine1(text)
-        || tokenizeBlockquote(text)
-        || tokenizeNumberedList(text)
-        || tokenizeBulletPointList(text)
+        parseAtxHeading(text)
+        || parseSetextHeadingLine1(text)
+        || parseBlockquote(text)
+        || parseNumberedList(text)
+        || parseBulletPointList(text)
     )
     {
-        tokenizeInline(text);
+        parseInline(text);
     }
     else
     {
@@ -150,8 +150,8 @@ void MarkdownTokenizer::tokenize
         {
             if
             (
-                !tokenizeNumberedList(text)
-                && !tokenizeBulletPointList(text)
+                !parseNumberedList(text)
+                && !parseBulletPointList(text)
                 && (text.startsWith("\t") || text.startsWith("    "))
             )
             {
@@ -168,7 +168,7 @@ void MarkdownTokenizer::tokenize
         }
 
         // tokenize inline
-        tokenizeInline(text);
+        parseInline(text);
     }
 
     // Make sure that if the second line of a setext heading is removed the
@@ -192,7 +192,7 @@ void MarkdownTokenizer::tokenize
     }
 }
 
-bool MarkdownTokenizer::tokenizeSetextHeadingLine1
+bool MarkdownParser::parseSetextHeadingLine1
 (
     const QString& text
 )
@@ -226,7 +226,7 @@ bool MarkdownTokenizer::tokenizeSetextHeadingLine1
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeSetextHeadingLine2
+bool MarkdownParser::parseSetextHeadingLine2
 (
     const QString& text
 )
@@ -297,7 +297,7 @@ bool MarkdownTokenizer::tokenizeSetextHeadingLine2
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeAtxHeading(const QString& text)
+bool MarkdownParser::parseAtxHeading(const QString& text)
 {
     QString escapedText = dummyOutEscapeCharacters(text);
     int trailingPoundCount = 0;
@@ -355,7 +355,7 @@ bool MarkdownTokenizer::tokenizeAtxHeading(const QString& text)
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeNumberedList
+bool MarkdownParser::parseNumberedList
 (
     const QString& text
 )
@@ -418,7 +418,7 @@ bool MarkdownTokenizer::tokenizeNumberedList
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeBulletPointList
+bool MarkdownParser::parseBulletPointList
 (
     const QString& text
 )
@@ -537,7 +537,7 @@ bool MarkdownTokenizer::tokenizeBulletPointList
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeHorizontalRule(const QString& text)
+bool MarkdownParser::parseHorizontalRule(const QString& text)
 {
     if (hruleRegex.exactMatch(text))
     {
@@ -553,7 +553,7 @@ bool MarkdownTokenizer::tokenizeHorizontalRule(const QString& text)
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeBlockquote
+bool MarkdownParser::parseBlockquote
 (
     const QString& text
 )
@@ -600,7 +600,7 @@ bool MarkdownTokenizer::tokenizeBlockquote
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeCodeBlock
+bool MarkdownParser::parseCodeBlock
 (
     const QString& text
 )
@@ -697,7 +697,7 @@ bool MarkdownTokenizer::tokenizeCodeBlock
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeMultilineComment
+bool MarkdownParser::parseMultilineComment
 (
     const QString& text
 )
@@ -733,7 +733,7 @@ bool MarkdownTokenizer::tokenizeMultilineComment
     return false;
 }
 
-bool MarkdownTokenizer::tokenizeInline
+bool MarkdownParser::parseInline
 (
     const QString& text
 )
@@ -761,22 +761,22 @@ bool MarkdownTokenizer::tokenizeInline
         }
     }
 
-    tokenizeHtmlComments(escapedText);
-    tokenizeMatches(TokenImage, escapedText, imageRegex, 0, 0, false, true);
-    tokenizeMatches(TokenInlineLink, escapedText, inlineLinkRegex, 0, 0, false, true);
-    tokenizeMatches(TokenReferenceLink, escapedText, referenceLinkRegex);
-    tokenizeMatches(TokenHtmlEntity, escapedText, htmlEntityRegex);
-    tokenizeMatches(TokenAutomaticLink, escapedText, automaticLinkRegex, 0, 0, false, true);
-    tokenizeMatches(TokenVerbatim, escapedText, verbatimRegex, 0, 0, false, true);
-    tokenizeMatches(TokenStrikethrough, escapedText, strikethroughRegex, 2, 2);
-    tokenizeMatches(TokenStrong, escapedText, strongRegex, 2, 2, true);
-    tokenizeMatches(TokenEmphasis, escapedText, emphasisRegex, 1, 1, true);
-    tokenizeMatches(TokenHtmlTag, escapedText, htmlTagRegex);
+    parseHtmlComments(escapedText);
+    parseMatches(TokenImage, escapedText, imageRegex, 0, 0, false, true);
+    parseMatches(TokenInlineLink, escapedText, inlineLinkRegex, 0, 0, false, true);
+    parseMatches(TokenReferenceLink, escapedText, referenceLinkRegex);
+    parseMatches(TokenHtmlEntity, escapedText, htmlEntityRegex);
+    parseMatches(TokenAutomaticLink, escapedText, automaticLinkRegex, 0, 0, false, true);
+    parseMatches(TokenVerbatim, escapedText, verbatimRegex, 0, 0, false, true);
+    parseMatches(TokenStrikethrough, escapedText, strikethroughRegex, 2, 2);
+    parseMatches(TokenStrong, escapedText, strongRegex, 2, 2, true);
+    parseMatches(TokenEmphasis, escapedText, emphasisRegex, 1, 1, true);
+    parseMatches(TokenHtmlTag, escapedText, htmlTagRegex);
 
     return true;
 }
 
-void MarkdownTokenizer::tokenizeHtmlComments(QString& text)
+void MarkdownParser::parseHtmlComments(QString& text)
 {
     // Check for the end of a multiline comment so that it doesn't get further
     // tokenized. Don't bother formatting the comment itself, however, because
@@ -843,7 +843,7 @@ void MarkdownTokenizer::tokenizeHtmlComments(QString& text)
     }
 }
 
-void MarkdownTokenizer::tokenizeMatches
+void MarkdownParser::parseMatches
 (
     MarkdownTokenType tokenType,
     QString& text,
@@ -900,7 +900,7 @@ void MarkdownTokenizer::tokenizeMatches
     }
 }
 
-QString MarkdownTokenizer::dummyOutEscapeCharacters(const QString& text) const
+QString MarkdownParser::dummyOutEscapeCharacters(const QString& text) const
 {
     bool escape = false;
     QString escapedText = text;

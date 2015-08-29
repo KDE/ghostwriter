@@ -33,7 +33,7 @@
 #include <Qt>
 
 #include "MarkdownHighlighter.h"
-#include "MarkdownTokenizer.h"
+#include "MarkdownParser.h"
 #include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
 #include "MarkdownColorScheme.h"
@@ -51,7 +51,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         inBlockquote(false),
         dictionary(DictionaryManager::instance().requestDictionary())
 {
-    this->tokenizer = new MarkdownTokenizer();
+    this->tokenizer = new MarkdownParser();
 
     Theme theme;
     ThemeFactory::getInstance()->loadLightTheme(theme);
@@ -165,7 +165,7 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
             nextState = block.next().userState();
         }
 
-        tokenizer->tokenize(text, lastState, previousState, nextState);
+        tokenizer->parseLine(text, lastState, previousState, nextState);
         setCurrentBlockState(tokenizer->getState());
 
         if (MarkdownStateBlockquote == tokenizer->getState())

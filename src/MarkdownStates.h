@@ -20,14 +20,15 @@
 #ifndef MARKDOWN_STATES_H
 #define MARKDOWN_STATES_H
 
+#include "LineParserStates.h"
+
 /*
  * Parser states for use in tracking the parsing state of each block (line) in
- * a Markdown document.  See the userState property in QTextDocument for
- * details.
+ * a Markdown document.  See the userState() method in QTextBlock for details.
  */
 enum MarkdownState
 {
-    MarkdownStateUnknown = -1,
+    MarkdownStateUnknown = LINE_PARSER_STATE_UNKNOWN,
     MarkdownStateParagraphBreak,
     MarkdownStateListLineBreak,
     MarkdownStateParagraph,

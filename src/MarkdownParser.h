@@ -18,10 +18,10 @@
  ***********************************************************************/
 
 
-#ifndef MARKDOWN_TOKENIZER_H
-#define MARKDOWN_TOKENIZER_H
+#ifndef MARKDOWNPARSER_H
+#define MARKDOWNPARSER_H
 
-#include "Tokenizer.h"
+#include "LineParser.h"
 
 class QRegExp;
 class QString;
@@ -62,13 +62,17 @@ enum MarkdownTokenType
     TokenLast
 };
 
-class MarkdownTokenizer : public Tokenizer
+/**
+ * Parses one line of Markdown text at a time.  See documentation for
+ * LineParser class for details.
+ */
+class MarkdownParser : public LineParser
 {
     public:
-        MarkdownTokenizer();
-        ~MarkdownTokenizer();
+        MarkdownParser();
+        ~MarkdownParser();
 
-        void tokenize
+        void parseLine
         (
             const QString& text,
             int currentState,
@@ -106,19 +110,19 @@ class MarkdownTokenizer : public Tokenizer
         QRegExp htmlInlineCommentRegex;
 
 
-        bool tokenizeSetextHeadingLine1(const QString& text);      
-        bool tokenizeSetextHeadingLine2(const QString& text);
-        bool tokenizeAtxHeading(const QString& text);
+        bool parseSetextHeadingLine1(const QString& text);
+        bool parseSetextHeadingLine2(const QString& text);
+        bool parseAtxHeading(const QString& text);
 
-        bool tokenizeNumberedList(const QString& text);
-        bool tokenizeBulletPointList(const QString& text);
-        bool tokenizeHorizontalRule(const QString& text);
-        bool tokenizeBlockquote(const QString& text);
-        bool tokenizeCodeBlock(const QString& text);
-        bool tokenizeMultilineComment(const QString& text);
+        bool parseNumberedList(const QString& text);
+        bool parseBulletPointList(const QString& text);
+        bool parseHorizontalRule(const QString& text);
+        bool parseBlockquote(const QString& text);
+        bool parseCodeBlock(const QString& text);
+        bool parseMultilineComment(const QString& text);
         
-        bool tokenizeInline(const QString& text);
-        void tokenizeHtmlComments(QString& text);
+        bool parseInline(const QString& text);
+        void parseHtmlComments(QString& text);
 
         /*
          * Tokenizes a block of text, searching for all occurrances of regex.
@@ -141,7 +145,7 @@ class MarkdownTokenizer : public Tokenizer
          * be replaced with dummy characters--again, for ease in parsing the
          * same line for other regular expression matches.
          */
-        void tokenizeMatches
+        void parseMatches
         (
             MarkdownTokenType tokenType,
             QString& text,

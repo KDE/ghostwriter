@@ -17,43 +17,52 @@
  *
  ***********************************************************************/
 
-#ifndef TOKENIZER_H
-#define TOKENIZER_H
+#include "LineParser.h"
+#include "LineParserStates.h"
 
-#include <QString>
-#include <QList>
-
-#include "Token.h"
-
-class Tokenizer
+LineParser::LineParser()
 {
-    public:
-        Tokenizer();
-        virtual ~Tokenizer();
 
-        virtual void tokenize
-        (
-            const QString& text,
-            int currentState,
-            int previousState,
-            int nextState
-        ) = 0;
+}
 
-        QList<Token> getTokens() const;
-        int getState() const;
-        bool backtrackRequested() const;
-        void clear();
+LineParser::~LineParser()
+{
 
-    protected:
-        void addToken(const Token& token);
-        void setState(int state);
-        void requestBacktrack();
+}
 
-    private:
-        int state;
-        QList<Token> tokens;
-        bool backtrack;
+QList<Token> LineParser::getTokens() const
+{
+    return tokens;
+}
 
-};
+int LineParser::getState() const
+{
+    return state;
+}
 
-#endif
+bool LineParser::backtrackRequested() const
+{
+    return backtrack;
+}
+
+void LineParser::clear()
+{
+    tokens.clear();
+    backtrack = false;
+    state = LINE_PARSER_STATE_UNKNOWN;
+}
+
+void LineParser::addToken(const Token& token)
+{
+    tokens.append(token);
+}
+
+void LineParser::setState(int state)
+{
+    this->state = state;
+}
+
+void LineParser::requestBacktrack()
+{
+    backtrack = true;
+}

@@ -26,7 +26,7 @@ macx:greaterThan(QT_MAJOR_VERSION, 4):lessThan(QT_VERSION, 5.2) {
 }
 
 # Set program version
-#VERSION = $$system(git describe)
+VERSION = $$system(git describe)
 isEmpty(VERSION) {
     VERSION = 1.0.0
 }
@@ -109,8 +109,6 @@ macx {
 HEADERS += src/MainWindow.h \
     src/MarkdownEditor.h \
     src/Token.h \
-    src/Tokenizer.h \
-    src/MarkdownTokenizer.h \
     src/HtmlPreview.h \
     src/Exporter.h \
     src/Theme.h \
@@ -139,6 +137,9 @@ HEADERS += src/MainWindow.h \
     src/SundownExporter.h \
     src/StyleSheetManagerDialog.h \
     src/SimpleFontDialog.h \
+    src/LineParser.h \
+    src/MarkdownParser.h \
+    src/LineParserStates.h \
     src/locale_dialog.h \
     src/find_dialog.h \
     src/image_button.h \
@@ -161,8 +162,6 @@ SOURCES += src/AppMain.cpp \
     src/MainWindow.cpp \
     src/MarkdownEditor.cpp \
     src/Token.cpp \
-    src/Tokenizer.cpp \
-    src/MarkdownTokenizer.cpp \
     src/HtmlPreview.cpp \
     src/Exporter.cpp \
     src/ThemeFactory.cpp \
@@ -185,6 +184,8 @@ SOURCES += src/AppMain.cpp \
     src/StyleSheetManagerDialog.cpp \
     src/SimpleFontDialog.cpp \
     src/SundownExporter.cpp \
+    src/LineParser.cpp \
+    src/MarkdownParser.cpp \
     src/locale_dialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \

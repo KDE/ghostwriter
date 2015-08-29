@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2015 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,53 +17,14 @@
  *
  ***********************************************************************/
 
-#include "Tokenizer.h"
-#include "MarkdownStates.h"
+#ifndef LINEPARSERSTATES_H
+#define LINEPARSERSTATES_H
 
+/**
+ * Signifies an unknown line state.  This should always be set to the same
+ * value as what is used in QSyntaxHighlighter to designate an undefined block
+ * state.
+ */
+const int LINE_PARSER_STATE_UNKNOWN = -1;
 
-Tokenizer::Tokenizer()
-{
-
-}
-
-Tokenizer::~Tokenizer()
-{
-
-}
-
-QList<Token> Tokenizer::getTokens() const
-{
-    return tokens;
-}
-
-int Tokenizer::getState() const
-{
-    return state;
-}
-
-bool Tokenizer::backtrackRequested() const
-{
-    return backtrack;
-}
-
-void Tokenizer::clear()
-{
-    tokens.clear();
-    backtrack = false;
-    state = MarkdownStateUnknown;
-}
-
-void Tokenizer::addToken(const Token& token)
-{
-    tokens.append(token);
-}
-
-void Tokenizer::setState(int state)
-{
-    this->state = state;
-}
-
-void Tokenizer::requestBacktrack()
-{
-    backtrack = true;
-}
+#endif // LINEPARSERSTATES_H
