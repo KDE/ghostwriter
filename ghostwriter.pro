@@ -26,7 +26,7 @@ macx:greaterThan(QT_MAJOR_VERSION, 4):lessThan(QT_VERSION, 5.2) {
 }
 
 # Set program version
-VERSION = $$system(git describe)
+VERSION = $$system(git describe --tags)
 isEmpty(VERSION) {
     VERSION = 1.0.0
 }
