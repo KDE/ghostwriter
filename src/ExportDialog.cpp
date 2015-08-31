@@ -53,10 +53,25 @@ ExportDialog::ExportDialog(TextDocument* document, QWidget* parent)
     fileDialogWidget->setWindowFlags(Qt::Widget);
 
     QList<QUrl> shortcutFolders;
+
+#if QT_VERSION >= 0x050000
+    QStringList standardLocations =
+        QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    standardLocations <<
+        QStandardPaths::standardLocations(QStandardPaths::DesktopLocation);
+    standardLocations <<
+        QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
+
+    foreach (QString loc, standardLocations)
+    {
+        shortcutFolders << QUrl::fromLocalFile(loc);
+    }
+#else
     shortcutFolders
         << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation))
         << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DesktopLocation))
         << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation));
+#endif
 
     fileDialogWidget->setSidebarUrls(shortcutFolders);
 
@@ -118,8 +133,18 @@ ExportDialog::ExportDialog(TextDocument* document, QWidget* parent)
     }
     else
     {
+#if QT_VERSION >= 0x050000
+        standardLocations =
+            QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
+
+        if (standardLocations.size() > 0)
+        {
+            initialDirPath = standardLocations[0];
+        }
+#else
         initialDirPath =
             QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+#endif
     }
 
     fileDialogWidget->setDirectory(initialDirPath);
@@ -245,7 +270,7 @@ void ExportDialog::onExporterChanged(int index)
         }
     }
 
-    fileDialogWidget->setFilter(fileFilters[index]);
+    fileDialogWidget->setNameFilter(fileFilters[index]);
 }
 
 void ExportDialog::onFilterSelected(const QString& filter)

@@ -75,6 +75,7 @@ void ThemeFactory::loadLightTheme()
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#252525");
     theme.setHudForegroundColor("#e3e3e3");
+    theme.setEditorCorners(EditorCornersSquare);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#f7f7f7");
     theme.setDefaultTextColor("#252525");
@@ -92,6 +93,7 @@ void ThemeFactory::loadDarkTheme()
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#2f3c41");
     theme.setHudForegroundColor("#e3e3e3");
+    theme.setEditorCorners(EditorCornersSquare);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#252525");
     theme.setDefaultTextColor("#b9b9b9");
