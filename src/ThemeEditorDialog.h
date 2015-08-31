@@ -31,22 +31,36 @@ class QSlider;
 class QComboBox;
 class QLineEdit;
 
+/**
+ * Theme editor dialog which allows the user modify a theme for the
+ * application's look and feel.
+ */
 class ThemeEditorDialog : public QDialog
 {
     Q_OBJECT
 
     public:
+        /**
+         * Constructor.  Takes the theme to to be edited as a parameter.
+         */
         ThemeEditorDialog(const Theme& theme, QWidget* parent = NULL);
-        virtual ~ThemeEditorDialog();
+
+        /**
+         * Destructor.
+         */
+        ~ThemeEditorDialog();
 
     signals:
+        /**
+         * Emitted when the user completes and accepts (i.e., clicks on
+         * Apply or OK button) the theme.  The updated theme is passed in as
+         * a parameter.
+         */
         void themeUpdated(const Theme& theme);
 
-    public slots:
+    private slots:
         void accept();
         void reject();
-
-    private slots:
         void apply();
 
     private:

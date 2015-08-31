@@ -65,7 +65,15 @@ class MarkdownEditor : public QPlainTextEdit
 
         FocusMode getFocusMode();
         void setFocusMode(FocusMode mode);
-        void setColorScheme(const MarkdownColorScheme& cs);
+        void setColorScheme
+        (
+            const QColor& defaultTextColor,
+            const QColor& backgroundColor,
+            const QColor& markupColor,
+            const QColor& linkColor,
+            const QColor& spellingErrorColor
+        );
+
         void setAspect(EditorAspect aspect);
         void setFont(const QString& family, double size);
 
@@ -149,7 +157,6 @@ class MarkdownEditor : public QPlainTextEdit
         QRegExp bulletListRegex;
         QRegExp taskListRegex;
         QHash<QChar, QChar> markupPairs; // Used for auto-insert and pairing.
-        MarkdownColorScheme colorScheme;
         bool mouseButtonDown;
         GraphicsFadeEffect* fadeEffect;
 

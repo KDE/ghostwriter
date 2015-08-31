@@ -45,6 +45,7 @@
 #include "MarkdownParser.h"
 #include "ExportDialog.h"
 #include "MessageBoxHelper.h"
+#include "ThemeFactory.h"
 
 
 const QString& FILE_CHOOSER_FILTER =
@@ -525,6 +526,15 @@ void DocumentManager::printFileToPrinter(QPrinter* printer)
     QTextDocument doc(text);
 
     MarkdownHighlighter h(&doc);
+    Theme printerTheme = ThemeFactory::getInstance()->getPrinterFriendlyTheme();
+    h.setColorScheme
+    (
+        printerTheme.getDefaultTextColor(),
+        printerTheme.getBackgroundColor(),
+        printerTheme.getMarkupColor(),
+        printerTheme.getLinkColor(),
+        printerTheme.getSpellingErrorColor()
+    );
     h.setSpellCheckEnabled(false);
     h.setFont(editor->font().family(), editor->font().pointSizeF());
     doc.print(printer);

@@ -21,7 +21,7 @@
 #define THEME_H
 
 #include <QString>
-#include "MarkdownColorScheme.h"
+#include <QColor>
 
 enum EditorAspect
 {
@@ -58,19 +58,78 @@ enum PictureAspect
     PictureAspectLast = PictureAspectZoom,
 };
 
-struct Theme
+/**
+ * Encapsulates a theme for customizing the look and feel of the application.
+ */
+class Theme
 {
-    QString name;
-    MarkdownColorScheme markupColorScheme;
+    public:
+        Theme();
+        Theme(const QString& name, bool builtIn = true);
+        ~Theme();
 
-    EditorAspect editorAspect;
-    EditorCorners editorCorners;
-    PictureAspect backgroundImageAspect;
-    QString backgroundImageUrl;
-    QColor backgroundColor;
+        QString getName() const;
+        void setName(const QString& value);
 
-    QColor hudForegroundColor;
-    QColor hudBackgroundColor;
+        bool isBuiltIn() const;
+        void setBuiltIn(const bool builtIn);
+
+        QColor getDefaultTextColor() const;
+        void setDefaultTextColor(const QColor& value);
+
+        QColor getMarkupColor() const;
+        void setMarkupColor(const QColor& value);
+
+        QColor getLinkColor() const;
+        void setLinkColor(const QColor& value);
+
+        QColor getSpellingErrorColor() const;
+        void setSpellingErrorColor(const QColor& value);
+
+        EditorAspect getEditorAspect() const;
+        void setEditorAspect(const EditorAspect value);
+
+        EditorCorners getEditorCorners() const;
+        void setEditorCorners(const EditorCorners value);
+
+        PictureAspect getBackgroundImageAspect() const;
+        void setBackgroundImageAspect(const PictureAspect value);
+
+        QString getBackgroundImageUrl() const;
+        void setBackgroundImageUrl(const QString& value);
+
+        QColor getBackgroundColor() const;
+        void setBackgroundColor(const QColor& value);
+
+        QColor getEditorBackgroundColor() const;
+        void setEditorBackgroundColor(const QColor& value);
+
+        QColor getHudForegroundColor() const;
+        void setHudForegroundColor(const QColor& value);
+
+        QColor getHudBackgroundColor() const;
+        void setHudBackgroundColor(const QColor& value);
+
+    private:
+        QString name;
+
+        // true if theme is built-in, false if custom (i.e., user-created).
+        bool builtInFlag;
+
+        QColor defaultTextColor;
+        QColor editorBackgroundColor;
+        QColor markupColor;
+        QColor linkColor;
+        QColor spellingErrorColor;
+
+        EditorAspect editorAspect;
+        EditorCorners editorCorners;
+        PictureAspect backgroundImageAspect;
+        QString backgroundImageUrl;
+        QColor backgroundColor;
+
+        QColor hudForegroundColor;
+        QColor hudBackgroundColor;
 };
 
 #endif

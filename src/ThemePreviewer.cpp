@@ -50,19 +50,31 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
     QPainter painter(&thumbnailPixmap);
 
     // First, paint the background image, if any.
-    if (PictureAspectNone != theme.backgroundImageAspect)
+    if (PictureAspectNone != theme.getBackgroundImageAspect())
     {
         QImage destImg;
 
         // Load the background image from the file, if available, and zoom.
-        if (!theme.backgroundImageUrl.isNull() && !theme.backgroundImageUrl.isEmpty())
+        if
+        (
+            !theme.getBackgroundImageUrl().isNull() &&
+            !theme.getBackgroundImageUrl().isEmpty())
         {
-            QImage srcImg(theme.backgroundImageUrl);
-            destImg = srcImg.scaled(thumbnailPixmap.size(), Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+            QImage srcImg(theme.getBackgroundImageUrl());
+            destImg = srcImg.scaled
+                (
+                    thumbnailPixmap.size(),
+                    Qt::KeepAspectRatioByExpanding,
+                    Qt::SmoothTransformation
+                );
         }
 
         // Draw the image.
-        painter.fillRect(thumbnailPixmap.rect(), QBrush(theme.backgroundColor));
+        painter.fillRect
+        (
+            thumbnailPixmap.rect(),
+            QBrush(theme.getBackgroundColor())
+        );
 
         if (!destImg.isNull())
         {
@@ -77,7 +89,11 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
     // If there's no background image, then just fill the background color.
     else
     {
-        painter.fillRect(thumbnailPixmap.rect(), QBrush(theme.backgroundColor));
+        painter.fillRect
+        (
+            thumbnailPixmap.rect(),
+            QBrush(theme.getBackgroundColor())
+        );
     }
 
     // Next, draw the "editor" background.
@@ -89,15 +105,15 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
 
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(Qt::NoPen);
-    painter.setBrush(QBrush(theme.markupColorScheme.backgroundColor));
+    painter.setBrush(QBrush(theme.getEditorBackgroundColor()));
 
-    if (EditorAspectCenter == theme.editorAspect)
+    if (EditorAspectCenter == theme.getEditorAspect())
     {
-        if (EditorCornersSquare == theme.editorCorners)
+        if (EditorCornersSquare == theme.getEditorCorners())
         {
             painter.drawRect(x, y, w, h);
         }
-        else if (EditorCornersRounded == theme.editorCorners)
+        else if (EditorCornersRounded == theme.getEditorCorners())
         {
             int cornerRadius = 5.0 * height / 100.0;
 
@@ -122,11 +138,11 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
     int cx3 = cx2 + xoffset;
     int cy = y + (h / 2);
 
-    painter.setBrush(QBrush(theme.markupColorScheme.defaultTextColor));
+    painter.setBrush(QBrush(theme.getDefaultTextColor()));
     painter.drawEllipse(QPoint(cx1, cy), radius, radius);
-    painter.setBrush(QBrush(theme.markupColorScheme.markupColor));
+    painter.setBrush(QBrush(theme.getMarkupColor()));
     painter.drawEllipse(QPoint(cx2, cy), radius, radius);
-    painter.setBrush(QBrush(theme.markupColorScheme.linkColor));
+    painter.setBrush(QBrush(theme.getLinkColor()));
     painter.drawEllipse(QPoint(cx3, cy), radius, radius);
 
     painter.end();

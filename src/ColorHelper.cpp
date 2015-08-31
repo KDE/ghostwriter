@@ -19,7 +19,6 @@
 
 #include <QColor>
 #include <QString>
-#include <QDebug>
 
 #include "ColorHelper.h"
 

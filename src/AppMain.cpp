@@ -22,7 +22,6 @@
 #include <QWidget>
 #include <QSettings>
 #include <QDir>
-#include <QDebug>
 
 #include "MainWindow.h"
 #include "AppSettings.h"

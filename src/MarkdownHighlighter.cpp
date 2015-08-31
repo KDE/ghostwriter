@@ -36,8 +36,6 @@
 #include "MarkdownParser.h"
 #include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
-#include "MarkdownColorScheme.h"
-#include "ThemeFactory.h"
 #include "ColorHelper.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
@@ -49,13 +47,14 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         useUndlerlineForEmphasis(false),
         spellCheckEnabled(false),
         inBlockquote(false),
-        dictionary(DictionaryManager::instance().requestDictionary())
+        dictionary(DictionaryManager::instance().requestDictionary()),
+        defaultTextColor(Qt::black),
+        backgroundColor(Qt::white),
+        markupColor(Qt::black),
+        linkColor(Qt::blue),
+        spellingErrorColor(Qt::red)
 {
     this->tokenizer = new MarkdownParser();
-
-    Theme theme;
-    ThemeFactory::getInstance()->loadLightTheme(theme);
-    colorScheme = theme.markupColorScheme;
 
     connect
     (
@@ -74,7 +73,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     font.setPointSizeF(12.0);
     font.setStyleStrategy(QFont::PreferAntialias);
     defaultFormat.setFont(font);
-    defaultFormat.setForeground(QBrush(colorScheme.defaultTextColor));
+    defaultFormat.setForeground(QBrush(defaultTextColor));
 
     setupTokenColors();
 
@@ -269,10 +268,21 @@ void MarkdownHighlighter::decreaseFontSize()
     rehighlight();
 }
 
-void MarkdownHighlighter::setColorScheme(const MarkdownColorScheme& colorScheme)
+void MarkdownHighlighter::setColorScheme
+(
+    const QColor& defaultTextColor,
+    const QColor& backgroundColor,
+    const QColor& markupColor,
+    const QColor& linkColor,
+    const QColor& spellingErrorColor
+)
 {
-    this->colorScheme = colorScheme;
-    defaultFormat.setForeground(QBrush(colorScheme.defaultTextColor));
+    this->defaultTextColor = defaultTextColor;
+    this->backgroundColor = backgroundColor;
+    this->markupColor = markupColor;
+    this->linkColor = linkColor;
+    this->spellingErrorColor = spellingErrorColor;
+    defaultFormat.setForeground(QBrush(defaultTextColor));
     setupTokenColors();
     rehighlight();
 }
@@ -358,7 +368,7 @@ void MarkdownHighlighter::spellCheck(const QString& text)
         int length = misspelledWord.length();
 
         QTextCharFormat spellingErrorFormat = format(startIndex);
-        spellingErrorFormat.setUnderlineColor(colorScheme.spellingErrorColor);
+        spellingErrorFormat.setUnderlineColor(spellingErrorColor);
         spellingErrorFormat.setUnderlineStyle
         (
             (QTextCharFormat::UnderlineStyle)
@@ -379,34 +389,34 @@ void MarkdownHighlighter::setupTokenColors()
 {
     for (int i = 0; i < TokenLast; i++)
     {
-        colorForToken[i] = colorScheme.defaultTextColor;
+        colorForToken[i] = defaultTextColor;
     }
 
     QColor fadedColor =
         ColorHelper::applyAlpha
         (
-            colorScheme.defaultTextColor,
-            colorScheme.backgroundColor,
+            defaultTextColor,
+            backgroundColor,
             GW_FADE_ALPHA
         );
 
     colorForToken[TokenBlockquote] = fadedColor;
     colorForToken[TokenCodeBlock] = fadedColor;
-    colorForToken[TokenVerbatim] = colorScheme.markupColor;
-    colorForToken[TokenHtmlTag] = colorScheme.markupColor;
-    colorForToken[TokenHtmlEntity] = colorScheme.markupColor;
-    colorForToken[TokenAutomaticLink] = colorScheme.linkColor;
-    colorForToken[TokenInlineLink] = colorScheme.linkColor;
-    colorForToken[TokenReferenceLink] = colorScheme.linkColor;
-    colorForToken[TokenReferenceDefinition] = colorScheme.linkColor;
-    colorForToken[TokenImage] = colorScheme.linkColor;
-    colorForToken[TokenHtmlComment] = colorScheme.markupColor;
-    colorForToken[TokenHorizontalRule] = colorScheme.markupColor;
-    colorForToken[TokenGithubCodeFence] = colorScheme.markupColor;
-    colorForToken[TokenPandocCodeFence] = colorScheme.markupColor;
-    colorForToken[TokenCodeFenceEnd] = colorScheme.markupColor;
-    colorForToken[TokenSetextHeading1Line2] = colorScheme.markupColor;
-    colorForToken[TokenSetextHeading2Line2] = colorScheme.markupColor;
+    colorForToken[TokenVerbatim] = markupColor;
+    colorForToken[TokenHtmlTag] = markupColor;
+    colorForToken[TokenHtmlEntity] = markupColor;
+    colorForToken[TokenAutomaticLink] = linkColor;
+    colorForToken[TokenInlineLink] = linkColor;
+    colorForToken[TokenReferenceLink] = linkColor;
+    colorForToken[TokenReferenceDefinition] = linkColor;
+    colorForToken[TokenImage] = linkColor;
+    colorForToken[TokenHtmlComment] = markupColor;
+    colorForToken[TokenHorizontalRule] = markupColor;
+    colorForToken[TokenGithubCodeFence] = markupColor;
+    colorForToken[TokenPandocCodeFence] = markupColor;
+    colorForToken[TokenCodeFenceEnd] = markupColor;
+    colorForToken[TokenSetextHeading1Line2] = markupColor;
+    colorForToken[TokenSetextHeading2Line2] = markupColor;
 }
 
 void MarkdownHighlighter::setupHeadingFontSize(bool useLargeHeadings)
@@ -454,7 +464,7 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
                 ColorHelper::applyAlpha
                 (
                     tokenColor,
-                    colorScheme.backgroundColor,
+                    backgroundColor,
                     GW_FADE_ALPHA
                 );
         }
@@ -501,20 +511,20 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
             markupFormat = this->format(token.getPosition());
         }
 
-        QColor markupColor = colorScheme.markupColor;
+        QColor adjustedMarkupColor = this->markupColor;
 
         if (inBlockquote && token.getType() != TokenBlockquote)
         {
-            markupColor =
+            adjustedMarkupColor =
                 ColorHelper::applyAlpha
                 (
-                    markupColor,
-                    colorScheme.backgroundColor,
+                    adjustedMarkupColor,
+                    backgroundColor,
                     GW_FADE_ALPHA
                 );
         }
 
-        markupFormat.setForeground(QBrush(markupColor));
+        markupFormat.setForeground(QBrush(adjustedMarkupColor));
 
         if (strongMarkup[tokenType])
         {
@@ -529,7 +539,7 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
                 && (BlockquoteStyleFancy == blockquoteStyle)
             )
             {
-                markupFormat.setBackground(QBrush(colorScheme.markupColor));
+                markupFormat.setBackground(QBrush(adjustedMarkupColor));
                 QString text = currentBlock().text();
 
                 for (int i = token.getPosition(); i < token.getOpeningMarkupLength(); i++)

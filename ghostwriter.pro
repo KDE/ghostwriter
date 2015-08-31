@@ -130,7 +130,6 @@ HEADERS += src/MainWindow.h \
     src/Outline.h \
     src/MarkdownStates.h \
     src/MarkdownHighlighter.h \
-    src/MarkdownColorScheme.h \
     src/MarkdownStyles.h \
     src/MessageBoxHelper.h \
     src/GraphicsFadeEffect.h \
@@ -200,7 +199,8 @@ SOURCES += src/AppMain.cpp \
     src/sundown/html_smartypants.c \
     src/sundown/html.c \
     src/sundown/markdown.c \
-    src/sundown/stack.c
+    src/sundown/stack.c \
+    src/Theme.cpp
 
 # Allow for updating translations
 #TRANSLATIONS = $$files(translations/ghostwriter_*.ts)

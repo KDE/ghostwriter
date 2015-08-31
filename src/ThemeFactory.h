@@ -23,38 +23,95 @@
 #include <QString>
 #include <QStringList>
 #include <QDir>
+#include <QList>
 
 #include "Theme.h"
 
 class QSettings;
 
+/**
+ * Singleton class to fetch themes, either built-in or from the hard disk.
+ */
 class ThemeFactory
 {
     public:
+        /**
+         * Gets the single instance of this class.
+         */
         static ThemeFactory* getInstance();
+
+        /**
+         * Destructor.
+         */
         ~ThemeFactory();
 
-        void loadLightTheme(Theme& theme) const;
-        void loadDarkTheme(Theme& theme) const;
-        QStringList getAvailableThemes();
-        void loadTheme(const QString& name, Theme& theme, QString& err) const;
+        /**
+         * Gets the list of available theme names, including built-in themes
+         * (listed at the front of the list).
+         */
+        QStringList getAvailableThemes() const;
+
+        /**
+         * Gets a theme that can be used with printing to paper.
+         */
+        Theme getPrinterFriendlyTheme() const;
+
+        /**
+         * Returns the theme with the given name.  If an error occurs, the
+         * err string will be populated with an error message.  In this event,
+         * the theme return will be one of the built-in themes.  If no error
+         * occurs while loading the desired theme, err will be set to a null
+         * QString.
+         */
+        Theme loadTheme(const QString& name, QString& err) const;
+
+        /**
+         * Deletes the theme with the given name from the hard disk.  Note
+         * that this operation results in an error for built-in themes.  If an
+         * error occurs while attempting to delete the theme, the err string
+         * will be populated with an error message string.  Otherwise, err will
+         * be set to a null QString.
+         */
         void deleteTheme(const QString& name, QString& err);
+
+        /**
+         * Saves the theme with the given name to the hard disk.  Note
+         * that this operation results in an error for built-in themes.  If an
+         * error occurs while attempting to save the theme, the err string
+         * will be populated with an error message string.  Otherwise, err will
+         * be set to a null QString.
+         */
         void saveTheme(const QString& name, Theme& theme, QString& err);
+
+        /**
+         * Gets the theme storage location directory.
+         */
         QDir getThemeDirectory() const;
+
+        /**
+         * Gets the directory path for storing the theme with the given name.
+         */
         QDir getDirectoryForTheme(const QString& name) const;
+
+        /**
+         * Returns an untitled theme name that is unique.
+         */
         QString generateUntitledThemeName() const;
 
+    private:
         static const QString LIGHT_THEME_NAME;
         static const QString DARK_THEME_NAME;
-
-
-    private:
         static ThemeFactory* instance;
-        QStringList availableThemes;
+
+        QList<Theme> builtInThemes;
+        QStringList customThemeNames;
         QString themeDirectoryPath;
         QDir themeDirectory;
 
         ThemeFactory();
+
+        void loadLightTheme();
+        void loadDarkTheme();
 
         bool extractColorSetting
         (

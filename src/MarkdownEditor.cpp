@@ -35,17 +35,14 @@
 #include <QUrl>
 #include <QPixmap>
 #include <QPainter>
-#include <QDebug>
-#include <math.h>
+#include <QFileInfo>
+#include <QDir>
 
 #include "ColorHelper.h"
-#include "Theme.h"
-#include "ThemeFactory.h"
 #include "MarkdownEditor.h"
 #include "TextBlockData.h"
 #include "MarkdownStates.h"
 #include "MarkdownParser.h"
-#include "ThemeFactory.h"
 #include "GraphicsFadeEffect.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
@@ -61,9 +58,9 @@ MarkdownEditor::MarkdownEditor
     MarkdownHighlighter* highlighter,
     QWidget* parent
 )
-    : textDocument(textDocument),
+    : QPlainTextEdit(parent),
+        textDocument(textDocument),
         highlighter(highlighter),
-        QPlainTextEdit(parent),
         dictionary(DictionaryManager::instance().requestDictionary()),
         mouseButtonDown(false)
 {
@@ -126,9 +123,14 @@ MarkdownEditor::MarkdownEditor
     );
     typingTimer->start(1000);
 
-    Theme theme;
-    ThemeFactory::getInstance()->loadLightTheme(theme);
-    setColorScheme(theme.markupColorScheme);
+    setColorScheme
+    (
+        QColor(Qt::black),
+        QColor(Qt::white),
+        QColor(Qt::black),
+        QColor(Qt::blue),
+        QColor(Qt::red)
+    );
 
     fadeEffect = new GraphicsFadeEffect(this);
     fadeEffect->setFadeHeight(this->fontMetrics().height());
@@ -176,12 +178,31 @@ void MarkdownEditor::setFocusMode(FocusMode mode)
     }
 }
 
-void MarkdownEditor::setColorScheme(const MarkdownColorScheme& cs)
-{
-    colorScheme = cs;
-    highlighter->setColorScheme(cs);
+void setDefaultTextColor(const QColor& value);
+void setBackgroundColor(const QColor& value);
+void setMarkupColorColor(const QColor& value);
+void setLinkColor(const QColor& value);
+void setSpellingErrorColor(const QColor& value);
 
-    QColor fadedForegroundColor = cs.defaultTextColor;
+void MarkdownEditor::setColorScheme
+(
+    const QColor& defaultTextColor,
+    const QColor& backgroundColor,
+    const QColor& markupColor,
+    const QColor& linkColor,
+    const QColor& spellingErrorColor
+)
+{
+    highlighter->setColorScheme
+    (
+        defaultTextColor,
+        backgroundColor,
+        markupColor,
+        linkColor,
+        spellingErrorColor
+    );
+
+    QColor fadedForegroundColor = defaultTextColor;
     fadedForegroundColor.setAlpha(100);
 
     fadeColor = QBrush(fadedForegroundColor);

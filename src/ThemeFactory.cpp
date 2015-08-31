@@ -68,94 +68,137 @@ ThemeFactory::~ThemeFactory()
     ;
 }
 
-void ThemeFactory::loadLightTheme(Theme& theme) const
+void ThemeFactory::loadLightTheme()
 {
-    theme.name = LIGHT_THEME_NAME;
-    theme.markupColorScheme = MarkdownColorScheme();
+    Theme theme(LIGHT_THEME_NAME);
+    theme.setBackgroundColor("#f7f7f7");
+    theme.setBackgroundImageAspect(PictureAspectNone);
+    theme.setHudBackgroundColor("#252525");
+    theme.setHudForegroundColor("#e3e3e3");
+    theme.setEditorAspect(EditorAspectStretch);
+    theme.setEditorBackgroundColor("#f7f7f7");
+    theme.setDefaultTextColor("#252525");
+    theme.setMarkupColor("#ababab");
+    theme.setLinkColor("#2d87c2");
+    theme.setSpellingErrorColor("red");
 
-    theme.backgroundColor = QColor("#f7f7f7");
-    theme.backgroundImageAspect = PictureAspectNone;
-    theme.hudBackgroundColor = QColor("#252525");
-    theme.hudForegroundColor = QColor("#e3e3e3");
-    theme.editorAspect = EditorAspectStretch;
-    theme.markupColorScheme.backgroundColor = QColor("#f7f7f7");
-    theme.markupColorScheme.defaultTextColor = QColor("#252525");
-    theme.markupColorScheme.markupColor = QColor("#ababab");
-    theme.markupColorScheme.linkColor = QColor("#2d87c2");
-    theme.markupColorScheme.spellingErrorColor = QColor("red");
+    builtInThemes.append(theme);
 }
 
-void ThemeFactory::loadDarkTheme(Theme& theme) const
+void ThemeFactory::loadDarkTheme()
 {
-    theme.name = DARK_THEME_NAME;
-    theme.markupColorScheme = MarkdownColorScheme();
+    Theme theme(DARK_THEME_NAME);
+    theme.setBackgroundColor("#252525");
+    theme.setBackgroundImageAspect(PictureAspectNone);
+    theme.setHudBackgroundColor("#2f3c41");
+    theme.setHudForegroundColor("#e3e3e3");
+    theme.setEditorAspect(EditorAspectStretch);
+    theme.setEditorBackgroundColor("#252525");
+    theme.setDefaultTextColor("#b9b9b9");
+    theme.setMarkupColor("#686868");
+    theme.setLinkColor("#50879e");
+    theme.setSpellingErrorColor("red");
 
-    theme.backgroundColor = QColor("#252525");
-    theme.backgroundImageAspect = PictureAspectNone;
-    theme.hudBackgroundColor = QColor("#2f3c41");
-    theme.hudForegroundColor = QColor("#e3e3e3");
-    theme.editorAspect = EditorAspectStretch;
-    theme.markupColorScheme.backgroundColor = QColor("#252525");
-    theme.markupColorScheme.defaultTextColor = QColor("#b9b9b9");
-    theme.markupColorScheme.markupColor = QColor("#686868");
-    theme.markupColorScheme.linkColor = QColor("#50879e");
-    theme.markupColorScheme.spellingErrorColor = QColor("red");
+    builtInThemes.append(theme);
 }
 
-QStringList ThemeFactory::getAvailableThemes()
+QStringList ThemeFactory::getAvailableThemes() const
 {
-    return availableThemes;
+    QStringList themeNames;
+
+    foreach (Theme theme, builtInThemes)
+    {
+        themeNames.append(theme.getName());
+    }
+
+    themeNames << customThemeNames;
+    return themeNames;
 }
 
-void ThemeFactory::loadTheme(const QString& name, Theme& theme, QString& err) const
+Theme ThemeFactory::getPrinterFriendlyTheme() const
+{
+    QString err;
+    return loadTheme(LIGHT_THEME_NAME, err);
+}
+
+Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
 {
     err = QString();
 
-    if (availableThemes.contains(name))
+    for (int i = 0; i < builtInThemes.size(); i++)
     {
-        QString themeFilePath = themeDirectoryPath + QString("/") + name + QString("/theme.cfg");
+        if (builtInThemes[i].getName() == name)
+        {
+            return builtInThemes[i];
+        }
+    }
+
+    if (customThemeNames.contains(name))
+    {
+        QString themeFilePath = themeDirectoryPath + QString("/") +
+            name + QString("/theme.cfg");
 
         QFileInfo themeFileInfo(themeFilePath);
 
         if (!themeFileInfo.exists())
         {
-            err = QObject::tr("The specified theme does not exist in the file system: ") + themeFilePath;
-            return;
+            err = QObject::tr("The specified theme does not exist in the file system: ") +
+                themeFilePath;
+            return builtInThemes[0];
         }
 
         QSettings themeSettings(themeFilePath, QSettings::IniFormat);
         int editorBackgroundAlpha;
         int editorAspect;
         int backgroundImageAspect;
-        int editorCorners;
+        QString backgroundImageUrl;
+        int editorCorners = EditorCornersSquare;
+        QColor editorBackgroundColor;
+        QColor spellingErrorColor;
+        QColor backgroundColor;
+        QColor hudForegroundColor;
+        QColor hudBackgroundColor;
+        QColor defaultTextColor;
+        QColor markupColor;
+        QColor linkColor;
 
         // Load and validate the theme contents.
         if
         (
             !extractIntSetting(themeSettings, GW_EDITOR_ASPECT, editorAspect, EditorAspectFirst, EditorAspectLast, err)
-            || !extractColorSetting(themeSettings, GW_EDITOR_BACKGROUND_COLOR, theme.markupColorScheme.backgroundColor, err)
+            || !extractColorSetting(themeSettings, GW_EDITOR_BACKGROUND_COLOR, editorBackgroundColor, err)
             || !extractIntSetting(themeSettings, GW_EDITOR_BACKGROUND_OPACITY, editorBackgroundAlpha, 0, 255, err)
-            || !extractColorSetting(themeSettings, GW_SPELLING_ERROR_COLOR, theme.markupColorScheme.spellingErrorColor, err)
+            || !extractColorSetting(themeSettings, GW_SPELLING_ERROR_COLOR, spellingErrorColor, err)
             || !extractIntSetting(themeSettings, GW_IMAGE_ASPECT, backgroundImageAspect, PictureAspectFirst, PictureAspectLast, err)
-            || !extractColorSetting(themeSettings, GW_BACKGROUND_COLOR, theme.backgroundColor, err)
-            || !extractColorSetting(themeSettings, GW_HUD_FOREGROUND_COLOR, theme.hudForegroundColor, err)
-            || !extractColorSetting(themeSettings, GW_HUD_BACKGROUND_COLOR, theme.hudBackgroundColor, err)
-            || !extractColorSetting(themeSettings, GW_DEFAULT_TEXT_COLOR, theme.markupColorScheme.defaultTextColor, err)
-            || !extractColorSetting(themeSettings, GW_MARKUP_COLOR, theme.markupColorScheme.markupColor, err)
-            || !extractColorSetting(themeSettings, GW_LINK_COLOR, theme.markupColorScheme.linkColor, err)
+            || !extractColorSetting(themeSettings, GW_BACKGROUND_COLOR, backgroundColor, err)
+            || !extractColorSetting(themeSettings, GW_HUD_FOREGROUND_COLOR, hudForegroundColor, err)
+            || !extractColorSetting(themeSettings, GW_HUD_BACKGROUND_COLOR, hudBackgroundColor, err)
+            || !extractColorSetting(themeSettings, GW_DEFAULT_TEXT_COLOR, defaultTextColor, err)
+            || !extractColorSetting(themeSettings, GW_MARKUP_COLOR, markupColor, err)
+            || !extractColorSetting(themeSettings, GW_LINK_COLOR, linkColor, err)
         )
         {
             // Return error.
-            return;
+            return builtInThemes[0];
         }
 
-        theme.editorAspect = (EditorAspect) editorAspect;
-        theme.backgroundImageAspect = (PictureAspect) backgroundImageAspect;
+        Theme theme;
+        theme.setEditorAspect((EditorAspect) editorAspect);
+        editorBackgroundColor.setAlpha(editorBackgroundAlpha);
+        theme.setEditorBackgroundColor(editorBackgroundColor);
+        theme.setSpellingErrorColor(spellingErrorColor);
+        theme.setBackgroundImageAspect((PictureAspect) backgroundImageAspect);
+        theme.setBackgroundColor(backgroundColor);
+        theme.setHudForegroundColor(hudForegroundColor);
+        theme.setHudBackgroundColor(hudBackgroundColor);
+        theme.setDefaultTextColor(defaultTextColor);
+        theme.setMarkupColor(markupColor);
+        theme.setLinkColor(linkColor);
 
         // Check that if the editor aspect is set to Center, that the corners are set.
         if
         (
-            (EditorAspectCenter == theme.editorAspect)
+            (EditorAspectCenter == theme.getEditorAspect())
             && !extractIntSetting(themeSettings, GW_EDITOR_CORNERS, editorCorners, EditorCornersFirst, EditorCornersLast, err)
         )
         {
@@ -163,41 +206,50 @@ void ThemeFactory::loadTheme(const QString& name, Theme& theme, QString& err) co
             editorCorners = EditorCornersRounded;
         }
 
-        theme.editorCorners = (EditorCorners) editorCorners;
+        theme.setEditorCorners((EditorCorners) editorCorners);
 
         // Check if the picture aspect is set to be a background image (not None), that
         // the background image URL is set.
         //
         if
         (
-            (PictureAspectNone != theme.backgroundImageAspect)
-            && !extractStringSetting(themeSettings, GW_IMAGE_URL, theme.backgroundImageUrl, err)
+            (PictureAspectNone != theme.getBackgroundImageAspect())
+            && !extractStringSetting(themeSettings, GW_IMAGE_URL, backgroundImageUrl, err)
         )
         {
             // Return error.
-            return;
+            return builtInThemes[0];
         }
 
-        theme.name = name;
-        theme.markupColorScheme.backgroundColor.setAlpha(editorBackgroundAlpha);
+        theme.setBackgroundImageUrl(backgroundImageUrl);
+        theme.setName(name);
 
-        QFileInfo imgFileInfo(theme.backgroundImageUrl);
+        QFileInfo imgFileInfo(theme.getBackgroundImageUrl());
 
         // If the background image file path is relative and located in the same directory
         // as the theme file, then fill out the full path for the the background image URL.
         //
-        if (!theme.backgroundImageUrl.isNull() && !theme.backgroundImageUrl.isEmpty() && imgFileInfo.isRelative())
+        if
+        (
+            !theme.getBackgroundImageUrl().isNull() &&
+            !theme.getBackgroundImageUrl().isEmpty() &&
+            imgFileInfo.isRelative()
+        )
         {
-            theme.backgroundImageUrl = getDirectoryForTheme(name).path() + QString("/") + theme.backgroundImageUrl;
+            theme.setBackgroundImageUrl(getDirectoryForTheme(name).path() +
+                QString("/") +
+                theme.getBackgroundImageUrl());
         }
 
         // Return success.
         err = QString();
+        return theme;
     }
     else
     {
         err = QObject::tr("The specified theme is not available.  Try restarting the application.  "
             "If problem persists, please file a bug report.");
+        return builtInThemes[0];
     }
 }
 
@@ -273,7 +325,7 @@ void ThemeFactory::deleteTheme(const QString& name, QString& err)
     }
 
     // Finally, remove the theme from the available themes list.
-    availableThemes.removeOne(name);
+    customThemeNames.removeOne(name);
 }
 
 void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
@@ -281,44 +333,55 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
     err = QString();
 
     // Check if theme was renamed.  If so, rename the theme's directory.
-    if (theme.name != name)
+    if (theme.getName() != name)
     {
         // Check for rename to default name.
-        if ((LIGHT_THEME_NAME == theme.name) || (DARK_THEME_NAME == theme.name))
+        for (int i = 0; i < builtInThemes.size(); i++)
         {
-            err = QObject::tr("'%1' already exists.  Please choose another name.").arg(theme.name);
-            return;
+            if (theme.getName() == builtInThemes[i].getName())
+            {
+                err = QObject::tr("'%1' already exists.  Please choose another name.").arg(theme.getName());
+                return;
+            }
         }
 
         QDir oldThemeDir = this->getDirectoryForTheme(name);
-        QDir newThemeDir = this->getDirectoryForTheme(theme.name);
+        QDir newThemeDir = this->getDirectoryForTheme(theme.getName());
 
         if (newThemeDir.exists())
         {
-            err = QObject::tr("'' theme already exists.  Please choose another name.").arg(theme.name);
+            err = QObject::tr("'%1' theme already exists.  Please choose another name.").arg(theme.getName());
             return;
         }
 
         if (oldThemeDir.exists())
         {
-            QString backgroundImageUrl = theme.backgroundImageUrl;
+            QString backgroundImageUrl = theme.getBackgroundImageUrl();
 
-            // If there's a background image, set the image URL to be the in the new theme directory to which we
-            // are renaming the theme.
+            // If there's a background image, set the image URL to be the in the
+            // new theme directory to which we are renaming the theme.
             //
-            if ((PictureAspectNone != theme.backgroundImageAspect) && !theme.backgroundImageUrl.isNull() && !theme.backgroundImageUrl.isEmpty())
+            if
+            (
+                (PictureAspectNone != theme.getBackgroundImageAspect()) &&
+                !theme.getBackgroundImageUrl().isNull() &&
+                !theme.getBackgroundImageUrl().isEmpty()
+            )
             {
-                QFileInfo oldImgFileInfo(theme.backgroundImageUrl);
+                QFileInfo oldImgFileInfo(theme.getBackgroundImageUrl());
 
                 if (oldImgFileInfo.dir() == oldThemeDir)
                 {
-                    backgroundImageUrl = this->getDirectoryForTheme(theme.name).path() + QString("/") + oldImgFileInfo.fileName();
+                    backgroundImageUrl =
+                        this->getDirectoryForTheme(theme.getName()).path() +
+                        QString("/") +
+                        oldImgFileInfo.fileName();
                 }
             }
 
             // Rename the theme directory.
             QDir themeLocDir(this->themeDirectoryPath);
-            bool success = themeLocDir.rename(name, theme.name);
+            bool success = themeLocDir.rename(name, theme.getName());
 
             if (!success)
             {
@@ -326,15 +389,15 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
                 return;
             }
 
-            theme.backgroundImageUrl = backgroundImageUrl;
+            theme.getBackgroundImageUrl() = backgroundImageUrl;
 
             // Now update the available themes list with the new theme name.
-            for (int i = 0; i < availableThemes.size(); i++)
+            for (int i = 0; i < customThemeNames.size(); i++)
             {
-                if (name == availableThemes[i])
+                if (name == customThemeNames[i])
                 {
-                    availableThemes[i] = theme.name;
-                    qSort(availableThemes.begin(), availableThemes.end());
+                    customThemeNames[i] = theme.getName();
+                    qSort(customThemeNames.begin(), customThemeNames.end());
                     break;
                 }
             }
@@ -343,17 +406,19 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
 
     bool isNewTheme = false;
 
-    if (!this->getDirectoryForTheme(theme.name).exists())
+    if (!this->getDirectoryForTheme(theme.getName()).exists())
     {
         isNewTheme = true;
     }
 
-    QString themeFilePath = themeDirectoryPath + QString("/") + theme.name + QString("/theme.cfg");
+    QString themeFilePath = themeDirectoryPath + QString("/") +
+        theme.getName() + QString("/theme.cfg");
 
-    // Load original theme settings so we can clean up the old background image later, if any.
+    // Load original theme settings so we can clean up the old background image
+    // later, if any.
     Theme oldTheme;
     bool oldThemeExists = true;
-    this->loadTheme(theme.name, oldTheme, err);
+    oldTheme = this->loadTheme(theme.getName(), err);
 
     if (!err.isNull())
     {
@@ -369,30 +434,35 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
         return;
     }
 
-    settings.setValue(GW_EDITOR_ASPECT, QVariant((int) theme.editorAspect));
-    settings.setValue(GW_EDITOR_CORNERS, QVariant((int) theme.editorCorners));
-    settings.setValue(GW_EDITOR_BACKGROUND_COLOR, QVariant(theme.markupColorScheme.backgroundColor.name()));
-    settings.setValue(GW_EDITOR_BACKGROUND_OPACITY, QVariant(theme.markupColorScheme.backgroundColor.alpha()));
-    settings.setValue(GW_SPELLING_ERROR_COLOR, QVariant(theme.markupColorScheme.spellingErrorColor.name()));
-    settings.setValue(GW_DEFAULT_TEXT_COLOR, QVariant(theme.markupColorScheme.defaultTextColor.name()));
-    settings.setValue(GW_MARKUP_COLOR, QVariant(theme.markupColorScheme.markupColor.name()));
-    settings.setValue(GW_LINK_COLOR, QVariant(theme.markupColorScheme.linkColor.name()));
-    settings.setValue(GW_IMAGE_ASPECT, QVariant((int) theme.backgroundImageAspect));
-    settings.setValue(GW_BACKGROUND_COLOR, QVariant(theme.backgroundColor.name()));
-    settings.setValue(GW_HUD_FOREGROUND_COLOR, QVariant(theme.hudForegroundColor.name()));
-    settings.setValue(GW_HUD_BACKGROUND_COLOR, QVariant(theme.hudBackgroundColor.name()));
+    settings.setValue(GW_EDITOR_ASPECT, QVariant((int) theme.getEditorAspect()));
+    settings.setValue(GW_EDITOR_CORNERS, QVariant((int) theme.getEditorCorners()));
+    settings.setValue(GW_EDITOR_BACKGROUND_COLOR, QVariant(theme.getEditorBackgroundColor().name()));
+    settings.setValue(GW_EDITOR_BACKGROUND_OPACITY, QVariant(theme.getEditorBackgroundColor().alpha()));
+    settings.setValue(GW_SPELLING_ERROR_COLOR, QVariant(theme.getSpellingErrorColor().name()));
+    settings.setValue(GW_DEFAULT_TEXT_COLOR, QVariant(theme.getDefaultTextColor().name()));
+    settings.setValue(GW_MARKUP_COLOR, QVariant(theme.getMarkupColor().name()));
+    settings.setValue(GW_LINK_COLOR, QVariant(theme.getLinkColor().name()));
+    settings.setValue(GW_IMAGE_ASPECT, QVariant((int) theme.getBackgroundImageAspect()));
+    settings.setValue(GW_BACKGROUND_COLOR, QVariant(theme.getBackgroundColor().name()));
+    settings.setValue(GW_HUD_FOREGROUND_COLOR, QVariant(theme.getHudForegroundColor().name()));
+    settings.setValue(GW_HUD_BACKGROUND_COLOR, QVariant(theme.getHudBackgroundColor().name()));
 
-    QDir themeDir = this->getDirectoryForTheme(theme.name);
-    QFileInfo imgFileInfo(theme.backgroundImageUrl);
+    QDir themeDir = this->getDirectoryForTheme(theme.getName());
+    QFileInfo imgFileInfo(theme.getBackgroundImageUrl());
 
     // Delete any old background images.
-    if (oldThemeExists && (PictureAspectNone != oldTheme.backgroundImageAspect))
+    if (oldThemeExists && (PictureAspectNone != oldTheme.getBackgroundImageAspect()))
     {
-        QFileInfo oldImgFileInfo(oldTheme.backgroundImageUrl);
+        QFileInfo oldImgFileInfo(oldTheme.getBackgroundImageUrl());
 
-        if (oldImgFileInfo.exists() && (oldImgFileInfo.dir() == themeDir) && (imgFileInfo != oldImgFileInfo))
+        if
+        (
+            oldImgFileInfo.exists() &&
+            (oldImgFileInfo.dir() == themeDir) &&
+            (imgFileInfo != oldImgFileInfo)
+        )
         {
-            QFile oldImgFile(oldTheme.backgroundImageUrl);
+            QFile oldImgFile(oldTheme.getBackgroundImageUrl());
             bool result = oldImgFile.remove();
 
             if (!result)
@@ -406,9 +476,15 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
     // If there's a background image, copy the image to the theme's directory, and set the background image URL
     // to point to it.
     //
-    if ((PictureAspectNone != theme.backgroundImageAspect) && !theme.backgroundImageUrl.isNull() && !theme.backgroundImageUrl.isEmpty())
+    if
+    (
+        (PictureAspectNone != theme.getBackgroundImageAspect()) &&
+        !theme.getBackgroundImageUrl().isNull() &&
+        !theme.getBackgroundImageUrl().isEmpty()
+    )
     {
-        QFileInfo imgCopyFileInfo(themeDir.path() + QString("/") + imgFileInfo.fileName());
+        QFileInfo imgCopyFileInfo(themeDir.path() + QString("/") +
+            imgFileInfo.fileName());
 
         // Copy the image to the theme directory if it's not already there.
         if (themeDir != imgFileInfo.dir())
@@ -430,7 +506,7 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
             }
 
             // Now copy the new image file to the theme directory.
-            QFile imgFile(theme.backgroundImageUrl);
+            QFile imgFile(theme.getBackgroundImageUrl());
             bool result = imgFile.copy(imgCopyFileInfo.filePath());
 
             if (!result)
@@ -460,8 +536,8 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
 
     if (isNewTheme)
     {
-        availableThemes.append(theme.name);
-        qSort(availableThemes.begin(), availableThemes.end());
+        customThemeNames.append(theme.getName());
+        qSort(customThemeNames.begin(), customThemeNames.end());
     }
 }
 
@@ -487,9 +563,9 @@ QString ThemeFactory::generateUntitledThemeName() const
     {
         bool tryAgain = false;
 
-        for (int i = 0; i < this->availableThemes.size(); i++)
+        for (int i = 0; i < this->customThemeNames.size(); i++)
         {
-            if (name == this->availableThemes[i])
+            if (name == this->customThemeNames[i])
             {
                 count++;
                 name = QObject::tr("Untitled %1").arg(count);
@@ -529,7 +605,11 @@ ThemeFactory::ThemeFactory()
         sortedThemes.insertMulti(baseName.toLower(), baseName);
     }
 
-    availableThemes = sortedThemes.values();
+    customThemeNames = sortedThemes.values();
+
+    // Set up built-in themes.
+    loadLightTheme();
+    loadDarkTheme();
 }
 
 bool ThemeFactory::extractColorSetting
