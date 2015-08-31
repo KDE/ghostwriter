@@ -59,7 +59,7 @@ DocumentManager::DocumentManager
     MarkdownEditor* editor,
     QWidget* parent
 )
-    : editor(editor), parentWidget(parent), QObject(parent),
+    : QObject(parent), parentWidget(parent), editor(editor),
         fileHistoryEnabled(true), createBackupOnSave(true),
         saveInProgress(false)
 {

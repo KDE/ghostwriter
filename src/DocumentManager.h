@@ -30,28 +30,88 @@
 class QFileSystemWatcher;
 class QPrinter;
 
+/**
+ * Manages the life-cycle of a document, facilitating user interaction for
+ * opening, closing, saving, etc.
+ */
 class DocumentManager : public QObject
 {
     Q_OBJECT
 
     public:
+        /**
+         * Constructor.  Takes MarkdownEditor as a parameter, which is used
+         * to display the current document to the user.
+         */
         DocumentManager
         (
             MarkdownEditor* editor,
             QWidget* parent = 0
         );
+
+        /**
+         * Destructor.
+         */
         virtual ~DocumentManager();
 
+        /**
+         * Gets the current document that is opened.
+         */
         TextDocument* getDocument() const;
+
+        /**
+         * Gets whether auto-save is enabled.
+         */
         bool getAutoSaveEnabled() const;
+
+        /**
+         * Gets whether automatic file backup (i.e., creation of a .backup
+         * file at regular intervals), is enabled.
+         */
         bool getFileBackupEnabled() const;
+
+        /**
+         * Gets whether tracking the recent file history is enabled.
+         */
         void setFileHistoryEnabled(bool enabled);
 
     signals:
+        /**
+         * Emitted when the document's display name changes, which is useful
+         * for updating the editor's containing window or tab to have the new
+         * document display name.
+         */
         void documentDisplayNameChanged(const QString& displayName);
+
+        /**
+         * Emitted when the document's modification state changes.  The
+         * modified parameter will be true if the document has been modified.
+         */
         void documentModifiedChanged(bool modified);
+
+        /**
+         * Emitted when an operation on the document has started, such as
+         * when a document is being loaded into the editor either from being
+         * opened or reloaded from disk.  Connect to this signal to notify
+         * the user of a possibly long operation for the document, such as
+         * with a progress bar.  The description parameter will contain
+         * descriptive text to display to the user regarding the operation.
+         */
         void operationStarted(const QString& description);
+
+        /**
+         * Emitted when an operation on the document has finished, such as
+         * when a document has finished loading into the editor either from
+         * being opened or reloaded from disk.  Connect to this signal to notify
+         * the user that a long operation for the document has completed,
+         * such as by removing a progress bar that was previously displayed
+         * when the operation first started.
+         */
         void operationFinished();
+
+        /**
+         * Emitted when the document is closed.
+         */
         void documentClosed();
 
     public slots:
@@ -170,6 +230,11 @@ class DocumentManager : public QObject
          */
         bool loadFile(const QString& filePath);
 
+        /*
+         * Sets the file path for the document, such that the file will be
+         * monitored for external changes made to it, and the display name
+         * for the document updated.
+         */
         void setFilePath(const QString& filePath);
 
         /*

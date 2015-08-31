@@ -21,82 +21,193 @@
 #include <QList>
 #include <QString>
 #include <QApplication>
+#include <QFileDialog>
+#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QGroupBox>
+#include <QComboBox>
+#include <QCheckBox>
+#include <QLabel>
+#include <QSettings>
+#include <QDesktopServices>
+#include <QUrl>
 
 #include "ExportDialog.h"
 #include "ExporterFactory.h"
 #include "Exporter.h"
 #include "MessageBoxHelper.h"
 
+#define GW_LAST_EXPORTER_KEY "Export/lastUsedExporter"
+#define GW_SMART_TYPOGRAPHY_KEY "Export/smartTypographyEnabled"
+
 ExportDialog::ExportDialog(TextDocument* document, QWidget* parent)
-    : document(document), QFileDialog(parent)
+    : QDialog(parent), document(document)
 {
-    QString initialDirPath = QString();
+    QList<Exporter*> exporters =
+        ExporterFactory::getInstance()->getFileExporters();
+
+    this->setWindowTitle(tr("Export"));
+    fileDialogWidget = new QFileDialog(this, Qt::Widget);
+    fileDialogWidget->setAcceptMode(QFileDialog::AcceptSave);
+    fileDialogWidget->setFileMode(QFileDialog::AnyFile);
+    fileDialogWidget->setWindowFlags(Qt::Widget);
+
+    QList<QUrl> shortcutFolders;
+    shortcutFolders
+        << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation))
+        << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DesktopLocation))
+        << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation));
+
+    fileDialogWidget->setSidebarUrls(shortcutFolders);
+
+    connect(fileDialogWidget, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(fileDialogWidget, SIGNAL(rejected()), this, SLOT(reject()));
+
+    exporterComboBox = new QComboBox();
+    int selectedIndex = 0;
+
+    QSettings settings;
+    QString lastExporterName =
+        settings.value(GW_LAST_EXPORTER_KEY, QString()).toString();
+
+    for (int i = 0; i < exporters.length(); i++)
+    {
+        Exporter* exporter = exporters[i];
+
+        exporterComboBox->addItem
+        (
+            exporter->getName(),
+            qVariantFromValue((void *) exporters[i])
+        );
+
+        QList<const ExportFormat*> formats =
+            exporter->getSupportedFormats();
+
+        // Build file filter list
+        QString filter = "";
+
+        for (int j = 0; j < formats.length(); j++)
+        {
+            filter += formats[j]->getNamedFilter();
+
+            if ((j + 1) < formats.length())
+            {
+                filter += QString(";;");
+            }
+        }
+
+        fileFilters.append(filter);
+
+        if (exporter->getName() == lastExporterName)
+        {
+            selectedIndex = i;
+        }
+    }
+
+    exporterComboBox->setCurrentIndex(selectedIndex);
+    fileDialogWidget->setNameFilter(fileFilters[selectedIndex]);
+
+    QString initialDirPath;
+    QString baseName;
 
     if (!document->getFilePath().isNull() && !document->getFilePath().isEmpty())
     {
         QFileInfo inputFileInfo(document->getFilePath());
         initialDirPath = inputFileInfo.dir().path();
+        baseName = inputFileInfo.baseName();
+    }
+    else
+    {
+        initialDirPath =
+            QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
     }
 
-    QList<Exporter*> exporters =
-        ExporterFactory::getInstance()->getFileExporters();
-    QString filter = "";
+    fileDialogWidget->setDirectory(initialDirPath);
 
-    // Build file filter list
-    for (int i = 0; i < exporters.length(); i++)
+    if (exporters[selectedIndex]->getSupportedFormats().length() > 0)
     {
-        filter += exporters.at(i)->getFileFormatFilter();
+        const ExportFormat* currentFormat =
+            exporters[selectedIndex]->getSupportedFormats().at(0);
+        QString fileSuffix = currentFormat->getDefaultFileExtension();
 
-        if ((i + 1) < exporters.length())
+        if
+        (
+            !fileSuffix.isNull() &&
+            !fileSuffix.isEmpty()
+        )
         {
-            filter += QString(";;");
+            if (!baseName.isNull())
+            {
+                fileDialogWidget->selectFile(initialDirPath + "/" +
+                    baseName + "." + fileSuffix);
+            }
+        }
+
+        if (currentFormat->isFileExtensionMandatory())
+        {
+            fileDialogWidget->setDefaultSuffix(currentFormat->getDefaultFileExtension());
         }
     }
 
-    this->setDirectory(initialDirPath);
-    this->setNameFilter(filter);
-    this->setAcceptMode(QFileDialog::AcceptSave);
-    this->setFileMode(QFileDialog::AnyFile);
+    bool smartTypographyEnabled =
+        settings.value(GW_SMART_TYPOGRAPHY_KEY, true).toBool();
+    smartTypographyCheckBox = new QCheckBox(tr("Smart Typography"));
+    smartTypographyCheckBox->setChecked(smartTypographyEnabled);
+
+    QGroupBox* optionsGroupBox = new QGroupBox(tr("Export Options"));
+    QGridLayout* optionsLayout = new QGridLayout();
+    optionsLayout->addWidget(new QLabel(tr("Markdown Converter:")), 0, 0, 1, 1);
+    optionsLayout->addWidget(exporterComboBox, 0, 1, 1, 1, Qt::AlignLeft);
+    optionsLayout->addWidget(smartTypographyCheckBox, 0, 2, 1, 2);
+    optionsGroupBox->setLayout(optionsLayout);
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(fileDialogWidget);
+    layout->addWidget(optionsGroupBox);
+    this->setLayout(layout);
+
+    connect(exporterComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onExporterChanged(int)));
+    connect(fileDialogWidget, SIGNAL(filterSelected(QString)), this, SLOT(onFilterSelected(QString)));
 }
 
 ExportDialog::~ExportDialog()
 {
-
+    QSettings settings;
+    settings.setValue(GW_LAST_EXPORTER_KEY, exporterComboBox->currentText());
+    settings.setValue(GW_SMART_TYPOGRAPHY_KEY, smartTypographyCheckBox->isChecked());
 }
 
 void ExportDialog::accept()
 {
-    QFileDialog::accept();
+    QDialog::accept();
+    this->setResult(fileDialogWidget->result());
 
-    if (QDialog::Accepted != this->result())
-    {
-        return;
-    }
-
-    QStringList selectedFiles = this->selectedFiles();
+    QStringList selectedFiles = fileDialogWidget->selectedFiles();
 
     if (!selectedFiles.isEmpty())
     {
         QString fileName = selectedFiles.at(0);
-        QString selectedFilter = this->selectedNameFilter();
-        QList<Exporter*> exporters =
-            ExporterFactory::getInstance()->getFileExporters();
+        QString selectedFilter = fileDialogWidget->selectedNameFilter();
+        int selectedIndex = exporterComboBox->currentIndex();
+        QVariant exporterVariant = exporterComboBox->itemData(selectedIndex);
+        Exporter* exporter = (Exporter*) exporterVariant.value<void*>();
 
-        for (int i = 0; i < exporters.length(); i++)
+        foreach (const ExportFormat* format, exporter->getSupportedFormats())
         {
-            Exporter* exporter = exporters.at(i);
-
-            if (exporter->getFileFormatFilter() == selectedFilter)
+            if (format->getNamedFilter() == selectedFilter)
             {
                 QString err;
 
                 QApplication::setOverrideCursor(Qt::WaitCursor);
                 emit exportStarted(tr("exporting to %1").arg(fileName));
 
+                exporter->setSmartTypographyEnabled(smartTypographyCheckBox->isChecked());
                 exporter->exportToFile
                 (
+                    format,
                     document->toPlainText(),
-                    fileName, err
+                    fileName,
+                    err
                 );
 
                 emit exportComplete();
@@ -116,4 +227,43 @@ void ExportDialog::accept()
 void ExportDialog::reject()
 {
     QDialog::reject();
+    this->setResult(fileDialogWidget->result());
+}
+
+void ExportDialog::onExporterChanged(int index)
+{
+    QVariant exporterVariant = exporterComboBox->itemData(index);
+    Exporter* exporter = (Exporter*) exporterVariant.value<void*>();
+
+    if (exporter->getSupportedFormats().length() > 0)
+    {
+        const ExportFormat* format = exporter->getSupportedFormats().at(0);
+
+        if (format->isFileExtensionMandatory())
+        {
+            fileDialogWidget->setDefaultSuffix(format->getDefaultFileExtension());
+        }
+    }
+
+    fileDialogWidget->setFilter(fileFilters[index]);
+}
+
+void ExportDialog::onFilterSelected(const QString& filter)
+{
+    int selectedIndex = exporterComboBox->currentIndex();
+    QVariant exporterVariant = exporterComboBox->itemData(selectedIndex);
+    Exporter* exporter = (Exporter*) exporterVariant.value<void*>();
+
+    foreach (const ExportFormat* format, exporter->getSupportedFormats())
+    {
+        if (format->getNamedFilter() == filter)
+        {
+            if (format->isFileExtensionMandatory())
+            {
+                fileDialogWidget->setDefaultSuffix(format->getDefaultFileExtension());
+            }
+
+            break;
+        }
+    }
 }

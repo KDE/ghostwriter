@@ -35,7 +35,7 @@ class QTextDocument;
 class LineParser;
 
 /**
- * Highlighter for the Markdown syntax.
+ * Highlighter for the Markdown text format.
  */
 class MarkdownHighlighter : public QSyntaxHighlighter
 {

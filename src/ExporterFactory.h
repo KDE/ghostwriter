@@ -24,14 +24,31 @@
 
 #include "Exporter.h"
 
+/**
+ * Creates Exporters for use with HTML live preview and exporting to disk.
+ */
 class ExporterFactory
 {
     public:
+        /**
+         * Gets the singleton instance of this class.
+         */
         static ExporterFactory* getInstance();
 
+        /**
+         * Destructor.
+         */
         ~ExporterFactory();
 
+        /**
+         * Gets a list of Exporters that support exporting to a file.
+         */
         QList<Exporter*> getFileExporters();
+
+        /**
+         * Gets a list of Exporters that support exporting to HTML for
+         * HTML live preview rendering.
+         */
         QList<Exporter*> getHtmlExporters();
 
     private:
@@ -39,13 +56,46 @@ class ExporterFactory
         QList<Exporter*> fileExporters;
         QList<Exporter*> htmlExporters;
 
+        /*
+         * Constructor.
+         */
         ExporterFactory();
 
-        // testCommand is a simplified command to see if executable is
-        // installed and available. An example of a test command would be:
-        //    <process_name> --version
-        //
+        /*
+         * Executes the given terminal command to see if the executable is
+         * installed and available.  An example of a test command would be:
+         *
+         *      <process_name> --version
+         */
         bool isCommandAvailable(const QString& testCommand) const;
+
+        /*
+         * Executes the given terminal command to get a version number for the
+         * application.  An example of a command would be:
+         *
+         *      <process_name> --version
+         *
+         * This method will return a list of integers representing the major,
+         * minor, etc., version numbers, in the order printed to stdout.
+         */
+        QList<int> extractVersionNumber(const QString& command) const;
+
+        /*
+         * Convenience method to create a Pandoc exporter with the given name
+         * and "from" command line argument.  Since Pandoc supports multiple
+         * Markdown flavors, we want to be able to create an exporter for
+         * each one (i.e., for Pandoc GitHub Flavored Markdown, Pandoc Strict,
+         * Pandoc CommonMark, etc.).  The inputFormat parameter specifies
+         * the argument to be passed to the -f option--for example,
+         * markdown, markdown_mmd, etc.
+         */
+        void addPandocExporter
+        (
+            const QString& name,
+            const QString& inputFormat
+        );
+
+
 };
 
 #endif // EXPORTERFACTORY_H

@@ -110,6 +110,7 @@ HEADERS += src/MainWindow.h \
     src/MarkdownEditor.h \
     src/Token.h \
     src/HtmlPreview.h \
+    src/ExportFormat.h \
     src/Exporter.h \
     src/Theme.h \
     src/ThemeFactory.h \
@@ -163,6 +164,7 @@ SOURCES += src/AppMain.cpp \
     src/Token.cpp \
     src/HtmlPreview.cpp \
     src/Exporter.cpp \
+    src/Theme.cpp \
     src/ThemeFactory.cpp \
     src/CommandLineExporter.cpp \
     src/HudWindow.cpp \
@@ -199,8 +201,7 @@ SOURCES += src/AppMain.cpp \
     src/sundown/html_smartypants.c \
     src/sundown/html.c \
     src/sundown/markdown.c \
-    src/sundown/stack.c \
-    src/Theme.cpp
+    src/sundown/stack.c
 
 # Allow for updating translations
 #TRANSLATIONS = $$files(translations/ghostwriter_*.ts)

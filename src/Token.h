@@ -47,7 +47,14 @@
 class Token
 {
     public:
+        /**
+         * Constructor.
+         */
         Token();
+
+        /**
+         * Destructor.
+         */
         ~Token();
 
         /**

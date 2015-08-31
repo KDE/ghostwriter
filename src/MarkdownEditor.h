@@ -38,6 +38,9 @@
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
 
+/**
+ * Markdown editor having special shortcut key handing and live spell checking.
+ */
 class MarkdownEditor : public QPlainTextEdit
 {
 	Q_OBJECT

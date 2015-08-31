@@ -26,6 +26,12 @@
 #include "MarkdownEditorTypes.h"
 #include "MarkdownStyles.h"
 
+/**
+ * Loads and stores application settings via QSettings, particularly for
+ * those settings that need special range checking.  Be sure to call
+ * getInstance on application start up to set up settings file paths before
+ * using QSettings directly for other settings not managed by this class.
+ */
 class AppSettings
 {
     public:

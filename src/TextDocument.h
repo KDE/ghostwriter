@@ -5,16 +5,39 @@
 #include <QString>
 #include <QDateTime>
 
+/**
+ * Text document that maintains timestamp, read-only state, and new vs.
+ * saved status.
+ */
 class TextDocument : public QTextDocument
 {
     Q_OBJECT
 
     public:
+        /**
+         * Constructor.
+         */
         TextDocument(QObject* parent = 0);
+
+        /**
+         * Destructor.
+         */
         virtual ~TextDocument();
 
+        /**
+         * Gets display name for the document for displaying in a text
+         * editor's containing window or tab.
+         */
         QString getDisplayName() const;
+
+        /**
+         * Gets the document file path.
+         */
         QString getFilePath() const;
+
+        /**
+         * Sets the document file path.
+         */
         void setFilePath(const QString& path);
 
         /**
@@ -30,7 +53,7 @@ class TextDocument : public QTextDocument
         /**
          * Sets whether the document has read only permissions.
          */
-        bool setReadOnly(bool readOnly);
+        void setReadOnly(bool readOnly);
 
         /**
          * Gets the timestamp of the document, which is useful when comparing
@@ -42,9 +65,12 @@ class TextDocument : public QTextDocument
          * Sets a timestamp to the document, which is useful when comparing
          * the last modified time of the file represented on disk.
          */
-        bool setTimestamp(const QDateTime& timestamp);
+        void setTimestamp(const QDateTime& timestamp);
 
     signals:
+        /**
+         * Emitted when the file path changes.
+         */
         void filePathChanged();
 
     private:

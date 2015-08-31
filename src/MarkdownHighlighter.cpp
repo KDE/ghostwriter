@@ -44,10 +44,11 @@
 
 MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
-        useUndlerlineForEmphasis(false),
-        spellCheckEnabled(false),
-        inBlockquote(false),
         dictionary(DictionaryManager::instance().requestDictionary()),
+        spellCheckEnabled(false),
+        spellCheckEnabled(false),
+        useUndlerlineForEmphasis(false),
+        inBlockquote(false),
         defaultTextColor(Qt::black),
         backgroundColor(Qt::white),
         markupColor(Qt::black),

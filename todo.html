@@ -1,0 +1,43 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title></title></head><body><h1>TODO</h1>
+
+<ul>
+<li>[x] Color block quotes consistently across styles.</li>
+<li>[x] Put in rgb/rgba string helper method in ColorHelper.</li>
+<li>[x] <code>Ctrl+D</code> should toggle a GFM task item as done or not done (toggle the <code>x</code>).</li>
+<li>[x] Fix Highlighter&#39;s nested list highlighting. See example far down below for how messed up it is when line breaks are introduced.</li>
+<li>[x] Indent numbering/bullets when <code>Tab</code> key is pressed.</li>
+<li>[x] Unindent numbering/bullets when <code>Shift+Tab</code> is pressed.</li>
+<li>[x] Have GitHub-style todo lists auto-list just like bullet point lists when <code>Enter</code> key is pressed.</li>
+<li>[x] Highlighter breaks when new block started immediately after non-paragraph-break block.</li>
+<li>[x] Add option to auto-type a character&#39;s closing pair when the opening character is typed. (For <code>`</code>, <code>*</code>, <code>_</code>, <code>(</code>, <code>&quot;</code>, <code>&#39;</code>, <code>[</code>, <code>{</code>, <code>&lt;</code>)<br></li>
+<li>[x] Change &ldquo;Editor Width&hellip;&rdquo; and &ldquo;Block quote Style&hellip;&rdquo; menu options in the Settings menu to be sub-menus rather than bringing up a separate dialog.<br></li>
+<li>[x] Spell check underlines in Windows aren&#39;t wavy.  Need to force spell check underline style based on operating system.</li>
+<li>[x] Test that &ldquo;Open with&hellip;&rdquo; on any text file with the Windows Explorer context menu can open the file in ghostwriter.</li>
+<li>[x] Do find and replace for Markup states/tokens.  (Change to <em>Markdown</em> states/tokens.)</li>
+<li>[x] Have HTML Preview window emit signal for long operations (i.e., export) so that main window&#39;s status bar can show status.</li>
+<li>[x] Do a better word count so that non-word characters don&#39;t get counted.</li>
+<li>[x] Populate find dialog w/selected text if text is selected.</li>
+<li><p>[x] Add option to have HUD close button on either the right or left side of the window. <strong>Update:</strong> Decided against this course of action.  Set it to be on the left side if on Mac OS X; otherwise, it will be on the right side.  That&#39;s the best compromise for now, until a means of determining the window manager&#39;s settings is discovered.  So far, there isn&#39;t a way to detect where the Window Manager lays out its buttons in the window frame.</p></li>
+<li><p>[x] Fullscreen button isn&#39;t &ldquo;highlighting&rdquo; when you hover your mouse when the button is themed to be a light color.  Fix it!  <strong>Update:</strong>  Can&#39;t do much about it, since it&#39;s the &ldquo;dark&rdquo; icons that do it, and only when the editor aspect is stretched and the text happens to be set to white in the theme.  In other words, it can&#39;t get any brighter on a hover. <strong>Update</strong> Mostly fixed it.  The fadedTextColor in applyTheme() (MainWindow.cpp) needed a lower alpha value.  There wasn&#39;t enough contrast to notice before.  <strong>Update</strong> Didn&#39;t like how faded the focus button and word count looked with some of the themes.  Returned fadedTextColor to have alpha value of 200.</p></li>
+<li><p>[x] Make HUD close button shade on hover a different color other than orange.</p></li>
+<li><p>[x] Add more padding on the right and left of the &ldquo;Focus&rdquo; button so that it looks better in Windows.</p></li>
+<li><p>[x] Test Focus button change in Windows (due to having to set margin in a funny way).</p></li>
+<li><p>[x] Update the &ldquo;Quick Reference Guide&rdquo;.</p></li>
+<li><p>[x] Add built-in Markdown converter (Sundown)</p></li>
+<li><p>[-] Delete fullScreenButton in MainWindow.cpp, and set it&#39;s parent to null or something so that MainWindow isn&#39;t the parent and can&#39;t therefore delete it.  <strong>Update:</strong> Can&#39;t do this, because the parent was never MainWindow for the QGraphicsColorizeEffect.  Yet, it seems to get owned anyway?  Come to think of it, it&#39;s probably owned by the fullScreenButton.  Unsetting the graphics effect from fullScreenButton will cause Qt (i.e., the parent, fullScreenButton) to automatically delete it.</p></li>
+<li><p>[x] Blockquotes are not fading out bold and italic text, so that text stands out from the rest of the blockquote text.</p></li>
+<li><p>[x] Test the new MultiMarkdown v4</p></li>
+<li><p>[x] Allow user to remove stylesheets from HTML preview stylesheet drop down list options.</p></li>
+<li><p>[x] Take out Donate dialog? <strong>Pray!</strong></p></li>
+<li><p>[x] Look into Flattr/PayPal for donations</p></li>
+</ul>
+
+<h1>Future Enhancements</h1>
+
+<ul>
+<li>[ ] Limit Pandoc export options?</li>
+<li>[ ] Introduce Markdown converter version numbering parser?</li>
+<li>[ ] Allow user to add custom command line exporters</li>
+<li>[ ] Add cmark as built-in Markdown converter.</li>
+</ul>
+</body></html>
