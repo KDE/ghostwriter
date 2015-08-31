@@ -24,25 +24,37 @@
 
 class QListWidget;
 
+/**
+ * Manages the addition and removal of the user's Custom Style Sheet (CSS) files
+ * for use in the Live HTML Preview.
+ */
 class StyleSheetManagerDialog : public QDialog
 {
     Q_OBJECT
 
     public:
-        explicit StyleSheetManagerDialog
+        /**
+         * Constructor.  Takes list of initial style sheets to display as a
+         * parameter.
+         */
+        StyleSheetManagerDialog
         (
             const QStringList& initialStyleSheets,
             QWidget *parent = 0
         );
-        virtual ~StyleSheetManagerDialog();
 
+        /**
+         * Destructor.
+         */
+        ~StyleSheetManagerDialog();
+
+        /**
+         * Gets the list of user style sheets (as file paths).  Call this
+         * method after exec() returns.
+         */
         QStringList getStyleSheets() const;
 
-    signals:
-        void addItemRequested();
-        void itemRemoved(int index);
-
-    public slots:
+    private slots:
         void accept();
         void reject();
 

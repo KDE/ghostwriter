@@ -36,7 +36,7 @@ class QTextDocument;
 class LineParser;
 
 /**
- * Highlighter for the Markdown syntax.
+ * Highlighter for the Markdown text format.
  */
 class MarkdownHighlighter : public QSyntaxHighlighter
 {
@@ -109,7 +109,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         bool strikethroughToken[TokenLast];
         int fontSizeIncrease[TokenLast];
 
-        /**
+        /*
          * Returns true if the given QTextBlock userState indicates that the
          * text block contains a heading.
          */

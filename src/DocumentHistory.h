@@ -33,18 +33,49 @@
 class DocumentHistory
 {
     public:
+        /**
+         * Constructor.
+         */
         DocumentHistory();
+
+        /**
+         * Destructor.
+         */
         ~DocumentHistory();
 
+        /**
+         * Returns the list of recent files, up to the maximum number specified.
+         * Specify a value of -1 to get the entire history.
+         */
         QStringList getRecentFiles(int max = -1);
+
+        /**
+         * Adds the given file path and cursor position to the history.
+         */
         void add(const QString& filePath, int cursorPosition);
+
+        /**
+         * Gets the last-known cursor position for the given file path.  This
+         * will return 0 (beginning of the file) if the last cursor position
+         * is unknown.
+         */
         int getCursorPosition(const QString& filePath);
+
+        /**
+         * Wipes the document history clean.
+         */
         void clear();
 
     signals:
+        /**
+         * Emitted when a recent file is added/removed from the history.
+         */
         void recentFilesChanged();
 
     private:
+        /*
+         * Encapsulates the file path/cursor position as a pair.
+         */
         class RecentFile
         {
             public:

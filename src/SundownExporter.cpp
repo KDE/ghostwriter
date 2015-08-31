@@ -33,15 +33,10 @@
 #include "sundown/buffer.h"
 
 
-SundownExporter::SundownExporter
-(
-    const QString& options,
-    const QString& fileFormatFilter
-) : Exporter("Sundown"), options(options)
+SundownExporter::SundownExporter() : Exporter("Sundown")
 {
-    this->setFileFormatFilter(fileFormatFilter);
+    supportedFormats.append(ExportFormat::HTML);
 }
-
 
 SundownExporter::~SundownExporter()
 {
@@ -51,7 +46,6 @@ SundownExporter::~SundownExporter()
 void SundownExporter::exportToHtml(const QString& text, QString& html)
 {
     QByteArray latin1Text = text.toUtf8().data();
-    struct buf* smartyPantsBuffer = bufnew(1024);
     struct buf* htmlOutputBuffer = bufnew(1024);
     struct sd_callbacks callbacks;
     struct html_renderopt options;
@@ -77,35 +71,60 @@ void SundownExporter::exportToHtml(const QString& text, QString& html)
 
     sd_markdown_free(markdown);
 
-    // Run HTML through smarty pants to get fancy quotation marks, etc.
-    sdhtml_smartypants
-    (
-        smartyPantsBuffer,
-        htmlOutputBuffer->data,
-        htmlOutputBuffer->size
-    );
+    if (this->getSmartTypographyEnabled())
+    {
+        // Run HTML through smarty pants to get fancy quotation marks, etc.
+        struct buf* smartyPantsBuffer = bufnew(1024);
 
-    // Use QString::fromUtf8 to ensure proper encoding in case there are
-    // unicode characters in the output HTML.
-    //
-    html = QString::fromUtf8
+        sdhtml_smartypants
         (
-            (char*) smartyPantsBuffer->data,
-            smartyPantsBuffer->size
+            smartyPantsBuffer,
+            htmlOutputBuffer->data,
+            htmlOutputBuffer->size
         );
 
-    bufrelease(smartyPantsBuffer);
+        // Use QString::fromUtf8 to ensure proper encoding in case there are
+        // unicode characters in the output HTML.
+        //
+        html = QString::fromUtf8
+            (
+                (char*) smartyPantsBuffer->data,
+                smartyPantsBuffer->size
+            );
+
+        bufrelease(smartyPantsBuffer);
+    }
+    else
+    {
+        // Use QString::fromUtf8 to ensure proper encoding in case there are
+        // unicode characters in the output HTML.
+        //
+        html = QString::fromUtf8
+            (
+                (char*) htmlOutputBuffer->data,
+                htmlOutputBuffer->size
+            );
+    }
+
     bufrelease(htmlOutputBuffer);
 }
 
 void SundownExporter::exportToFile
 (
+    const ExportFormat* format,
     const QString& text,
     const QString& outputFilePath,
     QString& err
 )
 {
     QString html;
+
+    if (ExportFormat::HTML != format)
+    {
+        err = QObject::tr("%1 format is unsupported by the Sundown processor.")
+            .arg(format->getName());
+        return;
+    }
 
     exportToHtml(text, html);
 

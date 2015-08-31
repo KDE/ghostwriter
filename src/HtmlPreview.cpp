@@ -422,7 +422,7 @@ void HtmlPreview::changeStyleSheet(int index)
     int selectionIndex = index;
 
     // If the "Add/Remove Custom Style Sheets" option was selected...
-    if (styleSheetComboBox->count() == index + 1)
+    if (styleSheetComboBox->count() == (index + 1))
     {
         // Save off the style sheet file path of the last selected item.
         QString oldSelection =
@@ -447,7 +447,7 @@ void HtmlPreview::changeStyleSheet(int index)
             customCssFiles = ssmDialog.getStyleSheets();
 
             // Remove all the old style sheets from the combo box.
-            while (styleSheetComboBox->count() > defaultStyleSheets.size() + 1)
+            while (styleSheetComboBox->count() > (defaultStyleSheets.size() + 1))
             {
                 styleSheetComboBox->removeItem(1);
             }
@@ -473,7 +473,15 @@ void HtmlPreview::changeStyleSheet(int index)
                 }
             }
 
-            if (selectionIndex < defaultStyleSheets.size())
+            // If the last selected style sheet was one of the default ones,
+            // and is still currently selected, then we don't need to update
+            // the preview again.
+            //
+            if
+            (
+                (lastStyleSheetIndex == selectionIndex) &&
+                (selectionIndex < defaultStyleSheets.size())
+            )
             {
                 previewUpdateNeeded = false;
             }
@@ -603,28 +611,4 @@ QString HtmlPreview::exportToHtml
     exporter->exportToHtml(text, html);
 
     return html;
-}
-
-void HtmlPreview::addRemoveStyleSheets()
-{
-
-
-    QString filePath =
-        QFileDialog::getOpenFileName
-        (
-            this,
-            tr("Select CSS File"),
-            QString(),
-            tr("CSS") + QString(" (*.css);;") + tr("All") + QString(" (*)")
-        );
-
-    if (filePath.isNull() || filePath.isEmpty())
-    {
-        // If the user canceled loading the custom CSS file, then reset
-        // combo box to have the previously selected style sheet selected.
-        //
-        styleSheetComboBox->setCurrentIndex(lastStyleSheetIndex);
-        return;
-    }
-
 }

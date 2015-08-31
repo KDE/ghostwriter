@@ -61,9 +61,9 @@ MarkdownEditor::MarkdownEditor
     MarkdownHighlighter* highlighter,
     QWidget* parent
 )
-    : textDocument(textDocument),
+    : QPlainTextEdit(parent),
+        textDocument(textDocument),
         highlighter(highlighter),
-        QPlainTextEdit(parent),
         dictionary(DictionaryManager::instance().requestDictionary()),
         mouseButtonDown(false)
 {

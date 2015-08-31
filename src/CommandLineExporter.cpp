@@ -25,11 +25,14 @@
 #include <stdio.h>
 
 
+const QString CommandLineExporter::OUTPUT_FILE_PATH_VAR = QString("${OUTPUT_FILE_PATH}");
+const QString CommandLineExporter::SMART_TYPOGRAPHY_ARG = QString("${SMART_TYPOGRAPHY_ARG}");
+
+
 CommandLineExporter::CommandLineExporter(const QString& name)
-    : Exporter(name),
-      htmlExportCommand(QString()),
-      fileExportCommand(QString()),
-      defaultOutputFileExtension(QString())
+    : Exporter(name), smartTypographyOnArgument(""),
+        smartTypographyOffArgument(""),
+        htmlRenderCommand(QString())
 {
     ;
 }
@@ -39,28 +42,54 @@ CommandLineExporter::~CommandLineExporter()
     ;
 }
 
-void CommandLineExporter::setHtmlExportCommand(const QString& command)
+void CommandLineExporter::setHtmlRenderCommand(const QString& command)
 {
-    htmlExportCommand = command;
+    htmlRenderCommand = command;
 }
 
-void CommandLineExporter::setFileExportCommand(const QString& command)
+void CommandLineExporter::addFileExportCommand
+(
+    const ExportFormat* format,
+    const QString& command
+)
 {
-    fileExportCommand = command;
+    formatToCommandMap.insert(format, command);
+    supportedFormats.append(format);
 }
 
-void CommandLineExporter::setDefaultOutputFileExtension(const QString& fileExtension)
+QString CommandLineExporter::getSmartTypographyOnArgument() const
 {
-    defaultOutputFileExtension = fileExtension;
+    return smartTypographyOnArgument;
+}
+
+void CommandLineExporter::setSmartTypographyOnArgument(const QString& argument)
+{
+    smartTypographyOnArgument = argument;
+}
+
+QString CommandLineExporter::getSmartTypographyOffArgument() const
+{
+    return smartTypographyOffArgument;
+}
+
+void CommandLineExporter::setSmartTypographyOffArgument(const QString& argument)
+{
+    smartTypographyOffArgument = argument;
 }
 
 void CommandLineExporter::exportToHtml(const QString& text, QString& html)
 {
     QString stderrOuptut;
 
-    if (!executeCommand(htmlExportCommand, text, QString(), html, stderrOuptut))
+    if (htmlRenderCommand.isNull() || htmlRenderCommand.isEmpty())
     {
-        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>)").arg(htmlExportCommand);
+        html = "<center><b style='color: red'>HTML is not supported for this processor.</b></center>";
+        return;
+    }
+
+    if (!executeCommand(htmlRenderCommand, text, QString(), html, stderrOuptut))
+    {
+        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>)").arg(htmlRenderCommand);
     }
     else if (!stderrOuptut.isNull() && !stderrOuptut.isEmpty())
     {
@@ -70,6 +99,7 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
 
 void CommandLineExporter::exportToFile
 (
+    const ExportFormat* format,
     const QString& text,
     const QString& outputFilePath,
     QString& err
@@ -78,21 +108,17 @@ void CommandLineExporter::exportToFile
     QString stdoutOutput;
     QString stderrOuptut;
 
-    QString filePath = outputFilePath;
-
-    if (!defaultOutputFileExtension.isNull() && !defaultOutputFileExtension.isEmpty())
+    if (!formatToCommandMap.contains(format))
     {
-        QFileInfo fileInfo(outputFilePath);
-
-        if (0 != fileInfo.suffix().compare(defaultOutputFileExtension, Qt::CaseInsensitive))
-        {
-            filePath += QString(".") + defaultOutputFileExtension;
-        }
+        err = QObject::tr("%1 format is not supported by this processor.").arg(format->getName());
+        return;
     }
 
-    if (!executeCommand(fileExportCommand, text, filePath, stdoutOutput, stderrOuptut))
+    QString command = formatToCommandMap.value(format);
+
+    if (!executeCommand(command, text, outputFilePath, stdoutOutput, stderrOuptut))
     {
-        err = QObject::tr("Failed to execute command: ") + QString("%1").arg(fileExportCommand);
+        err = QObject::tr("Failed to execute command: ") + QString("%1").arg(command);
     }
     else if (!stderrOuptut.isNull() && !stderrOuptut.isEmpty())
     {
@@ -120,7 +146,32 @@ bool CommandLineExporter::executeCommand
 
     if (!outputFilePath.isNull() && !outputFilePath.isEmpty())
     {
-        expandedCommand.replace(QString("${OUTPUT_FILE_PATH}"), outputFilePath);
+        expandedCommand.replace(OUTPUT_FILE_PATH_VAR, outputFilePath);
+    }
+
+    if
+    (
+        this->getSmartTypographyEnabled() &&
+        !this->smartTypographyOnArgument.isNull()
+    )
+    {
+        expandedCommand.replace
+        (
+            SMART_TYPOGRAPHY_ARG,
+            smartTypographyOnArgument
+        );
+    }
+    else if
+    (
+        !this->getSmartTypographyEnabled() &&
+        !this->smartTypographyOffArgument.isNull()
+    )
+    {
+        expandedCommand.replace
+        (
+            SMART_TYPOGRAPHY_ARG,
+            smartTypographyOffArgument
+        );
     }
 
     process.start(expandedCommand);

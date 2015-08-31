@@ -23,6 +23,9 @@
 class QColor;
 class QString;
 
+/**
+ * Helper class for dealing with colors.
+ */
 class ColorHelper
 {
     public:
@@ -69,17 +72,13 @@ class ColorHelper
          */
          static QString toRgbaString(const QColor& color);
 
-        /**
-         * Returns luminance of the given color on a scale of 0.0 (dark) to
-         * 1.0 (light).  Luminance is based on how light or dark a color
-         * appears to the human eye.
-         */
-        static double getLuminance(const QColor& color);
-
-
-        static QColor adjustBrightness(const QColor& color, int delta);
-
     private:
+        /**
+         * Helper method for applying alpha value to a single color channel.
+         * It will return the new color channel value that results from
+         * applying the given alpha value to the given foreground channel
+         * value against the given background channel value.
+         */
         static inline int applyAlphaToChannel
         (
             const int foreground,

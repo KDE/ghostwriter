@@ -46,10 +46,10 @@
 
 MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
-        useUndlerlineForEmphasis(false),
+        dictionary(DictionaryManager::instance().requestDictionary()),
         spellCheckEnabled(false),
-        inBlockquote(false),
-        dictionary(DictionaryManager::instance().requestDictionary())
+        useUndlerlineForEmphasis(false),
+        inBlockquote(false)
 {
     this->tokenizer = new MarkdownParser();
 

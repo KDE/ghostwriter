@@ -156,7 +156,8 @@ HEADERS += src/MainWindow.h \
     src/sundown/html_blocks.h \
     src/sundown/html.h \
     src/sundown/markdown.h \
-    src/sundown/stack.h
+    src/sundown/stack.h \
+    src/ExportFormat.h
 
 SOURCES += src/AppMain.cpp \
     src/MainWindow.cpp \
@@ -200,7 +201,8 @@ SOURCES += src/AppMain.cpp \
     src/sundown/html_smartypants.c \
     src/sundown/html.c \
     src/sundown/markdown.c \
-    src/sundown/stack.c
+    src/sundown/stack.c \
+    src/ExportFormat.cpp
 
 # Allow for updating translations
 #TRANSLATIONS = $$files(translations/ghostwriter_*.ts)

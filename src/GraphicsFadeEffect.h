@@ -28,7 +28,14 @@
 class GraphicsFadeEffect : public QGraphicsEffect
 {
     public:
+        /**
+         * Constructor.
+         */
         GraphicsFadeEffect(QObject* parent = 0);
+
+        /**
+         * Destructor.
+         */
         virtual ~GraphicsFadeEffect();
 
         /**
@@ -37,6 +44,9 @@ class GraphicsFadeEffect : public QGraphicsEffect
          */
         void setFadeHeight(int height);
 
+        /**
+         * Overridden method to draw the effect.
+         */
         void draw(QPainter* painter);
 
     private:
