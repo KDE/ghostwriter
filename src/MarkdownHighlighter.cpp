@@ -46,7 +46,6 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
         dictionary(DictionaryManager::instance().requestDictionary()),
         spellCheckEnabled(false),
-        spellCheckEnabled(false),
         useUndlerlineForEmphasis(false),
         inBlockquote(false),
         defaultTextColor(Qt::black),

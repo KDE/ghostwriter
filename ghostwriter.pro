@@ -164,6 +164,7 @@ SOURCES += src/AppMain.cpp \
     src/Token.cpp \
     src/HtmlPreview.cpp \
     src/Exporter.cpp \
+    src/ExportFormat.cpp \
     src/Theme.cpp \
     src/ThemeFactory.cpp \
     src/CommandLineExporter.cpp \
