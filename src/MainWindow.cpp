@@ -1155,6 +1155,8 @@ void MainWindow::buildStatusBar()
     wordCountLabel = new QLabel();
     wordCountLabel->setText(QString("0 ") + tr("words"));
     wordCountLabel->setAlignment(Qt::AlignCenter);
+    wordCountLabel->setFrameShape(QFrame::NoFrame);
+    wordCountLabel->setLineWidth(0);
     statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     statusBarLayout->setColumnStretch(1, 1);
 
@@ -1608,9 +1610,6 @@ void MainWindow::applyTheme()
         ;
 
     outlineWidget->setStyleSheet(styleSheet);
-
-    wordCountLabel->setFrameShape(QFrame::NoFrame);
-    wordCountLabel->setLineWidth(0);
     editor->setupPaperMargins(this->width());
 }
 
