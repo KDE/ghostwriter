@@ -1522,10 +1522,10 @@ void MainWindow::applyTheme()
         << statusBarBgColorRGBA
         << " } "
         << "QStatusBar::item { border: 0 } "
-        << "QLabel { margin: 0; padding: 0; border: 0; font-size: 10pt; background: transparent; color: "
+        << "QLabel { margin: 0; padding: 0; border: 0; background: transparent; color: "
         << statusBarItemFgColorRGB
         << " } "
-        << "QPushButton { margin: 0 5px 0 5px; padding: 3px; border: 0; font-size: 10pt; height: 20px; border-radius: 5px; background: transparent"
+        << "QPushButton { padding: 5px; border: 0; border-radius: 5px; background: transparent"
         << "; color: "
         << statusBarItemFgColorRGB
         << " } "
