@@ -114,7 +114,7 @@ ExporterFactory::ExporterFactory()
         );
         exporter->addFileExportCommand
         (
-            ExportFormat::ODT,
+            ExportFormat::ODF,
             QString("multimarkdown %1 -t odf -o %2")
                 .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
                 .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
