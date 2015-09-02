@@ -27,7 +27,7 @@ const ExportFormat* const ExportFormat::HTML5
 const ExportFormat* const ExportFormat::ODT
     = new ExportFormat("OpenDocument Text", "(*.odt)", "odt", true);
 const ExportFormat* const ExportFormat::ODF
-    = new ExportFormat("OpenDocument Format", "(*.odt *.fodt)", "odt");
+    = new ExportFormat("OpenDocument Flat XML Format", "(*.odt *.fodt *.xml)", "odt");
 const ExportFormat* const ExportFormat::RTF
     = new ExportFormat("Rich Text Format", "(*.rtf)", "rtf", true);
 const ExportFormat* const ExportFormat::DOCX

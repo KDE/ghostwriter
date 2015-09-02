@@ -259,14 +259,6 @@ void ExporterFactory::addPandocExporter
     );
     exporter->addFileExportCommand
     (
-        ExportFormat::ODF,
-        QString("pandoc %1 -f %2 -t opendocument --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
-    );
-    exporter->addFileExportCommand
-    (
         ExportFormat::RTF,
         QString("pandoc %1 -f %2 -t rtf --standalone -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
