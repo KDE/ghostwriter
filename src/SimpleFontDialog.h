@@ -75,7 +75,7 @@ class SimpleFontDialog : public QDialog
         static QFont getFont(bool* ok, QWidget* parent = 0);
 
     private slots:
-        void onFontFamilyChanged(const QString& familyText);
+        void onFontFamilyChanged(const QFont& font);
         void onFontSizeChanged(const QString& sizeText);
 
     private:

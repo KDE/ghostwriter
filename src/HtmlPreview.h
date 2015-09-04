@@ -43,6 +43,9 @@
 #include "Exporter.h"
 #include "TextDocument.h"
 
+class QPrintPreviewDialog;
+class QPrinter;
+
 /**
  * Live HTML Preview window.
  */
@@ -135,6 +138,14 @@ class HtmlPreview : public QMainWindow
         QRegExp headingTagExp;
         int lastStyleSheetIndex;
         QStringList customCssFiles;
+
+        /*
+         * Used to set default page layout options for printing.  Also,
+         * if the user closes the print preview dialog, the page layout and
+         * page size settings are remembered in the event that the user reopens
+         * the dialog during the same application session.
+         */
+        QPrinter printer;
 
         // flag used to prevent recursion in changeStyleSheet
         bool handlingStyleSheetChange;

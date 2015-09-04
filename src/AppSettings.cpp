@@ -24,7 +24,6 @@
 #include <QSettings>
 #include <QFontInfo>
 #include <QFontDatabase>
-#include <QtAlgorithms>
 #include <QDebug>
 
 #include "AppSettings.h"
@@ -371,7 +370,6 @@ AppSettings::AppSettings()
     QFontDatabase fontDb;
 
     QStringList fontFamilies = fontDb.families();
-    bool fontMatchFound = false;
     QStringList preferredFonts;
 
 #ifdef Q_OS_MAC
@@ -393,24 +391,27 @@ AppSettings::AppSettings()
     preferredFonts.append("Courier New");
     preferredFonts.append("Courier");
 
-    int i = 0;
-
     // Pick the first font in the list of preferredFonts that is installed
     // (i.e., in the font database) to use as the default font on the very
     // first start up of this program.
     //
-    while (!fontMatchFound && (i < preferredFonts.size()))
+    bool fontMatchFound = false;
+
+    for (int i = 0; i < preferredFonts.size(); i++)
     {
-        QStringList::const_iterator fontIter =
-            qBinaryFind(fontFamilies, preferredFonts[i]);
+        fontMatchFound =
+            std::binary_search
+            (
+                fontFamilies.begin(),
+                fontFamilies.end(),
+                preferredFonts[i]
+            );
 
-        if (fontIter != fontFamilies.end())
+        if (fontMatchFound)
         {
-            fontMatchFound = true;
-            defaultFont = QFont(*fontIter);
+            defaultFont = QFont(preferredFonts[i]);
+            break;
         }
-
-        i++;
     }
 
     if (!fontMatchFound)

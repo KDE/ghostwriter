@@ -23,12 +23,12 @@
 #include <QObject>
 #include <QWidget>
 #include <QFutureWatcher>
+#include <QPrinter>
 
 #include "MarkdownEditor.h"
 #include "TextDocument.h"
 
 class QFileSystemWatcher;
-class QPrinter;
 
 /**
  * Manages the life-cycle of a document, facilitating user interaction for
@@ -203,6 +203,8 @@ class DocumentManager : public QObject
         void autoSaveFile();
 
     private:
+        static const QString FILE_CHOOSER_FILTER;
+
         QWidget* parentWidget;
         TextDocument* document;
         MarkdownEditor* editor;
@@ -210,6 +212,14 @@ class DocumentManager : public QObject
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;
         bool createBackupOnSave;
+
+        /*
+         * Used to set default page layout options for printing.  Also,
+         * if the user closes the print preview dialog, the page layout and
+         * page size settings are remembered in the event that the user reopens
+         * the dialog during the same application session.
+         */
+        QPrinter printer;
 
         /*
          * This flag is used to prevent notifying the user that the document

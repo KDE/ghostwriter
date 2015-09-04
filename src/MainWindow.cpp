@@ -1517,17 +1517,29 @@ void MainWindow::applyTheme()
 
     setStyleSheet(styleSheet);
 
+    // Make the word count and focus mode button font size
+    // match the menu bar's font size, since on Windows using
+    // the default QLabel and QPushButton font sizes results in
+    // tiny font sizes for these.  We need them to stand out
+    // a little bit more than a typical label or button.
+    //
+    int menuBarFontSize = this->menuBar()->fontInfo().pointSize();
+
     styleSheet = "";
 
     stream
-        << "QStatusBar { margin: 0; padding: 0; border: 0; font-size: 10pt; background: "
+        << "QStatusBar { margin: 0; padding: 0; border: 0; background: "
         << statusBarBgColorRGBA
         << " } "
         << "QStatusBar::item { border: 0 } "
-        << "QLabel { margin: 0; padding: 0; border: 0; background: transparent; color: "
+        << "QLabel { font-size: "
+        << menuBarFontSize
+        << "pt; margin: 0; padding: 0; border: 0; background: transparent; color: "
         << statusBarItemFgColorRGB
         << " } "
-        << "QPushButton { padding: 5px; border: 0; border-radius: 5px; background: transparent"
+        << "QPushButton { font-size: "
+        << menuBarFontSize
+        << "pt; padding: 5px; border: 0; border-radius: 5px; background: transparent"
         << "; color: "
         << statusBarItemFgColorRGB
         << " } "

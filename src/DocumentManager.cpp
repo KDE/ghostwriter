@@ -47,8 +47,17 @@
 #include "MessageBoxHelper.h"
 #include "ThemeFactory.h"
 
+// As of Qt 5.3, a new class was introduced, QPageLayout, which separated
+// page layout functionality from QPrinter.  Detect whether this new
+// class is supported.  Note that we have no choice but to use the API changes,
+// since the old API was done away with.
+//
+#if QT_MAJOR_VERSION >= 5 && QT_MINOR_VERSION >= 3
+#include <QMarginsF>
+#include <QPageLayout>
+#endif
 
-const QString& FILE_CHOOSER_FILTER =
+const QString DocumentManager::FILE_CHOOSER_FILTER =
     QString("%1 (*.md *.markdown *.txt);;%2 (*.txt);;%3 (*)")
         .arg(QObject::tr("Markdown"))
         .arg(QObject::tr("Text"))
@@ -70,6 +79,16 @@ DocumentManager::DocumentManager
 
     connect(document, SIGNAL(modificationChanged(bool)), this, SLOT(onDocumentModifiedChanged(bool)));
 
+    // Set up default page layout and page size for printing.
+    printer.setPaperSize(QPrinter::Letter);
+
+#if QT_MAJOR_VERSION >= 5 && QT_MINOR_VERSION >= 3
+    printer.setPageMargins(QMarginsF(0.5, 0.5, 0.5, 0.5), QPageLayout::Inch);
+#else
+    printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
+#endif
+
+    // Set up auto-save timer to save the file once every minute.
     autoSaveTimer = new QTimer(this);
     autoSaveTimer->start(60000);
 
@@ -189,14 +208,24 @@ void DocumentManager::open(const QString& filePath)
             {
                 editor->navigateDocument(oldCursorPosition);
             }
-            else if (fileHistoryEnabled && !oldFileWasNew)
+            else if (fileHistoryEnabled)
             {
-                DocumentHistory history;
-                history.add
-                (
-                    oldFilePath,
-                    oldCursorPosition
-                );
+                if (!oldFileWasNew)
+                {
+                    DocumentHistory history;
+                    history.add
+                    (
+                        oldFilePath,
+                        oldCursorPosition
+                    );
+                }
+
+                // Always emit a documentClosed() signal, even if the document
+                // was new and untitled.  This is so that if a file from the
+                // displayed history is being loaded, its path will be
+                // guaranteed to be removed from the "Open Recent" file list
+                // displayed to the user (because it's already opened).
+                //
                 emit documentClosed();
             }
         }
@@ -218,6 +247,7 @@ void DocumentManager::reopenLastClosedFile()
         if (!recentFiles.isEmpty())
         {
             open(recentFiles.first());
+            emit documentClosed();
         }
     }
 }
@@ -377,24 +407,36 @@ bool DocumentManager::close()
             this->saveFutureWatcher->waitForFinished();
         }
 
-        if (fileHistoryEnabled && !document->isNew())
-        {
-            DocumentHistory history;
-            history.add
-            (
-                document->getFilePath(),
-                editor->textCursor().position()
-            );
+        // Get the document's information before closing it out
+        // so we can store history information about it.
+        //
+        QString filePath = document->getFilePath();
+        bool documentIsNew = document->isNew();
 
-            emit documentClosed();
-        }
-
+        // Set up a new, untitled document.  Note that the document
+        // needs to be wiped clean before emitting the documentClosed()
+        // signal, because slots accepting this signal may check the
+        // new (replacement) document's status.
+        //
         document->setPlainText("");
         document->clearUndoRedoStacks();
         editor->setReadOnly(false);
         document->setReadOnly(false);
         setFilePath(QString());
         document->setModified(false);
+
+        if (fileHistoryEnabled && !documentIsNew)
+        {
+            DocumentHistory history;
+            history.add
+            (
+                filePath,
+                editor->textCursor().position()
+            );
+
+            emit documentClosed();
+        }
+
         return true;
     }
 
@@ -413,14 +455,13 @@ void DocumentManager::exportFile()
 
 void DocumentManager::printPreview()
 {
-    QPrintPreviewDialog printPreviewDialog(NULL, parentWidget);
+    QPrintPreviewDialog printPreviewDialog(&printer, parentWidget);
     connect(&printPreviewDialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(printFileToPrinter(QPrinter*)));
     printPreviewDialog.exec();
 }
 
 void DocumentManager::print()
 {
-    QPrinter printer;
     QPrintDialog printDialog(&printer, parentWidget);
 
     if (printDialog.exec() == QDialog::Accepted)

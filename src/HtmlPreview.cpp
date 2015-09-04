@@ -35,6 +35,17 @@
 #include <QtConcurrentRun>
 #include <QFuture>
 #include <QSettings>
+#include <QPrinter>
+
+// As of Qt 5.3, a new class was introduced, QPageLayout, which separated
+// page layout functionality from QPrinter.  Detect whether this new
+// class is supported.  Note that we have no choice but to use the API changes,
+// since the old API was done away with.
+//
+#if QT_MAJOR_VERSION >= 5 && QT_MINOR_VERSION >= 3
+#include <QMarginsF>
+#include <QPageLayout>
+#endif
 
 #include "HtmlPreview.h"
 #include "Exporter.h"
@@ -63,6 +74,7 @@ HtmlPreview::HtmlPreview
         settings.value(GW_CUSTOM_STYLE_SHEETS_KEY, QStringList()).toStringList();
 
     htmlBrowser = new QWebView(this);
+    htmlBrowser->settings()->setDefaultTextEncoding("utf-8");
 
     setWindowTitle(tr("HTML Preview"));
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -162,6 +174,7 @@ HtmlPreview::HtmlPreview
     }
 
     styleSheetComboBox->addItem(tr("Add/Remove Custom Style Sheets..."));
+
     // Find the last used style sheet, and set it as selected in the combo box.
     for (int i = 0; i < styleSheetComboBox->count() - 1; i++)
     {
@@ -184,6 +197,15 @@ HtmlPreview::HtmlPreview
 
     this->connect(document, SIGNAL(filePathChanged()), SLOT(updateBaseDir()));
     this->updateBaseDir();
+
+    // Set up default page layout and page size for printing.
+    printer.setPaperSize(QPrinter::Letter);
+
+#if QT_MAJOR_VERSION >= 5 && QT_MINOR_VERSION >= 3
+    printer.setPageMargins(QMarginsF(0.5, 0.5, 0.5, 0.5), QPageLayout::Inch);
+#else
+    printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
+#endif
 }
 
 HtmlPreview::~HtmlPreview()
@@ -292,17 +314,6 @@ void HtmlPreview::onHtmlReady()
     QTextStream oldHtmlDoc((QString*) &(this->html), QIODevice::ReadOnly);
     QTextStream anchoredHtmlDoc(&anchoredHtml, QIODevice::WriteOnly);
 
-    anchoredHtmlDoc
-        << "<html>"
-             "<head>"
-               "<meta http-equiv=\"Content-Type\" "
-                    "content=\"text/html; charset=UTF-8\" />"
-               "<title>Preview</title>"
-               "<style type=\"text/css\">"
-               "</style>"
-             "</head>"
-             "<body>";
-
     bool differenceFound = false;
     QString oldLine = oldHtmlDoc.readLine();
     QString newLine = newHtmlDoc.readLine();
@@ -333,10 +344,6 @@ void HtmlPreview::onHtmlReady()
         anchoredHtmlDoc << newLine << "\n";
         newLine = newHtmlDoc.readLine();
     }
-
-    anchoredHtmlDoc
-        <<   "</body>"
-        << "</html>";
 
     setHtml(anchoredHtml);
     this->html = html;
@@ -528,8 +535,16 @@ void HtmlPreview::changeStyleSheet(int index)
 
 void HtmlPreview::printPreview()
 {
-    QPrintPreviewDialog printPreviewDialog(NULL, this);
-    connect(&printPreviewDialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(printHtmlToPrinter(QPrinter*)));
+    QPrintPreviewDialog printPreviewDialog(&printer, this);
+
+    connect
+    (
+        &printPreviewDialog,
+        SIGNAL(paintRequested(QPrinter*)),
+        this,
+        SLOT(printHtmlToPrinter(QPrinter*))
+    );
+
     printPreviewDialog.exec();
 }
 

@@ -306,7 +306,6 @@ void MarkdownHighlighter::setFont(const QString& fontFamily, const double fontSi
     font.setWeight(QFont::Normal);
     font.setItalic(false);
     font.setPointSizeF(fontSize);
-    font.setStyleStrategy(QFont::PreferAntialias);
     defaultFormat.setFont(font);
     rehighlight();
 }
