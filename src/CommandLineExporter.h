@@ -122,6 +122,16 @@ class CommandLineExporter : public Exporter
          * be executed as:
          *
          *      pandoc -f markdown -t html ~/Documents/text.html
+         *
+         * Note that if this string value does not appear in the command string,
+         * stdout will be directed to the outputFilePath provided when
+         * exportToFile() is called.  For example:
+         *
+         *      pandoc -f markdown -t html
+         *
+         * When exportToFile() is called, the above command will have its stdout
+         * output written to the file path specified by the outputFilePath
+         * parameter passed to the method.
          */
         static const QString OUTPUT_FILE_PATH_VAR;
 

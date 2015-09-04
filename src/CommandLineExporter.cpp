@@ -22,7 +22,6 @@
 #include <QObject>
 
 #include "CommandLineExporter.h"
-#include <stdio.h>
 
 
 const QString CommandLineExporter::OUTPUT_FILE_PATH_VAR = QString("${OUTPUT_FILE_PATH}");
@@ -146,7 +145,17 @@ bool CommandLineExporter::executeCommand
 
     if (!outputFilePath.isNull() && !outputFilePath.isEmpty())
     {
-        expandedCommand.replace(OUTPUT_FILE_PATH_VAR, outputFilePath);
+        // Redirect stdout to the output file path if the path variable wasn't
+        // set in the command string.
+        //
+        if (!expandedCommand.contains(OUTPUT_FILE_PATH_VAR))
+        {
+            process.setStandardOutputFile(outputFilePath);
+        }
+        else
+        {
+            expandedCommand.replace(OUTPUT_FILE_PATH_VAR, outputFilePath);
+        }
     }
 
     if

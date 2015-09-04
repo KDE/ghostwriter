@@ -126,6 +126,7 @@ class ExportFormat
         static const ExportFormat* const LYX;
         static const ExportFormat* const MEMOIR;
         static const ExportFormat* const GROFFMAN;
+        static const ExportFormat* const MANPAGE;
 
     private:
         QString name;

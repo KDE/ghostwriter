@@ -47,7 +47,9 @@ const ExportFormat* const ExportFormat::LYX
 const ExportFormat* const ExportFormat::MEMOIR
     = new ExportFormat("memoir", "(*.tex *.ltx *.latex)", "tex");
 const ExportFormat* const ExportFormat::GROFFMAN
-    = new ExportFormat("groff man page", "(*.man)", "man", true);
+    = new ExportFormat("groff man page", "(*.man *.1 *.2 *.3 *.4 *.5 *.6 *.7 *.8)", "man", true);
+const ExportFormat* const ExportFormat::MANPAGE
+    = new ExportFormat("man page", "(*.man *.1 *.2 *.3 *.4 *.5 *.6 *.7 *.8)", "man", true);
 
 
 ExportFormat::ExportFormat()
