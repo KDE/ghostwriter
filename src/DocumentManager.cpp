@@ -47,16 +47,6 @@
 #include "MessageBoxHelper.h"
 #include "ThemeFactory.h"
 
-// As of Qt 5.3, a new class was introduced, QPageLayout, which separated
-// page layout functionality from QPrinter.  Detect whether this new
-// class is supported.  Note that we have no choice but to use the API changes,
-// since the old API was done away with.
-//
-#if QT_MAJOR_VERSION >= 5 && QT_MINOR_VERSION >= 3
-#include <QMarginsF>
-#include <QPageLayout>
-#endif
-
 const QString DocumentManager::FILE_CHOOSER_FILTER =
     QString("%1 (*.md *.markdown *.txt);;%2 (*.txt);;%3 (*)")
         .arg(QObject::tr("Markdown"))
@@ -81,12 +71,7 @@ DocumentManager::DocumentManager
 
     // Set up default page layout and page size for printing.
     printer.setPaperSize(QPrinter::Letter);
-
-#if QT_MAJOR_VERSION >= 5 && QT_MINOR_VERSION >= 3
-    printer.setPageMargins(QMarginsF(0.5, 0.5, 0.5, 0.5), QPageLayout::Inch);
-#else
     printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
-#endif
 
     // Set up auto-save timer to save the file once every minute.
     autoSaveTimer = new QTimer(this);
