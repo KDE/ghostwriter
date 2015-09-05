@@ -128,7 +128,10 @@ HtmlPreview::HtmlPreview
 
     if (exporters.isEmpty())
     {
-        setHtml(QString("<b style='color: red'>") + tr("No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.") + QString("</b>"));
+        setHtml(QString("<b style='color: red'>") +
+            tr("No markdown (pandoc, multimarkdown, discount) processors are "
+                "installed.  Please install or add their installation locations "
+                "to your system PATH environment variable.") + QString("</b>"));
         exporter = NULL;
     }
     else
