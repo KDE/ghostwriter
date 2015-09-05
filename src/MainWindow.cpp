@@ -634,19 +634,21 @@ void MainWindow::showQuickReferenceGuide()
         }
 
         QTextStream inStream(&inputFile);
+        inStream.setCodec("UTF-8");
         QString html = inStream.readAll();
         inputFile.close();
 
         quickReferenceGuideViewer = new QWebView(this);
         quickReferenceGuideViewer->setWindowTitle(tr("Quick Reference Guide"));
         quickReferenceGuideViewer->setWindowFlags(Qt::Window);
+        quickReferenceGuideViewer->settings()->setDefaultTextEncoding("utf-8");
         quickReferenceGuideViewer->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
         quickReferenceGuideViewer->page()->action(QWebPage::Reload)->setVisible(false);
         quickReferenceGuideViewer->page()->action(QWebPage::OpenLink)->setVisible(false);
         quickReferenceGuideViewer->page()->action(QWebPage::OpenLinkInNewWindow)->setVisible(false);
         quickReferenceGuideViewer->settings()->setUserStyleSheetUrl(QUrl("qrc:/resources/github.css"));
         quickReferenceGuideViewer->page()->setContentEditable(false);
-        quickReferenceGuideViewer->setContent(html.toUtf8());
+        quickReferenceGuideViewer->setContent(html.toUtf8(), "text/html");
         connect(quickReferenceGuideViewer, SIGNAL(linkClicked(QUrl)), this, SLOT(onQuickRefGuideLinkClicked(QUrl)));
         quickReferenceGuideViewer->resize(500, 600);
         quickReferenceGuideViewer->adjustSize();
