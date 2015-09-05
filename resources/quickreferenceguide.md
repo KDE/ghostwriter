@@ -196,6 +196,9 @@ The original John Gruber Markdown specification can be found at <http://daringfi
         - [ ] This is an incomplete task.
         - [x] `Ctrl+D` marks this task as done!
 
+`"`, `'`, `(`, `[`, `{`, `*`, `_`, ` ` `
+:   When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character.  For example, if you select the word `dog` and then enter the `(` character, the word `dog` will be enclosed in parentheses and become `(dog)`.
+
 - - - -
 
 Copyright (c) 2014, 2015 [wereturtle](http://www.github.com/wereturtle)
