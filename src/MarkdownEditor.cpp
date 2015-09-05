@@ -1520,7 +1520,7 @@ int MarkdownEditor::countWords(const QString& text)
             //
             separatorCount++;
 
-            if (separatorCount > 1)
+            if ((separatorCount > 1) && inWord)
             {
                 separatorCount = 0;
                 inWord = false;
