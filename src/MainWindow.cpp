@@ -665,16 +665,30 @@ void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
 void MainWindow::showAbout()
 {
     QString aboutText =
-        QString("<p><b>") +  qAppName() + QString(" ") + qApp->applicationVersion() + QString("</b></p>")
+        QString("<p><b>") +  qAppName() + QString(" ")
+        + qApp->applicationVersion() + QString("</b></p>")
         + tr("<p>Copyright &copy; 2014, 2015 wereturtle</b>"
              "<p>You may use and redistribute this software under the terms of the "
-             "<a href=\"http://www.gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</p>"
-             "<p>Visit the official website at <a href=\"http://github.com/wereturtle/ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p>"
+             "<a href=\"http://www.gnu.org/licenses/gpl.html\">"
+             "GNU General Public License Version 3</a>.</p>"
+             "<p>Visit the official website at "
+             "<a href=\"http://github.com/wereturtle/ghostwriter\">"
+             "http://github.com/wereturtle/ghostwriter</a>.</p>"
              "<p>Special thanks and credit for reused code goes to</p>"
-             "<p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a><br/>"
-             "Dmitry Shachnev, author of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/>"
-             "<a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/>"
-             "<p>I am also deeply indebted to <a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the inspiration he provided in creating such a beautiful Markdown editing tool.</p>");
+             "<p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, "
+             "author of "
+             "<a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a><br/>"
+             "Dmitry Shachnev, author of "
+             "<a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/>"
+             "<a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
+             "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/\">"
+             "StretchPlayer</a><br/>"
+             "<p>I am also deeply indebted to "
+             "<a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, "
+             "the author of "
+             "<a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, "
+             "for the inspiration he provided in creating such a beautiful "
+             "Markdown editing tool.</p>");
 
     QMessageBox::about(this, tr("About %1").arg(qAppName()), aboutText);
 }
