@@ -444,16 +444,6 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
             {
                 italic();
             }
-            else if (e->matches(QKeySequence::Redo) || e->matches(QKeySequence::Undo))
-            {
-                // Strange things can happen to the word count when an undo or
-                // redo operation involving a change in the document's text
-                // block count occurs.  Ensure that the editor's word count is
-                // refreshed after such operations.
-                //
-                QPlainTextEdit::keyPressEvent(e);
-                refreshWordCount();
-            }
             else
             {
                 QPlainTextEdit::keyPressEvent(e);
