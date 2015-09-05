@@ -260,7 +260,7 @@ void MarkdownEditor::setupPaperMargins(int width)
     if (EditorAspectStretch == aspect)
     {
         preferredLayout->setContentsMargins(0, 0, 0, 0);
-        setViewportMargins(margin, 0, margin, 0);
+        setViewportMargins(margin, 20, margin, 0);
     }
     else
     {
