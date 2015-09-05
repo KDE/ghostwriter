@@ -137,9 +137,9 @@ HEADERS += src/MainWindow.h \
     src/SundownExporter.h \
     src/StyleSheetManagerDialog.h \
     src/SimpleFontDialog.h \
-    src/LineParser.h \
-    src/MarkdownParser.h \
-    src/LineParserStates.h \
+    src/HighlighterLineStates.h \
+    src/HighlightTokenizer.h \
+    src/MarkdownTokenizer.h \
     src/locale_dialog.h \
     src/find_dialog.h \
     src/image_button.h \
@@ -186,8 +186,8 @@ SOURCES += src/AppMain.cpp \
     src/StyleSheetManagerDialog.cpp \
     src/SimpleFontDialog.cpp \
     src/SundownExporter.cpp \
-    src/LineParser.cpp \
-    src/MarkdownParser.cpp \
+    src/HighlightTokenizer.cpp \
+    src/MarkdownTokenizer.cpp \
     src/locale_dialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \

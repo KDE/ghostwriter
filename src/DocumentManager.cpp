@@ -42,7 +42,7 @@
 #include "Exporter.h"
 #include "ExporterFactory.h"
 #include "MarkdownHighlighter.h"
-#include "MarkdownParser.h"
+#include "MarkdownTokenizer.h"
 #include "ExportDialog.h"
 #include "MessageBoxHelper.h"
 #include "ThemeFactory.h"

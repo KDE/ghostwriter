@@ -42,7 +42,7 @@
 #include "MarkdownEditor.h"
 #include "TextBlockData.h"
 #include "MarkdownStates.h"
-#include "MarkdownParser.h"
+#include "MarkdownTokenizer.h"
 #include "GraphicsFadeEffect.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"

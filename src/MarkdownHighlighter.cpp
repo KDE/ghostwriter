@@ -33,7 +33,7 @@
 #include <Qt>
 
 #include "MarkdownHighlighter.h"
-#include "MarkdownParser.h"
+#include "MarkdownTokenizer.h"
 #include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
 #include "ColorHelper.h"
@@ -54,7 +54,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         linkColor(Qt::blue),
         spellingErrorColor(Qt::red)
 {
-    this->tokenizer = new MarkdownParser();
+    this->tokenizer = new MarkdownTokenizer();
 
     connect
     (
@@ -164,7 +164,7 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
             nextState = block.next().userState();
         }
 
-        tokenizer->parseLine(text, lastState, previousState, nextState);
+        tokenizer->tokenize(text, lastState, previousState, nextState);
         setCurrentBlockState(tokenizer->getState());
 
         if (MarkdownStateBlockquote == tokenizer->getState())

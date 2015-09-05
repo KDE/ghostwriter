@@ -17,52 +17,52 @@
  *
  ***********************************************************************/
 
-#include "LineParser.h"
-#include "LineParserStates.h"
+#include "HighlightTokenizer.h"
+#include "HighlighterLineStates.h"
 
-LineParser::LineParser()
+HighlightTokenizer::HighlightTokenizer()
 {
 
 }
 
-LineParser::~LineParser()
+HighlightTokenizer::~HighlightTokenizer()
 {
 
 }
 
-QList<Token> LineParser::getTokens() const
+QList<Token> HighlightTokenizer::getTokens() const
 {
     return tokens;
 }
 
-int LineParser::getState() const
+int HighlightTokenizer::getState() const
 {
     return state;
 }
 
-bool LineParser::backtrackRequested() const
+bool HighlightTokenizer::backtrackRequested() const
 {
     return backtrack;
 }
 
-void LineParser::clear()
+void HighlightTokenizer::clear()
 {
     tokens.clear();
     backtrack = false;
-    state = LINE_PARSER_STATE_UNKNOWN;
+    state = HIGHLIGHTER_LINE_STATE_UNKNOWN;
 }
 
-void LineParser::addToken(const Token& token)
+void HighlightTokenizer::addToken(const Token& token)
 {
     tokens.append(token);
 }
 
-void LineParser::setState(int state)
+void HighlightTokenizer::setState(int state)
 {
     this->state = state;
 }
 
-void LineParser::requestBacktrack()
+void HighlightTokenizer::requestBacktrack()
 {
     backtrack = true;
 }

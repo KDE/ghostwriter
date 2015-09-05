@@ -23,7 +23,7 @@
 #include <QSyntaxHighlighter>
 
 #include "spelling/dictionary_ref.h"
-#include "MarkdownParser.h"
+#include "MarkdownTokenizer.h"
 #include "MarkdownStyles.h"
 #include "Token.h"
 
@@ -32,7 +32,7 @@ class QRegExp;
 class QString;
 class QTextCharFormat;
 class QTextDocument;
-class LineParser;
+class HighlightTokenizer;
 
 /**
  * Highlighter for the Markdown text format.
@@ -146,7 +146,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void onHighlightBlockAtPosition(int position);
 
     private:
-        LineParser* tokenizer;
+        HighlightTokenizer* tokenizer;
         DictionaryRef dictionary;
         bool spellCheckEnabled;
         bool useUndlerlineForEmphasis;
