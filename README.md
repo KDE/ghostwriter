@@ -34,7 +34,7 @@ Installation
 Windows
 -------
 
-On Windows, you can either download the setup.exe and go through the setup wizard (recommended), or you can run the portable version (advanced users).  To install via the setup wizard, download `setup.exe` to a location of your choice, double click on its icon to run, and follow the installation steps.  Note that you must have administrator rights to install.
+On Windows, you can either download the setup.exe and go through the setup wizard (recommended), or you can run the portable version (advanced users).  To install via the setup wizard, download `ghostwriter-setup.exe` to a location of your choice, double click on its icon to run, and follow the installation steps.  Note that you must have administrator rights to install.
 
 The portable version is a Zip file which you can unzip to any location on your computer.  Within the Zip file is a simple folder containing the `ghostwriter.exe` file.  Double click on this file to run the program.  The `data` sub-folder contains the location of your Hunspell dictionaries, themes, and application settings.  The portable version is an excellent alternative for when you do not have administrative rights to install the application.  You can take it anywhere on a thumb drive and run it--at school, a friend's house, etc.
 
