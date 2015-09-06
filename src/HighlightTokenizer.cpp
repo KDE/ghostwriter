@@ -17,19 +17,52 @@
  *
  ***********************************************************************/
 
-#ifndef MARKDOWN_COLOR_SCHEME_H
-#define MARKDOWN_COLOR_SCHEME_H
+#include "HighlightTokenizer.h"
+#include "HighlighterLineStates.h"
 
-#include <QColor>
-
-typedef struct
+HighlightTokenizer::HighlightTokenizer()
 {
-    QColor defaultTextColor;
-    QColor backgroundColor;
-    QColor markupColor;
-    QColor linkColor;
-    QColor spellingErrorColor;
 
-} MarkdownColorScheme;
+}
 
-#endif
+HighlightTokenizer::~HighlightTokenizer()
+{
+
+}
+
+QList<Token> HighlightTokenizer::getTokens() const
+{
+    return tokens;
+}
+
+int HighlightTokenizer::getState() const
+{
+    return state;
+}
+
+bool HighlightTokenizer::backtrackRequested() const
+{
+    return backtrack;
+}
+
+void HighlightTokenizer::clear()
+{
+    tokens.clear();
+    backtrack = false;
+    state = HIGHLIGHTER_LINE_STATE_UNKNOWN;
+}
+
+void HighlightTokenizer::addToken(const Token& token)
+{
+    tokens.append(token);
+}
+
+void HighlightTokenizer::setState(int state)
+{
+    this->state = state;
+}
+
+void HighlightTokenizer::requestBacktrack()
+{
+    backtrack = true;
+}

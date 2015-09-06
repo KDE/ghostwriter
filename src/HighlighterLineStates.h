@@ -17,14 +17,14 @@
  *
  ***********************************************************************/
 
-#ifndef LINEPARSERSTATES_H
-#define LINEPARSERSTATES_H
+#ifndef HIGHLIGHTER_LINE_STATES_H
+#define HIGHLIGHTER_LINE_STATES_H
 
 /**
  * Signifies an unknown line state.  This should always be set to the same
  * value as what is used in QSyntaxHighlighter to designate an undefined block
  * state.
  */
-const int LINE_PARSER_STATE_UNKNOWN = -1;
+const int HIGHLIGHTER_LINE_STATE_UNKNOWN = -1;
 
-#endif // LINEPARSERSTATES_H
+#endif // HIGHLIGHTER_LINE_STATES_H

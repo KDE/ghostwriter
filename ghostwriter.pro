@@ -28,7 +28,7 @@ macx:greaterThan(QT_MAJOR_VERSION, 4):lessThan(QT_VERSION, 5.2) {
 # Set program version
 VERSION = $$system(git describe --tags)
 isEmpty(VERSION) {
-    VERSION = 1.0.0
+    VERSION = v1.1.0
 }
 
 TEMPLATE = app
@@ -110,6 +110,7 @@ HEADERS += src/MainWindow.h \
     src/MarkdownEditor.h \
     src/Token.h \
     src/HtmlPreview.h \
+    src/ExportFormat.h \
     src/Exporter.h \
     src/Theme.h \
     src/ThemeFactory.h \
@@ -130,16 +131,15 @@ HEADERS += src/MainWindow.h \
     src/Outline.h \
     src/MarkdownStates.h \
     src/MarkdownHighlighter.h \
-    src/MarkdownColorScheme.h \
     src/MarkdownStyles.h \
     src/MessageBoxHelper.h \
     src/GraphicsFadeEffect.h \
     src/SundownExporter.h \
     src/StyleSheetManagerDialog.h \
     src/SimpleFontDialog.h \
-    src/LineParser.h \
-    src/MarkdownParser.h \
-    src/LineParserStates.h \
+    src/HighlighterLineStates.h \
+    src/HighlightTokenizer.h \
+    src/MarkdownTokenizer.h \
     src/locale_dialog.h \
     src/find_dialog.h \
     src/image_button.h \
@@ -164,6 +164,8 @@ SOURCES += src/AppMain.cpp \
     src/Token.cpp \
     src/HtmlPreview.cpp \
     src/Exporter.cpp \
+    src/ExportFormat.cpp \
+    src/Theme.cpp \
     src/ThemeFactory.cpp \
     src/CommandLineExporter.cpp \
     src/HudWindow.cpp \
@@ -184,8 +186,8 @@ SOURCES += src/AppMain.cpp \
     src/StyleSheetManagerDialog.cpp \
     src/SimpleFontDialog.cpp \
     src/SundownExporter.cpp \
-    src/LineParser.cpp \
-    src/MarkdownParser.cpp \
+    src/HighlightTokenizer.cpp \
+    src/MarkdownTokenizer.cpp \
     src/locale_dialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \

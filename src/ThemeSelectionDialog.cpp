@@ -52,33 +52,18 @@ ThemeSelectionDialog::ThemeSelectionDialog
 
     QGridLayout* layout = new QGridLayout();
 
-    QStringList availableThemes = ThemeFactory::getInstance()->getAvailableThemes();
+    QStringList availableThemes =
+        ThemeFactory::getInstance()->getAvailableThemes();
     themeListWidget = new QListWidget(this);
     themeListWidget->setIconSize(QSize(150, 100));
-
-    // Add built-in themes to the front.
-    availableThemes.insert(0, ThemeFactory::DARK_THEME_NAME);
-    availableThemes.insert(0, ThemeFactory::LIGHT_THEME_NAME);
 
     for (int i = 0; i < availableThemes.size(); i++)
     {
         QString themeName = availableThemes[i];
-        Theme theme;
         QString err;
         QIcon themeIcon;
 
-        if (0 == i)
-        {
-            ThemeFactory::getInstance()->loadLightTheme(theme);
-        }
-        else if (1 == i)
-        {
-            ThemeFactory::getInstance()->loadDarkTheme(theme);
-        }
-        else
-        {
-            ThemeFactory::getInstance()->loadTheme(themeName, theme, err);
-        }
+        Theme theme = ThemeFactory::getInstance()->loadTheme(themeName, err);
 
         if (!err.isNull())
         {
@@ -90,7 +75,12 @@ ThemeSelectionDialog::ThemeSelectionDialog
             themeIcon = previewer.getIcon();
         }
 
-        QListWidgetItem* item = new QListWidgetItem(themeIcon, themeName, themeListWidget);
+        QListWidgetItem* item = new QListWidgetItem
+            (
+                themeIcon,
+                themeName,
+                themeListWidget
+            );
         themeListWidget->insertItem(themeListWidget->count(), item);
 
         if (themeName == currentThemeName)
@@ -137,7 +127,12 @@ void ThemeSelectionDialog::onThemeSelected()
     QString themeName;
     Theme theme;
 
-    if (selectedThemes.isEmpty() || selectedThemes[0]->text().isNull() || selectedThemes[0]->text().isEmpty())
+    if
+    (
+        selectedThemes.isEmpty() ||
+        selectedThemes[0]->text().isNull() ||
+        selectedThemes[0]->text().isEmpty()
+    )
     {
         return;
     }
@@ -149,33 +144,21 @@ void ThemeSelectionDialog::onThemeSelected()
 
     if (!currentThemeIsNew)
     {
-        int selectedRow = themeListWidget->row(selectedThemes[0]);
-
-        if (0 == selectedRow)
-        {
-            ThemeFactory::getInstance()->loadLightTheme(theme);
-        }
-        else if (1 == selectedRow)
-        {
-            ThemeFactory::getInstance()->loadDarkTheme(theme);
-        }
-        else
-        {
-            ThemeFactory::getInstance()->loadTheme(themeName, theme, err);
-        }
-
+        theme = ThemeFactory::getInstance()->loadTheme(themeName, err);
         currentTheme = theme;
 
         if (!err.isNull())
         {
-            // Show an error dialog telling the user that the theme could not be loaded.
+            // Show an error dialog telling the user that the theme could not
+            // be loaded.
+            //
             MessageBoxHelper::critical
             (
                 this,
                 tr("Unable to load theme."),
                 err
             );
-            currentTheme.name = themeName;
+            currentTheme.setName(themeName);
             currentThemeIsValid = false;
             return;
         }
@@ -190,35 +173,27 @@ void ThemeSelectionDialog::onThemeSelected()
 
 void ThemeSelectionDialog::onNewTheme()
 {
-    Theme newTheme;
     QString err = QString();
-
     QList<QListWidgetItem*> selectedThemes = themeListWidget->selectedItems();
 
-    if (selectedThemes.isEmpty() || (QString("Classic Light") == selectedThemes[0]->text()))
-    {
-        ThemeFactory::getInstance()->loadLightTheme(newTheme);
-    }
-    else if (QString("Classic Dark") == selectedThemes[0]->text())
-    {
-        ThemeFactory::getInstance()->loadDarkTheme(newTheme);
-    }
-    else
-    {
-        ThemeFactory::getInstance()->loadTheme(selectedThemes[0]->text(), newTheme, err);
+    Theme newTheme = ThemeFactory::getInstance()->loadTheme
+        (
+            selectedThemes[0]->text(),
+            err
+        );
 
-        if (!err.isNull())
-        {
-            ThemeFactory::getInstance()->loadLightTheme(newTheme);
-            err = QString();
-        }
-    }
+    newTheme.setBuiltIn(false);
+
+    // It doesn't matter if there was an error, since loadTheme will
+    // return a default, built-in theme if it fails.
+    //
+    err = QString();
 
     QIcon themeIcon;
 
     if (!err.isNull())
     {
-        themeIcon = QIcon(":resources/icons/Faenza/process-stop-symbolic.svg");
+        themeIcon = QIcon(":resources/icons/unavailable.svg");
     }
     else
     {
@@ -226,10 +201,11 @@ void ThemeSelectionDialog::onNewTheme()
         themeIcon = previewer.getIcon();
     }
 
-    newTheme.name = ThemeFactory::getInstance()->generateUntitledThemeName();
-    ThemeFactory::getInstance()->saveTheme(newTheme.name, newTheme, err);
+    newTheme.setName(ThemeFactory::getInstance()->generateUntitledThemeName());
+    ThemeFactory::getInstance()->saveTheme(newTheme.getName(), newTheme, err);
 
-    QListWidgetItem* item = new QListWidgetItem(themeIcon, newTheme.name, themeListWidget);
+    QListWidgetItem* item =
+        new QListWidgetItem(themeIcon, newTheme.getName(), themeListWidget);
     themeListWidget->insertItem(themeListWidget->count(), item);
 
     currentThemeIsNew = true;
@@ -258,12 +234,9 @@ void ThemeSelectionDialog::onDeleteTheme()
         return;
     }
 
-    int selectedRow = themeListWidget->row(selectedThemes[0]);
-
-    // If the theme is one of the built in themes (which are always at the
-    // front of the list), display an error.
+    // If the theme is one of the built in themes, display an error.
     //
-    if ((0 == selectedRow) || (1 == selectedRow))
+    if (currentTheme.isBuiltIn())
     {
         MessageBoxHelper::critical
         (
@@ -322,12 +295,9 @@ void ThemeSelectionDialog::onEditTheme()
 
     if (!selectedThemes.isEmpty())
     {
-        int selectedRow = themeListWidget->row(selectedThemes[0]);
-
-        // If the theme is one of the built in themes (which are always at the
-        // front of the list), display an error.
+        // If the theme is one of the built in themes, display an error.
         //
-        if ((0 == selectedRow) || (1 == selectedRow))
+        if (currentTheme.isBuiltIn())
         {
             MessageBoxHelper::critical
             (
@@ -342,8 +312,9 @@ void ThemeSelectionDialog::onEditTheme()
 
         if (!currentThemeIsValid)
         {
-            ThemeFactory::getInstance()->loadLightTheme(themeToEdit);
-            themeToEdit.name = currentTheme.name;
+            QString err;
+            themeToEdit = ThemeFactory::getInstance()->loadTheme("", err);
+            themeToEdit.setName(currentTheme.getName());
         }
 
         ThemeEditorDialog* themeEditorDialog = new ThemeEditorDialog(themeToEdit, this);
@@ -370,9 +341,9 @@ void ThemeSelectionDialog::onThemeUpdated(const Theme& theme)
 
         if (NULL != item)
         {
-            if (theme.name != currentTheme.name)
+            if (theme.getName() != currentTheme.getName())
             {
-                item->setText(theme.name);
+                item->setText(theme.getName());
             }
 
             currentTheme = theme;

@@ -25,7 +25,6 @@
 #include <QPushButton>
 #include <QFileInfo>
 #include <QFileDialog>
-#include <QDebug>
 
 #include "StyleSheetManagerDialog.h"
 #include "MessageBoxHelper.h"

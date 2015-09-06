@@ -24,13 +24,35 @@
 
 #include "Theme.h"
 
+/**
+ * Renders a thumbnail preview of a theme.
+ */
 class ThemePreviewer
 {
     public:
+        /**
+         * Constructor.  Takes as a parameter the theme for which to render
+         * the thumbnail preview, as well as the desired width and height
+         * (in pixels) of the preview.  Upon calling this constructor,
+         * the preview will be rendered immediately, and thereafter accessible
+         * in cached form with a call to getIcon().
+         */
         ThemePreviewer(const Theme& theme, int width, int height);
+
+        /**
+         * Destructor.
+         */
         ~ThemePreviewer();
 
+        /**
+         * Gets the rendered icon (cached) of the thumbnail preview.
+         */
         QIcon getIcon();
+
+        /**
+         * Renders the thumbnail preview for the given theme to easily update
+         * the icon for new theme settings.
+         */
         void renderPreview(const Theme& newSettings);
 
     private:

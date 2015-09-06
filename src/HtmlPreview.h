@@ -43,25 +43,63 @@
 #include "Exporter.h"
 #include "TextDocument.h"
 
+class QPrintPreviewDialog;
+class QPrinter;
+
+/**
+ * Live HTML Preview window.
+ */
 class HtmlPreview : public QMainWindow
 {
     Q_OBJECT
     
     public:
+        /**
+         * Constructor.  Takes text document to be rendered as HTML as
+         * parameter.
+         */
         HtmlPreview
         (
             TextDocument* document,
             QWidget* parent = 0
         );
 
+        /**
+         * Destructor.
+         */
         virtual ~HtmlPreview();
 
     signals:
+        /**
+         * Emitted when a lengthy operation has started, such as when the user
+         * chooses to export the document to disk, so that the user can be
+         * informed, perhaps via a progress bar.  The description provides
+         * descriptive text as to the nature of the operation to display to
+         * the user.
+         */
         void operationStarted(const QString& description);
+
+        /**
+         * Emitted when a lengthy operation has finished, such as when an
+         * exportation of the document to disk has completed, so that the user
+         * can be informed, perhaps via the removal of a progress bar previously
+         * displayed when the operation began.
+         */
         void operationFinished();
 
     public slots:
+        /**
+         * Call this method to re-render the HTML for the document.
+         */
         void updatePreview();
+
+        /**
+         * Call this method to navigate to the HTML heading tag (h1 - h6)
+         * having the given sequence number.  For example, to navigate to the
+         * very first heading in the document, pass in a value of 1.  To go
+         * to the second heading that appears in the document, pass in a value
+         * of 2, etc.
+         */
         void navigateToHeading(int headingSequenceNumber);
 
     private slots:
@@ -101,13 +139,21 @@ class HtmlPreview : public QMainWindow
         int lastStyleSheetIndex;
         QStringList customCssFiles;
 
+        /*
+         * Used to set default page layout options for printing.  Also,
+         * if the user closes the print preview dialog, the page layout and
+         * page size settings are remembered in the event that the user reopens
+         * the dialog during the same application session.
+         */
+        QPrinter printer;
+
         // flag used to prevent recursion in changeStyleSheet
         bool handlingStyleSheetChange;
 
         QFutureWatcher<QString>* futureWatcher;
         QStringList defaultStyleSheets;
 
-        /**
+        /*
          * Sets the HTML contents to display, and creates a backup of the old
          * HTML for diffing to scroll to the first difference whenever
          * updatePreview() is called.
@@ -115,7 +161,6 @@ class HtmlPreview : public QMainWindow
         void setHtml(const QString& html);
 
         QString exportToHtml(const QString& text, Exporter* exporter) const;
-        void addRemoveStyleSheets();
 };
 
 #endif

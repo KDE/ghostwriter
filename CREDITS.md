@@ -11,7 +11,7 @@ N/A
 Libraries
 =========
 
-* Qt <http://qt-project.org/>
+* Qt <http://www.qt.io/>
 * hunspell <http://hunspell.sourceforge.net/>
 * Sundown <http://github.com/vmg/sundown/>
 
@@ -30,4 +30,4 @@ Special Thanks
 
 Graeme Gott, Dmitry Shachnev, and Gabriel M. Beddingfield were all indirectly my mentors in learning Qt by providing excellent code from which I could lift.
 
-I am also deeply indebted to Wolf Vollprecht, the author of UberWriter (<http://uberwriter.wolfvollprecht.de/>), for the inspiration he provided in creating such a beautiful Markdown editing tool.
+I am also deeply indebted to Wolf Vollprecht, the author of [UberWriter](http://uberwriter.wolfvollprecht.de/), for the inspiration he provided in creating such a beautiful Markdown editing tool.

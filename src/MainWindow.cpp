@@ -50,7 +50,6 @@
 
 #include "MainWindow.h"
 #include "ThemeFactory.h"
-#include "MarkdownColorScheme.h"
 #include "HtmlPreview.h"
 #include "find_dialog.h"
 #include "ColorHelper.h"
@@ -211,27 +210,12 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     buildMenuBar();
     buildStatusBar();
 
+
     QString themeName = appSettings->getThemeName();
 
-    if (QString("Classic Light") == themeName)
-    {
-        ThemeFactory::getInstance()->loadLightTheme(theme);
-    }
-    else if (QString("Classic Dark") == themeName)
-    {
-        ThemeFactory::getInstance()->loadDarkTheme(theme);
-    }
-    else
-    {
-        QString err;
+    QString err;
 
-        ThemeFactory::getInstance()->loadTheme(themeName, theme, err);
-
-        if (!err.isNull())
-        {
-            ThemeFactory::getInstance()->loadLightTheme(theme);
-        }
-    }
+    theme = ThemeFactory::getInstance()->loadTheme(themeName, err);
 
     fullScreenButtonColorEffect = new QGraphicsColorizeEffect();
     fullScreenButtonColorEffect->setColor(QColor(Qt::white));
@@ -344,8 +328,8 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     (
         !originalBackgroundImage.isNull() &&
         (
-            (PictureAspectZoom == theme.backgroundImageAspect) ||
-            (PictureAspectScale == theme.backgroundImageAspect)
+            (PictureAspectZoom == theme.getBackgroundImageAspect()) ||
+            (PictureAspectScale == theme.getBackgroundImageAspect())
         )
     )
     {
@@ -376,13 +360,13 @@ void MainWindow::paintEvent(QPaintEvent* event)
     (
         !adjustedBackgroundImage.isNull() &&
         (
-            (PictureAspectZoom == theme.backgroundImageAspect) ||
-            (PictureAspectScale == theme.backgroundImageAspect)
+            (PictureAspectZoom == theme.getBackgroundImageAspect() ||
+            (PictureAspectScale == theme.getBackgroundImageAspect()))
         )
     )
     {
         QPainter painter(this);
-        painter.fillRect(rect(), QBrush(theme.backgroundColor));
+        painter.fillRect(rect(), QBrush(theme.getBackgroundColor()));
 
         // Draw the image centered.
         painter.drawImage
@@ -436,7 +420,7 @@ void MainWindow::quitApplication()
 
 void MainWindow::changeTheme()
 {
-    ThemeSelectionDialog* themeDialog = new ThemeSelectionDialog(theme.name, this);
+    ThemeSelectionDialog* themeDialog = new ThemeSelectionDialog(theme.getName(), this);
     connect(themeDialog, SIGNAL(applyTheme(Theme)), this, SLOT(applyTheme(Theme)));
     themeDialog->show();
 }
@@ -650,19 +634,21 @@ void MainWindow::showQuickReferenceGuide()
         }
 
         QTextStream inStream(&inputFile);
+        inStream.setCodec("UTF-8");
         QString html = inStream.readAll();
         inputFile.close();
 
         quickReferenceGuideViewer = new QWebView(this);
         quickReferenceGuideViewer->setWindowTitle(tr("Quick Reference Guide"));
         quickReferenceGuideViewer->setWindowFlags(Qt::Window);
+        quickReferenceGuideViewer->settings()->setDefaultTextEncoding("utf-8");
         quickReferenceGuideViewer->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
         quickReferenceGuideViewer->page()->action(QWebPage::Reload)->setVisible(false);
         quickReferenceGuideViewer->page()->action(QWebPage::OpenLink)->setVisible(false);
         quickReferenceGuideViewer->page()->action(QWebPage::OpenLinkInNewWindow)->setVisible(false);
         quickReferenceGuideViewer->settings()->setUserStyleSheetUrl(QUrl("qrc:/resources/github.css"));
         quickReferenceGuideViewer->page()->setContentEditable(false);
-        quickReferenceGuideViewer->setContent(html.toUtf8());
+        quickReferenceGuideViewer->setContent(html.toUtf8(), "text/html");
         connect(quickReferenceGuideViewer, SIGNAL(linkClicked(QUrl)), this, SLOT(onQuickRefGuideLinkClicked(QUrl)));
         quickReferenceGuideViewer->resize(500, 600);
         quickReferenceGuideViewer->adjustSize();
@@ -681,16 +667,30 @@ void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
 void MainWindow::showAbout()
 {
     QString aboutText =
-        QString("<p><b>") +  qAppName() + QString(" ") + qApp->applicationVersion() + QString("</b></p>")
+        QString("<p><b>") +  qAppName() + QString(" ")
+        + qApp->applicationVersion() + QString("</b></p>")
         + tr("<p>Copyright &copy; 2014, 2015 wereturtle</b>"
              "<p>You may use and redistribute this software under the terms of the "
-             "<a href=\"http://www.gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</p>"
-             "<p>Visit the official website at <a href=\"http://github.com/wereturtle/ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p>"
+             "<a href=\"http://www.gnu.org/licenses/gpl.html\">"
+             "GNU General Public License Version 3</a>.</p>"
+             "<p>Visit the official website at "
+             "<a href=\"http://github.com/wereturtle/ghostwriter\">"
+             "http://github.com/wereturtle/ghostwriter</a>.</p>"
              "<p>Special thanks and credit for reused code goes to</p>"
-             "<p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a><br/>"
-             "Dmitry Shachnev, author of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/>"
-             "<a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/>"
-             "<p>I am also deeply indebted to <a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the inspiration he provided in creating such a beautiful Markdown editing tool.</p>");
+             "<p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, "
+             "author of "
+             "<a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a><br/>"
+             "Dmitry Shachnev, author of "
+             "<a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/>"
+             "<a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
+             "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/\">"
+             "StretchPlayer</a><br/>"
+             "<p>I am also deeply indebted to "
+             "<a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, "
+             "the author of "
+             "<a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, "
+             "for the inspiration he provided in creating such a beautiful "
+             "Markdown editing tool.</p>");
 
     QMessageBox::about(this, tr("About %1").arg(qAppName()), aboutText);
 }
@@ -1171,6 +1171,8 @@ void MainWindow::buildStatusBar()
     wordCountLabel = new QLabel();
     wordCountLabel->setText(QString("0 ") + tr("words"));
     wordCountLabel->setAlignment(Qt::AlignCenter);
+    wordCountLabel->setFrameShape(QFrame::NoFrame);
+    wordCountLabel->setLineWidth(0);
     statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     statusBarLayout->setColumnStretch(1, 1);
 
@@ -1214,41 +1216,41 @@ void MainWindow::buildStatusBar()
 
 void MainWindow::applyTheme()
 {
-    if (!theme.name.isNull() && !theme.name.isEmpty())
+    if (!theme.getName().isNull() && !theme.getName().isEmpty())
     {
-        appSettings->setThemeName(theme.name);
+        appSettings->setThemeName(theme.getName());
     }
 
-    if (EditorAspectStretch == theme.editorAspect)
+    if (EditorAspectStretch == theme.getEditorAspect())
     {
-        theme.backgroundColor = theme.markupColorScheme.backgroundColor;
+        theme.setBackgroundColor(theme.getEditorBackgroundColor());
     }
 
     QString styleSheet;
     QTextStream stream(&styleSheet);
 
-    QColor scrollBarColor(theme.markupColorScheme.defaultTextColor);
+    QColor scrollBarColor(theme.getDefaultTextColor());
     scrollBarColor.setAlpha(100);
     scrollBarColor =
         ColorHelper::applyAlpha
         (
             scrollBarColor,
-            theme.markupColorScheme.backgroundColor
+            theme.getEditorBackgroundColor()
         );
 
     QString scrollbarColorRGB = ColorHelper::toRgbString(scrollBarColor);
 
     QString backgroundColorRGBA =
-        ColorHelper::toRgbaString(theme.markupColorScheme.backgroundColor);
+        ColorHelper::toRgbaString(theme.getEditorBackgroundColor());
 
     QString windowBackgroundColorRGB =
-        ColorHelper::toRgbString(theme.backgroundColor);
+        ColorHelper::toRgbString(theme.getBackgroundColor());
 
     QString editorSelectionFgColorRGB =
-        ColorHelper::toRgbString(theme.markupColorScheme.backgroundColor);
+        ColorHelper::toRgbString(theme.getEditorBackgroundColor());
 
     QString editorSelectionBgColorRGB =
-        ColorHelper::toRgbString(theme.markupColorScheme.defaultTextColor);
+        ColorHelper::toRgbString(theme.getDefaultTextColor());
 
     QString menuBarItemFgColorRGB;
     QString menuBarItemBgColorRGBA;
@@ -1269,26 +1271,26 @@ void MainWindow::applyTheme()
     QString statusBarButtonBgPressHoverColorRGBA;
     QString statusBarBgColorRGBA;
 
-    if (EditorAspectStretch == theme.editorAspect)
+    if (EditorAspectStretch == theme.getEditorAspect())
     {
-        QColor fadedTextColor(theme.markupColorScheme.defaultTextColor);
+        QColor fadedTextColor(theme.getDefaultTextColor());
         fadedTextColor.setAlpha(200);
         fadedTextColor =
             ColorHelper::applyAlpha
             (
                 fadedTextColor,
-                theme.backgroundColor
+                theme.getBackgroundColor()
             );
 
         menuBarItemFgColorRGB = ColorHelper::toRgbString(fadedTextColor);
         menuBarItemBgColorRGBA = "transparent";
         menuBarItemFgPressColorRGB =
-            ColorHelper::toRgbString(theme.markupColorScheme.backgroundColor);
+            ColorHelper::toRgbString(theme.getEditorBackgroundColor());
         menuBarItemBgPressColorRGBA =
             ColorHelper::toRgbaString(fadedTextColor);
 
 
-        if (PictureAspectNone == theme.backgroundImageAspect)
+        if (PictureAspectNone == theme.getBackgroundImageAspect())
         {
             menuBarBgColorRGBA = "transparent";
             statusBarBgColorRGBA = "transparent";
@@ -1308,7 +1310,7 @@ void MainWindow::applyTheme()
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB =
-            ColorHelper::toRgbString(theme.markupColorScheme.backgroundColor);
+            ColorHelper::toRgbString(theme.getEditorBackgroundColor());
         statusBarButtonBgPressHoverColorRGBA = menuBarItemBgPressColorRGBA;
 
         if (NULL == fullScreenButton->graphicsEffect())
@@ -1354,19 +1356,23 @@ void MainWindow::applyTheme()
         fullScreenButton->setGraphicsEffect(NULL);
     }
 
-    editor->setAspect(theme.editorAspect);
+    editor->setAspect(theme.getEditorAspect());
 
     styleSheet = "";
 
     QString corners = "";
 
-    if ((EditorCornersRounded == theme.editorCorners) && (EditorAspectStretch != theme.editorAspect))
+    if
+    (
+        (EditorCornersRounded == theme.getEditorCorners()) &&
+        (EditorAspectStretch != theme.getEditorAspect())
+    )
     {
         corners = "border-radius: 10;";
     }
 
     QString cursorColorRGB =
-        ColorHelper::toRgbString(theme.markupColorScheme.linkColor);
+        ColorHelper::toRgbString(theme.getLinkColor());
 
     stream
         << "QPlainTextEdit { border: 0; "
@@ -1396,7 +1402,14 @@ void MainWindow::applyTheme()
         << "QScrollBar::sub-line { background: transparent; border: 0 } "
         ;
 
-    editor->setColorScheme(theme.markupColorScheme);
+    editor->setColorScheme
+    (
+        theme.getDefaultTextColor(),
+        theme.getEditorBackgroundColor(),
+        theme.getMarkupColor(),
+        theme.getLinkColor(),
+        theme.getSpellingErrorColor()
+    );
     editor->setStyleSheet(styleSheet);
 
     styleSheet = "";
@@ -1426,7 +1439,7 @@ void MainWindow::applyTheme()
 
     fullScreenButton->setStyleSheet(styleSheet);
 
-    if (EditorAspectCenter == theme.editorAspect)
+    if (EditorAspectCenter == theme.getEditorAspect())
     {
         QGraphicsDropShadowEffect* chromeDropShadowEffect = new QGraphicsDropShadowEffect();
         chromeDropShadowEffect->setColor(QColor(Qt::black));
@@ -1458,31 +1471,35 @@ void MainWindow::applyTheme()
     originalBackgroundImage = QImage();
     adjustedBackgroundImage = QImage();
 
-    if (!theme.backgroundImageUrl.isNull() && !theme.backgroundImageUrl.isEmpty())
+    if
+    (
+        !theme.getBackgroundImageUrl().isNull() &&
+        !theme.getBackgroundImageUrl().isEmpty()
+    )
     {
-        switch (theme.backgroundImageAspect)
+        switch (theme.getBackgroundImageAspect())
         {
             case PictureAspectStretch:
                 windowBackground = tr("border-image: url(%1) 0 0 0 0 stretch stretch; ")
-                    .arg(theme.backgroundImageUrl);
+                    .arg(theme.getBackgroundImageUrl());
                 break;
             case PictureAspectTile:
                 windowBackground = tr("background-image: url(%1); ")
-                    .arg(theme.backgroundImageUrl);
+                    .arg(theme.getBackgroundImageUrl());
                 break;
             case PictureAspectCenter:
                 windowBackground = tr("background-image: url(%1); background-repeat: no-repeat; background-position: center; ")
-                    .arg(theme.backgroundImageUrl);
+                    .arg(theme.getBackgroundImageUrl());
                 break;
             default:
                 // Scale and zoom aspects will have to be painted in paintEvent()
                 if
                 (
-                    (PictureAspectZoom == theme.backgroundImageAspect)
-                    || (PictureAspectScale == theme.backgroundImageAspect)
+                    (PictureAspectZoom == theme.getBackgroundImageAspect())
+                    || (PictureAspectScale == theme.getBackgroundImageAspect())
                 )
                 {
-                    originalBackgroundImage.load(theme.backgroundImageUrl);
+                    originalBackgroundImage.load(theme.getBackgroundImageUrl());
                     predrawBackgroundImage();
                 }
 
@@ -1516,17 +1533,29 @@ void MainWindow::applyTheme()
 
     setStyleSheet(styleSheet);
 
+    // Make the word count and focus mode button font size
+    // match the menu bar's font size, since on Windows using
+    // the default QLabel and QPushButton font sizes results in
+    // tiny font sizes for these.  We need them to stand out
+    // a little bit more than a typical label or button.
+    //
+    int menuBarFontSize = this->menuBar()->fontInfo().pointSize();
+
     styleSheet = "";
 
     stream
-        << "QStatusBar { margin: 0; padding: 0; border: 0; font-size: 10pt; background: "
+        << "QStatusBar { margin: 0; padding: 0; border: 0; background: "
         << statusBarBgColorRGBA
         << " } "
         << "QStatusBar::item { border: 0 } "
-        << "QLabel { margin: 0; padding: 0; border: 0; font-size: 10pt; background: transparent; color: "
+        << "QLabel { font-size: "
+        << menuBarFontSize
+        << "pt; margin: 0; padding: 0; border: 0; background: transparent; color: "
         << statusBarItemFgColorRGB
         << " } "
-        << "QPushButton { margin: 0 5px 0 5px; padding: 3px; border: 0; font-size: 10pt; height: 20px; border-radius: 5px; background: transparent"
+        << "QPushButton { font-size: "
+        << menuBarFontSize
+        << "pt; padding: 5px; border: 0; border-radius: 5px; background: transparent"
         << "; color: "
         << statusBarItemFgColorRGB
         << " } "
@@ -1543,20 +1572,20 @@ void MainWindow::applyTheme()
 
     // Style the Outline HUD
 
-    QColor alphaHudBackgroundColor = theme.hudBackgroundColor;
+    QColor alphaHudBackgroundColor = theme.getHudBackgroundColor();
     alphaHudBackgroundColor.setAlpha(appSettings->getHudOpacity());
 
-    outlineHud->setForegroundColor(theme.hudForegroundColor);
+    outlineHud->setForegroundColor(theme.getHudForegroundColor());
     outlineHud->setBackgroundColor(alphaHudBackgroundColor);
 
     // Style the outline itself.
     alphaHudBackgroundColor.setAlpha(0);
 
-    QString hudFgString = ColorHelper::toRgbString(theme.hudForegroundColor);
+    QString hudFgString = ColorHelper::toRgbString(theme.getHudForegroundColor());
 
-    QColor alphaHudSelectionColor = theme.hudForegroundColor;
+    QColor alphaHudSelectionColor = theme.getHudForegroundColor();
     alphaHudSelectionColor.setAlpha(200);
-    QString hudSelectionFgString = ColorHelper::toRgbString(theme.hudBackgroundColor);
+    QString hudSelectionFgString = ColorHelper::toRgbString(theme.getHudBackgroundColor());
     QString hudSelectionBgString = ColorHelper::toRgbaString(alphaHudSelectionColor);
 
     // Important!  For QListWidget (used in Outline HUD), set
@@ -1609,9 +1638,6 @@ void MainWindow::applyTheme()
         ;
 
     outlineWidget->setStyleSheet(styleSheet);
-
-    wordCountLabel->setFrameShape(QFrame::NoFrame);
-    wordCountLabel->setLineWidth(0);
     editor->setupPaperMargins(this->width());
 }
 
@@ -1620,7 +1646,7 @@ void MainWindow::predrawBackgroundImage()
 {
     Qt::AspectRatioMode aspectRationMode = Qt::IgnoreAspectRatio;
 
-    switch (theme.backgroundImageAspect)
+    switch (theme.getBackgroundImageAspect())
     {
         case PictureAspectZoom:
             aspectRationMode = Qt::KeepAspectRatioByExpanding;

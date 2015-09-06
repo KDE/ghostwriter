@@ -19,6 +19,7 @@
 
 #include <QProcess>
 #include <QObject>
+#include <QRegExp>
 
 #include "ExporterFactory.h"
 #include "SundownExporter.h"
@@ -59,46 +60,87 @@ ExporterFactory::ExporterFactory()
     bool pandocIsAvailable = isCommandAvailable("pandoc --version");
     bool mmdIsAvailable = isCommandAvailable("multimarkdown --version");
     bool discountIsAvailable = isCommandAvailable("markdown -V");
+    bool cmarkIsAvailable = isCommandAvailable("cmark --version");
 
-    SundownExporter* sundownExporter = new SundownExporter(QString(), QObject::tr("Sundown to HTML") + QString(" (*.html *.htm *.xhtml)"));
+    SundownExporter* sundownExporter = new SundownExporter();
     fileExporters.append(sundownExporter);
     htmlExporters.append(sundownExporter);
 
     if (pandocIsAvailable)
     {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to HTML") + QString(" (*.html *.htm *.xhtml)"));
-        exporter->setHtmlExportCommand("pandoc --smart -f markdown -t html");
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t html --standalone -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-        htmlExporters.append(exporter);
+        addPandocExporter("Pandoc", "markdown");
 
-        // Don't set HTML 5 as previewable, since the QTextEdit class can't display HTML 5.
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to HTML 5") + QString(" (*.html *.htm *.xhtml)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t html5 -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
+        // Check whether version of Pandoc can read CommonMark.
+        QList<int> versionNumber = extractVersionNumber("pandoc --version");
 
-        exporter = new CommandLineExporter("Pandoc Github");
-        exporter->setFileFormatFilter(QObject::tr("Github-flavored Markdown (Pandoc Extension) to HTML") + QString(" (*.html *.htm *.xhtml)"));
-        exporter->setHtmlExportCommand("pandoc --smart -f markdown_github -t html");
-        fileExporters.append(exporter);
-        htmlExporters.append(exporter);
+        if (versionNumber.length() > 0)
+        {
+            int majorVersion = versionNumber[0];
+            int minorVersion = 0;
 
-        exporter = new CommandLineExporter("Pandoc Strict");
-        exporter->setFileFormatFilter(QObject::tr("Strict Markdown.pl (Pandoc Strict Extension) to HTML") + QString(" (*.html *.htm *.xhtml)"));
-        exporter->setHtmlExportCommand("pandoc --smart -f markdown_strict -t html");
-        exporter->setFileExportCommand("pandoc --smart -f markdown_strict -t html -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-        htmlExporters.append(exporter);
+            if (versionNumber.length() > 1)
+            {
+                minorVersion = versionNumber[1];
+            }
+
+            if
+            (
+                (majorVersion > 1) ||
+                ((1 == majorVersion) && (minorVersion >= 14))
+            )
+            {
+                addPandocExporter("Pandoc CommonMark", "commonmark");
+            }
+        }
+
+        addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github");
+        addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra");
+        addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd");
+        addPandocExporter("Pandoc Strict", "markdown_strict");
     }
 
     if (mmdIsAvailable)
     {
         exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to HTML") + QString(" (*.html *.htm)"));
-        exporter->setHtmlExportCommand("multimarkdown -t html");
-        exporter->setFileExportCommand("multimarkdown -t html -o ${OUTPUT_FILE_PATH}");
+        exporter->setSmartTypographyOnArgument("--smart");
+        exporter->setSmartTypographyOffArgument("--nosmart");
+        exporter->setHtmlRenderCommand(QString("multimarkdown %1 -t html")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            QString("multimarkdown %1 -t html -o %2")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::ODF,
+            QString("multimarkdown %1 -t odf -o %2")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::LATEX,
+            QString("multimarkdown %1 -t latex -o %2")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::MEMOIR,
+            QString("multimarkdown %1 -t memoir -o %2")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::LYX,
+            QString("multimarkdown %1 -t lyx -o %2")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        );
         fileExporters.append(exporter);
         htmlExporters.append(exporter);
     }
@@ -106,231 +148,82 @@ ExporterFactory::ExporterFactory()
     if (discountIsAvailable)
     {
         exporter = new CommandLineExporter("Discount");
-        exporter->setFileFormatFilter(QObject::tr("Discount to HTML") + QString(" (*.html *.htm)"));
-        exporter->setHtmlExportCommand("markdown");
-        exporter->setFileExportCommand("markdown -o ${OUTPUT_FILE_PATH}");
+        exporter->setSmartTypographyOffArgument("-F 0x4");
+        exporter->setHtmlRenderCommand(QString("markdown %1")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            QString("markdown %1 -o %2")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        );
         fileExporters.append(exporter);
         htmlExporters.append(exporter);
     }
 
-    if (pandocIsAvailable)
+    if (cmarkIsAvailable)
     {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to OpenDocument Text (ODT)") + QString(" (*.odt)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t odt -o ${OUTPUT_FILE_PATH}");
+        exporter = new CommandLineExporter("cmark");
+        exporter->setSmartTypographyOnArgument("--smart");
+        exporter->setHtmlRenderCommand(QString("cmark -t html --smart %1")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            QString("cmark -t html %1")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::LATEX,
+            QString("cmark -t latex %1")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::MANPAGE,
+            QString("cmark -t man %1")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
         fileExporters.append(exporter);
+        htmlExporters.append(exporter);
+    }
+}
 
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to OpenDocument Format (ODF)") + QString(" (*.odt *.fodt)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t opendocument -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
+QList<int> ExporterFactory::extractVersionNumber(const QString& command) const
+{
+    QList<int> versionNumber;
+    QProcess process;
+    process.start(command);
+
+    if (!process.waitForStarted(500))
+    {
+        return versionNumber;
+    }
+    else if (!process.waitForFinished(500))
+    {
+        process.kill();
+        return versionNumber;
     }
 
-    if (mmdIsAvailable)
+    QString versionStr = QString::fromUtf8(process.readAllStandardOutput().data());
+    QRegExp versionRegex("\\d+(\\.\\d+)*");
+    int pos = versionRegex.indexIn(versionStr);
+
+    if (pos >= 0)
     {
-        exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to Open Document Text (ODT)") + QString(" (*.odt *.fodt)"));
-        exporter->setFileExportCommand("multimarkdown -t odf -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
+        versionStr = versionStr.mid(pos, versionRegex.matchedLength());
     }
 
-    if (pandocIsAvailable)
+    QStringList numbers = versionStr.split('.', QString::SkipEmptyParts);
+
+    foreach (QString num, numbers)
     {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Word Document") + QString(" (*.docx)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t docx -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Rich Text Format") + QString(" (*.rtf)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t rtf -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("rtf");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to PDF") + QString(" (*.pdf)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t latex -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("pdf");
-        fileExporters.append(exporter);
+        versionNumber.append(num.toInt());
     }
 
-    if (pandocIsAvailable)
-    {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to LaTeX") + QString(" (*.tex *.ltx *.latex)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t latex -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-    }
-
-    if (mmdIsAvailable)
-    {
-        exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to LaTeX") + QString(" (*.tex *.ltx *.latex)"));
-        exporter->setFileExportCommand("multimarkdown -t latex -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-    }
-
-    if (pandocIsAvailable)
-    {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to LaTeX beamer slideshow") + QString(" (*.txt)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t beamer -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to LaTeX beamer slideshow PDF") + QString(" (*.pdf)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t beamer-pdf -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-    }
-
-    if (mmdIsAvailable)
-    {
-        exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to LaTeX beamer slideshow") + QString(" (*.txt)"));
-        exporter->setFileExportCommand("multimarkdown -t beamer -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to memoir") + QString(" (*.tex *.ltx *.latex)"));
-        exporter->setFileExportCommand("multimarkdown -t memoir -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-    }
-
-    if (pandocIsAvailable)
-    {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to EPUB v2 Book") + QString(" (*.epub)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t epub -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to EPUB v3 Book") + QString(" (*.epub)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t epub3 -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to FictionBook2 e-book") + QString(" (*.fb2)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t fb2 -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to OPML") + QString(" (*.opml)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t opml -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("opml");
-        fileExporters.append(exporter);
-    }
-
-    if (mmdIsAvailable)
-    {
-        exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to OPML") + QString(" (*.opml)"));
-        exporter->setFileExportCommand("multimarkdown -t opml -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setFileFormatFilter(QObject::tr("MultiMarkdown to LyX") + QString(" (*.lyx)"));
-        exporter->setFileExportCommand("multimarkdown -t lyx -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-    }
-
-    if (pandocIsAvailable)
-    {
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Plain Text") + QString(" (*)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t plain -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to ConTeXt") + QString(" (*.tex *.txt)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t context -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("tex");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to groff man page") + QString(" (*.man)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t man -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("man");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to MediaWiki") + QString(" (*.mediawiki *.txt)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t mediawiki -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to DokuWiki") + QString(" (*)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t dokuwiki -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Textile") + QString(" (*.textile *.txt)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t textile -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Emacs Org-Mode") + QString(" (*.org)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t org -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("org");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to GNU Texinfo") + QString(" (*.texinfo)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t texinfo -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("texinfo");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to DocBook") + QString(" (*.dbk *.xml)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t docbook -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Haddock markup") + QString(" (*.haddock)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t haddock -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("haddock");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to AsciiDoc") + QString(" (*)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t asciidoc -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to reStructuredText") + QString(" (*)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t rst -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to InDesign ICML") + QString(" (*.icml)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t icml -o ${OUTPUT_FILE_PATH}");
-        exporter->setDefaultOutputFileExtension("icml");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Slidy HTML/JavaScript Slide Show") + QString(" (*.html *.htm)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t slidy -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to Slideous HTML/JavaScript Slide Show") + QString(" (*.html *.htm)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t slideous -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to DZSlides HTML/JavaScript Slide Show") + QString(" (*.html *.htm)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t dzslides -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to reveal.js HTML/JavaScript Slide Show") + QString(" (*.html *.htm)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t revealjs -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-
-        exporter = new CommandLineExporter("Pandoc");
-        exporter->setFileFormatFilter(QObject::tr("Pandoc to S5 HTML/JavaScript Slide Show") + QString(" (*.html *.htm)"));
-        exporter->setFileExportCommand("pandoc --smart -f markdown -t s5 -o ${OUTPUT_FILE_PATH}");
-        fileExporters.append(exporter);
-    }
+    return versionNumber;
 }
 
 bool ExporterFactory::isCommandAvailable(const QString& testCommand) const
@@ -342,8 +235,121 @@ bool ExporterFactory::isCommandAvailable(const QString& testCommand) const
     {
         return false;
     }
-    else
+    else if (!process.waitForFinished(500))
     {
-        return true;
+        process.kill();
     }
+
+    return true;
+}
+
+void ExporterFactory::addPandocExporter
+(
+    const QString& name,
+    const QString& inputFormat
+)
+{
+    CommandLineExporter* exporter = new CommandLineExporter(name);
+    exporter->setSmartTypographyOnArgument("--smart");
+    exporter->setHtmlRenderCommand(QString("pandoc %1 -f %2 -t html")
+        .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        .arg(inputFormat));
+    exporter->addFileExportCommand
+    (
+        ExportFormat::HTML,
+        QString("pandoc %1 -f %2 -t html --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::HTML5,
+        QString("pandoc %1 -f %2 -t html5 --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::ODT,
+        QString("pandoc %1 -f %2 -t odt --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::ODF,
+        QString("pandoc %1 -f %2 -t opendocument --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::RTF,
+        QString("pandoc %1 -f %2 -t rtf --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::DOCX,
+        QString("pandoc %1 -f %2 -t docx --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::PDF,
+        QString("pandoc %1 -f %2 -t latex --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::EPUBV2,
+        QString("pandoc %1 -f %2 -t epub --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::EPUBV3,
+        QString("pandoc %1 -f %2 -t epub3 --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::FICTIONBOOK2,
+        QString("pandoc %1 -f %2 -t fb2 --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::LATEX,
+        QString("pandoc %1 -f %2 -t latex --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::GROFFMAN,
+        QString("pandoc %1 -f %2 -t man --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    fileExporters.append(exporter);
+    htmlExporters.append(exporter);
 }

@@ -22,6 +22,9 @@
 
 #include <QTextBlockUserData>
 
+/**
+ * User data for use with the QSyntaxHighlighter.
+ */
 class TextBlockData : public QTextBlockUserData
 {
     public:

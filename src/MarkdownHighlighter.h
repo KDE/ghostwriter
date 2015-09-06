@@ -23,8 +23,7 @@
 #include <QSyntaxHighlighter>
 
 #include "spelling/dictionary_ref.h"
-#include "MarkdownColorScheme.h"
-#include "MarkdownParser.h"
+#include "MarkdownTokenizer.h"
 #include "MarkdownStyles.h"
 #include "Token.h"
 
@@ -33,28 +32,83 @@ class QRegExp;
 class QString;
 class QTextCharFormat;
 class QTextDocument;
-class LineParser;
+class HighlightTokenizer;
 
 /**
- * Highlighter for the Markdown syntax.
+ * Highlighter for the Markdown text format.
  */
 class MarkdownHighlighter : public QSyntaxHighlighter
 {
 	Q_OBJECT
 
 	public:
+        /**
+         * Constructor.  Takes as a parameter the text document that is to
+         * be highlighted.
+         */
         MarkdownHighlighter(QTextDocument* document);
-        virtual ~MarkdownHighlighter();
 
+        /**
+         * Destructor.
+         */
+        ~MarkdownHighlighter();
+
+        /**
+         * Overridden method to highlight the given text for the current
+         * text block in the document.
+         */
 		void highlightBlock(const QString& text);
+
+        /**
+         * Sets the dictionary to use for live spell checking.
+         */
         void setDictionary(const DictionaryRef& dictionary);
+
+        /**
+         * Increases the font size by one point.
+         */
         void increaseFontSize();
+
+        /**
+         * Decreases the font size by one point.
+         */
         void decreaseFontSize();
-        void setColorScheme(const MarkdownColorScheme& colorScheme);
+
+        /**
+         * Sets the color scheme.
+         */
+        void setColorScheme
+        (
+            const QColor& defaultTextColor,
+            const QColor& backgroundColor,
+            const QColor& markupColor,
+            const QColor& linkColor,
+            const QColor& spellingErrorColor
+        );
+
+        /**
+         * Sets whether large heading sizes are enabled.
+         */
 		void setEnableLargeHeadingSizes(const bool enable);
+
+        /**
+         * Sets whether emphasized text is underlined instead of italicized.
+         */
         void setUseUnderlineForEmphasis(const bool enable);
+
+        /**
+         * Sets the font family and point size.
+         */
 		void setFont(const QString& fontFamily, const double fontSize);
+
+        /**
+         * Sets whether live spell checking is enabled.
+         */
         void setSpellCheckEnabled(const bool enabled);
+
+        /**
+         * Sets the blockquote style.
+         */
         void setBlockquoteStyle(const BlockquoteStyle style);
 
     signals:
@@ -92,13 +146,17 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void onHighlightBlockAtPosition(int position);
 
     private:
-        LineParser* tokenizer;
+        HighlightTokenizer* tokenizer;
         DictionaryRef dictionary;
         bool spellCheckEnabled;
         bool useUndlerlineForEmphasis;
         bool inBlockquote;
-        MarkdownColorScheme colorScheme;
         BlockquoteStyle blockquoteStyle;
+        QColor defaultTextColor;
+        QColor backgroundColor;
+        QColor markupColor;
+        QColor linkColor;
+        QColor spellingErrorColor;
 
 		QTextCharFormat defaultFormat;
         bool applyStyleToMarkup[TokenLast];
@@ -109,7 +167,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         bool strikethroughToken[TokenLast];
         int fontSizeIncrease[TokenLast];
 
-        /**
+        /*
          * Returns true if the given QTextBlock userState indicates that the
          * text block contains a heading.
          */

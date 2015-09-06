@@ -77,7 +77,7 @@ HudWindow::HudWindow(QWidget *parent)
     // Set up initial window title (blank).
     windowTitleLabel = new QLabel("");
     windowTitleLabel->setObjectName("windowTitle");
-    windowTitleLabel->setStyleSheet("border: 0");
+    windowTitleLabel->setStyleSheet("border: 0; font-size: 10pt");
     windowTitleLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     // Set up the size grip.

@@ -40,12 +40,39 @@ class HudWindow : public QWidget
     Q_OBJECT
 
     public:
+        /**
+         * Constructor.
+         */
         HudWindow(QWidget *parent = 0);
+
+        /**
+         * Destructor.
+         */
         virtual ~HudWindow();
+
+        /**
+         * Sets the central widget to display in this HUD.
+         */
         void setCentralWidget(QWidget* widget);
+
+        /**
+         * Sets the HUD window title.
+         */
         void setWindowTitle(const QString& title);
+
+        /**
+         * Gets the HUD foreground (i.e., text) color.
+         */
         QColor getForegroundColor();
+
+        /**
+         * Sets the HUD foreground (i.e., text) color.
+         */
         void setForegroundColor(const QColor& color);
+
+        /**
+         * Gets the HUD background color.
+         */
         QColor getBackgroundColor();
 
         /**
@@ -57,9 +84,22 @@ class HudWindow : public QWidget
          */
         void setBackgroundColor(const QColor& color);
 
+        /**
+         * Sets whether the size grip in the lower right corner of the HUD
+         * window should be displayed.
+         */
         void setSizeGripEnabled(bool enabled);
 
     public slots:
+        /**
+         * Sets whether desktop compositing is enabled for the HUD.  Enabling
+         * will allow transparency of the HUD, as well as the drop shadow
+         * and rounded corners of the window.  Disabling will cause a plain
+         * rectangle to be drawn with no transparency.  This method is provided
+         * in case the application runs on a platform that does not support
+         * desktop compositing, so that the user can turn off the transparency
+         * effect and not have an unpleasant-looking window.
+         */
         void setDesktopCompositingEnabled(bool enabled);
 
     protected:

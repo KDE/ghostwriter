@@ -28,7 +28,7 @@
 
 
 Exporter::Exporter(const QString& name)
-    : name(name), fileFormatFilter(QObject::tr("All") + QString(" (*)"))
+    : smartTypographyEnabled(false), name(name)
 {
     ;
 }
@@ -38,18 +38,32 @@ Exporter::~Exporter()
     ;
 }
 
-const QString& Exporter::getName() const
+QString Exporter::getName() const
 {
     return name;
 }
 
-const QString& Exporter::getFileFormatFilter() const
+const QList<const ExportFormat*> Exporter::getSupportedFormats() const
 {
-    return fileFormatFilter;
+    return supportedFormats;
 }
 
-void Exporter::setFileFormatFilter(const QString& fileFormatFilter)
+bool Exporter::getSmartTypographyEnabled() const
 {
-    this->fileFormatFilter = fileFormatFilter;
+    return smartTypographyEnabled;
+}
+
+void Exporter::setSmartTypographyEnabled(bool enabled)
+{
+    smartTypographyEnabled = enabled;
+}
+
+void Exporter::exportToHtml(const QString& text, QString& html)
+{
+    Q_UNUSED(text)
+
+    html = QString("<center><b style='color: red'>") +
+        QObject::tr("Export to HTML is not supported with this processor.") +
+         QString("</b></center>)");
 }
 

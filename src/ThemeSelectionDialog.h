@@ -27,22 +27,38 @@
 
 class QListWidget;
 
+/**
+ * Dialog that allows the user to select a different theme, add a new theme,
+ * delete a theme, or edit a theme.
+ */
 class ThemeSelectionDialog : public QDialog
 {
     Q_OBJECT
 
     public:
+        /**
+         * Constructor.  Takes as a parameter the name of the theme that is
+         * currently styling the applicaton.
+         */
         ThemeSelectionDialog
         (
             const QString& currentThemeName,
             QWidget* parent = 0
         );
-        virtual ~ThemeSelectionDialog();
+
+        /**
+         * Destructor.
+         */
+        ~ThemeSelectionDialog();
 
     signals:
+        /**
+         * Emitted when the user has selected a theme so that it can be applied
+         * (previewed) to the application look and feel.
+         */
         void applyTheme(const Theme& theme);
 
-    protected slots:
+    private slots:
         void onThemeSelected();
         void onNewTheme();
         void onDeleteTheme();
@@ -54,6 +70,11 @@ class ThemeSelectionDialog : public QDialog
         Theme currentTheme;
         bool currentThemeIsValid;
         bool currentThemeIsNew;
+
+        // Use this list to count where the custom
+        // themes start in the theme selection list.
+        //
+        QStringList builtInThemes;
 };
 
 #endif // THEMESELECTIONDIALOG_H

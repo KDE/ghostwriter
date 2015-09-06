@@ -26,17 +26,41 @@
 
 class QLineEdit;
 
+/**
+ * A simplified font dialog displaying only the font family and font size as
+ * options for the user to choose.  This class will also render a preview
+ * of the font.
+ */
 class SimpleFontDialog : public QDialog
 {
     Q_OBJECT
 
     public:
+        /**
+         * Constructor.
+         */
         SimpleFontDialog(QWidget* parent = 0);
+
+        /**
+         * Constructor.  Takes initial font to display as a parameter.
+         */
         SimpleFontDialog(const QFont& initial, QWidget* parent = 0);
+
+        /**
+         * Destructor.
+         */
         ~SimpleFontDialog();
 
+        /**
+         * Gets the currently selected font.  Call this method after exec()
+         * returns.
+         */
         QFont getSelectedFont() const;
 
+        /**
+         * Convenience method to create the dialog and extract the font in
+         * one easy call.  Takes intial font to display as a parameter.
+         */
         static QFont getFont
         (
             bool* ok,
@@ -44,10 +68,14 @@ class SimpleFontDialog : public QDialog
             QWidget* parent = 0
         );
 
+        /**
+         * Convenience method to create the dialog and extract the font in
+         * one easy call.
+         */
         static QFont getFont(bool* ok, QWidget* parent = 0);
 
     private slots:
-        void onFontFamilyChanged(const QString& familyText);
+        void onFontFamilyChanged(const QFont& font);
         void onFontSizeChanged(const QString& sizeText);
 
     private:

@@ -81,7 +81,7 @@ bool TextDocument::isReadOnly() const
     return readOnlyFlag;
 }
 
-bool TextDocument::setReadOnly(bool readOnly)
+void TextDocument::setReadOnly(bool readOnly)
 {
     readOnlyFlag = readOnly;
 }
@@ -91,7 +91,7 @@ QDateTime TextDocument::getTimestamp() const
     return timestamp;
 }
 
-bool TextDocument::setTimestamp(const QDateTime& timestamp)
+void TextDocument::setTimestamp(const QDateTime& timestamp)
 {
     this->timestamp = timestamp;
 }

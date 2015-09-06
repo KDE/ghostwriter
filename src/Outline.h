@@ -23,6 +23,10 @@
 #include <QListWidget>
 #include <QString>
 
+/**
+ * Outline widget for use in navigating document headings and displaying the
+ * current position in the document to the user.
+ */
 class Outline : public QListWidget
 {
     Q_OBJECT

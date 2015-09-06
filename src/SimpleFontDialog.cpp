@@ -19,11 +19,11 @@
 
 #include <QGridLayout>
 #include <QLineEdit>
-#include <QComboBox>
-#include <QFontDatabase>
 #include <QList>
 #include <QLabel>
 #include <QDialogButtonBox>
+#include <QComboBox>
+#include <QFontComboBox>
 #include <QFontInfo>
 
 #include "SimpleFontDialog.h"
@@ -36,27 +36,13 @@ SimpleFontDialog::SimpleFontDialog(QWidget* parent)
 SimpleFontDialog::SimpleFontDialog(const QFont& initial, QWidget* parent)
     : QDialog(parent)
 {
+    QFontComboBox* fontComboBox = new QFontComboBox(this);
+    fontComboBox->setCurrentFont(initial);
     font = initial;
-
-    QFontInfo fontInfo(font);
-    QFontDatabase fontDb;
-
-    QComboBox* familyComboBox = new QComboBox(this);
-    familyComboBox->addItems(fontDb.families());
-    familyComboBox->setEditable(false);
-
-    int currentFamilyIndex = familyComboBox->findText(fontInfo.family());
-
-    if (currentFamilyIndex < 0)
-    {
-        currentFamilyIndex = 0;
-    }
-
-    familyComboBox->setCurrentIndex(currentFamilyIndex);
 
     QVBoxLayout* familyLayout = new QVBoxLayout();
     familyLayout->addWidget(new QLabel(tr("Family")));
-    familyLayout->addWidget(familyComboBox);
+    familyLayout->addWidget(fontComboBox);
 
     QList<int> sizes = QFontDatabase::standardSizes();
     QComboBox* sizeComboBox = new QComboBox(this);
@@ -66,6 +52,7 @@ SimpleFontDialog::SimpleFontDialog(const QFont& initial, QWidget* parent)
     sizeComboBox->setValidator(sizeValidator);
 
     int currentSizeIndex = 0;
+    QFontInfo fontInfo(initial);
 
     for (int i = 0; i < sizes.size(); i++)
     {
@@ -86,7 +73,7 @@ SimpleFontDialog::SimpleFontDialog(const QFont& initial, QWidget* parent)
     sizeLayout->addWidget(sizeComboBox);
 
     fontPreview = new QLineEdit(tr("AaBbCcXxYyZz"), this);
-    fontPreview->setFont(font);
+    fontPreview->setFont(initial);
 
     QVBoxLayout* previewLayout = new QVBoxLayout();
     previewLayout->addWidget(new QLabel(tr("Preview")));
@@ -106,7 +93,7 @@ SimpleFontDialog::SimpleFontDialog(const QFont& initial, QWidget* parent)
 
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    connect(familyComboBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(onFontFamilyChanged(const QString&)));
+    connect(fontComboBox, SIGNAL(currentFontChanged(QFont)), this, SLOT(onFontFamilyChanged(const QFont&)));
     connect(sizeComboBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(onFontSizeChanged(const QString&)));
     connect(sizeComboBox, SIGNAL(editTextChanged(QString)), this, SLOT(onFontSizeChanged(const QString&)));
 }
@@ -146,10 +133,12 @@ QFont SimpleFontDialog::getFont(bool* ok, QWidget* parent)
     return getFont(ok, QFont(), parent);
 }
 
-void SimpleFontDialog::onFontFamilyChanged(const QString& familyText)
+void SimpleFontDialog::onFontFamilyChanged(const QFont& font)
 {
-    font.setFamily(familyText);
-    fontPreview->setFont(font);
+    int size = this->font.pointSize();
+    this->font = font;
+    this->font.setPointSize(size);
+    fontPreview->setFont(this->font);
 }
 
 void SimpleFontDialog::onFontSizeChanged(const QString& sizeText)

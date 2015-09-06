@@ -35,6 +35,7 @@
 #include <QtConcurrentRun>
 #include <QFuture>
 #include <QSettings>
+#include <QPrinter>
 
 #include "HtmlPreview.h"
 #include "Exporter.h"
@@ -63,6 +64,7 @@ HtmlPreview::HtmlPreview
         settings.value(GW_CUSTOM_STYLE_SHEETS_KEY, QStringList()).toStringList();
 
     htmlBrowser = new QWebView(this);
+    htmlBrowser->settings()->setDefaultTextEncoding("utf-8");
 
     setWindowTitle(tr("HTML Preview"));
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -85,9 +87,8 @@ HtmlPreview::HtmlPreview
     stream
         << "QStatusBar { margin: 0; padding: 0 } "
         << "QStatusBar::item { border: 0; margin: 0; padding: 0; border: 0px } "
-        << "QPushButton { margin: 0 1px 0 1px; padding: 3px; "
-        << "font-size: 10pt; height: 20px; border-radius: 5px; "
-        << "background: #4183C4; color: #F2F2F2 } "
+        << "QPushButton { margin: 0 1px 0 1px; padding: 5px; "
+        << "border-radius: 5px; background: #4183C4; color: #F2F2F2 } "
         << "QPushButton:hover { background: #5A93CC } "
         << "QPushButton:pressed, QPushButton:flat, QPushButton:checked "
         << "{ background-color: #356FA9 }"
@@ -117,7 +118,10 @@ HtmlPreview::HtmlPreview
 
     if (exporters.isEmpty())
     {
-        setHtml(QString("<b style='color: red'>") + tr("No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.") + QString("</b>"));
+        setHtml(QString("<b style='color: red'>") +
+            tr("No markdown (pandoc, multimarkdown, discount) processors are "
+                "installed.  Please install or add their installation locations "
+                "to your system PATH environment variable.") + QString("</b>"));
         exporter = NULL;
     }
     else
@@ -163,6 +167,7 @@ HtmlPreview::HtmlPreview
     }
 
     styleSheetComboBox->addItem(tr("Add/Remove Custom Style Sheets..."));
+
     // Find the last used style sheet, and set it as selected in the combo box.
     for (int i = 0; i < styleSheetComboBox->count() - 1; i++)
     {
@@ -185,6 +190,10 @@ HtmlPreview::HtmlPreview
 
     this->connect(document, SIGNAL(filePathChanged()), SLOT(updateBaseDir()));
     this->updateBaseDir();
+
+    // Set up default page layout and page size for printing.
+    printer.setPaperSize(QPrinter::Letter);
+    printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
 }
 
 HtmlPreview::~HtmlPreview()
@@ -293,17 +302,6 @@ void HtmlPreview::onHtmlReady()
     QTextStream oldHtmlDoc((QString*) &(this->html), QIODevice::ReadOnly);
     QTextStream anchoredHtmlDoc(&anchoredHtml, QIODevice::WriteOnly);
 
-    anchoredHtmlDoc
-        << "<html>"
-             "<head>"
-               "<meta http-equiv=\"Content-Type\" "
-                    "content=\"text/html; charset=UTF-8\" />"
-               "<title>Preview</title>"
-               "<style type=\"text/css\">"
-               "</style>"
-             "</head>"
-             "<body>";
-
     bool differenceFound = false;
     QString oldLine = oldHtmlDoc.readLine();
     QString newLine = newHtmlDoc.readLine();
@@ -334,10 +332,6 @@ void HtmlPreview::onHtmlReady()
         anchoredHtmlDoc << newLine << "\n";
         newLine = newHtmlDoc.readLine();
     }
-
-    anchoredHtmlDoc
-        <<   "</body>"
-        << "</html>";
 
     setHtml(anchoredHtml);
     this->html = html;
@@ -422,7 +416,7 @@ void HtmlPreview::changeStyleSheet(int index)
     int selectionIndex = index;
 
     // If the "Add/Remove Custom Style Sheets" option was selected...
-    if (styleSheetComboBox->count() == index + 1)
+    if (styleSheetComboBox->count() == (index + 1))
     {
         // Save off the style sheet file path of the last selected item.
         QString oldSelection =
@@ -447,7 +441,7 @@ void HtmlPreview::changeStyleSheet(int index)
             customCssFiles = ssmDialog.getStyleSheets();
 
             // Remove all the old style sheets from the combo box.
-            while (styleSheetComboBox->count() > defaultStyleSheets.size() + 1)
+            while (styleSheetComboBox->count() > (defaultStyleSheets.size() + 1))
             {
                 styleSheetComboBox->removeItem(1);
             }
@@ -473,7 +467,15 @@ void HtmlPreview::changeStyleSheet(int index)
                 }
             }
 
-            if (selectionIndex < defaultStyleSheets.size())
+            // If the last selected style sheet was one of the default ones,
+            // and is still currently selected, then we don't need to update
+            // the preview again.
+            //
+            if
+            (
+                (lastStyleSheetIndex == selectionIndex) &&
+                (selectionIndex < defaultStyleSheets.size())
+            )
             {
                 previewUpdateNeeded = false;
             }
@@ -521,8 +523,16 @@ void HtmlPreview::changeStyleSheet(int index)
 
 void HtmlPreview::printPreview()
 {
-    QPrintPreviewDialog printPreviewDialog(NULL, this);
-    connect(&printPreviewDialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(printHtmlToPrinter(QPrinter*)));
+    QPrintPreviewDialog printPreviewDialog(&printer, this);
+
+    connect
+    (
+        &printPreviewDialog,
+        SIGNAL(paintRequested(QPrinter*)),
+        this,
+        SLOT(printHtmlToPrinter(QPrinter*))
+    );
+
     printPreviewDialog.exec();
 }
 
@@ -603,28 +613,4 @@ QString HtmlPreview::exportToHtml
     exporter->exportToHtml(text, html);
 
     return html;
-}
-
-void HtmlPreview::addRemoveStyleSheets()
-{
-
-
-    QString filePath =
-        QFileDialog::getOpenFileName
-        (
-            this,
-            tr("Select CSS File"),
-            QString(),
-            tr("CSS") + QString(" (*.css);;") + tr("All") + QString(" (*)")
-        );
-
-    if (filePath.isNull() || filePath.isEmpty())
-    {
-        // If the user canceled loading the custom CSS file, then reset
-        // combo box to have the previously selected style sheet selected.
-        //
-        styleSheetComboBox->setCurrentIndex(lastStyleSheetIndex);
-        return;
-    }
-
 }

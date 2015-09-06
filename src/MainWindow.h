@@ -49,6 +49,9 @@ class DocumentManager;
 class MarkdownHighlighter;
 class Outline;
 
+/**
+ * Main window for the application.
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
