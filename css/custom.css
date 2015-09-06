@@ -23,12 +23,16 @@ body {
 }
 
 .carousel-control {
-    width: 10%;
+    width: 5%;
 }
-.carousel-control.left {
+
+/* The following disables the backdrop shadow for the
+ * carousel left/right arrow controls.
+ */
+/*.carousel-control.left {
     background-image: none
 }
 
 .carousel-control.right {
     background-image: none;
-}
+}*/
