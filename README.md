@@ -21,7 +21,7 @@ About *ghostwriter*
     - [Discount](http://www.pell.portland.or.us/~orc/Code/discount/)
     - [cmark](https://github.com/jgm/cmark)
 
-The best part is that *ghostwriter* is entirely free and open source.  No longer do you have to look at your friend's stylish Mac OS X Markdown editors with envy.  *ghostwriter* competitively provides the same style and functionality as many other famous editors for none of the cost.
+The best part is that *ghostwriter* is entirely free and open source.  No longer do you have to look at your friend's stylish Mac OS X Markdown editors with envy.  *ghostwriter* competitively provides the same style and functionality as many other famous editors for both Windows and Linux.
 
 Screenshots
 ===========
