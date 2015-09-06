@@ -3,7 +3,7 @@
 About *ghostwriter*
 ===================
 
-*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free environment for writing, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  Here are just a few of its features:
+*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  Here are just a few of its features:
 
 * Syntax highlighting of Markdown
 * Navigation of document headings
@@ -36,7 +36,7 @@ Windows
 
 On Windows, you can either download the setup.exe and go through the setup wizard (recommended), or you can run the portable version (advanced users).  To install via the setup wizard, download `ghostwriter-setup.exe` to a location of your choice, double click on its icon to run, and follow the installation steps.  Note that you must have administrator rights to install.
 
-The portable version is a Zip file which you can unzip to any location on your computer.  Within the Zip file is a simple folder containing the `ghostwriter.exe` file.  Double click on this file to run the program.  The `data` sub-folder contains the location of your Hunspell dictionaries, themes, and application settings.  The portable version is an excellent alternative for when you do not have administrative rights to install the application.  You can take it anywhere on a thumb drive and run it--at school, a friend's house, etc.
+The portable version is a Zip file which you can unzip to any location on your computer.  Within the Zip file is a simple folder containing the `ghostwriter.exe` file.  Double click on this file to run the program.  The `dictionaries` subfolder contains your Hunspell dictionaries.  The `data` subfolder contains the location of your personal dictionaries, themes, and application settings.  The portable version is an excellent alternative for when you do not have administrative rights to install the application.  You can take it anywhere on a thumb drive and run it--at school, a friend's house, etc.
 
 Linux
 -----
