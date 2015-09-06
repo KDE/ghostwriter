@@ -62,16 +62,26 @@ ExportDialog::ExportDialog(TextDocument* document, QWidget* parent)
     standardLocations <<
         QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
 
+    // Adds the "My Computer" shortcut.
+    shortcutFolders << QUrl("file:");
+
     foreach (QString loc, standardLocations)
     {
         shortcutFolders << QUrl::fromLocalFile(loc);
     }
+
 #else
     shortcutFolders
         << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation))
         << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DesktopLocation))
         << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation));
 #endif
+
+    // In Qt 5, the QFileDialog will be scrunched unless setVisible is called.
+    // Also, Qt 5 also will not show custom sidebar URLs unless setVisible() is
+    // called first.  Note that this is not an issue in Qt 4.
+    //
+    fileDialogWidget->setVisible(true);
 
     fileDialogWidget->setSidebarUrls(shortcutFolders);
 
