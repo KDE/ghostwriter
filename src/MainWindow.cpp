@@ -244,7 +244,10 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         SLOT(updateWordCount(int))
     );
 
-    htmlPreview = new HtmlPreview(documentManager->getDocument(), this);
+    // Note that the parent widget for this new window must be NULL, so that
+    // it will hide beneath other windows when it is deactivated.
+    //
+    htmlPreview = new HtmlPreview(documentManager->getDocument(), NULL);
 
     connect(editor, SIGNAL(typingPaused()), htmlPreview, SLOT(updatePreview()));
     connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
@@ -638,7 +641,10 @@ void MainWindow::showQuickReferenceGuide()
         QString html = inStream.readAll();
         inputFile.close();
 
-        quickReferenceGuideViewer = new QWebView(this);
+        // Note that the parent widget for this new window must be NULL, so that
+        // it will hide beneath other windows when it is deactivated.
+        //
+        quickReferenceGuideViewer = new QWebView(NULL);
         quickReferenceGuideViewer->setWindowTitle(tr("Quick Reference Guide"));
         quickReferenceGuideViewer->setWindowFlags(Qt::Window);
         quickReferenceGuideViewer->settings()->setDefaultTextEncoding("utf-8");
