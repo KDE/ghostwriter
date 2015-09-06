@@ -9,8 +9,8 @@
 </head>
 <body>
 <h1 id="introduction">Introduction</h1>
-<p>Welcome to <em>ghostwriter</em>! This quick reference guide gives examples of writing in Markdown, a plain text markup format created by John Gruber. For more information and help, please visit John Gruber’s website at <a href="http://www.daringfireball.net" class="uri">http://www.daringfireball.net</a>. The official <em>ghostwriter</em> website can be found at <a href="http://www.github.com/wereturtle/ghostwriter" class="uri">http://www.github.com/wereturtle/ghostwriter</a>.</p>
-<p><em>ghostwriter</em> has built-in support for the Sundown processor. However, it also can auto-detect Pandoc, MultiMarkdown, or Discount processors. To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system’s <code>PATH</code> environment variable. <em>ghostwriter</em> will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.</p>
+<p>Welcome to <em>ghostwriter</em>! This quick reference guide gives examples of writing in Markdown, a plain text markup format created by John Gruber. For more information and help, please visit John Gruber’s website at <a href="http://www.daringfireball.net">http://www.daringfireball.net</a>. The official <em>ghostwriter</em> website can be found at <a href="http://www.github.com/wereturtle/ghostwriter">http://www.github.com/wereturtle/ghostwriter</a>.</p>
+<p><em>ghostwriter</em> has built-in support for the Sundown processor. However, it also can auto-detect Pandoc, MultiMarkdown, Discount, or cmark processors. To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system’s <code>PATH</code> environment variable. <em>ghostwriter</em> will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.</p>
 <h1 id="headings">Headings</h1>
 <pre><code># Level 1 Heading
 ## Level 2 Heading ##
@@ -122,29 +122,30 @@ Row Text 1  |  Row Text 2
 Row Text 1  |  Row Text 2</code></pre>
 <p>There are even more table syntaxes that these Markdown processors can support. There are also many more extensions. For more information on these processors, please visit the following websites:</p>
 <ul>
-<li>Sundown: <a href="http://github.com/vmg/sundown/" class="uri">http://github.com/vmg/sundown/</a></li>
-<li>Pandoc: <a href="http://johnmacfarlane.net/pandoc/" class="uri">http://johnmacfarlane.net/pandoc/</a></li>
-<li>MultiMarkdown: <a href="http://fletcherpenney.net/multimarkdown/" class="uri">http://fletcherpenney.net/multimarkdown/</a></li>
-<li>Discount: <a href="http://www.pell.portland.or.us/~orc/Code/discount/" class="uri">http://www.pell.portland.or.us/~orc/Code/discount/</a></li>
+<li>Sundown: <a href="http://github.com/vmg/sundown/">http://github.com/vmg/sundown/</a></li>
+<li>Pandoc: <a href="http://johnmacfarlane.net/pandoc/">http://johnmacfarlane.net/pandoc/</a></li>
+<li>MultiMarkdown: <a href="http://fletcherpenney.net/multimarkdown/">http://fletcherpenney.net/multimarkdown/</a></li>
+<li>Discount: <a href="http://www.pell.portland.or.us/~orc/Code/discount/">http://www.pell.portland.or.us/~orc/Code/discount/</a></li>
+<li>cmark: <a href="http://github.com/jgm/cmark/">http://github.com/jgm/cmark/</a></li>
 </ul>
-<p>The original John Gruber Markdown specification can be found at <a href="http://daringfireball.net/projects/markdown/" class="uri">http://daringfireball.net/projects/markdown/</a>.</p>
+<p>The original John Gruber Markdown specification can be found at <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.</p>
 <h1 id="ghostwriter-shortcuts">Ghostwriter Shortcuts</h1>
 <p><em>ghostwriter</em> supports several shortcut keys for editing Markdown:</p>
 <dl>
 <dt><code>Tab</code></dt>
-<dd>When text is selected in the editor, pressing the tab key will indent the selected lines of text.
+<dd><p>When text is selected in the editor, pressing the tab key will indent the selected lines of text.</p>
 </dd>
 <dt><code>Shift+Tab</code></dt>
-<dd>When text is selected in the editor, pressing the Shift and Tab keys together will unindent the selected lines of text.
+<dd><p>When text is selected in the editor, pressing the Shift and Tab keys together will unindent the selected lines of text.</p>
 </dd>
 <dt><code>Shift+Enter</code></dt>
-<dd>Inserts a Markdown-style line break.
+<dd><p>Inserts a Markdown-style line break.</p>
 </dd>
 <dt><code>&gt;</code></dt>
-<dd>When text is selected in the editor, pressing the <code>&gt;</code> character (<code>Shift+.</code>) will create a block quote from the selected lines of text.
+<dd><p>When text is selected in the editor, pressing the <code>&gt;</code> character (<code>Shift+.</code>) will create a block quote from the selected lines of text.</p>
 </dd>
 <dt><code>Ctrl+&gt;</code></dt>
-<dd>When text is selected in the editor, pressing <code>Ctrl</code> with the <code>&gt;</code> character (<code>Ctrl+Shift+.</code>) will remove any block quote formatting from the selected lines of text.
+<dd><p>When text is selected in the editor, pressing <code>Ctrl</code> with the <code>&gt;</code> character (<code>Ctrl+Shift+.</code>) will remove any block quote formatting from the selected lines of text.</p>
 </dd>
 <dt><code>Ctrl+D</code></dt>
 <dd><p>When the current line of text is a Github-Flavored Markdown task list item, pressing <code>Ctrl+D</code> will toggle the completion status of the task, placing an <code>x</code> in the checkbox if the task is complete, or removing the <code>x</code> if it is incomplete. For example:</p>
@@ -152,7 +153,7 @@ Row Text 1  |  Row Text 2</code></pre>
 - [x] `Ctrl+D` marks this task as done!</code></pre>
 </dd>
 <dt><code>&quot;</code>, <code>'</code>, <code>(</code>, <code>[</code>, <code>{</code>, <code>*</code>, <code>_</code>, <code>`</code></dt>
-<dd>When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character. For example, if you select the word <code>dog</code> and then enter the <code>(</code> character, the word <code>dog</code> will be enclosed in parentheses and become <code>(dog)</code>.
+<dd><p>When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character. For example, if you select the word <code>dog</code> and then enter the <code>(</code> character, the word <code>dog</code> will be enclosed in parentheses and become <code>(dog)</code>.</p>
 </dd>
 </dl>
 <hr />
