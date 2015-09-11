@@ -104,6 +104,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     emphasizeToken[TokenEmphasis] = true;
     emphasizeToken[TokenBlockquote] = false;
     strongToken[TokenStrong] = true;
+    strongToken[TokenMention] = true;
     strongToken[TokenAtxHeading1] = true;
     strongToken[TokenAtxHeading2] = true;
     strongToken[TokenAtxHeading3] = true;
