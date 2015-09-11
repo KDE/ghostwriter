@@ -18,8 +18,8 @@
  ***********************************************************************/
 
 
-#ifndef MARKDOWNPARSER_H
-#define MARKDOWNPARSER_H
+#ifndef MARKDOWNTOKENIZER_H
+#define MARKDOWNTOKENIZER_H
 
 #include "HighlightTokenizer.h"
 
@@ -59,6 +59,7 @@ enum MarkdownTokenType
     TokenGithubCodeFence,
     TokenPandocCodeFence,
     TokenCodeFenceEnd,
+    TokenMention,
     TokenLast
 };
 
@@ -108,6 +109,7 @@ class MarkdownTokenizer : public HighlightTokenizer
         QRegExp referenceDefinitionRegex;
         QRegExp imageRegex;
         QRegExp htmlInlineCommentRegex;
+        QRegExp mentionRegex;
 
 
         bool tokenizeSetextHeadingLine1(const QString& text);

@@ -409,6 +409,7 @@ void MarkdownHighlighter::setupTokenColors()
     colorForToken[TokenReferenceLink] = linkColor;
     colorForToken[TokenReferenceDefinition] = linkColor;
     colorForToken[TokenImage] = linkColor;
+    colorForToken[TokenMention] = linkColor;
     colorForToken[TokenHtmlComment] = markupColor;
     colorForToken[TokenHorizontalRule] = markupColor;
     colorForToken[TokenGithubCodeFence] = markupColor;
