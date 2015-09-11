@@ -213,14 +213,9 @@ void ThemeSelectionDialog::onNewTheme()
     currentThemeIsValid = true;
     this->themeListWidget->setCurrentRow(themeListWidget->count() - 1);
 
-    ThemeEditorDialog* themeEditorDialog = new ThemeEditorDialog(newTheme, this);
-    connect(themeEditorDialog, SIGNAL(themeUpdated(Theme)), this, SLOT(onThemeUpdated(Theme)));
-    themeEditorDialog->exec();
-
-    if (NULL != themeEditorDialog)
-    {
-        delete themeEditorDialog;
-    }
+    ThemeEditorDialog themeEditorDialog(newTheme, this);
+    connect(&themeEditorDialog, SIGNAL(themeUpdated(Theme)), this, SLOT(onThemeUpdated(Theme)));
+    themeEditorDialog.exec();
 }
 
 
@@ -317,15 +312,10 @@ void ThemeSelectionDialog::onEditTheme()
             themeToEdit.setName(currentTheme.getName());
         }
 
-        ThemeEditorDialog* themeEditorDialog = new ThemeEditorDialog(themeToEdit, this);
-        connect(themeEditorDialog, SIGNAL(themeUpdated(Theme)), this, SLOT(onThemeUpdated(Theme)));
+        ThemeEditorDialog themeEditorDialog(themeToEdit, this);
+        connect(&themeEditorDialog, SIGNAL(themeUpdated(Theme)), this, SLOT(onThemeUpdated(Theme)));
 
-        themeEditorDialog->exec();
-
-        if (NULL != themeEditorDialog)
-        {
-            delete themeEditorDialog;
-        }
+        themeEditorDialog.exec();
     }
 }
 
