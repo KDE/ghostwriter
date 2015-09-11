@@ -195,6 +195,7 @@ void ThemeEditorDialog::accept()
 
 void ThemeEditorDialog::reject()
 {
+    emit themeUpdated(theme);
     QDialog::reject();
 }
 
