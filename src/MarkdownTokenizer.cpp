@@ -68,7 +68,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     imageRegex.setMinimal(true);
     htmlInlineCommentRegex.setPattern("<!--.*-->");
     htmlInlineCommentRegex.setMinimal(true);
-    mentionRegex.setPattern("@\\w+(\\-\\w+)*(/\\w+(\\-\\w+)*)?");
+    mentionRegex.setPattern("\\B@\\w+(\\-\\w+)*(/\\w+(\\-\\w+)*)?");
 }
         
 MarkdownTokenizer::~MarkdownTokenizer()
@@ -763,7 +763,6 @@ bool MarkdownTokenizer::tokenizeInline
     }
 
     tokenizeHtmlComments(escapedText);
-    tokenizeMatches(TokenMention, escapedText, mentionRegex, 0, 0, false, true);
     tokenizeMatches(TokenImage, escapedText, imageRegex, 0, 0, false, true);
     tokenizeMatches(TokenInlineLink, escapedText, inlineLinkRegex, 0, 0, false, true);
     tokenizeMatches(TokenReferenceLink, escapedText, referenceLinkRegex);
@@ -774,6 +773,7 @@ bool MarkdownTokenizer::tokenizeInline
     tokenizeMatches(TokenStrong, escapedText, strongRegex, 2, 2, true);
     tokenizeMatches(TokenEmphasis, escapedText, emphasisRegex, 1, 1, true);
     tokenizeMatches(TokenHtmlTag, escapedText, htmlTagRegex);
+    tokenizeMatches(TokenMention, escapedText, mentionRegex, 0, 0, false, true);
 
     return true;
 }
