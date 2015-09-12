@@ -1280,7 +1280,7 @@ void MainWindow::applyTheme()
     if (EditorAspectStretch == theme.getEditorAspect())
     {
         QColor fadedTextColor(theme.getDefaultTextColor());
-        fadedTextColor.setAlpha(200);
+        fadedTextColor.setAlpha(165);
         fadedTextColor =
             ColorHelper::applyAlpha
             (
@@ -1340,7 +1340,7 @@ void MainWindow::applyTheme()
         menuBarItemBgColorRGBA = "transparent";
         menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
         chromeFgColor.setAlpha(80);
-        menuBarItemBgPressColorRGBA =ColorHelper::toRgbaString(chromeFgColor);
+        menuBarItemBgPressColorRGBA = ColorHelper::toRgbaString(chromeFgColor);
         menuBarBgColorRGBA = "transparent";
 
 
