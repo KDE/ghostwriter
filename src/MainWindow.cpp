@@ -73,7 +73,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     : QMainWindow(parent)
 {
     QString fileToOpen;
-    setWindowIcon(QIcon(":/resources/icons/ghostwriter.svg"));
+    setWindowIcon(QIcon(":/resources/images/ghostwriter.svg"));
     this->setObjectName("mainWindow");
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
@@ -1307,12 +1307,12 @@ void MainWindow::applyTheme()
             statusBarBgColorRGBA = backgroundColorRGBA;
         }
 
-        fullScreenIcon = ":/resources/icons/view-fullscreen-dark.svg";
-        fullScreenIconHover = ":/resources/icons/view-fullscreen-dark-hover.svg";
-        fullScreenIconPressed = ":/resources/icons/view-fullscreen-dark-hover.svg";
-        restoreIcon = ":/resources/icons/view-restore-dark.svg";
-        restoreIconHover = ":/resources/icons/view-restore-dark-hover.svg";
-        restoreIconPressed = ":/resources/icons/view-restore-dark-hover.svg";
+        fullScreenIcon = ":/resources/images/view-fullscreen-dark.svg";
+        fullScreenIconHover = ":/resources/images/view-fullscreen-dark-hover.svg";
+        fullScreenIconPressed = ":/resources/images/view-fullscreen-dark-hover.svg";
+        restoreIcon = ":/resources/images/view-restore-dark.svg";
+        restoreIconHover = ":/resources/images/view-restore-dark-hover.svg";
+        restoreIconPressed = ":/resources/images/view-restore-dark-hover.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB =
@@ -1344,12 +1344,12 @@ void MainWindow::applyTheme()
         menuBarBgColorRGBA = "transparent";
 
 
-        fullScreenIcon = ":/resources/icons/view-fullscreen-light.svg";
-        fullScreenIconHover = ":/resources/icons/view-fullscreen-light-hover.svg";
-        fullScreenIconPressed = ":/resources/icons/view-fullscreen-light-hover.svg";
-        restoreIcon = ":/resources/icons/view-restore-light.svg";
-        restoreIconHover = ":/resources/icons/view-restore-light-hover.svg";
-        restoreIconPressed = ":/resources/icons/view-restore-light-hover.svg";
+        fullScreenIcon = ":/resources/images/view-fullscreen-light.svg";
+        fullScreenIconHover = ":/resources/images/view-fullscreen-light-hover.svg";
+        fullScreenIconPressed = ":/resources/images/view-fullscreen-light-hover.svg";
+        restoreIcon = ":/resources/images/view-restore-light.svg";
+        restoreIconHover = ":/resources/images/view-restore-light-hover.svg";
+        restoreIconPressed = ":/resources/images/view-restore-light-hover.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;

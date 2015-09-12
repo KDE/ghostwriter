@@ -65,7 +65,7 @@ HudWindow::HudWindow(QWidget *parent)
     closeButton->setFocusPolicy(Qt::NoFocus);
     closeButton->setStyleSheet("margin: 1; padding: 0; border: 0; width: 16px; "
         "height: 16px; background: transparent; "
-        "image: url(:/resources/icons/close-delete.svg)");
+        "image: url(:/resources/images/close-delete.svg)");
     closeButtonColorEffect = new QGraphicsColorizeEffect();
     closeButtonColorEffect->setColor(QColor(Qt::white));
     closeButtonColorEffect->setStrength(1.0);
@@ -86,7 +86,7 @@ HudWindow::HudWindow(QWidget *parent)
     sizeGripContainer->setLayout(sizeGripLayout);
     sizeGrip = new QSizeGrip(this);
     sizeGrip->setStyleSheet("width: 16px; height 16px; "
-        "image: url(:/resources/icons/size-grip.svg)");
+        "image: url(:/resources/images/size-grip.svg)");
     sizeGripColorEffect = new QGraphicsColorizeEffect();
     sizeGripColorEffect->setColor(QColor(Qt::white));
     sizeGripColorEffect->setStrength(1.0);

@@ -67,7 +67,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
 
         if (!err.isNull())
         {
-            themeIcon = QIcon(":resources/icons/unavailable.svg");
+            themeIcon = QIcon(":resources/images/unavailable.svg");
         }
         else
         {
@@ -193,7 +193,7 @@ void ThemeSelectionDialog::onNewTheme()
 
     if (!err.isNull())
     {
-        themeIcon = QIcon(":resources/icons/unavailable.svg");
+        themeIcon = QIcon(":resources/images/unavailable.svg");
     }
     else
     {

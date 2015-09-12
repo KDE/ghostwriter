@@ -25,14 +25,23 @@ macx:greaterThan(QT_MAJOR_VERSION, 4):lessThan(QT_VERSION, 5.2) {
     error("ghostwriter requires Qt 5.2 or greater")
 }
 
+TEMPLATE = app
+greaterThan(QT_MAJOR_VERSION, 4) { # QT v. 5
+    QT += printsupport webkitwidgets widgets concurrent
+}
+else { # QT v. 4
+    QT += webkit concurrent
+}
+CONFIG -= debug
+CONFIG += warn_on
+
 # Set program version
 VERSION = $$system(git describe --tags)
 isEmpty(VERSION) {
-    VERSION = v1.1.0
+    VERSION = v1.2.0
 }
+DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
-TEMPLATE = app
-CONFIG -= debug
 
 CONFIG(debug, debug|release) {
     DESTDIR = build/debug
@@ -41,22 +50,13 @@ else {
     DESTDIR = build/release
 }
 
-TARGET = ghostwriter
-DEPENDPATH += .
-INCLUDEPATH += src src/spelling
 #DEFINES += QT_NO_DEBUG_OUTPUT=1
-DEFINES += APPVERSION='\\"$${VERSION}\\"'
 OBJECTS_DIR = $${DESTDIR}
 MOC_DIR = $${DESTDIR}
 RCC_DIR = $${DESTDIR}
 UI_DIR = $${DESTDIR}
 
-greaterThan(QT_MAJOR_VERSION, 4) { # QT v. 5
-    QT += printsupport webkitwidgets widgets concurrent
-}
-else { # QT v. 4
-    QT += webkit concurrent
-}
+TARGET = ghostwriter
 
 # Input
 
@@ -105,6 +105,7 @@ macx {
 		src/spelling/dictionary_provider_voikko.cpp
 }
 
+INCLUDEPATH += src src/spelling
 
 HEADERS += src/MainWindow.h \
     src/MarkdownEditor.h \
@@ -210,14 +211,9 @@ SOURCES += src/AppMain.cpp \
 RESOURCES += resources.qrc
 
 macx {
-    ICON = resources/icons/ghostwriter.icns
-
-    ICONS.files = resources/icons/hicolor
-    ICONS.path = Contents/Resources/icons
-
-    QMAKE_BUNDLE_DATA += ICONS
+    ICON = resources/mac/ghostwriter.icns
 } else:win32 {
-    RC_FILE = resources/ghostwriter.rc
+    RC_FILE = resources/windows/ghostwriter.rc
 } else:unix {
     isEmpty(PREFIX) {
         PREFIX = /usr/local
@@ -232,20 +228,23 @@ macx {
 
     target.path = $$BINDIR
 
-    icon.files = resources/icons/hicolor/*
+    pixmap.files = resources/linux/icons/ghostwriter.xpm
+    pixmap.path = $$DATADIR/pixmaps
+
+    icon.files = resources/linux/icons/hicolor/*
     icon.path = $$DATADIR/icons/hicolor
 
-    desktop.files = resources/ghostwriter.desktop
+    desktop.files = resources/linux/ghostwriter.desktop
     desktop.path = $$DATADIR/applications/
 
-    appdata.files = resources/ghostwriter.appdata.xml
+    appdata.files = resources/linux/ghostwriter.appdata.xml
     appdata.path = $$DATADIR/appdata/
 
-    man.files = resources/ghostwriter.1
+    man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
 
-    qm.files = translations/*.qm
-    qm.path = $$DATADIR/ghostwriter/translations
+    # qm.files = translations/*.qm
+    # qm.path = $$DATADIR/ghostwriter/translations
 
-    INSTALLS += target icon desktop appdata man icon qm
+    INSTALLS += target icon pixmap desktop appdata man icon
 }

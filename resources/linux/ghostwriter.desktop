@@ -8,5 +8,5 @@ TryExec=ghostwriter
 Exec=ghostwriter %F
 Terminal=false
 MimeType=text/plain;text/markdown;text/x-markdown;
-Categories=Qt;Office;WordProcessor;Internet;
+Categories=Qt;Office;WordProcessor;
 Keywords=Markdown;editor;document;fullscreen;distraction;concentration;focused;writing;
