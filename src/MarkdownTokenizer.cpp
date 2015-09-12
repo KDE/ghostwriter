@@ -52,8 +52,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     strongRegex.setMinimal(true);
     strikethroughRegex.setPattern("~~.*~~");
     strikethroughRegex.setMinimal(true);
-    verbatimRegex.setPattern("`[^`]+`|``+.+``+");
-    verbatimRegex.setMinimal(true);
+    verbatimRegex.setPattern("`+");
     htmlTagRegex.setPattern("<[^<>]+>");
     htmlTagRegex.setMinimal(true);
     htmlEntityRegex.setPattern("&[a-zA-Z]+;|&#x?[0-9]+;");
@@ -762,13 +761,13 @@ bool MarkdownTokenizer::tokenizeInline
         }
     }
 
+    tokenizeVerbatim(escapedText);
     tokenizeHtmlComments(escapedText);
     tokenizeMatches(TokenImage, escapedText, imageRegex, 0, 0, false, true);
     tokenizeMatches(TokenInlineLink, escapedText, inlineLinkRegex, 0, 0, false, true);
-    tokenizeMatches(TokenReferenceLink, escapedText, referenceLinkRegex);
+    tokenizeMatches(TokenReferenceLink, escapedText, referenceLinkRegex, 0, 0, false, true);
     tokenizeMatches(TokenHtmlEntity, escapedText, htmlEntityRegex);
     tokenizeMatches(TokenAutomaticLink, escapedText, automaticLinkRegex, 0, 0, false, true);
-    tokenizeMatches(TokenVerbatim, escapedText, verbatimRegex, 0, 0, false, true);
     tokenizeMatches(TokenStrikethrough, escapedText, strikethroughRegex, 2, 2);
     tokenizeMatches(TokenStrong, escapedText, strongRegex, 2, 2, true);
     tokenizeMatches(TokenEmphasis, escapedText, emphasisRegex, 1, 1, true);
@@ -776,6 +775,58 @@ bool MarkdownTokenizer::tokenizeInline
     tokenizeMatches(TokenMention, escapedText, mentionRegex, 0, 0, false, true);
 
     return true;
+}
+
+void MarkdownTokenizer::tokenizeVerbatim(QString& text)
+{
+    int index = verbatimRegex.indexIn(text);
+
+    while (index >= 0)
+    {
+        QString end = "";
+        int count = verbatimRegex.matchedLength();
+
+        // Search for the matching end, which should have the same number
+        // of back ticks as the start.
+        //
+        for (int i = 0; i < count; i++)
+        {
+            end += '`';
+        }
+
+        int endIndex = text.indexOf(end, index + count);
+
+        // If the end was found, add the verbatim token.
+        if (endIndex >= 0)
+        {
+            Token token;
+
+            token.setType(TokenVerbatim);
+            token.setPosition(index);
+            token.setLength(endIndex + count - index);
+            token.setOpeningMarkupLength(count);
+            token.setClosingMarkupLength(count);
+            this->addToken(token);
+
+            // Fill out the token match in the string with the dummy
+            // character so that searches for other Markdown elements
+            // don't find anything within this token's range in the string.
+            //
+            for (int i = index; i < (index + token.getLength()); i++)
+            {
+                text[i] = DUMMY_CHAR;
+            }
+
+            index += token.getLength();
+        }
+        // Else start searching again at the very next character.
+        else
+        {
+            index++;
+        }
+
+        index = verbatimRegex.indexIn(text, index);
+    }
 }
 
 void MarkdownTokenizer::tokenizeHtmlComments(QString& text)

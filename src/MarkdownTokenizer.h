@@ -124,6 +124,7 @@ class MarkdownTokenizer : public HighlightTokenizer
         bool tokenizeMultilineComment(const QString& text);
         
         bool tokenizeInline(const QString& text);
+        void tokenizeVerbatim(QString& text);
         void tokenizeHtmlComments(QString& text);
 
         /*

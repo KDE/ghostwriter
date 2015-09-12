@@ -402,7 +402,7 @@ void MarkdownHighlighter::setupTokenColors()
 
     colorForToken[TokenBlockquote] = fadedColor;
     colorForToken[TokenCodeBlock] = fadedColor;
-    colorForToken[TokenVerbatim] = markupColor;
+    colorForToken[TokenVerbatim] = fadedColor;
     colorForToken[TokenHtmlTag] = markupColor;
     colorForToken[TokenHtmlEntity] = markupColor;
     colorForToken[TokenAutomaticLink] = linkColor;
