@@ -393,22 +393,19 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
             }
             break;
         case Qt::Key_Tab:
-            handleIndent();
+            indentText();
             break;
         case Qt::Key_Backtab:
-            handleUnindent();
+            unindentText();
             break;
         case Qt::Key_Greater:
-            if (cursor.hasSelection())
+            if (e->modifiers() & Qt::ControlModifier)
             {
-                if (e->modifiers() & Qt::ControlModifier)
-                {
-                    removeBlockquote();
-                }
-                else
-                {
-                    insertBlockquote();
-                }
+                removeBlockquote();
+            }
+            else if (cursor.hasSelection())
+            {
+                insertPrefixForBlocks("> ");
             }
             else
             {
@@ -582,6 +579,420 @@ void MarkdownEditor::bold()
 void MarkdownEditor::italic()
 {
     insertFormattingMarkup("*");
+}
+
+void MarkdownEditor::strikethrough()
+{
+    insertFormattingMarkup("~~");
+}
+
+void MarkdownEditor::insertComment()
+{
+    QTextCursor cursor = this->textCursor();
+
+    if (cursor.hasSelection())
+    {
+        QString text = cursor.selectedText();
+        text = QString("<!-- " + text + " -->");
+        cursor.insertText(text);
+    }
+    else
+    {
+        cursor.insertText("<!--  -->");
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, 4);
+        this->setTextCursor(cursor);
+    }
+}
+
+void MarkdownEditor::createBulletList()
+{
+    insertPrefixForBlocks("* ");
+}
+
+void MarkdownEditor::createNumberedList()
+{
+    QTextCursor cursor = this->textCursor();
+    QTextBlock block;
+    QTextBlock end;
+
+    if (cursor.hasSelection())
+    {
+        block = this->document()->findBlock(cursor.selectionStart());
+        end = this->document()->findBlock(cursor.selectionEnd()).next();
+    }
+    else
+    {
+        block = cursor.block();
+        end = block.next();
+    }
+
+    cursor.beginEditBlock();
+
+    int number = 1;
+
+    while (block != end)
+    {
+        cursor.setPosition(block.position());
+        cursor.insertText(QString("%1").arg(number) + ". ");
+        block = block.next();
+        number++;
+    }
+
+    cursor.endEditBlock();
+}
+
+void MarkdownEditor::createTaskList()
+{
+    insertPrefixForBlocks("- [ ] ");
+}
+
+void MarkdownEditor::createBlockquote()
+{
+    insertPrefixForBlocks("> ");
+}
+
+// Algorithm lifted from ReText.
+void MarkdownEditor::removeBlockquote()
+{
+    QTextCursor cursor = this->textCursor();
+    QTextBlock block;
+    QTextBlock end;
+
+    if (cursor.hasSelection())
+    {
+        block = this->document()->findBlock(cursor.selectionStart());
+        end = this->document()->findBlock(cursor.selectionEnd()).next();
+    }
+    else
+    {
+        block = cursor.block();
+        end = block.next();
+    }
+
+    cursor.beginEditBlock();
+
+    while (block != end)
+    {
+        cursor.setPosition(block.position());
+
+        if (this->document()->characterAt(cursor.position()) == '>')
+        {
+            cursor.deleteChar();
+
+            // Delete any spaces that follow the '>' character, to clean up the
+            // paragraph.
+            //
+            while (this->document()->characterAt(cursor.position()) == ' ')
+            {
+                cursor.deleteChar();
+            }
+        }
+
+        block = block.next();
+    }
+
+    cursor.endEditBlock();
+}
+
+// Algorithm lifted from ReText.
+void MarkdownEditor::indentText()
+{
+    QTextCursor cursor = this->textCursor();
+
+    if (cursor.hasSelection())
+    {
+        QTextBlock block = this->document()->findBlock(cursor.selectionStart());
+        QTextBlock end = this->document()->findBlock(cursor.selectionEnd()).next();
+
+        cursor.beginEditBlock();
+
+        while (block != end)
+        {
+            cursor.setPosition(block.position());
+
+            if (this->insertSpacesForTabs)
+            {
+                QString indentText = "";
+
+                for (int i = 0; i < tabWidth; i++)
+                {
+                    indentText += QString(" ");
+                }
+
+                cursor.insertText(indentText);
+            }
+            else
+            {
+                cursor.insertText("\t");
+            }
+
+            block = block.next();
+        }
+
+        cursor.endEditBlock();
+    }
+    else
+    {
+        int indent = tabWidth;
+        QString indentText = "";
+
+        cursor.beginEditBlock();
+
+        switch (cursor.block().userState())
+        {
+            case MarkdownStateNumberedList:
+                if (numberedListRegex.exactMatch(cursor.block().text()))
+                {
+                    QStringList capture = numberedListRegex.capturedTexts();
+
+                    // Restart numbering for the nested list.
+                    if (capture.size() == 2)
+                    {
+                        QRegExp numberRegex("\\d+");
+
+                        cursor.movePosition(QTextCursor::StartOfBlock);
+                        cursor.movePosition
+                        (
+                            QTextCursor::EndOfBlock,
+                            QTextCursor::KeepAnchor
+                        );
+
+                        QString replacementText = cursor.selectedText();
+                        replacementText =
+                            replacementText.replace
+                            (
+                                numberRegex,
+                                "1"
+                            );
+
+                        cursor.insertText(replacementText);
+                        cursor.movePosition(QTextCursor::StartOfBlock);
+                    }
+                }
+                break;
+            case MarkdownStateBulletPointList:
+            {
+                if (bulletListRegex.exactMatch(cursor.block().text()))
+                {
+                    QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
+                    QChar newBulletPoint;
+
+                    if (oldBulletPoint == '*')
+                    {
+                        newBulletPoint = '-';
+                    }
+                    else if (oldBulletPoint == '-')
+                    {
+                        newBulletPoint = '+';
+                    }
+                    else
+                    {
+                        newBulletPoint = '*';
+                    }
+
+                    cursor.movePosition(QTextCursor::StartOfBlock);
+                    cursor.movePosition
+                    (
+                        QTextCursor::EndOfBlock,
+                        QTextCursor::KeepAnchor
+                    );
+
+                    QString replacementText = cursor.selectedText();
+                    replacementText =
+                        replacementText.replace
+                        (
+                            oldBulletPoint,
+                            newBulletPoint
+                        );
+                    cursor.insertText(replacementText);
+                    cursor.movePosition(QTextCursor::StartOfBlock);
+                }
+                else if (taskListRegex.exactMatch(cursor.block().text()))
+                {
+                    cursor.movePosition(QTextCursor::StartOfBlock);
+                }
+
+                break;
+            }
+            default:
+                indent = tabWidth - (cursor.positionInBlock() % tabWidth);
+                break;
+        }
+
+        if (this->insertSpacesForTabs)
+        {
+            for (int i = 0; i < indent; i++)
+            {
+                indentText += QString(" ");
+            }
+        }
+        else
+        {
+            indentText = "\t";
+        }
+
+        cursor.insertText(indentText);
+        cursor.endEditBlock();
+    }
+}
+
+// Algorithm lifted from ReText.
+void MarkdownEditor::unindentText()
+{
+    QTextCursor cursor = this->textCursor();
+    QTextBlock block;
+    QTextBlock end;
+
+    if (cursor.hasSelection())
+    {
+        block = this->document()->findBlock(cursor.selectionStart());
+        end = this->document()->findBlock(cursor.selectionEnd()).next();
+    }
+    else
+    {
+        block = cursor.block();
+        end = block.next();
+    }
+
+    cursor.beginEditBlock();
+
+    while (block != end)
+    {
+        cursor.setPosition(block.position());
+
+        if (this->document()->characterAt(cursor.position()) == '\t')
+        {
+            cursor.deleteChar();
+        }
+        else
+        {
+            int pos = 0;
+
+            while
+            (
+                (this->document()->characterAt(cursor.position()) == ' ')
+                && (pos < tabWidth)
+            )
+            {
+                pos += 1;
+                cursor.deleteChar();
+            }
+        }
+
+        block = block.next();
+    }
+
+    if
+    (
+        (MarkdownStateBulletPointList == cursor.block().userState())
+        && (bulletListRegex.exactMatch(cursor.block().text()))
+    )
+    {
+        QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
+        QChar newBulletPoint;
+
+        if (oldBulletPoint == '*')
+        {
+            newBulletPoint = '+';
+        }
+        else if (oldBulletPoint == '-')
+        {
+            newBulletPoint = '*';
+        }
+        else
+        {
+            newBulletPoint = '-';
+        }
+
+        cursor.movePosition(QTextCursor::StartOfBlock);
+        cursor.movePosition
+        (
+            QTextCursor::EndOfBlock,
+            QTextCursor::KeepAnchor
+        );
+
+        QString replacementText = cursor.selectedText();
+        replacementText =
+            replacementText.replace
+            (
+                oldBulletPoint,
+                newBulletPoint
+            );
+        cursor.insertText(replacementText);
+    }
+
+
+    cursor.endEditBlock();
+}
+
+bool MarkdownEditor::toggleTaskComplete()
+{
+    QTextCursor cursor = textCursor();
+    QTextBlock block;
+    QTextBlock end;
+
+    if (cursor.hasSelection())
+    {
+        block = this->document()->findBlock(cursor.selectionStart());
+        end = this->document()->findBlock(cursor.selectionEnd()).next();
+    }
+    else
+    {
+        block = cursor.block();
+        end = block.next();
+    }
+
+    cursor.beginEditBlock();
+
+    while (block != end)
+    {
+        if
+        (
+            (block.userState() == MarkdownStateBulletPointList)
+            && (block.text().indexOf(taskListRegex) == 0)
+        )
+        {
+            QStringList capture = taskListRegex.capturedTexts();
+
+            if (capture.size() == 2)
+            {
+                QChar value = capture.at(1)[0];
+                QChar replacement;
+                int index = block.text().indexOf("- [");
+
+                if (index >= 0)
+                {
+                    index += 3;
+                }
+
+                if (value == 'x')
+                {
+                    replacement = ' ';
+                }
+                else
+                {
+                    replacement = 'x';
+                }
+
+                cursor.setPosition(block.position());
+                cursor.movePosition(QTextCursor::StartOfBlock);
+                cursor.movePosition
+                (
+                    QTextCursor::Right,
+                    QTextCursor::MoveAnchor,
+                    index
+                );
+
+                cursor.deleteChar();
+                cursor.insertText(replacement);
+            }
+        }
+
+        block = block.next();
+    }
+
+    cursor.endEditBlock();
+    return true;
 }
 
 void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
@@ -1047,149 +1458,7 @@ bool MarkdownEditor::handleBackspaceKey()
 }
 
 // Algorithm lifted from ReText.
-void MarkdownEditor::handleIndent()
-{
-    QTextCursor cursor = this->textCursor();
-
-    if (cursor.hasSelection())
-    {
-        QTextBlock block = this->document()->findBlock(cursor.selectionStart());
-        QTextBlock end = this->document()->findBlock(cursor.selectionEnd()).next();
-
-        cursor.beginEditBlock();
-
-        while (block != end)
-        {
-            cursor.setPosition(block.position());
-
-            if (this->insertSpacesForTabs)
-            {
-                QString indentText = "";
-
-                for (int i = 0; i < tabWidth; i++)
-                {
-                    indentText += QString(" ");
-                }
-
-                cursor.insertText(indentText);
-            }
-            else
-            {
-                cursor.insertText("\t");
-            }
-
-            block = block.next();
-        }
-
-        cursor.endEditBlock();
-    }
-    else
-    {
-        int indent = tabWidth;
-        QString indentText = "";
-
-        cursor.beginEditBlock();
-
-        switch (cursor.block().userState())
-        {
-            case MarkdownStateNumberedList:
-                if (numberedListRegex.exactMatch(cursor.block().text()))
-                {
-                    QStringList capture = numberedListRegex.capturedTexts();
-
-                    // Restart numbering for the nested list.
-                    if (capture.size() == 2)
-                    {
-                        QRegExp numberRegex("\\d+");
-
-                        cursor.movePosition(QTextCursor::StartOfBlock);
-                        cursor.movePosition
-                        (
-                            QTextCursor::EndOfBlock,
-                            QTextCursor::KeepAnchor
-                        );
-
-                        QString replacementText = cursor.selectedText();
-                        replacementText =
-                            replacementText.replace
-                            (
-                                numberRegex,
-                                "1"
-                            );
-
-                        cursor.insertText(replacementText);
-                        cursor.movePosition(QTextCursor::StartOfBlock);
-                    }
-                }
-                break;
-            case MarkdownStateBulletPointList:
-            {
-                if (bulletListRegex.exactMatch(cursor.block().text()))
-                {
-                    QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
-                    QChar newBulletPoint;
-
-                    if (oldBulletPoint == '*')
-                    {
-                        newBulletPoint = '-';
-                    }
-                    else if (oldBulletPoint == '-')
-                    {
-                        newBulletPoint = '+';
-                    }
-                    else
-                    {
-                        newBulletPoint = '*';
-                    }
-
-                    cursor.movePosition(QTextCursor::StartOfBlock);
-                    cursor.movePosition
-                    (
-                        QTextCursor::EndOfBlock,
-                        QTextCursor::KeepAnchor
-                    );
-
-                    QString replacementText = cursor.selectedText();
-                    replacementText =
-                        replacementText.replace
-                        (
-                            oldBulletPoint,
-                            newBulletPoint
-                        );
-                    cursor.insertText(replacementText);
-                    cursor.movePosition(QTextCursor::StartOfBlock);
-                }
-                else if (taskListRegex.exactMatch(cursor.block().text()))
-                {
-                    cursor.movePosition(QTextCursor::StartOfBlock);
-                }
-
-                break;
-            }
-            default:
-                indent = tabWidth - (cursor.positionInBlock() % tabWidth);
-                break;
-        }
-
-        if (this->insertSpacesForTabs)
-        {
-            for (int i = 0; i < indent; i++)
-            {
-                indentText += QString(" ");
-            }
-        }
-        else
-        {
-            indentText = "\t";
-        }
-
-        cursor.insertText(indentText);
-        cursor.endEditBlock();
-    }
-}
-
-// Algorithm lifted from ReText.
-void MarkdownEditor::handleUnindent()
+void MarkdownEditor::insertPrefixForBlocks(const QString& prefix)
 {
     QTextCursor cursor = this->textCursor();
     QTextBlock block;
@@ -1211,143 +1480,7 @@ void MarkdownEditor::handleUnindent()
     while (block != end)
     {
         cursor.setPosition(block.position());
-
-        if (this->document()->characterAt(cursor.position()) == '\t')
-        {
-            cursor.deleteChar();
-        }
-        else
-        {
-            int pos = 0;
-
-            while
-            (
-                (this->document()->characterAt(cursor.position()) == ' ')
-                && (pos < tabWidth)
-            )
-            {
-                pos += 1;
-                cursor.deleteChar();
-            }
-        }
-
-        block = block.next();
-    }
-
-    if
-    (
-        (MarkdownStateBulletPointList == cursor.block().userState())
-        && (bulletListRegex.exactMatch(cursor.block().text()))
-    )
-    {
-        QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
-        QChar newBulletPoint;
-
-        if (oldBulletPoint == '*')
-        {
-            newBulletPoint = '+';
-        }
-        else if (oldBulletPoint == '-')
-        {
-            newBulletPoint = '*';
-        }
-        else
-        {
-            newBulletPoint = '-';
-        }
-
-        cursor.movePosition(QTextCursor::StartOfBlock);
-        cursor.movePosition
-        (
-            QTextCursor::EndOfBlock,
-            QTextCursor::KeepAnchor
-        );
-
-        QString replacementText = cursor.selectedText();
-        replacementText =
-            replacementText.replace
-            (
-                oldBulletPoint,
-                newBulletPoint
-            );
-        cursor.insertText(replacementText);
-    }
-
-
-    cursor.endEditBlock();
-}
-
-// Algorithm lifted from ReText.
-void MarkdownEditor::insertBlockquote()
-{
-    QTextCursor cursor = this->textCursor();
-
-    if (cursor.hasSelection())
-    {
-        QTextBlock block = this->document()->findBlock(cursor.selectionStart());
-        QTextBlock end = this->document()->findBlock(cursor.selectionEnd()).next();
-
-        cursor.beginEditBlock();
-
-        while (block != end)
-        {
-            cursor.setPosition(block.position());
-
-            QString text = block.text();
-
-            if (text.indexOf(blockquoteRegex) >= 0)
-            {
-                cursor.insertText("> ");
-            }
-            else
-            {
-                cursor.insertText("> ");
-            }
-
-            block = block.next();
-        }
-
-        cursor.endEditBlock();
-    }
-}
-
-// Algorithm lifted from ReText.
-void MarkdownEditor::removeBlockquote()
-{
-    QTextCursor cursor = this->textCursor();
-    QTextBlock block;
-    QTextBlock end;
-
-    if (cursor.hasSelection())
-    {
-        block = this->document()->findBlock(cursor.selectionStart());
-        end = this->document()->findBlock(cursor.selectionEnd()).next();
-    }
-    else
-    {
-        block = cursor.block();
-        end = block.next();
-    }
-
-    cursor.beginEditBlock();
-
-    while (block != end)
-    {
-        cursor.setPosition(block.position());
-
-        if (this->document()->characterAt(cursor.position()) == '>')
-        {
-            cursor.deleteChar();
-
-            // Delete any spaces that follow the '>' character, to clean up the
-            // paragraph.
-            //
-            while (this->document()->characterAt(cursor.position()) == ' ')
-            {
-                cursor.deleteChar();
-            }
-        }
-
+        cursor.insertText(prefix);
         block = block.next();
     }
 
@@ -1464,76 +1597,6 @@ void MarkdownEditor::insertFormattingMarkup(const QString& markup)
         cursor.endEditBlock();
         this->setTextCursor(cursor);
     }
-}
-
-bool MarkdownEditor::toggleTaskComplete()
-{
-    QTextCursor cursor = textCursor();
-    QTextBlock block;
-    QTextBlock end;
-
-    if (cursor.hasSelection())
-    {
-        block = this->document()->findBlock(cursor.selectionStart());
-        end = this->document()->findBlock(cursor.selectionEnd()).next();
-    }
-    else
-    {
-        block = cursor.block();
-        end = block.next();
-    }
-
-    cursor.beginEditBlock();
-
-    while (block != end)
-    {
-        if
-        (
-            (block.userState() == MarkdownStateBulletPointList)
-            && (block.text().indexOf(taskListRegex) == 0)
-        )
-        {
-            QStringList capture = taskListRegex.capturedTexts();
-
-            if (capture.size() == 2)
-            {
-                QChar value = capture.at(1)[0];
-                QChar replacement;
-                int index = block.text().indexOf("- [");
-
-                if (index >= 0)
-                {
-                    index += 3;
-                }
-
-                if (value == 'x')
-                {
-                    replacement = ' ';
-                }
-                else
-                {
-                    replacement = 'x';
-                }
-
-                cursor.setPosition(block.position());
-                cursor.movePosition(QTextCursor::StartOfBlock);
-                cursor.movePosition
-                (
-                    QTextCursor::Right,
-                    QTextCursor::MoveAnchor,
-                    index
-                );
-
-                cursor.deleteChar();
-                cursor.insertText(replacement);
-            }
-        }
-
-        block = block.next();
-    }
-
-    cursor.endEditBlock();
-    return true;
 }
 
 QString MarkdownEditor::getPriorIndentation()
