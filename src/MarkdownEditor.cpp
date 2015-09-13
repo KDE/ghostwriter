@@ -1095,7 +1095,31 @@ void MarkdownEditor::handleIndent()
             case MarkdownStateNumberedList:
                 if (numberedListRegex.exactMatch(cursor.block().text()))
                 {
-                    cursor.movePosition(QTextCursor::StartOfBlock);
+                    QStringList capture = numberedListRegex.capturedTexts();
+
+                    // Restart numbering for the nested list.
+                    if (capture.size() == 2)
+                    {
+                        QRegExp numberRegex("\\d+");
+
+                        cursor.movePosition(QTextCursor::StartOfBlock);
+                        cursor.movePosition
+                        (
+                            QTextCursor::EndOfBlock,
+                            QTextCursor::KeepAnchor
+                        );
+
+                        QString replacementText = cursor.selectedText();
+                        replacementText =
+                            replacementText.replace
+                            (
+                                numberRegex,
+                                "1"
+                            );
+
+                        cursor.insertText(replacementText);
+                        cursor.movePosition(QTextCursor::StartOfBlock);
+                    }
                 }
                 break;
             case MarkdownStateBulletPointList:
