@@ -315,7 +315,15 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
 MainWindow::~MainWindow()
 {
+    if (NULL != htmlPreview)
+    {
+        delete htmlPreview;
+    }
 
+    if (NULL != quickReferenceGuideViewer)
+    {
+        delete quickReferenceGuideViewer;
+    }
 }
 
 QSize MainWindow::sizeHint() const
