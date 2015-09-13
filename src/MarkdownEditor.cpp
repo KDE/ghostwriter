@@ -919,58 +919,70 @@ void MarkdownEditor::updateBlockWordCount(QTextBlock& block)
 void MarkdownEditor::handleCarriageReturn()
 {
     QString autoInsertText;
+    QTextCursor cursor = this->textCursor();
 
-    switch (textCursor().block().userState())
+    if (cursor.positionInBlock() < cursor.block().length() - 1)
     {
-        case MarkdownStateNumberedList:
+        autoInsertText = getPriorIndentation();
+
+        if (cursor.positionInBlock() < autoInsertText.length())
         {
-            autoInsertText = getPriorMarkdownBlockItemStart(numberedListRegex);
-            QStringList capture = numberedListRegex.capturedTexts();
-
-            // Auto-increment the list number.
-            if (capture.size() == 2)
-            {
-                QRegExp numberRegex("\\d+");
-                int number = capture.at(1).toInt();
-                number++;
-                autoInsertText =
-                    autoInsertText.replace
-                    (
-                        numberRegex,
-                        QString("%1").arg(number)
-                    );
-            }
-            break;
+            autoInsertText.truncate(cursor.positionInBlock());
         }
-        case MarkdownStateBulletPointList:
-            // Check for GFM task list before checking for bullet point.
-            autoInsertText = getPriorMarkdownBlockItemStart(taskListRegex);
+    }
+    else
+    {
+        switch (cursor.block().userState())
+        {
+            case MarkdownStateNumberedList:
+            {
+                autoInsertText = getPriorMarkdownBlockItemStart(numberedListRegex);
+                QStringList capture = numberedListRegex.capturedTexts();
 
-            // If the string is empty, then it wasn't a GFM task list item.
-            // Treat it as a normal bullet point.
-            //
-            if (autoInsertText.isEmpty())
-            {
-                autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex);
+                // Auto-increment the list number.
+                if (capture.size() == 2)
+                {
+                    QRegExp numberRegex("\\d+");
+                    int number = capture.at(1).toInt();
+                    number++;
+                    autoInsertText =
+                        autoInsertText.replace
+                        (
+                            numberRegex,
+                            QString("%1").arg(number)
+                        );
+                }
+                break;
             }
-            else // string not empty - GFM task list item
-            {
-                // In case the previous line had a completed task with an X
-                // checking it off, make sure a completed task isn't added as
-                // the new task (remove the x and replace with a space).
+            case MarkdownStateBulletPointList:
+                // Check for GFM task list before checking for bullet point.
+                autoInsertText = getPriorMarkdownBlockItemStart(taskListRegex);
+
+                // If the string is empty, then it wasn't a GFM task list item.
+                // Treat it as a normal bullet point.
                 //
-                autoInsertText = autoInsertText.replace('x', ' ');
-            }
-            break;
-        case MarkdownStateBlockquote:
-            autoInsertText = getPriorMarkdownBlockItemStart(blockquoteRegex);
-            break;
-        default:
-            autoInsertText = getPriorIndentation();
-            break;
+                if (autoInsertText.isEmpty())
+                {
+                    autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex);
+                }
+                else // string not empty - GFM task list item
+                {
+                    // In case the previous line had a completed task with an X
+                    // checking it off, make sure a completed task isn't added as
+                    // the new task (remove the x and replace with a space).
+                    //
+                    autoInsertText = autoInsertText.replace('x', ' ');
+                }
+                break;
+            case MarkdownStateBlockquote:
+                autoInsertText = getPriorMarkdownBlockItemStart(blockquoteRegex);
+                break;
+            default:
+                autoInsertText = getPriorIndentation();
+                break;
+        }
     }
 
-    QTextCursor cursor = this->textCursor();
     cursor.insertText(tr("\n") + autoInsertText);
     this->ensureCursorVisible();
 }
@@ -1433,52 +1445,71 @@ void MarkdownEditor::insertFormattingMarkup(const QString& markup)
 bool MarkdownEditor::toggleTaskComplete()
 {
     QTextCursor cursor = textCursor();
+    QTextBlock block;
+    QTextBlock end;
 
-    if
-    (
-        (cursor.block().userState() == MarkdownStateBulletPointList)
-        && (cursor.block().text().indexOf(taskListRegex) == 0)
-    )
+    if (cursor.hasSelection())
     {
-        QStringList capture = taskListRegex.capturedTexts();
-
-        if (capture.size() == 2)
-        {
-            QChar value = capture.at(1)[0];
-            QChar replacement;
-            int index = cursor.block().text().indexOf("- [");
-
-            if (index >= 0)
-            {
-                index += 3;
-            }
-
-            if (value == 'x')
-            {
-                replacement = ' ';
-            }
-            else
-            {
-                replacement = 'x';
-            }
-
-            cursor.beginEditBlock();
-            cursor.movePosition(QTextCursor::StartOfBlock);
-            cursor.movePosition
-            (
-                QTextCursor::Right,
-                QTextCursor::MoveAnchor,
-                index
-            );
-
-            cursor.deleteChar();
-            cursor.insertText(replacement);
-            cursor.endEditBlock();
-            return true;
-        }
+        block = this->document()->findBlock(cursor.selectionStart());
+        end = this->document()->findBlock(cursor.selectionEnd()).next();
+    }
+    else
+    {
+        block = cursor.block();
+        end = block.next();
     }
 
-    return false;
+    cursor.beginEditBlock();
+
+    while (block != end)
+    {
+        if
+        (
+            (block.userState() == MarkdownStateBulletPointList)
+            && (block.text().indexOf(taskListRegex) == 0)
+        )
+        {
+            QStringList capture = taskListRegex.capturedTexts();
+
+            if (capture.size() == 2)
+            {
+                QChar value = capture.at(1)[0];
+                QChar replacement;
+                int index = block.text().indexOf("- [");
+
+                if (index >= 0)
+                {
+                    index += 3;
+                }
+
+                if (value == 'x')
+                {
+                    replacement = ' ';
+                }
+                else
+                {
+                    replacement = 'x';
+                }
+
+                cursor.setPosition(block.position());
+                cursor.movePosition(QTextCursor::StartOfBlock);
+                cursor.movePosition
+                (
+                    QTextCursor::Right,
+                    QTextCursor::MoveAnchor,
+                    index
+                );
+
+                cursor.deleteChar();
+                cursor.insertText(replacement);
+            }
+        }
+
+        block = block.next();
+    }
+
+    cursor.endEditBlock();
+    return true;
 }
 
 QString MarkdownEditor::getPriorIndentation()
