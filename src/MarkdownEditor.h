@@ -110,10 +110,10 @@ class MarkdownEditor : public QPlainTextEdit
 
     public slots:
         void navigateDocument(const int pos);
-        void cut();
         void bold();
         void italic();
         void setEnableLargeHeadingSizes(bool enable);
+        void setAutoMatchEnabled(bool enable);
         void setUseUnderlineForEmphasis(bool enable);
         void setInsertSpacesForTabs(bool enable);
         void setTabulationWidth(int width);
@@ -146,6 +146,7 @@ class MarkdownEditor : public QPlainTextEdit
         QTextCursor cursorForWord;
         DictionaryRef dictionary;
         bool spellCheckEnabled;
+        bool autoMatchEnabled;
         int wordCount;
         QList<QAction*> spellingActions;
         int lastBlockCount;
@@ -181,6 +182,7 @@ class MarkdownEditor : public QPlainTextEdit
         void insertBlockquote();
         void removeBlockquote();
         bool insertPairedCharacters(const QChar firstChar);
+        bool handleEndPairCharacterTyped(const QChar ch);
         void insertFormattingMarkup(const QString& markup);
         bool toggleTaskComplete();
         QString getPriorIndentation();

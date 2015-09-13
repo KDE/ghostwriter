@@ -34,6 +34,7 @@
 #define GW_REMEMBER_FILE_HISTORY_KEY "Save/rememberFileHistory"
 #define GW_FONT_KEY "Style/font"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
+#define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
 #define GW_THEME_KEY "Style/theme"
@@ -73,6 +74,7 @@ void AppSettings::store()
     appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(tabWidth));
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(insertSpacesForTabsEnabled));
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(largeHeadingSizesEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(focusMode));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
@@ -169,6 +171,16 @@ bool AppSettings::getLargeHeadingSizesEnabled() const
 void AppSettings::setLargeHeadingSizesEnabled(bool enabled)
 {
     largeHeadingSizesEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchEnabled() const
+{
+    return autoMatchEnabled;
+}
+
+void AppSettings::setMatchPairEnabled(bool enabled)
+{
+    autoMatchEnabled = enabled;
 }
 
 FocusMode AppSettings::getFocusMode() const
@@ -448,6 +460,7 @@ AppSettings::AppSettings()
     insertSpacesForTabsEnabled = appSettings.value(GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
     useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
     largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
+    autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
     if ((focusMode < FocusModeDisabled) || (focusMode > FocusModeParagraph))

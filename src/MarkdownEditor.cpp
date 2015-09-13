@@ -62,7 +62,8 @@ MarkdownEditor::MarkdownEditor
         textDocument(textDocument),
         highlighter(highlighter),
         dictionary(DictionaryManager::instance().requestDictionary()),
-        mouseButtonDown(false)
+        mouseButtonDown(false),
+        autoMatchEnabled(true)
 {
     setDocument(textDocument);
     setAcceptDrops(true);
@@ -421,20 +422,14 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
             }
             break;
         default:
-            if
-            (
-                (e->text().size() == 1) &&
-                this->markupPairs.contains(e->text().at(0))
-            )
+            if (e->text().size() == 1)
             {
-                if (!insertPairedCharacters(e->text().at(0)))
+                QChar ch = e->text().at(0);
+
+                if (!handleEndPairCharacterTyped(ch) && !insertPairedCharacters(ch))
                 {
                     QPlainTextEdit::keyPressEvent(e);
                 }
-            }
-            else if (e->matches(QKeySequence::Cut))
-            {
-                cut();
             }
             else if (e->matches(QKeySequence::Bold))
             {
@@ -579,11 +574,6 @@ void MarkdownEditor::navigateDocument(const int pos)
     this->activateWindow();
 }
 
-void MarkdownEditor::cut()
-{
-    QPlainTextEdit::cut();
-}
-
 void MarkdownEditor::bold()
 {
     insertFormattingMarkup("**");
@@ -597,6 +587,11 @@ void MarkdownEditor::italic()
 void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
 {
     highlighter->setEnableLargeHeadingSizes(enable);
+}
+
+void MarkdownEditor::setAutoMatchEnabled(bool enable)
+{
+    autoMatchEnabled = enable;
 }
 
 void MarkdownEditor::setUseUnderlineForEmphasis(bool enable)
@@ -1339,12 +1334,11 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
 
             if (block == end)
             {
-                cursor.setPosition(cursor.selectionStart());
                 cursor.beginEditBlock();
+                cursor.setPosition(cursor.selectionStart());
                 cursor.insertText(firstChar);
                 cursor.setPosition(textCursor().selectionEnd());
                 cursor.insertText(lastChar);
-                cursor.endEditBlock();
                 cursor = textCursor();
 
                 cursor.setPosition(cursor.selectionStart());
@@ -1353,6 +1347,48 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                     textCursor().selectionEnd() - 1,
                     QTextCursor::KeepAnchor
                 );
+                setTextCursor(cursor);
+                cursor.endEditBlock();
+                return true;
+            }
+        }
+        else if (autoMatchEnabled)
+        {
+            cursor.insertText(firstChar);
+            cursor.insertText(lastChar);
+            cursor.movePosition(QTextCursor::PreviousCharacter);
+            setTextCursor(cursor);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool MarkdownEditor::handleEndPairCharacterTyped(const QChar ch)
+{
+    QTextCursor cursor = this->textCursor();
+
+    if
+    (
+        autoMatchEnabled &&
+        markupPairs.values().contains(ch) &&
+        !cursor.hasSelection()
+    )
+    {
+        QTextCursor cursor = this->textCursor();
+        QString text = cursor.block().text();
+        int pos = cursor.positionInBlock();
+
+        if (pos < (text.length()))
+        {
+            // Look ahead to the character after the cursor position. If it
+            // matches the character that was entered, then move the cursor
+            // one position forward.
+            //
+            if (text[pos] == ch)
+            {
+                cursor.movePosition(QTextCursor::NextCharacter);
                 setTextCursor(cursor);
                 return true;
             }

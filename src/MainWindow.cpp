@@ -111,6 +111,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setFont(appSettings->getFont().family(), appSettings->getFont().pointSize());
     editor->setUseUnderlineForEmphasis(appSettings->getUseUnderlineForEmphasis());
     editor->setEnableLargeHeadingSizes(appSettings->getLargeHeadingSizesEnabled());
+    editor->setAutoMatchEnabled(appSettings->getAutoMatchEnabled());
     editor->setPlainText("");
     editor->setEditorWidth((EditorWidth) appSettings->getEditorWidth());
     connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
@@ -518,6 +519,12 @@ void MainWindow::toggleLargeLeadingSizes(bool checked)
 {
     editor->setEnableLargeHeadingSizes(checked);
     appSettings->setLargeHeadingSizesEnabled(checked);
+}
+
+void MainWindow::toggleAutoMatch(bool checked)
+{
+    editor->setAutoMatchEnabled(checked);
+    appSettings->setMatchPairEnabled(checked);
 }
 
 void MainWindow::toggleUseUnderlineForEmphasis(bool checked)
@@ -1095,6 +1102,13 @@ void MainWindow::buildMenuBar()
     underlineAction->setChecked(underlineEnabled);
     connect(underlineAction, SIGNAL(toggled(bool)), this, SLOT(toggleUseUnderlineForEmphasis(bool)));
     settingsMenu->addAction(underlineAction);
+
+    bool autoMatchEnabled = appSettings->getAutoMatchEnabled();
+    QAction* autoMatchAction = new QAction(tr("Automatically Match &Characters while Typing"), this);
+    autoMatchAction->setCheckable(true);
+    autoMatchAction->setChecked(autoMatchEnabled);
+    connect(autoMatchAction, SIGNAL(toggled(bool)), this, SLOT(toggleAutoMatch(bool)));
+    settingsMenu->addAction(autoMatchAction);
 
     settingsMenu->addSeparator();
 

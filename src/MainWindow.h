@@ -77,6 +77,7 @@ class MainWindow : public QMainWindow
         void toggleLiveSpellCheck(bool checked);
         void toggleFileHistoryEnabled(bool checked);
         void toggleLargeLeadingSizes(bool checked);
+        void toggleAutoMatch(bool checked);
         void toggleUseUnderlineForEmphasis(bool checked);
         void toggleSpacesForTabs(bool checked);
         void toggleDesktopCompositingEffects(bool checked);

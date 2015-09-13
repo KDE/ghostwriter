@@ -68,6 +68,9 @@ class AppSettings
         bool getLargeHeadingSizesEnabled() const;
         void setLargeHeadingSizesEnabled(bool enabled);
 
+        bool getAutoMatchEnabled() const;
+        void setMatchPairEnabled(bool enabled);
+
         FocusMode getFocusMode() const;
         void setFocusMode(FocusMode focusMode);
 
@@ -113,6 +116,7 @@ class AppSettings
         bool insertSpacesForTabsEnabled;
         bool useUnderlineForEmphasis;
         bool largeHeadingSizesEnabled;
+        bool autoMatchEnabled;
         FocusMode focusMode;
         bool fileHistoryEnabled;
         QString themeName;
