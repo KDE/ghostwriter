@@ -62,8 +62,8 @@ MarkdownEditor::MarkdownEditor
         textDocument(textDocument),
         highlighter(highlighter),
         dictionary(DictionaryManager::instance().requestDictionary()),
-        mouseButtonDown(false),
-        autoMatchEnabled(true)
+        autoMatchEnabled(true),
+        mouseButtonDown(false)
 {
     setDocument(textDocument);
     setAcceptDrops(true);
