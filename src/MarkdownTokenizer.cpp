@@ -89,10 +89,7 @@ void MarkdownTokenizer::tokenize
 
     if
     (
-        (MarkdownStateCodeBlock != previousState)
-        && (MarkdownStateInGithubCodeFence != previousState)
-        && (MarkdownStateInPandocCodeFence != previousState)
-        && (MarkdownStateComment != previousState)
+        (MarkdownStateComment != previousState)
         && paragraphBreakRegex.exactMatch(text)
     )
     {
@@ -366,6 +363,8 @@ bool MarkdownTokenizer::tokenizeNumberedList
             (
                 (MarkdownStateParagraphBreak == previousState)
                 || (MarkdownStateUnknown == previousState)
+                || (MarkdownStateCodeBlock == previousState)
+                || (MarkdownStateCodeFenceEnd == previousState)
             )
             && numberedListRegex.exactMatch(text)
         )
@@ -435,6 +434,8 @@ bool MarkdownTokenizer::tokenizeBulletPointList
         && (MarkdownStateListLineBreak != previousState)
         && (MarkdownStateNumberedList != previousState)
         && (MarkdownStateBulletPointList != previousState)
+        && (MarkdownStateCodeBlock != previousState)
+        && (MarkdownStateCodeFenceEnd != previousState)
     )
     {
         return false;
@@ -475,6 +476,8 @@ bool MarkdownTokenizer::tokenizeBulletPointList
                     (
                         (MarkdownStateParagraphBreak == previousState)
                         || (MarkdownStateUnknown == previousState)
+                        || (MarkdownStateCodeBlock == previousState)
+                        || (MarkdownStateCodeFenceEnd == previousState)
                     )
                 )
                 {
