@@ -132,6 +132,18 @@ Row Text 1  |  Row Text 2</code></pre>
 <h1 id="ghostwriter-shortcuts">Ghostwriter Shortcuts</h1>
 <p><em>ghostwriter</em> supports several shortcut keys for editing Markdown:</p>
 <dl>
+<dt><code>Ctrl+B</code></dt>
+<dd><p>Applies bold (strong) formatting.</p>
+</dd>
+<dt><code>Ctrl+I</code></dt>
+<dd><p>Applies italic (emphasis) formatting.</p>
+</dd>
+<dt><code>Ctrl+K</code></dt>
+<dd><p>Applies strikethrough formatting.</p>
+</dd>
+<dt><code>Ctrl+&lt;</code></dt>
+<dd><p>Pressing the <code>Ctrl</code> key with the <code>&lt;</code> character (<code>Ctrl+Shift+,</code>) inserts an HTML comment at the cursor position, or will turn selected text into an HTML comment.</p>
+</dd>
 <dt><code>Tab</code></dt>
 <dd><p>When text is selected in the editor, pressing the tab key will indent the selected lines of text.</p>
 </dd>
@@ -147,13 +159,84 @@ Row Text 1  |  Row Text 2</code></pre>
 <dt><code>Ctrl+&gt;</code></dt>
 <dd><p>When text is selected in the editor, pressing <code>Ctrl</code> with the <code>&gt;</code> character (<code>Ctrl+Shift+.</code>) will remove any block quote formatting from the selected lines of text.</p>
 </dd>
+<dt><code>Ctrl+*</code></dt>
+<dd><p>Pressing <code>Ctrl</code> with the <code>*</code> character (<code>Ctrl+Shift+8</code>) turns the current line or the selected lines into a bullet list. For example, if you have selected text within the following lines:</p>
+<pre><code>List item one.
+List item two.</code></pre>
+<p>Pressing <code>Ctrl+*</code> will turn the selected lines into a task list like so:</p>
+<pre><code>* List item one.
+* List item two.</code></pre>
+</dd>
+<dt><code>Ctrl+1</code></dt>
+<dd><p>Pressing <code>Ctrl</code> with the <code>1</code> (number 1) character turns the current line or the selected lines into a numbered list. For example, if you have selected text within the following lines:</p>
+<pre><code>List item one.
+List item two.</code></pre>
+<p>Pressing <code>Ctrl+1</code> will turn the selected lines into a task list like so:</p>
+<pre><code>1. List item one.
+2. List item two.</code></pre>
+</dd>
+<dt><code>Ctrl+T</code></dt>
+<dd><p>Pressing <code>Ctrl+T</code> turns the current line or the selected lines into a Github-Flavored Markdown task list item. For example, if you have selected text within the following lines:</p>
+<pre><code>Important thing to do.
+Another important thing to do.</code></pre>
+<p>Pressing <code>Ctrl+T</code> will turn the selected lines into a task list like so:</p>
+<pre><code>- [ ] Important thing to do.
+- [ ] Another important thing to do.</code></pre>
+</dd>
 <dt><code>Ctrl+D</code></dt>
 <dd><p>When the current line of text is a Github-Flavored Markdown task list item, pressing <code>Ctrl+D</code> will toggle the completion status of the task, placing an <code>x</code> in the checkbox if the task is complete, or removing the <code>x</code> if it is incomplete. For example:</p>
 <pre><code>- [ ] This is an incomplete task.
 - [x] `Ctrl+D` marks this task as done!</code></pre>
 </dd>
-<dt><code>&quot;</code>, <code>'</code>, <code>(</code>, <code>[</code>, <code>{</code>, <code>*</code>, <code>_</code>, <code>`</code></dt>
-<dd><p>When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character. For example, if you select the word <code>dog</code> and then enter the <code>(</code> character, the word <code>dog</code> will be enclosed in parentheses and become <code>(dog)</code>.</p>
+<dt><code>&quot;</code>, <code>'</code>, <code>(</code>, <code>[</code>, <code>{</code>, <code>*</code>, <code>_</code>, <code>`</code>, <code>&lt;</code></dt>
+<dd><p>When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character. For example, if you select the word <code>dog</code> and then enter the <code>(</code> character, the word <code>dog</code> will be enclosed in parentheses and become <code>(dog)</code>. Below is a table showing the typed character and the matching closing character:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Opening</th>
+<th align="left">Closing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;</code></td>
+<td align="left"><code>&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>'</code></td>
+<td align="left"><code>'</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>(</code></td>
+<td align="left"><code>)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>[</code></td>
+<td align="left"><code>]</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>{</code></td>
+<td align="left"><code>}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>*</code></td>
+<td align="left"><code>*</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>_</code></td>
+<td align="left"><code>_</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>`</code></td>
+<td align="left"><code>`</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;</code></td>
+<td align="left"><code>&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>To enable auto-matching of characters as you type, check “Automatically Match Characters while Typing” from the Settings menu in the menu bar.</p>
 </dd>
 </dl>
 <hr />

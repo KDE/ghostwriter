@@ -176,6 +176,18 @@ The original John Gruber Markdown specification can be found at <http://daringfi
 
 *ghostwriter* supports several shortcut keys for editing Markdown:
 
+`Ctrl+B`
+:   Applies bold (strong) formatting.
+
+`Ctrl+I`
+:   Applies italic (emphasis) formatting.
+
+`Ctrl+K`
+:   Applies strikethrough formatting.
+
+`Ctrl+<`
+:   Pressing the `Ctrl` key with the `<` character (`Ctrl+Shift+,`) inserts an HTML comment at the cursor position, or will turn selected text into an HTML comment.
+
 `Tab`
 :   When text is selected in the editor, pressing the tab key will indent the selected lines of text.
 
@@ -191,14 +203,61 @@ The original John Gruber Markdown specification can be found at <http://daringfi
 `Ctrl+>`
 :   When text is selected in the editor, pressing `Ctrl` with the `>` character (`Ctrl+Shift+.`) will remove any block quote formatting from the selected lines of text.
 
+`Ctrl+*`
+:   Pressing `Ctrl` with the `*` character (`Ctrl+Shift+8`) turns the current line or the selected lines into a bullet list.  For example, if you have selected text within the following lines:
+
+        List item one.
+        List item two.
+        
+    Pressing `Ctrl+*` will turn the selected lines into a task list like so:
+
+        * List item one.
+        * List item two.
+
+`Ctrl+1`
+:   Pressing `Ctrl` with the `1` (number 1) character turns the current line or the selected lines into a numbered list.  For example, if you have selected text within the following lines:
+
+        List item one.
+        List item two.
+        
+    Pressing `Ctrl+1` will turn the selected lines into a task list like so:
+
+        1. List item one.
+        2. List item two.
+
+`Ctrl+T`
+:   Pressing `Ctrl+T` turns the current line or the selected lines into a Github-Flavored Markdown task list item.  For example, if you have selected text within the following lines:
+
+        Important thing to do.
+        Another important thing to do.
+        
+    Pressing `Ctrl+T` will turn the selected lines into a task list like so:
+
+        - [ ] Important thing to do.
+        - [ ] Another important thing to do.
+
 `Ctrl+D`
 :   When the current line of text is a Github-Flavored Markdown task list item, pressing `Ctrl+D` will toggle the completion status of the task, placing an `x` in the checkbox if the task is complete, or removing the `x` if it is incomplete.  For example:
 
         - [ ] This is an incomplete task.
         - [x] `Ctrl+D` marks this task as done!
 
-`"`, `'`, `(`, `[`, `{`, `*`, `_`, ` ` `
-:   When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character.  For example, if you select the word `dog` and then enter the `(` character, the word `dog` will be enclosed in parentheses and become `(dog)`.
+`"`, `'`, `(`, `[`, `{`, `*`, `_`, `` ` ``, `<`
+:   When text within a single line is selected, pressing any of the above characters will enclose the selected text with that character and its matching closing character.  For example, if you select the word `dog` and then enter the `(` character, the word `dog` will be enclosed in parentheses and become `(dog)`.  Below is a table showing the typed character and the matching closing character:
+
+    Opening | Closing
+    --------|--------
+    `"`     | `"`
+    `'`     | `'`
+    `(`     | `)`
+    `[`     | `]`
+    `{`     | `}`
+    `*`     | `*`
+    `_`     | `_`
+    `` ` `` | `` ` ``
+    `<`     | `>`
+    
+    To enable auto-matching of characters as you type, check "Automatically Match Characters while Typing" from the Settings menu in the menu bar.
 
 - - - -
 
