@@ -148,7 +148,8 @@ ExporterFactory::ExporterFactory()
     if (discountIsAvailable)
     {
         exporter = new CommandLineExporter("Discount");
-        exporter->setSmartTypographyOffArgument("-F 0x4");
+        exporter->setSmartTypographyOnArgument("-f smarty,strikethrough,footnote");
+        exporter->setSmartTypographyOffArgument("-f nosmarty,strikethrough,footnote");
         exporter->setHtmlRenderCommand(QString("markdown %1")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
         exporter->addFileExportCommand
