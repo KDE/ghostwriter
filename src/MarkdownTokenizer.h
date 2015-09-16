@@ -60,6 +60,9 @@ enum MarkdownTokenType
     TokenPandocCodeFence,
     TokenCodeFenceEnd,
     TokenMention,
+    TokenTableHeader,
+    TokenTableDivider,
+    TokenTablePipe,
     TokenLast
 };
 
@@ -110,6 +113,7 @@ class MarkdownTokenizer : public HighlightTokenizer
         QRegExp imageRegex;
         QRegExp htmlInlineCommentRegex;
         QRegExp mentionRegex;
+        QRegExp pipeTableDividerRegex;
 
 
         bool tokenizeSetextHeadingLine1(const QString& text);
@@ -126,6 +130,9 @@ class MarkdownTokenizer : public HighlightTokenizer
         bool tokenizeInline(const QString& text);
         void tokenizeVerbatim(QString& text);
         void tokenizeHtmlComments(QString& text);
+        void tokenizeTableHeaderRow(QString& text);
+        bool tokenizeTableDivider(const QString& text);
+        void tokenizeTableRow(QString& text);
 
         /*
          * Tokenizes a block of text, searching for all occurrances of regex.

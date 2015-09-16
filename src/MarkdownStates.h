@@ -50,7 +50,10 @@ enum MarkdownState
     MarkdownStateSetextHeading1Line1,
     MarkdownStateSetextHeading1Line2,
     MarkdownStateSetextHeading2Line1,
-    MarkdownStateSetextHeading2Line2
+    MarkdownStateSetextHeading2Line2,
+    MarkdownStatePipeTableHeader,
+    MarkdownStatePipeTableDivider,
+    MarkdownStatePipeTableRow
 };
 
 #endif // MARKDOWN_STATES_H

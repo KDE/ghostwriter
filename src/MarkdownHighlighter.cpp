@@ -115,6 +115,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     strongToken[TokenSetextHeading2Line1] = true;
     strongToken[TokenSetextHeading1Line2] = true;
     strongToken[TokenSetextHeading2Line2] = true;
+    strongToken[TokenTableHeader] = true;
     strikethroughToken[TokenStrikethrough] = true;
 
     setupHeadingFontSize(true);
@@ -418,6 +419,8 @@ void MarkdownHighlighter::setupTokenColors()
     colorForToken[TokenCodeFenceEnd] = markupColor;
     colorForToken[TokenSetextHeading1Line2] = markupColor;
     colorForToken[TokenSetextHeading2Line2] = markupColor;
+    colorForToken[TokenTableDivider] = markupColor;
+    colorForToken[TokenTablePipe] = markupColor;
 }
 
 void MarkdownHighlighter::setupHeadingFontSize(bool useLargeHeadings)

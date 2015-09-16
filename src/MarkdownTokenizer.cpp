@@ -50,7 +50,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     emphasisRegex.setMinimal(true);
     strongRegex.setPattern("\\*\\*(?=\\S).*\\S\\*\\*(?!\\*)|__(?=\\S).*\\S__(?!_)");
     strongRegex.setMinimal(true);
-    strikethroughRegex.setPattern("~~.*~~");
+    strikethroughRegex.setPattern("~~[^\\s]+.*[^\\s]+~~");
     strikethroughRegex.setMinimal(true);
     verbatimRegex.setPattern("`+");
     htmlTagRegex.setPattern("<[^<>]+>");
@@ -68,6 +68,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     htmlInlineCommentRegex.setPattern("<!--.*-->");
     htmlInlineCommentRegex.setMinimal(true);
     mentionRegex.setPattern("\\B@\\w+(\\-\\w+)*(/\\w+(\\-\\w+)*)?");
+    pipeTableDividerRegex.setPattern("^(\\|[ :]?)?-{3,}([ :]?\\|[ :]?-{3,}([ :]?\\|)?)+\\s*$");
 }
         
 MarkdownTokenizer::~MarkdownTokenizer()
@@ -121,6 +122,7 @@ void MarkdownTokenizer::tokenize
         || tokenizeCodeBlock(text)
         || tokenizeMultilineComment(text)
         || tokenizeHorizontalRule(text)
+        || tokenizeTableDivider(text)
     )
     {
         ; // No further tokenizing required
@@ -766,6 +768,8 @@ bool MarkdownTokenizer::tokenizeInline
 
     tokenizeVerbatim(escapedText);
     tokenizeHtmlComments(escapedText);
+    tokenizeTableHeaderRow(escapedText);
+    tokenizeTableRow(escapedText);
     tokenizeMatches(TokenImage, escapedText, imageRegex, 0, 0, false, true);
     tokenizeMatches(TokenInlineLink, escapedText, inlineLinkRegex, 0, 0, false, true);
     tokenizeMatches(TokenReferenceLink, escapedText, referenceLinkRegex, 0, 0, false, true);
@@ -895,6 +899,152 @@ void MarkdownTokenizer::tokenizeHtmlComments(QString& text)
         for (int i = commentStart; i < text.length(); i++)
         {
             text[i] = DUMMY_CHAR;
+        }
+    }
+}
+
+void MarkdownTokenizer::tokenizeTableHeaderRow(QString& text)
+{
+    if
+    (
+        (
+            (MarkdownStateParagraphBreak == previousState) ||
+            (MarkdownStateListLineBreak == previousState) ||
+            (MarkdownStateSetextHeading1Line2 == previousState) ||
+            (MarkdownStateSetextHeading2Line2 == previousState) ||
+            (MarkdownStateAtxHeading1 == previousState) ||
+            (MarkdownStateAtxHeading2 == previousState) ||
+            (MarkdownStateAtxHeading3 == previousState) ||
+            (MarkdownStateAtxHeading4 == previousState) ||
+            (MarkdownStateAtxHeading5 == previousState) ||
+            (MarkdownStateAtxHeading6 == previousState) ||
+            (MarkdownStateHorizontalRule == previousState) ||
+            (MarkdownStateCodeFenceEnd == previousState) ||
+            (MarkdownStateUnknown == previousState)
+        )
+        &&
+        (
+            (MarkdownStateParagraph == getState()) ||
+            (MarkdownStateUnknown == getState())
+        )
+        && (MarkdownStatePipeTableDivider == nextState)
+    )
+    {
+        setState(MarkdownStatePipeTableHeader);
+
+        int headerStart = 0;
+
+        for (int i = 0; i < text.length(); i++)
+        {
+            if (QChar('|') == text[i])
+            {
+                // Replace pipe with space so that it doesn't get formatted
+                // again with, for example, strong or emphasis formatting.
+                // Note that we use a space rather than DUMMY_CHAR for this,
+                // to prevent formatting such as strong and emphasis from
+                // picking it up.
+                //
+                text[i] = ' ';
+
+                Token token;
+
+                if (i > 0)
+                {
+                    token.setType(TokenTableHeader);
+                    token.setPosition(headerStart);
+                    token.setLength(i - headerStart);
+                    addToken(token);
+                }
+
+                token.setType(TokenTablePipe);
+                token.setPosition(i);
+                token.setLength(1);
+                addToken(token);
+                headerStart = i + 1;
+            }
+        }
+
+        if (headerStart < text.length())
+        {
+            Token token;
+            token.setType(TokenTableHeader);
+            token.setPosition(headerStart);
+            token.setLength(text.length() - headerStart);
+            addToken(token);
+        }
+    }
+}
+
+bool MarkdownTokenizer::tokenizeTableDivider(const QString& text)
+{
+    if (MarkdownStatePipeTableHeader == previousState)
+    {
+        if (pipeTableDividerRegex.exactMatch(text))
+        {
+            setState(MarkdownStatePipeTableDivider);
+
+            Token token;
+            token.setType(TokenTableDivider);
+            token.setLength(text.length());
+            token.setPosition(0);
+            this->addToken(token);
+
+            return true;
+        }
+        else
+        {
+            // Restart tokenizing on the previous line.
+            this->requestBacktrack();
+        }
+    }
+    else if (MarkdownStateParagraph == previousState)
+    {
+        if (pipeTableDividerRegex.exactMatch(text))
+        {
+            // Restart tokenizing on the previous line.
+            this->requestBacktrack();
+
+            setState(MarkdownStatePipeTableDivider);
+
+            Token token;
+            token.setLength(text.length());
+            token.setPosition(0);
+            token.setType(TokenTableDivider);
+            this->addToken(token);
+            return true;
+        }
+    }
+    return false;
+}
+
+void MarkdownTokenizer::tokenizeTableRow(QString& text)
+{
+    if
+    (
+        (MarkdownStatePipeTableDivider == previousState) ||
+        (MarkdownStatePipeTableRow == previousState)
+    )
+    {
+        setState(MarkdownStatePipeTableRow);
+
+        for (int i = 0; i < text.length(); i++)
+        {
+            if (QChar('|') == text[i])
+            {
+                // Replace pipe with space so that it doesn't get formatted
+                // again with, for example, strong or emphasis formatting.
+                // Note that we use a space rather than DUMMY_CHAR for this,
+                // to prevent formatting such as strong and emphasis from
+                // picking it up.
+                //
+                text[i] = ' ';
+
+                Token token;
+                token.setType(TokenTablePipe);
+                token.setPosition(i);
+                token.setLength(1);
+                addToken(token);
+            }
         }
     }
 }
