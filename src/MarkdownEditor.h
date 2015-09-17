@@ -114,8 +114,11 @@ class MarkdownEditor : public QPlainTextEdit
         void italic();
         void strikethrough();
         void insertComment();
-        void createBulletList();
-        void createNumberedList();
+        void createBulletListWithAsteriskMarker();
+        void createBulletListWithMinusMarker();
+        void createBulletListWithPlusMarker();
+        void createNumberedListWithPeriodMarker();
+        void createNumberedListWithParenthesisMarker();
         void createTaskList();
         void createBlockquote();
         void removeBlockquote();
@@ -188,6 +191,7 @@ class MarkdownEditor : public QPlainTextEdit
         void handleCarriageReturn();
         bool handleBackspaceKey();
         void insertPrefixForBlocks(const QString& prefix);
+        void createNumberedList(const QChar marker);
         bool insertPairedCharacters(const QChar firstChar);
         bool handleEndPairCharacterTyped(const QChar ch);
         void insertFormattingMarkup(const QString& markup);

@@ -398,26 +398,6 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
         case Qt::Key_Backtab:
             unindentText();
             break;
-        case Qt::Key_Greater:
-            if (e->modifiers() & Qt::ControlModifier)
-            {
-                removeBlockquote();
-            }
-            else if (cursor.hasSelection())
-            {
-                insertPrefixForBlocks("> ");
-            }
-            else
-            {
-                QPlainTextEdit::keyPressEvent(e);
-            }
-            break;
-        case Qt::Key_D:
-            if (!(e->modifiers() & Qt::ControlModifier) || !toggleTaskComplete())
-            {
-                QPlainTextEdit::keyPressEvent(e);
-            }
-            break;
         default:
             if (e->text().size() == 1)
             {
@@ -427,14 +407,6 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
                 {
                     QPlainTextEdit::keyPressEvent(e);
                 }
-            }
-            else if (e->matches(QKeySequence::Bold))
-            {
-                bold();
-            }
-            else if (e->matches(QKeySequence::Italic))
-            {
-                italic();
             }
             else
             {
@@ -604,41 +576,29 @@ void MarkdownEditor::insertComment()
     }
 }
 
-void MarkdownEditor::createBulletList()
+void MarkdownEditor::createBulletListWithAsteriskMarker()
 {
     insertPrefixForBlocks("* ");
 }
 
-void MarkdownEditor::createNumberedList()
+void MarkdownEditor::createBulletListWithMinusMarker()
 {
-    QTextCursor cursor = this->textCursor();
-    QTextBlock block;
-    QTextBlock end;
+    insertPrefixForBlocks("- ");
+}
 
-    if (cursor.hasSelection())
-    {
-        block = this->document()->findBlock(cursor.selectionStart());
-        end = this->document()->findBlock(cursor.selectionEnd()).next();
-    }
-    else
-    {
-        block = cursor.block();
-        end = block.next();
-    }
+void MarkdownEditor::createBulletListWithPlusMarker()
+{
+    insertPrefixForBlocks("+ ");
+}
 
-    cursor.beginEditBlock();
+void MarkdownEditor::createNumberedListWithPeriodMarker()
+{
+    createNumberedList('.');
+}
 
-    int number = 1;
-
-    while (block != end)
-    {
-        cursor.setPosition(block.position());
-        cursor.insertText(QString("%1").arg(number) + ". ");
-        block = block.next();
-        number++;
-    }
-
-    cursor.endEditBlock();
+void MarkdownEditor::createNumberedListWithParenthesisMarker()
+{
+    createNumberedList(')');
 }
 
 void MarkdownEditor::createTaskList()
@@ -1482,6 +1442,38 @@ void MarkdownEditor::insertPrefixForBlocks(const QString& prefix)
         cursor.setPosition(block.position());
         cursor.insertText(prefix);
         block = block.next();
+    }
+
+    cursor.endEditBlock();
+}
+
+void MarkdownEditor::createNumberedList(const QChar marker)
+{
+    QTextCursor cursor = this->textCursor();
+    QTextBlock block;
+    QTextBlock end;
+
+    if (cursor.hasSelection())
+    {
+        block = this->document()->findBlock(cursor.selectionStart());
+        end = this->document()->findBlock(cursor.selectionEnd()).next();
+    }
+    else
+    {
+        block = cursor.block();
+        end = block.next();
+    }
+
+    cursor.beginEditBlock();
+
+    int number = 1;
+
+    while (block != end)
+    {
+        cursor.setPosition(block.position());
+        cursor.insertText(QString("%1").arg(number) + marker + " ");
+        block = block.next();
+        number++;
     }
 
     cursor.endEditBlock();

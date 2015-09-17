@@ -185,8 +185,8 @@ The original John Gruber Markdown specification can be found at <http://daringfi
 `Ctrl+K`
 :   Applies strikethrough formatting.
 
-`Ctrl+<`
-:   Pressing the `Ctrl` key with the `<` character (`Ctrl+Shift+,`) inserts an HTML comment at the cursor position, or will turn selected text into an HTML comment.
+`Ctrl+/`
+:   Pressing the `Ctrl` key with the `/` character inserts an HTML comment at the cursor position, or will turn selected text into an HTML comment.
 
 `Tab`
 :   When text is selected in the editor, pressing the tab key will indent the selected lines of text.
@@ -197,33 +197,69 @@ The original John Gruber Markdown specification can be found at <http://daringfi
 `Shift+Enter`
 :   Inserts a Markdown-style line break.
 
-`>`
-:   When text is selected in the editor, pressing the `>` character (`Shift+.`) will create a block quote from the selected lines of text.
+`Ctrl+Enter`
+:   Inserts a line break as usual, except the current indentation will not be honored.  In other words, if you are typing on an indented line and press `Ctrl+Enter`, no indentation will be added to new line.  Note that the `Ctrl` modifier can be combined with the `Shift` modifier to produce both an unindented line and a Markdown-style line break.
 
 `Ctrl+>`
-:   When text is selected in the editor, pressing `Ctrl` with the `>` character (`Ctrl+Shift+.`) will remove any block quote formatting from the selected lines of text.
+:   Pressing `Ctrl` with the `>` character (`Ctrl+Shift+.`) turns the current line or the selected lines into a block quote.
 
-`Ctrl+*`
-:   Pressing `Ctrl` with the `*` character (`Ctrl+Shift+8`) turns the current line or the selected lines into a bullet list.  For example, if you have selected text within the following lines:
+`Ctrl+<`
+:   Pressing `Ctrl` with the `<` character (`Ctrl+Shift+,`) will remove any block quote formatting from the current line or the selected lines of text.
+
+`Alt+*`
+:   Pressing `Alt` with the `*` character (`Alt+Shift+8`) turns the current line or the selected lines into a bullet list with the `*` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Ctrl+*` will turn the selected lines into a task list like so:
+    Pressing `Alt+*` will turn the selected lines into a bullet list like so:
 
         * List item one.
         * List item two.
 
-`Ctrl+1`
-:   Pressing `Ctrl` with the `1` (number 1) character turns the current line or the selected lines into a numbered list.  For example, if you have selected text within the following lines:
+`Alt+-`
+:   Pressing `Alt` with the `-` character turns the current line or the selected lines into a bullet list with the `-` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Ctrl+1` will turn the selected lines into a task list like so:
+    Pressing `Alt+-` will turn the selected lines into a bullet list like so:
+
+        - List item one.
+        - List item two.
+
+`Alt++`
+:   Pressing `Alt` with the `+` character (`Alt+Shift+=`) turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
+
+        List item one.
+        List item two.
+        
+    Pressing `Alt++` will turn the selected lines into a bullet list like so:
+
+        + List item one.
+        + List item two.
+
+`Alt+1`
+:   Pressing `Alt` with the `1` (number 1) character turns the current line or the selected lines into a numbered list with the `.` marker.  For example, if you have selected text within the following lines:
+
+        List item one.
+        List item two.
+        
+    Pressing `Alt+1` will turn the selected lines into a numbered list like so:
 
         1. List item one.
         2. List item two.
+
+`Alt+)`
+:   Pressing `Alt` with the `)` character (`Alt+Shift+0`) turns the current line or the selected lines into a numbered list with the `)` marker.  For example, if you have selected text within the following lines:
+
+        List item one.
+        List item two.
+        
+    Pressing `Alt+)` will turn the selected lines into a numbered list like so:
+
+        1) List item one.
+        2) List item two.
 
 `Ctrl+T`
 :   Pressing `Ctrl+T` turns the current line or the selected lines into a Github-Flavored Markdown task list item.  For example, if you have selected text within the following lines:
@@ -257,7 +293,16 @@ The original John Gruber Markdown specification can be found at <http://daringfi
     `` ` `` | `` ` ``
     `<`     | `>`
     
-    To enable auto-matching of characters as you type, check "Automatically Match Characters while Typing" from the Settings menu in the menu bar.
+    To enable auto-matching of characters as you type, check "Auto-match Characters while Typing" from the Settings menu in the menu bar.
+
+Drag and Drop Image Files
+:   Rather than going to the Edit menu and selecting the "Insert Image..." option, you can drag and drop any image file from your file system into the editor window.  The application will insert inline image text with your image's file path relative to the currently opened document's location, or the full path if the document is untitled.  For example:
+
+        ![](../../relative/path/to/your/file.png)
+
+    or if the document is untitled:
+
+        ![](file:///full/path/to/your/file.png)
 
 - - - -
 
