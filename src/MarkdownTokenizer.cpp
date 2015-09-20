@@ -68,7 +68,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     htmlInlineCommentRegex.setPattern("<!--.*-->");
     htmlInlineCommentRegex.setMinimal(true);
     mentionRegex.setPattern("\\B@\\w+(\\-\\w+)*(/\\w+(\\-\\w+)*)?");
-    pipeTableDividerRegex.setPattern("^(\\|[ :]?)?-{3,}([ :]?\\|[ :]?-{3,}([ :]?\\|)?)+\\s*$");
+    pipeTableDividerRegex.setPattern("^ {0,3}(\\|[ :]?)?-{3,}([ :]?\\|[ :]?-{3,}([ :]?\\|)?)+\\s*$");
 }
         
 MarkdownTokenizer::~MarkdownTokenizer()
