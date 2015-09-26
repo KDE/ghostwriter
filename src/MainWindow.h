@@ -78,6 +78,7 @@ class MainWindow : public QMainWindow
         void toggleFileHistoryEnabled(bool checked);
         void toggleLargeLeadingSizes(bool checked);
         void toggleAutoMatch(bool checked);
+        void toggleBulletPointCycling(bool checked);
         void toggleUseUnderlineForEmphasis(bool checked);
         void toggleSpacesForTabs(bool checked);
         void toggleDesktopCompositingEffects(bool checked);

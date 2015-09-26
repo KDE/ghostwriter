@@ -127,6 +127,7 @@ class MarkdownEditor : public QPlainTextEdit
         bool toggleTaskComplete();
         void setEnableLargeHeadingSizes(bool enable);
         void setAutoMatchEnabled(bool enable);
+        void setBulletPointCyclingEnabled(bool enable);
         void setUseUnderlineForEmphasis(bool enable);
         void setInsertSpacesForTabs(bool enable);
         void setTabulationWidth(int width);
@@ -160,6 +161,7 @@ class MarkdownEditor : public QPlainTextEdit
         DictionaryRef dictionary;
         bool spellCheckEnabled;
         bool autoMatchEnabled;
+        bool bulletPointCyclingEnabled;
         int wordCount;
         QList<QAction*> spellingActions;
         int lastBlockCount;

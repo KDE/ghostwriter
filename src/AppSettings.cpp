@@ -35,6 +35,7 @@
 #define GW_FONT_KEY "Style/font"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
+#define GW_BULLET_CYCLING_KEY "Typing/bulletPointCyclingEnabled"
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
 #define GW_THEME_KEY "Style/theme"
@@ -75,6 +76,8 @@ void AppSettings::store()
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(insertSpacesForTabsEnabled));
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(largeHeadingSizesEnabled));
     appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
+    appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(bulletPointCyclingEnabled));
+
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(focusMode));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
@@ -178,9 +181,19 @@ bool AppSettings::getAutoMatchEnabled() const
     return autoMatchEnabled;
 }
 
-void AppSettings::setMatchPairEnabled(bool enabled)
+void AppSettings::setAutoMatchEnabled(bool enabled)
 {
     autoMatchEnabled = enabled;
+}
+
+bool AppSettings::getBulletPointCyclingEnabled() const
+{
+    return bulletPointCyclingEnabled;
+}
+
+void AppSettings::setBulletPointCyclingEnabled(bool enabled)
+{
+    bulletPointCyclingEnabled = enabled;
 }
 
 FocusMode AppSettings::getFocusMode() const
@@ -461,6 +474,7 @@ AppSettings::AppSettings()
     useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
     largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
     autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
+    bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
     if ((focusMode < FocusModeDisabled) || (focusMode > FocusModeParagraph))

@@ -112,6 +112,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setUseUnderlineForEmphasis(appSettings->getUseUnderlineForEmphasis());
     editor->setEnableLargeHeadingSizes(appSettings->getLargeHeadingSizesEnabled());
     editor->setAutoMatchEnabled(appSettings->getAutoMatchEnabled());
+    editor->setBulletPointCyclingEnabled(appSettings->getBulletPointCyclingEnabled());
     editor->setPlainText("");
     editor->setEditorWidth((EditorWidth) appSettings->getEditorWidth());
     connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
@@ -532,7 +533,13 @@ void MainWindow::toggleLargeLeadingSizes(bool checked)
 void MainWindow::toggleAutoMatch(bool checked)
 {
     editor->setAutoMatchEnabled(checked);
-    appSettings->setMatchPairEnabled(checked);
+    appSettings->setAutoMatchEnabled(checked);
+}
+
+void MainWindow::toggleBulletPointCycling(bool checked)
+{
+    editor->setBulletPointCyclingEnabled(checked);
+    appSettings->setBulletPointCyclingEnabled(checked);
 }
 
 void MainWindow::toggleUseUnderlineForEmphasis(bool checked)
@@ -1137,6 +1144,13 @@ void MainWindow::buildMenuBar()
     connect(autoMatchAction, SIGNAL(toggled(bool)), this, SLOT(toggleAutoMatch(bool)));
     settingsMenu->addAction(autoMatchAction);
 
+    bool bulletCyclingEnabled = appSettings->getBulletPointCyclingEnabled();
+    QAction* bulletCycleAction = new QAction(tr("Cycle Bullet Point Markers"), this);
+    bulletCycleAction->setCheckable(true);
+    bulletCycleAction->setChecked(bulletCyclingEnabled);
+    connect(bulletCycleAction, SIGNAL(toggled(bool)), this, SLOT(toggleBulletPointCycling(bool)));
+    settingsMenu->addAction(bulletCycleAction);
+
     settingsMenu->addSeparator();
 
     QAction* liveSpellcheckAction = new QAction(tr("Live &Spellcheck Enabled"), this);
@@ -1189,7 +1203,7 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(outlineAlternateColorsAction);
     outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
 
-    QAction* desktopCompositingAction = new QAction(tr("&Enable desktop compositing effects"), this);
+    QAction* desktopCompositingAction = new QAction(tr("&Enable Desktop Compositing Effects"), this);
     desktopCompositingAction->setCheckable(true);
     desktopCompositingAction->setChecked(appSettings->getDesktopCompositingEnabled());
     outlineHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());

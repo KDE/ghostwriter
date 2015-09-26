@@ -69,7 +69,10 @@ class AppSettings
         void setLargeHeadingSizesEnabled(bool enabled);
 
         bool getAutoMatchEnabled() const;
-        void setMatchPairEnabled(bool enabled);
+        void setAutoMatchEnabled(bool enabled);
+
+        bool getBulletPointCyclingEnabled() const;
+        void setBulletPointCyclingEnabled(bool enabled);
 
         FocusMode getFocusMode() const;
         void setFocusMode(FocusMode focusMode);
@@ -117,6 +120,7 @@ class AppSettings
         bool useUnderlineForEmphasis;
         bool largeHeadingSizesEnabled;
         bool autoMatchEnabled;
+        bool bulletPointCyclingEnabled;
         FocusMode focusMode;
         bool fileHistoryEnabled;
         QString themeName;

@@ -63,6 +63,7 @@ MarkdownEditor::MarkdownEditor
         highlighter(highlighter),
         dictionary(DictionaryManager::instance().requestDictionary()),
         autoMatchEnabled(true),
+        bulletPointCyclingEnabled(true),
         mouseButtonDown(false)
 {
     setDocument(textDocument);
@@ -734,37 +735,42 @@ void MarkdownEditor::indentText()
             {
                 if (bulletListRegex.exactMatch(cursor.block().text()))
                 {
-                    QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
-                    QChar newBulletPoint;
-
-                    if (oldBulletPoint == '*')
+                    if (bulletPointCyclingEnabled)
                     {
-                        newBulletPoint = '-';
-                    }
-                    else if (oldBulletPoint == '-')
-                    {
-                        newBulletPoint = '+';
-                    }
-                    else
-                    {
-                        newBulletPoint = '*';
-                    }
+                        QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
+                        QChar newBulletPoint = oldBulletPoint;
+                        {
+                            if (oldBulletPoint == '*')
+                            {
+                                newBulletPoint = '-';
+                            }
+                            else if (oldBulletPoint == '-')
+                            {
+                                newBulletPoint = '+';
+                            }
+                            else
+                            {
+                                newBulletPoint = '*';
+                            }
+                        }
 
-                    cursor.movePosition(QTextCursor::StartOfBlock);
-                    cursor.movePosition
-                    (
-                        QTextCursor::EndOfBlock,
-                        QTextCursor::KeepAnchor
-                    );
-
-                    QString replacementText = cursor.selectedText();
-                    replacementText =
-                        replacementText.replace
+                        cursor.movePosition(QTextCursor::StartOfBlock);
+                        cursor.movePosition
                         (
-                            oldBulletPoint,
-                            newBulletPoint
+                            QTextCursor::EndOfBlock,
+                            QTextCursor::KeepAnchor
                         );
-                    cursor.insertText(replacementText);
+
+                        QString replacementText = cursor.selectedText();
+                        replacementText =
+                            replacementText.replace
+                            (
+                                oldBulletPoint,
+                                newBulletPoint
+                            );
+                        cursor.insertText(replacementText);
+                    }
+
                     cursor.movePosition(QTextCursor::StartOfBlock);
                 }
                 else if (taskListRegex.exactMatch(cursor.block().text()))
@@ -846,6 +852,7 @@ void MarkdownEditor::unindentText()
     (
         (MarkdownStateBulletPointList == cursor.block().userState())
         && (bulletListRegex.exactMatch(cursor.block().text()))
+        && bulletPointCyclingEnabled
     )
     {
         QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
@@ -963,6 +970,11 @@ void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
 void MarkdownEditor::setAutoMatchEnabled(bool enable)
 {
     autoMatchEnabled = enable;
+}
+
+void MarkdownEditor::setBulletPointCyclingEnabled(bool enable)
+{
+    bulletPointCyclingEnabled = enable;
 }
 
 void MarkdownEditor::setUseUnderlineForEmphasis(bool enable)
