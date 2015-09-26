@@ -986,26 +986,26 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(tr("&Spell check"), editor, SLOT(runSpellChecker()));
 
     QMenu* formatMenu = this->menuBar()->addMenu(tr("For&mat"));
-    formatMenu->addAction(tr("Bold"), editor, SLOT(bold()), QKeySequence::Bold);
-    formatMenu->addAction(tr("Italic"), editor, SLOT(italic()), QKeySequence::Italic);
-    formatMenu->addAction(tr("Strikthrough"), editor, SLOT(strikethrough()), QKeySequence("Ctrl+K"));
-    formatMenu->addAction(tr("HTML Comment"), editor, SLOT(insertComment()), QKeySequence("Ctrl+/"));
+    formatMenu->addAction(tr("&Bold"), editor, SLOT(bold()), QKeySequence::Bold);
+    formatMenu->addAction(tr("&Italic"), editor, SLOT(italic()), QKeySequence::Italic);
+    formatMenu->addAction(tr("Stri&kthrough"), editor, SLOT(strikethrough()), QKeySequence("Ctrl+K"));
+    formatMenu->addAction(tr("&HTML Comment"), editor, SLOT(insertComment()), QKeySequence("Ctrl+/"));
     formatMenu->addSeparator();
-    formatMenu->addAction(tr("Indent"), editor, SLOT(indentText()), QKeySequence("Tab"));
-    formatMenu->addAction(tr("Unindent"), editor, SLOT(unindentText()), QKeySequence("Shift+Tab"));
+    formatMenu->addAction(tr("I&ndent"), editor, SLOT(indentText()), QKeySequence("Tab"));
+    formatMenu->addAction(tr("&Unindent"), editor, SLOT(unindentText()), QKeySequence("Shift+Tab"));
     formatMenu->addSeparator();
-    formatMenu->addAction(tr("Block Quote"), editor, SLOT(createBlockquote()), QKeySequence("Ctrl+>"));
-    formatMenu->addAction(tr("Strip Block Quote"), editor, SLOT(removeBlockquote()), QKeySequence("Ctrl+<"));
+    formatMenu->addAction(tr("Block &Quote"), editor, SLOT(createBlockquote()), QKeySequence("Ctrl+>"));
+    formatMenu->addAction(tr("&Strip Block Quote"), editor, SLOT(removeBlockquote()), QKeySequence("Ctrl+<"));
     formatMenu->addSeparator();
-    formatMenu->addAction(tr("* Bullet List"), editor, SLOT(createBulletListWithAsteriskMarker()), QKeySequence("Alt+*"));
-    formatMenu->addAction(tr("- Bullet List"), editor, SLOT(createBulletListWithMinusMarker()), QKeySequence("Alt+-"));
-    formatMenu->addAction(tr("+ Bullet List"), editor, SLOT(createBulletListWithPlusMarker()), QKeySequence("Alt++"));
+    formatMenu->addAction(tr("&* Bullet List"), editor, SLOT(createBulletListWithAsteriskMarker()), QKeySequence("Alt+*"));
+    formatMenu->addAction(tr("&- Bullet List"), editor, SLOT(createBulletListWithMinusMarker()), QKeySequence("Alt+-"));
+    formatMenu->addAction(tr("&+ Bullet List"), editor, SLOT(createBulletListWithPlusMarker()), QKeySequence("Alt++"));
     formatMenu->addSeparator();
-    formatMenu->addAction(tr("1. Numbered List"), editor, SLOT(createNumberedListWithPeriodMarker()), QKeySequence("Alt+1"));
-    formatMenu->addAction(tr("1) Numbered List"), editor, SLOT(createNumberedListWithParenthesisMarker()), QKeySequence("Alt+)"));
+    formatMenu->addAction(tr("1&. Numbered List"), editor, SLOT(createNumberedListWithPeriodMarker()), QKeySequence("Alt+1"));
+    formatMenu->addAction(tr("1&) Numbered List"), editor, SLOT(createNumberedListWithParenthesisMarker()), QKeySequence("Alt+)"));
     formatMenu->addSeparator();
-    formatMenu->addAction(tr("Task List"), editor, SLOT(createTaskList()), QKeySequence("Ctrl+T"));
-    formatMenu->addAction(tr("Toggle Task(s) Complete"), editor, SLOT(toggleTaskComplete()), QKeySequence("Ctrl+D"));
+    formatMenu->addAction(tr("&Task List"), editor, SLOT(createTaskList()), QKeySequence("Ctrl+T"));
+    formatMenu->addAction(tr("Toggle Task(s) &Complete"), editor, SLOT(toggleTaskComplete()), QKeySequence("Ctrl+D"));
 
     QMenu* viewMenu = this->menuBar()->addMenu(tr("&View"));
 
@@ -1021,10 +1021,10 @@ void MainWindow::buildMenuBar()
     viewMenu->addSeparator();
 
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
-    settingsMenu->addAction(tr("&Themes..."), this, SLOT(changeTheme()));
-    settingsMenu->addAction(tr("&Font..."), this, SLOT(changeFont()));
+    settingsMenu->addAction(tr("Themes..."), this, SLOT(changeTheme()));
+    settingsMenu->addAction(tr("Font..."), this, SLOT(changeFont()));
 
-    QMenu* focusModeMenu = new QMenu(tr("Focus &Mode"));
+    QMenu* focusModeMenu = new QMenu(tr("Focus Mode"));
 
     QActionGroup* focusModeGroup = new QActionGroup(this);
     connect(focusModeGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeFocusMode(QAction*)));
@@ -1060,29 +1060,29 @@ void MainWindow::buildMenuBar()
 
     settingsMenu->addMenu(focusModeMenu);
 
-    QMenu* editorWidthMenu = new QMenu(tr("&Editor Width"));
+    QMenu* editorWidthMenu = new QMenu(tr("Editor Width"));
     QActionGroup* editorWidthGroup = new QActionGroup(this);
     connect(editorWidthGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeEditorWidth(QAction*)));
 
-    QAction* narrowAction = new QAction(tr("&Narrow"), this);
+    QAction* narrowAction = new QAction(tr("Narrow"), this);
     narrowAction->setCheckable(true);
     narrowAction->setChecked(appSettings->getEditorWidth() == EditorWidthNarrow);
     narrowAction->setActionGroup(editorWidthGroup);
     narrowAction->setData(QVariant(EditorWidthNarrow));
 
-    QAction* mediumAction = new QAction(tr("&Medium"), this);
+    QAction* mediumAction = new QAction(tr("Medium"), this);
     mediumAction->setCheckable(true);
     mediumAction->setChecked(appSettings->getEditorWidth() == EditorWidthMedium);
     mediumAction->setActionGroup(editorWidthGroup);
     mediumAction->setData(QVariant(EditorWidthMedium));
 
-    QAction* wideAction = new QAction(tr("&Wide"), this);
+    QAction* wideAction = new QAction(tr("Wide"), this);
     wideAction->setCheckable(true);
     wideAction->setChecked(appSettings->getEditorWidth() == EditorWidthWide);
     wideAction->setActionGroup(editorWidthGroup);
     wideAction->setData(QVariant(EditorWidthWide));
 
-    QAction* fullAction = new QAction(tr("&Full"), this);
+    QAction* fullAction = new QAction(tr("Full"), this);
     fullAction->setCheckable(true);
     fullAction->setChecked(appSettings->getEditorWidth() == EditorWidthFull);
     fullAction->setActionGroup(editorWidthGroup);
@@ -1095,23 +1095,23 @@ void MainWindow::buildMenuBar()
 
     settingsMenu->addMenu(editorWidthMenu);
 
-    QMenu* blockquoteStyleMenu = new QMenu(tr("&Blockquote Style"));
+    QMenu* blockquoteStyleMenu = new QMenu(tr("Blockquote Style"));
     QActionGroup* blockquoteStyleGroup = new QActionGroup(this);
     connect(blockquoteStyleGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeBlockquoteStyle(QAction*)));
 
-    QAction* plainBlockquoteAction = new QAction(tr("&Plain"), this);
+    QAction* plainBlockquoteAction = new QAction(tr("Plain"), this);
     plainBlockquoteAction->setCheckable(true);
     plainBlockquoteAction->setChecked(appSettings->getBlockquoteStyle() == BlockquoteStylePlain);
     plainBlockquoteAction->setActionGroup(blockquoteStyleGroup);
     plainBlockquoteAction->setData(QVariant(BlockquoteStylePlain));
 
-    QAction* italicBlockquoteAction = new QAction(tr("&Italic"), this);
+    QAction* italicBlockquoteAction = new QAction(tr("Italic"), this);
     italicBlockquoteAction->setCheckable(true);
     italicBlockquoteAction->setChecked(appSettings->getBlockquoteStyle() == BlockquoteStyleItalic);
     italicBlockquoteAction->setActionGroup(blockquoteStyleGroup);
     italicBlockquoteAction->setData(QVariant(BlockquoteStyleItalic));
 
-    QAction* fancyBlockquoteAction = new QAction(tr("&Fancy"), this);
+    QAction* fancyBlockquoteAction = new QAction(tr("Fancy"), this);
     fancyBlockquoteAction->setCheckable(true);
     fancyBlockquoteAction->setChecked(appSettings->getBlockquoteStyle() == BlockquoteStyleFancy);
     fancyBlockquoteAction->setActionGroup(blockquoteStyleGroup);
@@ -1131,14 +1131,14 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(largeHeadingsAction);
 
     bool underlineEnabled = appSettings->getUseUnderlineForEmphasis();
-    QAction* underlineAction = new QAction(tr("Use Underline Instead of Italics for &Emphasis"), this);
+    QAction* underlineAction = new QAction(tr("Use Underline Instead of Italics for Emphasis"), this);
     underlineAction->setCheckable(true);
     underlineAction->setChecked(underlineEnabled);
     connect(underlineAction, SIGNAL(toggled(bool)), this, SLOT(toggleUseUnderlineForEmphasis(bool)));
     settingsMenu->addAction(underlineAction);
 
     bool autoMatchEnabled = appSettings->getAutoMatchEnabled();
-    QAction* autoMatchAction = new QAction(tr("Automatically Match &Characters while Typing"), this);
+    QAction* autoMatchAction = new QAction(tr("Automatically Match Characters while Typing"), this);
     autoMatchAction->setCheckable(true);
     autoMatchAction->setChecked(autoMatchEnabled);
     connect(autoMatchAction, SIGNAL(toggled(bool)), this, SLOT(toggleAutoMatch(bool)));
@@ -1153,29 +1153,29 @@ void MainWindow::buildMenuBar()
 
     settingsMenu->addSeparator();
 
-    QAction* liveSpellcheckAction = new QAction(tr("Live &Spellcheck Enabled"), this);
+    QAction* liveSpellcheckAction = new QAction(tr("Live Spellcheck Enabled"), this);
     liveSpellcheckAction->setCheckable(true);
     liveSpellcheckAction->setChecked(appSettings->getLiveSpellCheckEnabled());
     connect(liveSpellcheckAction, SIGNAL(toggled(bool)), this, SLOT(toggleLiveSpellCheck(bool)));
     settingsMenu->addAction(liveSpellcheckAction);
 
-    settingsMenu->addAction(tr("&Languages..."), this, SLOT(onSetLanguage()));
+    settingsMenu->addAction(tr("Languages..."), this, SLOT(onSetLanguage()));
 
     settingsMenu->addSeparator();
 
-    QAction* fileHistoryAction = new QAction(tr("Remember File &History"), this);
+    QAction* fileHistoryAction = new QAction(tr("Remember File History"), this);
     fileHistoryAction->setCheckable(true);
     fileHistoryAction->setChecked(appSettings->getFileHistoryEnabled());
     connect(fileHistoryAction, SIGNAL(toggled(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
     settingsMenu->addAction(fileHistoryAction);
 
-    QAction* autoSaveAction = new QAction(tr("&Auto Save"), this);
+    QAction* autoSaveAction = new QAction(tr("Auto Save"), this);
     autoSaveAction->setCheckable(true);
     autoSaveAction->setChecked(appSettings->getAutoSaveEnabled());
     connect(autoSaveAction, SIGNAL(toggled(bool)), documentManager, SLOT(setAutoSaveEnabled(bool)));
     settingsMenu->addAction(autoSaveAction);
 
-    QAction* backupFileAction = new QAction(tr("Backu&p File on Save"), this);
+    QAction* backupFileAction = new QAction(tr("Backup File on Save"), this);
     backupFileAction->setCheckable(true);
     backupFileAction->setChecked(appSettings->getBackupFileEnabled());
     connect(backupFileAction, SIGNAL(toggled(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
@@ -1184,38 +1184,38 @@ void MainWindow::buildMenuBar()
     settingsMenu->addSeparator();
 
     bool insertSpacesForTabs = appSettings->getInsertSpacesForTabsEnabled();
-    QAction* spacesForTabsAction = new QAction(tr("&Insert Spaces for Tabs"), this);
+    QAction* spacesForTabsAction = new QAction(tr("Insert Spaces for Tabs"), this);
     spacesForTabsAction->setCheckable(true);
     spacesForTabsAction->setChecked(insertSpacesForTabs);
     connect(spacesForTabsAction, SIGNAL(toggled(bool)), this, SLOT(toggleSpacesForTabs(bool)));
     settingsMenu->addAction(spacesForTabsAction);
     editor->setInsertSpacesForTabs(insertSpacesForTabs);
 
-    settingsMenu->addAction(tr("&Tabulation Width..."), this, SLOT(changeTabulationWidth()));
+    settingsMenu->addAction(tr("Tabulation Width..."), this, SLOT(changeTabulationWidth()));
     editor->setTabulationWidth(appSettings->getTabWidth());
 
     settingsMenu->addSeparator();
 
-    QAction* outlineAlternateColorsAction = new QAction(tr("Alternate &Row Colors in Outline HUD"), this);
+    QAction* outlineAlternateColorsAction = new QAction(tr("Alternate Row Colors in Outline HUD"), this);
     outlineAlternateColorsAction->setCheckable(true);
     outlineAlternateColorsAction->setChecked(appSettings->getAlternateHudRowColorsEnabled());
     connect(outlineAlternateColorsAction, SIGNAL(toggled(bool)), this, SLOT(toggleOutlineAlternateRowColors(bool)));
     settingsMenu->addAction(outlineAlternateColorsAction);
     outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
 
-    QAction* desktopCompositingAction = new QAction(tr("&Enable Desktop Compositing Effects"), this);
+    QAction* desktopCompositingAction = new QAction(tr("Enable Desktop Compositing Effects"), this);
     desktopCompositingAction->setCheckable(true);
     desktopCompositingAction->setChecked(appSettings->getDesktopCompositingEnabled());
     outlineHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     connect(desktopCompositingAction, SIGNAL(toggled(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
     settingsMenu->addAction(desktopCompositingAction);
 
-    settingsMenu->addAction(tr("&HUD Window Opacity..."), this, SLOT(showHudOpacityDialog()));
+    settingsMenu->addAction(tr("HUD Window Opacity..."), this, SLOT(showHudOpacityDialog()));
 
     QMenu* helpMenu = this->menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(tr("&About"), this, SLOT(showAbout()));
     helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
-    helpMenu->addAction(tr("&Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
+    helpMenu->addAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
 }
 
 void MainWindow::buildStatusBar()
