@@ -87,6 +87,7 @@ class MainWindow : public QMainWindow
         void changeEditorWidth(QAction* action);
         void changeBlockquoteStyle(QAction* action);
         void showQuickReferenceGuide();
+        void showOutlineHud();
         void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);

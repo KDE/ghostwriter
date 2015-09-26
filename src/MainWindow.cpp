@@ -687,6 +687,12 @@ void MainWindow::showQuickReferenceGuide()
     quickReferenceGuideViewer->activateWindow();
 }
 
+void MainWindow::showOutlineHud()
+{
+    outlineHud->show();
+    outlineHud->activateWindow();
+}
+
 void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
 {
     QDesktopServices::openUrl(url);
@@ -1017,7 +1023,7 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(fullScreenMenuAction);
 
     viewMenu->addAction(tr("&Preview in HTML"), this, SLOT(openHtmlPreview()), QKeySequence("CTRL+W"));
-    viewMenu->addAction(tr("&Outline HUD"), outlineHud, SLOT(show()), QKeySequence("CTRL+L"));
+    viewMenu->addAction(tr("&Outline HUD"), this, SLOT(showOutlineHud()), QKeySequence("CTRL+L"));
     viewMenu->addSeparator();
 
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
