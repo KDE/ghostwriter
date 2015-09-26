@@ -1301,10 +1301,11 @@ void MarkdownEditor::updateBlockWordCount(QTextBlock& block)
 
 void MarkdownEditor::handleCarriageReturn()
 {
-    QString autoInsertText;
+    QString autoInsertText = "";
     QTextCursor cursor = this->textCursor();
+    bool endList = false;
 
-    if (cursor.positionInBlock() < cursor.block().length() - 1)
+    if (cursor.positionInBlock() < (cursor.block().length() - 1))
     {
         autoInsertText = getPriorIndentation();
 
@@ -1322,18 +1323,30 @@ void MarkdownEditor::handleCarriageReturn()
                 autoInsertText = getPriorMarkdownBlockItemStart(numberedListRegex);
                 QStringList capture = numberedListRegex.capturedTexts();
 
-                // Auto-increment the list number.
-                if (capture.size() == 2)
+                if (!autoInsertText.isEmpty() && (capture.size() == 2))
                 {
-                    QRegExp numberRegex("\\d+");
-                    int number = capture.at(1).toInt();
-                    number++;
-                    autoInsertText =
-                        autoInsertText.replace
-                        (
-                            numberRegex,
-                            QString("%1").arg(number)
-                        );
+                    // If the line of text is an empty list item, end the list.
+                    if (cursor.block().text().length() == autoInsertText.length())
+                    {
+                        endList = true;
+                    }
+                    // Else auto-increment the list number.
+                    else
+                    {
+                        QRegExp numberRegex("\\d+");
+                        int number = capture.at(1).toInt();
+                        number++;
+                        autoInsertText =
+                            autoInsertText.replace
+                            (
+                                numberRegex,
+                                QString("%1").arg(number)
+                            );
+                    }
+                }
+                else
+                {
+                    autoInsertText = getPriorIndentation();
                 }
                 break;
             }
@@ -1347,14 +1360,33 @@ void MarkdownEditor::handleCarriageReturn()
                 if (autoInsertText.isEmpty())
                 {
                     autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex);
+
+                    if (autoInsertText.isEmpty())
+                    {
+                        autoInsertText = getPriorIndentation();
+                    }
+                    // If the line of text is an empty list item, end the list.
+                    else if (cursor.block().text().length() == autoInsertText.length())
+                    {
+                        endList = true;
+                    }
                 }
                 else // string not empty - GFM task list item
                 {
-                    // In case the previous line had a completed task with an X
-                    // checking it off, make sure a completed task isn't added as
-                    // the new task (remove the x and replace with a space).
-                    //
-                    autoInsertText = autoInsertText.replace('x', ' ');
+                    // If the line of text is an empty list item, end the list.
+                    if (cursor.block().text().length() == autoInsertText.length())
+                    {
+                        endList = true;
+                    }
+                    else
+                    {
+                        // In case the previous line had a completed task with
+                        // an X checking it off, make sure a completed task
+                        // isn't added as the new task (remove the x and replace
+                        // with a space).
+                        //
+                        autoInsertText = autoInsertText.replace('x', ' ');
+                    }
                 }
                 break;
             case MarkdownStateBlockquote:
@@ -1364,6 +1396,15 @@ void MarkdownEditor::handleCarriageReturn()
                 autoInsertText = getPriorIndentation();
                 break;
         }
+    }
+
+    if (endList)
+    {
+        autoInsertText = getPriorIndentation();
+        cursor.movePosition(QTextCursor::StartOfBlock);
+        cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+        cursor.insertText(autoInsertText);
+        autoInsertText = "";
     }
 
     cursor.insertText(tr("\n") + autoInsertText);
