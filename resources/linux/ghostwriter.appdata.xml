@@ -7,35 +7,26 @@
   <summary>Distraction-free text editor for Markdown</summary>
   <description>
     <p>ghostwriter is a distraction-free text editor for Markdown featuring
-       a live HTML preview as you type, theme creation, focus mode, full screen
-       mode, and document navigation in an aesthetic writing environment.
-       It comes with the Sundown Markdown processor built in, and can integrate
-       with Pandoc, MultiMarkdown, Discount, and cmark processors if they are
-       installed.</p>
+       a live HTML preview as you type, theme creation, focus mode, fullscreen
+       mode, live word count, and document navigation in an aesthetic writing
+       environment.  It comes with the Sundown Markdown processor built in, and
+       can integrate with Pandoc, MultiMarkdown, Discount, and cmark processors
+       if they are installed.</p>
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/screenshot1.jpg</image>
-    </screenshot>
-    <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/screenshot2.jpg</image>
-    </screenshot>
-    <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/screenshot3.jpg</image>
-    </screenshot>
-    <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/screenshot4.jpg</image>
-    </screenshot>
-    <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/screenshot5.jpg</image>
+      <image>http://wereturtle.github.io/ghostwriter/images/appdata/screenshot1.png</image>
+      <caption>ghostwriter main window with outline HUD for document navigation</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">http://wereturtle.github.io/ghostwriter/</url>
   <url type="bugtracker">http://github.com/wereturtle/ghostwriter/</url>
   <url type="donation">http://wereturtle.github.io/ghostwriter/</url>
   <developer_name>wereturtle</developer_name>
-  <updatecontact>wereturtle@users.noreply.github.com</updatecontact>
   <provides>
     <binary>ghostwriter</binary>
   </provides>
+  ​<releases>
+​    <release version="1.2.0" timestamp="1443387001" />
+​  </releases>
 </component>
