@@ -200,19 +200,19 @@ The original John Gruber Markdown specification can be found at <http://daringfi
 `Ctrl+Enter`
 :   Inserts a line break as usual, except the current indentation will not be honored.  In other words, if you are typing on an indented line and press `Ctrl+Enter`, no indentation will be added to new line.  Note that the `Ctrl` modifier can be combined with the `Shift` modifier to produce both an unindented line and a Markdown-style line break.
 
-`Ctrl+>`
-:   Pressing `Ctrl` with the `>` character (`Ctrl+Shift+.`) turns the current line or the selected lines into a block quote.
+`Ctrl+.`
+:   Pressing `Ctrl` with the `.` character turns the current line or the selected lines into a block quote.
 
-`Ctrl+<`
-:   Pressing `Ctrl` with the `<` character (`Ctrl+Shift+,`) will remove any block quote formatting from the current line or the selected lines of text.
+`Ctrl+,`
+:   Pressing `Ctrl` with the `,` character will remove any block quote formatting from the current line or the selected lines of text.
 
-`Alt+*`
-:   Pressing `Alt` with the `*` character (`Alt+Shift+8`) turns the current line or the selected lines into a bullet list with the `*` marker.  For example, if you have selected text within the following lines:
+`Alt+8`
+:   Pressing `Alt` with the `8` character turns the current line or the selected lines into a bullet list with the `*` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt+*` will turn the selected lines into a bullet list like so:
+    Pressing `Alt+8` will turn the selected lines into a bullet list like so:
 
         * List item one.
         * List item two.
@@ -228,8 +228,8 @@ The original John Gruber Markdown specification can be found at <http://daringfi
         - List item one.
         - List item two.
 
-`Alt++`
-:   Pressing `Alt` with the `+` character (`Alt+Shift+=`) turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
+`Alt+=`
+:   Pressing `Alt` with the `=` character turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
@@ -250,13 +250,13 @@ The original John Gruber Markdown specification can be found at <http://daringfi
         1. List item one.
         2. List item two.
 
-`Alt+)`
-:   Pressing `Alt` with the `)` character (`Alt+Shift+0`) turns the current line or the selected lines into a numbered list with the `)` marker.  For example, if you have selected text within the following lines:
+`Alt+0`
+:   Pressing `Alt` with the `0` character turns the current line or the selected lines into a numbered list with the `)` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt+)` will turn the selected lines into a numbered list like so:
+    Pressing `Alt+0` will turn the selected lines into a numbered list like so:
 
         1) List item one.
         2) List item two.
@@ -293,7 +293,7 @@ The original John Gruber Markdown specification can be found at <http://daringfi
     `` ` `` | `` ` ``
     `<`     | `>`
     
-    To enable auto-matching of characters as you type, check "Auto-match Characters while Typing" from the Settings menu in the menu bar.
+    To enable auto-matching of characters as you type, check "Automatically Match Characters while Typing" from the Settings menu in the menu bar.
 
 Drag and Drop Image Files
 :   Rather than going to the Edit menu and selecting the "Insert Image..." option, you can drag and drop any image file from your file system into the editor window.  The application will insert inline image text with your image's file path relative to the currently opened document's location, or the full path if the document is untitled.  For example:

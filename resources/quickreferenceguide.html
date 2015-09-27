@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="introduction">Introduction</h1>
-<p>Welcome to <em>ghostwriter</em>! This quick reference guide gives examples of writing in Markdown, a plain text markup format created by John Gruber. For more information and help, please visit John Gruber’s website at <a href="http://www.daringfireball.net">http://www.daringfireball.net</a>. The official <em>ghostwriter</em> website can be found at <a href="http://www.github.com/wereturtle/ghostwriter">http://www.github.com/wereturtle/ghostwriter</a>.</p>
+<p>Welcome to <em>ghostwriter</em>! This quick reference guide gives examples of writing in Markdown, a plain text markup format created by John Gruber. For more information and help, please visit John Gruber’s website at <a href="http://www.daringfireball.net" class="uri">http://www.daringfireball.net</a>. The official <em>ghostwriter</em> website can be found at <a href="http://www.github.com/wereturtle/ghostwriter" class="uri">http://www.github.com/wereturtle/ghostwriter</a>.</p>
 <p><em>ghostwriter</em> has built-in support for the Sundown processor. However, it also can auto-detect Pandoc, MultiMarkdown, Discount, or cmark processors. To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system’s <code>PATH</code> environment variable. <em>ghostwriter</em> will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.</p>
 <h1 id="headings">Headings</h1>
 <pre><code># Level 1 Heading
@@ -122,58 +122,85 @@ Row Text 1  |  Row Text 2
 Row Text 1  |  Row Text 2</code></pre>
 <p>There are even more table syntaxes that these Markdown processors can support. There are also many more extensions. For more information on these processors, please visit the following websites:</p>
 <ul>
-<li>Sundown: <a href="http://github.com/vmg/sundown/">http://github.com/vmg/sundown/</a></li>
-<li>Pandoc: <a href="http://johnmacfarlane.net/pandoc/">http://johnmacfarlane.net/pandoc/</a></li>
-<li>MultiMarkdown: <a href="http://fletcherpenney.net/multimarkdown/">http://fletcherpenney.net/multimarkdown/</a></li>
-<li>Discount: <a href="http://www.pell.portland.or.us/~orc/Code/discount/">http://www.pell.portland.or.us/~orc/Code/discount/</a></li>
-<li>cmark: <a href="http://github.com/jgm/cmark/">http://github.com/jgm/cmark/</a></li>
+<li>Sundown: <a href="http://github.com/vmg/sundown/" class="uri">http://github.com/vmg/sundown/</a></li>
+<li>Pandoc: <a href="http://johnmacfarlane.net/pandoc/" class="uri">http://johnmacfarlane.net/pandoc/</a></li>
+<li>MultiMarkdown: <a href="http://fletcherpenney.net/multimarkdown/" class="uri">http://fletcherpenney.net/multimarkdown/</a></li>
+<li>Discount: <a href="http://www.pell.portland.or.us/~orc/Code/discount/" class="uri">http://www.pell.portland.or.us/~orc/Code/discount/</a></li>
+<li>cmark: <a href="http://github.com/jgm/cmark/" class="uri">http://github.com/jgm/cmark/</a></li>
 </ul>
-<p>The original John Gruber Markdown specification can be found at <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.</p>
+<p>The original John Gruber Markdown specification can be found at <a href="http://daringfireball.net/projects/markdown/" class="uri">http://daringfireball.net/projects/markdown/</a>.</p>
 <h1 id="ghostwriter-shortcuts">Ghostwriter Shortcuts</h1>
 <p><em>ghostwriter</em> supports several shortcut keys for editing Markdown:</p>
 <dl>
 <dt><code>Ctrl+B</code></dt>
-<dd><p>Applies bold (strong) formatting.</p>
+<dd>Applies bold (strong) formatting.
 </dd>
 <dt><code>Ctrl+I</code></dt>
-<dd><p>Applies italic (emphasis) formatting.</p>
+<dd>Applies italic (emphasis) formatting.
 </dd>
 <dt><code>Ctrl+K</code></dt>
-<dd><p>Applies strikethrough formatting.</p>
+<dd>Applies strikethrough formatting.
 </dd>
-<dt><code>Ctrl+&lt;</code></dt>
-<dd><p>Pressing the <code>Ctrl</code> key with the <code>&lt;</code> character (<code>Ctrl+Shift+,</code>) inserts an HTML comment at the cursor position, or will turn selected text into an HTML comment.</p>
+<dt><code>Ctrl+/</code></dt>
+<dd>Pressing the <code>Ctrl</code> key with the <code>/</code> character inserts an HTML comment at the cursor position, or will turn selected text into an HTML comment.
 </dd>
 <dt><code>Tab</code></dt>
-<dd><p>When text is selected in the editor, pressing the tab key will indent the selected lines of text.</p>
+<dd>When text is selected in the editor, pressing the tab key will indent the selected lines of text.
 </dd>
 <dt><code>Shift+Tab</code></dt>
-<dd><p>When text is selected in the editor, pressing the Shift and Tab keys together will unindent the selected lines of text.</p>
+<dd>When text is selected in the editor, pressing the Shift and Tab keys together will unindent the selected lines of text.
 </dd>
 <dt><code>Shift+Enter</code></dt>
-<dd><p>Inserts a Markdown-style line break.</p>
+<dd>Inserts a Markdown-style line break.
 </dd>
-<dt><code>&gt;</code></dt>
-<dd><p>When text is selected in the editor, pressing the <code>&gt;</code> character (<code>Shift+.</code>) will create a block quote from the selected lines of text.</p>
+<dt><code>Ctrl+Enter</code></dt>
+<dd>Inserts a line break as usual, except the current indentation will not be honored. In other words, if you are typing on an indented line and press <code>Ctrl+Enter</code>, no indentation will be added to new line. Note that the <code>Ctrl</code> modifier can be combined with the <code>Shift</code> modifier to produce both an unindented line and a Markdown-style line break.
 </dd>
-<dt><code>Ctrl+&gt;</code></dt>
-<dd><p>When text is selected in the editor, pressing <code>Ctrl</code> with the <code>&gt;</code> character (<code>Ctrl+Shift+.</code>) will remove any block quote formatting from the selected lines of text.</p>
+<dt><code>Ctrl+.</code></dt>
+<dd>Pressing <code>Ctrl</code> with the <code>.</code> character turns the current line or the selected lines into a block quote.
 </dd>
-<dt><code>Ctrl+*</code></dt>
-<dd><p>Pressing <code>Ctrl</code> with the <code>*</code> character (<code>Ctrl+Shift+8</code>) turns the current line or the selected lines into a bullet list. For example, if you have selected text within the following lines:</p>
+<dt><code>Ctrl+,</code></dt>
+<dd>Pressing <code>Ctrl</code> with the <code>,</code> character will remove any block quote formatting from the current line or the selected lines of text.
+</dd>
+<dt><code>Alt+8</code></dt>
+<dd><p>Pressing <code>Alt</code> with the <code>8</code> character turns the current line or the selected lines into a bullet list with the <code>*</code> marker. For example, if you have selected text within the following lines:</p>
 <pre><code>List item one.
 List item two.</code></pre>
-<p>Pressing <code>Ctrl+*</code> will turn the selected lines into a task list like so:</p>
+<p>Pressing <code>Alt+8</code> will turn the selected lines into a bullet list like so:</p>
 <pre><code>* List item one.
 * List item two.</code></pre>
 </dd>
-<dt><code>Ctrl+1</code></dt>
-<dd><p>Pressing <code>Ctrl</code> with the <code>1</code> (number 1) character turns the current line or the selected lines into a numbered list. For example, if you have selected text within the following lines:</p>
+<dt><code>Alt+-</code></dt>
+<dd><p>Pressing <code>Alt</code> with the <code>-</code> character turns the current line or the selected lines into a bullet list with the <code>-</code> marker. For example, if you have selected text within the following lines:</p>
 <pre><code>List item one.
 List item two.</code></pre>
-<p>Pressing <code>Ctrl+1</code> will turn the selected lines into a task list like so:</p>
+<p>Pressing <code>Alt+-</code> will turn the selected lines into a bullet list like so:</p>
+<pre><code>- List item one.
+- List item two.</code></pre>
+</dd>
+<dt><code>Alt+=</code></dt>
+<dd><p>Pressing <code>Alt</code> with the <code>=</code> character turns the current line or the selected lines into a bullet list with the <code>+</code> marker. For example, if you have selected text within the following lines:</p>
+<pre><code>List item one.
+List item two.</code></pre>
+<p>Pressing <code>Alt++</code> will turn the selected lines into a bullet list like so:</p>
+<pre><code>+ List item one.
++ List item two.</code></pre>
+</dd>
+<dt><code>Alt+1</code></dt>
+<dd><p>Pressing <code>Alt</code> with the <code>1</code> (number 1) character turns the current line or the selected lines into a numbered list with the <code>.</code> marker. For example, if you have selected text within the following lines:</p>
+<pre><code>List item one.
+List item two.</code></pre>
+<p>Pressing <code>Alt+1</code> will turn the selected lines into a numbered list like so:</p>
 <pre><code>1. List item one.
 2. List item two.</code></pre>
+</dd>
+<dt><code>Alt+0</code></dt>
+<dd><p>Pressing <code>Alt</code> with the <code>0</code> character turns the current line or the selected lines into a numbered list with the <code>)</code> marker. For example, if you have selected text within the following lines:</p>
+<pre><code>List item one.
+List item two.</code></pre>
+<p>Pressing <code>Alt+0</code> will turn the selected lines into a numbered list like so:</p>
+<pre><code>1) List item one.
+2) List item two.</code></pre>
 </dd>
 <dt><code>Ctrl+T</code></dt>
 <dd><p>Pressing <code>Ctrl+T</code> turns the current line or the selected lines into a Github-Flavored Markdown task list item. For example, if you have selected text within the following lines:</p>
@@ -237,6 +264,12 @@ Another important thing to do.</code></pre>
 </tbody>
 </table>
 <p>To enable auto-matching of characters as you type, check “Automatically Match Characters while Typing” from the Settings menu in the menu bar.</p>
+</dd>
+<dt>Drag and Drop Image Files</dt>
+<dd><p>Rather than going to the Edit menu and selecting the “Insert Image…” option, you can drag and drop any image file from your file system into the editor window. The application will insert inline image text with your image’s file path relative to the currently opened document’s location, or the full path if the document is untitled. For example:</p>
+<pre><code>![](../../relative/path/to/your/file.png)</code></pre>
+<p>or if the document is untitled:</p>
+<pre><code>![](file:///full/path/to/your/file.png)</code></pre>
 </dd>
 </dl>
 <hr />
