@@ -396,6 +396,7 @@ bool DocumentManager::close()
         // so we can store history information about it.
         //
         QString filePath = document->getFilePath();
+        int cursorPosition = editor->textCursor().position();
         bool documentIsNew = document->isNew();
 
         // Set up a new, untitled document.  Note that the document
@@ -416,7 +417,7 @@ bool DocumentManager::close()
             history.add
             (
                 filePath,
-                editor->textCursor().position()
+                cursorPosition
             );
 
             emit documentClosed();
