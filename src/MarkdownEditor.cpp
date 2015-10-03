@@ -48,9 +48,8 @@
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
 
-
-const int HEADING_LEVEL_ROLE = Qt::UserRole + 1;
-const int DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
+const int MarkdownEditor::HEADING_LEVEL_ROLE = Qt::UserRole + 1;
+const int MarkdownEditor::DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
 
 MarkdownEditor::MarkdownEditor
 (
@@ -455,7 +454,7 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
         bool wordHasSpellingError = false;
         int blockPosition = cursorForWord.positionInBlock();
         QList<QTextLayout::FormatRange> formatList =
-                textCursor().block().layout()->additionalFormats();
+                cursorForWord.block().layout()->additionalFormats();
         int mispelledWordStartPos = 0;
         int mispelledWordLength = 0;
 
@@ -486,8 +485,18 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
         }
 
         // Select the misspelled word.
-        cursorForWord.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, blockPosition - mispelledWordStartPos);
-        cursorForWord.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, mispelledWordLength);
+        cursorForWord.movePosition
+        (
+            QTextCursor::PreviousCharacter,
+            QTextCursor::MoveAnchor,
+            blockPosition - mispelledWordStartPos
+        );
+        cursorForWord.movePosition
+        (
+            QTextCursor::NextCharacter,
+            QTextCursor::KeepAnchor,
+            mispelledWordLength
+        );
 
         wordUnderMouse = cursorForWord.selectedText();
         QStringList suggestions = dictionary.suggestions(wordUnderMouse);
@@ -522,7 +531,8 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
 
         // Show menu
         connect(popupMenu, SIGNAL(triggered(QAction*)), this, SLOT(suggestSpelling(QAction*)));
-        popupMenu->exec(contextEvent->globalPos());
+        popupMenu->exec(viewport()->mapToGlobal(contextEvent->pos()));
+
         delete popupMenu;
 
         for (int i = 0; i < spellingActions.size(); i++)
