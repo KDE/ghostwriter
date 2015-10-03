@@ -38,7 +38,7 @@ CONFIG += warn_on
 # Set program version
 VERSION = $$system(git describe --tags)
 isEmpty(VERSION) {
-    VERSION = v1.2.0
+    VERSION = v1.2.1
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
