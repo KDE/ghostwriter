@@ -189,6 +189,9 @@ class MarkdownEditor : public QPlainTextEdit
         //
         bool typingPausedSignalSent;
 
+        static const int HEADING_LEVEL_ROLE;
+        static const int DOCUMENT_POS_ROLE;
+
         void updateBlockWordCount(QTextBlock& block);
         void handleCarriageReturn();
         bool handleBackspaceKey();
@@ -200,7 +203,6 @@ class MarkdownEditor : public QPlainTextEdit
         QString getPriorIndentation();
         QString getPriorMarkdownBlockItemStart(QRegExp& itemRegex);
         int countWords(const QString& text);
-
 
 };
 
