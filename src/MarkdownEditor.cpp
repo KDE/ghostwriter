@@ -439,7 +439,22 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
     {
         // Check spelling of text block under mouse
         QContextMenuEvent* contextEvent = static_cast<QContextMenuEvent*>(event);
-        cursorForWord = cursorForPosition(contextEvent->pos());
+
+        // If the context menu event was triggered by pressing the menu key,
+        // use the current text cursor rather than the event position to get
+        // a cursor position, since the event position is the mouse position
+        // rather than the text cursor position.
+        //
+        if (QContextMenuEvent::Keyboard == contextEvent->reason())
+        {
+            cursorForWord = this->textCursor();
+        }
+        // Else process as mouse event.
+        //
+        else
+        {
+            cursorForWord = cursorForPosition(contextEvent->pos());
+        }
 
         QTextCharFormat::UnderlineStyle spellingErrorUnderlineStyle =
             (QTextCharFormat::UnderlineStyle)
@@ -531,7 +546,27 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
 
         // Show menu
         connect(popupMenu, SIGNAL(triggered(QAction*)), this, SLOT(suggestSpelling(QAction*)));
-        popupMenu->exec(viewport()->mapToGlobal(contextEvent->pos()));
+
+        QPoint menuPos;
+
+        // If event was triggered by a key press, use the text cursor
+        // coordinates to display the popup menu.
+        //
+        if (QContextMenuEvent::Keyboard == contextEvent->reason())
+        {
+            QRect cr = this->cursorRect();
+            menuPos.setX(cr.x());
+            menuPos.setY(cr.y() + (cr.height() / 2));
+            menuPos = viewport()->mapToGlobal(menuPos);
+        }
+        // Else use the mouse coordinates from the context menu event.
+        //
+        else
+        {
+            menuPos = viewport()->mapToGlobal(contextEvent->pos());
+        }
+
+        popupMenu->exec(menuPos);
 
         delete popupMenu;
 
