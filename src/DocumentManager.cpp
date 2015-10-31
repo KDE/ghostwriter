@@ -607,6 +607,14 @@ bool DocumentManager::loadFile(const QString& filePath)
     QApplication::setOverrideCursor(Qt::WaitCursor);
     emit operationStarted(tr("opening %1").arg(filePath));
     QTextStream inStream(&inputFile);
+
+    // Markdown files need to be in UTF-8 format, so assume that is
+    // what the user is opening by default.  Enable autodection
+    // of of UTF-16 or UTF-32 BOM in case the file isn't UTF-8 encoded.
+    //
+    inStream.setCodec("UTF-8");
+    inStream.setAutoDetectUnicode(true);
+
     QString text = inStream.read(2048L);
 
     while (!text.isNull())
