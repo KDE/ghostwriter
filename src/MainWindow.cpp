@@ -389,10 +389,8 @@ void MainWindow::paintEvent(QPaintEvent* event)
             adjustedBackgroundImage
         );
     }
-    //else
-    {
-        QMainWindow::paintEvent(event);
-    }
+
+    QMainWindow::paintEvent(event);
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)
