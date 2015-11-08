@@ -355,7 +355,7 @@ void HtmlPreview::onHtmlReady()
         // If the element is a heading tag (H1-H6), set an anchor id for it.
         if (headingTagExp.exactMatch(element.tagName()))
         {
-            element.setAttribute("id", QString("livepreviewhnbr%1").arg(headingId));
+            element.prependOutside(QString("<span id='livepreviewhnbr%1'></span>").arg(headingId));
             headingId++;
         }
         // else if the element is something that would have a heading tag
