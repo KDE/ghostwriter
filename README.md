@@ -15,6 +15,7 @@ About *ghostwriter*
 * A Live word count
 * A live HTML preview as you type
 * Use of custom CSS style sheets for HTML preview
+* Image URL insertion via dragging and dropping an image file into the editor
 * [Sundown](http://github.com/vmg/sundown/) processor built in for preview and export to HTML
 * Interoperability with the following Markdown processors (if installed) for preview and export to popular document formats, such as PDF, ODT, and RTF:
     - [Pandoc](http://johnmacfarlane.net/pandoc/)
@@ -56,9 +57,9 @@ Finally, you may follow the build instructions below to install on Linux with th
 Mac OS X - Help Wanted!
 -----------------------
 
-Unfortunately, since I do not own an Apple computer, I cannot reasonably create a Mac version of this application.  However, if you happen to be a Mac user yourself and have the knowledge, you can build the source code yourself.  Theoretically, it should work;  but you may run into some bugs since *ghostwriter* is untested on this platform.
+Unfortunately, since I do not own an Apple computer, I cannot reasonably create a Mac version of this application.  However, if you happen to be a Mac user yourself and have the knowledge, you can build the source code.  Theoretically, it should work;  but you may run into some bugs since *ghostwriter* is untested on this platform.
 
-If you are willing to test *ghostwriter* on Mac OS X and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on Mac OS X, whereas there is hope that they will on version 5, based on the documentation.  Spell checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* reused and modified parts of it.
+If you are willing to test *ghostwriter* on Mac OS X and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on Mac OS X, whereas there is hope that they will on version 5, based on the documentation.  Spell checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* lifted and modified parts of it.
 
 Finally, I based *ghostwriter's* packaging structure on FocusWriter, including for Mac OS X, to give you a head start.  You will want to once again look at FocusWriter's .pro file and resource files to ensure everything is in place within *ghostwriter* for a successful OS X build and installation.
 
