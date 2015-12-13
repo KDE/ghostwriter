@@ -375,6 +375,7 @@ bool MarkdownTokenizer::tokenizeNumberedList
             (
                 (MarkdownStateListLineBreak == previousState)
                 || (MarkdownStateNumberedList == previousState)
+                || (MarkdownStateBulletPointList == previousState)
             )
             && numberedNestedListRegex.exactMatch(text)
         )
