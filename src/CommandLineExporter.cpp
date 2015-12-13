@@ -154,7 +154,12 @@ bool CommandLineExporter::executeCommand
         }
         else
         {
-            expandedCommand.replace(OUTPUT_FILE_PATH_VAR, outputFilePath);
+            // Surround file path with quotes in case there are spaces in the
+            // path.
+            //
+            QString outputFilePathWithQuotes = QString('\"') +
+                outputFilePath + '\"';
+            expandedCommand.replace(OUTPUT_FILE_PATH_VAR, outputFilePathWithQuotes);
         }
     }
 
