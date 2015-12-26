@@ -20,6 +20,7 @@
 #include <QProcess>
 #include <QFileInfo>
 #include <QObject>
+#include <QDir>
 
 #include "CommandLineExporter.h"
 
@@ -86,7 +87,7 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
         return;
     }
 
-    if (!executeCommand(htmlRenderCommand, text, QString(), html, stderrOuptut))
+    if (!executeCommand(htmlRenderCommand, QString(), text, QString(), html, stderrOuptut))
     {
         html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>)").arg(htmlRenderCommand);
     }
@@ -99,6 +100,7 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
 void CommandLineExporter::exportToFile
 (
     const ExportFormat* format,
+    const QString& inputFilePath,
     const QString& text,
     const QString& outputFilePath,
     QString& err
@@ -115,7 +117,7 @@ void CommandLineExporter::exportToFile
 
     QString command = formatToCommandMap.value(format);
 
-    if (!executeCommand(command, text, outputFilePath, stdoutOutput, stderrOuptut))
+    if (!executeCommand(command, inputFilePath, text, outputFilePath, stdoutOutput, stderrOuptut))
     {
         err = QObject::tr("Failed to execute command: ") + QString("%1").arg(command);
     }
@@ -132,6 +134,7 @@ void CommandLineExporter::exportToFile
 bool CommandLineExporter::executeCommand
 (
     const QString& command,
+    const QString& inputFilePath,
     const QString& textInput,
     const QString& outputFilePath,
     QString& stdoutOutput,
@@ -186,6 +189,11 @@ bool CommandLineExporter::executeCommand
             SMART_TYPOGRAPHY_ARG,
             smartTypographyOffArgument
         );
+    }
+
+    if (!inputFilePath.isNull() && !inputFilePath.isEmpty())
+    {
+        process.setWorkingDirectory(QFileInfo(inputFilePath).dir().path());
     }
 
     process.start(expandedCommand);

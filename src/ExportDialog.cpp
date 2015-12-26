@@ -240,6 +240,7 @@ void ExportDialog::accept()
                 exporter->exportToFile
                 (
                     format,
+                    this->document->getFilePath(),
                     document->toPlainText(),
                     fileName,
                     err

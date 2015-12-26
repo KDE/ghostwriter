@@ -112,11 +112,14 @@ void SundownExporter::exportToHtml(const QString& text, QString& html)
 void SundownExporter::exportToFile
 (
     const ExportFormat* format,
+    const QString& inputFilePath,
     const QString& text,
     const QString& outputFilePath,
     QString& err
 )
 {
+    Q_UNUSED(inputFilePath);
+
     QString html;
 
     if (ExportFormat::HTML != format)

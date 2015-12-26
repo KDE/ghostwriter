@@ -53,6 +53,7 @@ class SundownExporter : public Exporter
         void exportToFile
         (
             const ExportFormat* format,
+            const QString& inputFilePath,
             const QString& text,
             const QString& outputFilePath,
             QString& err

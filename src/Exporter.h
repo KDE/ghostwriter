@@ -91,11 +91,14 @@ class Exporter
          * successful, it is recommended that you set the value of err
          * to a null QString (call the QString() constructor) to indicate
          * success, in case the method's caller accidentally passed in
-         * a non-null, non-empty QString value.
+         * a non-null, non-empty QString value.  If there is no input
+         * file path due to the document being new and untitled, then
+         * specify a null or empty inputFilePath value.
          */
         virtual void exportToFile
         (
             const ExportFormat* format,
+            const QString& inputFilePath,
             const QString& text,
             const QString& outputFilePath,
             QString& err
