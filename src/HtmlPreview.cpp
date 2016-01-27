@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -194,6 +194,15 @@ HtmlPreview::HtmlPreview
     // Set up default page layout and page size for printing.
     printer.setPaperSize(QPrinter::Letter);
     printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
+
+    // Set zoom factor for WebKit browser to account for system DPI settings,
+    // since WebKit assumes 96 DPI as a fixed resolution.
+    //
+    QWidget* window = QApplication::desktop()->screen();
+    int horizontalDpi = window->logicalDpiX();
+    // Don't want to affect image size, only text size.
+    htmlBrowser->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
+    htmlBrowser->setZoomFactor((horizontalDpi / 96.0));
 }
 
 HtmlPreview::~HtmlPreview()
