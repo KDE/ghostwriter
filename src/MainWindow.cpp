@@ -676,6 +676,16 @@ void MainWindow::showQuickReferenceGuide()
         quickReferenceGuideViewer->page()->setContentEditable(false);
         quickReferenceGuideViewer->setContent(html.toUtf8(), "text/html");
         connect(quickReferenceGuideViewer, SIGNAL(linkClicked(QUrl)), this, SLOT(onQuickRefGuideLinkClicked(QUrl)));
+
+        // Set zoom factor for WebKit browser to account for system DPI settings,
+        // since WebKit assumes 96 DPI as a fixed resolution.
+        //
+        QWidget* window = QApplication::desktop()->screen();
+        int horizontalDpi = window->logicalDpiX();
+        // Don't want to affect image size, only text size.
+        quickReferenceGuideViewer->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
+        quickReferenceGuideViewer->setZoomFactor((horizontalDpi / 96.0));
+
         quickReferenceGuideViewer->resize(500, 600);
         quickReferenceGuideViewer->adjustSize();
     }
