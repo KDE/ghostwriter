@@ -36,6 +36,7 @@
 #include <QFuture>
 #include <QSettings>
 #include <QPrinter>
+#include <QDesktopWidget>
 
 #include "HtmlPreview.h"
 #include "Exporter.h"

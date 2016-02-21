@@ -47,6 +47,7 @@
 #include <QCheckBox>
 #include <QInputDialog>
 #include <QDesktopServices>
+#include <QDesktopWidget>
 
 #include "MainWindow.h"
 #include "ThemeFactory.h"
