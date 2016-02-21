@@ -224,7 +224,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     fullScreenButtonColorEffect->setColor(QColor(Qt::white));
 
     // Determine locale for dictionary language (for use in spell checking).
-    language = DictionaryManager::instance().availableDictionary(appSettings->getLocale());
+    language = DictionaryManager::instance().availableDictionary(appSettings->getDictionaryLanguage());
 
     // If we have an available dictionary, then get it and set up spell checking.
     if (!language.isNull() && !language.isEmpty())
@@ -872,7 +872,7 @@ void MainWindow::changeFont()
     }
 }
 
-void MainWindow::onSetLanguage()
+void MainWindow::onSetDictionary()
 {
     DictionaryDialog dictionaryDialog(language, this);
     int status = dictionaryDialog.exec();
@@ -882,7 +882,7 @@ void MainWindow::onSetLanguage()
         language = dictionaryDialog.getLanguage();
         DictionaryManager::instance().setDefaultLanguage(language);
         editor->setDictionary(DictionaryManager::instance().requestDictionary(language));
-        appSettings->setLocale(language);
+        appSettings->setDictionaryLanguage(language);
     }
 }
 
@@ -924,8 +924,8 @@ void MainWindow::changeHudOpacity(int value)
 QAction* MainWindow::addMenuAction
 (
     QMenu* menu,
-    const char* name,
-    const char* shortcut,
+    const QString& name,
+    const QString& shortcut,
     bool checkable,
     bool checked,
     QActionGroup* actionGroup
@@ -935,7 +935,7 @@ QAction* MainWindow::addMenuAction
 
     if (0 != shortcut)
     {
-        action->setShortcut(this->tr(shortcut));
+        action->setShortcut(shortcut);
     }
 
     action->setCheckable(checkable);
@@ -1174,7 +1174,7 @@ void MainWindow::buildMenuBar()
     connect(liveSpellcheckAction, SIGNAL(toggled(bool)), this, SLOT(toggleLiveSpellCheck(bool)));
     settingsMenu->addAction(liveSpellcheckAction);
 
-    settingsMenu->addAction(tr("Languages..."), this, SLOT(onSetLanguage()));
+    settingsMenu->addAction(tr("Dictionaries..."), this, SLOT(onSetDictionary()));
 
     settingsMenu->addSeparator();
 

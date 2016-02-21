@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  * Copyright (C) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,7 +43,7 @@
 #define GW_BLOCKQUOTE_STYLE_KEY "Style/blockquoteStyle"
 #define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
 #define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
-#define GW_LOCALE_KEY "Spelling/locale"
+#define GW_DICTIONARY_KEY "Spelling/locale"
 #define GW_LIVE_SPELL_CHECK_KEY "Spelling/liveSpellCheck"
 #define GW_HUD_ROW_COLORS_KEY "HUD/alternateRowColors"
 #define GW_DESKTOP_COMPOSITING_KEY "HUD/desktopCompositingEnabled"
@@ -83,7 +83,7 @@ void AppSettings::store()
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
 
     appSettings.setValue(GW_THEME_KEY, QVariant(themeName));
-    appSettings.setValue(GW_LOCALE_KEY, QVariant(locale));
+    appSettings.setValue(GW_DICTIONARY_KEY, QVariant(dictionaryLanguage));
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(liveSpellCheckEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(editorWidth));
     appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(blockquoteStyle));
@@ -101,6 +101,11 @@ QString AppSettings::getThemeDirectoryPath() const
 QString AppSettings::getDictionaryPath() const
 {
     return dictionaryPath;
+}
+
+QString AppSettings::getTranslationsPath() const
+{
+    return translationsPath;
 }
 
 bool AppSettings::getAutoSaveEnabled() const
@@ -229,14 +234,14 @@ void AppSettings::setThemeName(const QString& name)
     themeName = name;
 }
 
-QString AppSettings::getLocale() const
+QString AppSettings::getDictionaryLanguage() const
 {
-    return locale;
+    return dictionaryLanguage;
 }
 
-void AppSettings::setLocale(const QString& locale)
+void AppSettings::setDictionaryLanguage(const QString& language)
 {
-    this->locale = locale;
+    this->dictionaryLanguage = language;
 }
 
 bool AppSettings::getLiveSpellCheckEnabled() const
@@ -338,6 +343,8 @@ AppSettings::AppSettings()
             QSettings::UserScope,
             userDir + "/settings"
         );
+
+        translationsPath = userDir + "/translations";
     }
     else
     {
@@ -347,9 +354,27 @@ AppSettings::AppSettings()
         // machines, and also for the user's privacy.
         //
         QSettings::setDefaultFormat(QSettings::IniFormat);
+
+        // Set translations path to be same as the executable.
 #endif
         QSettings settings;
         userDir = QFileInfo(settings.fileName()).dir().absolutePath();
+
+        QStringList translationPaths;
+        translationPaths.append(appDir + "/translations");
+        translationPaths.append(appDir + "/../share/" +
+            QCoreApplication::applicationName().toLower() +
+            "/translations");
+        translationPaths.append(appDir + "/../Resources/translations");
+
+        foreach (const QString& path, translationPaths)
+        {
+            if (QFile::exists(path))
+            {
+                translationsPath = path;
+                break;
+            }
+        }
     }
 
     QDir themeDir(userDir + "/themes");
@@ -484,7 +509,7 @@ AppSettings::AppSettings()
 
     fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
     themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
-    locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
+    dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
     liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
     editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
     blockquoteStyle = (BlockquoteStyle) appSettings.value(GW_BLOCKQUOTE_STYLE_KEY, QVariant(BlockquoteStylePlain)).toInt();

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,6 +46,7 @@ class AppSettings
 
         QString getThemeDirectoryPath() const;
         QString getDictionaryPath() const;
+        QString getTranslationsPath() const;
 
         bool getAutoSaveEnabled() const;
         void setAutoSaveEnabled(bool enabled);
@@ -83,8 +84,8 @@ class AppSettings
         QString getThemeName() const;
         void setThemeName(const QString& name);
 
-        QString getLocale() const;
-        void setLocale(const QString& locale);
+        QString getDictionaryLanguage() const;
+        void setDictionaryLanguage(const QString& language);
 
         bool getLiveSpellCheckEnabled() const;
         void setLiveSpellCheckEnabled(bool enabled);
@@ -110,6 +111,7 @@ class AppSettings
         static AppSettings* instance;
         QString themeDirectoryPath;
         QString dictionaryPath;
+        QString translationsPath;
 
         QFont defaultFont;
         bool autoSaveEnabled;
@@ -124,7 +126,7 @@ class AppSettings
         FocusMode focusMode;
         bool fileHistoryEnabled;
         QString themeName;
-        QString locale;
+        QString dictionaryLanguage;
         bool liveSpellCheckEnabled;
         EditorWidth editorWidth;
         BlockquoteStyle blockquoteStyle;

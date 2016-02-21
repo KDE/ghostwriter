@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Copyright (C) 2014, 2015 wereturtle
+# Copyright (C) 2014-2016 wereturtle
 # Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -141,7 +141,6 @@ HEADERS += src/MainWindow.h \
     src/HighlighterLineStates.h \
     src/HighlightTokenizer.h \
     src/MarkdownTokenizer.h \
-    src/locale_dialog.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
@@ -189,7 +188,6 @@ SOURCES += src/AppMain.cpp \
     src/SundownExporter.cpp \
     src/HighlightTokenizer.cpp \
     src/MarkdownTokenizer.cpp \
-    src/locale_dialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
     src/color_button.cpp \
@@ -206,7 +204,8 @@ SOURCES += src/AppMain.cpp \
     src/sundown/stack.c
 
 # Allow for updating translations
-#TRANSLATIONS = $$files(translations/ghostwriter_*.ts)
+TRANSLATIONS = translations/ghostwriter_fr.ts \
+               translations/ghostwriter_en.ts
 
 RESOURCES += resources.qrc
 
@@ -243,8 +242,8 @@ macx {
     man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
 
-    # qm.files = translations/*.qm
-    # qm.path = $$DATADIR/ghostwriter/translations
+    qm.files = translations/*.qm
+    qm.path = $$DATADIR/ghostwriter/translations
 
     INSTALLS += target icon pixmap desktop appdata man icon
 }

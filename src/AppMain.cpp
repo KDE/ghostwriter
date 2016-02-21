@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,9 +19,8 @@
 
 #include <QApplication>
 #include <QCoreApplication>
-#include <QWidget>
-#include <QSettings>
-#include <QDir>
+#include <QTranslator>
+#include <QLocale>
 
 #include "MainWindow.h"
 #include "AppSettings.h"
@@ -33,7 +32,17 @@ int main(int argc, char* argv[])
     // Call this to force settings initialization before the application
     // fully launches.
     //
-    AppSettings::getInstance();
+    AppSettings* appSettings = AppSettings::getInstance();
+
+    // Translate application based on locale.
+    QTranslator translator;
+    translator.load
+    (
+        QString("ghostwriter_") + QLocale().name(),
+        appSettings->getTranslationsPath()
+    );
+    qWarning("translation path = %s", appSettings->getTranslationsPath().toLatin1().data());
+    app.installTranslator(&translator);
 
     QString filePath = QString();
 
