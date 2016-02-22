@@ -204,8 +204,7 @@ SOURCES += src/AppMain.cpp \
     src/sundown/stack.c
 
 # Allow for updating translations
-TRANSLATIONS = translations/ghostwriter_fr.ts \
-               translations/ghostwriter_en.ts
+TRANSLATIONS = $$files(translations/ghostwriter_*.ts)
 
 RESOURCES += resources.qrc
 
