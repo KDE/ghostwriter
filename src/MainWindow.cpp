@@ -740,14 +740,7 @@ void MainWindow::showAbout()
 
 void MainWindow::updateWordCount(int newWordCount)
 {
-    if (1 == newWordCount)
-    {
-        wordCountLabel->setText(QString("%1 word").arg(newWordCount));
-    }
-    else
-    {
-        wordCountLabel->setText(QString("%1 words").arg(newWordCount));
-    }
+    wordCountLabel->setText(tr("%n word(s)", "", newWordCount));
 }
 
 void MainWindow::changeFocusMode(QAction* action)
@@ -1245,10 +1238,10 @@ void MainWindow::buildStatusBar()
     statusLabel->hide();
 
     wordCountLabel = new QLabel();
-    wordCountLabel->setText(QString("0 ") + tr("words"));
     wordCountLabel->setAlignment(Qt::AlignCenter);
     wordCountLabel->setFrameShape(QFrame::NoFrame);
     wordCountLabel->setLineWidth(0);
+    updateWordCount(0);
     statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     statusBarLayout->setColumnStretch(1, 1);
 
@@ -1358,6 +1351,7 @@ void MainWindow::applyTheme()
                 theme.getBackgroundColor()
             );
 
+        menuBarItemFgColorRGB = ColorHelper::toRgbString(fadedTextColor);
         menuBarItemFgColorRGB = ColorHelper::toRgbString(fadedTextColor);
         menuBarItemBgColorRGBA = "transparent";
         menuBarItemFgPressColorRGB =
