@@ -244,5 +244,5 @@ macx {
     qm.files = translations/*.qm
     qm.path = $$DATADIR/ghostwriter/translations
 
-    INSTALLS += target icon pixmap desktop appdata man icon
+    INSTALLS += target icon pixmap desktop appdata man icon qm
 }
