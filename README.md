@@ -146,8 +146,6 @@ Finally, if you wish to thank me by donating to the tip jar, you can flattr me f
 Roadmap
 ========
 
-- Ability to store custom Markdown processor configurations.  This way, other Markdown processors can be used, or custom options be passed in.  This would take the form of a command, such as what you would type in a command line.
-- Build cmark or some other Markdown processor that implements [CommonMark](http://commonmark.org/) directly into *ghostwriter* the same way Sundown is.  Note that this will take some tweaking to the build process to incorporate cmake.
 - *ghostwriter* added into the various Linux distribution repositories (Debian, Fedora, etc.).  **Help wanted!**
 - A fully-tested Mac OS X port. **Help wanted!**
 - Translation of *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
