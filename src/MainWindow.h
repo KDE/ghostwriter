@@ -88,6 +88,7 @@ class MainWindow : public QMainWindow
         void changeBlockquoteStyle(QAction* action);
         void showQuickReferenceGuide();
         void showOutlineHud();
+        void showCheatSheetHud();
         void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);
@@ -122,6 +123,8 @@ class MainWindow : public QMainWindow
         QFrame* statusBarWidget;
         HudWindow* outlineHud;
         Outline* outlineWidget;
+        HudWindow* cheatSheetHud;
+        QListWidget* cheatSheetWidget;
         QImage originalBackgroundImage;
         QImage adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;

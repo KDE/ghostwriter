@@ -66,7 +66,9 @@
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
 #define GW_OUTLINE_HUD_GEOMETRY_KEY "HUD/outlineHudGeometry"
+#define GW_CHEAT_SHEET_HUD_GEOMETRY_KEY "HUD/cheatSheetHudGeometry"
 #define GW_OUTLINE_HUD_OPEN_KEY "HUD/outlineHudOpen"
+#define GW_CHEAT_SHEET_HUD_OPEN_KEY "HUD/cheatSheetHudOpen"
 #define GW_HTML_PREVIEW_GEOMETRY_KEY "Preview/htmlPreviewGeometry"
 #define GW_HTML_PREVIEW_OPEN "Preview/htmlPreviewOpen"
 
@@ -93,6 +95,38 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     outlineHud = new HudWindow(this);
     outlineHud->setWindowTitle(tr("Outline"));
     outlineHud->setCentralWidget(outlineWidget);
+
+    cheatSheetWidget = new QListWidget();
+
+    // Set empty style so that stylesheet takes full effect. (See comment
+    // above on outlineWidget for more details.)
+    //
+    cheatSheetWidget->verticalScrollBar()->setStyle(new QCommonStyle());
+    cheatSheetWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+
+    cheatSheetWidget->addItem(tr("# Heading 1"));
+    cheatSheetWidget->addItem(tr("## Heading 2"));
+    cheatSheetWidget->addItem(tr("### Heading 3"));
+    cheatSheetWidget->addItem(tr("#### Heading 4"));
+    cheatSheetWidget->addItem(tr("##### Heading 5"));
+    cheatSheetWidget->addItem(tr("###### Heading 6"));
+    cheatSheetWidget->addItem(tr("*Emphasis* _Emphasis_"));
+    cheatSheetWidget->addItem(tr("**Strong** __Strong__"));
+    cheatSheetWidget->addItem(tr("1. Numbered List"));
+    cheatSheetWidget->addItem(tr("* Bullet List"));
+    cheatSheetWidget->addItem(tr("+ Bullet List"));
+    cheatSheetWidget->addItem(tr("- Bullet List"));
+    cheatSheetWidget->addItem(tr("> Block Quote"));
+    cheatSheetWidget->addItem(tr("`Code Span`"));
+    cheatSheetWidget->addItem(tr("``` Code Block"));
+    cheatSheetWidget->addItem(tr("[Link](http://url.com \"Title\"]"));
+    cheatSheetWidget->addItem(tr("[Reference Link][ID]"));
+    cheatSheetWidget->addItem(tr("![Image][./image.jpg \"Title\"]"));
+    cheatSheetWidget->addItem(tr("--- *** ___ Horizontal Rule"));
+
+    cheatSheetHud = new HudWindow(this);
+    cheatSheetHud->setWindowTitle(tr("Cheat Sheet"));
+    cheatSheetHud->setCentralWidget(cheatSheetWidget);
 
     TextDocument* document = new TextDocument();
 
@@ -280,6 +314,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         outlineHud->adjustSize();
     }
 
+    if (windowSettings.contains(GW_CHEAT_SHEET_HUD_GEOMETRY_KEY))
+    {
+        cheatSheetHud->restoreGeometry(windowSettings.value(GW_CHEAT_SHEET_HUD_GEOMETRY_KEY).toByteArray());
+    }
+    else
+    {
+        cheatSheetHud->move(400, 400);
+        cheatSheetHud->adjustSize();
+    }
+
     if (windowSettings.contains(GW_HTML_PREVIEW_GEOMETRY_KEY))
     {
         htmlPreview->restoreGeometry(windowSettings.value(GW_HTML_PREVIEW_GEOMETRY_KEY).toByteArray());
@@ -296,6 +340,11 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     if (windowSettings.value(GW_OUTLINE_HUD_OPEN_KEY, QVariant(false)).toBool())
     {
         outlineHud->show();
+    }
+
+    if (windowSettings.value(GW_CHEAT_SHEET_HUD_OPEN_KEY, QVariant(false)).toBool())
+    {
+        cheatSheetHud->show();
     }
 
     if (windowSettings.value(GW_HTML_PREVIEW_OPEN, QVariant(false)).toBool())
@@ -419,6 +468,8 @@ void MainWindow::quitApplication()
         windowSettings.setValue(GW_MAIN_WINDOW_STATE_KEY, saveState());
         windowSettings.setValue(GW_OUTLINE_HUD_GEOMETRY_KEY, outlineHud->saveGeometry());
         windowSettings.setValue(GW_OUTLINE_HUD_OPEN_KEY, QVariant(outlineHud->isVisible()));
+        windowSettings.setValue(GW_CHEAT_SHEET_HUD_GEOMETRY_KEY, cheatSheetHud->saveGeometry());
+        windowSettings.setValue(GW_CHEAT_SHEET_HUD_OPEN_KEY, QVariant(cheatSheetHud->isVisible()));
         windowSettings.setValue(GW_HTML_PREVIEW_GEOMETRY_KEY, htmlPreview->saveGeometry());
         windowSettings.setValue(GW_HTML_PREVIEW_OPEN, QVariant(htmlPreview->isVisible()));
         windowSettings.sync();
@@ -502,6 +553,7 @@ void MainWindow::toggleFullscreen(bool checked)
 void MainWindow::toggleOutlineAlternateRowColors(bool checked)
 {
     outlineWidget->setAlternatingRowColors(checked);
+    cheatSheetWidget->setAlternatingRowColors(checked);
     appSettings->setAlternateHudRowColorsEnabled(checked);
     applyTheme();
 }
@@ -557,6 +609,7 @@ void MainWindow::toggleDesktopCompositingEffects(bool checked)
 {
     appSettings->setDesktopCompositingEnabled(checked);
     outlineHud->setDesktopCompositingEnabled(checked);
+    cheatSheetHud->setDesktopCompositingEnabled(checked);
 }
 
 void MainWindow::insertImage()
@@ -700,6 +753,12 @@ void MainWindow::showOutlineHud()
 {
     outlineHud->show();
     outlineHud->activateWindow();
+}
+
+void MainWindow::showCheatSheetHud()
+{
+    cheatSheetHud->show();
+    cheatSheetHud->activateWindow();
 }
 
 void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
@@ -911,6 +970,9 @@ void MainWindow::changeHudOpacity(int value)
     color.setAlpha(value);
     outlineHud->setBackgroundColor(color);
     outlineHud->update();
+    cheatSheetHud->setBackgroundColor(color);
+    cheatSheetHud->update();
+
     appSettings->setHudOpacity(value);
 }
 
@@ -1026,6 +1088,7 @@ void MainWindow::buildMenuBar()
 
     viewMenu->addAction(tr("&Preview in HTML"), this, SLOT(openHtmlPreview()), QKeySequence("CTRL+W"));
     viewMenu->addAction(tr("&Outline HUD"), this, SLOT(showOutlineHud()), QKeySequence("CTRL+L"));
+    viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()));
     viewMenu->addSeparator();
 
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
@@ -1210,11 +1273,13 @@ void MainWindow::buildMenuBar()
     connect(outlineAlternateColorsAction, SIGNAL(toggled(bool)), this, SLOT(toggleOutlineAlternateRowColors(bool)));
     settingsMenu->addAction(outlineAlternateColorsAction);
     outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
+    cheatSheetWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
 
     QAction* desktopCompositingAction = new QAction(tr("Enable Desktop Compositing Effects"), this);
     desktopCompositingAction->setCheckable(true);
     desktopCompositingAction->setChecked(appSettings->getDesktopCompositingEnabled());
     outlineHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
+    cheatSheetHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     connect(desktopCompositingAction, SIGNAL(toggled(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
     settingsMenu->addAction(desktopCompositingAction);
 
@@ -1640,13 +1705,15 @@ void MainWindow::applyTheme()
 
     styleSheet = "";
 
-    // Style the Outline HUD
+    // Style the HUDs
 
     QColor alphaHudBackgroundColor = theme.getHudBackgroundColor();
     alphaHudBackgroundColor.setAlpha(appSettings->getHudOpacity());
 
     outlineHud->setForegroundColor(theme.getHudForegroundColor());
     outlineHud->setBackgroundColor(alphaHudBackgroundColor);
+    cheatSheetHud->setForegroundColor(theme.getHudForegroundColor());
+    cheatSheetHud->setBackgroundColor(alphaHudBackgroundColor);
 
     // Style the outline itself.
     alphaHudBackgroundColor.setAlpha(0);
@@ -1708,6 +1775,7 @@ void MainWindow::applyTheme()
         ;
 
     outlineWidget->setStyleSheet(styleSheet);
+    cheatSheetWidget->setStyleSheet(styleSheet);
     editor->setupPaperMargins(this->width());
 }
 
