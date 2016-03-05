@@ -39,7 +39,7 @@
 #include "spelling/dictionary_manager.h"
 #include "spelling/dictionary_dialog.h"
 
-#define MAX_RECENT_FILES 5
+#define MAX_RECENT_FILES 10
 
 class HudWindow;
 class QSettings;
