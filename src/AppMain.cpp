@@ -41,7 +41,6 @@ int main(int argc, char* argv[])
         QString("ghostwriter_") + QLocale().name(),
         appSettings->getTranslationsPath()
     );
-    qWarning("translation path = %s", appSettings->getTranslationsPath().toLatin1().data());
     app.installTranslator(&translator);
 
     QString filePath = QString();

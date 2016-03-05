@@ -141,6 +141,7 @@ HEADERS += src/MainWindow.h \
     src/HighlighterLineStates.h \
     src/HighlightTokenizer.h \
     src/MarkdownTokenizer.h \
+    src/TimeLabel.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
@@ -188,6 +189,7 @@ SOURCES += src/AppMain.cpp \
     src/SundownExporter.cpp \
     src/HighlightTokenizer.cpp \
     src/MarkdownTokenizer.cpp \
+    src/TimeLabel.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
     src/color_button.cpp \

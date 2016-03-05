@@ -532,6 +532,11 @@ void MainWindow::toggleFullscreen(bool checked)
         }
         else
         {
+            if (appSettings->getDisplayTimeInFullScreenEnabled())
+            {
+                timeLabel->hide();
+            }
+
             fullScreenMenuAction->setChecked(false);
             showNormal();
         }
@@ -544,6 +549,11 @@ void MainWindow::toggleFullscreen(bool checked)
         }
         else
         {
+            if (appSettings->getDisplayTimeInFullScreenEnabled())
+            {
+                timeLabel->show();
+            }
+
             fullScreenMenuAction->setChecked(true);
             showFullScreen();
         }
@@ -591,6 +601,23 @@ void MainWindow::toggleBulletPointCycling(bool checked)
 {
     editor->setBulletPointCyclingEnabled(checked);
     appSettings->setBulletPointCyclingEnabled(checked);
+}
+
+void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
+{
+    appSettings->setDisplayTimeInFullScreenEnabled(checked);
+
+    if (this->isFullScreen())
+    {
+        if (checked)
+        {
+            this->timeLabel->show();
+        }
+        else
+        {
+            this->timeLabel->hide();
+        }
+    }
 }
 
 void MainWindow::toggleUseUnderlineForEmphasis(bool checked)
@@ -1222,6 +1249,13 @@ void MainWindow::buildMenuBar()
     connect(bulletCycleAction, SIGNAL(toggled(bool)), this, SLOT(toggleBulletPointCycling(bool)));
     settingsMenu->addAction(bulletCycleAction);
 
+    bool displayTimeEnabled = appSettings->getDisplayTimeInFullScreenEnabled();
+    QAction* displayTimeAction = new QAction(tr("Display Current Time in Full Screen Mode"), this);
+    displayTimeAction->setCheckable(true);
+    displayTimeAction->setChecked(displayTimeEnabled);
+    connect(displayTimeAction, SIGNAL(toggled(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
+    settingsMenu->addAction(displayTimeAction);
+
     settingsMenu->addSeparator();
 
     QAction* liveSpellcheckAction = new QAction(tr("Live Spellcheck Enabled"), this);
@@ -1309,6 +1343,14 @@ void MainWindow::buildStatusBar()
     updateWordCount(0);
     statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     statusBarLayout->setColumnStretch(1, 1);
+
+    timeLabel = new TimeLabel(this);
+    statusBar()->addPermanentWidget(timeLabel);
+
+    if (!this->isFullScreen() || !appSettings->getDisplayTimeInFullScreenEnabled())
+    {
+        timeLabel->hide();
+    }
 
     QPushButton* focusModeButton = new QPushButton(tr("Focus"));
     focusModeButton->setFocusPolicy(Qt::NoFocus);

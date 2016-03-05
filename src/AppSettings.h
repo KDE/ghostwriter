@@ -81,6 +81,9 @@ class AppSettings
         bool getFileHistoryEnabled() const;
         void setFileHistoryEnabled(bool enabled);
 
+        bool getDisplayTimeInFullScreenEnabled();
+        void setDisplayTimeInFullScreenEnabled(bool enabled);
+
         QString getThemeName() const;
         void setThemeName(const QString& name);
 
@@ -125,6 +128,7 @@ class AppSettings
         bool bulletPointCyclingEnabled;
         FocusMode focusMode;
         bool fileHistoryEnabled;
+        bool displayTimeInFullScreenEnabled;
         QString themeName;
         QString dictionaryLanguage;
         bool liveSpellCheckEnabled;

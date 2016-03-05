@@ -41,6 +41,7 @@
 #define GW_THEME_KEY "Style/theme"
 #define GW_EDITOR_WIDTH_KEY "Style/editorWidth"
 #define GW_BLOCKQUOTE_STYLE_KEY "Style/blockquoteStyle"
+#define GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY "Style/displayTimeInFullScreen"
 #define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
 #define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
 #define GW_DICTIONARY_KEY "Spelling/locale"
@@ -81,6 +82,7 @@ void AppSettings::store()
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(focusMode));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
+    appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(displayTimeInFullScreenEnabled));
 
     appSettings.setValue(GW_THEME_KEY, QVariant(themeName));
     appSettings.setValue(GW_DICTIONARY_KEY, QVariant(dictionaryLanguage));
@@ -222,6 +224,16 @@ bool AppSettings::getFileHistoryEnabled() const
 void AppSettings::setFileHistoryEnabled(bool enabled)
 {
     fileHistoryEnabled = enabled;
+}
+
+bool AppSettings::getDisplayTimeInFullScreenEnabled()
+{
+    return displayTimeInFullScreenEnabled;
+}
+
+void AppSettings::setDisplayTimeInFullScreenEnabled(bool enabled)
+{
+    displayTimeInFullScreenEnabled = enabled;
 }
 
 QString AppSettings::getThemeName() const
@@ -508,6 +520,7 @@ AppSettings::AppSettings()
     }
 
     fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
+    displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
     dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
     liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();

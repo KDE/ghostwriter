@@ -34,6 +34,7 @@
 #include "ThemeFactory.h"
 #include "HtmlPreview.h"
 #include "AppSettings.h"
+#include "TimeLabel.h"
 #include "find_dialog.h"
 #include "spelling/dictionary_manager.h"
 #include "spelling/dictionary_dialog.h"
@@ -79,6 +80,7 @@ class MainWindow : public QMainWindow
         void toggleLargeLeadingSizes(bool checked);
         void toggleAutoMatch(bool checked);
         void toggleBulletPointCycling(bool checked);
+        void toggleDisplayTimeInFullScreen(bool checked);
         void toggleUseUnderlineForEmphasis(bool checked);
         void toggleSpacesForTabs(bool checked);
         void toggleDesktopCompositingEffects(bool checked);
@@ -131,6 +133,7 @@ class MainWindow : public QMainWindow
         QLabel* statusLabel;
         QDialog* hudOpacityDialog = NULL;
         QAction* recentFilesActions[MAX_RECENT_FILES];
+        TimeLabel* timeLabel;
 
         Exporter* exporter;
         QThread* exporterThread;
