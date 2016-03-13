@@ -1067,7 +1067,7 @@ void MainWindow::buildMenuBar()
     fileMenu->addAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New);
     fileMenu->addAction(tr("&Open"), documentManager, SLOT(open()), QKeySequence::Open);
 
-    QMenu* recentFilesMenu = new QMenu(tr("Ope&n Recent..."));
+    QMenu* recentFilesMenu = new QMenu(tr("Open &Recent..."));
     recentFilesMenu->addAction(tr("Reopen Closed File"), documentManager, SLOT(reopenLastClosedFile()), QKeySequence("SHIFT+CTRL+T"));
     recentFilesMenu->addSeparator();
 
@@ -1084,7 +1084,7 @@ void MainWindow::buildMenuBar()
     fileMenu->addSeparator();
     fileMenu->addAction(tr("&Save"), documentManager, SLOT(save()), QKeySequence::Save);
     fileMenu->addAction(tr("Save &As..."), documentManager, SLOT(saveAs()), QKeySequence::SaveAs);
-    fileMenu->addAction(tr("&Rename..."), documentManager, SLOT(rename()));
+    fileMenu->addAction(tr("R&ename..."), documentManager, SLOT(rename()));
     fileMenu->addAction(tr("Re&load from Disk..."), documentManager, SLOT(reload()));
     fileMenu->addSeparator();
     fileMenu->addAction(tr("Print Pre&view"), documentManager, SLOT(printPreview()), QKeySequence("SHIFT+CTRL+P"));
