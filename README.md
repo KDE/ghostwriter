@@ -89,7 +89,22 @@ Unless you have built *ghostwriter* as a standalone executable statically linked
 Linux
 -----
 
-Open a terminal window, and enter the following commands:
+Before proceeding, ensure that you have the following packages installed for Qt 5:
+
+* qt5-default,
+* qtbase5-dev,
+* libqt5svg5-dev,
+* qtmultimedia5-dev,
+* libqt5webkit5-dev,
+* libhunspell-dev,
+* pkg-config
+* libqt5concurrent5
+* libqt5printsupport5
+* libqt5svg5
+
+Note that you may also compile and run against Qt 4.8;  however, Qt 5 is optimal for for its newer features.  Qt 4.8 has similar package dependencies to what is listed above.  You will have to find their Qt 4.8 equivalents in your Linux distribution's repository.
+
+Next, open a terminal window, and enter the following commands:
 
     $ cd <your_ghostwriter_folder_location>
     $ qmake
