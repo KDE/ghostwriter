@@ -179,12 +179,6 @@ void MarkdownEditor::setFocusMode(FocusMode mode)
     }
 }
 
-void setDefaultTextColor(const QColor& value);
-void setBackgroundColor(const QColor& value);
-void setMarkupColorColor(const QColor& value);
-void setLinkColor(const QColor& value);
-void setSpellingErrorColor(const QColor& value);
-
 void MarkdownEditor::setColorScheme
 (
     const QColor& defaultTextColor,
