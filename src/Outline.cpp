@@ -176,7 +176,7 @@ void Outline::insertHeadingIntoOutline
 
     for (int i = 1; i < level; i++)
     {
-        headingText += tr("    ");
+        headingText += "    ";
     }
 
     headingText += heading;

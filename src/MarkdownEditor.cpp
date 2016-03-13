@@ -1446,7 +1446,7 @@ void MarkdownEditor::handleCarriageReturn()
         autoInsertText = "";
     }
 
-    cursor.insertText(tr("\n") + autoInsertText);
+    cursor.insertText(QString("\n") + autoInsertText);
     this->ensureCursorVisible();
 }
 
@@ -1685,7 +1685,7 @@ void MarkdownEditor::insertFormattingMarkup(const QString& markup)
 
 QString MarkdownEditor::getPriorIndentation()
 {
-    QString indent = tr("");
+    QString indent = "";
     QTextCursor cursor = this->textCursor();
     QTextBlock block = cursor.block();
 
