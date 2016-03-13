@@ -298,6 +298,15 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     {
         restoreGeometry(windowSettings.value(GW_MAIN_WINDOW_GEOMETRY_KEY).toByteArray());
         restoreState(windowSettings.value(GW_MAIN_WINDOW_STATE_KEY).toByteArray());
+
+        if (this->isFullScreen())
+        {
+            effectsMenuBar->setAutoHideEnabled(appSettings->getHideMenuBarInFullScreenEnabled());
+        }
+        else
+        {
+            effectsMenuBar->setAutoHideEnabled(false);
+        }
     }
     else
     {
@@ -415,31 +424,26 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
         default:
             break;
     }
+
+    QMainWindow::keyPressEvent(e);
 }
 
 void MainWindow::paintEvent(QPaintEvent* event)
 {
-    if
-    (
-        !adjustedBackgroundImage.isNull() &&
-        (
-            (PictureAspectZoom == theme.getBackgroundImageAspect() ||
-            (PictureAspectScale == theme.getBackgroundImageAspect()))
-        )
-    )
-    {
-        QPainter painter(this);
-        painter.fillRect(rect(), QBrush(theme.getBackgroundColor()));
+    QPainter painter(this);
+    painter.fillRect(this->rect(), theme.getBackgroundColor().rgb());
 
-        // Draw the image centered.
-        painter.drawImage
-        (
-            (this->width() - adjustedBackgroundImage.width()) / 2,
-            (height() - adjustedBackgroundImage.height()) / 2,
-            adjustedBackgroundImage
-        );
+    if (!adjustedBackgroundImage.isNull())
+    {
+        painter.drawImage(0, 0, adjustedBackgroundImage);
     }
 
+    if (EditorAspectStretch == theme.getEditorAspect())
+    {
+        painter.fillRect(this->rect(), theme.getEditorBackgroundColor());
+    }
+
+    painter.end();
     QMainWindow::paintEvent(event);
 }
 
@@ -539,6 +543,11 @@ void MainWindow::toggleFullscreen(bool checked)
 
             fullScreenMenuAction->setChecked(false);
             showNormal();
+
+            if (appSettings->getHideMenuBarInFullScreenEnabled())
+            {
+                effectsMenuBar->setAutoHideEnabled(false);
+            }
         }
     }
     else
@@ -556,7 +565,22 @@ void MainWindow::toggleFullscreen(bool checked)
 
             fullScreenMenuAction->setChecked(true);
             showFullScreen();
+
+            if (appSettings->getHideMenuBarInFullScreenEnabled())
+            {
+                effectsMenuBar->setAutoHideEnabled(true);
+            }
         }
+    }
+}
+
+void MainWindow::toggleHideMenuBarInFullScreen(bool checked)
+{
+    appSettings->setHideMenuBarInFullScreenEnabled(checked);
+
+    if (this->isFullScreen())
+    {
+        effectsMenuBar->setAutoHideEnabled(checked);
     }
 }
 
@@ -1035,6 +1059,9 @@ QAction* MainWindow::addMenuAction
 
 void MainWindow::buildMenuBar()
 {
+    effectsMenuBar = new EffectsMenuBar(this);
+    this->setMenuBar(effectsMenuBar);
+
     QMenu* fileMenu = this->menuBar()->addMenu(tr("&File"));
 
     fileMenu->addAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New);
@@ -1221,6 +1248,13 @@ void MainWindow::buildMenuBar()
 
     settingsMenu->addMenu(blockquoteStyleMenu);
 
+    bool autoHideEnabled = appSettings->getHideMenuBarInFullScreenEnabled();
+    QAction* autoHideAction = new QAction(tr("Hide menu bar in full screen mode"), this);
+    autoHideAction->setCheckable(true);
+    autoHideAction->setChecked(autoHideEnabled);
+    connect(autoHideAction, SIGNAL(toggled(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
+    settingsMenu->addAction(autoHideAction);
+
     bool largeHeadingsEnabled = appSettings->getLargeHeadingSizesEnabled();
     QAction* largeHeadingsAction = new QAction(tr("Use Large Headings"), this);
     largeHeadingsAction->setCheckable(true);
@@ -1323,6 +1357,19 @@ void MainWindow::buildMenuBar()
     helpMenu->addAction(tr("&About"), this, SLOT(showAbout()));
     helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
     helpMenu->addAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
+
+    connect(fileMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
+    connect(fileMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
+    connect(editMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
+    connect(editMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
+    connect(formatMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
+    connect(formatMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
+    connect(viewMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
+    connect(viewMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
+    connect(settingsMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
+    connect(settingsMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
+    connect(helpMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
+    connect(helpMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
 }
 
 void MainWindow::buildStatusBar()
@@ -1416,11 +1463,17 @@ void MainWindow::applyTheme()
 
     QString scrollbarColorRGB = ColorHelper::toRgbString(scrollBarColor);
 
-    QString backgroundColorRGBA =
-        ColorHelper::toRgbaString(theme.getEditorBackgroundColor());
+    QString backgroundColorRGBA;
 
-    QString windowBackgroundColorRGB =
-        ColorHelper::toRgbString(theme.getBackgroundColor());
+    if (EditorAspectStretch == theme.getEditorAspect())
+    {
+        backgroundColorRGBA = "transparent";
+    }
+    else
+    {
+        backgroundColorRGBA =
+            ColorHelper::toRgbaString(theme.getEditorBackgroundColor());
+    }
 
     QString editorSelectionFgColorRGB =
         ColorHelper::toRgbString(theme.getEditorBackgroundColor());
@@ -1432,7 +1485,6 @@ void MainWindow::applyTheme()
     QString menuBarItemBgColorRGBA;
     QString menuBarItemFgPressColorRGB;
     QString menuBarItemBgPressColorRGBA;
-    QString menuBarBgColorRGBA;
 
     QString fullScreenIcon;
     QString fullScreenIconHover;
@@ -1445,7 +1497,6 @@ void MainWindow::applyTheme()
     QString statusBarItemFgColorRGB;
     QString statusBarButtonFgPressHoverColorRGB;
     QString statusBarButtonBgPressHoverColorRGBA;
-    QString statusBarBgColorRGBA;
 
     if (EditorAspectStretch == theme.getEditorAspect())
     {
@@ -1465,18 +1516,6 @@ void MainWindow::applyTheme()
             ColorHelper::toRgbString(theme.getEditorBackgroundColor());
         menuBarItemBgPressColorRGBA =
             ColorHelper::toRgbaString(fadedTextColor);
-
-
-        if (PictureAspectNone == theme.getBackgroundImageAspect())
-        {
-            menuBarBgColorRGBA = "transparent";
-            statusBarBgColorRGBA = "transparent";
-        }
-        else
-        {
-            menuBarBgColorRGBA = backgroundColorRGBA;
-            statusBarBgColorRGBA = backgroundColorRGBA;
-        }
 
         fullScreenIcon = ":/resources/images/view-fullscreen-dark.svg";
         fullScreenIconHover = ":/resources/images/view-fullscreen-dark-hover.svg";
@@ -1512,7 +1551,6 @@ void MainWindow::applyTheme()
         menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
         chromeFgColor.setAlpha(80);
         menuBarItemBgPressColorRGBA = ColorHelper::toRgbaString(chromeFgColor);
-        menuBarBgColorRGBA = "transparent";
 
 
         fullScreenIcon = ":/resources/images/view-fullscreen-light.svg";
@@ -1525,7 +1563,6 @@ void MainWindow::applyTheme()
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;
         statusBarButtonBgPressHoverColorRGBA = menuBarItemBgPressColorRGBA;
-        statusBarBgColorRGBA = "transparent";
 
         // Do NOT delete the old QGraphicsColorizeEffect.  Qt seems to
         // delete it at an arbitrary time, based on parental ownership.
@@ -1625,24 +1662,15 @@ void MainWindow::applyTheme()
         chromeDropShadowEffect->setYOffset(1.0);
 
         this->statusBar()->setGraphicsEffect(chromeDropShadowEffect);
-
-        chromeDropShadowEffect = new QGraphicsDropShadowEffect();
-        chromeDropShadowEffect->setColor(QColor(Qt::black));
-        chromeDropShadowEffect->setBlurRadius(3.5);
-        chromeDropShadowEffect->setXOffset(1.0);
-        chromeDropShadowEffect->setYOffset(1.0);
-
-        this->menuBar()->setGraphicsEffect(chromeDropShadowEffect);
+        effectsMenuBar->setDropShadow(Qt::black, 3.5, 1.0, 1.0);
     }
     else
     {
         this->statusBar()->setGraphicsEffect(NULL);
-        this->menuBar()->setGraphicsEffect(NULL);
+        effectsMenuBar->removeDropShadow();
     }
 
     styleSheet = "";
-
-    QString windowBackground = "";
 
     // Wipe out old background image drawing material.
     originalBackgroundImage = QImage();
@@ -1654,47 +1682,14 @@ void MainWindow::applyTheme()
         !theme.getBackgroundImageUrl().isEmpty()
     )
     {
-        switch (theme.getBackgroundImageAspect())
-        {
-            case PictureAspectStretch:
-                windowBackground = tr("border-image: url(%1) 0 0 0 0 stretch stretch; ")
-                    .arg(theme.getBackgroundImageUrl());
-                break;
-            case PictureAspectTile:
-                windowBackground = tr("background-image: url(%1); ")
-                    .arg(theme.getBackgroundImageUrl());
-                break;
-            case PictureAspectCenter:
-                windowBackground = tr("background-image: url(%1); background-repeat: no-repeat; background-position: center; ")
-                    .arg(theme.getBackgroundImageUrl());
-                break;
-            default:
-                // Scale and zoom aspects will have to be painted in paintEvent()
-                if
-                (
-                    (PictureAspectZoom == theme.getBackgroundImageAspect())
-                    || (PictureAspectScale == theme.getBackgroundImageAspect())
-                )
-                {
-                    originalBackgroundImage.load(theme.getBackgroundImageUrl());
-                    predrawBackgroundImage();
-                }
-
-                windowBackground = "";
-                break;
-        }
+        // Predraw background image for paintEvent()
+        originalBackgroundImage.load(theme.getBackgroundImageUrl());
+        predrawBackgroundImage();
     }
 
-    stream <<
-        "QMainWindow#mainWindow { margin: 0; "
-        << windowBackground
-        << "background-color: "
-        << windowBackgroundColorRGB
-        << " } "
+    stream
         << "#editorLayoutArea { background-color: transparent; border: 0; margin: 0 }"
-        << "QMenuBar { background: "
-        << menuBarBgColorRGBA
-        << " } "
+        << "QMenuBar { background: transparent } "
         << "QMenuBar::item { background: "
         << menuBarItemBgColorRGBA
         << "; color: "
@@ -1721,9 +1716,7 @@ void MainWindow::applyTheme()
     styleSheet = "";
 
     stream
-        << "QStatusBar { margin: 0; padding: 0; border: 0; background: "
-        << statusBarBgColorRGBA
-        << " } "
+        << "QStatusBar { margin: 0; padding: 0; border: 0; background: transparent } "
         << "QStatusBar::item { border: 0 } "
         << "QLabel { font-size: "
         << menuBarFontSize
@@ -1821,22 +1814,69 @@ void MainWindow::applyTheme()
     editor->setupPaperMargins(this->width());
 }
 
-// FocusWriter snippet from theme.cpp
+// Lifted from FocusWriter's theme.cpp file
 void MainWindow::predrawBackgroundImage()
 {
-    Qt::AspectRatioMode aspectRationMode = Qt::IgnoreAspectRatio;
+    adjustedBackgroundImage =
+        QImage
+        (
+            this->size(),
+            QImage::Format_ARGB32_Premultiplied
+        );
+    adjustedBackgroundImage.fill(theme.getBackgroundColor().rgb());
 
-    switch (theme.getBackgroundImageAspect())
+    QPainter painter(&adjustedBackgroundImage);
+    painter.setPen(Qt::NoPen);
+
+    if (PictureAspectTile == theme.getBackgroundImageAspect())
     {
-        case PictureAspectZoom:
-            aspectRationMode = Qt::KeepAspectRatioByExpanding;
-            break;
-        case PictureAspectScale:
-            aspectRationMode = Qt::KeepAspectRatio;
-            break;
-        default:
-            break;
+        painter.fillRect
+        (
+            adjustedBackgroundImage.rect(),
+            originalBackgroundImage
+        );
     }
+    else
+    {
+        Qt::AspectRatioMode aspectRatioMode = Qt::IgnoreAspectRatio;
+        bool scaleImage = true;
 
-    adjustedBackgroundImage = originalBackgroundImage.scaled(this->size(), aspectRationMode, Qt::SmoothTransformation);
+        switch (theme.getBackgroundImageAspect())
+        {
+            case PictureAspectZoom:
+                aspectRatioMode = Qt::KeepAspectRatioByExpanding;
+                break;
+            case PictureAspectScale:
+                aspectRatioMode = Qt::KeepAspectRatio;
+                break;
+            case PictureAspectStretch:
+                aspectRatioMode = Qt::IgnoreAspectRatio;
+                break;
+            default:
+                // Centered
+                scaleImage = false;
+                break;
+        }
+
+        QImage image(originalBackgroundImage);
+
+        if (scaleImage)
+        {
+            image = image.scaled
+                (
+                    this->size(),
+                    aspectRatioMode,
+                    Qt::SmoothTransformation
+                );
+        }
+
+        painter.drawImage
+        (
+            (this->width() - image.width()) / 2,
+            (this->height() - image.height()) / 2,
+            image
+        );
+
+        painter.end();
+    }
 }

@@ -78,6 +78,9 @@ class AppSettings
         FocusMode getFocusMode() const;
         void setFocusMode(FocusMode focusMode);
 
+        bool getHideMenuBarInFullScreenEnabled() const;
+        void setHideMenuBarInFullScreenEnabled(bool enabled);
+
         bool getFileHistoryEnabled() const;
         void setFileHistoryEnabled(bool enabled);
 
@@ -127,6 +130,7 @@ class AppSettings
         bool autoMatchEnabled;
         bool bulletPointCyclingEnabled;
         FocusMode focusMode;
+        bool hideMenuBarInFullScreenEnabled;
         bool fileHistoryEnabled;
         bool displayTimeInFullScreenEnabled;
         QString themeName;

@@ -38,6 +38,7 @@
 #define GW_BULLET_CYCLING_KEY "Typing/bulletPointCyclingEnabled"
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
+#define GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY "Style/hideMenuBarInFullScreenEnabled"
 #define GW_THEME_KEY "Style/theme"
 #define GW_EDITOR_WIDTH_KEY "Style/editorWidth"
 #define GW_BLOCKQUOTE_STYLE_KEY "Style/blockquoteStyle"
@@ -81,6 +82,7 @@ void AppSettings::store()
 
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(focusMode));
+    appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(hideMenuBarInFullScreenEnabled));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
     appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(displayTimeInFullScreenEnabled));
 
@@ -214,6 +216,16 @@ void AppSettings::setFocusMode(FocusMode focusMode)
     {
         this->focusMode = focusMode;
     }
+}
+
+bool AppSettings::getHideMenuBarInFullScreenEnabled() const
+{
+    return hideMenuBarInFullScreenEnabled;
+}
+
+void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
+{
+    hideMenuBarInFullScreenEnabled = enabled;
 }
 
 bool AppSettings::getFileHistoryEnabled() const
@@ -519,6 +531,7 @@ AppSettings::AppSettings()
         focusMode = FocusModeSentence;
     }
 
+    hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
     displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();

@@ -35,6 +35,7 @@
 #include "HtmlPreview.h"
 #include "AppSettings.h"
 #include "TimeLabel.h"
+#include "EffectsMenuBar.h"
 #include "find_dialog.h"
 #include "spelling/dictionary_manager.h"
 #include "spelling/dictionary_dialog.h"
@@ -74,6 +75,7 @@ class MainWindow : public QMainWindow
         void showFindReplaceDialog();
         void toggleFocusMode(bool checked);
         void toggleFullscreen(bool checked);
+        void toggleHideMenuBarInFullScreen(bool checked);
         void toggleOutlineAlternateRowColors(bool checked);
         void toggleLiveSpellCheck(bool checked);
         void toggleFileHistoryEnabled(bool checked);
@@ -134,6 +136,7 @@ class MainWindow : public QMainWindow
         QDialog* hudOpacityDialog = NULL;
         QAction* recentFilesActions[MAX_RECENT_FILES];
         TimeLabel* timeLabel;
+        EffectsMenuBar* effectsMenuBar;
 
         Exporter* exporter;
         QThread* exporterThread;
