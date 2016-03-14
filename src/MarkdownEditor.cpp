@@ -80,6 +80,7 @@ MarkdownEditor::MarkdownEditor
     taskListRegex.setPattern("^\\s*[-] \\[([x ])\\]\\s+");
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+    this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setCursorWidth(2);
     setCenterOnScroll(true);
     ensureCursorVisible();
