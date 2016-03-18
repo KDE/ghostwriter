@@ -396,14 +396,7 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     // Resize the editor's margins based on the new size of the window.
     editor->setupPaperMargins(event->size().width());
 
-    if
-    (
-        !originalBackgroundImage.isNull() &&
-        (
-            (PictureAspectZoom == theme.getBackgroundImageAspect()) ||
-            (PictureAspectScale == theme.getBackgroundImageAspect())
-        )
-    )
+    if (!originalBackgroundImage.isNull())
     {
         predrawBackgroundImage();
     }
