@@ -122,12 +122,33 @@ For example, to install under `/opt`, you would enter:
 Mac OS X - Help Wanted!
 -----------------------
 
-Open a terminal window, and enter the following commands:
+Install [homebrew](http://brew.sh).  In a terminal:
+``` shell
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-    $ qmake -spec macx-g++
-    $ make
+Then:
+``` shell
+$ brew install qt qt5
+$ qmake -spec macx-g++
+$ make
+```
+If you see:
+```
+fatal: Not a git repository (or any of the parent directories): .git
+```
+Make sure you're cloned the repo, not just downloaded the src tarball.
 
-**Note:** If you are a hobbyist OS X developer and can get *ghostwriter* to build, install, and run successfully, please put in a pull request for this README file through GitHub with improved instructions for this process.  Your help would be greatly appreciated.
+If you want Ghostwriter in your applications folder, from the repo root do:
+``` shell
+$ sudo cp ./build/release/ghostwriter.app /Applications
+```
+
+To use Ghostwriter from the command line (assuming `/usr/local/bin` is in your path and you've moved Ghostwriter to the `/Applications` folder):
+``` shell
+$ sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
+```
+
 
 Command Line Usage
 ==================
