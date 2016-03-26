@@ -54,6 +54,14 @@ Also, be on the lookout for *ghostwriter* making its debut in the Debian and Ubu
 
 Finally, you may follow the build instructions below to install on Linux with the latest source code.
 
+**Note to Unity Users:** If you are running Ubuntu with the Unity desktop environment, you should be aware of a bug with how Qt 5 application menus are displayed in the global menu.  Please see [this bug in Launchpad](https://bugs.launchpad.net/appmenu-qt5/+bug/1380702).  At the moment, the shortcuts (such as Ctrl+C, Ctrl+V, etc.) in *ghostwriter's* menus are not available within Unity.  This is true of other Qt 5 applications.  A common workaround is to remove the appmenu-qt5 package.  To do so, open a terminal window, and type the following:
+
+    sudo apt-get remove appmenu-qt5
+
+This will fix the issue for all your Qt 5 applications, including *ghostwriter*.  However, it also places the menus for the application into the application's window, rather than into the global menu.
+
+An alternative workaround is to compile ghostwriter for yourself using Qt 4.8.  Shortcuts should properly work in the global menu for Qt 4.8 applications.  Regardless of your preferred workaround, this appmenu-qt5 bug should be fixed in the near future.  You can use the Launchpad link above to monitor the status of this bug.
+
 Mac OS X - Help Wanted!
 -----------------------
 
