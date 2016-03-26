@@ -90,6 +90,7 @@ class MainWindow : public QMainWindow
         void changeTabulationWidth();
         void changeEditorWidth(QAction* action);
         void changeBlockquoteStyle(QAction* action);
+        void changeHudButtonLayout(QAction* action);
         void showQuickReferenceGuide();
         void showOutlineHud();
         void showCheatSheetHud();

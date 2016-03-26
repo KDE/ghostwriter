@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@
 
 #include <QWidget>
 
+#include "HudWindowTypes.h"
+
 class QGridLayout;
 class QMouseEvent;
 class QPaintEvent;
@@ -37,8 +39,6 @@ class QGraphicsColorizeEffect;
  */
 class HudWindow : public QWidget
 {
-    Q_OBJECT
-
     public:
         /**
          * Constructor.
@@ -90,7 +90,13 @@ class HudWindow : public QWidget
          */
         void setSizeGripEnabled(bool enabled);
 
-    public slots:
+        /**
+         * Sets the window button layout (left or right side).  Defaults to
+         * the right-hand side for Windows and Linux, and to the left-hand
+         * side for Mac OS X.
+         */
+        void setButtonLayout(HudWindowButtonLayout layout);
+
         /**
          * Sets whether desktop compositing is enabled for the HUD.  Enabling
          * will allow transparency of the HUD, as well as the drop shadow
@@ -116,6 +122,7 @@ class HudWindow : public QWidget
         bool isTitleBarBeingDragged;
         QPoint mouseDragStartingPoint;
         bool desktopCompositingEnabled;
+        QGridLayout* titleBarLayout;
 
         QSize sizeHint() const;
         void paintEvent(QPaintEvent* event);

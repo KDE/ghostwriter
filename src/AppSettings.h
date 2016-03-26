@@ -25,6 +25,7 @@
 
 #include "MarkdownEditorTypes.h"
 #include "MarkdownStyles.h"
+#include "HudWindowTypes.h"
 
 /**
  * Loads and stores application settings via QSettings, particularly for
@@ -102,6 +103,9 @@ class AppSettings
         BlockquoteStyle getBlockquoteStyle() const;
         void setBlockquoteStyle(BlockquoteStyle style);
 
+        HudWindowButtonLayout getHudButtonLayout() const;
+        void setHudButtonLayout(HudWindowButtonLayout layout);
+
         bool getAlternateHudRowColorsEnabled() const;
         void setAlternateHudRowColorsEnabled(bool enabled);
 
@@ -138,7 +142,8 @@ class AppSettings
         bool liveSpellCheckEnabled;
         EditorWidth editorWidth;
         BlockquoteStyle blockquoteStyle;
-        bool alternteHudRowColorsEnabled;
+        HudWindowButtonLayout hudButtonLayout;
+        bool alternateHudRowColorsEnabled;
         bool desktopCompositingEnabled;
         int hudOpacity;
 };

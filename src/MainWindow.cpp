@@ -95,6 +95,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     outlineHud = new HudWindow(this);
     outlineHud->setWindowTitle(tr("Outline"));
     outlineHud->setCentralWidget(outlineWidget);
+    outlineHud->setButtonLayout(appSettings->getHudButtonLayout());
 
     cheatSheetWidget = new QListWidget();
 
@@ -127,6 +128,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetHud = new HudWindow(this);
     cheatSheetHud->setWindowTitle(tr("Cheat Sheet"));
     cheatSheetHud->setCentralWidget(cheatSheetWidget);
+    cheatSheetHud->setButtonLayout(appSettings->getHudButtonLayout());
 
     TextDocument* document = new TextDocument();
 
@@ -736,6 +738,14 @@ void MainWindow::changeBlockquoteStyle(QAction* action)
     appSettings->setBlockquoteStyle(style);
 }
 
+void MainWindow::changeHudButtonLayout(QAction* action)
+{
+    HudWindowButtonLayout layout = (HudWindowButtonLayout) action->data().toInt();
+    this->outlineHud->setButtonLayout(layout);
+    this->cheatSheetHud->setButtonLayout(layout);
+    appSettings->setHudButtonLayout(layout);
+}
+
 void MainWindow::showQuickReferenceGuide()
 {
     if (NULL == quickReferenceGuideViewer)
@@ -1328,13 +1338,34 @@ void MainWindow::buildMenuBar()
 
     settingsMenu->addSeparator();
 
-    QAction* outlineAlternateColorsAction = new QAction(tr("Alternate Row Colors in Outline HUD"), this);
+    QAction* outlineAlternateColorsAction = new QAction(tr("Alternate Row Colors in HUD Windows"), this);
     outlineAlternateColorsAction->setCheckable(true);
     outlineAlternateColorsAction->setChecked(appSettings->getAlternateHudRowColorsEnabled());
     connect(outlineAlternateColorsAction, SIGNAL(toggled(bool)), this, SLOT(toggleOutlineAlternateRowColors(bool)));
     settingsMenu->addAction(outlineAlternateColorsAction);
     outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
     cheatSheetWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
+
+    QMenu* hudButtonLayoutMenu = new QMenu(tr("HUD Window Button Layout"));
+    QActionGroup* hudButtonLayoutGroup = new QActionGroup(this);
+    connect(hudButtonLayoutGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeHudButtonLayout(QAction*)));
+
+    QAction* hudButtonLayoutLeftAction = new QAction(tr("Left"), this);
+    hudButtonLayoutLeftAction->setCheckable(true);
+    hudButtonLayoutLeftAction->setChecked(appSettings->getHudButtonLayout() == HudWindowButtonLayoutLeft);
+    hudButtonLayoutLeftAction->setActionGroup(hudButtonLayoutGroup);
+    hudButtonLayoutLeftAction->setData(HudWindowButtonLayoutLeft);
+
+    QAction* hudButtonLayoutRightAction = new QAction(tr("Right"), this);
+    hudButtonLayoutRightAction->setCheckable(true);
+    hudButtonLayoutRightAction->setChecked(appSettings->getHudButtonLayout() == HudWindowButtonLayoutRight);
+    hudButtonLayoutRightAction->setActionGroup(hudButtonLayoutGroup);
+    hudButtonLayoutRightAction->setData(HudWindowButtonLayoutRight);
+
+    hudButtonLayoutMenu->addAction(hudButtonLayoutLeftAction);
+    hudButtonLayoutMenu->addAction(hudButtonLayoutRightAction);
+
+    settingsMenu->addMenu(hudButtonLayoutMenu);
 
     QAction* desktopCompositingAction = new QAction(tr("Enable Desktop Compositing Effects"), this);
     desktopCompositingAction->setCheckable(true);

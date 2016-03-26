@@ -117,6 +117,7 @@ HEADERS += src/MainWindow.h \
     src/ThemeFactory.h \
     src/CommandLineExporter.h \
     src/TextBlockData.h \
+    src/HudWindowTypes.h \
     src/HudWindow.h \
     src/ThemeSelectionDialog.h \
     src/ThemePreviewer.h \

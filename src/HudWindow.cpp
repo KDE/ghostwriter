@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  * Copyright(c) 2009 by Gabriel M. Beddingfield <gabriel@teuton.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -98,7 +98,7 @@ HudWindow::HudWindow(QWidget *parent)
     // Set up the layout for this window.
     QWidget* titleBar = new QWidget();
     titleBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-    QGridLayout* titleBarLayout = new QGridLayout();
+    titleBarLayout = new QGridLayout();
     titleBar->setLayout(titleBarLayout);
     titleBar->setStyleSheet("margin: 0; border: 0; padding: 0");
     titleBarLayout->setMargin(1);
@@ -121,25 +121,9 @@ HudWindow::HudWindow(QWidget *parent)
     // systems other than OS X seems to be the safest course of action for now.
     //
 #ifdef Q_OS_MAC
-    titleBarLayout->addWidget
-    (
-        closeButton,
-        0,
-        1,
-        1,
-        1,
-        Qt::AlignLeft | Qt::AlignTop
-    );
+    this->setButtonLayout(HudWindowButtonLayoutLeft);
 #else
-    titleBarLayout->addWidget
-    (
-        closeButton,
-        0,
-        2,
-        1,
-        1,
-        Qt::AlignRight | Qt::AlignTop
-    );
+    this->setButtonLayout(HudWindowButtonLayoutRight);
 #endif
 
     layout = new QGridLayout();
@@ -214,6 +198,45 @@ void HudWindow::setBackgroundColor(const QColor& color)
 void HudWindow::setSizeGripEnabled(bool enabled)
 {
     sizeGrip->setVisible(enabled);
+}
+
+void HudWindow::setButtonLayout(HudWindowButtonLayout layout)
+{
+    static bool initialSetup = true;
+
+    if (initialSetup)
+    {
+        initialSetup = false;
+    }
+    else
+    {
+        titleBarLayout->removeWidget(closeButton);
+    }
+
+    if (HudWindowButtonLayoutLeft == layout)
+    {
+        titleBarLayout->addWidget
+        (
+            closeButton,
+            0,
+            1,
+            1,
+            1,
+            Qt::AlignLeft | Qt::AlignTop
+        );
+    }
+    else
+    {
+        titleBarLayout->addWidget
+        (
+            closeButton,
+            0,
+            2,
+            1,
+            1,
+            Qt::AlignRight | Qt::AlignTop
+        );
+    }
 }
 
 void HudWindow::setDesktopCompositingEnabled(bool enabled)

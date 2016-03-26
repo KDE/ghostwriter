@@ -47,6 +47,7 @@
 #define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
 #define GW_DICTIONARY_KEY "Spelling/locale"
 #define GW_LIVE_SPELL_CHECK_KEY "Spelling/liveSpellCheck"
+#define GW_HUD_BUTTON_LAYOUT_KEY "HUD/windowButtonLayout"
 #define GW_HUD_ROW_COLORS_KEY "HUD/alternateRowColors"
 #define GW_DESKTOP_COMPOSITING_KEY "HUD/desktopCompositingEnabled"
 #define GW_HUD_OPACITY_KEY "HUD/opacity"
@@ -91,7 +92,8 @@ void AppSettings::store()
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(liveSpellCheckEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(editorWidth));
     appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(blockquoteStyle));
-    appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternteHudRowColorsEnabled));
+    appSettings.setValue(GW_HUD_BUTTON_LAYOUT_KEY, QVariant(hudButtonLayout));
+    appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternateHudRowColorsEnabled));
     appSettings.setValue(GW_DESKTOP_COMPOSITING_KEY, QVariant(desktopCompositingEnabled));
     appSettings.setValue(GW_HUD_OPACITY_KEY, QVariant(hudOpacity));
     appSettings.sync();
@@ -304,14 +306,24 @@ void AppSettings::setBlockquoteStyle(BlockquoteStyle style)
     }
 }
 
+HudWindowButtonLayout AppSettings::getHudButtonLayout() const
+{
+    return hudButtonLayout;
+}
+
+void AppSettings::setHudButtonLayout(HudWindowButtonLayout layout)
+{
+    hudButtonLayout = layout;
+}
+
 bool AppSettings::getAlternateHudRowColorsEnabled() const
 {
-    return alternteHudRowColorsEnabled;
+    return alternateHudRowColorsEnabled;
 }
 
 void AppSettings::setAlternateHudRowColorsEnabled(bool enabled)
 {
-    alternteHudRowColorsEnabled = enabled;
+    alternateHudRowColorsEnabled = enabled;
 }
 
 bool AppSettings::getDesktopCompositingEnabled() const
@@ -545,7 +557,15 @@ AppSettings::AppSettings()
         editorWidth = EditorWidthMedium;
     }
 
-    alternteHudRowColorsEnabled = appSettings.value(GW_HUD_ROW_COLORS_KEY, QVariant(false)).toBool();
+
+#ifdef Q_OS_MAC
+    HudWindowButtonLayout defaultHudButtonLayout = HudWindowButtonLayoutLeft;
+#else
+    HudWindowButtonLayout defaultHudButtonLayout = HudWindowButtonLayoutRight;
+#endif
+
+    hudButtonLayout = (HudWindowButtonLayout) appSettings.value(GW_HUD_BUTTON_LAYOUT_KEY, QVariant(defaultHudButtonLayout)).toInt();
+    alternateHudRowColorsEnabled = appSettings.value(GW_HUD_ROW_COLORS_KEY, QVariant(false)).toBool();
     desktopCompositingEnabled = appSettings.value(GW_DESKTOP_COMPOSITING_KEY, QVariant(true)).toBool();
     hudOpacity = appSettings.value(GW_HUD_OPACITY_KEY, QVariant(200)).toInt();
 }
