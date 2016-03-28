@@ -293,7 +293,7 @@ The original John Gruber Markdown specification can be found at <http://daringfi
     `` ` `` | `` ` ``
     `<`     | `>`
     
-    To enable auto-matching of characters as you type, check "Automatically Match Characters while Typing" from the Settings menu in the menu bar.
+    To enable auto-matching of characters as you type, check "Automatically Match Characters while Typing" from the Settings menu in the menu bar.  You can also customize which characters are matched by selecting "Customize Matched Characters..." from the Settings menu.
 
 Drag and Drop Image Files
 :   Rather than going to the Edit menu and selecting the "Insert Image..." option, you can drag and drop any image file from your file system into the editor window.  The application will insert inline image text with your image's file path relative to the currently opened document's location, or the full path if the document is untitled.  For example:
