@@ -73,6 +73,33 @@ class AppSettings
         bool getAutoMatchEnabled() const;
         void setAutoMatchEnabled(bool enabled);
 
+        bool getAutoMatchDoubleQuotes() const;
+        void setAutoMatchDoubleQuotes(bool enabled);
+
+        bool getAutoMatchSingleQuotes() const;
+        void setAutoMatchSingleQuotes(bool enabled);
+
+        bool getAutoMatchParentheses() const;
+        void setAutoMatchParentheses(bool enabled);
+
+        bool getAutoMatchSquareBrackets() const;
+        void setAutoMatchSquareBrackets(bool enabled);
+
+        bool getAutoMatchBraces() const;
+        void setAutoMatchBraces(bool enabled);
+
+        bool getAutoMatchAsterisks() const;
+        void setAutoMatchAsterisks(bool enabled);
+
+        bool getAutoMatchUnderscores() const;
+        void setAutoMatchUnderscores(bool enabled);
+
+        bool getAutoMatchBackticks() const;
+        void setAutoMatchBackticks(bool enabled);
+
+        bool getAutoMatchAngleBrackets() const;
+        void setAutoMatchAngleBrackets(bool enabled);
+
         bool getBulletPointCyclingEnabled() const;
         void setBulletPointCyclingEnabled(bool enabled);
 
@@ -132,6 +159,15 @@ class AppSettings
         bool useUnderlineForEmphasis;
         bool largeHeadingSizesEnabled;
         bool autoMatchEnabled;
+        bool autoMatchDoubleQuotesEnabled;
+        bool autoMatchSingleQuotesEnabled;
+        bool autoMatchParenthesesEnabled;
+        bool autoMatchSquareBracketsEnabled;
+        bool autoMatchBracesEnabled;
+        bool autoMatchAsterisksEnabled;
+        bool autoMatchUnderscoresEnabled;
+        bool autoMatchBackticksEnabled;
+        bool autoMatchAngleBracketsEnabled;
         bool bulletPointCyclingEnabled;
         FocusMode focusMode;
         bool hideMenuBarInFullScreenEnabled;

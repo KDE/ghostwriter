@@ -48,6 +48,7 @@
 #include <QInputDialog>
 #include <QDesktopServices>
 #include <QDesktopWidget>
+#include <QDialogButtonBox>
 
 #include "MainWindow.h"
 #include "ThemeFactory.h"
@@ -173,6 +174,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(documentManager, SIGNAL(operationStarted(QString)), this, SLOT(onOperationStarted(QString)));
     connect(documentManager, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
     connect(documentManager, SIGNAL(documentClosed()), this, SLOT(refreshRecentFiles()));
+
+    editor->setAutoMatchEnabled('\"', appSettings->getAutoMatchDoubleQuotes());
+    editor->setAutoMatchEnabled('\'', appSettings->getAutoMatchSingleQuotes());
+    editor->setAutoMatchEnabled('(', appSettings->getAutoMatchParentheses());
+    editor->setAutoMatchEnabled('[', appSettings->getAutoMatchSquareBrackets());
+    editor->setAutoMatchEnabled('{', appSettings->getAutoMatchBraces());
+    editor->setAutoMatchEnabled('*', appSettings->getAutoMatchAsterisks());
+    editor->setAutoMatchEnabled('_', appSettings->getAutoMatchUnderscores());
+    editor->setAutoMatchEnabled('`', appSettings->getAutoMatchBackticks());
+    editor->setAutoMatchEnabled('<', appSettings->getAutoMatchAngleBrackets());
 
     QWidget* editorPane = new QWidget(this);
     editorPane->setObjectName("editorLayoutArea");
@@ -1030,6 +1041,94 @@ void MainWindow::changeHudOpacity(int value)
     appSettings->setHudOpacity(value);
 }
 
+void MainWindow::showAutoMatchFilterDialog()
+{
+    QDialog autoMatchFilterDialog(this);
+    autoMatchFilterDialog.setWindowTitle(tr("Matched Characters"));
+
+    QVBoxLayout* layout = new QVBoxLayout();
+
+    QCheckBox* autoMatchDoubleQuotesCheckbox = new QCheckBox("\"");
+    autoMatchDoubleQuotesCheckbox->setCheckable(true);
+    autoMatchDoubleQuotesCheckbox->setChecked(appSettings->getAutoMatchDoubleQuotes());
+    layout->addWidget(autoMatchDoubleQuotesCheckbox);
+
+    QCheckBox* autoMatchSingleQuotesCheckbox = new QCheckBox("\'");
+    autoMatchSingleQuotesCheckbox->setCheckable(true);
+    autoMatchSingleQuotesCheckbox->setChecked(appSettings->getAutoMatchSingleQuotes());
+    layout->addWidget(autoMatchSingleQuotesCheckbox);
+
+    QCheckBox* autoMatchParenthesesCheckbox = new QCheckBox("( )");
+    autoMatchParenthesesCheckbox->setCheckable(true);
+    autoMatchParenthesesCheckbox->setChecked(appSettings->getAutoMatchParentheses());
+    layout->addWidget(autoMatchParenthesesCheckbox);
+
+    QCheckBox* autoMatchSquareBracketsCheckbox = new QCheckBox("[ ]");
+    autoMatchSquareBracketsCheckbox->setCheckable(true);
+    autoMatchSquareBracketsCheckbox->setChecked(appSettings->getAutoMatchSquareBrackets());
+    layout->addWidget(autoMatchSquareBracketsCheckbox);
+
+    QCheckBox* autoMatchBracesCheckbox = new QCheckBox("{ }");
+    autoMatchBracesCheckbox->setCheckable(true);
+    autoMatchBracesCheckbox->setChecked(appSettings->getAutoMatchBraces());
+    layout->addWidget(autoMatchBracesCheckbox);
+
+    QCheckBox* autoMatchAsterisksCheckbox = new QCheckBox("*");
+    autoMatchAsterisksCheckbox->setCheckable(true);
+    autoMatchAsterisksCheckbox->setChecked(appSettings->getAutoMatchAsterisks());
+    layout->addWidget(autoMatchAsterisksCheckbox);
+
+    QCheckBox* autoMatchUnderscoresCheckbox = new QCheckBox("_");
+    autoMatchUnderscoresCheckbox->setCheckable(true);
+    autoMatchUnderscoresCheckbox->setChecked(appSettings->getAutoMatchUnderscores());
+    layout->addWidget(autoMatchUnderscoresCheckbox);
+
+    QCheckBox* autoMatchBackticksCheckbox = new QCheckBox("`");
+    autoMatchBackticksCheckbox->setCheckable(true);
+    autoMatchBackticksCheckbox->setChecked(appSettings->getAutoMatchBackticks());
+    layout->addWidget(autoMatchBackticksCheckbox);
+
+    QCheckBox* autoMatchAngleBracketsCheckbox = new QCheckBox("< >");
+    autoMatchAngleBracketsCheckbox->setCheckable(true);
+    autoMatchAngleBracketsCheckbox->setChecked(appSettings->getAutoMatchAngleBrackets());
+    layout->addWidget(autoMatchAngleBracketsCheckbox);
+
+    autoMatchFilterDialog.setLayout(layout);
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
+    buttonBox->addButton(QDialogButtonBox::Ok);
+    buttonBox->addButton(QDialogButtonBox::Cancel);
+    layout->addWidget(buttonBox);
+
+    connect(buttonBox, SIGNAL(accepted()), &autoMatchFilterDialog, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), &autoMatchFilterDialog, SLOT(reject()));
+
+    int status = autoMatchFilterDialog.exec();
+
+    if (QDialog::Accepted == status)
+    {
+        appSettings->setAutoMatchDoubleQuotes(autoMatchDoubleQuotesCheckbox->isChecked());
+        appSettings->setAutoMatchSingleQuotes(autoMatchSingleQuotesCheckbox->isChecked());
+        appSettings->setAutoMatchParentheses(autoMatchParenthesesCheckbox->isChecked());
+        appSettings->setAutoMatchSquareBrackets(autoMatchSquareBracketsCheckbox->isChecked());
+        appSettings->setAutoMatchBraces(autoMatchBracesCheckbox->isChecked());
+        appSettings->setAutoMatchAsterisks(autoMatchAsterisksCheckbox->isChecked());
+        appSettings->setAutoMatchUnderscores(autoMatchUnderscoresCheckbox->isChecked());
+        appSettings->setAutoMatchBackticks(autoMatchBackticksCheckbox->isChecked());
+        appSettings->setAutoMatchAngleBrackets(autoMatchAngleBracketsCheckbox->isChecked());
+
+        this->editor->setAutoMatchEnabled('\"', appSettings->getAutoMatchDoubleQuotes());
+        this->editor->setAutoMatchEnabled('\'', appSettings->getAutoMatchSingleQuotes());
+        this->editor->setAutoMatchEnabled('(', appSettings->getAutoMatchParentheses());
+        this->editor->setAutoMatchEnabled('[', appSettings->getAutoMatchSquareBrackets());
+        this->editor->setAutoMatchEnabled('{', appSettings->getAutoMatchBraces());
+        this->editor->setAutoMatchEnabled('*', appSettings->getAutoMatchAsterisks());
+        this->editor->setAutoMatchEnabled('_', appSettings->getAutoMatchUnderscores());
+        this->editor->setAutoMatchEnabled('`', appSettings->getAutoMatchBackticks());
+        this->editor->setAutoMatchEnabled('<', appSettings->getAutoMatchAngleBrackets());
+    }
+}
+
 QAction* MainWindow::addMenuAction
 (
     QMenu* menu,
@@ -1278,6 +1377,8 @@ void MainWindow::buildMenuBar()
     autoMatchAction->setChecked(autoMatchEnabled);
     connect(autoMatchAction, SIGNAL(toggled(bool)), this, SLOT(toggleAutoMatch(bool)));
     settingsMenu->addAction(autoMatchAction);
+
+    settingsMenu->addAction(tr("Customize Matched Characters..."), this, SLOT(showAutoMatchFilterDialog()));
 
     bool bulletCyclingEnabled = appSettings->getBulletPointCyclingEnabled();
     QAction* bulletCycleAction = new QAction(tr("Cycle Bullet Point Markers"), this);

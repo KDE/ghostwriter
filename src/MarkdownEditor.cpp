@@ -104,6 +104,19 @@ MarkdownEditor::MarkdownEditor
     markupPairs.insert('`', '`');
     markupPairs.insert('<', '>');
 
+    // Set automatching for the above markup pairs to be
+    // enabled by default.
+    //
+    autoMatchFilter.insert('"', true);
+    autoMatchFilter.insert('\'', true);
+    autoMatchFilter.insert('(', true);
+    autoMatchFilter.insert('[', true);
+    autoMatchFilter.insert('{', true);
+    autoMatchFilter.insert('*', true);
+    autoMatchFilter.insert('_', true);
+    autoMatchFilter.insert('`', true);
+    autoMatchFilter.insert('<', true);
+
     connect(this->document(), SIGNAL(contentsChange(int,int,int)), this, SLOT(onTextChanged(int,int,int)));
     connect(this->document(), SIGNAL(blockCountChanged(int)), this, SLOT(onBlockCountChanged(int)));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
@@ -217,6 +230,11 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     highlighter->setFont(family, pointSize);
     setTabulationWidth(tabWidth);
     fadeEffect->setFadeHeight(this->fontMetrics().height());
+}
+
+void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enabled)
+{
+    autoMatchFilter.insert(openingCharacter, enabled);
 }
 
 void MarkdownEditor::setupPaperMargins(int width)
@@ -1606,7 +1624,7 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                 return true;
             }
         }
-        else if (autoMatchEnabled)
+        else if (autoMatchEnabled && autoMatchFilter.value(firstChar))
         {
             cursor.insertText(firstChar);
             cursor.insertText(lastChar);
@@ -1623,12 +1641,24 @@ bool MarkdownEditor::handleEndPairCharacterTyped(const QChar ch)
 {
     QTextCursor cursor = this->textCursor();
 
-    if
-    (
-        autoMatchEnabled &&
-        markupPairs.values().contains(ch) &&
-        !cursor.hasSelection()
-    )
+    bool lookAhead = false;
+
+    if (autoMatchEnabled && !cursor.hasSelection())
+    {
+        QList<QChar> values = markupPairs.values();
+
+        if (values.contains(ch))
+        {
+            QChar key = markupPairs.key(ch);
+
+            if (autoMatchFilter.value(key))
+            {
+                lookAhead = true;
+            }
+        }
+    }
+
+    if (lookAhead)
     {
         QTextCursor cursor = this->textCursor();
         QString text = cursor.block().text();

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -79,6 +79,8 @@ class MarkdownEditor : public QPlainTextEdit
 
         void setAspect(EditorAspect aspect);
         void setFont(const QString& family, double size);
+
+        void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
         /**
          * Sets up the margins on the sides of the editor, so that the text
@@ -176,6 +178,7 @@ class MarkdownEditor : public QPlainTextEdit
         QRegExp bulletListRegex;
         QRegExp taskListRegex;
         QHash<QChar, QChar> markupPairs; // Used for auto-insert and pairing.
+        QHash<QChar, bool> autoMatchFilter; // Used for filtering paired characters.
         bool mouseButtonDown;
         GraphicsFadeEffect* fadeEffect;
 

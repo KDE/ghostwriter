@@ -35,6 +35,15 @@
 #define GW_FONT_KEY "Style/font"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
+#define GW_AUTO_MATCH_DOUBLE_QUOTES_KEY "Typing/autoMatchDoubleQuotes"
+#define GW_AUTO_MATCH_SINGLE_QUOTES_KEY "Typing/autoMatchSingleQuotes"
+#define GW_AUTO_MATCH_PARENTHESES_KEY "Typing/autoMatchParentheses"
+#define GW_AUTO_MATCH_SQUARE_BRACKETS_KEY "Typing/autoMatchSquareBrackets"
+#define GW_AUTO_MATCH_BRACES_KEY "Typing/autoMatchBraces"
+#define GW_AUTO_MATCH_ASTERISKS_KEY "Typing/autoMatchAsterisks"
+#define GW_AUTO_MATCH_UNDERSCORES_KEY "Typing/autoMatchUnderscores"
+#define GW_AUTO_MATCH_BACKTICKS_KEY "Typing/autoMatchBackticks"
+#define GW_AUTO_MATCH_ANGLE_BRACKETS_KEY "Typing/autoMatchAngleBrackets"
 #define GW_BULLET_CYCLING_KEY "Typing/bulletPointCyclingEnabled"
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
@@ -79,6 +88,15 @@ void AppSettings::store()
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(insertSpacesForTabsEnabled));
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(largeHeadingSizesEnabled));
     appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_DOUBLE_QUOTES_KEY, QVariant(autoMatchDoubleQuotesEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_SINGLE_QUOTES_KEY, QVariant(autoMatchSingleQuotesEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_PARENTHESES_KEY, QVariant(autoMatchParenthesesEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_SQUARE_BRACKETS_KEY, QVariant(autoMatchSquareBracketsEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_BRACES_KEY, QVariant(autoMatchBracesEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_ASTERISKS_KEY, QVariant(autoMatchAsterisksEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_UNDERSCORES_KEY, QVariant(autoMatchUnderscoresEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_BACKTICKS_KEY, QVariant(autoMatchBackticksEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_ANGLE_BRACKETS_KEY, QVariant(autoMatchAngleBracketsEnabled));
     appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(bulletPointCyclingEnabled));
 
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
@@ -195,6 +213,96 @@ bool AppSettings::getAutoMatchEnabled() const
 void AppSettings::setAutoMatchEnabled(bool enabled)
 {
     autoMatchEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchDoubleQuotes() const
+{
+    return autoMatchDoubleQuotesEnabled;
+}
+
+void AppSettings::setAutoMatchDoubleQuotes(bool enabled)
+{
+    autoMatchDoubleQuotesEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchSingleQuotes() const
+{
+    return autoMatchSingleQuotesEnabled;
+}
+
+void AppSettings::setAutoMatchSingleQuotes(bool enabled)
+{
+    autoMatchSingleQuotesEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchParentheses() const
+{
+    return autoMatchParenthesesEnabled;
+}
+
+void AppSettings::setAutoMatchParentheses(bool enabled)
+{
+    autoMatchParenthesesEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchSquareBrackets() const
+{
+    return autoMatchSquareBracketsEnabled;
+}
+
+void AppSettings::setAutoMatchSquareBrackets(bool enabled)
+{
+    autoMatchSquareBracketsEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchBraces() const
+{
+    return autoMatchBracesEnabled;
+}
+
+void AppSettings::setAutoMatchBraces(bool enabled)
+{
+    autoMatchBracesEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchAsterisks() const
+{
+    return autoMatchAsterisksEnabled;
+}
+
+void AppSettings::setAutoMatchAsterisks(bool enabled)
+{
+    autoMatchAsterisksEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchUnderscores() const
+{
+    return autoMatchUnderscoresEnabled;
+}
+
+void AppSettings::setAutoMatchUnderscores(bool enabled)
+{
+    autoMatchUnderscoresEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchBackticks() const
+{
+    return autoMatchBackticksEnabled;
+}
+
+void AppSettings::setAutoMatchBackticks(bool enabled)
+{
+    autoMatchBackticksEnabled = enabled;
+}
+
+bool AppSettings::getAutoMatchAngleBrackets() const
+{
+    return autoMatchAngleBracketsEnabled;
+}
+
+void AppSettings::setAutoMatchAngleBrackets(bool enabled)
+{
+    autoMatchAngleBracketsEnabled = enabled;
 }
 
 bool AppSettings::getBulletPointCyclingEnabled() const
@@ -535,6 +643,15 @@ AppSettings::AppSettings()
     useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
     largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
     autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
+    autoMatchDoubleQuotesEnabled = appSettings.value(GW_AUTO_MATCH_DOUBLE_QUOTES_KEY, QVariant(true)).toBool();
+    autoMatchSingleQuotesEnabled = appSettings.value(GW_AUTO_MATCH_SINGLE_QUOTES_KEY, QVariant(true)).toBool();
+    autoMatchParenthesesEnabled = appSettings.value(GW_AUTO_MATCH_PARENTHESES_KEY, QVariant(true)).toBool();
+    autoMatchSquareBracketsEnabled = appSettings.value(GW_AUTO_MATCH_SQUARE_BRACKETS_KEY, QVariant(true)).toBool();
+    autoMatchBracesEnabled = appSettings.value(GW_AUTO_MATCH_BRACES_KEY, QVariant(true)).toBool();
+    autoMatchAsterisksEnabled = appSettings.value(GW_AUTO_MATCH_ASTERISKS_KEY, QVariant(true)).toBool();
+    autoMatchUnderscoresEnabled = appSettings.value(GW_AUTO_MATCH_UNDERSCORES_KEY, QVariant(true)).toBool();
+    autoMatchBackticksEnabled = appSettings.value(GW_AUTO_MATCH_BACKTICKS_KEY, QVariant(true)).toBool();
+    autoMatchAngleBracketsEnabled = appSettings.value(GW_AUTO_MATCH_ANGLE_BRACKETS_KEY, QVariant(true)).toBool();
     bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 

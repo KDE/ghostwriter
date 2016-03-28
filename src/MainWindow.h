@@ -110,6 +110,7 @@ class MainWindow : public QMainWindow
         void onSetDictionary();
         void showHudOpacityDialog();
         void changeHudOpacity(int value);
+        void showAutoMatchFilterDialog();
 
 	private:
         MarkdownEditor* editor;
