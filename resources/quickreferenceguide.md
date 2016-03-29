@@ -206,57 +206,57 @@ The original John Gruber Markdown specification can be found at <http://daringfi
 `Ctrl+,`
 :   Pressing `Ctrl` with the `,` character will remove any block quote formatting from the current line or the selected lines of text.
 
-`Alt+8`
-:   Pressing `Alt` with the `8` character turns the current line or the selected lines into a bullet list with the `*` marker.  For example, if you have selected text within the following lines:
+`Ctrl+8`
+:   Pressing `Ctrl` with the `8` character turns the current line or the selected lines into a bullet list with the `*` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt+8` will turn the selected lines into a bullet list like so:
+    Pressing `Ctrl+8` will turn the selected lines into a bullet list like so:
 
         * List item one.
         * List item two.
 
-`Alt+-`
-:   Pressing `Alt` with the `-` character turns the current line or the selected lines into a bullet list with the `-` marker.  For example, if you have selected text within the following lines:
+`Ctrl+-`
+:   Pressing `Ctrl` with the `-` character turns the current line or the selected lines into a bullet list with the `-` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt+-` will turn the selected lines into a bullet list like so:
+    Pressing `Ctrl+-` will turn the selected lines into a bullet list like so:
 
         - List item one.
         - List item two.
 
-`Alt+=`
-:   Pressing `Alt` with the `=` character turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
+`Ctrl+=`
+:   Pressing `Ctrl` with the `=` character turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt++` will turn the selected lines into a bullet list like so:
+    Pressing `Ctrl+=` will turn the selected lines into a bullet list like so:
 
         + List item one.
         + List item two.
 
-`Alt+1`
-:   Pressing `Alt` with the `1` (number 1) character turns the current line or the selected lines into a numbered list with the `.` marker.  For example, if you have selected text within the following lines:
+`Ctrl+1`
+:   Pressing `Ctrl` with the `1` (number 1) character turns the current line or the selected lines into a numbered list with the `.` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt+1` will turn the selected lines into a numbered list like so:
+    Pressing `Ctrl+1` will turn the selected lines into a numbered list like so:
 
         1. List item one.
         2. List item two.
 
-`Alt+0`
-:   Pressing `Alt` with the `0` character turns the current line or the selected lines into a numbered list with the `)` marker.  For example, if you have selected text within the following lines:
+`Ctrl+0`
+:   Pressing `Ctrl` with the `0` character turns the current line or the selected lines into a numbered list with the `)` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Alt+0` will turn the selected lines into a numbered list like so:
+    Pressing `Ctrl+0` will turn the selected lines into a numbered list like so:
 
         1) List item one.
         2) List item two.
@@ -306,4 +306,4 @@ Drag and Drop Image Files
 
 - - - -
 
-Copyright (c) 2014, 2015 [wereturtle](http://www.github.com/wereturtle)
+Copyright (c) 2014-2016 [wereturtle](http://www.github.com/wereturtle)
