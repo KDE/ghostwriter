@@ -183,7 +183,7 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 Contribute
 ==========
 
-Please submit any bugs you find through GitHub, with a detailed description on how to replicate the problem.  New feature requests are also welcome.  Please see the roadmap below for ideas for which you can submit pull requests.  Also, if you happen to be knowledgeable with C++/Qt, please feel free to submit pull requests for bug fixes.
+Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  If you happen to be knowledgeable with C++/Qt, please feel free to submit pull requests for bug fixes and new features.
 
 Finally, if you wish to thank me by donating to the tip jar, you can flattr me from GitHub.  Simply sign up for [Flattr](http://flattr.com) if you haven't already, connect your Flattr account to your GitHub account, and then Star my repository from GitHub.  You can also simply visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter) and click on the Flattr button at the bottom of the page.  I'll use your generous tip to treat my family to fish tacos.  Yum!
 
