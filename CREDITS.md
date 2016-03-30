@@ -6,7 +6,9 @@ Developers
 Translations
 ============
 
-N/A
+* Russian - suhr
+* Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
+* Italian - Tristano Ajmone (tajmone)
 
 Libraries
 =========
