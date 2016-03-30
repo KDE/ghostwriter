@@ -172,13 +172,19 @@ Portable Mode
 
 You can download the Windows Portable version of *ghostwriter*, or make your own on any OS.  Just as with FocusWriter, simply create a folder named `data` in the same folder as the `ghostwriter.exe` or `ghostwriter` executable file (depending on the OS).  The application will now use settings and themes in this folder.  If you need to migrate existing themes you created while running in non-portable mode, simply copy them from the relevant folder below:
 
-- Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Remote\\ghostwriter\\themes
-
+- Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Roaming\\ghostwriter\\themes
 - Linux:  /home/\<your_user_name\>/.config/ghostwriter/themes
-
 - Mac OS X:  ~/Library/Application Support/ghostwriter/themes
 
 **Note:**  The Mac OS X settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist OS X developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
+
+Themes
+======
+José Geraldo Gouvêa has generously provided a GitHub theme repository for *ghostwriter* [here](https://github.com/jggouvea/ghostwriter-themes). You may download new themes here, or create your own and put in a pull request to add a new theme to the repository.
+
+Wiki
+====
+*ghostwriter* has a community wiki [here](https://github.com/wereturtle/ghostwriter/wiki).  You can read up on help topics or contribute your own.
 
 Contribute
 ==========
