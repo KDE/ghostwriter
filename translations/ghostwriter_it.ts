@@ -483,7 +483,6 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="774"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Puoi usare e ridistribuire il presente software secondo i termini della &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visita il sito ufficiale all&apos;indirizzo &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Un ringraziamento speciali e dovuti crediti per il riutilizzo di codice a:&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, autore di &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, autore di &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, autore di &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Sono inoltre profondamente in debito con &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, autore di &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, per l&apos;ispirazione impartitami con la creazione di uno strumento per l&apos;editing del Markdown talmente stupendo.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="797"/>
@@ -1297,15 +1296,17 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
         <location filename="../src/ThemeEditorDialog.cpp" line="103"/>
         <location filename="../src/ThemeEditorDialog.cpp" line="111"/>
         <source>Stretch</source>
-        <translatorcomment>Voce del menu di scelta a scascata per l&apos;opzione &quot;Editor Aspect&quot; nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Allunga</translation>
+        <translatorcomment>Voce del menu di scelta a scascata per l&apos;opzione &quot;Editor Aspect&quot; (Riquadro Editor) nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]
+NOTA: &quot;Stretch&quot; vuol dire che l&apos;area di editing occupa tutto lo schermo, coprendo lo sfondo.</translatorcomment>
+        <translation>Esteso</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="104"/>
         <location filename="../src/ThemeEditorDialog.cpp" line="110"/>
         <source>Center</source>
-        <translatorcomment>Voce del menu di scelta a scascata per l&apos;opzione &quot;Editor Aspect&quot; nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Centra</translation>
+        <translatorcomment>Voce del menu di scelta a scascata per l&apos;opzione &quot;Editor Aspect&quot; (Riquadro Editor) nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]
+NOTA: &quot;Center&quot; vuol dire che l&apos;area di editing verrà mostrata come un foglio centrato sullo sfondo.</translatorcomment>
+        <translation>Centrato</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="108"/>
@@ -1364,8 +1365,10 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="141"/>
         <source>Text Area Background Color</source>
-        <translatorcomment>Etichetta opzione nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Text Editor ]</translatorcomment>
-        <translation>Colore Sfondo Area di Testo</translation>
+        <translatorcomment>Etichetta opzione nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Text Editor ]
+NOTA: Ho tradotto &quot;Text Area&quot; con &quot;Editor&quot; per evitare confusione con le opzioni successive (Riquadro Editor/Angoli Editor). Avrei preferito usare sempre &quot;Area di Testo&quot; dato che è più specifico, ma lo spazio nella finestra era poco.
+NOTA2: Alternativamente, si potrebbe tradurre sia &quot;Text Area&quot; che &quot;Editor&quot; con &quot;Foglio/Pagina&quot;. L&apos;utente pensa all&apos;Editor come al programma in generale, mentre Foglio cattura meglio l&apos;idea dell&apos;area in cui si scrive.</translatorcomment>
+        <translation>Colore Sfondo Editor</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="144"/>
@@ -1377,7 +1380,7 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
         <location filename="../src/ThemeEditorDialog.cpp" line="150"/>
         <source>Background Image</source>
         <translatorcomment>Etichetta opzioni nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Immagine  Sfondo</translation>
+        <translation>Immagine Sfondo</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="151"/>
@@ -1388,8 +1391,9 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="153"/>
         <source>Editor Aspect</source>
-        <translatorcomment>Etichetta opzioni nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Aspetto Editor</translation>
+        <translatorcomment>Etichetta opzioni nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes…-&gt;Edit-&gt;Background ]
+NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centrata nello schermo, oppure se deve riempire tutto lo schermo)</translatorcomment>
+        <translation>Riquadro Editor</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="154"/>
