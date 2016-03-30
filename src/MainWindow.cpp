@@ -761,7 +761,19 @@ void MainWindow::showQuickReferenceGuide()
 {
     if (NULL == quickReferenceGuideViewer)
     {
-        QFile inputFile(":/resources/quickreferenceguide.html");
+        QString filePath = QString(":/resources/quickreferenceguide_") + QLocale().name() + ".html";
+
+        if (!QFileInfo(filePath).exists())
+        {
+            filePath = QString(":/resources/quickreferenceguide_") + QLocale().name().left(2) + ".html";
+
+            if (!QFileInfo(filePath).exists())
+            {
+                filePath = ":/resources/quickreferenceguide_en.html";
+            }
+        }
+
+        QFile inputFile(filePath);
 
         if (!inputFile.open(QIODevice::ReadOnly))
         {
