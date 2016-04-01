@@ -55,6 +55,7 @@
 #define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
 #define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
 #define GW_DICTIONARY_KEY "Spelling/locale"
+#define GW_LOCALE_KEY "Application/locale"
 #define GW_LIVE_SPELL_CHECK_KEY "Spelling/liveSpellCheck"
 #define GW_HUD_BUTTON_LAYOUT_KEY "HUD/windowButtonLayout"
 #define GW_HUD_ROW_COLORS_KEY "HUD/alternateRowColors"
@@ -107,6 +108,7 @@ void AppSettings::store()
 
     appSettings.setValue(GW_THEME_KEY, QVariant(themeName));
     appSettings.setValue(GW_DICTIONARY_KEY, QVariant(dictionaryLanguage));
+    appSettings.setValue(GW_LOCALE_KEY, QVariant(locale));
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(liveSpellCheckEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(editorWidth));
     appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(blockquoteStyle));
@@ -376,6 +378,16 @@ QString AppSettings::getDictionaryLanguage() const
 void AppSettings::setDictionaryLanguage(const QString& language)
 {
     this->dictionaryLanguage = language;
+}
+
+QString AppSettings::getLocale() const
+{
+    return locale;
+}
+
+void AppSettings::setLocale(const QString& locale)
+{
+    this->locale = locale;
 }
 
 bool AppSettings::getLiveSpellCheckEnabled() const
@@ -665,6 +677,7 @@ AppSettings::AppSettings()
     displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
     dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
+    locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
     liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
     editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
     blockquoteStyle = (BlockquoteStyle) appSettings.value(GW_BLOCKQUOTE_STYLE_KEY, QVariant(BlockquoteStylePlain)).toInt();

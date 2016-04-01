@@ -121,6 +121,9 @@ class AppSettings
         QString getDictionaryLanguage() const;
         void setDictionaryLanguage(const QString& language);
 
+        QString getLocale() const;
+        void setLocale(const QString& locale);
+
         bool getLiveSpellCheckEnabled() const;
         void setLiveSpellCheckEnabled(bool enabled);
 
@@ -175,6 +178,7 @@ class AppSettings
         bool displayTimeInFullScreenEnabled;
         QString themeName;
         QString dictionaryLanguage;
+        QString locale;
         bool liveSpellCheckEnabled;
         EditorWidth editorWidth;
         BlockquoteStyle blockquoteStyle;
