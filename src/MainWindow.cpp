@@ -1859,7 +1859,7 @@ void MainWindow::applyTheme()
         << menuBarItemBgColorRGBA
         << "; color: "
         << menuBarItemFgColorRGB
-        << " } "
+        << "; padding: 4px } "
         << "QMenuBar::item:pressed { background-color: "
         << menuBarItemBgPressColorRGBA
         << "; color: "
