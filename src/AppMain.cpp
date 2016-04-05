@@ -36,11 +36,21 @@ int main(int argc, char* argv[])
 
     // Translate application based on locale.
     QTranslator translator;
-    translator.load
+    bool ok = translator.load
     (
-        QString("ghostwriter_") + QLocale().name(),
+        QString("ghostwriter_") + appSettings->getLocale(),
         appSettings->getTranslationsPath()
     );
+
+    if (!ok)
+    {
+        translator.load
+        (
+            "ghostwriter_en",
+            appSettings->getTranslationsPath()
+        );
+    }
+
     app.installTranslator(&translator);
 
     QString filePath = QString();

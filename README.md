@@ -172,18 +172,24 @@ Portable Mode
 
 You can download the Windows Portable version of *ghostwriter*, or make your own on any OS.  Just as with FocusWriter, simply create a folder named `data` in the same folder as the `ghostwriter.exe` or `ghostwriter` executable file (depending on the OS).  The application will now use settings and themes in this folder.  If you need to migrate existing themes you created while running in non-portable mode, simply copy them from the relevant folder below:
 
-- Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Remote\\ghostwriter\\themes
-
+- Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Roaming\\ghostwriter\\themes
 - Linux:  /home/\<your_user_name\>/.config/ghostwriter/themes
-
 - Mac OS X:  ~/Library/Application Support/ghostwriter/themes
 
 **Note:**  The Mac OS X settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist OS X developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
 
+Themes
+======
+José Geraldo Gouvêa has generously provided a GitHub theme repository for *ghostwriter* [here](https://github.com/jggouvea/ghostwriter-themes). You may download new themes here, or create your own and put in a pull request to add a new theme to the repository.
+
+Wiki
+====
+*ghostwriter* has a community wiki [here](https://github.com/wereturtle/ghostwriter/wiki).  You can read up on help topics or contribute your own.
+
 Contribute
 ==========
 
-Please submit any bugs you find through GitHub, with a detailed description on how to replicate the problem.  New feature requests are also welcome.  Please see the roadmap below for ideas for which you can submit pull requests.  Also, if you happen to be knowledgeable with C++/Qt, please feel free to submit pull requests for bug fixes.
+Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  If you happen to be knowledgeable with C++/Qt, please feel free to submit pull requests for bug fixes and new features.
 
 Finally, if you wish to thank me by donating to the tip jar, you can flattr me from GitHub.  Simply sign up for [Flattr](http://flattr.com) if you haven't already, connect your Flattr account to your GitHub account, and then Star my repository from GitHub.  You can also simply visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter) and click on the Flattr button at the bottom of the page.  I'll use your generous tip to treat my family to fish tacos.  Yum!
 

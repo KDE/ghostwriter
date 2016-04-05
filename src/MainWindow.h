@@ -108,6 +108,7 @@ class MainWindow : public QMainWindow
         void onOperationFinished();
         void changeFont();
         void onSetDictionary();
+        void onSetLocale();
         void showHudOpacityDialog();
         void changeHudOpacity(int value);
         void showAutoMatchFilterDialog();

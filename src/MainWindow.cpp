@@ -63,6 +63,7 @@
 #include "Outline.h"
 #include "MessageBoxHelper.h"
 #include "SimpleFontDialog.h"
+#include "LocaleDialog.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
@@ -761,7 +762,19 @@ void MainWindow::showQuickReferenceGuide()
 {
     if (NULL == quickReferenceGuideViewer)
     {
-        QFile inputFile(":/resources/quickreferenceguide.html");
+        QString filePath = QString(":/resources/quickreferenceguide_") + appSettings->getLocale() + ".html";
+
+        if (!QFileInfo(filePath).exists())
+        {
+            filePath = QString(":/resources/quickreferenceguide_") + appSettings->getLocale().left(2) + ".html";
+
+            if (!QFileInfo(filePath).exists())
+            {
+                filePath = ":/resources/quickreferenceguide_en.html";
+            }
+        }
+
+        QFile inputFile(filePath);
 
         if (!inputFile.open(QIODevice::ReadOnly))
         {
@@ -1000,6 +1013,31 @@ void MainWindow::onSetDictionary()
         DictionaryManager::instance().setDefaultLanguage(language);
         editor->setDictionary(DictionaryManager::instance().requestDictionary(language));
         appSettings->setDictionaryLanguage(language);
+    }
+}
+
+void MainWindow::onSetLocale()
+{
+    bool ok;
+
+    QString locale =
+        LocaleDialog::getLocale
+        (
+            &ok,
+            appSettings->getLocale(),
+            appSettings->getTranslationsPath()
+        );
+
+    if (ok && (locale != appSettings->getLocale()))
+    {
+        appSettings->setLocale(locale);
+
+        QMessageBox::information
+        (
+            this,
+            QApplication::applicationName(),
+            tr("Please restart the application for changes to take effect.")
+        );
     }
 }
 
@@ -1403,6 +1441,8 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(liveSpellcheckAction);
 
     settingsMenu->addAction(tr("Dictionaries..."), this, SLOT(onSetDictionary()));
+
+    settingsMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
 
     settingsMenu->addSeparator();
 
@@ -1819,7 +1859,7 @@ void MainWindow::applyTheme()
         << menuBarItemBgColorRGBA
         << "; color: "
         << menuBarItemFgColorRGB
-        << " } "
+        << "; padding: 4px } "
         << "QMenuBar::item:pressed { background-color: "
         << menuBarItemBgPressColorRGBA
         << "; color: "

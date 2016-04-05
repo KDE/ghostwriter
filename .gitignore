@@ -33,4 +33,6 @@ Makefile*
 *.qmlproject.user
 *.qmlproject.user.*
 
+*.qm
+
 build/
