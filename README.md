@@ -149,7 +149,7 @@ Make sure you're cloned the repo, not just downloaded the src tarball.
 
 If you want Ghostwriter in your applications folder, from the repo root do:
 ``` shell
-$ sudo cp ./build/release/ghostwriter.app /Applications
+$ sudo cp -R ./build/release/ghostwriter.app /Applications
 ```
 
 To use Ghostwriter from the command line (assuming `/usr/local/bin` is in your path and you've moved Ghostwriter to the `/Applications` folder):
