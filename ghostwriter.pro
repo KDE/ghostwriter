@@ -144,7 +144,7 @@ HEADERS += src/MainWindow.h \
     src/MarkdownTokenizer.h \
     src/EffectsMenuBar.h \
     src/TimeLabel.h \
-    src/LocaleDialog.h \ \
+    src/LocaleDialog.h \
     src/DocumentStatistics.h \
     src/DocumentStatisticsDisplay.h \
     src/find_dialog.h \
@@ -196,7 +196,7 @@ SOURCES += src/AppMain.cpp \
     src/MarkdownTokenizer.cpp \
     src/EffectsMenuBar.cpp \
     src/TimeLabel.cpp \
-    src/LocaleDialog.cpp \ \
+    src/LocaleDialog.cpp \
     src/DocumentStatistics.cpp \
     src/DocumentStatisticsDisplay.cpp \
     src/find_dialog.cpp \
