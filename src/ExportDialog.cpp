@@ -51,6 +51,7 @@ ExportDialog::ExportDialog(TextDocument* document, QWidget* parent)
     fileDialogWidget->setAcceptMode(QFileDialog::AcceptSave);
     fileDialogWidget->setFileMode(QFileDialog::AnyFile);
     fileDialogWidget->setWindowFlags(Qt::Widget);
+    fileDialogWidget->setOption(QFileDialog::DontUseNativeDialog, true);
 
     QList<QUrl> shortcutFolders;
 
