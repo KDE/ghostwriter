@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 #include <QPrinter>
 
 #include "MarkdownEditor.h"
+#include "DocumentStatistics.h"
 #include "TextDocument.h"
 
 class QFileSystemWatcher;
@@ -41,11 +42,14 @@ class DocumentManager : public QObject
     public:
         /**
          * Constructor.  Takes MarkdownEditor as a parameter, which is used
-         * to display the current document to the user.
+         * to display the current document to the user.  Also takes the
+         * document statistics as a parameter in order to reset the statistics
+         * when a new file is loaded.
          */
         DocumentManager
         (
             MarkdownEditor* editor,
+            DocumentStatistics* documentStats,
             QWidget* parent = 0
         );
 
@@ -208,6 +212,7 @@ class DocumentManager : public QObject
         QWidget* parentWidget;
         TextDocument* document;
         MarkdownEditor* editor;
+        DocumentStatistics* documentStats;
         QFutureWatcher<QString>* saveFutureWatcher;
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;

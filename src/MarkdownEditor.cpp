@@ -40,16 +40,12 @@
 
 #include "ColorHelper.h"
 #include "MarkdownEditor.h"
-#include "TextBlockData.h"
 #include "MarkdownStates.h"
 #include "MarkdownTokenizer.h"
 #include "GraphicsFadeEffect.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
-
-const int MarkdownEditor::HEADING_LEVEL_ROLE = Qt::UserRole + 1;
-const int MarkdownEditor::DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
 
 MarkdownEditor::MarkdownEditor
 (
@@ -87,8 +83,6 @@ MarkdownEditor::MarkdownEditor
     spellCheckEnabled = false;
     installEventFilter(this);
     viewport()->installEventFilter(this);
-    wordCount = 0;
-    lastBlockCount = 1;
     focusMode = FocusModeDisabled;
     insertSpacesForTabs = false;
     setTabulationWidth(4);
@@ -117,8 +111,7 @@ MarkdownEditor::MarkdownEditor
     autoMatchFilter.insert('`', true);
     autoMatchFilter.insert('<', true);
 
-    connect(this->document(), SIGNAL(contentsChange(int,int,int)), this, SLOT(onTextChanged(int,int,int)));
-    connect(this->document(), SIGNAL(blockCountChanged(int)), this, SLOT(onBlockCountChanged(int)));
+    connect(this->document(), SIGNAL(contentsChanged()), this, SLOT(onTextChanged()));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
 
@@ -1094,43 +1087,8 @@ void MarkdownEditor::suggestSpelling(QAction* action)
     }
 }
 
-void MarkdownEditor::onTextChanged(int position, int charsRemoved, int charsAdded)
+void MarkdownEditor::onTextChanged()
 {
-    Q_UNUSED(charsRemoved)
-
-    int startIndex = position;
-
-    if (startIndex < 0)
-    {
-        startIndex = 0;
-    }
-
-    int endIndex = position + charsAdded - 1;
-
-    if (endIndex < startIndex || endIndex >= document()->characterCount())
-    {
-        endIndex = startIndex;
-    }
-
-    // Update the word counts of affected blocks.  Note that there is no need to
-    // check for changes to section headings, since the Highlighter class will
-    // take care of this for us.
-    //
-    QTextBlock startBlock = document()->findBlock(startIndex);
-    QTextBlock endBlock = document()->findBlock(endIndex);
-
-    QTextBlock block = startBlock;
-
-    updateBlockWordCount(block);
-
-    while (block != endBlock)
-    {
-        block = block.next();
-        updateBlockWordCount(block);
-    }
-
-    emit wordCountChanged(wordCount);
-
     if (typingHasPaused)
     {
         typingHasPaused = false;
@@ -1139,33 +1097,22 @@ void MarkdownEditor::onTextChanged(int position, int charsRemoved, int charsAdde
     }
 }
 
-void MarkdownEditor::onBlockCountChanged(int newBlockCount)
-{
-    // If one or more blocks was deleted from the document, update
-    // both the word count and the section headings from scratch.
-    //
-    if (newBlockCount < lastBlockCount)
-    {
-        refreshWordCount();
-    }
-
-    lastBlockCount = newBlockCount;
-}
-
 void MarkdownEditor::onSelectionChanged()
 {
     QTextCursor cursor = this->textCursor();
 
-    // If text is selected, do a word count of the selected text.
     if (cursor.hasSelection())
     {
-        int selectionWordCount = this->countWords(cursor.selectedText());
-        emit wordCountChanged(selectionWordCount);
+        emit textSelected
+        (
+            cursor.selectedText(),
+            cursor.selectionStart(),
+            cursor.selectionEnd()
+        );
     }
-    // Else signal a word count of the full document.
     else
     {
-        emit wordCountChanged(wordCount);
+        emit textDeselected();
     }
 }
 
@@ -1313,48 +1260,6 @@ void MarkdownEditor::onCursorPositionChanged()
     }
 
     emit cursorPositionChanged(this->textCursor().position());
-}
-
-void MarkdownEditor::refreshWordCount()
-{
-    // For each block, update the word count.
-    QTextBlock block = document()->begin();
-    wordCount = 0;
-
-    TextBlockData* blockData = (TextBlockData*) block.userData();
-
-    if (NULL != blockData)
-    {
-        wordCount += blockData->wordCount;
-    }
-
-    while (block != document()->end())
-    {
-        block = block.next();
-        blockData = (TextBlockData*) block.userData();
-
-        if (NULL != blockData)
-        {
-            wordCount += blockData->wordCount;
-        }
-    }
-
-    emit wordCountChanged(wordCount);
-}
-
-void MarkdownEditor::updateBlockWordCount(QTextBlock& block)
-{
-    TextBlockData* blockData = (TextBlockData*) block.userData();
-
-    if (NULL == blockData)
-    {
-        blockData = new TextBlockData();
-        block.setUserData(blockData);
-    }
-
-    int oldWordCount = blockData->wordCount;
-    blockData->wordCount = countWords(block.text());
-    wordCount += blockData->wordCount - oldWordCount;
 }
 
 void MarkdownEditor::handleCarriageReturn()
@@ -1750,48 +1655,4 @@ QString MarkdownEditor::getPriorMarkdownBlockItemStart(QRegExp& itemRegex)
     }
 
     return QString("");
-}
-
-int MarkdownEditor::countWords(const QString& text)
-{
-    int count = 0;
-    bool inWord = false;
-    int separatorCount = 0;
-
-    for (int i = 0; i < text.length(); i++)
-    {
-        if (text[i].isLetterOrNumber())
-        {
-            inWord = true;
-            separatorCount = 0;
-        }
-        else if (text[i].isSpace() && inWord)
-        {
-            inWord = false;
-            count++;
-            separatorCount = 0;
-        }
-        else
-        {
-            // This is to handle things like double dashes (`--`)
-            // that separate words, while still counting hyphenated
-            // words as a single word.
-            //
-            separatorCount++;
-
-            if ((separatorCount > 1) && inWord)
-            {
-                separatorCount = 0;
-                inWord = false;
-                count++;
-            }
-        }
-    }
-
-    if (inWord)
-    {
-        count++;
-    }
-
-    return count;
 }

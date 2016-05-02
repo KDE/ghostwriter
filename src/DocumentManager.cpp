@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,11 +56,12 @@ const QString DocumentManager::FILE_CHOOSER_FILTER =
 DocumentManager::DocumentManager
 (
     MarkdownEditor* editor,
+    DocumentStatistics* documentStats,
     QWidget* parent
 )
     : QObject(parent), parentWidget(parent), editor(editor),
-        fileHistoryEnabled(true), createBackupOnSave(true),
-        saveInProgress(false)
+        documentStats(documentStats), fileHistoryEnabled(true),
+        createBackupOnSave(true), saveInProgress(false)
 {
     saveFutureWatcher = new QFutureWatcher<QString>(this);
 
@@ -410,6 +411,7 @@ bool DocumentManager::close()
         document->setReadOnly(false);
         setFilePath(QString());
         document->setModified(false);
+        documentStats->refreshStatistics();
 
         if (fileHistoryEnabled && !documentIsNew)
         {
@@ -600,6 +602,7 @@ bool DocumentManager::loadFile(const QString& filePath)
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
     document->setPlainText("");
+    documentStats->refreshStatistics();
 
     QTextCursor cursor(document);
     cursor.setPosition(0);

@@ -92,13 +92,13 @@ class Outline : public QListWidget
             int charsAdded
         );
 
-        /*
+        /**
          * Inserts heading text into the outline for the given heading level
          * and document position.
          */
         void insertHeadingIntoOutline(int position, int level, const QString heading);
 
-        /*
+        /**
          * Removes heading having the given document position from the outline.
          */
         void removeHeadingFromOutline(int position);
@@ -111,6 +111,9 @@ class Outline : public QListWidget
         void onOutlineHeadingSelected(QListWidgetItem* item);
 
     private:
+        static const int HEADING_LEVEL_ROLE;
+        static const int DOCUMENT_POS_ROLE;
+
         int currentPosition;
 
         /*
