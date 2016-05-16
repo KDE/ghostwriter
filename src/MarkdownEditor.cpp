@@ -1412,6 +1412,28 @@ bool MarkdownEditor::handleBackspaceKey()
             }
             break;
         default:
+            // If the first character in an automatched set is being
+            // deleted, then delete the second matching one along with it.
+            //
+            if (autoMatchEnabled && (cursor.positionInBlock() > 0))
+            {
+                QString blockText = cursor.block().text();
+                QChar currentChar = blockText[cursor.positionInBlock()];
+                QChar previousChar = blockText[cursor.positionInBlock() - 1];
+
+                if (markupPairs[previousChar] == currentChar)
+                {
+                    cursor.movePosition(QTextCursor::Left);
+                    cursor.movePosition
+                    (
+                        QTextCursor::Right,
+                        QTextCursor::KeepAnchor,
+                        2
+                    );
+                    cursor.removeSelectedText();
+                    return true;
+                }
+            }
             break;
     }
 
