@@ -17,17 +17,17 @@
  *
  ***********************************************************************/
 
-#ifndef DOCUMENTSTATISTICSDISPLAY_H
-#define DOCUMENTSTATISTICSDISPLAY_H
+#ifndef DOCUMENTSTATISTICSWIDGET_H
+#define DOCUMENTSTATISTICSWIDGET_H
 
-#include <QListWidget>
+#include "AbstractStatisticsWidget.h"
 
 class QLabel;
 
 /**
  * Widget to display document statistics
  */
-class DocumentStatisticsDisplay : public QListWidget
+class DocumentStatisticsWidget : public AbstractStatisticsWidget
 {
     Q_OBJECT
 
@@ -35,12 +35,12 @@ class DocumentStatisticsDisplay : public QListWidget
         /**
          * Constructor.
          */
-        DocumentStatisticsDisplay(QWidget* parent = NULL);
+        DocumentStatisticsWidget(QWidget* parent = NULL);
 
         /**
          * Destructor.
          */
-        virtual ~DocumentStatisticsDisplay();
+        virtual ~DocumentStatisticsWidget();
 
     public slots:
         /**
@@ -89,7 +89,6 @@ class DocumentStatisticsDisplay : public QListWidget
         void setReadabilityIndex(int value);
 
     private:
-        static const QString LESS_THAN_ONE_MINUTE_STR;
         static const QString VERY_EASY_READING_EASE_STR;
         static const QString EASY_READING_EASE_STR;
         static const QString MEDIUM_READING_EASE_STR;
@@ -109,13 +108,6 @@ class DocumentStatisticsDisplay : public QListWidget
 
         // Coleman-Liau readability index (CLI)
         QLabel* cliLabel;
-
-        QLabel* addStatisticLabel
-        (
-            const QString& description,
-            const QString& initialValue,
-            const QString& toolTip = QString()
-        );
 };
 
 #endif // DOCUMENTSTATISTICSDISPLAY_H

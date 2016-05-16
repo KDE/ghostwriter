@@ -27,6 +27,7 @@
 
 #include "MarkdownEditor.h"
 #include "DocumentStatistics.h"
+#include "SessionStatistics.h"
 #include "TextDocument.h"
 
 class QFileSystemWatcher;
@@ -50,6 +51,7 @@ class DocumentManager : public QObject
         (
             MarkdownEditor* editor,
             DocumentStatistics* documentStats,
+            SessionStatistics* sessionStats,
             QWidget* parent = 0
         );
 
@@ -213,6 +215,7 @@ class DocumentManager : public QObject
         TextDocument* document;
         MarkdownEditor* editor;
         DocumentStatistics* documentStats;
+        SessionStatistics* sessionStats;
         QFutureWatcher<QString>* saveFutureWatcher;
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;

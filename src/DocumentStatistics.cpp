@@ -42,6 +42,11 @@ DocumentStatistics::~DocumentStatistics()
 
 }
 
+int DocumentStatistics::getWordCount() const
+{
+    return wordCount;
+}
+
 void DocumentStatistics::refreshStatistics()
 {
     // For each block, update the word count.
@@ -148,18 +153,18 @@ void DocumentStatistics::onTextChanged(int position, int charsRemoved, int chars
 {
     Q_UNUSED(charsRemoved)
 
-    int startIndex = position;
+    int startIndex = position - charsRemoved;
 
     if (startIndex < 0)
     {
         startIndex = 0;
     }
 
-    int endIndex = position + charsAdded - 1;
+    int endIndex = position + charsAdded;
 
-    if (endIndex < startIndex || endIndex >= document->characterCount())
+    if ((endIndex < startIndex) || (endIndex >= document->characterCount()))
     {
-        endIndex = startIndex;
+        endIndex = document->characterCount() - 1;
     }
 
     // Update the word counts of affected blocks.  Note that there is no need to
@@ -198,6 +203,7 @@ void DocumentStatistics::onBlockCountChanged(int newBlockCount)
 void DocumentStatistics::updateStatistics()
 {
     emit wordCountChanged(wordCount);
+    emit totalWordCountChanged(wordCount);
     emit characterCountChanged(document->characterCount() - 1);
     emit sentenceCountChanged(sentenceCount);
     emit paragraphCountChanged(paragraphCount);

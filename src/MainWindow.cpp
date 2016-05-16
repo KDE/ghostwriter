@@ -66,16 +66,20 @@
 #include "SimpleFontDialog.h"
 #include "LocaleDialog.h"
 #include "DocumentStatistics.h"
-#include "DocumentStatisticsDisplay.h"
+#include "DocumentStatisticsWidget.h"
+#include "SessionStatistics.h"
+#include "SessionStatisticsWidget.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
 #define GW_OUTLINE_HUD_GEOMETRY_KEY "HUD/outlineHudGeometry"
 #define GW_CHEAT_SHEET_HUD_GEOMETRY_KEY "HUD/cheatSheetHudGeometry"
 #define GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY "HUD/documentStatisticsHudGeometry"
+#define GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY "HUD/sessionStatisticsHudGeometry"
 #define GW_OUTLINE_HUD_OPEN_KEY "HUD/outlineHudOpen"
 #define GW_CHEAT_SHEET_HUD_OPEN_KEY "HUD/cheatSheetHudOpen"
 #define GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY "HUD/documentStatisticsHudOpen"
+#define GW_SESSION_STATISTICS_HUD_OPEN_KEY "HUD/sessionStatisticsHudOpen"
 #define GW_HTML_PREVIEW_GEOMETRY_KEY "Preview/htmlPreviewGeometry"
 #define GW_HTML_PREVIEW_OPEN "Preview/htmlPreviewOpen"
 
@@ -138,7 +142,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetHud->setCentralWidget(cheatSheetWidget);
     cheatSheetHud->setButtonLayout(appSettings->getHudButtonLayout());
 
-    documentStatsWidget = new DocumentStatisticsDisplay();
+    documentStatsWidget = new DocumentStatisticsWidget();
     documentStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     documentStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
     documentStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
@@ -147,6 +151,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     documentStatsHud->setWindowTitle(tr("Document Statistics"));
     documentStatsHud->setCentralWidget(documentStatsWidget);
     documentStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
+
+    sessionStatsWidget =new SessionStatisticsWidget();
+    sessionStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
+    sessionStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+    sessionStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
+    sessionStatsHud = new HudWindow(this);
+    sessionStatsHud->setWindowTitle(tr("Session Statistics"));
+    sessionStatsHud->setCentralWidget(sessionStatsWidget);
+    sessionStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
 
     TextDocument* document = new TextDocument();
 
@@ -194,7 +208,17 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(editor, SIGNAL(textSelected(QString,int,int)), documentStats, SLOT(onTextSelected(QString,int,int)));
     connect(editor, SIGNAL(textDeselected()), documentStats, SLOT(onTextDeselected()));
 
-    documentManager = new DocumentManager(editor, documentStats, this);
+    sessionStats = new SessionStatistics(this);
+    connect(documentStats, SIGNAL(totalWordCountChanged(int)), sessionStats, SLOT(onDocumentWordCountChanged(int)));
+    connect(sessionStats, SIGNAL(wordCountChanged(int)), sessionStatsWidget, SLOT(setWordCount(int)));
+    connect(sessionStats, SIGNAL(pageCountChanged(int)), sessionStatsWidget, SLOT(setPageCount(int)));
+    connect(sessionStats, SIGNAL(wordsPerMinuteChanged(int)), sessionStatsWidget, SLOT(setWordsPerMinute(int)));
+    connect(sessionStats, SIGNAL(writingTimeChanged(int)), sessionStatsWidget, SLOT(setWritingTime(int)));
+    connect(sessionStats, SIGNAL(idleTimePercentageChanged(int)), sessionStatsWidget, SLOT(setIdleTime(int)));
+    connect(editor, SIGNAL(typingPaused()), sessionStats, SLOT(onTypingPaused()));
+    connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
+
+    documentManager = new DocumentManager(editor, documentStats, sessionStats, this);
     documentManager->setAutoSaveEnabled(appSettings->getAutoSaveEnabled());
     documentManager->setFileBackupEnabled(appSettings->getBackupFileEnabled());
     documentManager->setFileHistoryEnabled(appSettings->getFileHistoryEnabled());
@@ -386,6 +410,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         documentStatsHud->adjustSize();
     }
 
+    if (windowSettings.contains(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY))
+    {
+        sessionStatsHud->restoreGeometry(windowSettings.value(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY).toByteArray());
+    }
+    else
+    {
+        sessionStatsHud->move(400, 400);
+        sessionStatsHud->adjustSize();
+    }
+
     if (windowSettings.contains(GW_HTML_PREVIEW_GEOMETRY_KEY))
     {
         htmlPreview->restoreGeometry(windowSettings.value(GW_HTML_PREVIEW_GEOMETRY_KEY).toByteArray());
@@ -412,6 +446,11 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     if (windowSettings.value(GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY, QVariant(false)).toBool())
     {
         documentStatsHud->show();
+    }
+
+    if (windowSettings.value(GW_SESSION_STATISTICS_HUD_OPEN_KEY, QVariant(false)).toBool())
+    {
+        sessionStatsHud->show();
     }
 
     if (windowSettings.value(GW_HTML_PREVIEW_OPEN, QVariant(false)).toBool())
@@ -527,6 +566,8 @@ void MainWindow::quitApplication()
         windowSettings.setValue(GW_CHEAT_SHEET_HUD_OPEN_KEY, QVariant(cheatSheetHud->isVisible()));
         windowSettings.setValue(GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY, documentStatsHud->saveGeometry());
         windowSettings.setValue(GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY, QVariant(documentStatsHud->isVisible()));
+        windowSettings.setValue(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY, sessionStatsHud->saveGeometry());
+        windowSettings.setValue(GW_SESSION_STATISTICS_HUD_OPEN_KEY, QVariant(sessionStatsHud->isVisible()));
         windowSettings.setValue(GW_HTML_PREVIEW_GEOMETRY_KEY, htmlPreview->saveGeometry());
         windowSettings.setValue(GW_HTML_PREVIEW_OPEN, QVariant(htmlPreview->isVisible()));
         windowSettings.sync();
@@ -642,6 +683,7 @@ void MainWindow::toggleOutlineAlternateRowColors(bool checked)
     outlineWidget->setAlternatingRowColors(checked);
     cheatSheetWidget->setAlternatingRowColors(checked);
     documentStatsWidget->setAlternatingRowColors(checked);
+    sessionStatsWidget->setAlternatingRowColors(checked);
     appSettings->setAlternateHudRowColorsEnabled(checked);
     applyTheme();
 }
@@ -716,6 +758,7 @@ void MainWindow::toggleDesktopCompositingEffects(bool checked)
     outlineHud->setDesktopCompositingEnabled(checked);
     cheatSheetHud->setDesktopCompositingEnabled(checked);
     documentStatsHud->setDesktopCompositingEnabled(checked);
+    sessionStatsHud->setDesktopCompositingEnabled(checked);
 }
 
 void MainWindow::insertImage()
@@ -804,6 +847,7 @@ void MainWindow::changeHudButtonLayout(QAction* action)
     this->outlineHud->setButtonLayout(layout);
     this->cheatSheetHud->setButtonLayout(layout);
     this->documentStatsHud->setButtonLayout(layout);
+    this->sessionStatsHud->setButtonLayout(layout);
     appSettings->setHudButtonLayout(layout);
 }
 
@@ -892,6 +936,12 @@ void MainWindow::showDocumentStatisticsHud()
 {
     documentStatsHud->show();
     documentStatsHud->activateWindow();
+}
+
+void MainWindow::showSessionStatisticsHud()
+{
+    sessionStatsHud->show();
+    sessionStatsHud->activateWindow();
 }
 
 void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
@@ -1132,6 +1182,8 @@ void MainWindow::changeHudOpacity(int value)
     cheatSheetHud->update();
     documentStatsHud->setBackgroundColor(color);
     documentStatsHud->update();
+    sessionStatsHud->setBackgroundColor(color);
+    sessionStatsHud->update();
 
     appSettings->setHudOpacity(value);
 }
@@ -1341,6 +1393,7 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(tr("&Outline HUD"), this, SLOT(showOutlineHud()), QKeySequence("CTRL+L"));
     viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()));
     viewMenu->addAction(tr("&Document Statistics HUD"), this, SLOT(showDocumentStatisticsHud()));
+    viewMenu->addAction(tr("&Session Statistics HUD"), this, SLOT(showSessionStatisticsHud()));
     viewMenu->addSeparator();
 
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
@@ -1545,6 +1598,7 @@ void MainWindow::buildMenuBar()
     outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
     cheatSheetWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
     documentStatsWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
+    sessionStatsWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
 
     QMenu* hudButtonLayoutMenu = new QMenu(tr("HUD Window Button Layout"));
     QActionGroup* hudButtonLayoutGroup = new QActionGroup(this);
@@ -1573,6 +1627,7 @@ void MainWindow::buildMenuBar()
     outlineHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     cheatSheetHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     documentStatsHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
+    sessionStatsHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     connect(desktopCompositingAction, SIGNAL(toggled(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
     settingsMenu->addAction(desktopCompositingAction);
 
@@ -1976,6 +2031,8 @@ void MainWindow::applyTheme()
     cheatSheetHud->setBackgroundColor(alphaHudBackgroundColor);
     documentStatsHud->setForegroundColor(theme.getHudForegroundColor());
     documentStatsHud->setBackgroundColor(alphaHudBackgroundColor);
+    sessionStatsHud->setForegroundColor(theme.getHudForegroundColor());
+    sessionStatsHud->setBackgroundColor(alphaHudBackgroundColor);
 
     // Style the outline itself.
     alphaHudBackgroundColor.setAlpha(0);
@@ -1986,6 +2043,8 @@ void MainWindow::applyTheme()
     alphaHudSelectionColor.setAlpha(200);
     QString hudSelectionFgString = ColorHelper::toRgbString(theme.getHudBackgroundColor());
     QString hudSelectionBgString = ColorHelper::toRgbaString(alphaHudSelectionColor);
+
+    int hudFontSize = cheatSheetWidget->font().pointSize();
 
     // Important!  For QListWidget (used in Outline HUD), set
     // QListWidget { outline: none } for the style sheet to get rid of the
@@ -1998,7 +2057,9 @@ void MainWindow::applyTheme()
         stream << "QListWidget { outline: none; border: 0; padding: 1; background-color: transparent; color: "
                << hudFgString
                << "; alternate-background-color: rgba(255, 255, 255, 50)"
-               << " } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: "
+               << "; font-size: "
+               << hudFontSize
+               << "pt } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: "
                << "rgba(0, 0, 0, 10)"
                << " } QListWidget::item:alternate { padding: 1; margin: 0; background-color: "
                << "rgba(255, 255, 255, 10)"
@@ -2014,7 +2075,9 @@ void MainWindow::applyTheme()
     {
         stream << "QListWidget { outline: none; border: 0; padding: 1; background-color: transparent; color: "
                << hudFgString
-               << " } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: transparent } "
+               << "; font-size: "
+               << hudFontSize
+               << "pt  } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: transparent } "
                << "QListWidget::item:selected { border-radius: 3px; color: "
                << hudSelectionFgString
                << "; background-color: "
@@ -2023,7 +2086,10 @@ void MainWindow::applyTheme()
             ;
     }
 
-    stream << "QLabel { border: 0; padding: 0; margin: 0; background-color: transparent; } "
+    stream << "QLabel { border: 0; padding: 0; margin: 0; background-color: transparent; "
+           << "font-size: "
+           << hudFontSize
+           << "pt } "
            << "QScrollBar::horizontal { border: 0; background: transparent; height: 10px; margin: 0 } "
            << "QScrollBar::handle:horizontal { border: 0; background: "
            << hudFgString
@@ -2040,6 +2106,7 @@ void MainWindow::applyTheme()
     outlineWidget->setStyleSheet(styleSheet);
     cheatSheetWidget->setStyleSheet(styleSheet);
     documentStatsWidget->setStyleSheet(styleSheet);
+    sessionStatsWidget->setStyleSheet(styleSheet);
 
     editor->setupPaperMargins(this->width());
 }

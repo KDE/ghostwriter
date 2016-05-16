@@ -41,11 +41,23 @@ class DocumentStatistics : public QObject
          */
         virtual ~DocumentStatistics();
 
+        /**
+         * Gets the word count of the document.
+         */
+        int getWordCount() const;
+
     signals:
         /**
-         * Emitted when word count changes.
+         * Emitted when word count changes.  May be word count
+         * of entire document or of selected text.
          */
         void wordCountChanged(int value);
+
+        /**
+         * Emitted when word count changes.  The value is
+         * always the word count of the entire document.
+         */
+        void totalWordCountChanged(int value);
 
         /**
          * Emitted when character count changes.
@@ -125,7 +137,8 @@ class DocumentStatistics : public QObject
         QTextDocument* document;
         int lastBlockCount;
 
-        int wordCount;
+        int wordCount; // may be count of selected text only or entire document
+        int totalWordCount; // word count of entire document
 
         // Count of characters that are "word" characters.
         int wordCharacterCount;

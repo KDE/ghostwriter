@@ -52,7 +52,9 @@ class DocumentManager;
 class MarkdownHighlighter;
 class Outline;
 class DocumentStatistics;
-class DocumentStatisticsDisplay;
+class DocumentStatisticsWidget;
+class SessionStatistics;
+class SessionStatisticsWidget;
 
 /**
  * Main window for the application.
@@ -98,6 +100,7 @@ class MainWindow : public QMainWindow
         void showOutlineHud();
         void showCheatSheetHud();
         void showDocumentStatisticsHud();
+        void showSessionStatisticsHud();
         void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);
@@ -136,8 +139,11 @@ class MainWindow : public QMainWindow
         Outline* outlineWidget;
         HudWindow* cheatSheetHud;
         HudWindow* documentStatsHud;
+        HudWindow* sessionStatsHud;
         DocumentStatistics* documentStats;
-        DocumentStatisticsDisplay* documentStatsWidget;
+        DocumentStatisticsWidget* documentStatsWidget;
+        SessionStatistics* sessionStats;
+        SessionStatisticsWidget* sessionStatsWidget;
         QListWidget* cheatSheetWidget;
         QImage originalBackgroundImage;
         QImage adjustedBackgroundImage;

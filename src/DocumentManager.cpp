@@ -57,11 +57,13 @@ DocumentManager::DocumentManager
 (
     MarkdownEditor* editor,
     DocumentStatistics* documentStats,
+    SessionStatistics* sessionStats,
     QWidget* parent
 )
     : QObject(parent), parentWidget(parent), editor(editor),
-        documentStats(documentStats), fileHistoryEnabled(true),
-        createBackupOnSave(true), saveInProgress(false)
+        documentStats(documentStats), sessionStats(sessionStats),
+        fileHistoryEnabled(true), createBackupOnSave(true),
+        saveInProgress(false)
 {
     saveFutureWatcher = new QFutureWatcher<QString>(this);
 
@@ -412,6 +414,7 @@ bool DocumentManager::close()
         setFilePath(QString());
         document->setModified(false);
         documentStats->refreshStatistics();
+        sessionStats->startNewSession(0);
 
         if (fileHistoryEnabled && !documentIsNew)
         {
@@ -681,6 +684,7 @@ bool DocumentManager::loadFile(const QString& filePath)
     QApplication::restoreOverrideCursor();
 
     editor->centerCursor();
+    sessionStats->startNewSession(documentStats->getWordCount());
 
     return true;
 }
