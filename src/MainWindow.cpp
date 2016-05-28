@@ -592,6 +592,18 @@ void MainWindow::showFindReplaceDialog()
     findReplaceDialog->show();
 }
 
+void MainWindow::toggleHemingwayMode(bool checked)
+{
+    if (checked)
+    {
+        editor->setHemingWayModeEnabled(true);
+    }
+    else
+    {
+        editor->setHemingWayModeEnabled(false);
+    }
+}
+
 void MainWindow::toggleFocusMode(bool checked)
 {
     if (checked)
@@ -602,7 +614,6 @@ void MainWindow::toggleFocusMode(bool checked)
     {
         editor->setFocusMode(FocusModeDisabled);
     }
-
 }
 
 void MainWindow::toggleFullscreen(bool checked)
@@ -632,6 +643,7 @@ void MainWindow::toggleFullscreen(bool checked)
         {
             if (appSettings->getDisplayTimeInFullScreenEnabled())
             {
+                statusBarLayout->removeWidget(timeLabel);
                 timeLabel->hide();
             }
 
@@ -654,6 +666,7 @@ void MainWindow::toggleFullscreen(bool checked)
         {
             if (appSettings->getDisplayTimeInFullScreenEnabled())
             {
+                statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
                 timeLabel->show();
             }
 
@@ -731,10 +744,12 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
     {
         if (checked)
         {
+            statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
             this->timeLabel->show();
         }
         else
         {
+            statusBarLayout->removeWidget(timeLabel);
             this->timeLabel->hide();
         }
     }
@@ -1080,6 +1095,9 @@ void MainWindow::changeDocumentDisplayName(const QString& displayName)
 void MainWindow::onOperationStarted(const QString& description)
 {
     statusLabel->setText(description);
+    statusBarLayout->removeWidget(wordCountLabel);
+    statusBarLayout->addWidget(statusLabel, 0, 1, Qt::AlignCenter);
+    wordCountLabel->hide();
     statusLabel->show();
     this->update();
     qApp->processEvents();
@@ -1088,7 +1106,10 @@ void MainWindow::onOperationStarted(const QString& description)
 void MainWindow::onOperationFinished()
 {
     statusLabel->setText(QString());
+    statusBarLayout->removeWidget(statusLabel);
+    wordCountLabel->show();
     statusLabel->hide();
+    statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     this->update();
     qApp->processEvents();
 }
@@ -1655,12 +1676,10 @@ void MainWindow::buildMenuBar()
 void MainWindow::buildStatusBar()
 {
     statusBarWidget = new QFrame();
-    QGridLayout* statusBarLayout = new QGridLayout(statusBarWidget);
+    statusBarLayout = new QGridLayout(statusBarWidget);
 
     statusLabel = new QLabel();
-    statusBarLayout->addWidget(statusLabel, 0, 0, Qt::AlignLeft);
-    statusBarLayout->setColumnStretch(0, 0);
-    statusLabel->setStyleSheet("color: white; background-color: black; border-radius: 5px; padding: 3px");
+    statusLabel->setStyleSheet("color: white; background-color: rgba(0, 0, 0, 200); border-radius: 5px; padding: 3px");
     statusLabel->hide();
 
     wordCountLabel = new QLabel();
@@ -1672,12 +1691,24 @@ void MainWindow::buildStatusBar()
     statusBarLayout->setColumnStretch(1, 1);
 
     timeLabel = new TimeLabel(this);
-    statusBar()->addPermanentWidget(timeLabel);
 
-    if (!this->isFullScreen() || !appSettings->getDisplayTimeInFullScreenEnabled())
+    if (this->isFullScreen() && !appSettings->getDisplayTimeInFullScreenEnabled())
+    {
+        statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
+    }
+    else
     {
         timeLabel->hide();
     }
+
+    statusBarLayout->setColumnStretch(0, 0);
+
+    QPushButton* hemingwayModeButton = new QPushButton(tr("Hemingway"));
+    hemingwayModeButton->setFocusPolicy(Qt::NoFocus);
+    hemingwayModeButton->setToolTip(tr("Toggle Hemingway mode"));
+    hemingwayModeButton->setCheckable(true);
+    connect(hemingwayModeButton, SIGNAL(toggled(bool)), this, SLOT(toggleHemingwayMode(bool)));
+    statusBar()->addPermanentWidget(hemingwayModeButton);
 
     QPushButton* focusModeButton = new QPushButton(tr("Focus"));
     focusModeButton->setFocusPolicy(Qt::NoFocus);
@@ -1709,6 +1740,8 @@ void MainWindow::buildStatusBar()
     statusBarLayout->setColumnMinimumWidth
     (
         0,
+        hemingwayModeButton->sizeHint().width()
+        +
         focusModeButton->sizeHint().width()
         +
         fullScreenButton->sizeHint().width()

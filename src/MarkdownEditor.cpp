@@ -83,6 +83,7 @@ MarkdownEditor::MarkdownEditor
     spellCheckEnabled = false;
     installEventFilter(this);
     viewport()->installEventFilter(this);
+    hemingwayModeEnabled = false;
     focusMode = FocusModeDisabled;
     insertSpacesForTabs = false;
     setTabulationWidth(4);
@@ -159,6 +160,19 @@ void MarkdownEditor::setDictionary(const DictionaryRef& dictionary)
 QLayout* MarkdownEditor::getPreferredLayout()
 {
     return preferredLayout;
+}
+
+bool MarkdownEditor::getHemingwayModeEnabled() const
+{
+    return hemingwayModeEnabled;
+}
+
+/**
+ * Sets whether Hemingway mode is enabled.
+ */
+void MarkdownEditor::setHemingWayModeEnabled(bool enabled)
+{
+    hemingwayModeEnabled = enabled;
 }
 
 FocusMode MarkdownEditor::getFocusMode()
@@ -392,10 +406,19 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
                 QPlainTextEdit::keyPressEvent(e);
             }
             break;
-        case Qt::Key_Backspace:
-            if (!handleBackspaceKey())
+        case Qt::Key_Delete:
+            if (!hemingwayModeEnabled)
             {
                 QPlainTextEdit::keyPressEvent(e);
+            }
+            break;
+        case Qt::Key_Backspace:
+            if (!hemingwayModeEnabled)
+            {
+                if (!handleBackspaceKey())
+                {
+                    QPlainTextEdit::keyPressEvent(e);
+                }
             }
             break;
         case Qt::Key_Tab:

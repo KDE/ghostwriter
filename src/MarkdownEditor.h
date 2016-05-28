@@ -77,6 +77,16 @@ class MarkdownEditor : public QPlainTextEdit
         QLayout* getPreferredLayout();
 
         /**
+         * Gets whether Hemingway mode is enabled.
+         */
+        bool getHemingwayModeEnabled() const;
+
+        /**
+         * Sets whether Hemingway mode is enabled.
+         */
+        void setHemingWayModeEnabled(bool enabled);
+
+        /**
          * Gets the current focus mode.
          */
         FocusMode getFocusMode();
@@ -330,6 +340,7 @@ class MarkdownEditor : public QPlainTextEdit
         bool autoMatchEnabled;
         bool bulletPointCyclingEnabled;
         QList<QAction*> spellingActions;
+        bool hemingwayModeEnabled;
         FocusMode focusMode;
         QBrush fadeColor;
         EditorAspect aspect;

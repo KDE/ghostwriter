@@ -78,6 +78,7 @@ class MainWindow : public QMainWindow
         void quitApplication();
         void changeTheme();
         void showFindReplaceDialog();
+        void toggleHemingwayMode(bool checked);
         void toggleFocusMode(bool checked);
         void toggleFullscreen(bool checked);
         void toggleHideMenuBarInFullScreen(bool checked);
@@ -127,7 +128,10 @@ class MainWindow : public QMainWindow
         ThemeFactory* themeFactory;
         Theme theme;
         QString language;
+        QGridLayout* statusBarLayout;
         QLabel* wordCountLabel;
+        QLabel* statusLabel;
+        TimeLabel* timeLabel;
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;
@@ -148,10 +152,8 @@ class MainWindow : public QMainWindow
         QImage originalBackgroundImage;
         QImage adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;
-        QLabel* statusLabel;
         QDialog* hudOpacityDialog = NULL;
         QAction* recentFilesActions[MAX_RECENT_FILES];
-        TimeLabel* timeLabel;
         EffectsMenuBar* effectsMenuBar;
 
         Exporter* exporter;
