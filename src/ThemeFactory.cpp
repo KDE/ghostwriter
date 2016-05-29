@@ -71,16 +71,16 @@ ThemeFactory::~ThemeFactory()
 void ThemeFactory::loadLightTheme()
 {
     Theme theme(LIGHT_THEME_NAME);
-    theme.setBackgroundColor("#f7f7f7");
+    theme.setBackgroundColor("#eff0f1");
     theme.setBackgroundImageAspect(PictureAspectNone);
-    theme.setHudBackgroundColor("#252525");
-    theme.setHudForegroundColor("#e3e3e3");
+    theme.setHudBackgroundColor("#31363b");
+    theme.setHudForegroundColor("#eff0f1");
     theme.setEditorCorners(EditorCornersSquare);
     theme.setEditorAspect(EditorAspectStretch);
-    theme.setEditorBackgroundColor("#f7f7f7");
-    theme.setDefaultTextColor("#252525");
-    theme.setMarkupColor("#ababab");
-    theme.setLinkColor("#2d87c2");
+    theme.setEditorBackgroundColor("#eff0f1");
+    theme.setDefaultTextColor("#31363b");
+    theme.setMarkupColor("#b7b8bb");
+    theme.setLinkColor("#448fc1");
     theme.setSpellingErrorColor("red");
 
     builtInThemes.append(theme);
@@ -89,16 +89,16 @@ void ThemeFactory::loadLightTheme()
 void ThemeFactory::loadDarkTheme()
 {
     Theme theme(DARK_THEME_NAME);
-    theme.setBackgroundColor("#252525");
+    theme.setBackgroundColor("#151719");
     theme.setBackgroundImageAspect(PictureAspectNone);
-    theme.setHudBackgroundColor("#2f3c41");
-    theme.setHudForegroundColor("#e3e3e3");
+    theme.setHudBackgroundColor("#152f3d");
+    theme.setHudForegroundColor("#a6a8aa");
     theme.setEditorCorners(EditorCornersSquare);
     theme.setEditorAspect(EditorAspectStretch);
-    theme.setEditorBackgroundColor("#252525");
-    theme.setDefaultTextColor("#b9b9b9");
-    theme.setMarkupColor("#686868");
-    theme.setLinkColor("#50879e");
+    theme.setEditorBackgroundColor("#151719");
+    theme.setDefaultTextColor("#a6a8aa");
+    theme.setMarkupColor("#5f6163");
+    theme.setLinkColor("#448fc1");
     theme.setSpellingErrorColor("red");
 
     builtInThemes.append(theme);
