@@ -554,6 +554,13 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
             for (int i = 0; i < suggestions.size(); i++)
             {
                 QAction* suggestionAction = new QAction(suggestions[i], this);
+
+                // Need the following line because KDE Plasma 5 will insert a hidden ampersand
+                // into the menu text as a keyboard accelerator.  Go off of the data in the
+                // QAction rather than the text to avoid this.
+                //
+                suggestionAction->setData(suggestions[i]);
+
                 spellingActions.append(suggestionAction);
                 popupMenu->insertAction(firstAction, suggestionAction);
             }
@@ -1106,7 +1113,7 @@ void MarkdownEditor::suggestSpelling(QAction* action)
     }
     else if (spellingActions.contains(action))
     {
-        cursorForWord.insertText(action->text());
+        cursorForWord.insertText(action->data().toString());
     }
 }
 
