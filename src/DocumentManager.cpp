@@ -623,9 +623,26 @@ bool DocumentManager::loadFile(const QString& filePath)
 
     QString text = inStream.read(2048L);
 
+    int count = 0;
+
     while (!text.isNull())
     {
         cursor.insertText(text);
+
+        // Front load enough text to show the beginning of the document
+        // in the editor, and emit the operationUpdate signal to ensure
+        // the GUI is updated to show the front-loaded text.
+        //
+        // Don't put in too much text, or else the application will not
+        // be able to open the document as quickly.
+        //
+        if (count < 5)
+        {
+            editor->navigateDocument(0);
+            emit operationUpdate();
+        }
+
+        count++;
         text = inStream.read(2048L);
     }
 

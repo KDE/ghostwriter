@@ -227,6 +227,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(documentManager, SIGNAL(documentDisplayNameChanged(QString)), this, SLOT(changeDocumentDisplayName(QString)));
     connect(documentManager, SIGNAL(documentModifiedChanged(bool)), this, SLOT(setWindowModified(bool)));
     connect(documentManager, SIGNAL(operationStarted(QString)), this, SLOT(onOperationStarted(QString)));
+    connect(documentManager, SIGNAL(operationUpdate(QString)), this, SLOT(onOperationStarted(QString)));
     connect(documentManager, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
     connect(documentManager, SIGNAL(documentClosed()), this, SLOT(refreshRecentFiles()));
 
@@ -465,6 +466,9 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     //
     applyTheme();
 
+    this->update();
+    qApp->processEvents();
+
     if (!fileToOpen.isNull() && !fileToOpen.isEmpty())
     {
         documentManager->open(fileToOpen);
@@ -535,6 +539,7 @@ void MainWindow::paintEvent(QPaintEvent* event)
     }
 
     painter.end();
+
     QMainWindow::paintEvent(event);
 }
 
@@ -1095,7 +1100,11 @@ void MainWindow::changeDocumentDisplayName(const QString& displayName)
 
 void MainWindow::onOperationStarted(const QString& description)
 {
-    statusLabel->setText(description);
+    if (!description.isNull())
+    {
+        statusLabel->setText(description);
+    }
+
     statusBarLayout->removeWidget(wordCountLabel);
     statusBarLayout->addWidget(statusLabel, 0, 1, Qt::AlignCenter);
     wordCountLabel->hide();
@@ -1680,7 +1689,6 @@ void MainWindow::buildStatusBar()
     statusBarLayout = new QGridLayout(statusBarWidget);
 
     statusLabel = new QLabel();
-    statusLabel->setStyleSheet("color: white; background-color: rgba(0, 0, 0, 200); border-radius: 5px; padding: 3px");
     statusLabel->hide();
 
     wordCountLabel = new QLabel();
@@ -2019,6 +2027,7 @@ void MainWindow::applyTheme()
 
     setStyleSheet(styleSheet);
 
+
     // Make the word count and focus mode button font size
     // match the menu bar's font size, since on Windows using
     // the default QLabel and QPushButton font sizes results in
@@ -2051,6 +2060,18 @@ void MainWindow::applyTheme()
         ;
 
     statusBar()->setStyleSheet(styleSheet);
+
+    styleSheet = "";
+
+    stream
+        << "color: "
+        << statusBarButtonFgPressHoverColorRGB
+        << "; background-color: "
+        << statusBarButtonBgPressHoverColorRGBA
+        << "; border-radius: 5px; padding: 3px"
+        ;
+
+    statusLabel->setStyleSheet(styleSheet);
 
     styleSheet = "";
 

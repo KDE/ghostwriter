@@ -106,6 +106,21 @@ class DocumentManager : public QObject
         void operationStarted(const QString& description);
 
         /**
+         * Emitted to update the status of a document operation begun with
+         * operationStarted(). The description is optional.  If no
+         * description is provided, then the previous description used in
+         * operationStarted() should be used to display status to the user.
+         * Upon receipt of this signal, it is recommended that the GUI
+         * be updated to refresh the status as well as the editor and
+         * any other widgets that might have changed due to a document
+         * operation, so that those changes can be displayed to the user.
+         *
+         * A call to QWidget's update() and qApp->processEvents() will
+         * perform this refresh.
+         */
+        void operationUpdate(const QString& description = QString());
+
+        /**
          * Emitted when an operation on the document has finished, such as
          * when a document has finished loading into the editor either from
          * being opened or reloaded from disk.  Connect to this signal to notify
