@@ -1774,7 +1774,7 @@ void MainWindow::applyTheme()
     QString styleSheet;
     QTextStream stream(&styleSheet);
 
-    QColor scrollBarColor(theme.getDefaultTextColor());
+    QColor scrollBarColor = theme.getDefaultTextColor();
     scrollBarColor.setAlpha(100);
     scrollBarColor =
         ColorHelper::applyAlpha
@@ -1784,6 +1784,17 @@ void MainWindow::applyTheme()
         );
 
     QString scrollbarColorRGB = ColorHelper::toRgbString(scrollBarColor);
+
+    QColor scrollBarHoverColor = theme.getDefaultTextColor();
+    scrollBarHoverColor.setAlpha(150);
+    scrollBarHoverColor =
+        ColorHelper::applyAlpha
+        (
+            scrollBarHoverColor,
+            theme.getEditorBackgroundColor()
+        );
+
+    QString scrollBarHoverRGB = ColorHelper::toRgbString(scrollBarHoverColor);
 
     QString backgroundColorRGBA;
 
@@ -1934,6 +1945,12 @@ void MainWindow::applyTheme()
         << "QScrollBar::handle:vertical { border: 0; background: "
         << scrollbarColorRGB
         << "; min-height: 50px; border-radius: 5px;} "
+        << "QScrollBar::handle:vertical:hover { background: "
+        << scrollBarHoverRGB
+        << " } "
+        << "QScrollBar::handle:horizontal:hover { background: "
+        << scrollBarHoverRGB
+        << " } "
         << "QScrollBar::add-line { background: transparent; border: 0 } "
         << "QScrollBar::sub-line { background: transparent; border: 0 } "
         ;
