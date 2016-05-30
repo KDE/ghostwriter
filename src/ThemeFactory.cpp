@@ -79,9 +79,9 @@ void ThemeFactory::loadLightTheme()
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#eff0f1");
     theme.setDefaultTextColor("#31363b");
-    theme.setMarkupColor("#b7b8bb");
-    theme.setLinkColor("#448fc1");
-    theme.setSpellingErrorColor("red");
+    theme.setMarkupColor("#bdc3c7");
+    theme.setLinkColor("#2980b9");
+    theme.setSpellingErrorColor("#da4453");
 
     builtInThemes.append(theme);
 }
@@ -91,15 +91,15 @@ void ThemeFactory::loadDarkTheme()
     Theme theme(DARK_THEME_NAME);
     theme.setBackgroundColor("#151719");
     theme.setBackgroundImageAspect(PictureAspectNone);
-    theme.setHudBackgroundColor("#152f3d");
-    theme.setHudForegroundColor("#a6a8aa");
+    theme.setHudBackgroundColor("#152F3D");
+    theme.setHudForegroundColor("#bdc3c7");
     theme.setEditorCorners(EditorCornersSquare);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#151719");
-    theme.setDefaultTextColor("#a6a8aa");
-    theme.setMarkupColor("#5f6163");
-    theme.setLinkColor("#448fc1");
-    theme.setSpellingErrorColor("red");
+    theme.setDefaultTextColor("#bdc3c7");
+    theme.setMarkupColor("#575b5f");
+    theme.setLinkColor("#5f8eb1");
+    theme.setSpellingErrorColor("#da4453");
 
     builtInThemes.append(theme);
 }
