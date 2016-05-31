@@ -315,11 +315,11 @@ void DocumentManager::rename()
 
 bool DocumentManager::save()
 {
-    if (document->isNew())
+    if (document->isNew() || !checkPermissionsBeforeSave())
     {
         return saveAs();
     }
-    else if (checkPermissionsBeforeSave())
+    else
     {
         document->setModified(false);
         emit documentModifiedChanged(false);
@@ -808,7 +808,7 @@ bool DocumentManager::checkPermissionsBeforeSave()
 
         if (QMessageBox::No == response)
         {
-            return saveAs();
+            return false;
         }
         else
         {
