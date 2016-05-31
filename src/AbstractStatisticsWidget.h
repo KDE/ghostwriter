@@ -23,8 +23,15 @@
 #include <QListWidget>
 #include <QLabel>
 
+/**
+ * Abstract class to layout statistics data into a QListWidget.
+ * This class is inherited by DocumentStatisticsWidget and
+ * SessionStatisticsWidget.
+ */
 class AbstractStatisticsWidget : public QListWidget
 {
+    Q_OBJECT
+
     public:
         AbstractStatisticsWidget(QWidget* parent = NULL);
         virtual ~AbstractStatisticsWidget();
