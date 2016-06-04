@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ja_JP">
+<TS version="2.1" language="ja_JP">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="69"/>
         <source>%1h %2m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1時間 %2分</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="73"/>
         <source>%1m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1分</translation>
     </message>
 </context>
 <context>
@@ -131,72 +131,72 @@
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Words:</source>
-        <translation type="unfinished"></translation>
+        <translation>単語:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Characters:</source>
-        <translation type="unfinished"></translation>
+        <translation>文字:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Sentences:</source>
-        <translation type="unfinished"></translation>
+        <translation>文:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Paragraphs:</source>
-        <translation type="unfinished"></translation>
+        <translation>段落:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="43"/>
         <source>Pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>ページ:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="44"/>
         <source>Complex Words:</source>
-        <translation type="unfinished"></translation>
+        <translation>複合語:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="45"/>
         <source>Reading Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>読了時間:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="46"/>
         <source>Reading Ease:</source>
-        <translation type="unfinished"></translation>
+        <translation>読みやすさ:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="46"/>
         <source>LIX Reading Ease</source>
-        <translation type="unfinished"></translation>
+        <translation>LIX Reading Ease</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="47"/>
         <source>Grade Level:</source>
-        <translation type="unfinished"></translation>
+        <translation>学年レベル:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="47"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation type="unfinished"></translation>
+        <translation>Coleman-Liau Readability Index (CLI)</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Kindergarten</source>
-        <translation type="unfinished"></translation>
+        <translation>幼稚園</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
         <source>Rocket Science</source>
-        <translation type="unfinished"></translation>
+        <translation>ロケット科学</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="124"/>
         <source>College</source>
-        <translation type="unfinished"></translation>
+        <translation>大学</translation>
     </message>
 </context>
 <context>
@@ -477,7 +477,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="135"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
-        <translation type="unfinished"></translation>
+        <translation>[リンク](http://url.com &quot;タイトル&quot;)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="136"/>
@@ -487,7 +487,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="137"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>[ID]: http://url.com &quot;参照の定義&quot;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="138"/>
@@ -507,12 +507,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="152"/>
         <source>Document Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>文書の詳細</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="162"/>
         <source>Session Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>セッションの詳細</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="799"/>
@@ -809,12 +809,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1426"/>
         <source>&amp;Document Statistics HUD</source>
-        <translation type="unfinished"></translation>
+        <translation>文書の詳細 HUD(&amp;D)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1427"/>
         <source>&amp;Session Statistics HUD</source>
-        <translation type="unfinished"></translation>
+        <translation>セッションの詳細 HUD(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1430"/>
@@ -1029,12 +1029,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1715"/>
         <source>Hemingway</source>
-        <translation type="unfinished"></translation>
+        <translation>ヘミングウェイ</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1717"/>
         <source>Toggle Hemingway mode</source>
-        <translation type="unfinished"></translation>
+        <translation>ヘミングウェイ モードの切り替え</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1722"/>
@@ -1198,42 +1198,42 @@
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="25"/>
         <source>&amp;lt; 1m</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;lt; 1分</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
         <source>&amp;lt; 1</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;lt; 1</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="29"/>
         <source>250 words per page</source>
-        <translation type="unfinished"></translation>
+        <translation>1ページ250語と想定</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="26"/>
         <source>Very Easy</source>
-        <translation type="unfinished"></translation>
+        <translation>とても読みやすい</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
         <source>Easy</source>
-        <translation type="unfinished"></translation>
+        <translation>読みやすい</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>普通</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="32"/>
         <source>Difficult</source>
-        <translation type="unfinished"></translation>
+        <translation>読みにくい</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Very Difficult</source>
-        <translation type="unfinished"></translation>
+        <translation>とても読みにくい</translation>
     </message>
 </context>
 <context>
@@ -1241,27 +1241,27 @@
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="25"/>
         <source>Words Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>執筆語:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="26"/>
         <source>Pages Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>執筆ページ:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="27"/>
         <source>Average WPM:</source>
-        <translation type="unfinished"></translation>
+        <translation>平均WPM:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="28"/>
         <source>Total Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>合計時間:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="29"/>
         <source>Idle Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>入力待ち時間:</translation>
     </message>
 </context>
 <context>
