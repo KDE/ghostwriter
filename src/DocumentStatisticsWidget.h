@@ -89,11 +89,11 @@ class DocumentStatisticsWidget : public AbstractStatisticsWidget
         void setReadabilityIndex(int value);
 
     private:
-        static const QString VERY_EASY_READING_EASE_STR;
-        static const QString EASY_READING_EASE_STR;
-        static const QString MEDIUM_READING_EASE_STR;
-        static const QString DIFFICULT_READING_EASE_STR;
-        static const QString VERY_DIFFICULT_READING_EASE_STR;
+        const QString VERY_EASY_READING_EASE_STR;
+        const QString EASY_READING_EASE_STR;
+        const QString MEDIUM_READING_EASE_STR;
+        const QString DIFFICULT_READING_EASE_STR;
+        const QString VERY_DIFFICULT_READING_EASE_STR;
 
         QLabel* wordCountLabel;
         QLabel* characterCountLabel;

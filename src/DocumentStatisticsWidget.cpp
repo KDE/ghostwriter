@@ -22,19 +22,14 @@
 
 #include "DocumentStatisticsWidget.h"
 
-const QString DocumentStatisticsWidget::VERY_EASY_READING_EASE_STR =
-    QObject::tr("Very Easy");
-const QString DocumentStatisticsWidget::EASY_READING_EASE_STR =
-    QObject::tr("Easy");
-const QString DocumentStatisticsWidget::MEDIUM_READING_EASE_STR =
-    QObject::tr("Standard");
-const QString DocumentStatisticsWidget::DIFFICULT_READING_EASE_STR =
-    QObject::tr("Difficult");
-const QString DocumentStatisticsWidget::VERY_DIFFICULT_READING_EASE_STR =
-    QObject::tr("Very Difficult");
-
 DocumentStatisticsWidget::DocumentStatisticsWidget(QWidget* parent)
-    : AbstractStatisticsWidget(parent)
+    : AbstractStatisticsWidget(parent),
+      VERY_EASY_READING_EASE_STR(tr("Very Easy")),
+      EASY_READING_EASE_STR(tr("Easy")),
+      MEDIUM_READING_EASE_STR(tr("Standard")),
+      DIFFICULT_READING_EASE_STR(tr("Difficult")),
+      VERY_DIFFICULT_READING_EASE_STR(tr("Very Difficult"))
+
 {
     wordCountLabel = addStatisticLabel(tr("Words:"), "0");
     characterCountLabel = addStatisticLabel(tr("Characters:"), "0");
@@ -45,6 +40,7 @@ DocumentStatisticsWidget::DocumentStatisticsWidget(QWidget* parent)
     readingTimeLabel = addStatisticLabel(tr("Reading Time:"), LESS_THAN_ONE_MINUTE_STR);
     lixReadingEaseLabel = addStatisticLabel(tr("Reading Ease:"), VERY_EASY_READING_EASE_STR, tr("LIX Reading Ease"));
     cliLabel = addStatisticLabel(tr("Grade Level:"), "0", tr("Coleman-Liau Readability Index (CLI)"));
+
 }
 
 DocumentStatisticsWidget::~DocumentStatisticsWidget()

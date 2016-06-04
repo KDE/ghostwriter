@@ -37,9 +37,9 @@ class AbstractStatisticsWidget : public QListWidget
         virtual ~AbstractStatisticsWidget();
 
     protected:
-        static const QString LESS_THAN_ONE_MINUTE_STR;
-        static const QString LESS_THAN_ONE_STR;
-        static const QString PAGE_STATISTIC_INFO_TOOLTIP_STR;
+        const QString LESS_THAN_ONE_MINUTE_STR;
+        const QString LESS_THAN_ONE_STR;
+        const QString PAGE_STATISTIC_INFO_TOOLTIP_STR;
 
         /**
          * Sets the text of the given value label to be an integer.

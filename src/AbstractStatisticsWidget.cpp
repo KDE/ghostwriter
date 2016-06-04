@@ -21,15 +21,11 @@
 
 #include "AbstractStatisticsWidget.h"
 
-const QString AbstractStatisticsWidget::LESS_THAN_ONE_MINUTE_STR =
-    QObject::tr("&lt; 1m");
-const QString AbstractStatisticsWidget::LESS_THAN_ONE_STR =
-    QObject::tr("&lt; 1");
-const QString AbstractStatisticsWidget::PAGE_STATISTIC_INFO_TOOLTIP_STR =
-    QObject::tr("250 words per page");
-
 AbstractStatisticsWidget::AbstractStatisticsWidget(QWidget* parent)
-    : QListWidget(parent)
+    : QListWidget(parent),
+      LESS_THAN_ONE_MINUTE_STR(tr("&lt; 1m")),
+      LESS_THAN_ONE_STR(tr("&lt; 1")),
+      PAGE_STATISTIC_INFO_TOOLTIP_STR(tr("250 words per page"))
 {
 
 }

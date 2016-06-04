@@ -4,12 +4,27 @@
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="69"/>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="26"/>
+        <source>&amp;lt; 1m</source>
+        <translation>&amp;lt; 1分</translation>
+    </message>
+    <message>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
+        <source>&amp;lt; 1</source>
+        <translation>&amp;lt; 1</translation>
+    </message>
+    <message>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
+        <source>250 words per page</source>
+        <translation>1ページ250語と想定</translation>
+    </message>
+    <message>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="65"/>
         <source>%1h %2m</source>
         <translation>%1時間 %2分</translation>
     </message>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="73"/>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="69"/>
         <source>%1m</source>
         <translation>%1分</translation>
     </message>
@@ -129,72 +144,97 @@
 <context>
     <name>DocumentStatisticsWidget</name>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="27"/>
+        <source>Very Easy</source>
+        <translation>とても読みやすい</translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
+        <source>Easy</source>
+        <translation>読みやすい</translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="29"/>
+        <source>Standard</source>
+        <translation>普通</translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
+        <source>Difficult</source>
+        <translation>読みにくい</translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="31"/>
+        <source>Very Difficult</source>
+        <translation>とても読みにくい</translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Words:</source>
         <translation>単語:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="35"/>
         <source>Characters:</source>
         <translation>文字:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="36"/>
         <source>Sentences:</source>
         <translation>文:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="37"/>
         <source>Paragraphs:</source>
         <translation>段落:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="43"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="38"/>
         <source>Pages:</source>
         <translation>ページ:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="44"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Complex Words:</source>
         <translation>複合語:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="45"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Reading Time:</source>
         <translation>読了時間:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="46"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Reading Ease:</source>
         <translation>読みやすさ:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="46"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>LIX Reading Ease</source>
         <translation>LIX Reading Ease</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="47"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Grade Level:</source>
         <translation>学年レベル:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="47"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
         <translation>Coleman-Liau Readability Index (CLI)</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="112"/>
         <source>Kindergarten</source>
         <translation>幼稚園</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Rocket Science</source>
         <translation>ロケット科学</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="124"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
         <source>College</source>
         <translation>大学</translation>
     </message>
@@ -469,10 +509,6 @@
         <location filename="../src/MainWindow.cpp" line="134"/>
         <source>``` Code Block</source>
         <translation>``` コード ブロック</translation>
-    </message>
-    <message>
-        <source>[Link](http://url.com &quot;Title&quot;]</source>
-        <translation>[リンク](http://url.com &quot;タイトル&quot;]</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="135"/>
@@ -1194,46 +1230,6 @@
         <location filename="../src/ThemeFactory.cpp" line="659"/>
         <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
         <translation>%1 は範囲外の値です。有効な値は %2 から %3 までの範囲です。</translation>
-    </message>
-    <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="25"/>
-        <source>&amp;lt; 1m</source>
-        <translation>&amp;lt; 1分</translation>
-    </message>
-    <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
-        <source>&amp;lt; 1</source>
-        <translation>&amp;lt; 1</translation>
-    </message>
-    <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="29"/>
-        <source>250 words per page</source>
-        <translation>1ページ250語と想定</translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="26"/>
-        <source>Very Easy</source>
-        <translation>とても読みやすい</translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
-        <source>Easy</source>
-        <translation>読みやすい</translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
-        <source>Standard</source>
-        <translation>普通</translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="32"/>
-        <source>Difficult</source>
-        <translation>読みにくい</translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
-        <source>Very Difficult</source>
-        <translation>とても読みにくい</translation>
     </message>
 </context>
 <context>

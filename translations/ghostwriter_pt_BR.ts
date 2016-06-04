@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pt_BR">
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="69"/>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="26"/>
+        <source>&amp;lt; 1m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
+        <source>&amp;lt; 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
+        <source>250 words per page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="65"/>
         <source>%1h %2m</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="73"/>
+        <location filename="../src/AbstractStatisticsWidget.cpp" line="69"/>
         <source>%1m</source>
         <translation type="unfinished"></translation>
     </message>
@@ -129,72 +144,97 @@
 <context>
     <name>DocumentStatisticsWidget</name>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="27"/>
+        <source>Very Easy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
+        <source>Easy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="29"/>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
+        <source>Difficult</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="31"/>
+        <source>Very Difficult</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Words:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="35"/>
         <source>Characters:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="36"/>
         <source>Sentences:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="37"/>
         <source>Paragraphs:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="43"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="38"/>
         <source>Pages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="44"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Complex Words:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="45"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Reading Time:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="46"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Reading Ease:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="46"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>LIX Reading Ease</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="47"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Grade Level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="47"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="112"/>
         <source>Kindergarten</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Rocket Science</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="124"/>
+        <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
         <source>College</source>
         <translation type="unfinished"></translation>
     </message>
@@ -472,10 +512,6 @@
         <translation>``` Bloco de Código</translation>
     </message>
     <message>
-        <source>[Link](http://url.com &quot;Title&quot;]</source>
-        <translation>[Ligação](http://url.com &quot;Título&quot;)</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="136"/>
         <source>[Reference Link][ID]</source>
         <translation>[Ligação para Referência][ID]</translation>
@@ -606,7 +642,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="135"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
-        <translation type="unfinished"></translation>
+        <translation>[Ligação](http://url.com &quot;Título&quot;)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="137"/>
@@ -1073,13 +1109,6 @@
     </message>
 </context>
 <context>
-    <name>Outline</name>
-    <message>
-        <source>    </source>
-        <translation>    </translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <location filename="../src/CommandLineExporter.cpp" line="92"/>
@@ -1203,46 +1232,6 @@
         <location filename="../src/ThemeFactory.cpp" line="659"/>
         <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
         <translation>O valor para %1 está fora dos limites.  Valores válidos são entre %2 e %3, inclusive.</translation>
-    </message>
-    <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="25"/>
-        <source>&amp;lt; 1m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
-        <source>&amp;lt; 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="29"/>
-        <source>250 words per page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="26"/>
-        <source>Very Easy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
-        <source>Easy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
-        <source>Standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="32"/>
-        <source>Difficult</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
-        <source>Very Difficult</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
