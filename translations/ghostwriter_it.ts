@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.0" language="it_IT">
 <context>
     <name>DictionaryDialog</name>
     <message>
@@ -321,17 +321,17 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/LocaleDialog.cpp" line="37"/>
         <source>Select Application Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Selezionare La Lingua Per L&apos;Applicazione</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="48"/>
         <source>Translations folder is missing</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartella delle traduzioni non trovata (&quot;translations&quot;)</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="49"/>
         <source>Please reinstall this application for more locale options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se desideri più lingue tra cui scegliere, sei pregato di reinstallare l&apos;applicazione.</translation>
     </message>
 </context>
 <context>
@@ -519,12 +519,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1032"/>
         <source>Restart required</source>
-        <translation type="unfinished"></translation>
+        <translation>Riavvio necessario</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1033"/>
         <source>Please restart the application for changes to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Affinché le modifiche abbiano effetto, è necessario riavviare l&apos;applicazione.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1045"/>
@@ -534,7 +534,8 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Matched Characters</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>da verificare!</translatorcomment>
+        <translation>Caratteri Accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1199"/>
@@ -553,7 +554,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Ope&amp;n Recent...</source>
-        <translation type="vanished">File &amp;Recenti…</translation>
+        <translation>File &amp;Recenti…</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1205"/>
@@ -579,17 +580,17 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>&amp;Rename...</source>
-        <translation type="vanished">R&amp;inomina</translation>
+        <translation>R&amp;inomina</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1204"/>
         <source>Open &amp;Recent...</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri File &amp;Recenti...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1221"/>
         <source>R&amp;ename...</source>
-        <translation type="unfinished"></translation>
+        <translation>R&amp;inomina</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1222"/>
@@ -870,7 +871,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1386"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi la barra menù in modalità schermo intero</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1393"/>
@@ -890,7 +891,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1413"/>
         <source>Customize Matched Characters...</source>
-        <translation type="unfinished"></translation>
+        <translation>Personalizza Caratteri Accoppiabili...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1416"/>
@@ -900,7 +901,8 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1423"/>
         <source>Display Current Time in Full Screen Mode</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>da verificare!</translatorcomment>
+        <translation>Mostra l&apos;Ora in Modalità Schemo Intero</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1431"/>
@@ -915,7 +917,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1439"/>
         <source>Locale...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingua...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1443"/>
@@ -945,26 +947,27 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1476"/>
         <source>Alternate Row Colors in HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterna i Colori delle Righe negli HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1484"/>
         <source>HUD Window Button Layout</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>da verificare!</translatorcomment>
+        <translation>Posizione del Pulsante nell&apos;HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1488"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinistra</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1494"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Destra</translation>
     </message>
     <message>
         <source>Alternate Row Colors in Outline HUD</source>
-        <translation type="vanished">Alterna il Colore delle Righe negli HUD</translation>
+        <translation>Alterna il Colore delle Righe negli HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1505"/>
@@ -1018,17 +1021,17 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <source>border-image: url(%1) 0 0 0 0 stretch stretch; </source>
         <translatorcomment>NOTA: Sembra un riferimento ad una risorsa immagine interna -- meglio lasciare com&apos;è!</translatorcomment>
-        <translation type="vanished">border-image: url(%1) 0 0 0 0 stretch stretch; </translation>
+        <translation>border-image: url(%1) 0 0 0 0 stretch stretch; </translation>
     </message>
     <message>
         <source>background-image: url(%1); </source>
         <translatorcomment>NOTA: Sembra un riferimento ad una risorsa immagine interna -- meglio lasciare com&apos;è!</translatorcomment>
-        <translation type="vanished">background-image: url(%1); </translation>
+        <translation>background-image: url(%1); </translation>
     </message>
     <message>
         <source>background-image: url(%1); background-repeat: no-repeat; background-position: center; </source>
         <translatorcomment>NOTA: Sembra un riferimento ad una risorsa immagine interna -- meglio lasciare com&apos;è!</translatorcomment>
-        <translation type="vanished">background-image: url(%1); background-repeat: no-repeat; background-position: center; </translation>
+        <translation>background-image: url(%1); background-repeat: no-repeat; background-position: center; </translation>
     </message>
 </context>
 <context>
@@ -1053,7 +1056,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <source>
 </source>
-        <translation type="vanished">
+        <translation>
 </translation>
     </message>
 </context>
