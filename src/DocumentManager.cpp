@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,9 +56,12 @@ const QString DocumentManager::FILE_CHOOSER_FILTER =
 DocumentManager::DocumentManager
 (
     MarkdownEditor* editor,
+    DocumentStatistics* documentStats,
+    SessionStatistics* sessionStats,
     QWidget* parent
 )
     : QObject(parent), parentWidget(parent), editor(editor),
+        documentStats(documentStats), sessionStats(sessionStats),
         fileHistoryEnabled(true), createBackupOnSave(true),
         saveInProgress(false)
 {
@@ -312,11 +315,11 @@ void DocumentManager::rename()
 
 bool DocumentManager::save()
 {
-    if (document->isNew())
+    if (document->isNew() || !checkPermissionsBeforeSave())
     {
         return saveAs();
     }
-    else if (checkPermissionsBeforeSave())
+    else
     {
         document->setModified(false);
         emit documentModifiedChanged(false);
@@ -410,6 +413,8 @@ bool DocumentManager::close()
         document->setReadOnly(false);
         setFilePath(QString());
         document->setModified(false);
+        documentStats->refreshStatistics();
+        sessionStats->startNewSession(0);
 
         if (fileHistoryEnabled && !documentIsNew)
         {
@@ -600,6 +605,7 @@ bool DocumentManager::loadFile(const QString& filePath)
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
     document->setPlainText("");
+    documentStats->refreshStatistics();
 
     QTextCursor cursor(document);
     cursor.setPosition(0);
@@ -617,9 +623,26 @@ bool DocumentManager::loadFile(const QString& filePath)
 
     QString text = inStream.read(2048L);
 
+    int count = 0;
+
     while (!text.isNull())
     {
         cursor.insertText(text);
+
+        // Front load enough text to show the beginning of the document
+        // in the editor, and emit the operationUpdate signal to ensure
+        // the GUI is updated to show the front-loaded text.
+        //
+        // Don't put in too much text, or else the application will not
+        // be able to open the document as quickly.
+        //
+        if (count < 5)
+        {
+            editor->navigateDocument(0);
+            emit operationUpdate();
+        }
+
+        count++;
         text = inStream.read(2048L);
     }
 
@@ -678,6 +701,7 @@ bool DocumentManager::loadFile(const QString& filePath)
     QApplication::restoreOverrideCursor();
 
     editor->centerCursor();
+    sessionStats->startNewSession(documentStats->getWordCount());
 
     return true;
 }
@@ -784,7 +808,7 @@ bool DocumentManager::checkPermissionsBeforeSave()
 
         if (QMessageBox::No == response)
         {
-            return saveAs();
+            return false;
         }
         else
         {

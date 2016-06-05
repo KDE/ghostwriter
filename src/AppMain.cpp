@@ -27,6 +27,10 @@
 
 int main(int argc, char* argv[])
 {
+#if QT_VERSION >= 0x050600
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
     QApplication app(argc, argv);
 
     // Call this to force settings initialization before the application

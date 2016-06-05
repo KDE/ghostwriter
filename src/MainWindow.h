@@ -47,9 +47,14 @@ class QSettings;
 class QFileSystemWatcher;
 class QTextBrowser;
 class QCheckBox;
+class QListWidget;
 class DocumentManager;
 class MarkdownHighlighter;
 class Outline;
+class DocumentStatistics;
+class DocumentStatisticsWidget;
+class SessionStatistics;
+class SessionStatisticsWidget;
 
 /**
  * Main window for the application.
@@ -73,6 +78,7 @@ class MainWindow : public QMainWindow
         void quitApplication();
         void changeTheme();
         void showFindReplaceDialog();
+        void toggleHemingwayMode(bool checked);
         void toggleFocusMode(bool checked);
         void toggleFullscreen(bool checked);
         void toggleHideMenuBarInFullScreen(bool checked);
@@ -94,6 +100,8 @@ class MainWindow : public QMainWindow
         void showQuickReferenceGuide();
         void showOutlineHud();
         void showCheatSheetHud();
+        void showDocumentStatisticsHud();
+        void showSessionStatisticsHud();
         void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);
@@ -120,7 +128,10 @@ class MainWindow : public QMainWindow
         ThemeFactory* themeFactory;
         Theme theme;
         QString language;
+        QGridLayout* statusBarLayout;
         QLabel* wordCountLabel;
+        QLabel* statusLabel;
+        TimeLabel* timeLabel;
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;
@@ -131,14 +142,18 @@ class MainWindow : public QMainWindow
         HudWindow* outlineHud;
         Outline* outlineWidget;
         HudWindow* cheatSheetHud;
+        HudWindow* documentStatsHud;
+        HudWindow* sessionStatsHud;
+        DocumentStatistics* documentStats;
+        DocumentStatisticsWidget* documentStatsWidget;
+        SessionStatistics* sessionStats;
+        SessionStatisticsWidget* sessionStatsWidget;
         QListWidget* cheatSheetWidget;
         QImage originalBackgroundImage;
         QImage adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;
-        QLabel* statusLabel;
         QDialog* hudOpacityDialog = NULL;
         QAction* recentFilesActions[MAX_RECENT_FILES];
-        TimeLabel* timeLabel;
         EffectsMenuBar* effectsMenuBar;
 
         Exporter* exporter;

@@ -49,6 +49,7 @@
 #include <QDesktopServices>
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
+#include <QFormLayout>
 
 #include "MainWindow.h"
 #include "ThemeFactory.h"
@@ -64,13 +65,21 @@
 #include "MessageBoxHelper.h"
 #include "SimpleFontDialog.h"
 #include "LocaleDialog.h"
+#include "DocumentStatistics.h"
+#include "DocumentStatisticsWidget.h"
+#include "SessionStatistics.h"
+#include "SessionStatisticsWidget.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
 #define GW_OUTLINE_HUD_GEOMETRY_KEY "HUD/outlineHudGeometry"
 #define GW_CHEAT_SHEET_HUD_GEOMETRY_KEY "HUD/cheatSheetHudGeometry"
+#define GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY "HUD/documentStatisticsHudGeometry"
+#define GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY "HUD/sessionStatisticsHudGeometry"
 #define GW_OUTLINE_HUD_OPEN_KEY "HUD/outlineHudOpen"
 #define GW_CHEAT_SHEET_HUD_OPEN_KEY "HUD/cheatSheetHudOpen"
+#define GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY "HUD/documentStatisticsHudOpen"
+#define GW_SESSION_STATISTICS_HUD_OPEN_KEY "HUD/sessionStatisticsHudOpen"
 #define GW_HTML_PREVIEW_GEOMETRY_KEY "Preview/htmlPreviewGeometry"
 #define GW_HTML_PREVIEW_OPEN "Preview/htmlPreviewOpen"
 
@@ -106,6 +115,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     //
     cheatSheetWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     cheatSheetWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+    cheatSheetWidget->setSelectionMode(QAbstractItemView::NoSelection);
 
     cheatSheetWidget->addItem(tr("# Heading 1"));
     cheatSheetWidget->addItem(tr("## Heading 2"));
@@ -122,8 +132,9 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetWidget->addItem(tr("> Block Quote"));
     cheatSheetWidget->addItem(tr("`Code Span`"));
     cheatSheetWidget->addItem(tr("``` Code Block"));
-    cheatSheetWidget->addItem(tr("[Link](http://url.com \"Title\"]"));
+    cheatSheetWidget->addItem(tr("[Link](http://url.com \"Title\")"));
     cheatSheetWidget->addItem(tr("[Reference Link][ID]"));
+    cheatSheetWidget->addItem(tr("[ID]: http://url.com \"Reference Definition\""));
     cheatSheetWidget->addItem(tr("![Image][./image.jpg \"Title\"]"));
     cheatSheetWidget->addItem(tr("--- *** ___ Horizontal Rule"));
 
@@ -131,6 +142,26 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetHud->setWindowTitle(tr("Cheat Sheet"));
     cheatSheetHud->setCentralWidget(cheatSheetWidget);
     cheatSheetHud->setButtonLayout(appSettings->getHudButtonLayout());
+
+    documentStatsWidget = new DocumentStatisticsWidget();
+    documentStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
+    documentStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+    documentStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
+    documentStatsHud = new HudWindow(this);
+    documentStatsHud->setWindowTitle(tr("Document Statistics"));
+    documentStatsHud->setCentralWidget(documentStatsWidget);
+    documentStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
+
+    sessionStatsWidget =new SessionStatisticsWidget();
+    sessionStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
+    sessionStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+    sessionStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
+    sessionStatsHud = new HudWindow(this);
+    sessionStatsHud->setWindowTitle(tr("Session Statistics"));
+    sessionStatsHud->setCentralWidget(sessionStatsWidget);
+    sessionStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
 
     TextDocument* document = new TextDocument();
 
@@ -165,7 +196,30 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
 
-    documentManager = new DocumentManager(editor, this);
+    documentStats = new DocumentStatistics(editor->document(), this);
+    connect(documentStats, SIGNAL(wordCountChanged(int)), documentStatsWidget, SLOT(setWordCount(int)));
+    connect(documentStats, SIGNAL(characterCountChanged(int)), documentStatsWidget, SLOT(setCharacterCount(int)));
+    connect(documentStats, SIGNAL(sentenceCountChanged(int)), documentStatsWidget, SLOT(setSentenceCount(int)));
+    connect(documentStats, SIGNAL(paragraphCountChanged(int)), documentStatsWidget, SLOT(setParagraphCount(int)));
+    connect(documentStats, SIGNAL(pageCountChanged(int)), documentStatsWidget, SLOT(setPageCount(int)));
+    connect(documentStats, SIGNAL(complexWordsChanged(int)), documentStatsWidget, SLOT(setComplexWords(int)));
+    connect(documentStats, SIGNAL(readingTimeChanged(int)), documentStatsWidget, SLOT(setReadingTime(int)));
+    connect(documentStats, SIGNAL(lixReadingEaseChanged(int)), documentStatsWidget, SLOT(setLixReadingEase(int)));
+    connect(documentStats, SIGNAL(readabilityIndexChanged(int)), documentStatsWidget, SLOT(setReadabilityIndex(int)));
+    connect(editor, SIGNAL(textSelected(QString,int,int)), documentStats, SLOT(onTextSelected(QString,int,int)));
+    connect(editor, SIGNAL(textDeselected()), documentStats, SLOT(onTextDeselected()));
+
+    sessionStats = new SessionStatistics(this);
+    connect(documentStats, SIGNAL(totalWordCountChanged(int)), sessionStats, SLOT(onDocumentWordCountChanged(int)));
+    connect(sessionStats, SIGNAL(wordCountChanged(int)), sessionStatsWidget, SLOT(setWordCount(int)));
+    connect(sessionStats, SIGNAL(pageCountChanged(int)), sessionStatsWidget, SLOT(setPageCount(int)));
+    connect(sessionStats, SIGNAL(wordsPerMinuteChanged(int)), sessionStatsWidget, SLOT(setWordsPerMinute(int)));
+    connect(sessionStats, SIGNAL(writingTimeChanged(int)), sessionStatsWidget, SLOT(setWritingTime(int)));
+    connect(sessionStats, SIGNAL(idleTimePercentageChanged(int)), sessionStatsWidget, SLOT(setIdleTime(int)));
+    connect(editor, SIGNAL(typingPaused()), sessionStats, SLOT(onTypingPaused()));
+    connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
+
+    documentManager = new DocumentManager(editor, documentStats, sessionStats, this);
     documentManager->setAutoSaveEnabled(appSettings->getAutoSaveEnabled());
     documentManager->setFileBackupEnabled(appSettings->getBackupFileEnabled());
     documentManager->setFileHistoryEnabled(appSettings->getFileHistoryEnabled());
@@ -173,6 +227,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(documentManager, SIGNAL(documentDisplayNameChanged(QString)), this, SLOT(changeDocumentDisplayName(QString)));
     connect(documentManager, SIGNAL(documentModifiedChanged(bool)), this, SLOT(setWindowModified(bool)));
     connect(documentManager, SIGNAL(operationStarted(QString)), this, SLOT(onOperationStarted(QString)));
+    connect(documentManager, SIGNAL(operationUpdate(QString)), this, SLOT(onOperationStarted(QString)));
     connect(documentManager, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
     connect(documentManager, SIGNAL(documentClosed()), this, SLOT(refreshRecentFiles()));
 
@@ -194,7 +249,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     findReplaceDialog = new FindDialog(editor);
     findReplaceDialog->setModal(false);
-    connect(findReplaceDialog, SIGNAL(replaceAllComplete()), editor, SLOT(refreshWordCount()));
+    connect(findReplaceDialog, SIGNAL(replaceAllComplete()), documentStats, SLOT(refreshStatistics()));
 
     QStringList recentFiles;
 
@@ -289,7 +344,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     connect
     (
-        editor,
+        documentStats,
         SIGNAL(wordCountChanged(int)),
         this,
         SLOT(updateWordCount(int))
@@ -347,6 +402,26 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         cheatSheetHud->adjustSize();
     }
 
+    if (windowSettings.contains(GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY))
+    {
+        documentStatsHud->restoreGeometry(windowSettings.value(GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY).toByteArray());
+    }
+    else
+    {
+        documentStatsHud->move(400, 400);
+        documentStatsHud->adjustSize();
+    }
+
+    if (windowSettings.contains(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY))
+    {
+        sessionStatsHud->restoreGeometry(windowSettings.value(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY).toByteArray());
+    }
+    else
+    {
+        sessionStatsHud->move(400, 400);
+        sessionStatsHud->adjustSize();
+    }
+
     if (windowSettings.contains(GW_HTML_PREVIEW_GEOMETRY_KEY))
     {
         htmlPreview->restoreGeometry(windowSettings.value(GW_HTML_PREVIEW_GEOMETRY_KEY).toByteArray());
@@ -370,6 +445,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         cheatSheetHud->show();
     }
 
+    if (windowSettings.value(GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY, QVariant(false)).toBool())
+    {
+        documentStatsHud->show();
+    }
+
+    if (windowSettings.value(GW_SESSION_STATISTICS_HUD_OPEN_KEY, QVariant(false)).toBool())
+    {
+        sessionStatsHud->show();
+    }
+
     if (windowSettings.value(GW_HTML_PREVIEW_OPEN, QVariant(false)).toBool())
     {
         htmlPreview->show();
@@ -380,6 +465,9 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     // the theme is applied before show().
     //
     applyTheme();
+
+    this->update();
+    qApp->processEvents();
 
     if (!fileToOpen.isNull() && !fileToOpen.isEmpty())
     {
@@ -451,6 +539,7 @@ void MainWindow::paintEvent(QPaintEvent* event)
     }
 
     painter.end();
+
     QMainWindow::paintEvent(event);
 }
 
@@ -481,6 +570,10 @@ void MainWindow::quitApplication()
         windowSettings.setValue(GW_OUTLINE_HUD_OPEN_KEY, QVariant(outlineHud->isVisible()));
         windowSettings.setValue(GW_CHEAT_SHEET_HUD_GEOMETRY_KEY, cheatSheetHud->saveGeometry());
         windowSettings.setValue(GW_CHEAT_SHEET_HUD_OPEN_KEY, QVariant(cheatSheetHud->isVisible()));
+        windowSettings.setValue(GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY, documentStatsHud->saveGeometry());
+        windowSettings.setValue(GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY, QVariant(documentStatsHud->isVisible()));
+        windowSettings.setValue(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY, sessionStatsHud->saveGeometry());
+        windowSettings.setValue(GW_SESSION_STATISTICS_HUD_OPEN_KEY, QVariant(sessionStatsHud->isVisible()));
         windowSettings.setValue(GW_HTML_PREVIEW_GEOMETRY_KEY, htmlPreview->saveGeometry());
         windowSettings.setValue(GW_HTML_PREVIEW_OPEN, QVariant(htmlPreview->isVisible()));
         windowSettings.sync();
@@ -505,6 +598,18 @@ void MainWindow::showFindReplaceDialog()
     findReplaceDialog->show();
 }
 
+void MainWindow::toggleHemingwayMode(bool checked)
+{
+    if (checked)
+    {
+        editor->setHemingWayModeEnabled(true);
+    }
+    else
+    {
+        editor->setHemingWayModeEnabled(false);
+    }
+}
+
 void MainWindow::toggleFocusMode(bool checked)
 {
     if (checked)
@@ -515,7 +620,6 @@ void MainWindow::toggleFocusMode(bool checked)
     {
         editor->setFocusMode(FocusModeDisabled);
     }
-
 }
 
 void MainWindow::toggleFullscreen(bool checked)
@@ -545,6 +649,7 @@ void MainWindow::toggleFullscreen(bool checked)
         {
             if (appSettings->getDisplayTimeInFullScreenEnabled())
             {
+                statusBarLayout->removeWidget(timeLabel);
                 timeLabel->hide();
             }
 
@@ -567,6 +672,7 @@ void MainWindow::toggleFullscreen(bool checked)
         {
             if (appSettings->getDisplayTimeInFullScreenEnabled())
             {
+                statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
                 timeLabel->show();
             }
 
@@ -595,6 +701,8 @@ void MainWindow::toggleOutlineAlternateRowColors(bool checked)
 {
     outlineWidget->setAlternatingRowColors(checked);
     cheatSheetWidget->setAlternatingRowColors(checked);
+    documentStatsWidget->setAlternatingRowColors(checked);
+    sessionStatsWidget->setAlternatingRowColors(checked);
     appSettings->setAlternateHudRowColorsEnabled(checked);
     applyTheme();
 }
@@ -642,10 +750,12 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
     {
         if (checked)
         {
+            statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
             this->timeLabel->show();
         }
         else
         {
+            statusBarLayout->removeWidget(timeLabel);
             this->timeLabel->hide();
         }
     }
@@ -668,6 +778,8 @@ void MainWindow::toggleDesktopCompositingEffects(bool checked)
     appSettings->setDesktopCompositingEnabled(checked);
     outlineHud->setDesktopCompositingEnabled(checked);
     cheatSheetHud->setDesktopCompositingEnabled(checked);
+    documentStatsHud->setDesktopCompositingEnabled(checked);
+    sessionStatsHud->setDesktopCompositingEnabled(checked);
 }
 
 void MainWindow::insertImage()
@@ -755,6 +867,8 @@ void MainWindow::changeHudButtonLayout(QAction* action)
     HudWindowButtonLayout layout = (HudWindowButtonLayout) action->data().toInt();
     this->outlineHud->setButtonLayout(layout);
     this->cheatSheetHud->setButtonLayout(layout);
+    this->documentStatsHud->setButtonLayout(layout);
+    this->sessionStatsHud->setButtonLayout(layout);
     appSettings->setHudButtonLayout(layout);
 }
 
@@ -839,6 +953,18 @@ void MainWindow::showCheatSheetHud()
     cheatSheetHud->activateWindow();
 }
 
+void MainWindow::showDocumentStatisticsHud()
+{
+    documentStatsHud->show();
+    documentStatsHud->activateWindow();
+}
+
+void MainWindow::showSessionStatisticsHud()
+{
+    sessionStatsHud->show();
+    sessionStatsHud->activateWindow();
+}
+
 void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
 {
     QDesktopServices::openUrl(url);
@@ -877,7 +1003,7 @@ void MainWindow::showAbout()
 
 void MainWindow::updateWordCount(int newWordCount)
 {
-    wordCountLabel->setText(tr("%n word(s)", "", newWordCount));
+    wordCountLabel->setText(tr("%Ln word(s)", "", newWordCount));
 }
 
 void MainWindow::changeFocusMode(QAction* action)
@@ -974,7 +1100,14 @@ void MainWindow::changeDocumentDisplayName(const QString& displayName)
 
 void MainWindow::onOperationStarted(const QString& description)
 {
-    statusLabel->setText(description);
+    if (!description.isNull())
+    {
+        statusLabel->setText(description);
+    }
+
+    statusBarLayout->removeWidget(wordCountLabel);
+    statusBarLayout->addWidget(statusLabel, 0, 1, Qt::AlignCenter);
+    wordCountLabel->hide();
     statusLabel->show();
     this->update();
     qApp->processEvents();
@@ -983,7 +1116,10 @@ void MainWindow::onOperationStarted(const QString& description)
 void MainWindow::onOperationFinished()
 {
     statusLabel->setText(QString());
+    statusBarLayout->removeWidget(statusLabel);
+    wordCountLabel->show();
     statusLabel->hide();
+    statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     this->update();
     qApp->processEvents();
 }
@@ -1075,6 +1211,10 @@ void MainWindow::changeHudOpacity(int value)
     outlineHud->update();
     cheatSheetHud->setBackgroundColor(color);
     cheatSheetHud->update();
+    documentStatsHud->setBackgroundColor(color);
+    documentStatsHud->update();
+    sessionStatsHud->setBackgroundColor(color);
+    sessionStatsHud->update();
 
     appSettings->setHudOpacity(value);
 }
@@ -1283,6 +1423,8 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(tr("&Preview in HTML"), this, SLOT(openHtmlPreview()), QKeySequence("CTRL+W"));
     viewMenu->addAction(tr("&Outline HUD"), this, SLOT(showOutlineHud()), QKeySequence("CTRL+L"));
     viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()));
+    viewMenu->addAction(tr("&Document Statistics HUD"), this, SLOT(showDocumentStatisticsHud()));
+    viewMenu->addAction(tr("&Session Statistics HUD"), this, SLOT(showSessionStatisticsHud()));
     viewMenu->addSeparator();
 
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
@@ -1486,6 +1628,8 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(outlineAlternateColorsAction);
     outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
     cheatSheetWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
+    documentStatsWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
+    sessionStatsWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
 
     QMenu* hudButtonLayoutMenu = new QMenu(tr("HUD Window Button Layout"));
     QActionGroup* hudButtonLayoutGroup = new QActionGroup(this);
@@ -1513,6 +1657,8 @@ void MainWindow::buildMenuBar()
     desktopCompositingAction->setChecked(appSettings->getDesktopCompositingEnabled());
     outlineHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     cheatSheetHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
+    documentStatsHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
+    sessionStatsHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
     connect(desktopCompositingAction, SIGNAL(toggled(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
     settingsMenu->addAction(desktopCompositingAction);
 
@@ -1540,12 +1686,9 @@ void MainWindow::buildMenuBar()
 void MainWindow::buildStatusBar()
 {
     statusBarWidget = new QFrame();
-    QGridLayout* statusBarLayout = new QGridLayout(statusBarWidget);
+    statusBarLayout = new QGridLayout(statusBarWidget);
 
     statusLabel = new QLabel();
-    statusBarLayout->addWidget(statusLabel, 0, 0, Qt::AlignLeft);
-    statusBarLayout->setColumnStretch(0, 0);
-    statusLabel->setStyleSheet("color: white; background-color: black; border-radius: 5px; padding: 3px");
     statusLabel->hide();
 
     wordCountLabel = new QLabel();
@@ -1557,12 +1700,24 @@ void MainWindow::buildStatusBar()
     statusBarLayout->setColumnStretch(1, 1);
 
     timeLabel = new TimeLabel(this);
-    statusBar()->addPermanentWidget(timeLabel);
 
-    if (!this->isFullScreen() || !appSettings->getDisplayTimeInFullScreenEnabled())
+    if (this->isFullScreen() && !appSettings->getDisplayTimeInFullScreenEnabled())
+    {
+        statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
+    }
+    else
     {
         timeLabel->hide();
     }
+
+    statusBarLayout->setColumnStretch(0, 0);
+
+    QPushButton* hemingwayModeButton = new QPushButton(tr("Hemingway"));
+    hemingwayModeButton->setFocusPolicy(Qt::NoFocus);
+    hemingwayModeButton->setToolTip(tr("Toggle Hemingway mode"));
+    hemingwayModeButton->setCheckable(true);
+    connect(hemingwayModeButton, SIGNAL(toggled(bool)), this, SLOT(toggleHemingwayMode(bool)));
+    statusBar()->addPermanentWidget(hemingwayModeButton);
 
     QPushButton* focusModeButton = new QPushButton(tr("Focus"));
     focusModeButton->setFocusPolicy(Qt::NoFocus);
@@ -1594,6 +1749,8 @@ void MainWindow::buildStatusBar()
     statusBarLayout->setColumnMinimumWidth
     (
         0,
+        hemingwayModeButton->sizeHint().width()
+        +
         focusModeButton->sizeHint().width()
         +
         fullScreenButton->sizeHint().width()
@@ -1617,7 +1774,7 @@ void MainWindow::applyTheme()
     QString styleSheet;
     QTextStream stream(&styleSheet);
 
-    QColor scrollBarColor(theme.getDefaultTextColor());
+    QColor scrollBarColor = theme.getDefaultTextColor();
     scrollBarColor.setAlpha(100);
     scrollBarColor =
         ColorHelper::applyAlpha
@@ -1627,6 +1784,17 @@ void MainWindow::applyTheme()
         );
 
     QString scrollbarColorRGB = ColorHelper::toRgbString(scrollBarColor);
+
+    QColor scrollBarHoverColor = theme.getDefaultTextColor();
+    scrollBarHoverColor.setAlpha(150);
+    scrollBarHoverColor =
+        ColorHelper::applyAlpha
+        (
+            scrollBarHoverColor,
+            theme.getEditorBackgroundColor()
+        );
+
+    QString scrollBarHoverRGB = ColorHelper::toRgbString(scrollBarHoverColor);
 
     QString backgroundColorRGBA;
 
@@ -1674,13 +1842,14 @@ void MainWindow::applyTheme()
                 theme.getBackgroundColor()
             );
 
-        menuBarItemFgColorRGB = ColorHelper::toRgbString(fadedTextColor);
+        QColor buttonPressColor(theme.getDefaultTextColor());
+        buttonPressColor.setAlpha(30);
+
         menuBarItemFgColorRGB = ColorHelper::toRgbString(fadedTextColor);
         menuBarItemBgColorRGBA = "transparent";
-        menuBarItemFgPressColorRGB =
-            ColorHelper::toRgbString(theme.getEditorBackgroundColor());
+        menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
         menuBarItemBgPressColorRGBA =
-            ColorHelper::toRgbaString(fadedTextColor);
+            ColorHelper::toRgbaString(buttonPressColor);
 
         fullScreenIcon = ":/resources/images/view-fullscreen-dark.svg";
         fullScreenIconHover = ":/resources/images/view-fullscreen-dark-hover.svg";
@@ -1690,8 +1859,7 @@ void MainWindow::applyTheme()
         restoreIconPressed = ":/resources/images/view-restore-dark-hover.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
-        statusBarButtonFgPressHoverColorRGB =
-            ColorHelper::toRgbString(theme.getEditorBackgroundColor());
+        statusBarButtonFgPressHoverColorRGB = menuBarItemFgColorRGB;
         statusBarButtonBgPressHoverColorRGBA = menuBarItemBgPressColorRGBA;
 
         if (NULL == fullScreenButton->graphicsEffect())
@@ -1777,6 +1945,12 @@ void MainWindow::applyTheme()
         << "QScrollBar::handle:vertical { border: 0; background: "
         << scrollbarColorRGB
         << "; min-height: 50px; border-radius: 5px;} "
+        << "QScrollBar::handle:vertical:hover { background: "
+        << scrollBarHoverRGB
+        << " } "
+        << "QScrollBar::handle:horizontal:hover { background: "
+        << scrollBarHoverRGB
+        << " } "
         << "QScrollBar::add-line { background: transparent; border: 0 } "
         << "QScrollBar::sub-line { background: transparent; border: 0 } "
         ;
@@ -1859,7 +2033,7 @@ void MainWindow::applyTheme()
         << menuBarItemBgColorRGBA
         << "; color: "
         << menuBarItemFgColorRGB
-        << "; padding: 4px } "
+        << "; padding: 4px 6px 4px 6px } "
         << "QMenuBar::item:pressed { background-color: "
         << menuBarItemBgPressColorRGBA
         << "; color: "
@@ -1869,6 +2043,7 @@ void MainWindow::applyTheme()
         ;
 
     setStyleSheet(styleSheet);
+
 
     // Make the word count and focus mode button font size
     // match the menu bar's font size, since on Windows using
@@ -1905,6 +2080,18 @@ void MainWindow::applyTheme()
 
     styleSheet = "";
 
+    stream
+        << "color: "
+        << statusBarButtonFgPressHoverColorRGB
+        << "; background-color: "
+        << statusBarButtonBgPressHoverColorRGBA
+        << "; border-radius: 5px; padding: 3px"
+        ;
+
+    statusLabel->setStyleSheet(styleSheet);
+
+    styleSheet = "";
+
     // Style the HUDs
 
     QColor alphaHudBackgroundColor = theme.getHudBackgroundColor();
@@ -1914,6 +2101,10 @@ void MainWindow::applyTheme()
     outlineHud->setBackgroundColor(alphaHudBackgroundColor);
     cheatSheetHud->setForegroundColor(theme.getHudForegroundColor());
     cheatSheetHud->setBackgroundColor(alphaHudBackgroundColor);
+    documentStatsHud->setForegroundColor(theme.getHudForegroundColor());
+    documentStatsHud->setBackgroundColor(alphaHudBackgroundColor);
+    sessionStatsHud->setForegroundColor(theme.getHudForegroundColor());
+    sessionStatsHud->setBackgroundColor(alphaHudBackgroundColor);
 
     // Style the outline itself.
     alphaHudBackgroundColor.setAlpha(0);
@@ -1924,6 +2115,8 @@ void MainWindow::applyTheme()
     alphaHudSelectionColor.setAlpha(200);
     QString hudSelectionFgString = ColorHelper::toRgbString(theme.getHudBackgroundColor());
     QString hudSelectionBgString = ColorHelper::toRgbaString(alphaHudSelectionColor);
+
+    int hudFontSize = cheatSheetWidget->font().pointSize();
 
     // Important!  For QListWidget (used in Outline HUD), set
     // QListWidget { outline: none } for the style sheet to get rid of the
@@ -1936,7 +2129,9 @@ void MainWindow::applyTheme()
         stream << "QListWidget { outline: none; border: 0; padding: 1; background-color: transparent; color: "
                << hudFgString
                << "; alternate-background-color: rgba(255, 255, 255, 50)"
-               << " } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: "
+               << "; font-size: "
+               << hudFontSize
+               << "pt } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: "
                << "rgba(0, 0, 0, 10)"
                << " } QListWidget::item:alternate { padding: 1; margin: 0; background-color: "
                << "rgba(255, 255, 255, 10)"
@@ -1945,23 +2140,29 @@ void MainWindow::applyTheme()
                << hudSelectionFgString
                << "; background-color: "
                << hudSelectionBgString
-               << " }"
+               << " } "
             ;
     }
     else
     {
         stream << "QListWidget { outline: none; border: 0; padding: 1; background-color: transparent; color: "
                << hudFgString
-               << " } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: transparent } "
+               << "; font-size: "
+               << hudFontSize
+               << "pt  } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: transparent } "
                << "QListWidget::item:selected { border-radius: 3px; color: "
                << hudSelectionFgString
                << "; background-color: "
                << hudSelectionBgString
-               << " }"
+               << " } "
             ;
     }
 
-    stream << "QScrollBar::horizontal { border: 0; background: transparent; height: 10px; margin: 0 } "
+    stream << "QLabel { border: 0; padding: 0; margin: 0; background-color: transparent; "
+           << "font-size: "
+           << hudFontSize
+           << "pt } "
+           << "QScrollBar::horizontal { border: 0; background: transparent; height: 10px; margin: 0 } "
            << "QScrollBar::handle:horizontal { border: 0; background: "
            << hudFgString
            << "; min-width: 20px; border-radius: 5px; } "
@@ -1976,6 +2177,9 @@ void MainWindow::applyTheme()
 
     outlineWidget->setStyleSheet(styleSheet);
     cheatSheetWidget->setStyleSheet(styleSheet);
+    documentStatsWidget->setStyleSheet(styleSheet);
+    sessionStatsWidget->setStyleSheet(styleSheet);
+
     editor->setupPaperMargins(this->width());
 }
 

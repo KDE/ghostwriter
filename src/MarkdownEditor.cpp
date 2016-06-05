@@ -40,16 +40,12 @@
 
 #include "ColorHelper.h"
 #include "MarkdownEditor.h"
-#include "TextBlockData.h"
 #include "MarkdownStates.h"
 #include "MarkdownTokenizer.h"
 #include "GraphicsFadeEffect.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
-
-const int MarkdownEditor::HEADING_LEVEL_ROLE = Qt::UserRole + 1;
-const int MarkdownEditor::DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
 
 MarkdownEditor::MarkdownEditor
 (
@@ -87,8 +83,7 @@ MarkdownEditor::MarkdownEditor
     spellCheckEnabled = false;
     installEventFilter(this);
     viewport()->installEventFilter(this);
-    wordCount = 0;
-    lastBlockCount = 1;
+    hemingwayModeEnabled = false;
     focusMode = FocusModeDisabled;
     insertSpacesForTabs = false;
     setTabulationWidth(4);
@@ -117,8 +112,7 @@ MarkdownEditor::MarkdownEditor
     autoMatchFilter.insert('`', true);
     autoMatchFilter.insert('<', true);
 
-    connect(this->document(), SIGNAL(contentsChange(int,int,int)), this, SLOT(onTextChanged(int,int,int)));
-    connect(this->document(), SIGNAL(blockCountChanged(int)), this, SLOT(onBlockCountChanged(int)));
+    connect(this->document(), SIGNAL(contentsChanged()), this, SLOT(onTextChanged()));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
 
@@ -166,6 +160,19 @@ void MarkdownEditor::setDictionary(const DictionaryRef& dictionary)
 QLayout* MarkdownEditor::getPreferredLayout()
 {
     return preferredLayout;
+}
+
+bool MarkdownEditor::getHemingwayModeEnabled() const
+{
+    return hemingwayModeEnabled;
+}
+
+/**
+ * Sets whether Hemingway mode is enabled.
+ */
+void MarkdownEditor::setHemingWayModeEnabled(bool enabled)
+{
+    hemingwayModeEnabled = enabled;
 }
 
 FocusMode MarkdownEditor::getFocusMode()
@@ -399,10 +406,19 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
                 QPlainTextEdit::keyPressEvent(e);
             }
             break;
-        case Qt::Key_Backspace:
-            if (!handleBackspaceKey())
+        case Qt::Key_Delete:
+            if (!hemingwayModeEnabled)
             {
                 QPlainTextEdit::keyPressEvent(e);
+            }
+            break;
+        case Qt::Key_Backspace:
+            if (!hemingwayModeEnabled)
+            {
+                if (!handleBackspaceKey())
+                {
+                    QPlainTextEdit::keyPressEvent(e);
+                }
             }
             break;
         case Qt::Key_Tab:
@@ -538,6 +554,13 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
             for (int i = 0; i < suggestions.size(); i++)
             {
                 QAction* suggestionAction = new QAction(suggestions[i], this);
+
+                // Need the following line because KDE Plasma 5 will insert a hidden ampersand
+                // into the menu text as a keyboard accelerator.  Go off of the data in the
+                // QAction rather than the text to avoid this.
+                //
+                suggestionAction->setData(suggestions[i]);
+
                 spellingActions.append(suggestionAction);
                 popupMenu->insertAction(firstAction, suggestionAction);
             }
@@ -1090,47 +1113,12 @@ void MarkdownEditor::suggestSpelling(QAction* action)
     }
     else if (spellingActions.contains(action))
     {
-        cursorForWord.insertText(action->text());
+        cursorForWord.insertText(action->data().toString());
     }
 }
 
-void MarkdownEditor::onTextChanged(int position, int charsRemoved, int charsAdded)
+void MarkdownEditor::onTextChanged()
 {
-    Q_UNUSED(charsRemoved)
-
-    int startIndex = position;
-
-    if (startIndex < 0)
-    {
-        startIndex = 0;
-    }
-
-    int endIndex = position + charsAdded - 1;
-
-    if (endIndex < startIndex || endIndex >= document()->characterCount())
-    {
-        endIndex = startIndex;
-    }
-
-    // Update the word counts of affected blocks.  Note that there is no need to
-    // check for changes to section headings, since the Highlighter class will
-    // take care of this for us.
-    //
-    QTextBlock startBlock = document()->findBlock(startIndex);
-    QTextBlock endBlock = document()->findBlock(endIndex);
-
-    QTextBlock block = startBlock;
-
-    updateBlockWordCount(block);
-
-    while (block != endBlock)
-    {
-        block = block.next();
-        updateBlockWordCount(block);
-    }
-
-    emit wordCountChanged(wordCount);
-
     if (typingHasPaused)
     {
         typingHasPaused = false;
@@ -1139,33 +1127,22 @@ void MarkdownEditor::onTextChanged(int position, int charsRemoved, int charsAdde
     }
 }
 
-void MarkdownEditor::onBlockCountChanged(int newBlockCount)
-{
-    // If one or more blocks was deleted from the document, update
-    // both the word count and the section headings from scratch.
-    //
-    if (newBlockCount < lastBlockCount)
-    {
-        refreshWordCount();
-    }
-
-    lastBlockCount = newBlockCount;
-}
-
 void MarkdownEditor::onSelectionChanged()
 {
     QTextCursor cursor = this->textCursor();
 
-    // If text is selected, do a word count of the selected text.
     if (cursor.hasSelection())
     {
-        int selectionWordCount = this->countWords(cursor.selectedText());
-        emit wordCountChanged(selectionWordCount);
+        emit textSelected
+        (
+            cursor.selectedText(),
+            cursor.selectionStart(),
+            cursor.selectionEnd()
+        );
     }
-    // Else signal a word count of the full document.
     else
     {
-        emit wordCountChanged(wordCount);
+        emit textDeselected();
     }
 }
 
@@ -1313,48 +1290,6 @@ void MarkdownEditor::onCursorPositionChanged()
     }
 
     emit cursorPositionChanged(this->textCursor().position());
-}
-
-void MarkdownEditor::refreshWordCount()
-{
-    // For each block, update the word count.
-    QTextBlock block = document()->begin();
-    wordCount = 0;
-
-    TextBlockData* blockData = (TextBlockData*) block.userData();
-
-    if (NULL != blockData)
-    {
-        wordCount += blockData->wordCount;
-    }
-
-    while (block != document()->end())
-    {
-        block = block.next();
-        blockData = (TextBlockData*) block.userData();
-
-        if (NULL != blockData)
-        {
-            wordCount += blockData->wordCount;
-        }
-    }
-
-    emit wordCountChanged(wordCount);
-}
-
-void MarkdownEditor::updateBlockWordCount(QTextBlock& block)
-{
-    TextBlockData* blockData = (TextBlockData*) block.userData();
-
-    if (NULL == blockData)
-    {
-        blockData = new TextBlockData();
-        block.setUserData(blockData);
-    }
-
-    int oldWordCount = blockData->wordCount;
-    blockData->wordCount = countWords(block.text());
-    wordCount += blockData->wordCount - oldWordCount;
 }
 
 void MarkdownEditor::handleCarriageReturn()
@@ -1507,6 +1442,28 @@ bool MarkdownEditor::handleBackspaceKey()
             }
             break;
         default:
+            // If the first character in an automatched set is being
+            // deleted, then delete the second matching one along with it.
+            //
+            if (autoMatchEnabled && (cursor.positionInBlock() > 0))
+            {
+                QString blockText = cursor.block().text();
+                QChar currentChar = blockText[cursor.positionInBlock()];
+                QChar previousChar = blockText[cursor.positionInBlock() - 1];
+
+                if (markupPairs[previousChar] == currentChar)
+                {
+                    cursor.movePosition(QTextCursor::Left);
+                    cursor.movePosition
+                    (
+                        QTextCursor::Right,
+                        QTextCursor::KeepAnchor,
+                        2
+                    );
+                    cursor.removeSelectedText();
+                    return true;
+                }
+            }
             break;
     }
 
@@ -1750,48 +1707,4 @@ QString MarkdownEditor::getPriorMarkdownBlockItemStart(QRegExp& itemRegex)
     }
 
     return QString("");
-}
-
-int MarkdownEditor::countWords(const QString& text)
-{
-    int count = 0;
-    bool inWord = false;
-    int separatorCount = 0;
-
-    for (int i = 0; i < text.length(); i++)
-    {
-        if (text[i].isLetterOrNumber())
-        {
-            inWord = true;
-            separatorCount = 0;
-        }
-        else if (text[i].isSpace() && inWord)
-        {
-            inWord = false;
-            count++;
-            separatorCount = 0;
-        }
-        else
-        {
-            // This is to handle things like double dashes (`--`)
-            // that separate words, while still counting hyphenated
-            // words as a single word.
-            //
-            separatorCount++;
-
-            if ((separatorCount > 1) && inWord)
-            {
-                separatorCount = 0;
-                inWord = false;
-                count++;
-            }
-        }
-    }
-
-    if (inWord)
-    {
-        count++;
-    }
-
-    return count;
 }

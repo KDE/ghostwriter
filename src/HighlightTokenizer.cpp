@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
  *
  ***********************************************************************/
 
+#include <QtAlgorithms>
+
 #include "HighlightTokenizer.h"
 #include "HighlighterLineStates.h"
 
@@ -32,7 +34,7 @@ HighlightTokenizer::~HighlightTokenizer()
 
 QList<Token> HighlightTokenizer::getTokens() const
 {
-    return tokens;
+    return tokens.values();
 }
 
 int HighlightTokenizer::getState() const
@@ -54,7 +56,8 @@ void HighlightTokenizer::clear()
 
 void HighlightTokenizer::addToken(const Token& token)
 {
-    tokens.append(token);
+    // Insert tokens sorted by position to aid with nested formatting.
+    tokens.insertMulti(token.getPosition(), token);
 }
 
 void HighlightTokenizer::setState(int state)
@@ -65,4 +68,9 @@ void HighlightTokenizer::setState(int state)
 void HighlightTokenizer::requestBacktrack()
 {
     backtrack = true;
+}
+
+bool HighlightTokenizer::tokenLessThan(const Token& t1, const Token& t2)
+{
+    return t1.getPosition() < t2.getPosition();
 }

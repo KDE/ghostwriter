@@ -46,14 +46,24 @@ class MarkdownEditor : public QPlainTextEdit
 	Q_OBJECT
 
 	public:
+        /**
+         * Constructor.
+         */
         MarkdownEditor
         (
             TextDocument* textDocument,
             MarkdownHighlighter* highlighter,
             QWidget* parent = 0
         );
+
+        /**
+         * Destructor.
+         */
         virtual ~MarkdownEditor();
 
+        /**
+         * Sets the dictionary to use for spell checking.
+         */
         void setDictionary(const DictionaryRef& dictionary);
 
         /**
@@ -66,8 +76,29 @@ class MarkdownEditor : public QPlainTextEdit
          */
         QLayout* getPreferredLayout();
 
+        /**
+         * Gets whether Hemingway mode is enabled.
+         */
+        bool getHemingwayModeEnabled() const;
+
+        /**
+         * Sets whether Hemingway mode is enabled.
+         */
+        void setHemingWayModeEnabled(bool enabled);
+
+        /**
+         * Gets the current focus mode.
+         */
         FocusMode getFocusMode();
+
+        /**
+         * Sets the focus mode.
+         */
         void setFocusMode(FocusMode mode);
+
+        /**
+         * Sets the editor color scheme.
+         */
         void setColorScheme
         (
             const QColor& defaultTextColor,
@@ -77,9 +108,20 @@ class MarkdownEditor : public QPlainTextEdit
             const QColor& spellingErrorColor
         );
 
+        /**
+         * Sets the editor aspect.
+         */
         void setAspect(EditorAspect aspect);
+
+        /**
+         * Sets the font.
+         */
         void setFont(const QString& family, double size);
 
+        /**
+         * Sets whether automatching is enabled for the given opening
+         * character.
+         */
         void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
         /**
@@ -105,52 +147,185 @@ class MarkdownEditor : public QPlainTextEdit
         bool eventFilter(QObject* watched, QEvent* event);
 
     signals:
-        void wordCountChanged(int newWordCount);
+        /**
+         * Emitted when the user has resumed typing text.
+         */
         void typingResumed();
+
+        /**
+         * Emitted when the user has stopped typing text.
+         */
         void typingPaused();
+
+        /**
+         * Emitted when the cursor position in the editor has changed.
+         * The new position is passed as a parameter.
+         */
         void cursorPositionChanged(int position);
 
+        /**
+         * Emitted when the user selects text.  The selected text, as
+         * well as the cursor position of the beginning and end of the
+         * selection in the document, are provided as parameters.
+         */
+        void textSelected
+        (
+            const QString& selectedText,
+            int selectionStart,
+            int selectionEnd
+        );
+
+        /**
+         * Emitted when the user deselects text (i.e., no text is currently
+         * selected in the editor).
+         */
+        void textDeselected();
+
     public slots:
+        /**
+         * Sets the cursor position in the editor to the given position.
+         */
         void navigateDocument(const int pos);
+
+        /**
+         * Inserts bold formatting.
+         */
         void bold();
+
+        /**
+         * Inserts italic formatting.
+         */
         void italic();
+
+        /**
+         * Inserts strikethrough formatting.
+         */
         void strikethrough();
+        /**
+         * Inserts an HTML comment.
+         */
         void insertComment();
+
+        /**
+         * Formats current line or selected lines as a bullet point
+         * list with the asterisk (*) marker.
+         */
         void createBulletListWithAsteriskMarker();
+
+        /**
+         * Formats current line or selected lines as a bullet point
+         * list with the minus (-) marker.
+         */
         void createBulletListWithMinusMarker();
+
+        /**
+         * Formats current line or selected lines as a bullet point
+         * list with the plus (+) marker.
+         */
         void createBulletListWithPlusMarker();
+
+        /**
+         * Formats current line or selected lines as a numbered
+         * list with the period (.) marker.
+         */
         void createNumberedListWithPeriodMarker();
+
+        /**
+         * Formats current line or selected lines as a numbered
+         * list with the parenthesis (')') marker.
+         */
         void createNumberedListWithParenthesisMarker();
+
+        /**
+         * Formats current line or selected lines as a task list.
+         */
         void createTaskList();
+
+        /**
+         * Formats current line or selected lines as a block quote.
+         */
         void createBlockquote();
+
+        /**
+         * Removes block quote formatting from the current line or selected
+         * lines.
+         */
         void removeBlockquote();
+
+        /**
+         * Indents the current line or selected lines.
+         */
         void indentText();
+
+        /**
+         * Unindents the current line or selected lines.
+         */
         void unindentText();
+
+        /**
+         * Formats current task list item or selected task list items
+         * as complete, checking them with an 'x'.
+         */
         bool toggleTaskComplete();
+
+        /**
+         * Sets whether large heading sizes are enabled.
+         */
         void setEnableLargeHeadingSizes(bool enable);
+
+        /**
+         * Sets whether automatching of characters is enabled.
+         */
         void setAutoMatchEnabled(bool enable);
+
+        /**
+         * Sets whether bullet points should be automatically cycled with
+         * a differet bullet point mark (*, -, +) each time a sublist is
+         * created.
+         */
         void setBulletPointCyclingEnabled(bool enable);
+
+        /**
+         * Sets whether emphasized text is underlined or italicized.
+         */
         void setUseUnderlineForEmphasis(bool enable);
+
+        /**
+         * Sets whether to insert spaces instead of tabs when a tab
+         * character is inserted.  The number of spaces inserted is
+         * determined by the tabulation width.
+         */
         void setInsertSpacesForTabs(bool enable);
+
+        /**
+         * Sets tabulation width.
+         */
         void setTabulationWidth(int width);
+
+        /**
+         * Sets the editor width.
+         */
         void setEditorWidth(EditorWidth width);
+
+        /**
+         * Runs the spell checker over the entire document for the
+         * live spell checking.
+         */
         void runSpellChecker();
+
+        /**
+         * Sets whether live spell checking is enabled.
+         */
         void setSpellCheckEnabled(const bool enabled);
 
     private slots:
         void suggestSpelling(QAction* action);
-        void onTextChanged(int position, int charsRemoved, int charsAdded);
-        void onBlockCountChanged(int newBlockCount);
+        void onTextChanged();
         void onSelectionChanged();
         void focusText();
         void checkIfTypingPaused();
         void spellCheckFinished(int result);
         void onCursorPositionChanged();
-
-        /*
-         * Updates word count.
-         */
-        void refreshWordCount();
 
     private:
         TextDocument* textDocument;
@@ -164,9 +339,8 @@ class MarkdownEditor : public QPlainTextEdit
         bool spellCheckEnabled;
         bool autoMatchEnabled;
         bool bulletPointCyclingEnabled;
-        int wordCount;
         QList<QAction*> spellingActions;
-        int lastBlockCount;
+        bool hemingwayModeEnabled;
         FocusMode focusMode;
         QBrush fadeColor;
         EditorAspect aspect;
@@ -192,10 +366,6 @@ class MarkdownEditor : public QPlainTextEdit
         //
         bool typingPausedSignalSent;
 
-        static const int HEADING_LEVEL_ROLE;
-        static const int DOCUMENT_POS_ROLE;
-
-        void updateBlockWordCount(QTextBlock& block);
         void handleCarriageReturn();
         bool handleBackspaceKey();
         void insertPrefixForBlocks(const QString& prefix);
@@ -205,7 +375,6 @@ class MarkdownEditor : public QPlainTextEdit
         void insertFormattingMarkup(const QString& markup);
         QString getPriorIndentation();
         QString getPriorMarkdownBlockItemStart(QRegExp& itemRegex);
-        int countWords(const QString& text);
 
 };
 

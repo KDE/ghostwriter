@@ -620,7 +620,18 @@ QString HtmlPreview::exportToHtml
 ) const
 {
     QString html;
+
+    // Enable smart typography for preview, if available for the exporter.
+    bool smartTypographyEnabled = exporter->getSmartTypographyEnabled();
+    exporter->setSmartTypographyEnabled(true);
+
+    // Export to HTML.
     exporter->exportToHtml(text, html);
+
+    // Put smart typography setting back to the way it was before
+    // so that the last setting used during document export is remembered.
+    //
+    exporter->setSmartTypographyEnabled(smartTypographyEnabled);
 
     return html;
 }

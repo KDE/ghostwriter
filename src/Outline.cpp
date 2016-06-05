@@ -22,8 +22,8 @@
 
 #include "Outline.h"
 
-const int HEADING_LEVEL_ROLE = Qt::UserRole + 1;
-const int DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
+const int Outline::HEADING_LEVEL_ROLE = Qt::UserRole + 1;
+const int Outline::DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
 
 Outline::Outline(QWidget* parent)
     : QListWidget(parent)

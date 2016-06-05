@@ -145,6 +145,11 @@ HEADERS += src/MainWindow.h \
     src/EffectsMenuBar.h \
     src/TimeLabel.h \
     src/LocaleDialog.h \
+    src/AbstractStatisticsWidget.h \
+    src/DocumentStatistics.h \
+    src/DocumentStatisticsWidget.h \
+    src/SessionStatistics.h \
+    src/SessionStatisticsWidget.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
@@ -195,6 +200,11 @@ SOURCES += src/AppMain.cpp \
     src/EffectsMenuBar.cpp \
     src/TimeLabel.cpp \
     src/LocaleDialog.cpp \
+    src/AbstractStatisticsWidget.cpp \
+    src/SessionStatistics.cpp \
+    src/SessionStatisticsWidget.cpp \
+    src/DocumentStatistics.cpp \
+    src/DocumentStatisticsWidget.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
     src/color_button.cpp \

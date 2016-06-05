@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,8 @@
 #include <QPrinter>
 
 #include "MarkdownEditor.h"
+#include "DocumentStatistics.h"
+#include "SessionStatistics.h"
 #include "TextDocument.h"
 
 class QFileSystemWatcher;
@@ -41,11 +43,15 @@ class DocumentManager : public QObject
     public:
         /**
          * Constructor.  Takes MarkdownEditor as a parameter, which is used
-         * to display the current document to the user.
+         * to display the current document to the user.  Also takes the
+         * document statistics as a parameter in order to reset the statistics
+         * when a new file is loaded.
          */
         DocumentManager
         (
             MarkdownEditor* editor,
+            DocumentStatistics* documentStats,
+            SessionStatistics* sessionStats,
             QWidget* parent = 0
         );
 
@@ -98,6 +104,21 @@ class DocumentManager : public QObject
          * descriptive text to display to the user regarding the operation.
          */
         void operationStarted(const QString& description);
+
+        /**
+         * Emitted to update the status of a document operation begun with
+         * operationStarted(). The description is optional.  If no
+         * description is provided, then the previous description used in
+         * operationStarted() should be used to display status to the user.
+         * Upon receipt of this signal, it is recommended that the GUI
+         * be updated to refresh the status as well as the editor and
+         * any other widgets that might have changed due to a document
+         * operation, so that those changes can be displayed to the user.
+         *
+         * A call to QWidget's update() and qApp->processEvents() will
+         * perform this refresh.
+         */
+        void operationUpdate(const QString& description = QString());
 
         /**
          * Emitted when an operation on the document has finished, such as
@@ -208,6 +229,8 @@ class DocumentManager : public QObject
         QWidget* parentWidget;
         TextDocument* document;
         MarkdownEditor* editor;
+        DocumentStatistics* documentStats;
+        SessionStatistics* sessionStats;
         QFutureWatcher<QString>* saveFutureWatcher;
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;
