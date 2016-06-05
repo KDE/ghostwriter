@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 
 #include <QString>
 #include <QList>
+#include <QMap>
 
 #include "Token.h"
 
@@ -139,8 +140,13 @@ class HighlightTokenizer
 
     private:
         int state;
-        QList<Token> tokens;
+        QMap<int, Token> tokens;
         bool backtrack;
+
+        /*
+         * Compares two tokens' positions for sorting.
+         */
+        static bool tokenLessThan(const Token& t1, const Token& t2);
 
 };
 
