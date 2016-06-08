@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.0" language="it_IT">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="26"/>
         <source>&amp;lt; 1m</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;lt; 1m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
         <source>&amp;lt; 1</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;lt; 1</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
         <source>250 words per page</source>
-        <translation type="unfinished"></translation>
+        <translation>250 parole per pagina</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="65"/>
         <source>%1h %2m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1h %2m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="69"/>
         <source>%1m</source>
-        <translation type="unfinished"></translation>
+        <translation>%1m</translation>
     </message>
 </context>
 <context>
@@ -157,97 +157,99 @@
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="27"/>
         <source>Very Easy</source>
-        <translation type="unfinished"></translation>
+        <translation>Molto Facile</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
         <source>Easy</source>
-        <translation type="unfinished"></translation>
+        <translation>Facile</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="29"/>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
         <source>Difficult</source>
-        <translation type="unfinished"></translation>
+        <translation>Difficile</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="31"/>
         <source>Very Difficult</source>
-        <translation type="unfinished"></translation>
+        <translation>Molto Difficile</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Words:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parole:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="35"/>
         <source>Characters:</source>
-        <translation type="unfinished"></translation>
+        <translation>Caratteri:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="36"/>
         <source>Sentences:</source>
-        <translation type="unfinished"></translation>
+        <translation>Frasi:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="37"/>
         <source>Paragraphs:</source>
-        <translation type="unfinished"></translation>
+        <translation>Paragrafi:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="38"/>
         <source>Pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagine:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Complex Words:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parole Complesse:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Reading Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo di Lettura:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Reading Ease:</source>
-        <translation type="unfinished"></translation>
+        <translation>Facilità di Lettura:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>LIX Reading Ease</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>vedi: https://en.wikipedia.org/wiki/LIX</translatorcomment>
+        <translation>Indice LIX della Facilità di Lettura</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Grade Level:</source>
-        <translation type="unfinished"></translation>
+        <translation>Livello Scolastico:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>vedi: https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index</translatorcomment>
+        <translation>Indice della Leggibilità Coleman–Liau (CLI)</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="112"/>
         <source>Kindergarten</source>
-        <translation type="unfinished"></translation>
+        <translation>Asilo materna</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Rocket Science</source>
-        <translation type="unfinished"></translation>
+        <translation>Alta Ingegneria</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
         <source>College</source>
-        <translation type="unfinished"></translation>
+        <translation>Liceale</translation>
     </message>
 </context>
 <context>
@@ -447,17 +449,17 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/LocaleDialog.cpp" line="37"/>
         <source>Set Application Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta la Lingua dell&apos;Applicazione</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="48"/>
         <source>The translations folder is missing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Non trovo la cartella delle traduzioni (&quot;translations&quot;).</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="49"/>
         <source>Please reinstall this application for more language options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Per una maggiore scelta delle lingue devi reinstallare l&apos;applicazione.</translation>
     </message>
 </context>
 <context>
@@ -584,7 +586,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="152"/>
         <source>Document Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistiche Documento</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="799"/>
@@ -626,7 +628,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="978"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Puoi utilizzare e redistribuire questo software secondo i termini della &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visita il sito ufficiale al link &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;La mia gratitudine, ed il dovuto credito per il riutilizzo del loro codice, vanno a &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, autore di &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, autore di &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, autore di &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Sono inoltre debitore verso &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;autore di &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, per l&apos;ispirazione che mi ha fornito creando uno strumento di editing per Markdown così stupendo.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1001"/>
@@ -636,7 +638,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1175"/>
         <source>Please restart the application for changes to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;applicazione delle modifiche richiede il riavvio del programma.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1187"/>
@@ -646,7 +648,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1225"/>
         <source>Matched Characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Caratteri Accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1345"/>
@@ -701,12 +703,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="137"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>[ID]: http://url.com &quot;Reference Definition&quot;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="162"/>
         <source>Session Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistiche Sessione</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1350"/>
@@ -901,12 +903,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1426"/>
         <source>&amp;Document Statistics HUD</source>
-        <translation type="unfinished"></translation>
+        <translation>Hud Statistiche &amp;Documento</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1427"/>
         <source>&amp;Session Statistics HUD</source>
-        <translation type="unfinished"></translation>
+        <translation>HUD Statistiche &amp;Sessione</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1430"/>
@@ -1007,7 +1009,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1534"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi la barra menù in modalità schermo intero</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1541"/>
@@ -1027,7 +1029,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1561"/>
         <source>Customize Matched Characters...</source>
-        <translation type="unfinished"></translation>
+        <translation>Personalizza Caratteri Accoppiabili...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1564"/>
@@ -1037,7 +1039,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1571"/>
         <source>Display Current Time in Full Screen Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra l&apos;Ora in Modalità Schermo Intero</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1579"/>
@@ -1052,7 +1054,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1587"/>
         <source>Application Language...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingua dell&apos;Applicazione...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1591"/>
@@ -1082,22 +1084,22 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1624"/>
         <source>Alternate Row Colors in HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterna i Colori delle Righe Negli HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1634"/>
         <source>HUD Window Button Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Layout Pulsante nello HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1638"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinistra</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1644"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Destra</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1655"/>
@@ -1133,12 +1135,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1715"/>
         <source>Hemingway</source>
-        <translation type="unfinished"></translation>
+        <translation>Hemingway</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1717"/>
         <source>Toggle Hemingway mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva/Disattiva  modalità Hemingway</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1722"/>
@@ -1315,27 +1317,28 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="25"/>
         <source>Words Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parole Scritte:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="26"/>
         <source>Pages Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagine Scritte:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="27"/>
         <source>Average WPM:</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>PPM: Parole Per Minuto</translatorcomment>
+        <translation>Media PPM:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="28"/>
         <source>Total Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo Totale:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="29"/>
         <source>Idle Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempi Morti:</translation>
     </message>
 </context>
 <context>
