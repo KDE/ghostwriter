@@ -1833,19 +1833,19 @@ void MainWindow::applyTheme()
 
     if (EditorAspectStretch == theme.getEditorAspect())
     {
-        QColor fadedTextColor(theme.getDefaultTextColor());
-        fadedTextColor.setAlpha(165);
-        fadedTextColor =
+        QColor buttonFgColor = theme.getDefaultTextColor();
+        buttonFgColor.setAlpha(185);
+        buttonFgColor =
             ColorHelper::applyAlpha
             (
-                fadedTextColor,
+                buttonFgColor,
                 theme.getBackgroundColor()
             );
 
         QColor buttonPressColor(theme.getDefaultTextColor());
         buttonPressColor.setAlpha(30);
 
-        menuBarItemFgColorRGB = ColorHelper::toRgbString(fadedTextColor);
+        menuBarItemFgColorRGB = ColorHelper::toRgbString(buttonFgColor);
         menuBarItemBgColorRGBA = "transparent";
         menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
         menuBarItemBgPressColorRGBA =
@@ -1859,7 +1859,7 @@ void MainWindow::applyTheme()
         restoreIconPressed = ":/resources/images/view-restore-dark-hover.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
-        statusBarButtonFgPressHoverColorRGB = menuBarItemFgColorRGB;
+        statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;
         statusBarButtonBgPressHoverColorRGBA = menuBarItemBgPressColorRGBA;
 
         if (NULL == fullScreenButton->graphicsEffect())
@@ -1873,7 +1873,7 @@ void MainWindow::applyTheme()
             fullScreenButton->setGraphicsEffect(fullScreenButtonColorEffect);
         }
 
-        fullScreenButtonColorEffect->setColor(fadedTextColor);
+        fullScreenButtonColorEffect->setColor(buttonFgColor);
     }
     else
     {
