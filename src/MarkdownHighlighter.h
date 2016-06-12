@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -138,6 +138,31 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void highlightBlockAtPosition(int position);
 
+    public slots:
+        /**
+         * Connect to this slot to signal when the the cursor position
+         * in the text editor changes.  The cursor position is used
+         * during spell checking, so that the current word being typed
+         * isn't spell checked with the rest of the text.
+         */
+        void onCursorPositionChanged(int position);
+
+        /**
+         * Signalled by a text editor when the user has resumed typing.
+         * This signal is used to ensure spell checking is not performed
+         * for the current word the cursor is on while the user is still
+         * typing.
+         */
+        void onTypingResumed();
+
+        /**
+         * Signalled by a text editor when the user has ceased typing.
+         * This signal is used to ensure spell checking is performed
+         * for the current word the cursor is on after the user has
+         * stopped typing.
+         */
+        void onTypingPaused();
+
     private slots:
         /*
          * Highlights the text block at the given cursor position of the
@@ -148,7 +173,9 @@ class MarkdownHighlighter : public QSyntaxHighlighter
     private:
         HighlightTokenizer* tokenizer;
         DictionaryRef dictionary;
+        int cursorPosition;
         bool spellCheckEnabled;
+        bool typingPaused;
         bool useUndlerlineForEmphasis;
         bool inBlockquote;
         BlockquoteStyle blockquoteStyle;

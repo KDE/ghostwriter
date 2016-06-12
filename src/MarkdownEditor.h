@@ -320,7 +320,7 @@ class MarkdownEditor : public QPlainTextEdit
 
     private slots:
         void suggestSpelling(QAction* action);
-        void onTextChanged();
+        void onContentsChanged(int position, int charsAdded, int charsRemoved);
         void onSelectionChanged();
         void focusText();
         void checkIfTypingPaused();

@@ -112,9 +112,12 @@ MarkdownEditor::MarkdownEditor
     autoMatchFilter.insert('`', true);
     autoMatchFilter.insert('<', true);
 
-    connect(this->document(), SIGNAL(contentsChanged()), this, SLOT(onTextChanged()));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
+    connect(this, SIGNAL(cursorPositionChanged(int)), highlighter, SLOT(onCursorPositionChanged(int)));
+    connect(this->document(), SIGNAL(contentsChange(int,int,int)), this, SLOT(onContentsChanged(int,int,int)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
+    connect(this, SIGNAL(typingResumed()), highlighter, SLOT(onTypingResumed()));
+    connect(this, SIGNAL(typingPaused()), highlighter, SLOT(onTypingPaused()));
 
     addWordToDictionaryAction = new QAction(tr("Add word to dictionary"), this);
     checkSpellingAction = new QAction(tr("Check spelling..."), this);
@@ -1117,8 +1120,19 @@ void MarkdownEditor::suggestSpelling(QAction* action)
     }
 }
 
-void MarkdownEditor::onTextChanged()
+void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRemoved)
 {
+    Q_UNUSED(position)
+    Q_UNUSED(charsAdded)
+    Q_UNUSED(charsRemoved)
+
+    // Don't use the textChanged() or contentsChanged() (no parameters) signals
+    // for checking if the typingResumed() signal needs to be emitted.  These
+    // two signals are emitted even when the text formatting changes (i.e.,
+    // when the QSyntaxHighlighter formats the text). Instead, use QTextDocument's
+    // onContentsChanged(int, int, int) signal, which is only emitted when the
+    // document text actually changes.
+    //
     if (typingHasPaused)
     {
         typingHasPaused = false;

@@ -45,7 +45,9 @@
 MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
         dictionary(DictionaryManager::instance().requestDictionary()),
+        cursorPosition(0),
         spellCheckEnabled(false),
+        typingPaused(true),
         useUndlerlineForEmphasis(false),
         inBlockquote(false),
         defaultTextColor(Qt::black),
@@ -64,7 +66,6 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         SLOT(onHighlightBlockAtPosition(int)),
         Qt::QueuedConnection
     );
-    
 
     QFont font;
     font.setFamily("Monospace");
@@ -335,6 +336,37 @@ void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
     rehighlight();
 }
 
+void MarkdownHighlighter::onCursorPositionChanged(int position)
+{
+    int oldPosition = cursorPosition;
+    cursorPosition = position;
+
+    if (spellCheckEnabled)
+    {
+        QTextBlock oldBlock = document()->findBlock(oldPosition);
+        QTextBlock newBlock = document()->findBlock(cursorPosition);
+
+        if (oldBlock != newBlock)
+        {
+            rehighlightBlock(oldBlock);
+        }
+
+        rehighlightBlock(newBlock);
+    }
+}
+
+void MarkdownHighlighter::onTypingResumed()
+{
+    typingPaused = false;
+}
+
+void MarkdownHighlighter::onTypingPaused()
+{
+    typingPaused = true;
+    QTextBlock block = document()->findBlock(cursorPosition);
+    rehighlightBlock(block);
+}
+
 void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 {
     QTextBlock block = document()->findBlock(position);
@@ -361,6 +393,14 @@ bool MarkdownHighlighter::isHeadingBlockState(int state) const
 
 void MarkdownHighlighter::spellCheck(const QString& text)
 {
+    QTextBlock cursorPosBlock = this->document()->findBlock(cursorPosition);
+    int cursorPosInBlock = -1;
+
+    if (this->currentBlock() == cursorPosBlock)
+    {
+        cursorPosInBlock = cursorPosition - cursorPosBlock.position();
+    }
+
     QStringRef misspelledWord = dictionary.check(text, 0);
 
     while (!misspelledWord.isNull())
@@ -368,18 +408,21 @@ void MarkdownHighlighter::spellCheck(const QString& text)
         int startIndex = misspelledWord.position();
         int length = misspelledWord.length();
 
-        QTextCharFormat spellingErrorFormat = format(startIndex);
-        spellingErrorFormat.setUnderlineColor(spellingErrorColor);
-        spellingErrorFormat.setUnderlineStyle
-        (
-            (QTextCharFormat::UnderlineStyle)
-            QApplication::style()->styleHint
+        if (typingPaused || (cursorPosInBlock != (startIndex + length)))
+        {
+            QTextCharFormat spellingErrorFormat = format(startIndex);
+            spellingErrorFormat.setUnderlineColor(spellingErrorColor);
+            spellingErrorFormat.setUnderlineStyle
             (
-                QStyle::SH_SpellCheckUnderlineStyle
-            )
-        );
+                (QTextCharFormat::UnderlineStyle)
+                QApplication::style()->styleHint
+                (
+                    QStyle::SH_SpellCheckUnderlineStyle
+                )
+            );
 
-        setFormat(startIndex, length, spellingErrorFormat);
+            setFormat(startIndex, length, spellingErrorFormat);
+        }
 
         startIndex += length;
         misspelledWord = dictionary.check(text, startIndex);
