@@ -385,7 +385,7 @@
     </message>
     <message>
         <location filename="../src/HtmlPreview.cpp" line="123"/>
-        <source>No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.</source>
+        <source>No markdown (pandoc, multimarkdown, discount) processors are installed. Please install or add their installation locations to your system PATH environment variable.</source>
         <translation>Не установлено ни одного обработчика markdown (pandoc, multimarkdown, discount). Пожалуйста, установите их или добавьте пути установки в переменную окружения PATH.</translation>
     </message>
     <message>
@@ -1168,52 +1168,52 @@
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="252"/>
-        <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
+        <source>The specified theme is not available. Try restarting the application. If problem persists, please file a bug report.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="322"/>
-        <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
+        <source>Could not delete %1 from theme. Please try setting the theme file permissions to be writeable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="345"/>
-        <source>&apos;%1&apos; already exists.  Please choose another name.</source>
+        <source>&apos;%1&apos; already exists. Please choose another name.</source>
         <translation>«%1» уже существует. Пожалуйста, выберите другое имя.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="355"/>
-        <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
+        <source>&apos;%1&apos; theme already exists. Please choose another name.</source>
         <translation>Тема «%1»уже существует. Пожалуйста, выберите другое имя.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="390"/>
-        <source>Failed to rename theme.  Please check file permissions.</source>
+        <source>Failed to rename theme. Please check file permissions.</source>
         <translation>Не удалось переменовать тему. Пожалуйста, проверьте права на файл.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="435"/>
-        <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
+        <source>Theme is read-only. Please try renaming the theme, or setting the theme file to be writable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="472"/>
-        <source>Failed to remove old theme image.  Please check file permissions.</source>
+        <source>Failed to remove old theme image. Please check file permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="504"/>
-        <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
+        <source>The old theme image file could not be removed from the theme directory. Please check file permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="516"/>
-        <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
+        <source>Theme image file could not be copied to the theme directory. Please check file permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="535"/>
-        <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
+        <source>Theme could not be saved to disk. Please check file permissions or try renaming the theme.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1235,7 +1235,7 @@
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="659"/>
-        <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
+        <source>Value for %1 is out of range. Valid values are between %2 and %3, inclusive.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
