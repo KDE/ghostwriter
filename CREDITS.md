@@ -1,35 +1,28 @@
-Developers
-==========
+## Developers
 
-* wereturtle <http://www.github.com/wereturtle>
+* [@wereturtle](https://github.com/wereturtle)
 
-Translations
-============
+## Translations
 
-* Russian - suhr
-* Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
-* Italian - Tristano Ajmone (tajmone)
-* Japanese - piyo-gh
+* German - DHBWMAWHD ([@dhbwmawhd](https://github.com/dhbwmawhd))
+* Italian - Tristano Ajmone ([@tajmone](https://github.com/tajmone))
+* Japanese - piyo-gh ([@piyo-gh](https://github.com/piyo-gh))
+* Portuguese (Brazil) - José Geraldo Gouvêa ([@jggouvea](https://github.com/jggouvea))
+* Russian ([@suhr](https://github.com/suhr))
 
-Libraries
-=========
+## Libraries
 
-* Qt <http://www.qt.io/>
-* hunspell <http://hunspell.sourceforge.net/>
-* Sundown <http://github.com/vmg/sundown/>
+* [Qt](http://www.qt.io)
+* [hunspell](http://hunspell.sourceforge.net)
+* [Sundown](http://github.com/vmg/sundown)
 
-Reused Code
-===========
+## Reused Code
 
-* Graeme Gott, author of FocusWriter,
-  <http://gottcode.org/focuswriter/>
-* Dmitry Shachnev, author of Retext,
-  <http://sourceforge.net/p/retext/home/ReText/>
-* Gabriel M. Beddingfield, author of StretchPlayer,
-  <http://www.teuton.org/~gabriel/stretchplayer/>
+* Graeme Gott, author of [FocusWriter](http://gottcode.org/focuswriter)
+* Dmitry Shachnev, author of [Retext](http://sourceforge.net/p/retext/home/ReText)
+* Gabriel M. Beddingfield, author of [StretchPlayer](http://www.teuton.org/~gabriel/stretchplayer)
 
-Special Thanks
-==============
+## Special Thanks
 
 Graeme Gott, Dmitry Shachnev, and Gabriel M. Beddingfield were all indirectly my mentors in learning Qt by providing excellent code from which I could lift.
 
