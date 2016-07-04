@@ -383,7 +383,7 @@
     </message>
     <message>
         <location filename="../src/HtmlPreview.cpp" line="123"/>
-        <source>No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.</source>
+        <source>No markdown (pandoc, multimarkdown, discount) processors are installed. Please install or add their installation locations to your system PATH environment variable.</source>
         <translation>markdown プロセッサ (pandoc, multimarkdown, discount) が見つかりません。インストールするかインストールした場所をシステム環境変数PATHに追加してください。</translation>
     </message>
     <message>
@@ -1161,53 +1161,53 @@
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="252"/>
-        <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
-        <translation>指定のテーマが見つかりません。  アプリを再起動してみてください。もしそれでも問題がある場合にはバグレポートを提出してください。</translation>
+        <source>The specified theme is not available. Try restarting the application. If problem persists, please file a bug report.</source>
+        <translation>指定のテーマが見つかりません。 アプリを再起動してみてください。もしそれでも問題がある場合にはバグレポートを提出してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="322"/>
-        <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
-        <translation>テーマから  %1 を削除できません。  テーマ ファイルに書き込み権限を設定してください。</translation>
+        <source>Could not delete %1 from theme. Please try setting the theme file permissions to be writeable.</source>
+        <translation>テーマから  %1 を削除できません。 テーマ ファイルに書き込み権限を設定してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="345"/>
-        <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; はすでに存在します。  別の名前を選択してください。</translation>
+        <source>&apos;%1&apos; already exists. Please choose another name.</source>
+        <translation>&apos;%1&apos; はすでに存在します。 別の名前を選択してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="355"/>
-        <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; というテーマはすでに存在します。  別の名前を選択してください。</translation>
+        <source>&apos;%1&apos; theme already exists. Please choose another name.</source>
+        <translation>&apos;%1&apos; というテーマはすでに存在します。 別の名前を選択してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="390"/>
-        <source>Failed to rename theme.  Please check file permissions.</source>
+        <source>Failed to rename theme. Please check file permissions.</source>
         <translation>テーマ名の変更に失敗しました。ファイルの権限を確認してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="435"/>
-        <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
-        <translation>テーマは読み取り専用です。  テーマ名を変更するかファイルを書き込み可能に設定してください。</translation>
+        <source>Theme is read-only. Please try renaming the theme, or setting the theme file to be writable.</source>
+        <translation>テーマは読み取り専用です。 テーマ名を変更するかファイルを書き込み可能に設定してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="472"/>
-        <source>Failed to remove old theme image.  Please check file permissions.</source>
-        <translation>古いテーマ画像の削除に失敗しました。  ファイルの権限を確認してください。</translation>
+        <source>Failed to remove old theme image. Please check file permissions.</source>
+        <translation>古いテーマ画像の削除に失敗しました。 ファイルの権限を確認してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="504"/>
-        <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
-        <translation>古いテーマ画像をテーマ ディレクトリから削除できませんでした。  ファイルの権限を確認してください。</translation>
+        <source>The old theme image file could not be removed from the theme directory. Please check file permissions.</source>
+        <translation>古いテーマ画像をテーマ ディレクトリから削除できませんでした。 ファイルの権限を確認してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="516"/>
-        <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
-        <translation>テーマ画像ファイルをテーマ ディレクトリにコピーできませんでした。  ファイルの権限を確認してください。</translation>
+        <source>Theme image file could not be copied to the theme directory. Please check file permissions.</source>
+        <translation>テーマ画像ファイルをテーマ ディレクトリにコピーできませんでした。 ファイルの権限を確認してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="535"/>
-        <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation>テーマをディスクに保存できませんでした。  ファイルの権限を確認するかテーマ名を変更してください。</translation>
+        <source>Theme could not be saved to disk. Please check file permissions or try renaming the theme.</source>
+        <translation>テーマをディスクに保存できませんでした。 ファイルの権限を確認するかテーマ名を変更してください。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="560"/>
@@ -1228,7 +1228,7 @@
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="659"/>
-        <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
+        <source>Value for %1 is out of range. Valid values are between %2 and %3, inclusive.</source>
         <translation>%1 は範囲外の値です。有効な値は %2 から %3 までの範囲です。</translation>
     </message>
 </context>

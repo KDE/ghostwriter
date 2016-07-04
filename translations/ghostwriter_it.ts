@@ -411,7 +411,7 @@ NOTA: Il testo deve essere breve dato che spesso l&apos;utente lavorerà con la 
     </message>
     <message>
         <location filename="../src/HtmlPreview.cpp" line="123"/>
-        <source>No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.</source>
+        <source>No markdown (pandoc, multimarkdown, discount) processors are installed. Please install or add their installation locations to your system PATH environment variable.</source>
         <translatorcomment>NOTA: La traduzione è molto lunga, bisogna verificare che non ecceda lo spazio di visualizzazion!</translatorcomment>
         <translation>Su questo PC non risulta presente alcuno strumento per l&apos;elaborazione del markdown (pandoc, , multimarkdown, discount). Sei pregato di installarne almeno uno, o di aggiungere alla variabile PATH del sistema il percorso di eventuali strumenti presenti nel sistema.</translation>
     </message>
@@ -1241,53 +1241,53 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="252"/>
-        <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
-        <translation>Il tema indicato non è disponibile.  Prova a riavvare l&apos;applicazione.  Se il problema persiste, segnalaci questo baco.</translation>
+        <source>The specified theme is not available. Try restarting the application. If problem persists, please file a bug report.</source>
+        <translation>Il tema indicato non è disponibile. Prova a riavvare l&apos;applicazione. Se il problema persiste, segnalaci questo baco.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="322"/>
-        <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
-        <translation>Impossibile cancellare %1 dal tema.  Prova a modificare i permessi di scrittura del file del tema.</translation>
+        <source>Could not delete %1 from theme. Please try setting the theme file permissions to be writeable.</source>
+        <translation>Impossibile cancellare %1 dal tema. Prova a modificare i permessi di scrittura del file del tema.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="345"/>
-        <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; esiste già.  Scegli un altro nome.</translation>
+        <source>&apos;%1&apos; already exists. Please choose another name.</source>
+        <translation>&apos;%1&apos; esiste già. Scegli un altro nome.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="355"/>
-        <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation>Il tema &apos;%1&apos; esiste già.  Scegli un altro nome.</translation>
+        <source>&apos;%1&apos; theme already exists. Please choose another name.</source>
+        <translation>Il tema &apos;%1&apos; esiste già. Scegli un altro nome.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="390"/>
-        <source>Failed to rename theme.  Please check file permissions.</source>
-        <translation>Non è stato possibile rinominare il tema.  Verifica i permessi del file.</translation>
+        <source>Failed to rename theme. Please check file permissions.</source>
+        <translation>Non è stato possibile rinominare il tema. Verifica i permessi del file.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="435"/>
-        <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
-        <translation>Il tema è in sola lettura.  Prova a rinominare il tema, o a settare i permessi di scrittura del file del tema.</translation>
+        <source>Theme is read-only. Please try renaming the theme, or setting the theme file to be writable.</source>
+        <translation>Il tema è in sola lettura. Prova a rinominare il tema, o a settare i permessi di scrittura del file del tema.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="472"/>
-        <source>Failed to remove old theme image.  Please check file permissions.</source>
+        <source>Failed to remove old theme image. Please check file permissions.</source>
         <translation>Non è stato possibile eliminare la vecchia immagine del tema. Controlla i permessi del file.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="504"/>
-        <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
-        <translation>Non è stato possibile cancellare il file dell&apos;immagine vecchia del tema dalla directory dei temi.  Verifica i permessi del file.</translation>
+        <source>The old theme image file could not be removed from the theme directory. Please check file permissions.</source>
+        <translation>Non è stato possibile cancellare il file dell&apos;immagine vecchia del tema dalla directory dei temi. Verifica i permessi del file.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="516"/>
-        <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
-        <translation>Non è stato possibile copiare il file dell&apos;immagine del tema nella directory dei temi.  Verifica i permessi dei file.</translation>
+        <source>Theme image file could not be copied to the theme directory. Please check file permissions.</source>
+        <translation>Non è stato possibile copiare il file dell&apos;immagine del tema nella directory dei temi. Verifica i permessi dei file.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="535"/>
-        <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation>Non è stato possibile salvare il tema su disco.  Verifica i permessi dei file, o prova a rinominare il tema.</translation>
+        <source>Theme could not be saved to disk. Please check file permissions or try renaming the theme.</source>
+        <translation>Non è stato possibile salvare il tema su disco. Verifica i permessi dei file, o prova a rinominare il tema.</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="560"/>
@@ -1308,8 +1308,8 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="659"/>
-        <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
-        <translation>Il valore di %1 è fuori dal range.  I valori accettati vanno da %2 a %3 (inclusi).</translation>
+        <source>Value for %1 is out of range. Valid values are between %2 and %3, inclusive.</source>
+        <translation>Il valore di %1 è fuori dal range. I valori accettati vanno da %2 a %3 (inclusi).</translation>
     </message>
 </context>
 <context>
