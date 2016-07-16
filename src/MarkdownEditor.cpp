@@ -314,6 +314,8 @@ void MarkdownEditor::dropEvent(QDropEvent* e)
         QFileInfo fileInfo(path);
         QString fileExtension = fileInfo.suffix().toLower();
 
+        QTextCursor dropCursor = cursorForPosition(e->pos());
+
         // If the file extension indicates an image type, then insert an
         // image link into the text.
         if
@@ -344,7 +346,7 @@ void MarkdownEditor::dropEvent(QDropEvent* e)
                 path = url.toString();
             }
 
-            textCursor().insertText(QString("![](%1)").arg(path));
+            dropCursor.insertText(QString("![](%1)").arg(path));
 
             // We have to call the super class so that clean up occurs,
             // otherwise the editor's cursor will freeze.  We also have to use
