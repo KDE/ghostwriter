@@ -306,7 +306,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::PDF,
-        QString("pandoc %1 -f %2 -t latex -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue --standalone -o %3")
+        QString("pandoc %1 -f %2 -t latex -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --standalone -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
