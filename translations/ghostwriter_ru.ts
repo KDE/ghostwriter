@@ -347,7 +347,7 @@
             <numerusform>Заменить %n позицию?</numerusform>
             <numerusform>Заменить %n позиции?</numerusform>
             <numerusform>Заменить %n позиций?</numerusform>
-       </translation>
+        </translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="281"/>
@@ -651,7 +651,7 @@
             <numerusform>%Ln слово</numerusform>
             <numerusform>%Ln слова</numerusform>
             <numerusform>%Ln слов</numerusform>
-       </translation>
+        </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1175"/>
@@ -1109,7 +1109,7 @@
         <translation>Проверить правописание...</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="574"/>
+        <location filename="../src/MarkdownEditor.cpp" line="576"/>
         <source>No spelling suggestions found</source>
         <translation>Вариантов правописания не найдено</translation>
     </message>

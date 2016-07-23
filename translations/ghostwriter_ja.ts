@@ -1091,17 +1091,17 @@
 <context>
     <name>MarkdownEditor</name>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="119"/>
+        <location filename="../src/MarkdownEditor.cpp" line="122"/>
         <source>Add word to dictionary</source>
         <translation>単語を辞書に追加</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="120"/>
+        <location filename="../src/MarkdownEditor.cpp" line="123"/>
         <source>Check spelling...</source>
         <translation>スペルチェック...</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="571"/>
+        <location filename="../src/MarkdownEditor.cpp" line="576"/>
         <source>No spelling suggestions found</source>
         <translation>スペルの提案はありません</translation>
     </message>

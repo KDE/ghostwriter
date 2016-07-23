@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<TS version="2.1" language="it_IT">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -1164,19 +1164,19 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
 <context>
     <name>MarkdownEditor</name>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="119"/>
+        <location filename="../src/MarkdownEditor.cpp" line="122"/>
         <source>Add word to dictionary</source>
         <translatorcomment>Menù contestual click pulsante mouse destro, all&apos;interno dell&apos;editor (nel caso di vocabolo evidenzaito da spell-check)</translatorcomment>
         <translation>Aggiungi vocabolo al dizionario</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="120"/>
+        <location filename="../src/MarkdownEditor.cpp" line="123"/>
         <source>Check spelling...</source>
         <translatorcomment>nù contestual click pulsante mouse destro, all&apos;interno dell&apos;editor (nel caso di vocabolo evidenzaito da spell-check)</translatorcomment>
         <translation>Controlla ortografia…</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="571"/>
+        <location filename="../src/MarkdownEditor.cpp" line="576"/>
         <source>No spelling suggestions found</source>
         <translation>Nessun suggerimento ortografico trovato</translation>
     </message>
