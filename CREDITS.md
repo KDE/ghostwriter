@@ -10,6 +10,7 @@ Translations
 * Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
 * Italian - Tristano Ajmone (tajmone)
 * Japanese - piyo-gh
+* German - dhbwmawhd
 
 Libraries
 =========
