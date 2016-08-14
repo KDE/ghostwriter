@@ -1464,20 +1464,24 @@ bool MarkdownEditor::handleBackspaceKey()
             if (autoMatchEnabled && (cursor.positionInBlock() > 0))
             {
                 QString blockText = cursor.block().text();
-                QChar currentChar = blockText[cursor.positionInBlock()];
-                QChar previousChar = blockText[cursor.positionInBlock() - 1];
 
-                if (markupPairs[previousChar] == currentChar)
+                if (cursor.positionInBlock() < blockText.length())
                 {
-                    cursor.movePosition(QTextCursor::Left);
-                    cursor.movePosition
-                    (
-                        QTextCursor::Right,
-                        QTextCursor::KeepAnchor,
-                        2
-                    );
-                    cursor.removeSelectedText();
-                    return true;
+                    QChar currentChar = blockText[cursor.positionInBlock()];
+                    QChar previousChar = blockText[cursor.positionInBlock() - 1];
+
+                    if (markupPairs[previousChar] == currentChar)
+                    {
+                        cursor.movePosition(QTextCursor::Left);
+                        cursor.movePosition
+                        (
+                            QTextCursor::Right,
+                            QTextCursor::KeepAnchor,
+                            2
+                        );
+                        cursor.removeSelectedText();
+                        return true;
+                    }
                 }
             }
             break;
