@@ -391,7 +391,7 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
                 return;
             }
 
-            theme.getBackgroundImageUrl() = backgroundImageUrl;
+            theme.setBackgroundImageUrl(backgroundImageUrl);
 
             // Now update the available themes list with the new theme name.
             for (int i = 0; i < customThemeNames.size(); i++)
