@@ -313,8 +313,35 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         }
     }
 
+    // Set dimensions for the main window.  This is best done before
+    // building the status bar, so that we can determine whether the full
+    // screen button should be checked.
+    //
+    QSettings windowSettings;
+
+    if (windowSettings.contains(GW_MAIN_WINDOW_GEOMETRY_KEY))
+    {
+        restoreGeometry(windowSettings.value(GW_MAIN_WINDOW_GEOMETRY_KEY).toByteArray());
+        restoreState(windowSettings.value(GW_MAIN_WINDOW_STATE_KEY).toByteArray());
+    }
+    else
+    {
+        this->adjustSize();
+    }
+
+    lastWindowState = windowState();
+
     buildMenuBar();
     buildStatusBar();
+
+    if (this->isFullScreen())
+    {
+        effectsMenuBar->setAutoHideEnabled(appSettings->getHideMenuBarInFullScreenEnabled());
+    }
+    else
+    {
+        effectsMenuBar->setAutoHideEnabled(false);
+    }
 
 
     QString themeName = appSettings->getThemeName();
@@ -361,26 +388,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(htmlPreview, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
 
     // Set dimensions for all the windows/HUDs.
-    QSettings windowSettings;
-
-    if (windowSettings.contains(GW_MAIN_WINDOW_GEOMETRY_KEY))
-    {
-        restoreGeometry(windowSettings.value(GW_MAIN_WINDOW_GEOMETRY_KEY).toByteArray());
-        restoreState(windowSettings.value(GW_MAIN_WINDOW_STATE_KEY).toByteArray());
-
-        if (this->isFullScreen())
-        {
-            effectsMenuBar->setAutoHideEnabled(appSettings->getHideMenuBarInFullScreenEnabled());
-        }
-        else
-        {
-            effectsMenuBar->setAutoHideEnabled(false);
-        }
-    }
-    else
-    {
-        this->adjustSize();
-    }
 
     if (windowSettings.contains(GW_OUTLINE_HUD_GEOMETRY_KEY))
     {
@@ -433,8 +440,12 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     quickReferenceGuideViewer = NULL;
 
+    // Show the main window.
     show();
 
+    // Show the remaining windows/HUDs based on whether they had been previously
+    // opened during the last session.
+    //
     if (windowSettings.value(GW_OUTLINE_HUD_OPEN_KEY, QVariant(false)).toBool())
     {
         outlineHud->show();
@@ -501,6 +512,45 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     if (!originalBackgroundImage.isNull())
     {
         predrawBackgroundImage();
+    }
+}
+
+void MainWindow::changeEvent(QEvent* event)
+{
+    if (QEvent::WindowStateChange == event->type())
+    {
+        if
+        (
+            (Qt::WindowNoState == lastWindowState) &&
+            (windowState() & Qt::WindowMaximized)
+        )
+        {
+            // Store the current normal window geometry when transitioning
+            // from a normal window to a maximized window.  Otherwise,
+            // the last normal window geometry can be lost when the
+            // window transitions into full screen mode.
+            //
+            normalWinGeom = this->normalGeometry();
+        }
+        else if
+        (
+            (lastWindowState & Qt::WindowMaximized) &&
+            (Qt::WindowNoState == windowState()) &&
+            !fullScreenButton->isChecked()
+        )
+        {
+            // Return to normal window using stored window geometry
+            // when transitioning from a maximized window to a normal
+            // window.  Note that the full screen check with the
+            // fullScreenButton was to ensure that geometry isn't
+            // restored in the middle of transitioning to full screen
+            // mode.  (The window passes through several state
+            // transitions when going full screen.)
+            //
+            this->setGeometry(normalWinGeom);
+        }
+
+        lastWindowState = windowState();
     }
 }
 
@@ -639,6 +689,8 @@ void MainWindow::toggleFullscreen(bool checked)
     // accordingly.
     //
 
+    static bool lastStateWasMaximized = false;
+
     if (this->isFullScreen() || !checked)
     {
         if (this->sender() != fullScreenButton)
@@ -654,7 +706,21 @@ void MainWindow::toggleFullscreen(bool checked)
             }
 
             fullScreenMenuAction->setChecked(false);
-            showNormal();
+
+            // If the window had been maximized prior to entering
+            // full screen mode, then put the window back to
+            // to maximized.  Don't call showNormal(), as that
+            // doesn't restore the window to maximized.
+            //
+            if (lastStateWasMaximized)
+            {
+                showMaximized();
+            }
+            // Put the window back to normal (not maximized).
+            else
+            {
+                showNormal();
+            }
 
             if (appSettings->getHideMenuBarInFullScreenEnabled())
             {
@@ -674,6 +740,15 @@ void MainWindow::toggleFullscreen(bool checked)
             {
                 statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
                 timeLabel->show();
+            }
+
+            if (this->isMaximized())
+            {
+                lastStateWasMaximized = true;
+            }
+            else
+            {
+                lastStateWasMaximized = false;
             }
 
             fullScreenMenuAction->setChecked(true);
