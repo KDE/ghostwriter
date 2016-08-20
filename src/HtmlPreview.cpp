@@ -297,12 +297,6 @@ void HtmlPreview::onHtmlReady()
 {
     QString html = futureWatcher->result();
 
-    if (html == this->html)
-    {
-        // Don't bother updating if the HTML didn't change.
-        return;
-    }
-
     // Find where the change occurred since last time, and slip an
     // anchor in the location so that we can scroll there.
     //
@@ -611,6 +605,12 @@ void HtmlPreview::setHtml(const QString& html)
 
     htmlBrowser->setContent(html.toUtf8(), "text/html", baseUrl);
     htmlBrowser->page()->mainFrame()->scrollToAnchor("livepreviewmodifypoint");
+
+    // Adjust the position so that the anchor will be more-or-less centered
+    // vertically.
+    //
+    int dyScroll = htmlBrowser->page()->viewportSize().height() / 2;
+    htmlBrowser->page()->mainFrame()->scroll(0, -dyScroll);
 }
 
 QString HtmlPreview::exportToHtml
