@@ -605,12 +605,6 @@ void HtmlPreview::setHtml(const QString& html)
 
     htmlBrowser->setContent(html.toUtf8(), "text/html", baseUrl);
     htmlBrowser->page()->mainFrame()->scrollToAnchor("livepreviewmodifypoint");
-
-    // Adjust the position so that the anchor will be more-or-less centered
-    // vertically.
-    //
-    int dyScroll = htmlBrowser->page()->viewportSize().height() / 2;
-    htmlBrowser->page()->mainFrame()->scroll(0, -dyScroll);
 }
 
 QString HtmlPreview::exportToHtml
