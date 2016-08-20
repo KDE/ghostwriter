@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -89,6 +89,18 @@ void MarkdownTokenizer::tokenize
     this->nextState = nextState;
 
     if
+    (
+        (
+            (MarkdownStateInGithubCodeFence == previousState)
+            || (MarkdownStateInPandocCodeFence == previousState)
+        )
+        &&
+        tokenizeCodeBlock(text)
+    )
+    {
+        ; // No further tokenizing required
+    }
+    else if
     (
         (MarkdownStateComment != previousState)
         && paragraphBreakRegex.exactMatch(text)
@@ -672,7 +684,8 @@ bool MarkdownTokenizer::tokenizeCodeBlock
     (
         (MarkdownStateParagraphBreak == previousState)
         || (MarkdownStateParagraph == previousState)
-        || (MarkdownStateUnknown == previousState)           
+        || (MarkdownStateUnknown == previousState)
+        || (MarkdownStateListLineBreak == previousState)
     )
     {
         bool foundCodeFenceStart = false;
