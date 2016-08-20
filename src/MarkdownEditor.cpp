@@ -1470,7 +1470,7 @@ bool MarkdownEditor::handleBackspaceKey()
                     QChar currentChar = blockText[cursor.positionInBlock()];
                     QChar previousChar = blockText[cursor.positionInBlock() - 1];
 
-                    if (markupPairs[previousChar] == currentChar)
+                    if (markupPairs.value(previousChar) == currentChar)
                     {
                         cursor.movePosition(QTextCursor::Left);
                         cursor.movePosition
