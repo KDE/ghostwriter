@@ -500,7 +500,7 @@ AppSettings::AppSettings()
             userDir + "/settings"
         );
 
-        translationsPath = userDir + "/translations";
+        translationsPath = appDir + "/translations";
     }
     else
     {
@@ -510,8 +510,6 @@ AppSettings::AppSettings()
         // machines, and also for the user's privacy.
         //
         QSettings::setDefaultFormat(QSettings::IniFormat);
-
-        // Set translations path to be same as the executable.
 #endif
         QSettings settings;
         userDir = QFileInfo(settings.fileName()).dir().absolutePath();

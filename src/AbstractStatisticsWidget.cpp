@@ -96,7 +96,7 @@ QLabel* AbstractStatisticsWidget::addStatisticLabel
 )
 {
     QHBoxLayout* layout = new QHBoxLayout();
-    layout->setContentsMargins(2, 2, 2, 2);
+    layout->setContentsMargins(2, 1, 2, 3);
 
     QLabel* descriptionLabel = new QLabel(description);
     descriptionLabel->setAlignment(Qt::AlignRight);
