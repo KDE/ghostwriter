@@ -1776,7 +1776,7 @@ void MainWindow::buildStatusBar()
 
     timeLabel = new TimeLabel(this);
 
-    if (this->isFullScreen() && !appSettings->getDisplayTimeInFullScreenEnabled())
+    if (this->isFullScreen() && appSettings->getDisplayTimeInFullScreenEnabled())
     {
         statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
     }
