@@ -49,7 +49,16 @@ void TimeLabel::updateTimeOfDay()
     // from being accurate due to small timer inaccuracies.
     //
     timer->setSingleShot(true);
-    timer->start(currentTime.msecsTo(nextTime));
+
+    int interval = currentTime.msecsTo(nextTime);
+
+    // Ensure interval is never negative.
+    if (interval <= 0)
+    {
+        interval = 1000;
+    }
+
+    timer->start(interval);
 }
 
 
