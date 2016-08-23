@@ -39,7 +39,7 @@ TimeLabel::~TimeLabel()
 void TimeLabel::updateTimeOfDay()
 {
     QTime currentTime = QTime::currentTime();
-    this->setText(currentTime.toString("h:mm AP"));
+    this->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
 
     QTime nextTime = currentTime.addSecs(60);
     nextTime.setHMS(nextTime.hour(), nextTime.minute(), 0);
