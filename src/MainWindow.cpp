@@ -329,8 +329,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         this->adjustSize();
     }
 
-    lastWindowState = windowState();
-
     buildMenuBar();
     buildStatusBar();
 
@@ -512,45 +510,6 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     if (!originalBackgroundImage.isNull())
     {
         predrawBackgroundImage();
-    }
-}
-
-void MainWindow::changeEvent(QEvent* event)
-{
-    if (QEvent::WindowStateChange == event->type())
-    {
-        if
-        (
-            (Qt::WindowNoState == lastWindowState) &&
-            (windowState() & Qt::WindowMaximized)
-        )
-        {
-            // Store the current normal window geometry when transitioning
-            // from a normal window to a maximized window.  Otherwise,
-            // the last normal window geometry can be lost when the
-            // window transitions into full screen mode.
-            //
-            normalWinGeom = this->normalGeometry();
-        }
-        else if
-        (
-            (lastWindowState & Qt::WindowMaximized) &&
-            (Qt::WindowNoState == windowState()) &&
-            !fullScreenButton->isChecked()
-        )
-        {
-            // Return to normal window using stored window geometry
-            // when transitioning from a maximized window to a normal
-            // window.  Note that the full screen check with the
-            // fullScreenButton was to ensure that geometry isn't
-            // restored in the middle of transitioning to full screen
-            // mode.  (The window passes through several state
-            // transitions when going full screen.)
-            //
-            this->setGeometry(normalWinGeom);
-        }
-
-        lastWindowState = windowState();
     }
 }
 
