@@ -2099,11 +2099,11 @@ void MainWindow::applyTheme()
         << " } "
         << "QPushButton { font-size: "
         << menuBarFontSize
-        << "pt; padding: 5px; border: 0; border-radius: 5px; background: transparent"
+        << "pt; padding: 5px; margin: 3px; border: 0; border-radius: 5px; background: transparent"
         << "; color: "
         << statusBarItemFgColorRGB
         << " } "
-        << "QPushButton:pressed, QPushButton:flat, QPushButton:checked, QPushButton:hover { margin: 0; color: "
+        << "QPushButton:pressed, QPushButton:flat, QPushButton:checked, QPushButton:hover { padding: 5px; margin: 3px; color: "
         << statusBarButtonFgPressHoverColorRGB
         << "; background-color: "
         << statusBarButtonBgPressHoverColorRGBA
