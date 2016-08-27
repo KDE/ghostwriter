@@ -1809,25 +1809,28 @@ void MainWindow::applyTheme()
     QTextStream stream(&styleSheet);
 
     QColor scrollBarColor = theme.getDefaultTextColor();
-    scrollBarColor.setAlpha(100);
-    scrollBarColor =
-        ColorHelper::applyAlpha
-        (
-            scrollBarColor,
-            theme.getEditorBackgroundColor()
-        );
+
+    // If the background color is brighter than the text, then
+    // make the scrollbar match the background color more closely.
+    //
+    if
+    (
+        ColorHelper::getLuminance(theme.getEditorBackgroundColor())
+        > ColorHelper::getLuminance(theme.getDefaultTextColor())
+    )
+    {
+        scrollBarColor = theme.getEditorBackgroundColor();
+        scrollBarColor.setAlpha(255);
+        scrollBarColor = scrollBarColor.darker(120);
+    }
+    // Else make the scrollbar match the text color more closely.
+    else
+    {
+        scrollBarColor = theme.getDefaultTextColor().darker(160);
+    }
 
     QString scrollbarColorRGB = ColorHelper::toRgbString(scrollBarColor);
-
-    QColor scrollBarHoverColor = theme.getDefaultTextColor();
-    scrollBarHoverColor.setAlpha(150);
-    scrollBarHoverColor =
-        ColorHelper::applyAlpha
-        (
-            scrollBarHoverColor,
-            theme.getEditorBackgroundColor()
-        );
-
+    QColor scrollBarHoverColor = theme.getLinkColor();
     QString scrollBarHoverRGB = ColorHelper::toRgbString(scrollBarHoverColor);
 
     QString backgroundColorRGBA;
@@ -1971,14 +1974,14 @@ void MainWindow::applyTheme()
         << editorSelectionBgColorRGB
         << " } "
         << "QAbstractScrollArea::corner { background: transparent } "
-        << "QScrollBar::horizontal { border: 0; background: transparent; height: 10px; margin: 0 } "
+        << "QScrollBar::horizontal { border: 0; background: transparent; height: 6px; margin: 0 } "
         << "QScrollBar::handle:horizontal { border: 0; background: "
         << scrollbarColorRGB
-        << "; min-width: 50px; border-radius: 5px; } "
-        << "QScrollBar::vertical { border: 0; background: transparent; width: 10px; margin: 0 } "
+        << "; min-width: 50px; border-radius: 3px; } "
+        << "QScrollBar::vertical { border: 0; background: transparent; width: 6px; margin: 0 } "
         << "QScrollBar::handle:vertical { border: 0; background: "
         << scrollbarColorRGB
-        << "; min-height: 50px; border-radius: 5px;} "
+        << "; min-height: 50px; border-radius: 3px; } "
         << "QScrollBar::handle:vertical:hover { background: "
         << scrollBarHoverRGB
         << " } "
