@@ -37,6 +37,7 @@ int main(int argc, char* argv[])
     // fully launches.
     //
     AppSettings* appSettings = AppSettings::getInstance();
+    QLocale::setDefault(appSettings->getLocale());
 
     // Translate application based on locale.
     QTranslator translator;

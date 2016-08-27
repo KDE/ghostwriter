@@ -39,7 +39,7 @@ TimeLabel::~TimeLabel()
 void TimeLabel::updateTimeOfDay()
 {
     QTime currentTime = QTime::currentTime();
-    this->setText(currentTime.toString("h:mm AP"));
+    this->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
 
     QTime nextTime = currentTime.addSecs(60);
     nextTime.setHMS(nextTime.hour(), nextTime.minute(), 0);
@@ -49,7 +49,16 @@ void TimeLabel::updateTimeOfDay()
     // from being accurate due to small timer inaccuracies.
     //
     timer->setSingleShot(true);
-    timer->start(currentTime.msecsTo(nextTime));
+
+    int interval = currentTime.msecsTo(nextTime);
+
+    // Ensure interval is never negative.
+    if (interval <= 0)
+    {
+        interval = 1000;
+    }
+
+    timer->start(interval);
 }
 
 

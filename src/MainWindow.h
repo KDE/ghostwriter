@@ -70,7 +70,6 @@ class MainWindow : public QMainWindow
     protected:
         QSize sizeHint() const;
         void resizeEvent(QResizeEvent* event);
-        void changeEvent(QEvent* event);
         void keyPressEvent(QKeyEvent* e);
         void paintEvent(QPaintEvent* event);
         void closeEvent(QCloseEvent* event);
@@ -161,14 +160,6 @@ class MainWindow : public QMainWindow
         QThread* exporterThread;
 
         AppSettings* appSettings;
-
-        // Keep track of window geometry for when the main window
-        // transitions from normal to maximized to full screen,
-        // and then back to maximized and then normal.  Qt otherwise
-        // forgets the normal window dimensions in this scenario.
-        //
-        QRect normalWinGeom;
-        Qt::WindowStates lastWindowState;
 
 		QAction* addMenuAction
         (
