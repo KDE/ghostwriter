@@ -18,6 +18,7 @@
  ***********************************************************************/
 
 #include <QHBoxLayout>
+#include <QApplication>
 
 #include "AbstractStatisticsWidget.h"
 
@@ -99,12 +100,22 @@ QLabel* AbstractStatisticsWidget::addStatisticLabel
     layout->setMargin(0);
 
     QLabel* descriptionLabel = new QLabel(description);
-    descriptionLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+
+    Qt::Alignment descriptionAlignment = Qt::AlignRight;
+    Qt::Alignment valueAlignment = Qt::AlignLeft;
+
+    if (QApplication::isRightToLeft())
+    {
+        descriptionAlignment = Qt::AlignLeft;
+        valueAlignment = Qt::AlignRight;
+    }
+
+    descriptionLabel->setAlignment(descriptionAlignment | Qt::AlignVCenter);
 
     QLabel* valueLabel = new QLabel(QString("<b>%1</b>").arg(initialValue));
 
     valueLabel->setTextFormat(Qt::RichText);
-    valueLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    valueLabel->setAlignment(valueAlignment | Qt::AlignVCenter);
 
     layout->addWidget(descriptionLabel);
     layout->addWidget(valueLabel);
