@@ -1871,16 +1871,29 @@ void MainWindow::applyTheme()
     if (EditorAspectStretch == theme.getEditorAspect())
     {
         QColor buttonFgColor = theme.getDefaultTextColor();
-        buttonFgColor.setAlpha(185);
-        buttonFgColor =
-            ColorHelper::applyAlpha
-            (
-                buttonFgColor,
-                theme.getBackgroundColor()
-            );
+
+        // If the background color is brighter than the text, then
+        // make the button text match the background color more closely.
+        //
+        if
+        (
+            ColorHelper::getLuminance(theme.getEditorBackgroundColor())
+            >
+            ColorHelper::getLuminance(buttonFgColor)
+        )
+        {
+            buttonFgColor = theme.getEditorBackgroundColor();
+            buttonFgColor.setAlpha(255);
+            buttonFgColor = buttonFgColor.darker(150);
+        }
+        // Else make the button text match the foreground color more closely.
+        else
+        {
+            buttonFgColor = theme.getDefaultTextColor().darker(160);
+        }
 
         QColor buttonPressColor(theme.getDefaultTextColor());
-        buttonPressColor.setAlpha(30);
+        buttonPressColor.setAlpha(20);
 
         menuBarItemFgColorRGB = ColorHelper::toRgbString(buttonFgColor);
         menuBarItemBgColorRGBA = "transparent";
@@ -1914,12 +1927,12 @@ void MainWindow::applyTheme()
     }
     else
     {
-        QColor chromeFgColor = QColor("#F2F2F2");
+        QColor chromeFgColor = QColor("#FFFFFF");
 
         menuBarItemFgColorRGB = ColorHelper::toRgbString(chromeFgColor);
         menuBarItemBgColorRGBA = "transparent";
         menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
-        chromeFgColor.setAlpha(80);
+        chromeFgColor.setAlpha(50);
         menuBarItemBgPressColorRGBA = ColorHelper::toRgbaString(chromeFgColor);
 
 
@@ -2003,11 +2016,18 @@ void MainWindow::applyTheme()
     );
     editor->setStyleSheet(styleSheet);
 
+    // Ensure DPI scaling of full screen button with application menu bar font.
+    //
+    int menuBarFontWidth = this->menuBar()->fontInfo().pixelSize() + 3;
     styleSheet = "";
 
     stream
         << "QCheckBox { background: transparent; padding: 3 3 3 3; margin: 0 5 0 5 } "
-        << "QCheckBox::indicator { width: 20px; height: 20px; background: transparent } "
+        << "QCheckBox::indicator { width: "
+        << menuBarFontWidth
+        << "px; height: "
+        << menuBarFontWidth
+        << "px; background: transparent } "
         << "QCheckBox::indicator:unchecked { image: url("
         << fullScreenIcon
         << ") } "
