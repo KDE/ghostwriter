@@ -1974,6 +1974,7 @@ void MainWindow::applyTheme()
         << editorSelectionBgColorRGB
         << " } "
         << "QAbstractScrollArea::corner { background: transparent } "
+        << "QAbstractScrollArea { padding: 3 } "
         << "QScrollBar::horizontal { border: 0; background: transparent; height: 6px; margin: 0 } "
         << "QScrollBar::handle:horizontal { border: 0; background: "
         << scrollbarColorRGB
