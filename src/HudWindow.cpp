@@ -33,7 +33,7 @@
 #include <QPaintEvent>
 #include <QPoint>
 #include <QTextStream>
-#include <QtDebug>
+#include <QApplication>
 
 #include "HudWindow.h"
 #include "ColorHelper.h"
@@ -129,7 +129,21 @@ HudWindow::HudWindow(QWidget *parent)
     layout = new QGridLayout();
     layout->setMargin(11);
     layout->addWidget(titleBar, 0, 0, 1, 1, Qt::AlignTop);
-    layout->addWidget(sizeGripContainer, 2, 0, 1, 1, Qt::AlignRight);
+
+    Qt::Alignment sizeGripAlignment = Qt::AlignRight;
+
+    // The size grip is invisible on the left side when the application's
+    // layout is for a right-to-left language.  Instead, place it on the right
+    // side of the HUD window (i.e., specify an alignment of AlignLeft, which
+    // will be flipped to be the opposite in the right-to-left layout).  At
+    // least this way it will still be visible.
+    //
+    if (QApplication::isRightToLeft())
+    {
+        sizeGripAlignment = Qt::AlignLeft;
+    }
+
+    layout->addWidget(sizeGripContainer, 2, 0, 1, 1, sizeGripAlignment);
     layout->setRowStretch(0, 0);
     layout->setRowStretch(1, 1);
     layout->setRowStretch(2, 0);
@@ -213,7 +227,22 @@ void HudWindow::setButtonLayout(HudWindowButtonLayout layout)
         titleBarLayout->removeWidget(closeButton);
     }
 
-    if (HudWindowButtonLayoutLeft == layout)
+    // Place button on the configured side of the window, based on
+    // whether the application's layout direction is for a
+    // left-to-right or a right-to-left language.
+    //
+    if
+    (
+        (
+            (HudWindowButtonLayoutLeft == layout) &&
+            QApplication::isLeftToRight()
+        )
+        ||
+        (
+            (HudWindowButtonLayoutRight == layout) &&
+            QApplication::isRightToLeft()
+        )
+    )
     {
         titleBarLayout->addWidget
         (
