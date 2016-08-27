@@ -82,20 +82,6 @@ HtmlPreview::HtmlPreview
 
     this->statusBar()->setSizeGripEnabled(false);
 
-    QString styleSheet;
-    QTextStream stream(&styleSheet);
-
-    stream
-        << "QStatusBar { margin: 0; padding: 0 } "
-        << "QStatusBar::item { border: 0; margin: 0; padding: 0; border: 0px } "
-        << "QPushButton { margin: 0 1px 0 1px; padding: 5px; "
-        << "border-radius: 5px; background: #4183C4; color: #F2F2F2 } "
-        << "QPushButton:hover { background: #5A93CC } "
-        << "QPushButton:pressed, QPushButton:flat, QPushButton:checked "
-        << "{ background-color: #356FA9 }"
-        ;
-    this->statusBar()->setStyleSheet(styleSheet);
-
     defaultStyleSheets.append(":/resources/github.css");
 
     QPushButton* copyHtmlButton = new QPushButton(tr("Copy HTML"));
