@@ -1824,7 +1824,10 @@ void MainWindow::applyTheme()
     QColor scrollBarColor = theme.getDefaultTextColor();
 
     // If the background color is brighter than the text, then
-    // make the scrollbar match the background color more closely.
+    // set the scrollbar color to be a blend of the text foreground
+    // with the editor background color, rather than calling
+    // QColor::lighter(), which doesn't work on black due to
+    // black having a value of zero.
     //
     if
     (
@@ -1832,11 +1835,19 @@ void MainWindow::applyTheme()
         > ColorHelper::getLuminance(theme.getDefaultTextColor())
     )
     {
-        scrollBarColor = theme.getEditorBackgroundColor();
-        scrollBarColor.setAlpha(255);
-        scrollBarColor = scrollBarColor.darker(120);
+        scrollBarColor = theme.getDefaultTextColor();
+        scrollBarColor.setAlpha(100);
+
+        scrollBarColor =
+            ColorHelper::applyAlpha
+            (
+                scrollBarColor,
+                theme.getEditorBackgroundColor()
+            );
     }
-    // Else make the scrollbar match the text color more closely.
+    // Else simply set the scrollbar color to be the darkened
+    // text color.
+    //
     else
     {
         scrollBarColor = theme.getDefaultTextColor().darker(160);
@@ -1886,7 +1897,10 @@ void MainWindow::applyTheme()
         QColor buttonFgColor = theme.getDefaultTextColor();
 
         // If the background color is brighter than the text, then
-        // make the button text match the background color more closely.
+        // set the button/label foreground color to be a blend of the
+        // text foreground with the editor background color, rather than
+        // calling QColor::lighter(), which doesn't work on black due to
+        // black having a value of zero.
         //
         if
         (
@@ -1895,11 +1909,19 @@ void MainWindow::applyTheme()
             ColorHelper::getLuminance(buttonFgColor)
         )
         {
-            buttonFgColor = theme.getEditorBackgroundColor();
-            buttonFgColor.setAlpha(255);
-            buttonFgColor = buttonFgColor.darker(150);
+            buttonFgColor = theme.getDefaultTextColor();
+            buttonFgColor.setAlpha(150);
+
+            buttonFgColor =
+                ColorHelper::applyAlpha
+                (
+                    buttonFgColor,
+                    theme.getEditorBackgroundColor()
+                );
         }
-        // Else make the button text match the foreground color more closely.
+        // Else simply set the button/label color to be the darkened
+        // text color.
+        //
         else
         {
             buttonFgColor = theme.getDefaultTextColor().darker(160);
