@@ -259,6 +259,11 @@ class DocumentManager : public QObject
         bool autoSaveEnabled;
 
         /*
+         * Begins asynchronous save operation.  Called by save() and saveAs().
+         */
+        void saveFile();
+
+        /*
          * Loads the document with the file contents at the given path.
          */
         bool loadFile(const QString& filePath);
