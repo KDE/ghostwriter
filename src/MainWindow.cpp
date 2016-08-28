@@ -534,7 +534,6 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
                 }
                 else
                 {
-                    qWarning("Visible: hide the bar!");
                     effectsMenuBar->hideBar();
                 }
             }
