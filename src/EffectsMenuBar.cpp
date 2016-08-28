@@ -87,6 +87,11 @@ void EffectsMenuBar::setAutoHideEnabled(bool enabled)
     }
 }
 
+bool EffectsMenuBar::isVisible() const
+{
+    return menuIsVisible;
+}
+
 void EffectsMenuBar::onAboutToShow()
 {
     menuActivated = true;

@@ -522,7 +522,21 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
         case Qt::Key_Escape:
             if (this->isFullScreen())
             {
-                toggleFullscreen(false);
+                toggleFullScreen(false);
+            }
+            break;
+        case Qt::Key_Alt:
+            if (appSettings->getHideMenuBarInFullScreenEnabled())
+            {
+                if (!effectsMenuBar->isVisible())
+                {
+                    effectsMenuBar->showBar();
+                }
+                else
+                {
+                    qWarning("Visible: hide the bar!");
+                    effectsMenuBar->hideBar();
+                }
             }
             break;
         default:
@@ -631,7 +645,7 @@ void MainWindow::toggleFocusMode(bool checked)
     }
 }
 
-void MainWindow::toggleFullscreen(bool checked)
+void MainWindow::toggleFullScreen(bool checked)
 {
     // This method can be called either from the menu bar (View->Full Screen)
     // or from the full screen toggle button on the status bar.  To keep their
@@ -1451,7 +1465,7 @@ void MainWindow::buildMenuBar()
     fullScreenMenuAction->setCheckable(true);
     fullScreenMenuAction->setChecked(this->isFullScreen());
     fullScreenMenuAction->setShortcut(QKeySequence("F11"));
-    connect(fullScreenMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleFullscreen(bool)));
+    connect(fullScreenMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
     viewMenu->addAction(fullScreenMenuAction);
 
     viewMenu->addAction(tr("&Preview in HTML"), this, SLOT(openHtmlPreview()), QKeySequence("CTRL+W"));
@@ -1766,7 +1780,7 @@ void MainWindow::buildStatusBar()
     fullScreenButton->setToolTip(tr("Toggle full screen mode"));
     fullScreenButton->setCheckable(true);
     fullScreenButton->setChecked(this->isFullScreen());
-    connect(fullScreenButton, SIGNAL(toggled(bool)), this, SLOT(toggleFullscreen(bool)));
+    connect(fullScreenButton, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
     statusBar()->addPermanentWidget(fullScreenButton);
 
     statusBarLayout->setSpacing(0);

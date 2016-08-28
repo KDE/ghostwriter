@@ -80,7 +80,7 @@ class MainWindow : public QMainWindow
         void showFindReplaceDialog();
         void toggleHemingwayMode(bool checked);
         void toggleFocusMode(bool checked);
-        void toggleFullscreen(bool checked);
+        void toggleFullScreen(bool checked);
         void toggleHideMenuBarInFullScreen(bool checked);
         void toggleOutlineAlternateRowColors(bool checked);
         void toggleLiveSpellCheck(bool checked);

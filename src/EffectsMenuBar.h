@@ -70,6 +70,23 @@ class EffectsMenuBar : public QMenuBar
          */
         void setAutoHideEnabled(bool enabled);
 
+        /**
+         * Returns true of the menu bar is currently visible.
+         */
+        bool isVisible() const;
+
+        /*
+         * Shows the menu bar.
+         */
+        void showBar();
+
+        /*
+         * Hides the menu bar.  (Note that this is instead of calling QWidget's hide()
+         * method, since we want shortcut keys for the actions to still be
+         * available.)
+         */
+        void hideBar();
+
     public slots:
         /**
          * Connect this method to QMenu's aboutToShow() signal when adding
@@ -95,18 +112,6 @@ class EffectsMenuBar : public QMenuBar
         bool autoHideEnabled;
         bool mouseIsHovering;
         bool menuActivated;
-
-        /*
-         * Shows the menu bar.
-         */
-        void showBar();
-
-        /*
-         * Hides the menu bar.  (Note that this is instead of calling QWidget's hide()
-         * method, since we want shortcut keys for the actions to still be
-         * available.)
-         */
-        void hideBar();
 
         /*
          * Detects when the mouse hovers over the menu bar, so that we can
