@@ -40,7 +40,7 @@
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 
-#define GW_FADE_ALPHA 200
+#define GW_FADE_ALPHA 140
 
 MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
@@ -436,13 +436,27 @@ void MarkdownHighlighter::setupTokenColors()
         colorForToken[i] = defaultTextColor;
     }
 
-    QColor fadedColor =
-        ColorHelper::applyAlpha
-        (
-            defaultTextColor,
-            backgroundColor,
-            GW_FADE_ALPHA
-        );
+    QColor fadedColor;
+
+    if
+    (
+        ColorHelper::getLuminance(backgroundColor)
+        >
+        ColorHelper::getLuminance(defaultTextColor)
+    )
+    {
+        fadedColor =
+            ColorHelper::applyAlpha
+            (
+                defaultTextColor,
+                backgroundColor,
+                GW_FADE_ALPHA
+            );
+    }
+    else
+    {
+        fadedColor = defaultTextColor.darker(130);
+    }
 
     colorForToken[TokenBlockquote] = fadedColor;
     colorForToken[TokenCodeBlock] = fadedColor;
