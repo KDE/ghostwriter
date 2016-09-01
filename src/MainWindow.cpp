@@ -830,6 +830,12 @@ void MainWindow::toggleDesktopCompositingEffects(bool checked)
     sessionStatsHud->setDesktopCompositingEnabled(checked);
 }
 
+void MainWindow::toggleHighlightLineBreaks(bool checked)
+{
+    editor->setHighlightLineBreaks(checked);
+    appSettings->setHighlightLineBreaks(checked);
+}
+
 void MainWindow::insertImage()
 {
     QString startingDirectory = QString();
@@ -1666,6 +1672,14 @@ void MainWindow::buildMenuBar()
 
     settingsMenu->addAction(tr("Tabulation Width..."), this, SLOT(changeTabulationWidth()));
     editor->setTabulationWidth(appSettings->getTabWidth());
+
+    bool highlightLineBreaks = appSettings->getHighlightLineBreaks();
+    QAction* highlightLineBreaksAction = new QAction(tr("Highlight manual Linebreaks"), this);
+    highlightLineBreaksAction->setCheckable(true);
+    highlightLineBreaksAction->setChecked(highlightLineBreaks);
+    connect(highlightLineBreaksAction, SIGNAL(toggled(bool)), this, SLOT(toggleHighlightLineBreaks(bool)));
+    settingsMenu->addAction(highlightLineBreaksAction);
+    editor->setHighlightLineBreaks(highlightLineBreaks);
 
     settingsMenu->addSeparator();
 

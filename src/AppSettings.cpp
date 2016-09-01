@@ -61,6 +61,7 @@
 #define GW_HUD_ROW_COLORS_KEY "HUD/alternateRowColors"
 #define GW_DESKTOP_COMPOSITING_KEY "HUD/desktopCompositingEnabled"
 #define GW_HUD_OPACITY_KEY "HUD/opacity"
+#define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
 
 AppSettings* AppSettings::instance = NULL;
 
@@ -116,6 +117,7 @@ void AppSettings::store()
     appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternateHudRowColorsEnabled));
     appSettings.setValue(GW_DESKTOP_COMPOSITING_KEY, QVariant(desktopCompositingEnabled));
     appSettings.setValue(GW_HUD_OPACITY_KEY, QVariant(hudOpacity));
+    appSettings.setValue(GW_HIGHLIGHT_LINE_BREAKS, QVariant(highlightLineBreaks));
     appSettings.sync();
 }
 
@@ -466,6 +468,16 @@ void AppSettings::setHudOpacity(int value)
     hudOpacity = value;
 }
 
+bool AppSettings::getHighlightLineBreaks() const
+{
+    return highlightLineBreaks;
+}
+
+void AppSettings::setHighlightLineBreaks(bool enabled)
+{
+    highlightLineBreaks = enabled;
+}
+
 AppSettings::AppSettings()
 {
     QCoreApplication::setOrganizationName("ghostwriter");
@@ -696,4 +708,5 @@ AppSettings::AppSettings()
     alternateHudRowColorsEnabled = appSettings.value(GW_HUD_ROW_COLORS_KEY, QVariant(false)).toBool();
     desktopCompositingEnabled = appSettings.value(GW_DESKTOP_COMPOSITING_KEY, QVariant(true)).toBool();
     hudOpacity = appSettings.value(GW_HUD_OPACITY_KEY, QVariant(200)).toInt();
+    highlightLineBreaks = appSettings.value(GW_HIGHLIGHT_LINE_BREAKS, QVariant(false)).toBool();
 }

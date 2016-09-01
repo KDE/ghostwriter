@@ -92,6 +92,7 @@ class MainWindow : public QMainWindow
         void toggleUseUnderlineForEmphasis(bool checked);
         void toggleSpacesForTabs(bool checked);
         void toggleDesktopCompositingEffects(bool checked);
+        void toggleHighlightLineBreaks(bool checked);
         void insertImage();
         void changeTabulationWidth();
         void changeEditorWidth(QAction* action);

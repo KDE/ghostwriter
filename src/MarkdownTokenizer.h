@@ -54,6 +54,7 @@ enum MarkdownTokenType
     TokenNumberedList,
     TokenBulletPointList,
     TokenHorizontalRule,
+    TokenLineBreak,
     TokenBlockquote,
     TokenCodeBlock,
     TokenGithubCodeFence,
@@ -100,6 +101,7 @@ class MarkdownTokenizer : public HighlightTokenizer
         QRegExp numberedListRegex;
         QRegExp numberedNestedListRegex;
         QRegExp hruleRegex;
+        QRegExp lineBreakRegex;
         QRegExp emphasisRegex;
         QRegExp strongRegex;
         QRegExp strikethroughRegex;
@@ -123,10 +125,11 @@ class MarkdownTokenizer : public HighlightTokenizer
         bool tokenizeNumberedList(const QString& text);
         bool tokenizeBulletPointList(const QString& text);
         bool tokenizeHorizontalRule(const QString& text);
+        bool tokenizeLineBreak(const QString& text);
         bool tokenizeBlockquote(const QString& text);
         bool tokenizeCodeBlock(const QString& text);
         bool tokenizeMultilineComment(const QString& text);
-        
+
         bool tokenizeInline(const QString& text);
         void tokenizeVerbatim(QString& text);
         void tokenizeHtmlComments(QString& text);
@@ -141,7 +144,7 @@ class MarkdownTokenizer : public HighlightTokenizer
          * indicate how many markup special characters preceed and follow the
          * main text, respectively.
          *
-         * For example, if the matched string is "**bold**", and 
+         * For example, if the matched string is "**bold**", and
          * markupStartCount = 2 and markupEndCount = 2, then the asterisks
          * preceeding and following the word "bold" will be set as opening and
          * closing markup in the token.
