@@ -37,6 +37,7 @@
 #include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
 #include "ColorHelper.h"
+#include "TextBlockData.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 
@@ -135,7 +136,7 @@ MarkdownHighlighter::~MarkdownHighlighter()
     }
 }
 
-// Note:  Never, ever set the QTextBlockFormat for a QTextBlock from within the
+// Note:  Never set the QTextBlockFormat for a QTextBlock from within the
 // highlighter.  Depending on how the block format is modified, a recursive call
 // to the highlighter may be triggered, which will cause the application to
 // crash.
@@ -191,28 +192,10 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
                 case TokenAtxHeading4:
                 case TokenAtxHeading5:
                 case TokenAtxHeading6:
-                    applyFormattingForToken(token);
-                    emit headingFound
-                    (
-                        block.position(),
-                        token.getType() - TokenAtxHeading1 + 1,
-                        text.mid
-                            (
-                                token.getPosition()
-                                    + token.getOpeningMarkupLength(),
-                                token.getLength()
-                                    - token.getOpeningMarkupLength()
-                                    - token.getClosingMarkupLength()
-                            ).trimmed()
-                    );
-                    break;
                 case TokenSetextHeading1Line1:
-                    applyFormattingForToken(token);
-                    emit headingFound(block.position(), 1, text);
-                    break;
                 case TokenSetextHeading2Line1:
                     applyFormattingForToken(token);
-                    emit headingFound(block.position(), 2, text);
+                    storeHeadingData(token, text);
                     break;
                 case TokenUnknown:
                     qWarning("Highlighter found unknown token type in text block.");
@@ -649,7 +632,64 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
     }
     else
     {
-        qWarning("Highlighter::applyFormattingForToken() was passed in a "
+        qWarning("MarkdownHighlighter::applyFormattingForToken() was passed in a "
             "token of unknown type.");
     }
+}
+
+void MarkdownHighlighter::storeHeadingData
+(
+    const Token& token,
+    const QString& text
+)
+{
+    int level;
+    QString headingText;
+
+    switch (token.getType())
+    {
+        case TokenAtxHeading1:
+        case TokenAtxHeading2:
+        case TokenAtxHeading3:
+        case TokenAtxHeading4:
+        case TokenAtxHeading5:
+        case TokenAtxHeading6:
+            level = token.getType() - TokenAtxHeading1 + 1;
+            headingText = text.mid
+                (
+                    token.getPosition()
+                        + token.getOpeningMarkupLength(),
+                    token.getLength()
+                        - token.getOpeningMarkupLength()
+                        - token.getClosingMarkupLength()
+                ).trimmed();
+            break;
+        case TokenSetextHeading1Line1:
+            level = 1;
+            headingText = text;
+            break;
+        case TokenSetextHeading2Line1:
+            level = 2;
+            headingText = text;
+            break;
+        default:
+            qWarning
+            (
+                "MarkdownHighlighter::storeHeadingData() encountered unexpected token %d",
+                token.getType()
+            );
+            return;
+    }
+
+    TextBlockData* blockData = (TextBlockData*) this->currentBlockUserData();
+
+    if (NULL == blockData)
+    {
+        blockData = new TextBlockData();
+    }
+
+    connect(blockData, SIGNAL(textBlockRemoved(int)), this, SIGNAL(headingRemoved(int)));
+    blockData->blockRef = this->currentBlock();
+    this->setCurrentBlockUserData(blockData);
+    emit headingFound(level, headingText, this->currentBlock());
 }

@@ -165,16 +165,10 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     TextDocument* document = new TextDocument();
 
-    // The below connection must happen before the Highlighter is created and
-    // connected to the text document. See note in Outline class's
-    // onTextChanged() slot.
-    //
-    connect(document, SIGNAL(contentsChange(int,int,int)), outlineWidget, SLOT(onTextChanged(int,int,int)));
-
     highlighter = new MarkdownHighlighter(document);
     highlighter->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
     highlighter->setBlockquoteStyle(appSettings->getBlockquoteStyle());
-    connect(highlighter, SIGNAL(headingFound(int,int,QString)), outlineWidget, SLOT(insertHeadingIntoOutline(int,int,QString)));
+    connect(highlighter, SIGNAL(headingFound(int,QString,QTextBlock)), outlineWidget, SLOT(insertHeadingIntoOutline(int,QString,QTextBlock)));
     connect(highlighter, SIGNAL(headingRemoved(int)), outlineWidget, SLOT(removeHeadingFromOutline(int)));
 
     editor = new MarkdownEditor(document, highlighter, this);

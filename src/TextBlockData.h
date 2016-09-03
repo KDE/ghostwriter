@@ -20,14 +20,21 @@
 #ifndef TEXTBLOCKDATA_H
 #define TEXTBLOCKDATA_H
 
+#include <QObject>
 #include <QTextBlockUserData>
+#include <QTextBlock>
 
 /**
- * User data for use with the QSyntaxHighlighter.
+ * User data for use with the MarkdownHighlighter and DocumentStatistics.
  */
-class TextBlockData : public QTextBlockUserData
+class TextBlockData : public QObject, public QTextBlockUserData
 {
+    Q_OBJECT
+
     public:
+        /**
+         * Constructor.
+         */
         TextBlockData()
         {
             wordCount = 0;
@@ -37,9 +44,13 @@ class TextBlockData : public QTextBlockUserData
             blankLine = true;
         }
 
+        /**
+         * Destructor.
+         */
         virtual ~TextBlockData()
         {
-            ;
+            emit textBlockRemoved(blockRef);
+            emit textBlockRemoved(blockRef.position());
         }
 
         int wordCount;
@@ -47,6 +58,25 @@ class TextBlockData : public QTextBlockUserData
         int sentenceCount;
         int lixLongWordCount;
         bool blankLine;
+
+        /**
+         * Parent text block.  For use with fetching the block's document
+         * position, which can shift as text is inserted and deleted.
+         */
+        QTextBlock blockRef;
+
+    signals:
+        /**
+         * Emitted when the parent QTextBlock at the given position in the
+         * document is removed.
+         */
+        void textBlockRemoved(int position);
+
+        /**
+         * Emitted when the given parent QTextBlock is removed from the
+         * document.
+         */
+        void textBlockRemoved(QTextBlock& block);
 };
 
 #endif // TEXTBLOCKDATA_H

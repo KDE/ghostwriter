@@ -113,10 +113,10 @@ class MarkdownHighlighter : public QSyntaxHighlighter
 
     signals:
         /**
-         * Notifies listeners that a heading was found in the document at the
-         * given cursor position and with the given level and heading text.
+         * Notifies listeners that a heading was found in the document in the
+         * given QTextBlock and with the given level and heading text.
          */
-        void headingFound(int position, int level, const QString heading);
+        void headingFound(int level, const QString& text, QTextBlock block);
 
         /**
          * Notifies listeners that a heading was discovered to have been removed
@@ -205,6 +205,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void setupHeadingFontSize(bool useLargeHeadings);
 
         void applyFormattingForToken(const Token& token);
+        void storeHeadingData(const Token& token, const QString& text);
 
 };
 

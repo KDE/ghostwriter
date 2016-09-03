@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 
 #include <QListWidget>
 #include <QString>
+#include <QTextBlock>
 
 /**
  * Outline widget for use in navigating document headings and displaying the
@@ -64,39 +65,15 @@ class Outline : public QListWidget
         void updateCurrentNavigationHeading(int position);
 
         /**
-         * Connect to this slot for when the source document that is being
-         * outlined is modified.  This slot method will take care of shifting
-         * the document positions in the outline by the number of characters
-         * added/removed, as well as removing from the outline deleted headings
-         * that may have been in range of any deleted text.
-         *
-         * IMPORTANT NOTE:
-         *
-         * Order of connection is extremely important.  The object that
-         * monitors the text document and signals this class's
-         * insertHeadingIntoOutline() and removeHeadingFromOutline() slots
-         * should be connected to those slots AFTER the being connected to
-         * the text document.  In other words, if you are using
-         * the Highlighter class to notify this class of changes to the
-         * document headings, then connect the Highlighter class to the
-         * text document AFTER this class has been connected to the text
-         * document's contentsChange() signal.  The connections must happen
-         * in this order, or else the Outline will not have a chance to update
-         * the heading positions, resulting in possibly duplicate headings
-         * being inserted by the Highlighter into the Outline.
-         */
-        void onTextChanged
-        (
-            int position,
-            int charsRemoved,
-            int charsAdded
-        );
-
-        /**
          * Inserts heading text into the outline for the given heading level
-         * and document position.
+         * and QTextBlock's document position.
          */
-        void insertHeadingIntoOutline(int position, int level, const QString heading);
+        void insertHeadingIntoOutline
+        (
+            int level,
+            const QString& text,
+            QTextBlock block
+        );
 
         /**
          * Removes heading having the given document position from the outline.
@@ -111,18 +88,25 @@ class Outline : public QListWidget
         void onOutlineHeadingSelected(QListWidgetItem* item);
 
     private:
-        static const int HEADING_LEVEL_ROLE;
-        static const int DOCUMENT_POS_ROLE;
+        static const int TEXT_BLOCK_ROLE;
 
         int currentPosition;
 
         /*
-         * Adds value of offset to the document positions stored in each
-         * heading, beginning with the heading whose position is greater
-         * than  startPosition.  This method is called when text is added
-         * or deleted from text document.
+         * Gets the document position stored in the given item.
          */
-        void updateDocumentPositions(int startPosition, int offset);
+        int getDocumentPosition(QListWidgetItem* item);
+
+        /*
+         * Binary search of the outline tree.  Returns row of the matching
+         * QListWidgetItem, or else -1 if the item with the given document
+         * position is not found.
+         *
+         * If exactMatch is false and the item is not found, this method will
+         * return the row number where the heading would belong if it were in
+         * the tree (i.e., an ideal insertion point for a new heading).
+         */
+        int findHeading(int position, bool exactMatch = true);
 
 };
 
