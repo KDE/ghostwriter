@@ -97,6 +97,11 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void setUseUnderlineForEmphasis(const bool enable);
 
         /**
+         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
+         */
+        void setHighlightLineBreaks(bool enable);
+
+        /**
          * Sets the font family and point size.
          */
 		void setFont(const QString& fontFamily, const double fontSize);
@@ -177,6 +182,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         bool spellCheckEnabled;
         bool typingPaused;
         bool useUndlerlineForEmphasis;
+        bool highlightLineBreaks;
         bool inBlockquote;
         BlockquoteStyle blockquoteStyle;
         QColor defaultTextColor;

@@ -1053,6 +1053,11 @@ void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
     highlighter->setEnableLargeHeadingSizes(enable);
 }
 
+void MarkdownEditor::setHighlightLineBreaks(bool enable)
+{
+    highlighter->setHighlightLineBreaks(enable);
+}
+
 void MarkdownEditor::setAutoMatchEnabled(bool enable)
 {
     autoMatchEnabled = enable;
