@@ -274,6 +274,11 @@ class MarkdownEditor : public QPlainTextEdit
         void setEnableLargeHeadingSizes(bool enable);
 
         /**
+         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
+         */
+        void setHighlightLineBreaks(bool enable);
+
+        /**
          * Sets whether automatching of characters is enabled.
          */
         void setAutoMatchEnabled(bool enable);

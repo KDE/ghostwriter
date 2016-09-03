@@ -145,6 +145,9 @@ class AppSettings
         int getHudOpacity() const;
         void setHudOpacity(int value);
 
+        bool getHighlightLineBreaks() const;
+        void setHighlightLineBreaks(bool enabled);
+
     private:
         AppSettings();
 
@@ -186,6 +189,7 @@ class AppSettings
         bool alternateHudRowColorsEnabled;
         bool desktopCompositingEnabled;
         int hudOpacity;
+        bool highlightLineBreaks;
 };
 
 #endif // APPSETTINGS_H
