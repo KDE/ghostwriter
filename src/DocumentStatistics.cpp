@@ -21,7 +21,6 @@
 #include <QTextBoundaryFinder>
 
 #include "DocumentStatistics.h"
-#include "TextBlockData.h"
 
 DocumentStatistics::DocumentStatistics(QTextDocument* document, QObject* parent)
     : QObject(parent), document(document)
@@ -31,10 +30,8 @@ DocumentStatistics::DocumentStatistics(QTextDocument* document, QObject* parent)
     sentenceCount = 0;
     paragraphCount = 0;
     lixLongWordCount = 0;
-    lastBlockCount = 1;
 
     connect(this->document, SIGNAL(contentsChange(int,int,int)), this, SLOT(onTextChanged(int,int,int)));
-    connect(this->document, SIGNAL(blockCountChanged(int)), this, SLOT(onBlockCountChanged(int)));
 }
 
 DocumentStatistics::~DocumentStatistics()
@@ -45,53 +42,6 @@ DocumentStatistics::~DocumentStatistics()
 int DocumentStatistics::getWordCount() const
 {
     return wordCount;
-}
-
-void DocumentStatistics::refreshStatistics()
-{
-    // For each block, update the word count.
-    QTextBlock block = document->begin();
-    wordCount = 0;
-    wordCharacterCount = 0;
-    sentenceCount = 0;
-    paragraphCount = 0;
-    lixLongWordCount = 0;
-
-    TextBlockData* blockData = (TextBlockData*) block.userData();
-
-    if (NULL != blockData)
-    {
-        wordCount += blockData->wordCount;
-        wordCharacterCount += blockData->alphaNumericCharacterCount;
-        sentenceCount += blockData->sentenceCount;
-        lixLongWordCount += blockData->lixLongWordCount;
-
-        if (!blockData->blankLine)
-        {
-            paragraphCount++;
-        }
-    }
-
-    while (block != document->end())
-    {
-        block = block.next();
-        blockData = (TextBlockData*) block.userData();
-
-        if (NULL != blockData)
-        {
-            wordCount += blockData->wordCount;
-            wordCharacterCount += blockData->alphaNumericCharacterCount;
-            sentenceCount += blockData->sentenceCount;
-            lixLongWordCount += blockData->lixLongWordCount;
-
-            if (!blockData->blankLine)
-            {
-                paragraphCount++;
-            }
-        }
-    }
-
-    updateStatistics();
 }
 
 void DocumentStatistics::onTextSelected
@@ -187,17 +137,19 @@ void DocumentStatistics::onTextChanged(int position, int charsRemoved, int chars
     updateStatistics();
 }
 
-void DocumentStatistics::onBlockCountChanged(int newBlockCount)
+void DocumentStatistics::onTextBlockRemoved(TextBlockData* blockData)
 {
-    // If one or more blocks was deleted from the document, update
-    // statistics from scratch.
-    //
-    if (newBlockCount < lastBlockCount)
+    wordCount -= blockData->wordCount;
+    lixLongWordCount -= blockData->lixLongWordCount;
+    wordCharacterCount -= blockData->alphaNumericCharacterCount;
+    sentenceCount -= blockData->sentenceCount;
+
+    if (!blockData->blankLine)
     {
-        refreshStatistics();
+        paragraphCount--;
     }
 
-    lastBlockCount = newBlockCount;
+    updateStatistics();
 }
 
 void DocumentStatistics::updateStatistics()
@@ -223,6 +175,12 @@ void DocumentStatistics::updateBlockStatistics(QTextBlock& block)
         blockData = new TextBlockData();
         block.setUserData(blockData);
     }
+    else
+    {
+        disconnect(blockData, SIGNAL(textBlockRemoved(TextBlockData*)), this, SLOT(onTextBlockRemoved(TextBlockData*)));
+    }
+
+    connect(blockData, SIGNAL(textBlockRemoved(TextBlockData*)), this, SLOT(onTextBlockRemoved(TextBlockData*)));
 
     int oldWordCount = blockData->wordCount;
     int oldLixLongWordCount = blockData->lixLongWordCount;
@@ -235,7 +193,6 @@ void DocumentStatistics::updateBlockStatistics(QTextBlock& block)
         blockData->lixLongWordCount,
         blockData->alphaNumericCharacterCount
     );
-
 
     wordCount += blockData->wordCount - oldWordCount;
     lixLongWordCount += blockData->lixLongWordCount - oldLixLongWordCount;

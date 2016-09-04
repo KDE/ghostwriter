@@ -381,7 +381,6 @@ bool DocumentManager::close()
         document->setReadOnly(false);
         setFilePath(QString());
         document->setModified(false);
-        documentStats->refreshStatistics();
         sessionStats->startNewSession(0);
 
         if (fileHistoryEnabled && !documentIsNew)
@@ -609,7 +608,6 @@ bool DocumentManager::loadFile(const QString& filePath)
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
     document->setPlainText("");
-    documentStats->refreshStatistics();
 
     QTextCursor cursor(document);
     cursor.setPosition(0);

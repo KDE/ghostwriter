@@ -243,7 +243,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     findReplaceDialog = new FindDialog(editor);
     findReplaceDialog->setModal(false);
-    connect(findReplaceDialog, SIGNAL(replaceAllComplete()), documentStats, SLOT(refreshStatistics()));
 
     QStringList recentFiles;
 

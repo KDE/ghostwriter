@@ -23,6 +23,8 @@
 #include <QObject>
 #include <QTextDocument>
 
+#include "TextBlockData.h"
+
 /**
  * Class to compute document statistics for a QTextDocument.
  */
@@ -101,11 +103,6 @@ class DocumentStatistics : public QObject
 
     public slots:
         /**
-         * Updates block statistics for the entire document.
-         */
-        void refreshStatistics();
-
-        /**
          * Recalculates statistics text selected in the document's editor.
          */
         void onTextSelected
@@ -124,7 +121,7 @@ class DocumentStatistics : public QObject
 
     private slots:
         void onTextChanged(int position, int charsRemoved, int charsAdded);
-        void onBlockCountChanged(int newBlockCount);
+        void onTextBlockRemoved(TextBlockData* blockData);
 
     private:
         static const QString LESS_THAN_ONE_MINUTE_STR;
@@ -135,7 +132,6 @@ class DocumentStatistics : public QObject
         static const QString VERY_DIFFICULT_READING_EASE_STR;
 
         QTextDocument* document;
-        int lastBlockCount;
 
         int wordCount; // may be count of selected text only or entire document
         int totalWordCount; // word count of entire document

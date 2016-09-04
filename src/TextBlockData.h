@@ -49,7 +49,7 @@ class TextBlockData : public QObject, public QTextBlockUserData
          */
         virtual ~TextBlockData()
         {
-            emit textBlockRemoved(blockRef);
+            emit textBlockRemoved(this);
             emit textBlockRemoved(blockRef.position());
         }
 
@@ -73,10 +73,11 @@ class TextBlockData : public QObject, public QTextBlockUserData
         void textBlockRemoved(int position);
 
         /**
-         * Emitted when the given parent QTextBlock is removed from the
-         * document.
+         * Emitted when the parent QTextBlock is removed from the
+         * document.  Parameter is a pointer to this TextBlockData
+         * instance.
          */
-        void textBlockRemoved(QTextBlock& block);
+        void textBlockRemoved(TextBlockData* blockData);
 };
 
 #endif // TEXTBLOCKDATA_H
