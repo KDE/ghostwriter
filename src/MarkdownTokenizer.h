@@ -85,6 +85,12 @@ class MarkdownTokenizer : public HighlightTokenizer
             int nextState
         );
 
+        /*
+         * Returns true if the given QTextBlock userState indicates that the
+         * text block contains a heading.
+         */
+        bool isHeadingBlockState(int state) const;
+
     private:
         int currentState;
         int previousState;

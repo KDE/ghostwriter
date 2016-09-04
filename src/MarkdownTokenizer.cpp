@@ -115,6 +115,7 @@ void MarkdownTokenizer::tokenize
         )
         {
             setState(MarkdownStateListLineBreak);
+            this->requestBacktrack();
         }
         else if
         (
@@ -127,6 +128,7 @@ void MarkdownTokenizer::tokenize
         )
         {
             setState(MarkdownStateParagraphBreak);
+            this->requestBacktrack();
         }
     }
     else if
@@ -181,7 +183,6 @@ void MarkdownTokenizer::tokenize
         }
 
         tokenizeLineBreak(text);
-        // tokenize inline
         tokenizeInline(text);
     }
 
@@ -203,6 +204,24 @@ void MarkdownTokenizer::tokenize
     )
     {
         this->requestBacktrack();
+    }
+}
+
+bool MarkdownTokenizer::isHeadingBlockState(int state) const
+{
+    switch (state)
+    {
+        case MarkdownStateAtxHeading1:
+        case MarkdownStateAtxHeading2:
+        case MarkdownStateAtxHeading3:
+        case MarkdownStateAtxHeading4:
+        case MarkdownStateAtxHeading5:
+        case MarkdownStateAtxHeading6:
+        case MarkdownStateSetextHeading1Line1:
+        case MarkdownStateSetextHeading2Line1:
+            return true;
+        default:
+            return false;
     }
 }
 
@@ -576,7 +595,28 @@ bool MarkdownTokenizer::tokenizeHorizontalRule(const QString& text)
 
 bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
 {
-    if(lineBreakRegex.exactMatch(text))
+    if
+    (
+        (MarkdownStateParagraphBreak != previousState) &&
+        (MarkdownStateListLineBreak != previousState) &&
+        (MarkdownStateCodeBlock != previousState) &&
+        !isHeadingBlockState(previousState) &&
+        !isHeadingBlockState(currentState)
+    )
+    {
+        this->requestBacktrack();
+    }
+
+    if
+    (
+        (MarkdownStateParagraphBreak != nextState) &&
+        (MarkdownStateListLineBreak != nextState) &&
+        (MarkdownStateUnknown != nextState) &&
+        (MarkdownStateCodeBlock != currentState) &&
+        !isHeadingBlockState(nextState) &&
+        !isHeadingBlockState(currentState) &&
+        lineBreakRegex.exactMatch(text)
+    )
     {
         Token token;
         token.setType(TokenLineBreak);

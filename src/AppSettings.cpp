@@ -34,6 +34,7 @@
 #define GW_REMEMBER_FILE_HISTORY_KEY "Save/rememberFileHistory"
 #define GW_FONT_KEY "Style/font"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
+#define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
 #define GW_AUTO_MATCH_DOUBLE_QUOTES_KEY "Typing/autoMatchDoubleQuotes"
 #define GW_AUTO_MATCH_SINGLE_QUOTES_KEY "Typing/autoMatchSingleQuotes"
@@ -61,7 +62,6 @@
 #define GW_HUD_ROW_COLORS_KEY "HUD/alternateRowColors"
 #define GW_DESKTOP_COMPOSITING_KEY "HUD/desktopCompositingEnabled"
 #define GW_HUD_OPACITY_KEY "HUD/opacity"
-#define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
 
 AppSettings* AppSettings::instance = NULL;
 
@@ -89,6 +89,7 @@ void AppSettings::store()
     appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(tabWidth));
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(insertSpacesForTabsEnabled));
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(largeHeadingSizesEnabled));
+    appSettings.setValue(GW_HIGHLIGHT_LINE_BREAKS, QVariant(highlightLineBreaks));
     appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
     appSettings.setValue(GW_AUTO_MATCH_DOUBLE_QUOTES_KEY, QVariant(autoMatchDoubleQuotesEnabled));
     appSettings.setValue(GW_AUTO_MATCH_SINGLE_QUOTES_KEY, QVariant(autoMatchSingleQuotesEnabled));
@@ -117,7 +118,6 @@ void AppSettings::store()
     appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternateHudRowColorsEnabled));
     appSettings.setValue(GW_DESKTOP_COMPOSITING_KEY, QVariant(desktopCompositingEnabled));
     appSettings.setValue(GW_HUD_OPACITY_KEY, QVariant(hudOpacity));
-    appSettings.setValue(GW_HIGHLIGHT_LINE_BREAKS, QVariant(highlightLineBreaks));
     appSettings.sync();
 }
 
@@ -664,6 +664,7 @@ AppSettings::AppSettings()
     insertSpacesForTabsEnabled = appSettings.value(GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
     useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
     largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
+    highlightLineBreaks = appSettings.value(GW_HIGHLIGHT_LINE_BREAKS, QVariant(false)).toBool();
     autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
     autoMatchDoubleQuotesEnabled = appSettings.value(GW_AUTO_MATCH_DOUBLE_QUOTES_KEY, QVariant(true)).toBool();
     autoMatchSingleQuotesEnabled = appSettings.value(GW_AUTO_MATCH_SINGLE_QUOTES_KEY, QVariant(true)).toBool();
@@ -708,5 +709,4 @@ AppSettings::AppSettings()
     alternateHudRowColorsEnabled = appSettings.value(GW_HUD_ROW_COLORS_KEY, QVariant(false)).toBool();
     desktopCompositingEnabled = appSettings.value(GW_DESKTOP_COMPOSITING_KEY, QVariant(true)).toBool();
     hudOpacity = appSettings.value(GW_HUD_OPACITY_KEY, QVariant(200)).toInt();
-    highlightLineBreaks = appSettings.value(GW_HIGHLIGHT_LINE_BREAKS, QVariant(false)).toBool();
 }

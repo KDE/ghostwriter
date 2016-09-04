@@ -32,7 +32,6 @@ class QRegExp;
 class QString;
 class QTextCharFormat;
 class QTextDocument;
-class HighlightTokenizer;
 
 /**
  * Highlighter for the Markdown text format.
@@ -176,7 +175,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void onHighlightBlockAtPosition(int position);
 
     private:
-        HighlightTokenizer* tokenizer;
+        MarkdownTokenizer* tokenizer;
         DictionaryRef dictionary;
         int cursorPosition;
         bool spellCheckEnabled;
@@ -199,12 +198,6 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         bool strongMarkup[TokenLast];
         bool strikethroughToken[TokenLast];
         int fontSizeIncrease[TokenLast];
-
-        /*
-         * Returns true if the given QTextBlock userState indicates that the
-         * text block contains a heading.
-         */
-        bool isHeadingBlockState(int state) const;
 
         void spellCheck(const QString& text);
         void setupTokenColors();

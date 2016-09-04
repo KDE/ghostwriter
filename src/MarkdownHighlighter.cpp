@@ -226,8 +226,8 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     //
     if
     (
-        isHeadingBlockState(lastState)
-        && !isHeadingBlockState(currentBlockState())
+        tokenizer->isHeadingBlockState(lastState)
+        && !tokenizer->isHeadingBlockState(currentBlockState())
     )
     {
         emit headingRemoved(currentBlock().position());
@@ -238,7 +238,9 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     {
         if (text[i].isSpace())
         {
-            this->setFormat(i, 1, markupColor);
+            QTextCharFormat format = this->format(i);
+            format.setForeground(markupColor);
+            this->setFormat(i, 1, format);
         }
     }
 }
@@ -371,24 +373,6 @@ void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 {
     QTextBlock block = document()->findBlock(position);
     rehighlightBlock(block);
-}
-
-bool MarkdownHighlighter::isHeadingBlockState(int state) const
-{
-    switch (state)
-    {
-        case MarkdownStateAtxHeading1:
-        case MarkdownStateAtxHeading2:
-        case MarkdownStateAtxHeading3:
-        case MarkdownStateAtxHeading4:
-        case MarkdownStateAtxHeading5:
-        case MarkdownStateAtxHeading6:
-        case MarkdownStateSetextHeading1Line1:
-        case MarkdownStateSetextHeading2Line1:
-            return true;
-        default:
-            return false;
-    }
 }
 
 void MarkdownHighlighter::spellCheck(const QString& text)
@@ -532,7 +516,7 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
 
         if (highlightLineBreaks && token.getType() == TokenLineBreak)
         {
-            format.setBackground(QBrush(Qt::gray, Qt::VerPattern));
+            format.setBackground(QBrush(markupColor));
         }
 
         format.setForeground(QBrush(tokenColor));
