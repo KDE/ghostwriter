@@ -125,6 +125,11 @@ class MarkdownEditor : public QPlainTextEdit
         void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
         /**
+         * Sets whether tabs and spaces will be shown.
+         */
+        void setShowTabsAndSpacesEnabled(bool enabled);
+
+        /**
          * Sets up the margins on the sides of the editor, so that the text
          * area is centered in the window.
          *

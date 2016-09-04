@@ -247,6 +247,22 @@ void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enab
     autoMatchFilter.insert(openingCharacter, enabled);
 }
 
+void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
+{
+    QTextOption option = textDocument->defaultTextOption();
+
+    if (enabled)
+    {
+        option.setFlags(option.flags() | QTextOption::ShowTabsAndSpaces);
+    }
+    else
+    {
+        option.setFlags(option.flags() & ~QTextOption::ShowTabsAndSpaces);
+    }
+
+    textDocument->setDefaultTextOption(option);
+}
+
 void MarkdownEditor::setupPaperMargins(int width)
 {
     if (EditorWidthFull == editorWidth)

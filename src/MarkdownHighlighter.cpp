@@ -31,6 +31,7 @@
 #include <QStyle>
 #include <QApplication>
 #include <Qt>
+#include <QTextLayout>
 
 #include "MarkdownHighlighter.h"
 #include "MarkdownTokenizer.h"
@@ -230,6 +231,15 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     )
     {
         emit headingRemoved(currentBlock().position());
+    }
+
+    // Set whitespace colors for when show tabs and spaces option is enabled.
+    for (int i = 0; i < text.length(); i++)
+    {
+        if (text[i].isSpace())
+        {
+            this->setFormat(i, 1, markupColor);
+        }
     }
 }
 
@@ -520,7 +530,7 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
                 );
         }
 
-        if(highlightLineBreaks && token.getType() == TokenLineBreak)
+        if (highlightLineBreaks && token.getType() == TokenLineBreak)
         {
             format.setBackground(QBrush(Qt::gray, Qt::VerPattern));
         }
