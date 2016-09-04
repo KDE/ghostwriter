@@ -51,11 +51,20 @@ void Outline::updateCurrentNavigationHeading(int position)
         //
         int row = findHeading(position, false);
 
+        // If findHeading call recommended an insertion point for a new
+        // heading rather than a matching row, then back up one row
+        // for the actual heading under which the document position falls.
+        //
         if
         (
-            (row >= 0) &&
-            (row < this->count()) &&
-            (getDocumentPosition(this->item(row)) != position)
+            (row == this->count())
+            ||
+            (
+                (row >= 0) &&
+                (row < this->count()) &&
+                (getDocumentPosition(this->item(row)) != position)
+            )
+
         )
         {
             row--;
@@ -73,6 +82,9 @@ void Outline::updateCurrentNavigationHeading(int position)
         }
         else
         {
+            // Document position is before the first heading.  Deselect
+            // any selected headings, and scroll to the top.
+            //
             setCurrentItem(NULL);
             this->scrollToTop();
         }
