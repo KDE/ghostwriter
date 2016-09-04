@@ -50,6 +50,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         spellCheckEnabled(false),
         typingPaused(true),
         useUndlerlineForEmphasis(false),
+        highlightLineBreaks(false),
         inBlockquote(false),
         defaultTextColor(Qt::black),
         backgroundColor(Qt::white),
@@ -93,7 +94,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     {
         applyStyleToMarkup[i] = true;
     }
-    
+
     applyStyleToMarkup[TokenEmphasis] = true;
     applyStyleToMarkup[TokenStrong] = true;
     applyStyleToMarkup[TokenAtxHeading1] = true;
@@ -126,7 +127,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     strongMarkup[TokenBlockquote] = true;
     strongMarkup[TokenBulletPointList] = true;
 }
-        
+
 MarkdownHighlighter::~MarkdownHighlighter()
 {
     if (NULL != tokenizer)
@@ -158,7 +159,7 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     if (NULL != tokenizer)
     {
         tokenizer->clear();
-        
+
         QTextBlock block = this->currentBlock();
         int nextState = MarkdownStateUnknown;
         int previousState = this->previousBlockState();
@@ -282,6 +283,12 @@ void MarkdownHighlighter::setEnableLargeHeadingSizes(const bool enable)
 void MarkdownHighlighter::setUseUnderlineForEmphasis(const bool enable)
 {
     useUndlerlineForEmphasis = enable;
+    rehighlight();
+}
+
+void MarkdownHighlighter::setHighlightLineBreaks(bool enable)
+{
+    highlightLineBreaks = enable;
     rehighlight();
 }
 
@@ -511,6 +518,11 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
                     backgroundColor,
                     GW_FADE_ALPHA
                 );
+        }
+
+        if(highlightLineBreaks && token.getType() == TokenLineBreak)
+        {
+            format.setBackground(QBrush(Qt::gray, Qt::VerPattern));
         }
 
         format.setForeground(QBrush(tokenColor));
