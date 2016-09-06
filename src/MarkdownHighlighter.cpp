@@ -232,17 +232,6 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     {
         emit headingRemoved(currentBlock().position());
     }
-
-    // Set whitespace colors for when show tabs and spaces option is enabled.
-    for (int i = 0; i < text.length(); i++)
-    {
-        if (text[i].isSpace())
-        {
-            QTextCharFormat format = this->format(i);
-            format.setForeground(markupColor);
-            this->setFormat(i, 1, format);
-        }
-    }
 }
 
 void MarkdownHighlighter::setDictionary(const DictionaryRef& dictionary)
