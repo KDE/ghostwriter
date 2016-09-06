@@ -226,8 +226,8 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     //
     if
     (
-        tokenizer->isHeadingBlockState(lastState)
-        && !tokenizer->isHeadingBlockState(currentBlockState())
+        isHeadingBlockState(lastState)
+        && !isHeadingBlockState(currentBlockState())
     )
     {
         emit headingRemoved(currentBlock().position());
@@ -698,4 +698,22 @@ void MarkdownHighlighter::storeHeadingData
     blockData->blockRef = this->currentBlock();
     this->setCurrentBlockUserData(blockData);
     emit headingFound(level, headingText, this->currentBlock());
+}
+
+bool MarkdownHighlighter::isHeadingBlockState(int state) const
+{
+    switch (state)
+    {
+        case MarkdownStateAtxHeading1:
+        case MarkdownStateAtxHeading2:
+        case MarkdownStateAtxHeading3:
+        case MarkdownStateAtxHeading4:
+        case MarkdownStateAtxHeading5:
+        case MarkdownStateAtxHeading6:
+        case MarkdownStateSetextHeading1Line1:
+        case MarkdownStateSetextHeading2Line1:
+            return true;
+        default:
+            return false;
+    }
 }

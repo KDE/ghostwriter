@@ -207,24 +207,6 @@ void MarkdownTokenizer::tokenize
     }
 }
 
-bool MarkdownTokenizer::isHeadingBlockState(int state) const
-{
-    switch (state)
-    {
-        case MarkdownStateAtxHeading1:
-        case MarkdownStateAtxHeading2:
-        case MarkdownStateAtxHeading3:
-        case MarkdownStateAtxHeading4:
-        case MarkdownStateAtxHeading5:
-        case MarkdownStateAtxHeading6:
-        case MarkdownStateSetextHeading1Line1:
-        case MarkdownStateSetextHeading2Line1:
-            return true;
-        default:
-            return false;
-    }
-}
-
 bool MarkdownTokenizer::tokenizeSetextHeadingLine1
 (
     const QString& text
@@ -595,35 +577,40 @@ bool MarkdownTokenizer::tokenizeHorizontalRule(const QString& text)
 
 bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
 {
-    if
-    (
-        (MarkdownStateParagraphBreak != previousState) &&
-        (MarkdownStateListLineBreak != previousState) &&
-        (MarkdownStateCodeBlock != previousState) &&
-        !isHeadingBlockState(previousState) &&
-        !isHeadingBlockState(currentState)
-    )
+    switch (currentState)
     {
-        this->requestBacktrack();
-    }
+        case MarkdownStateParagraph:
+        case MarkdownStateBlockquote:
+        case MarkdownStateNumberedList:
+        case MarkdownStateBulletPointList:
+            switch (previousState)
+            {
+                case MarkdownStateParagraph:
+                case MarkdownStateBlockquote:
+                case MarkdownStateNumberedList:
+                case MarkdownStateBulletPointList:
+                    this->requestBacktrack();
+                    break;
+            }
 
-    if
-    (
-        (MarkdownStateParagraphBreak != nextState) &&
-        (MarkdownStateListLineBreak != nextState) &&
-        (MarkdownStateUnknown != nextState) &&
-        (MarkdownStateCodeBlock != currentState) &&
-        !isHeadingBlockState(nextState) &&
-        !isHeadingBlockState(currentState) &&
-        lineBreakRegex.exactMatch(text)
-    )
-    {
-        Token token;
-        token.setType(TokenLineBreak);
-        token.setPosition(text.length()-1);
-        token.setLength(1);
-        this->addToken(token);
-        return true;
+            switch (nextState)
+            {
+                case MarkdownStateParagraph:
+                case MarkdownStateBlockquote:
+                case MarkdownStateNumberedList:
+                case MarkdownStateBulletPointList:
+                    if (lineBreakRegex.exactMatch(text))
+                    {
+                        Token token;
+                        token.setType(TokenLineBreak);
+                        token.setPosition(text.length()-1);
+                        token.setLength(1);
+                        this->addToken(token);
+                        return true;   
+                    }
+                    break;
+            }
+            break;
     }
 
     return false;

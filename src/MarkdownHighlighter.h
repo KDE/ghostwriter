@@ -206,6 +206,12 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void applyFormattingForToken(const Token& token);
         void storeHeadingData(const Token& token, const QString& text);
 
+        /*
+         * Returns true if the given QTextBlock userState indicates that the
+         * text block contains a heading.
+         */
+        bool isHeadingBlockState(int state) const;
+
 };
 
 #endif
