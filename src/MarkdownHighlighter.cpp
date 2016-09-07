@@ -697,7 +697,6 @@ void MarkdownHighlighter::storeHeadingData
             );
     }
 
-    blockData->blockRef = this->currentBlock();
     this->setCurrentBlockUserData(blockData);
     emit headingFound(level, headingText, this->currentBlock());
 }
