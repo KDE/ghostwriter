@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,17 @@
 TextDocument::TextDocument(QObject* parent)
     : QTextDocument(parent)
 {
+    initializeUntitledDocument();
+}
+
+TextDocument::TextDocument(const QString& text, QObject* parent)
+    : QTextDocument(text, parent)
+{
+    initializeUntitledDocument();
+}
+
+TextDocument::~TextDocument()
+{
     QPlainTextDocumentLayout* documentLayout =
         new QPlainTextDocumentLayout(this);
     this->setDocumentLayout(documentLayout);
@@ -35,11 +46,6 @@ TextDocument::TextDocument(QObject* parent)
     readOnlyFlag = false;
     displayName = tr("untitled");
     timestamp = QDateTime::currentDateTime();
-}
-
-TextDocument::~TextDocument()
-{
-
 }
 
 QString TextDocument::getDisplayName() const
@@ -94,4 +100,22 @@ QDateTime TextDocument::getTimestamp() const
 void TextDocument::setTimestamp(const QDateTime& timestamp)
 {
     this->timestamp = timestamp;
+}
+
+void TextDocument::notifyTextBlockRemoved(const QTextBlock& block)
+{
+    emit textBlockRemoved(block.position());
+    emit textBlockRemoved(block);
+}
+
+void TextDocument::initializeUntitledDocument()
+{
+    QPlainTextDocumentLayout* documentLayout =
+        new QPlainTextDocumentLayout(this);
+    this->setDocumentLayout(documentLayout);
+
+    filePath = QString();
+    readOnlyFlag = false;
+    displayName = tr("untitled");
+    timestamp = QDateTime::currentDateTime();
 }

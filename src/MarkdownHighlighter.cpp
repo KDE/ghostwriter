@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 
 #define GW_FADE_ALPHA 140
 
-MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
+MarkdownHighlighter::MarkdownHighlighter(TextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
         dictionary(DictionaryManager::instance().requestDictionary()),
         cursorPosition(0),
@@ -70,6 +70,8 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         Qt::QueuedConnection
     );
 
+    connect(document, SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
+    
     QFont font;
     font.setFamily("Monospace");
     font.setWeight(QFont::Normal);
@@ -362,6 +364,14 @@ void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 {
     QTextBlock block = document()->findBlock(position);
     rehighlightBlock(block);
+}
+
+void MarkdownHighlighter::onTextBlockRemoved(const QTextBlock& block)
+{
+    if (isHeadingBlockState(block.userState()))
+    {
+        emit headingRemoved(block.position());
+    }
 }
 
 void MarkdownHighlighter::spellCheck(const QString& text)
@@ -680,10 +690,13 @@ void MarkdownHighlighter::storeHeadingData
 
     if (NULL == blockData)
     {
-        blockData = new TextBlockData();
+        blockData = new TextBlockData
+            (
+                (TextDocument*) document(),
+                this->currentBlock()
+            );
     }
 
-    connect(blockData, SIGNAL(textBlockRemoved(int)), this, SIGNAL(headingRemoved(int)));
     blockData->blockRef = this->currentBlock();
     this->setCurrentBlockUserData(blockData);
     emit headingFound(level, headingText, this->currentBlock());

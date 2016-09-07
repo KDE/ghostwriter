@@ -149,12 +149,7 @@ void Outline::insertHeadingIntoOutline
             this->insertItem(this->count(), item);
         }
 
-        setCurrentItem(item);
-        this->scrollToItem
-        (
-            item,
-            QAbstractItemView::PositionAtCenter
-        );
+        updateCurrentNavigationHeading(currentPosition);
     }
 }
 
@@ -179,7 +174,7 @@ void Outline::removeHeadingFromOutline(int position)
             // Refresh which heading is highlighted in the outline as the
             // current position.
             //
-            this->updateCurrentNavigationHeading(currentPosition);
+            updateCurrentNavigationHeading(currentPosition);
         }
     }
 }

@@ -190,7 +190,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
 
-    documentStats = new DocumentStatistics(editor->document(), this);
+    documentStats = new DocumentStatistics(document, this);
     connect(documentStats, SIGNAL(wordCountChanged(int)), documentStatsWidget, SLOT(setWordCount(int)));
     connect(documentStats, SIGNAL(characterCountChanged(int)), documentStatsWidget, SLOT(setCharacterCount(int)));
     connect(documentStats, SIGNAL(sentenceCountChanged(int)), documentStatsWidget, SLOT(setSentenceCount(int)));

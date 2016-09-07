@@ -26,6 +26,7 @@
 #include "MarkdownTokenizer.h"
 #include "MarkdownStyles.h"
 #include "Token.h"
+#include "TextDocument.h"
 
 class QColor;
 class QRegExp;
@@ -45,7 +46,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          * Constructor.  Takes as a parameter the text document that is to
          * be highlighted.
          */
-        MarkdownHighlighter(QTextDocument* document);
+        MarkdownHighlighter(TextDocument* document);
 
         /**
          * Destructor.
@@ -173,6 +174,12 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          * document.  See explanation for highlightBlockAtPosition().
          */
         void onHighlightBlockAtPosition(int position);
+
+        /*
+         * Determines if the text block being removed is a heading, and if so,
+         * emits the headingRemoved() signal.
+         */
+        void onTextBlockRemoved(const QTextBlock& block);
 
     private:
         MarkdownTokenizer* tokenizer;

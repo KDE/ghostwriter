@@ -24,6 +24,8 @@
 #include <QTextBlockUserData>
 #include <QTextBlock>
 
+#include "TextDocument.h"
+
 /**
  * User data for use with the MarkdownHighlighter and DocumentStatistics.
  */
@@ -35,7 +37,8 @@ class TextBlockData : public QObject, public QTextBlockUserData
         /**
          * Constructor.
          */
-        TextBlockData()
+        TextBlockData(TextDocument* document, const QTextBlock& block)
+            : document(document), blockRef(block)
         {
             wordCount = 0;
             alphaNumericCharacterCount = 0;
@@ -49,9 +52,10 @@ class TextBlockData : public QObject, public QTextBlockUserData
          */
         virtual ~TextBlockData()
         {
-            emit textBlockRemoved(this);
-            emit textBlockRemoved(blockRef.position());
+            document->notifyTextBlockRemoved(blockRef);
         }
+
+        TextDocument* document;
 
         int wordCount;
         int alphaNumericCharacterCount;
@@ -64,20 +68,6 @@ class TextBlockData : public QObject, public QTextBlockUserData
          * position, which can shift as text is inserted and deleted.
          */
         QTextBlock blockRef;
-
-    signals:
-        /**
-         * Emitted when the parent QTextBlock at the given position in the
-         * document is removed.
-         */
-        void textBlockRemoved(int position);
-
-        /**
-         * Emitted when the parent QTextBlock is removed from the
-         * document.  Parameter is a pointer to this TextBlockData
-         * instance.
-         */
-        void textBlockRemoved(TextBlockData* blockData);
 };
 
 #endif // TEXTBLOCKDATA_H

@@ -23,6 +23,7 @@
 #include <QTextDocument>
 #include <QString>
 #include <QDateTime>
+#include <QTextBlock>
 
 /**
  * Text document that maintains timestamp, read-only state, and new vs.
@@ -37,6 +38,11 @@ class TextDocument : public QTextDocument
          * Constructor.
          */
         TextDocument(QObject* parent = 0);
+
+        /**
+         * Constructor.
+         */
+        TextDocument(const QString& text, QObject* parent = 0);
 
         /**
          * Destructor.
@@ -86,17 +92,41 @@ class TextDocument : public QTextDocument
          */
         void setTimestamp(const QDateTime& timestamp);
 
+        /**
+         * For internal use only with TextBlockData class.  Emits signals
+         * to notify listeners that the given text block is about to be
+         * removed from the document.
+         */
+        void notifyTextBlockRemoved(const QTextBlock& block);
+
     signals:
         /**
          * Emitted when the file path changes.
          */
         void filePathChanged();
 
+        /**
+         * Emitted when the QTextBlock at the given position in the document
+         * is removed.
+         */
+        void textBlockRemoved(int position);
+
+        /**
+         * Emitted when a QTextBlock is removed from the document.  Parameter
+         * is the QTextBlock that is being removed.
+         */
+        void textBlockRemoved(const QTextBlock& block);
+
     private:
         QString displayName;
         QString filePath;
         bool readOnlyFlag;
         QDateTime timestamp;
+
+        /*
+         * Initializes the class for an untitled document.
+         */
+        void initializeUntitledDocument();
 };
 
 #endif // MARKUPDOCUMENT_H

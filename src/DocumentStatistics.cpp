@@ -22,7 +22,7 @@
 
 #include "DocumentStatistics.h"
 
-DocumentStatistics::DocumentStatistics(QTextDocument* document, QObject* parent)
+DocumentStatistics::DocumentStatistics(TextDocument* document, QObject* parent)
     : QObject(parent), document(document)
 {
     wordCount = 0;
@@ -32,6 +32,7 @@ DocumentStatistics::DocumentStatistics(QTextDocument* document, QObject* parent)
     lixLongWordCount = 0;
 
     connect(this->document, SIGNAL(contentsChange(int,int,int)), this, SLOT(onTextChanged(int,int,int)));
+    connect(this->document, SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
 }
 
 DocumentStatistics::~DocumentStatistics()
@@ -137,19 +138,24 @@ void DocumentStatistics::onTextChanged(int position, int charsRemoved, int chars
     updateStatistics();
 }
 
-void DocumentStatistics::onTextBlockRemoved(TextBlockData* blockData)
+void DocumentStatistics::onTextBlockRemoved(const QTextBlock& block)
 {
-    wordCount -= blockData->wordCount;
-    lixLongWordCount -= blockData->lixLongWordCount;
-    wordCharacterCount -= blockData->alphaNumericCharacterCount;
-    sentenceCount -= blockData->sentenceCount;
+    TextBlockData* blockData = (TextBlockData*) block.userData();
 
-    if (!blockData->blankLine)
+    if (NULL != blockData)
     {
-        paragraphCount--;
-    }
+        wordCount -= blockData->wordCount;
+        lixLongWordCount -= blockData->lixLongWordCount;
+        wordCharacterCount -= blockData->alphaNumericCharacterCount;
+        sentenceCount -= blockData->sentenceCount;
 
-    updateStatistics();
+        if (!blockData->blankLine)
+        {
+            paragraphCount--;
+        }
+
+        updateStatistics();
+    }
 }
 
 void DocumentStatistics::updateStatistics()
@@ -172,15 +178,9 @@ void DocumentStatistics::updateBlockStatistics(QTextBlock& block)
 
     if (NULL == blockData)
     {
-        blockData = new TextBlockData();
+        blockData = new TextBlockData(document, block);
         block.setUserData(blockData);
     }
-    else
-    {
-        disconnect(blockData, SIGNAL(textBlockRemoved(TextBlockData*)), this, SLOT(onTextBlockRemoved(TextBlockData*)));
-    }
-
-    connect(blockData, SIGNAL(textBlockRemoved(TextBlockData*)), this, SLOT(onTextBlockRemoved(TextBlockData*)));
 
     int oldWordCount = blockData->wordCount;
     int oldLixLongWordCount = blockData->lixLongWordCount;

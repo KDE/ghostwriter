@@ -46,6 +46,7 @@
 #include "ExportDialog.h"
 #include "MessageBoxHelper.h"
 #include "ThemeFactory.h"
+#include "TextDocument.h"
 
 const QString DocumentManager::FILE_CHOOSER_FILTER =
     QString("%1 (*.md *.markdown *.txt);;%2 (*.txt);;%3 (*)")
@@ -522,7 +523,7 @@ void DocumentManager::onFileChangedExternally(const QString& path)
 void DocumentManager::printFileToPrinter(QPrinter* printer)
 {
     QString text = editor->document()->toPlainText();
-    QTextDocument doc(text);
+    TextDocument doc(text);
 
     MarkdownHighlighter h(&doc);
     Theme printerTheme = ThemeFactory::getInstance()->getPrinterFriendlyTheme();
