@@ -95,7 +95,7 @@ void Outline::insertHeadingIntoOutline
 (
     int level,
     const QString& text,
-    QTextBlock block
+    const QTextBlock& block
 )
 {
     QString headingText("   ");

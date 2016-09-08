@@ -72,7 +72,7 @@ class Outline : public QListWidget
         (
             int level,
             const QString& text,
-            QTextBlock block
+            const QTextBlock& block
         );
 
         /**
