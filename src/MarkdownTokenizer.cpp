@@ -115,7 +115,6 @@ void MarkdownTokenizer::tokenize
         )
         {
             setState(MarkdownStateListLineBreak);
-            this->requestBacktrack();
         }
         else if
         (
@@ -128,7 +127,6 @@ void MarkdownTokenizer::tokenize
         )
         {
             setState(MarkdownStateParagraphBreak);
-            this->requestBacktrack();
         }
     }
     else if
