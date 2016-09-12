@@ -2160,7 +2160,7 @@ void MainWindow::applyTheme()
         << "QStatusBar::item { border: 0 } "
         << "QLabel { font-size: "
         << menuBarFontSize
-        << "pt; margin: 0; padding: 0; border: 0; background: transparent; color: "
+        << "pt; margin: 3px; padding: 5px; border: 0; background: transparent; color: "
         << statusBarItemFgColorRGB
         << " } "
         << "QPushButton { font-size: "
