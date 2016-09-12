@@ -298,6 +298,13 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         if (i < recentFiles.size())
         {
             recentFilesActions[i]->setText(recentFiles.at(i));
+
+            // Use the action's data for access to the actual file path, since
+            // KDE Plasma will add a keyboard accelerator to the action's text
+            // by inserting an ampersand (&) into it.
+            //
+            recentFilesActions[i]->setData(recentFiles.at(i));
+
             recentFilesActions[i]->setVisible(true);
         }
         else
@@ -1087,7 +1094,11 @@ void MainWindow::openRecentFile()
 
     if (NULL != action)
     {
-        documentManager->open(action->text());
+        // Use the action's data for access to the actual file path, since
+        // KDE Plasma will add a keyboard accelerator to the action's text
+        // by inserting an ampersand (&) into it.
+        //
+        documentManager->open(action->data().toString());
     }
 }
 
