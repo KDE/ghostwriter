@@ -1803,7 +1803,7 @@ void MainWindow::buildStatusBar()
     statusBarLayout->setSpacing(0);
     statusBarWidget->setLayout(statusBarLayout);
     statusBarWidget->setObjectName("statusbar");
-    statusBarWidget->setStyleSheet("background: transparent; border: 0");
+    statusBarWidget->setStyleSheet("background: transparent; border: 0; padding: 0; margin: 0");
     statusBar()->addWidget(statusBarWidget, 1);
     statusBar()->setSizeGripEnabled(false);
 
