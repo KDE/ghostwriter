@@ -81,6 +81,7 @@ HtmlPreview::HtmlPreview
     headingTagExp.setPattern("[Hh][1-6]");
 
     this->statusBar()->setSizeGripEnabled(false);
+    this->statusBar()->setStyleSheet("QStatusBar::item { border: 0 }");
 
     defaultStyleSheets.append(":/resources/github.css");
 
