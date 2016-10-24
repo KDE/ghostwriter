@@ -62,6 +62,8 @@ This will fix the issue for all your Qt 5 applications, including *ghostwriter*.
 
 An alternative workaround is to compile ghostwriter for yourself using Qt 4.8.  Shortcuts should properly work in the global menu for Qt 4.8 applications.  Regardless of your preferred workaround, this appmenu-qt5 bug should be fixed in the near future.  You can use the Launchpad link above to monitor the status of this bug.
 
+**GNU/Linux Help:**  For further help with troubleshooting issues for Qt5 applications, including *ghostwriter*, please see the [GNU/Linux Troubleshooting for Q5 Applications](https://github.com/wereturtle/ghostwriter/wiki/GNU---Linux-Troubleshooting-for-Qt5-Applications) topic in the community wiki.
+
 Mac OS X - Help Wanted!
 -----------------------
 
