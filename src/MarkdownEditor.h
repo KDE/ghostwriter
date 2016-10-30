@@ -37,6 +37,7 @@
 #include "GraphicsFadeEffect.h"
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
+#include "spelling/dictionary_manager.h"
 
 /**
  * Markdown editor having special shortcut key handing and live spell checking.
@@ -62,9 +63,9 @@ class MarkdownEditor : public QPlainTextEdit
         virtual ~MarkdownEditor();
 
         /**
-         * Sets the dictionary to use for spell checking.
+         * Sets the dictionary language to use for spell checking.
          */
-        void setDictionary(const DictionaryRef& dictionary);
+        Q_SLOT void setDictionary(const QString& language);
 
         /**
          * This editor has a preferred layout that is used to center the text
@@ -111,18 +112,12 @@ class MarkdownEditor : public QPlainTextEdit
         /**
          * Sets the editor aspect.
          */
-        void setAspect(EditorAspect aspect);
+        Q_SLOT void setAspect(EditorAspect aspect);
 
         /**
          * Sets the font.
          */
         void setFont(const QString& family, double size);
-
-        /**
-         * Sets whether automatching is enabled for the given opening
-         * character.
-         */
-        void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
         /**
          * Sets whether tabs and spaces will be shown.
@@ -287,6 +282,12 @@ class MarkdownEditor : public QPlainTextEdit
          * Sets whether automatching of characters is enabled.
          */
         void setAutoMatchEnabled(bool enable);
+
+        /**
+         * Sets whether automatching is enabled for the given opening
+         * character.
+         */
+        void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
         /**
          * Sets whether bullet points should be automatically cycled with

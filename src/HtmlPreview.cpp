@@ -154,7 +154,7 @@ HtmlPreview::HtmlPreview
         }
     }
 
-    styleSheetComboBox->addItem(tr("Add/Remove Custom Style Sheets..."));
+    styleSheetComboBox->addItem(tr("Add/Remove Style Sheets..."));
 
     // Find the last used style sheet, and set it as selected in the combo box.
     for (int i = 0; i < styleSheetComboBox->count() - 1; i++)

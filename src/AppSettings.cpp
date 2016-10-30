@@ -24,6 +24,7 @@
 #include <QSettings>
 #include <QFontInfo>
 #include <QFontDatabase>
+#include <QStringList>
 #include <QDebug>
 
 #include "AppSettings.h"
@@ -36,15 +37,7 @@
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
 #define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
-#define GW_AUTO_MATCH_DOUBLE_QUOTES_KEY "Typing/autoMatchDoubleQuotes"
-#define GW_AUTO_MATCH_SINGLE_QUOTES_KEY "Typing/autoMatchSingleQuotes"
-#define GW_AUTO_MATCH_PARENTHESES_KEY "Typing/autoMatchParentheses"
-#define GW_AUTO_MATCH_SQUARE_BRACKETS_KEY "Typing/autoMatchSquareBrackets"
-#define GW_AUTO_MATCH_BRACES_KEY "Typing/autoMatchBraces"
-#define GW_AUTO_MATCH_ASTERISKS_KEY "Typing/autoMatchAsterisks"
-#define GW_AUTO_MATCH_UNDERSCORES_KEY "Typing/autoMatchUnderscores"
-#define GW_AUTO_MATCH_BACKTICKS_KEY "Typing/autoMatchBackticks"
-#define GW_AUTO_MATCH_ANGLE_BRACKETS_KEY "Typing/autoMatchAngleBrackets"
+#define GW_AUTO_MATCH_FILTER_KEY "Typing/autoMatchFilter"
 #define GW_BULLET_CYCLING_KEY "Typing/bulletPointCyclingEnabled"
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
@@ -91,15 +84,7 @@ void AppSettings::store()
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(largeHeadingSizesEnabled));
     appSettings.setValue(GW_HIGHLIGHT_LINE_BREAKS, QVariant(highlightLineBreaks));
     appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_DOUBLE_QUOTES_KEY, QVariant(autoMatchDoubleQuotesEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_SINGLE_QUOTES_KEY, QVariant(autoMatchSingleQuotesEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_PARENTHESES_KEY, QVariant(autoMatchParenthesesEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_SQUARE_BRACKETS_KEY, QVariant(autoMatchSquareBracketsEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_BRACES_KEY, QVariant(autoMatchBracesEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_ASTERISKS_KEY, QVariant(autoMatchAsterisksEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_UNDERSCORES_KEY, QVariant(autoMatchUnderscoresEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_BACKTICKS_KEY, QVariant(autoMatchBackticksEnabled));
-    appSettings.setValue(GW_AUTO_MATCH_ANGLE_BRACKETS_KEY, QVariant(autoMatchAngleBracketsEnabled));
+    appSettings.setValue(GW_AUTO_MATCH_FILTER_KEY, QVariant(autoMatchedCharFilter));
     appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(bulletPointCyclingEnabled));
 
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
@@ -118,6 +103,7 @@ void AppSettings::store()
     appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternateHudRowColorsEnabled));
     appSettings.setValue(GW_DESKTOP_COMPOSITING_KEY, QVariant(desktopCompositingEnabled));
     appSettings.setValue(GW_HUD_OPACITY_KEY, QVariant(hudOpacity));
+
     appSettings.sync();
 }
 
@@ -144,6 +130,7 @@ bool AppSettings::getAutoSaveEnabled() const
 void AppSettings::setAutoSaveEnabled(bool enabled)
 {
     autoSaveEnabled = enabled;
+    emit autoSaveChanged(enabled);
 }
 
 bool AppSettings::getBackupFileEnabled() const
@@ -154,6 +141,8 @@ bool AppSettings::getBackupFileEnabled() const
 void AppSettings::setBackupFileEnabled(bool enabled)
 {
     backupFileEnabled = enabled;
+    emit backupFileChanged(enabled);
+    qWarning("Backup file enabled = %d", backupFileEnabled);
 }
 
 QFont AppSettings::getFont() const
@@ -176,6 +165,7 @@ void AppSettings::setTabWidth(int width)
     if ((tabWidth >= MIN_TAB_WIDTH) && (tabWidth <= MAX_TAB_WIDTH))
     {
         tabWidth = width;
+        emit tabWidthChanged(width);
     }
 }
 
@@ -187,6 +177,7 @@ bool AppSettings::getInsertSpacesForTabsEnabled() const
 void AppSettings::setInsertSpacesForTabsEnabled(bool enabled)
 {
     insertSpacesForTabsEnabled = enabled;
+    emit insertSpacesForTabsChanged(enabled);
 }
 
 bool AppSettings::getUseUnderlineForEmphasis() const
@@ -197,6 +188,7 @@ bool AppSettings::getUseUnderlineForEmphasis() const
 void AppSettings::setUseUnderlineForEmphasis(bool enabled)
 {
     useUnderlineForEmphasis = enabled;
+    emit useUnderlineForEmphasisChanged(enabled);
 }
 
 bool AppSettings::getLargeHeadingSizesEnabled() const
@@ -207,6 +199,7 @@ bool AppSettings::getLargeHeadingSizesEnabled() const
 void AppSettings::setLargeHeadingSizesEnabled(bool enabled)
 {
     largeHeadingSizesEnabled = enabled;
+    emit largeHeadingSizesChanged(enabled);
 }
 
 bool AppSettings::getAutoMatchEnabled() const
@@ -217,96 +210,45 @@ bool AppSettings::getAutoMatchEnabled() const
 void AppSettings::setAutoMatchEnabled(bool enabled)
 {
     autoMatchEnabled = enabled;
+    emit autoMatchChanged(enabled);
 }
 
-bool AppSettings::getAutoMatchDoubleQuotes() const
+bool AppSettings::getAutoMatchCharEnabled(const QChar openingCharacter) const
 {
-    return autoMatchDoubleQuotesEnabled;
+    return autoMatchedCharFilter.contains(openingCharacter);
 }
 
-void AppSettings::setAutoMatchDoubleQuotes(bool enabled)
+void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool enabled)
 {
-    autoMatchDoubleQuotesEnabled = enabled;
-}
+    switch (openingCharacter.toLatin1())
+    {
+        case '\"':
+        case '\'':
+        case '(':
+        case '[':
+        case '{':
+        case '*':
+        case '_':
+        case '`':
+        case '<':
+            if (enabled)
+            {
+                if (!autoMatchedCharFilter.contains(openingCharacter))
+                {
+                    autoMatchedCharFilter.append(openingCharacter);
+                }
+            }
+            else
+            {
+                autoMatchedCharFilter.remove(openingCharacter);
+            }
 
-bool AppSettings::getAutoMatchSingleQuotes() const
-{
-    return autoMatchSingleQuotesEnabled;
-}
+            emit autoMatchCharChanged(openingCharacter, enabled);
 
-void AppSettings::setAutoMatchSingleQuotes(bool enabled)
-{
-    autoMatchSingleQuotesEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchParentheses() const
-{
-    return autoMatchParenthesesEnabled;
-}
-
-void AppSettings::setAutoMatchParentheses(bool enabled)
-{
-    autoMatchParenthesesEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchSquareBrackets() const
-{
-    return autoMatchSquareBracketsEnabled;
-}
-
-void AppSettings::setAutoMatchSquareBrackets(bool enabled)
-{
-    autoMatchSquareBracketsEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchBraces() const
-{
-    return autoMatchBracesEnabled;
-}
-
-void AppSettings::setAutoMatchBraces(bool enabled)
-{
-    autoMatchBracesEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchAsterisks() const
-{
-    return autoMatchAsterisksEnabled;
-}
-
-void AppSettings::setAutoMatchAsterisks(bool enabled)
-{
-    autoMatchAsterisksEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchUnderscores() const
-{
-    return autoMatchUnderscoresEnabled;
-}
-
-void AppSettings::setAutoMatchUnderscores(bool enabled)
-{
-    autoMatchUnderscoresEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchBackticks() const
-{
-    return autoMatchBackticksEnabled;
-}
-
-void AppSettings::setAutoMatchBackticks(bool enabled)
-{
-    autoMatchBackticksEnabled = enabled;
-}
-
-bool AppSettings::getAutoMatchAngleBrackets() const
-{
-    return autoMatchAngleBracketsEnabled;
-}
-
-void AppSettings::setAutoMatchAngleBrackets(bool enabled)
-{
-    autoMatchAngleBracketsEnabled = enabled;
+            break;
+        default:
+            break;
+    }
 }
 
 bool AppSettings::getBulletPointCyclingEnabled() const
@@ -317,6 +259,7 @@ bool AppSettings::getBulletPointCyclingEnabled() const
 void AppSettings::setBulletPointCyclingEnabled(bool enabled)
 {
     bulletPointCyclingEnabled = enabled;
+    emit bulletPointCyclingChanged(enabled);
 }
 
 FocusMode AppSettings::getFocusMode() const
@@ -329,6 +272,7 @@ void AppSettings::setFocusMode(FocusMode focusMode)
     if ((focusMode >= FocusModeDisabled) && (focusMode <= FocusModeParagraph))
     {
         this->focusMode = focusMode;
+        emit focusModeChanged(focusMode);
     }
 }
 
@@ -340,6 +284,7 @@ bool AppSettings::getHideMenuBarInFullScreenEnabled() const
 void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
 {
     hideMenuBarInFullScreenEnabled = enabled;
+    emit hideMenuBarInFullScreenChanged(enabled);
 }
 
 bool AppSettings::getFileHistoryEnabled() const
@@ -350,6 +295,7 @@ bool AppSettings::getFileHistoryEnabled() const
 void AppSettings::setFileHistoryEnabled(bool enabled)
 {
     fileHistoryEnabled = enabled;
+    emit fileHistoryChanged(enabled);
 }
 
 bool AppSettings::getDisplayTimeInFullScreenEnabled()
@@ -360,6 +306,7 @@ bool AppSettings::getDisplayTimeInFullScreenEnabled()
 void AppSettings::setDisplayTimeInFullScreenEnabled(bool enabled)
 {
     displayTimeInFullScreenEnabled = enabled;
+    emit displayTimeInFullScreenChanged(enabled);
 }
 
 QString AppSettings::getThemeName() const
@@ -380,6 +327,7 @@ QString AppSettings::getDictionaryLanguage() const
 void AppSettings::setDictionaryLanguage(const QString& language)
 {
     this->dictionaryLanguage = language;
+    emit dictionaryLanguageChanged(language);
 }
 
 QString AppSettings::getLocale() const
@@ -400,6 +348,7 @@ bool AppSettings::getLiveSpellCheckEnabled() const
 void AppSettings::setLiveSpellCheckEnabled(bool enabled)
 {
     liveSpellCheckEnabled = enabled;
+    emit liveSpellCheckChanged(enabled);
 }
 
 EditorWidth AppSettings::getEditorWidth() const
@@ -412,6 +361,7 @@ void AppSettings::setEditorWidth(EditorWidth editorWidth)
     if ((editorWidth >= EditorWidthNarrow) && (editorWidth <= EditorWidthFull))
     {
         this->editorWidth = editorWidth;
+        emit editorWidthChanged(editorWidth);
     }
 }
 
@@ -425,6 +375,7 @@ void AppSettings::setBlockquoteStyle(BlockquoteStyle style)
     if ((style >= BlockquoteStylePlain) && (style <= BlockquoteStyleFancy))
     {
         blockquoteStyle = style;
+        emit blockquoteStyleChanged(style);
     }
 }
 
@@ -436,6 +387,7 @@ HudWindowButtonLayout AppSettings::getHudButtonLayout() const
 void AppSettings::setHudButtonLayout(HudWindowButtonLayout layout)
 {
     hudButtonLayout = layout;
+    emit hudButtonLayoutChanged(layout);
 }
 
 bool AppSettings::getAlternateHudRowColorsEnabled() const
@@ -446,6 +398,7 @@ bool AppSettings::getAlternateHudRowColorsEnabled() const
 void AppSettings::setAlternateHudRowColorsEnabled(bool enabled)
 {
     alternateHudRowColorsEnabled = enabled;
+    emit alternateHudRowColorsChanged(enabled);
 }
 
 bool AppSettings::getDesktopCompositingEnabled() const
@@ -456,6 +409,7 @@ bool AppSettings::getDesktopCompositingEnabled() const
 void AppSettings::setDesktopCompositingEnabled(bool enabled)
 {
     desktopCompositingEnabled = enabled;
+    emit desktopCompositingChanged(enabled);
 }
 
 int AppSettings::getHudOpacity() const
@@ -466,6 +420,7 @@ int AppSettings::getHudOpacity() const
 void AppSettings::setHudOpacity(int value)
 {
     hudOpacity = value;
+    emit hudOpacityChanged(value);
 }
 
 bool AppSettings::getHighlightLineBreaks() const
@@ -476,6 +431,7 @@ bool AppSettings::getHighlightLineBreaks() const
 void AppSettings::setHighlightLineBreaks(bool enabled)
 {
     highlightLineBreaks = enabled;
+    emit highlightLineBreaksChanged(enabled);
 }
 
 AppSettings::AppSettings()
@@ -574,6 +530,7 @@ AppSettings::AppSettings()
 
     QDir::setSearchPaths("dict", dictdirs);
 
+
     // End FocusWriter lift/mod
 
     // Depending on the OS and Qt version, the default monospaced font returned
@@ -666,15 +623,7 @@ AppSettings::AppSettings()
     largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
     highlightLineBreaks = appSettings.value(GW_HIGHLIGHT_LINE_BREAKS, QVariant(false)).toBool();
     autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
-    autoMatchDoubleQuotesEnabled = appSettings.value(GW_AUTO_MATCH_DOUBLE_QUOTES_KEY, QVariant(true)).toBool();
-    autoMatchSingleQuotesEnabled = appSettings.value(GW_AUTO_MATCH_SINGLE_QUOTES_KEY, QVariant(true)).toBool();
-    autoMatchParenthesesEnabled = appSettings.value(GW_AUTO_MATCH_PARENTHESES_KEY, QVariant(true)).toBool();
-    autoMatchSquareBracketsEnabled = appSettings.value(GW_AUTO_MATCH_SQUARE_BRACKETS_KEY, QVariant(true)).toBool();
-    autoMatchBracesEnabled = appSettings.value(GW_AUTO_MATCH_BRACES_KEY, QVariant(true)).toBool();
-    autoMatchAsterisksEnabled = appSettings.value(GW_AUTO_MATCH_ASTERISKS_KEY, QVariant(true)).toBool();
-    autoMatchUnderscoresEnabled = appSettings.value(GW_AUTO_MATCH_UNDERSCORES_KEY, QVariant(true)).toBool();
-    autoMatchBackticksEnabled = appSettings.value(GW_AUTO_MATCH_BACKTICKS_KEY, QVariant(true)).toBool();
-    autoMatchAngleBracketsEnabled = appSettings.value(GW_AUTO_MATCH_ANGLE_BRACKETS_KEY, QVariant(true)).toBool();
+    autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
     bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
@@ -688,6 +637,16 @@ AppSettings::AppSettings()
     displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
     dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
+
+    // Determine locale for dictionary language (for use in spell checking).
+    QString language = DictionaryManager::instance().availableDictionary(dictionaryLanguage);
+
+    // If we have an available dictionary, then set the default dictionary language.
+    if (!language.isNull() && !language.isEmpty())
+    {
+        DictionaryManager::instance().setDefaultLanguage(language);
+    }
+
     locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
     liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
     editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();

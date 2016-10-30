@@ -289,12 +289,6 @@ void MarkdownHighlighter::setUseUnderlineForEmphasis(const bool enable)
     rehighlight();
 }
 
-void MarkdownHighlighter::setHighlightLineBreaks(bool enable)
-{
-    highlightLineBreaks = enable;
-    rehighlight();
-}
-
 void MarkdownHighlighter::setFont(const QString& fontFamily, const double fontSize)
 {
     QFont font;
@@ -309,23 +303,6 @@ void MarkdownHighlighter::setFont(const QString& fontFamily, const double fontSi
 void MarkdownHighlighter::setSpellCheckEnabled(const bool enabled)
 {
     spellCheckEnabled = enabled;
-    rehighlight();
-}
-
-void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
-{
-    blockquoteStyle = style;
-
-    switch (style)
-    {
-        case BlockquoteStyleItalic:
-            emphasizeToken[TokenBlockquote] = true;
-            break;
-        default: // Fancy and Plain
-            emphasizeToken[TokenBlockquote] = false;
-            break;
-    }
-
     rehighlight();
 }
 
@@ -358,6 +335,29 @@ void MarkdownHighlighter::onTypingPaused()
     typingPaused = true;
     QTextBlock block = document()->findBlock(cursorPosition);
     rehighlightBlock(block);
+}
+
+void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
+{
+    blockquoteStyle = style;
+
+    switch (style)
+    {
+        case BlockquoteStyleItalic:
+            emphasizeToken[TokenBlockquote] = true;
+            break;
+        default: // Fancy and Plain
+            emphasizeToken[TokenBlockquote] = false;
+            break;
+    }
+
+    rehighlight();
+}
+
+void MarkdownHighlighter::setHighlightLineBreaks(bool enable)
+{
+    highlightLineBreaks = enable;
+    rehighlight();
 }
 
 void MarkdownHighlighter::onHighlightBlockAtPosition(int position)

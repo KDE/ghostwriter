@@ -154,10 +154,10 @@ MarkdownEditor::~MarkdownEditor()
 
 }
 
-void MarkdownEditor::setDictionary(const DictionaryRef& dictionary)
+void MarkdownEditor::setDictionary(const QString& language)
 {
-    this->dictionary = dictionary;
-    this->highlighter->setDictionary(dictionary);
+    dictionary = DictionaryManager::instance().requestDictionary(language);
+    highlighter->setDictionary(dictionary);
 }
 
 QLayout* MarkdownEditor::getPreferredLayout()
@@ -240,11 +240,6 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     highlighter->setFont(family, pointSize);
     setTabulationWidth(tabWidth);
     fadeEffect->setFadeHeight(this->fontMetrics().height());
-}
-
-void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enabled)
-{
-    autoMatchFilter.insert(openingCharacter, enabled);
 }
 
 void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
@@ -1077,6 +1072,11 @@ void MarkdownEditor::setHighlightLineBreaks(bool enable)
 void MarkdownEditor::setAutoMatchEnabled(bool enable)
 {
     autoMatchEnabled = enable;
+}
+
+void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enabled)
+{
+    autoMatchFilter.insert(openingCharacter, enabled);
 }
 
 void MarkdownEditor::setBulletPointCyclingEnabled(bool enable)

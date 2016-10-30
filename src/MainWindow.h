@@ -38,7 +38,6 @@
 #include "EffectsMenuBar.h"
 #include "find_dialog.h"
 #include "spelling/dictionary_manager.h"
-#include "spelling/dictionary_dialog.h"
 
 #define MAX_RECENT_FILES 10
 
@@ -78,26 +77,18 @@ class MainWindow : public QMainWindow
         void quitApplication();
         void changeTheme();
         void showFindReplaceDialog();
+        void openPreferencesDialog();
         void toggleHemingwayMode(bool checked);
         void toggleFocusMode(bool checked);
         void toggleFullScreen(bool checked);
         void toggleHideMenuBarInFullScreen(bool checked);
         void toggleOutlineAlternateRowColors(bool checked);
-        void toggleLiveSpellCheck(bool checked);
         void toggleFileHistoryEnabled(bool checked);
-        void toggleLargeLeadingSizes(bool checked);
-        void toggleAutoMatch(bool checked);
-        void toggleBulletPointCycling(bool checked);
         void toggleDisplayTimeInFullScreen(bool checked);
-        void toggleUseUnderlineForEmphasis(bool checked);
-        void toggleSpacesForTabs(bool checked);
         void toggleDesktopCompositingEffects(bool checked);
-        void toggleHighlightLineBreaks(bool checked);
+        void changeHudButtonLayout(HudWindowButtonLayout layout);
+        void changeEditorWidth(EditorWidth editorWidth);
         void insertImage();
-        void changeTabulationWidth();
-        void changeEditorWidth(QAction* action);
-        void changeBlockquoteStyle(QAction* action);
-        void changeHudButtonLayout(QAction* action);
         void showQuickReferenceGuide();
         void showOutlineHud();
         void showCheatSheetHud();
@@ -106,7 +97,7 @@ class MainWindow : public QMainWindow
         void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);
-        void changeFocusMode(QAction* action);
+        void changeFocusMode(FocusMode focusMode);
         void applyTheme(const Theme& theme);
         void openHtmlPreview();
         void openRecentFile();
@@ -116,11 +107,8 @@ class MainWindow : public QMainWindow
         void onOperationStarted(const QString& description);
         void onOperationFinished();
         void changeFont();
-        void onSetDictionary();
         void onSetLocale();
-        void showHudOpacityDialog();
         void changeHudOpacity(int value);
-        void showAutoMatchFilterDialog();
 
 	private:
         MarkdownEditor* editor;

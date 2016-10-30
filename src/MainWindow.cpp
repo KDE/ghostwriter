@@ -69,6 +69,7 @@
 #include "DocumentStatisticsWidget.h"
 #include "SessionStatistics.h"
 #include "SessionStatisticsWidget.h"
+#include "PreferencesDialog.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
@@ -94,6 +95,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     appSettings = AppSettings::getInstance();
 
     outlineWidget = new Outline();
+    outlineWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
     // We need to set an empty style for the editor's scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
@@ -107,6 +109,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     outlineHud->setWindowTitle(tr("Outline"));
     outlineHud->setCentralWidget(outlineWidget);
     outlineHud->setButtonLayout(appSettings->getHudButtonLayout());
+    outlineHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
 
     cheatSheetWidget = new QListWidget();
 
@@ -116,6 +119,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     cheatSheetWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
     cheatSheetWidget->setSelectionMode(QAbstractItemView::NoSelection);
+    cheatSheetWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
     cheatSheetWidget->addItem(tr("# Heading 1"));
     cheatSheetWidget->addItem(tr("## Heading 2"));
@@ -142,26 +146,31 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetHud->setWindowTitle(tr("Cheat Sheet"));
     cheatSheetHud->setCentralWidget(cheatSheetWidget);
     cheatSheetHud->setButtonLayout(appSettings->getHudButtonLayout());
+    cheatSheetHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
 
     documentStatsWidget = new DocumentStatisticsWidget();
     documentStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     documentStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
     documentStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
+    documentStatsWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
     documentStatsHud = new HudWindow(this);
     documentStatsHud->setWindowTitle(tr("Document Statistics"));
     documentStatsHud->setCentralWidget(documentStatsWidget);
     documentStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
+    documentStatsHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
 
     sessionStatsWidget =new SessionStatisticsWidget();
     sessionStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     sessionStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
     sessionStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
+    sessionStatsWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
     sessionStatsHud = new HudWindow(this);
     sessionStatsHud->setWindowTitle(tr("Session Statistics"));
     sessionStatsHud->setCentralWidget(sessionStatsWidget);
     sessionStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
+    sessionStatsHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
 
     TextDocument* document = new TextDocument();
 
@@ -225,15 +234,15 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(documentManager, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
     connect(documentManager, SIGNAL(documentClosed()), this, SLOT(refreshRecentFiles()));
 
-    editor->setAutoMatchEnabled('\"', appSettings->getAutoMatchDoubleQuotes());
-    editor->setAutoMatchEnabled('\'', appSettings->getAutoMatchSingleQuotes());
-    editor->setAutoMatchEnabled('(', appSettings->getAutoMatchParentheses());
-    editor->setAutoMatchEnabled('[', appSettings->getAutoMatchSquareBrackets());
-    editor->setAutoMatchEnabled('{', appSettings->getAutoMatchBraces());
-    editor->setAutoMatchEnabled('*', appSettings->getAutoMatchAsterisks());
-    editor->setAutoMatchEnabled('_', appSettings->getAutoMatchUnderscores());
-    editor->setAutoMatchEnabled('`', appSettings->getAutoMatchBackticks());
-    editor->setAutoMatchEnabled('<', appSettings->getAutoMatchAngleBrackets());
+    editor->setAutoMatchEnabled('\"', appSettings->getAutoMatchCharEnabled('\"'));
+    editor->setAutoMatchEnabled('\'', appSettings->getAutoMatchCharEnabled('\''));
+    editor->setAutoMatchEnabled('(', appSettings->getAutoMatchCharEnabled('('));
+    editor->setAutoMatchEnabled('[', appSettings->getAutoMatchCharEnabled('['));
+    editor->setAutoMatchEnabled('{', appSettings->getAutoMatchCharEnabled('{'));
+    editor->setAutoMatchEnabled('*', appSettings->getAutoMatchCharEnabled('*'));
+    editor->setAutoMatchEnabled('_', appSettings->getAutoMatchCharEnabled('_'));
+    editor->setAutoMatchEnabled('`', appSettings->getAutoMatchCharEnabled('`'));
+    editor->setAutoMatchEnabled('<', appSettings->getAutoMatchCharEnabled('<'));
 
     QWidget* editorPane = new QWidget(this);
     editorPane->setObjectName("editorLayoutArea");
@@ -332,6 +341,30 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     buildMenuBar();
     buildStatusBar();
 
+    connect(appSettings, SIGNAL(autoSaveChanged(bool)), documentManager, SLOT(setAutoSaveEnabled(bool)));
+    connect(appSettings, SIGNAL(backupFileChanged(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
+    connect(appSettings, SIGNAL(tabWidthChanged(int)), editor, SLOT(setTabulationWidth(int)));
+    connect(appSettings, SIGNAL(insertSpacesForTabsChanged(bool)), editor, SLOT(setInsertSpacesForTabs(bool)));
+    connect(appSettings, SIGNAL(useUnderlineForEmphasisChanged(bool)), editor, SLOT(setUseUnderlineForEmphasis(bool)));
+    connect(appSettings, SIGNAL(largeHeadingSizesChanged(bool)), editor, SLOT(setEnableLargeHeadingSizes(bool)));
+    connect(appSettings, SIGNAL(autoMatchChanged(bool)), editor, SLOT(setAutoMatchEnabled(bool)));
+    connect(appSettings, SIGNAL(autoMatchCharChanged(QChar,bool)), editor, SLOT(setAutoMatchEnabled(QChar,bool)));
+    connect(appSettings, SIGNAL(bulletPointCyclingChanged(bool)), editor, SLOT(setBulletPointCyclingEnabled(bool)));
+    connect(appSettings, SIGNAL(autoMatchChanged(bool)), editor, SLOT(setAutoMatchEnabled(bool)));
+    connect(appSettings, SIGNAL(focusModeChanged(FocusMode)), this, SLOT(changeFocusMode(FocusMode)));
+    connect(appSettings, SIGNAL(hideMenuBarInFullScreenChanged(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
+    connect(appSettings, SIGNAL(fileHistoryChanged(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
+    connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
+    connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), editor, SLOT(setDictionary(QString)));
+    connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), editor, SLOT(setSpellCheckEnabled(bool)));
+    connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
+    connect(appSettings, SIGNAL(blockquoteStyleChanged(BlockquoteStyle)), highlighter, SLOT(setBlockquoteStyle(BlockquoteStyle)));
+    connect(appSettings, SIGNAL(hudButtonLayoutChanged(HudWindowButtonLayout)), this, SLOT(changeHudButtonLayout(HudWindowButtonLayout)));
+    connect(appSettings, SIGNAL(alternateHudRowColorsChanged(bool)), this, SLOT(toggleOutlineAlternateRowColors(bool)));
+    connect(appSettings, SIGNAL(desktopCompositingChanged(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
+    connect(appSettings, SIGNAL(hudOpacityChanged(int)), this, SLOT(changeHudOpacity(int)));
+    connect(appSettings, SIGNAL(highlightLineBreaksChanged(bool)), highlighter, SLOT(setHighlightLineBreaks(bool)));
+
     if (this->isFullScreen())
     {
         effectsMenuBar->setAutoHideEnabled(appSettings->getHideMenuBarInFullScreenEnabled());
@@ -340,7 +373,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     {
         effectsMenuBar->setAutoHideEnabled(false);
     }
-
 
     QString themeName = appSettings->getThemeName();
 
@@ -351,15 +383,13 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     fullScreenButtonColorEffect = new QGraphicsColorizeEffect();
     fullScreenButtonColorEffect->setColor(QColor(Qt::white));
 
-    // Determine locale for dictionary language (for use in spell checking).
-    language = DictionaryManager::instance().availableDictionary(appSettings->getDictionaryLanguage());
+    // Default language for dictionary is set from AppSettings intialization.
+    QString language = appSettings->getDictionaryLanguage();
 
-    // If we have an available dictionary, then get it and set up spell checking.
+    // If we have an available dictionary, then set up spell checking.
     if (!language.isNull() && !language.isEmpty())
     {
-        DictionaryManager::instance().setDefaultLanguage(language);
-        DictionaryRef dictionary = DictionaryManager::instance().requestDictionary();
-        editor->setDictionary(dictionary);
+        editor->setDictionary(language);
         editor->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
     }
     else
@@ -581,8 +611,6 @@ void MainWindow::quitApplication()
 {
     if (documentManager->close())
     {
-        appSettings->setAutoSaveEnabled(documentManager->getAutoSaveEnabled());
-        appSettings->setBackupFileEnabled(documentManager->getFileBackupEnabled());
         appSettings->store();
 
         QSettings windowSettings;
@@ -618,6 +646,12 @@ void MainWindow::changeTheme()
 void MainWindow::showFindReplaceDialog()
 {
     findReplaceDialog->show();
+}
+
+void MainWindow::openPreferencesDialog()
+{
+    PreferencesDialog* preferencesDialog = new PreferencesDialog(this);
+    preferencesDialog->show();
 }
 
 void MainWindow::toggleHemingwayMode(bool checked)
@@ -736,8 +770,6 @@ void MainWindow::toggleFullScreen(bool checked)
 
 void MainWindow::toggleHideMenuBarInFullScreen(bool checked)
 {
-    appSettings->setHideMenuBarInFullScreenEnabled(checked);
-
     if (this->isFullScreen())
     {
         effectsMenuBar->setAutoHideEnabled(checked);
@@ -750,14 +782,7 @@ void MainWindow::toggleOutlineAlternateRowColors(bool checked)
     cheatSheetWidget->setAlternatingRowColors(checked);
     documentStatsWidget->setAlternatingRowColors(checked);
     sessionStatsWidget->setAlternatingRowColors(checked);
-    appSettings->setAlternateHudRowColorsEnabled(checked);
     applyTheme();
-}
-
-void MainWindow::toggleLiveSpellCheck(bool checked)
-{
-    appSettings->setLiveSpellCheckEnabled(checked);
-    editor->setSpellCheckEnabled(checked);
 }
 
 void MainWindow::toggleFileHistoryEnabled(bool checked)
@@ -767,32 +792,11 @@ void MainWindow::toggleFileHistoryEnabled(bool checked)
         this->clearRecentFileHistory();
     }
 
-    appSettings->setFileHistoryEnabled(checked);
     documentManager->setFileHistoryEnabled(checked);
-}
-
-void MainWindow::toggleLargeLeadingSizes(bool checked)
-{
-    editor->setEnableLargeHeadingSizes(checked);
-    appSettings->setLargeHeadingSizesEnabled(checked);
-}
-
-void MainWindow::toggleAutoMatch(bool checked)
-{
-    editor->setAutoMatchEnabled(checked);
-    appSettings->setAutoMatchEnabled(checked);
-}
-
-void MainWindow::toggleBulletPointCycling(bool checked)
-{
-    editor->setBulletPointCyclingEnabled(checked);
-    appSettings->setBulletPointCyclingEnabled(checked);
 }
 
 void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
 {
-    appSettings->setDisplayTimeInFullScreenEnabled(checked);
-
     if (this->isFullScreen())
     {
         if (checked)
@@ -808,31 +812,26 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
     }
 }
 
-void MainWindow::toggleUseUnderlineForEmphasis(bool checked)
-{
-    editor->setUseUnderlineForEmphasis(checked);
-    appSettings->setUseUnderlineForEmphasis(checked);
-}
-
-void MainWindow::toggleSpacesForTabs(bool checked)
-{
-    editor->setInsertSpacesForTabs(checked);
-    appSettings->setInsertSpacesForTabsEnabled(checked);
-}
-
 void MainWindow::toggleDesktopCompositingEffects(bool checked)
 {
-    appSettings->setDesktopCompositingEnabled(checked);
     outlineHud->setDesktopCompositingEnabled(checked);
     cheatSheetHud->setDesktopCompositingEnabled(checked);
     documentStatsHud->setDesktopCompositingEnabled(checked);
     sessionStatsHud->setDesktopCompositingEnabled(checked);
 }
 
-void MainWindow::toggleHighlightLineBreaks(bool checked)
+void MainWindow::changeHudButtonLayout(HudWindowButtonLayout layout)
 {
-    editor->setHighlightLineBreaks(checked);
-    appSettings->setHighlightLineBreaks(checked);
+    this->outlineHud->setButtonLayout(layout);
+    this->cheatSheetHud->setButtonLayout(layout);
+    this->documentStatsHud->setButtonLayout(layout);
+    this->sessionStatsHud->setButtonLayout(layout);
+}
+
+void MainWindow::changeEditorWidth(EditorWidth editorWidth)
+{
+    editor->setEditorWidth(editorWidth);
+    editor->setupPaperMargins(this->width());
 }
 
 void MainWindow::insertImage()
@@ -883,46 +882,6 @@ void MainWindow::insertImage()
         QTextCursor cursor = editor->textCursor();
         cursor.insertText(QString("![](%1)").arg(imagePath));
     }
-}
-
-void MainWindow::changeTabulationWidth()
-{
-    int width = QInputDialog::getInt
-        (
-            this,
-            tr("Tabulation Width"),
-            tr("Spaces"),
-            appSettings->getTabWidth(),
-            appSettings->MIN_TAB_WIDTH,
-            appSettings->MAX_TAB_WIDTH
-        );
-    editor->setTabStopWidth(width);
-    appSettings->setTabWidth(width);
-}
-
-void MainWindow::changeEditorWidth(QAction* action)
-{
-    EditorWidth value = (EditorWidth) action->data().toInt();
-    appSettings->setEditorWidth(value);
-    editor->setEditorWidth(value);
-    editor->setupPaperMargins(this->width());
-}
-
-void MainWindow::changeBlockquoteStyle(QAction* action)
-{
-    BlockquoteStyle style = (BlockquoteStyle) action->data().toInt();
-    highlighter->setBlockquoteStyle(style);
-    appSettings->setBlockquoteStyle(style);
-}
-
-void MainWindow::changeHudButtonLayout(QAction* action)
-{
-    HudWindowButtonLayout layout = (HudWindowButtonLayout) action->data().toInt();
-    this->outlineHud->setButtonLayout(layout);
-    this->cheatSheetHud->setButtonLayout(layout);
-    this->documentStatsHud->setButtonLayout(layout);
-    this->sessionStatsHud->setButtonLayout(layout);
-    appSettings->setHudButtonLayout(layout);
 }
 
 void MainWindow::showQuickReferenceGuide()
@@ -1059,13 +1018,11 @@ void MainWindow::updateWordCount(int newWordCount)
     wordCountLabel->setText(tr("%Ln word(s)", "", newWordCount));
 }
 
-void MainWindow::changeFocusMode(QAction* action)
+void MainWindow::changeFocusMode(FocusMode focusMode)
 {
-    appSettings->setFocusMode((FocusMode) action->data().toInt());
-
     if (FocusModeDisabled != editor->getFocusMode())
     {
-        editor->setFocusMode(appSettings->getFocusMode());
+        editor->setFocusMode(focusMode);
     }
 }
 
@@ -1195,20 +1152,6 @@ void MainWindow::changeFont()
     }
 }
 
-void MainWindow::onSetDictionary()
-{
-    DictionaryDialog dictionaryDialog(language, this);
-    int status = dictionaryDialog.exec();
-
-    if (QDialog::Accepted == status)
-    {
-        language = dictionaryDialog.getLanguage();
-        DictionaryManager::instance().setDefaultLanguage(language);
-        editor->setDictionary(DictionaryManager::instance().requestDictionary(language));
-        appSettings->setDictionaryLanguage(language);
-    }
-}
-
 void MainWindow::onSetLocale()
 {
     bool ok;
@@ -1234,32 +1177,6 @@ void MainWindow::onSetLocale()
     }
 }
 
-void MainWindow::showHudOpacityDialog()
-{
-    int opacity = appSettings->getHudOpacity();
-
-    if (NULL == hudOpacityDialog)
-    {
-        hudOpacityDialog = new QDialog(this);
-        hudOpacityDialog->setWindowTitle(tr("Hud Window Opacity"));
-
-        QSlider* slider = new QSlider(Qt::Horizontal, this);
-        slider->setMinimum(0);
-        slider->setMaximum(255);
-        slider->setValue(opacity);
-
-        QVBoxLayout* layout = new QVBoxLayout();
-        layout->addWidget(slider);
-        hudOpacityDialog->setLayout(layout);
-
-        connect(slider, SIGNAL(valueChanged(int)), this, SLOT(changeHudOpacity(int)));
-    }
-
-    hudOpacityDialog->show();
-    hudOpacityDialog->raise();
-    hudOpacityDialog->activateWindow();
-}
-
 void MainWindow::changeHudOpacity(int value)
 {
     QColor color = outlineHud->getBackgroundColor();
@@ -1272,96 +1189,6 @@ void MainWindow::changeHudOpacity(int value)
     documentStatsHud->update();
     sessionStatsHud->setBackgroundColor(color);
     sessionStatsHud->update();
-
-    appSettings->setHudOpacity(value);
-}
-
-void MainWindow::showAutoMatchFilterDialog()
-{
-    QDialog autoMatchFilterDialog(this);
-    autoMatchFilterDialog.setWindowTitle(tr("Matched Characters"));
-
-    QVBoxLayout* layout = new QVBoxLayout();
-
-    QCheckBox* autoMatchDoubleQuotesCheckbox = new QCheckBox("\"");
-    autoMatchDoubleQuotesCheckbox->setCheckable(true);
-    autoMatchDoubleQuotesCheckbox->setChecked(appSettings->getAutoMatchDoubleQuotes());
-    layout->addWidget(autoMatchDoubleQuotesCheckbox);
-
-    QCheckBox* autoMatchSingleQuotesCheckbox = new QCheckBox("\'");
-    autoMatchSingleQuotesCheckbox->setCheckable(true);
-    autoMatchSingleQuotesCheckbox->setChecked(appSettings->getAutoMatchSingleQuotes());
-    layout->addWidget(autoMatchSingleQuotesCheckbox);
-
-    QCheckBox* autoMatchParenthesesCheckbox = new QCheckBox("( )");
-    autoMatchParenthesesCheckbox->setCheckable(true);
-    autoMatchParenthesesCheckbox->setChecked(appSettings->getAutoMatchParentheses());
-    layout->addWidget(autoMatchParenthesesCheckbox);
-
-    QCheckBox* autoMatchSquareBracketsCheckbox = new QCheckBox("[ ]");
-    autoMatchSquareBracketsCheckbox->setCheckable(true);
-    autoMatchSquareBracketsCheckbox->setChecked(appSettings->getAutoMatchSquareBrackets());
-    layout->addWidget(autoMatchSquareBracketsCheckbox);
-
-    QCheckBox* autoMatchBracesCheckbox = new QCheckBox("{ }");
-    autoMatchBracesCheckbox->setCheckable(true);
-    autoMatchBracesCheckbox->setChecked(appSettings->getAutoMatchBraces());
-    layout->addWidget(autoMatchBracesCheckbox);
-
-    QCheckBox* autoMatchAsterisksCheckbox = new QCheckBox("*");
-    autoMatchAsterisksCheckbox->setCheckable(true);
-    autoMatchAsterisksCheckbox->setChecked(appSettings->getAutoMatchAsterisks());
-    layout->addWidget(autoMatchAsterisksCheckbox);
-
-    QCheckBox* autoMatchUnderscoresCheckbox = new QCheckBox("_");
-    autoMatchUnderscoresCheckbox->setCheckable(true);
-    autoMatchUnderscoresCheckbox->setChecked(appSettings->getAutoMatchUnderscores());
-    layout->addWidget(autoMatchUnderscoresCheckbox);
-
-    QCheckBox* autoMatchBackticksCheckbox = new QCheckBox("`");
-    autoMatchBackticksCheckbox->setCheckable(true);
-    autoMatchBackticksCheckbox->setChecked(appSettings->getAutoMatchBackticks());
-    layout->addWidget(autoMatchBackticksCheckbox);
-
-    QCheckBox* autoMatchAngleBracketsCheckbox = new QCheckBox("< >");
-    autoMatchAngleBracketsCheckbox->setCheckable(true);
-    autoMatchAngleBracketsCheckbox->setChecked(appSettings->getAutoMatchAngleBrackets());
-    layout->addWidget(autoMatchAngleBracketsCheckbox);
-
-    autoMatchFilterDialog.setLayout(layout);
-
-    QDialogButtonBox* buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
-    buttonBox->addButton(QDialogButtonBox::Ok);
-    buttonBox->addButton(QDialogButtonBox::Cancel);
-    layout->addWidget(buttonBox);
-
-    connect(buttonBox, SIGNAL(accepted()), &autoMatchFilterDialog, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), &autoMatchFilterDialog, SLOT(reject()));
-
-    int status = autoMatchFilterDialog.exec();
-
-    if (QDialog::Accepted == status)
-    {
-        appSettings->setAutoMatchDoubleQuotes(autoMatchDoubleQuotesCheckbox->isChecked());
-        appSettings->setAutoMatchSingleQuotes(autoMatchSingleQuotesCheckbox->isChecked());
-        appSettings->setAutoMatchParentheses(autoMatchParenthesesCheckbox->isChecked());
-        appSettings->setAutoMatchSquareBrackets(autoMatchSquareBracketsCheckbox->isChecked());
-        appSettings->setAutoMatchBraces(autoMatchBracesCheckbox->isChecked());
-        appSettings->setAutoMatchAsterisks(autoMatchAsterisksCheckbox->isChecked());
-        appSettings->setAutoMatchUnderscores(autoMatchUnderscoresCheckbox->isChecked());
-        appSettings->setAutoMatchBackticks(autoMatchBackticksCheckbox->isChecked());
-        appSettings->setAutoMatchAngleBrackets(autoMatchAngleBracketsCheckbox->isChecked());
-
-        this->editor->setAutoMatchEnabled('\"', appSettings->getAutoMatchDoubleQuotes());
-        this->editor->setAutoMatchEnabled('\'', appSettings->getAutoMatchSingleQuotes());
-        this->editor->setAutoMatchEnabled('(', appSettings->getAutoMatchParentheses());
-        this->editor->setAutoMatchEnabled('[', appSettings->getAutoMatchSquareBrackets());
-        this->editor->setAutoMatchEnabled('{', appSettings->getAutoMatchBraces());
-        this->editor->setAutoMatchEnabled('*', appSettings->getAutoMatchAsterisks());
-        this->editor->setAutoMatchEnabled('_', appSettings->getAutoMatchUnderscores());
-        this->editor->setAutoMatchEnabled('`', appSettings->getAutoMatchBackticks());
-        this->editor->setAutoMatchEnabled('<', appSettings->getAutoMatchAngleBrackets());
-    }
 }
 
 QAction* MainWindow::addMenuAction
@@ -1487,247 +1314,8 @@ void MainWindow::buildMenuBar()
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
     settingsMenu->addAction(tr("Themes..."), this, SLOT(changeTheme()));
     settingsMenu->addAction(tr("Font..."), this, SLOT(changeFont()));
-
-    QMenu* focusModeMenu = new QMenu(tr("Focus Mode"));
-
-    QActionGroup* focusModeGroup = new QActionGroup(this);
-    connect(focusModeGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeFocusMode(QAction*)));
-
-    QAction* focusSentenceAction = new QAction(tr("Sentence"), this);
-    focusSentenceAction->setCheckable(true);
-    focusSentenceAction->setChecked(appSettings->getFocusMode() == FocusModeSentence);
-    focusSentenceAction->setActionGroup(focusModeGroup);
-    focusSentenceAction->setData(QVariant(FocusModeSentence));
-
-    QAction* focusCurrentLineAction = new QAction(tr("Current Line"), this);
-    focusCurrentLineAction->setCheckable(true);
-    focusCurrentLineAction->setChecked(appSettings->getFocusMode() == FocusModeCurrentLine);
-    focusCurrentLineAction->setActionGroup(focusModeGroup);
-    focusCurrentLineAction->setData(QVariant(FocusModeCurrentLine));
-
-    QAction* focusThreeLinesAction = new QAction(tr("Three Lines"), this);
-    focusThreeLinesAction->setCheckable(true);
-    focusThreeLinesAction->setChecked(appSettings->getFocusMode() == FocusModeThreeLines);
-    focusThreeLinesAction->setActionGroup(focusModeGroup);
-    focusThreeLinesAction->setData(QVariant(FocusModeThreeLines));
-
-    QAction* focusParagraphAction = new QAction(tr("Paragraph"), this);
-    focusParagraphAction->setCheckable(true);
-    focusParagraphAction->setChecked(appSettings->getFocusMode() == FocusModeParagraph);
-    focusParagraphAction->setActionGroup(focusModeGroup);
-    focusParagraphAction->setData(QVariant(FocusModeParagraph));
-
-    focusModeMenu->addAction(focusSentenceAction);
-    focusModeMenu->addAction(focusCurrentLineAction);
-    focusModeMenu->addAction(focusThreeLinesAction);
-    focusModeMenu->addAction(focusParagraphAction);
-
-    settingsMenu->addMenu(focusModeMenu);
-
-    QMenu* editorWidthMenu = new QMenu(tr("Editor Width"));
-    QActionGroup* editorWidthGroup = new QActionGroup(this);
-    connect(editorWidthGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeEditorWidth(QAction*)));
-
-    QAction* narrowAction = new QAction(tr("Narrow"), this);
-    narrowAction->setCheckable(true);
-    narrowAction->setChecked(appSettings->getEditorWidth() == EditorWidthNarrow);
-    narrowAction->setActionGroup(editorWidthGroup);
-    narrowAction->setData(QVariant(EditorWidthNarrow));
-
-    QAction* mediumAction = new QAction(tr("Medium"), this);
-    mediumAction->setCheckable(true);
-    mediumAction->setChecked(appSettings->getEditorWidth() == EditorWidthMedium);
-    mediumAction->setActionGroup(editorWidthGroup);
-    mediumAction->setData(QVariant(EditorWidthMedium));
-
-    QAction* wideAction = new QAction(tr("Wide"), this);
-    wideAction->setCheckable(true);
-    wideAction->setChecked(appSettings->getEditorWidth() == EditorWidthWide);
-    wideAction->setActionGroup(editorWidthGroup);
-    wideAction->setData(QVariant(EditorWidthWide));
-
-    QAction* fullAction = new QAction(tr("Full"), this);
-    fullAction->setCheckable(true);
-    fullAction->setChecked(appSettings->getEditorWidth() == EditorWidthFull);
-    fullAction->setActionGroup(editorWidthGroup);
-    fullAction->setData(QVariant(EditorWidthFull));
-
-    editorWidthMenu->addAction(narrowAction);
-    editorWidthMenu->addAction(mediumAction);
-    editorWidthMenu->addAction(wideAction);
-    editorWidthMenu->addAction(fullAction);
-
-    settingsMenu->addMenu(editorWidthMenu);
-
-    QMenu* blockquoteStyleMenu = new QMenu(tr("Blockquote Style"));
-    QActionGroup* blockquoteStyleGroup = new QActionGroup(this);
-    connect(blockquoteStyleGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeBlockquoteStyle(QAction*)));
-
-    QAction* plainBlockquoteAction = new QAction(tr("Plain"), this);
-    plainBlockquoteAction->setCheckable(true);
-    plainBlockquoteAction->setChecked(appSettings->getBlockquoteStyle() == BlockquoteStylePlain);
-    plainBlockquoteAction->setActionGroup(blockquoteStyleGroup);
-    plainBlockquoteAction->setData(QVariant(BlockquoteStylePlain));
-
-    QAction* italicBlockquoteAction = new QAction(tr("Italic"), this);
-    italicBlockquoteAction->setCheckable(true);
-    italicBlockquoteAction->setChecked(appSettings->getBlockquoteStyle() == BlockquoteStyleItalic);
-    italicBlockquoteAction->setActionGroup(blockquoteStyleGroup);
-    italicBlockquoteAction->setData(QVariant(BlockquoteStyleItalic));
-
-    QAction* fancyBlockquoteAction = new QAction(tr("Fancy"), this);
-    fancyBlockquoteAction->setCheckable(true);
-    fancyBlockquoteAction->setChecked(appSettings->getBlockquoteStyle() == BlockquoteStyleFancy);
-    fancyBlockquoteAction->setActionGroup(blockquoteStyleGroup);
-    fancyBlockquoteAction->setData(QVariant(BlockquoteStyleFancy));
-
-    blockquoteStyleMenu->addAction(plainBlockquoteAction);
-    blockquoteStyleMenu->addAction(italicBlockquoteAction);
-    blockquoteStyleMenu->addAction(fancyBlockquoteAction);
-
-    settingsMenu->addMenu(blockquoteStyleMenu);
-
-    bool autoHideEnabled = appSettings->getHideMenuBarInFullScreenEnabled();
-    QAction* autoHideAction = new QAction(tr("Hide menu bar in full screen mode"), this);
-    autoHideAction->setCheckable(true);
-    autoHideAction->setChecked(autoHideEnabled);
-    connect(autoHideAction, SIGNAL(toggled(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
-    settingsMenu->addAction(autoHideAction);
-
-    bool largeHeadingsEnabled = appSettings->getLargeHeadingSizesEnabled();
-    QAction* largeHeadingsAction = new QAction(tr("Use Large Headings"), this);
-    largeHeadingsAction->setCheckable(true);
-    largeHeadingsAction->setChecked(largeHeadingsEnabled);
-    connect(largeHeadingsAction, SIGNAL(toggled(bool)), this, SLOT(toggleLargeLeadingSizes(bool)));
-    settingsMenu->addAction(largeHeadingsAction);
-
-    bool underlineEnabled = appSettings->getUseUnderlineForEmphasis();
-    QAction* underlineAction = new QAction(tr("Use Underline Instead of Italics for Emphasis"), this);
-    underlineAction->setCheckable(true);
-    underlineAction->setChecked(underlineEnabled);
-    connect(underlineAction, SIGNAL(toggled(bool)), this, SLOT(toggleUseUnderlineForEmphasis(bool)));
-    settingsMenu->addAction(underlineAction);
-
-    bool autoMatchEnabled = appSettings->getAutoMatchEnabled();
-    QAction* autoMatchAction = new QAction(tr("Automatically Match Characters while Typing"), this);
-    autoMatchAction->setCheckable(true);
-    autoMatchAction->setChecked(autoMatchEnabled);
-    connect(autoMatchAction, SIGNAL(toggled(bool)), this, SLOT(toggleAutoMatch(bool)));
-    settingsMenu->addAction(autoMatchAction);
-
-    settingsMenu->addAction(tr("Customize Matched Characters..."), this, SLOT(showAutoMatchFilterDialog()));
-
-    bool bulletCyclingEnabled = appSettings->getBulletPointCyclingEnabled();
-    QAction* bulletCycleAction = new QAction(tr("Cycle Bullet Point Markers"), this);
-    bulletCycleAction->setCheckable(true);
-    bulletCycleAction->setChecked(bulletCyclingEnabled);
-    connect(bulletCycleAction, SIGNAL(toggled(bool)), this, SLOT(toggleBulletPointCycling(bool)));
-    settingsMenu->addAction(bulletCycleAction);
-
-    bool displayTimeEnabled = appSettings->getDisplayTimeInFullScreenEnabled();
-    QAction* displayTimeAction = new QAction(tr("Display Current Time in Full Screen Mode"), this);
-    displayTimeAction->setCheckable(true);
-    displayTimeAction->setChecked(displayTimeEnabled);
-    connect(displayTimeAction, SIGNAL(toggled(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
-    settingsMenu->addAction(displayTimeAction);
-
-    settingsMenu->addSeparator();
-
-    QAction* liveSpellcheckAction = new QAction(tr("Live Spellcheck Enabled"), this);
-    liveSpellcheckAction->setCheckable(true);
-    liveSpellcheckAction->setChecked(appSettings->getLiveSpellCheckEnabled());
-    connect(liveSpellcheckAction, SIGNAL(toggled(bool)), this, SLOT(toggleLiveSpellCheck(bool)));
-    settingsMenu->addAction(liveSpellcheckAction);
-
-    settingsMenu->addAction(tr("Dictionaries..."), this, SLOT(onSetDictionary()));
-
     settingsMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
-
-    settingsMenu->addSeparator();
-
-    QAction* fileHistoryAction = new QAction(tr("Remember File History"), this);
-    fileHistoryAction->setCheckable(true);
-    fileHistoryAction->setChecked(appSettings->getFileHistoryEnabled());
-    connect(fileHistoryAction, SIGNAL(toggled(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
-    settingsMenu->addAction(fileHistoryAction);
-
-    QAction* autoSaveAction = new QAction(tr("Auto Save"), this);
-    autoSaveAction->setCheckable(true);
-    autoSaveAction->setChecked(appSettings->getAutoSaveEnabled());
-    connect(autoSaveAction, SIGNAL(toggled(bool)), documentManager, SLOT(setAutoSaveEnabled(bool)));
-    settingsMenu->addAction(autoSaveAction);
-
-    QAction* backupFileAction = new QAction(tr("Backup File on Save"), this);
-    backupFileAction->setCheckable(true);
-    backupFileAction->setChecked(appSettings->getBackupFileEnabled());
-    connect(backupFileAction, SIGNAL(toggled(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
-    settingsMenu->addAction(backupFileAction);
-
-    settingsMenu->addSeparator();
-
-    bool insertSpacesForTabs = appSettings->getInsertSpacesForTabsEnabled();
-    QAction* spacesForTabsAction = new QAction(tr("Insert Spaces for Tabs"), this);
-    spacesForTabsAction->setCheckable(true);
-    spacesForTabsAction->setChecked(insertSpacesForTabs);
-    connect(spacesForTabsAction, SIGNAL(toggled(bool)), this, SLOT(toggleSpacesForTabs(bool)));
-    settingsMenu->addAction(spacesForTabsAction);
-    editor->setInsertSpacesForTabs(insertSpacesForTabs);
-
-    settingsMenu->addAction(tr("Tabulation Width..."), this, SLOT(changeTabulationWidth()));
-    editor->setTabulationWidth(appSettings->getTabWidth());
-
-    bool highlightLineBreaks = appSettings->getHighlightLineBreaks();
-    QAction* highlightLineBreaksAction = new QAction(tr("Highlight manual Linebreaks"), this);
-    highlightLineBreaksAction->setCheckable(true);
-    highlightLineBreaksAction->setChecked(highlightLineBreaks);
-    connect(highlightLineBreaksAction, SIGNAL(toggled(bool)), this, SLOT(toggleHighlightLineBreaks(bool)));
-    settingsMenu->addAction(highlightLineBreaksAction);
-    editor->setHighlightLineBreaks(highlightLineBreaks);
-
-    settingsMenu->addSeparator();
-
-    QAction* outlineAlternateColorsAction = new QAction(tr("Alternate Row Colors in HUD Windows"), this);
-    outlineAlternateColorsAction->setCheckable(true);
-    outlineAlternateColorsAction->setChecked(appSettings->getAlternateHudRowColorsEnabled());
-    connect(outlineAlternateColorsAction, SIGNAL(toggled(bool)), this, SLOT(toggleOutlineAlternateRowColors(bool)));
-    settingsMenu->addAction(outlineAlternateColorsAction);
-    outlineWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
-    cheatSheetWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
-    documentStatsWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
-    sessionStatsWidget->setAlternatingRowColors(outlineAlternateColorsAction->isChecked());
-
-    QMenu* hudButtonLayoutMenu = new QMenu(tr("HUD Window Button Layout"));
-    QActionGroup* hudButtonLayoutGroup = new QActionGroup(this);
-    connect(hudButtonLayoutGroup, SIGNAL(triggered(QAction*)), this, SLOT(changeHudButtonLayout(QAction*)));
-
-    QAction* hudButtonLayoutLeftAction = new QAction(tr("Left"), this);
-    hudButtonLayoutLeftAction->setCheckable(true);
-    hudButtonLayoutLeftAction->setChecked(appSettings->getHudButtonLayout() == HudWindowButtonLayoutLeft);
-    hudButtonLayoutLeftAction->setActionGroup(hudButtonLayoutGroup);
-    hudButtonLayoutLeftAction->setData(HudWindowButtonLayoutLeft);
-
-    QAction* hudButtonLayoutRightAction = new QAction(tr("Right"), this);
-    hudButtonLayoutRightAction->setCheckable(true);
-    hudButtonLayoutRightAction->setChecked(appSettings->getHudButtonLayout() == HudWindowButtonLayoutRight);
-    hudButtonLayoutRightAction->setActionGroup(hudButtonLayoutGroup);
-    hudButtonLayoutRightAction->setData(HudWindowButtonLayoutRight);
-
-    hudButtonLayoutMenu->addAction(hudButtonLayoutLeftAction);
-    hudButtonLayoutMenu->addAction(hudButtonLayoutRightAction);
-
-    settingsMenu->addMenu(hudButtonLayoutMenu);
-
-    QAction* desktopCompositingAction = new QAction(tr("Enable Desktop Compositing Effects"), this);
-    desktopCompositingAction->setCheckable(true);
-    desktopCompositingAction->setChecked(appSettings->getDesktopCompositingEnabled());
-    outlineHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
-    cheatSheetHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
-    documentStatsHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
-    sessionStatsHud->setDesktopCompositingEnabled(desktopCompositingAction->isChecked());
-    connect(desktopCompositingAction, SIGNAL(toggled(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
-    settingsMenu->addAction(desktopCompositingAction);
-
-    settingsMenu->addAction(tr("HUD Window Opacity..."), this, SLOT(showHudOpacityDialog()));
+    settingsMenu->addAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
 
     QMenu* helpMenu = this->menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(tr("&About"), this, SLOT(showAbout()));

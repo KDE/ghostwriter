@@ -20,6 +20,7 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
+#include <QObject>
 #include <QString>
 #include <QFont>
 
@@ -33,8 +34,10 @@
  * getInstance on application start up to set up settings file paths before
  * using QSettings directly for other settings not managed by this class.
  */
-class AppSettings
+class AppSettings : public QObject
 {
+    Q_OBJECT
+
     public:
         static const int MIN_TAB_WIDTH = 1;
         static const int MAX_TAB_WIDTH = 8;
@@ -50,103 +53,101 @@ class AppSettings
         QString getTranslationsPath() const;
 
         bool getAutoSaveEnabled() const;
-        void setAutoSaveEnabled(bool enabled);
+        Q_SLOT void setAutoSaveEnabled(bool enabled);
+        Q_SIGNAL void autoSaveChanged(bool enabled);
 
         bool getBackupFileEnabled() const;
-        void setBackupFileEnabled(bool enabled);
+        Q_SLOT void setBackupFileEnabled(bool enabled);
+        Q_SIGNAL void backupFileChanged(bool enabled);
 
         QFont getFont() const;
         void setFont(const QFont& font);
 
         int getTabWidth() const;
-        void setTabWidth(int width);
+        Q_SLOT void setTabWidth(int width);
+        Q_SIGNAL void tabWidthChanged(int width);
 
         bool getInsertSpacesForTabsEnabled() const;
-        void setInsertSpacesForTabsEnabled(bool enabled);
+        Q_SLOT void setInsertSpacesForTabsEnabled(bool enabled);
+        Q_SIGNAL void insertSpacesForTabsChanged(bool enabled);
 
         bool getUseUnderlineForEmphasis() const;
-        void setUseUnderlineForEmphasis(bool enabled);
+        Q_SLOT void setUseUnderlineForEmphasis(bool enabled);
+        Q_SIGNAL void useUnderlineForEmphasisChanged(bool enabled);
 
         bool getLargeHeadingSizesEnabled() const;
-        void setLargeHeadingSizesEnabled(bool enabled);
+        Q_SLOT void setLargeHeadingSizesEnabled(bool enabled);
+        Q_SIGNAL void largeHeadingSizesChanged(bool enabled);
 
         bool getAutoMatchEnabled() const;
-        void setAutoMatchEnabled(bool enabled);
+        Q_SLOT void setAutoMatchEnabled(bool enabled);
+        Q_SIGNAL void autoMatchChanged(bool enabled);
 
-        bool getAutoMatchDoubleQuotes() const;
-        void setAutoMatchDoubleQuotes(bool enabled);
-
-        bool getAutoMatchSingleQuotes() const;
-        void setAutoMatchSingleQuotes(bool enabled);
-
-        bool getAutoMatchParentheses() const;
-        void setAutoMatchParentheses(bool enabled);
-
-        bool getAutoMatchSquareBrackets() const;
-        void setAutoMatchSquareBrackets(bool enabled);
-
-        bool getAutoMatchBraces() const;
-        void setAutoMatchBraces(bool enabled);
-
-        bool getAutoMatchAsterisks() const;
-        void setAutoMatchAsterisks(bool enabled);
-
-        bool getAutoMatchUnderscores() const;
-        void setAutoMatchUnderscores(bool enabled);
-
-        bool getAutoMatchBackticks() const;
-        void setAutoMatchBackticks(bool enabled);
-
-        bool getAutoMatchAngleBrackets() const;
-        void setAutoMatchAngleBrackets(bool enabled);
+        bool getAutoMatchCharEnabled(const QChar openingCharacter) const;
+        Q_SLOT void setAutoMatchCharEnabled(const QChar openingCharacter, bool enabled);
+        Q_SIGNAL void autoMatchCharChanged(const QChar openingChar, bool enabled);
 
         bool getBulletPointCyclingEnabled() const;
-        void setBulletPointCyclingEnabled(bool enabled);
+        Q_SLOT void setBulletPointCyclingEnabled(bool enabled);
+        Q_SIGNAL void bulletPointCyclingChanged(bool enabled);
 
         FocusMode getFocusMode() const;
         void setFocusMode(FocusMode focusMode);
+        Q_SIGNAL void focusModeChanged(FocusMode focusMode);
 
         bool getHideMenuBarInFullScreenEnabled() const;
-        void setHideMenuBarInFullScreenEnabled(bool enabled);
+        Q_SLOT void setHideMenuBarInFullScreenEnabled(bool enabled);
+        Q_SIGNAL void hideMenuBarInFullScreenChanged(bool enabled);
 
         bool getFileHistoryEnabled() const;
-        void setFileHistoryEnabled(bool enabled);
+        Q_SLOT void setFileHistoryEnabled(bool enabled);
+        Q_SIGNAL void fileHistoryChanged(bool enabled);
 
         bool getDisplayTimeInFullScreenEnabled();
-        void setDisplayTimeInFullScreenEnabled(bool enabled);
+        Q_SLOT void setDisplayTimeInFullScreenEnabled(bool enabled);
+        Q_SIGNAL void displayTimeInFullScreenChanged(bool enabled);
 
         QString getThemeName() const;
         void setThemeName(const QString& name);
 
         QString getDictionaryLanguage() const;
         void setDictionaryLanguage(const QString& language);
+        Q_SIGNAL void dictionaryLanguageChanged(const QString& language);
 
         QString getLocale() const;
         void setLocale(const QString& locale);
 
         bool getLiveSpellCheckEnabled() const;
-        void setLiveSpellCheckEnabled(bool enabled);
+        Q_SLOT void setLiveSpellCheckEnabled(bool enabled);
+        Q_SIGNAL void liveSpellCheckChanged(bool enabled);
 
         EditorWidth getEditorWidth() const;
         void setEditorWidth(EditorWidth editorWidth);
+        Q_SIGNAL void editorWidthChanged(EditorWidth editorWidth);
 
         BlockquoteStyle getBlockquoteStyle() const;
         void setBlockquoteStyle(BlockquoteStyle style);
+        Q_SIGNAL void blockquoteStyleChanged(BlockquoteStyle style);
 
         HudWindowButtonLayout getHudButtonLayout() const;
         void setHudButtonLayout(HudWindowButtonLayout layout);
+        Q_SIGNAL void hudButtonLayoutChanged(HudWindowButtonLayout layout);
 
         bool getAlternateHudRowColorsEnabled() const;
-        void setAlternateHudRowColorsEnabled(bool enabled);
+        Q_SLOT void setAlternateHudRowColorsEnabled(bool enabled);
+        Q_SIGNAL void alternateHudRowColorsChanged(bool enabled);
 
         bool getDesktopCompositingEnabled() const;
-        void setDesktopCompositingEnabled(bool enabled);
+        Q_SLOT void setDesktopCompositingEnabled(bool enabled);
+        Q_SIGNAL void desktopCompositingChanged(bool enabled);
 
         int getHudOpacity() const;
-        void setHudOpacity(int value);
+        Q_SLOT void setHudOpacity(int value);
+        Q_SIGNAL void hudOpacityChanged(int value);
 
         bool getHighlightLineBreaks() const;
-        void setHighlightLineBreaks(bool enabled);
+        Q_SLOT void setHighlightLineBreaks(bool enabled);
+        Q_SIGNAL void highlightLineBreaksChanged(bool enabled);
 
     private:
         AppSettings();
@@ -165,15 +166,7 @@ class AppSettings
         bool useUnderlineForEmphasis;
         bool largeHeadingSizesEnabled;
         bool autoMatchEnabled;
-        bool autoMatchDoubleQuotesEnabled;
-        bool autoMatchSingleQuotesEnabled;
-        bool autoMatchParenthesesEnabled;
-        bool autoMatchSquareBracketsEnabled;
-        bool autoMatchBracesEnabled;
-        bool autoMatchAsterisksEnabled;
-        bool autoMatchUnderscoresEnabled;
-        bool autoMatchBackticksEnabled;
-        bool autoMatchAngleBracketsEnabled;
+        QString autoMatchedCharFilter;
         bool bulletPointCyclingEnabled;
         FocusMode focusMode;
         bool hideMenuBarInFullScreenEnabled;

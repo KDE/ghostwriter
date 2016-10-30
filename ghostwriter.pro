@@ -150,12 +150,12 @@ HEADERS += src/MainWindow.h \
     src/DocumentStatisticsWidget.h \
     src/SessionStatistics.h \
     src/SessionStatisticsWidget.h \
+    src/PreferencesDialog.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
     src/spelling/abstract_dictionary.h \
     src/spelling/abstract_dictionary_provider.h \
-    src/spelling/dictionary_dialog.h \
     src/spelling/dictionary_manager.h \
     src/spelling/dictionary_ref.h \
     src/spelling/spell_checker.h \
@@ -165,8 +165,7 @@ HEADERS += src/MainWindow.h \
     src/sundown/html_blocks.h \
     src/sundown/html.h \
     src/sundown/markdown.h \
-    src/sundown/stack.h \
-    src/PreferencesDialog.h
+    src/sundown/stack.h
 
 SOURCES += src/AppMain.cpp \
     src/MainWindow.cpp \
@@ -206,10 +205,10 @@ SOURCES += src/AppMain.cpp \
     src/SessionStatisticsWidget.cpp \
     src/DocumentStatistics.cpp \
     src/DocumentStatisticsWidget.cpp \
+    src/PreferencesDialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
     src/color_button.cpp \
-    src/spelling/dictionary_dialog.cpp \
     src/spelling/dictionary_manager.cpp \
     src/spelling/spell_checker.cpp \
     src/sundown/autolink.c \
@@ -219,8 +218,7 @@ SOURCES += src/AppMain.cpp \
     src/sundown/html_smartypants.c \
     src/sundown/html.c \
     src/sundown/markdown.c \
-    src/sundown/stack.c \
-    src/PreferencesDialog.cpp
+    src/sundown/stack.c
 
 # Allow for updating translations
 TRANSLATIONS = $$files(translations/ghostwriter_*.ts)

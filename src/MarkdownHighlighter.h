@@ -89,17 +89,12 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         /**
          * Sets whether large heading sizes are enabled.
          */
-		void setEnableLargeHeadingSizes(const bool enable);
+        void setEnableLargeHeadingSizes(const bool enable);
 
         /**
          * Sets whether emphasized text is underlined instead of italicized.
          */
         void setUseUnderlineForEmphasis(const bool enable);
-
-        /**
-         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
-         */
-        void setHighlightLineBreaks(bool enable);
 
         /**
          * Sets the font family and point size.
@@ -110,11 +105,6 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          * Sets whether live spell checking is enabled.
          */
         void setSpellCheckEnabled(const bool enabled);
-
-        /**
-         * Sets the blockquote style.
-         */
-        void setBlockquoteStyle(const BlockquoteStyle style);
 
     signals:
         /**
@@ -167,6 +157,16 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          * stopped typing.
          */
         void onTypingPaused();
+
+        /**
+         * Sets the blockquote style.
+         */
+        void setBlockquoteStyle(const BlockquoteStyle style);
+
+        /**
+         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
+         */
+        void setHighlightLineBreaks(bool enable);
 
     private slots:
         /*
