@@ -121,6 +121,8 @@ class MainWindow : public QMainWindow
         QLabel* wordCountLabel;
         QLabel* statusLabel;
         TimeLabel* timeLabel;
+        QPushButton* hemingwayModeButton;
+        QPushButton* focusModeButton;
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;

@@ -1365,14 +1365,14 @@ void MainWindow::buildStatusBar()
 
     statusBarLayout->setColumnStretch(0, 0);
 
-    QPushButton* hemingwayModeButton = new QPushButton(tr("Hemingway"));
+    hemingwayModeButton = new QPushButton(tr("Hemingway"));
     hemingwayModeButton->setFocusPolicy(Qt::NoFocus);
     hemingwayModeButton->setToolTip(tr("Toggle Hemingway mode"));
     hemingwayModeButton->setCheckable(true);
     connect(hemingwayModeButton, SIGNAL(toggled(bool)), this, SLOT(toggleHemingwayMode(bool)));
     statusBar()->addPermanentWidget(hemingwayModeButton);
 
-    QPushButton* focusModeButton = new QPushButton(tr("Focus"));
+    focusModeButton = new QPushButton(tr("Focus"));
     focusModeButton->setFocusPolicy(Qt::NoFocus);
     focusModeButton->setToolTip(tr("Toggle distraction free mode"));
     focusModeButton->setCheckable(true);
@@ -1498,6 +1498,16 @@ void MainWindow::applyTheme()
     QString statusBarButtonFgPressHoverColorRGB;
     QString statusBarButtonBgPressHoverColorRGBA;
 
+    // Add status bar widgets to a list for convenience
+    // in applying graphics effects to them.
+    //
+    QList<QWidget*> statusBarWidgets;
+    statusBarWidgets.append(timeLabel);
+    statusBarWidgets.append(wordCountLabel);
+    statusBarWidgets.append(hemingwayModeButton);
+    statusBarWidgets.append(focusModeButton);
+    statusBarWidgets.append(fullScreenButton);
+
     if (EditorAspectStretch == theme.getEditorAspect())
     {
         QColor buttonFgColor = theme.getDefaultTextColor();
@@ -1553,18 +1563,23 @@ void MainWindow::applyTheme()
         statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;
         statusBarButtonBgPressHoverColorRGBA = menuBarItemBgPressColorRGBA;
 
-        if (NULL == fullScreenButton->graphicsEffect())
+        // Remove old graphics effects from the status bar widgets.
+        foreach (QWidget* widget, statusBarWidgets)
         {
-            // We can't reuse the old QGraphicsColorizeEffect once it's
-            // been removed from the button, since Qt seems to delete it
-            // at an arbitrary time, sooner or later causing a crash while
-            // switching themes.  Thus, create a new one.
-            //
-            fullScreenButtonColorEffect = new QGraphicsColorizeEffect();
-            fullScreenButton->setGraphicsEffect(fullScreenButtonColorEffect);
+            widget->setGraphicsEffect(NULL);
         }
 
+        // Remove menu bar text drop shadow effect.
+        effectsMenuBar->removeDropShadow();
+
+        // We can't reuse the old QGraphicsColorizeEffect once it's
+        // been removed from the button, since Qt seems to delete it
+        // at an arbitrary time, sooner or later causing a crash while
+        // switching themes.  Thus, create a new one.
+        //
+        fullScreenButtonColorEffect = new QGraphicsColorizeEffect();
         fullScreenButtonColorEffect->setColor(buttonFgColor);
+        fullScreenButton->setGraphicsEffect(fullScreenButtonColorEffect);
     }
     else
     {
@@ -1575,7 +1590,6 @@ void MainWindow::applyTheme()
         menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
         chromeFgColor.setAlpha(50);
         menuBarItemBgPressColorRGBA = ColorHelper::toRgbaString(chromeFgColor);
-
 
         fullScreenIcon = ":/resources/images/view-fullscreen-light.svg";
         fullScreenIconHover = ":/resources/images/view-fullscreen-light-hover.svg";
@@ -1592,6 +1606,21 @@ void MainWindow::applyTheme()
         // delete it at an arbitrary time, based on parental ownership.
         //
         fullScreenButton->setGraphicsEffect(NULL);
+
+        // Set drop shadow effect for status bar widgets.
+        foreach (QWidget* widget, statusBarWidgets)
+        {
+            QGraphicsDropShadowEffect* chromeDropShadowEffect = new QGraphicsDropShadowEffect();
+            chromeDropShadowEffect->setColor(QColor(Qt::black));
+            chromeDropShadowEffect->setBlurRadius(3.5);
+            chromeDropShadowEffect->setXOffset(1.0);
+            chromeDropShadowEffect->setYOffset(1.0);
+
+            widget->setGraphicsEffect(chromeDropShadowEffect);
+        }
+
+        // Set drop shadow effect for menu bar text.
+        effectsMenuBar->setDropShadow(Qt::black, 3.5, 1.0, 1.0);
     }
 
     editor->setAspect(theme.getEditorAspect());
@@ -1690,23 +1719,6 @@ void MainWindow::applyTheme()
         ;
 
     fullScreenButton->setStyleSheet(styleSheet);
-
-    if (EditorAspectCenter == theme.getEditorAspect())
-    {
-        QGraphicsDropShadowEffect* chromeDropShadowEffect = new QGraphicsDropShadowEffect();
-        chromeDropShadowEffect->setColor(QColor(Qt::black));
-        chromeDropShadowEffect->setBlurRadius(3.5);
-        chromeDropShadowEffect->setXOffset(1.0);
-        chromeDropShadowEffect->setYOffset(1.0);
-
-        this->statusBar()->setGraphicsEffect(chromeDropShadowEffect);
-        effectsMenuBar->setDropShadow(Qt::black, 3.5, 1.0, 1.0);
-    }
-    else
-    {
-        this->statusBar()->setGraphicsEffect(NULL);
-        effectsMenuBar->removeDropShadow();
-    }
 
     styleSheet = "";
 
