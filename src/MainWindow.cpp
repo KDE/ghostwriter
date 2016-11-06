@@ -1635,7 +1635,7 @@ void MainWindow::applyTheme()
         (EditorAspectStretch != theme.getEditorAspect())
     )
     {
-        corners = "border-radius: 10;";
+        corners = "border-radius: 8;";
     }
 
     QString cursorColorRGB =
@@ -1658,14 +1658,14 @@ void MainWindow::applyTheme()
         << " } "
         << "QAbstractScrollArea::corner { background: transparent } "
         << "QAbstractScrollArea { padding: 3 } "
-        << "QScrollBar::horizontal { border: 0; background: transparent; height: 6px; margin: 0 } "
+        << "QScrollBar::horizontal { border: 0; background: transparent; height: 8px; margin: 0 } "
         << "QScrollBar::handle:horizontal { border: 0; background: "
         << scrollbarColorRGB
-        << "; min-width: 50px; border-radius: 3px; } "
-        << "QScrollBar::vertical { border: 0; background: transparent; width: 6px; margin: 0 } "
+        << "; min-width: 50px; border-radius: 4px; } "
+        << "QScrollBar::vertical { border: 0; background: transparent; width: 8px; margin: 0 } "
         << "QScrollBar::handle:vertical { border: 0; background: "
         << scrollbarColorRGB
-        << "; min-height: 50px; border-radius: 3px; } "
+        << "; min-height: 50px; border-radius: 4px; } "
         << "QScrollBar::handle:vertical:hover { background: "
         << scrollBarHoverRGB
         << " } "
