@@ -73,7 +73,7 @@ MarkdownEditor::MarkdownEditor
     blockquoteRegex.setPattern("^ {0,3}(>\\s*)+");
     numberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+");
     bulletListRegex.setPattern("^\\s*[+*-]\\s+");
-    taskListRegex.setPattern("^\\s*[-] \\[([x ])\\]\\s+");
+    taskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+");
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -1022,11 +1022,11 @@ bool MarkdownEditor::toggleTaskComplete()
             {
                 QChar value = capture.at(1)[0];
                 QChar replacement;
-                int index = block.text().indexOf("- [");
+                int index = block.text().indexOf(" [");
 
                 if (index >= 0)
                 {
-                    index += 3;
+                    index += 2;
                 }
 
                 if (value == 'x')
