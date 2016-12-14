@@ -36,3 +36,11 @@ Makefile*
 *.qm
 
 build/
+
+# snap
+ghostwriter_*.snap
+
+# snap build directories
+parts/
+prime/
+stage/
