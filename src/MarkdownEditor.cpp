@@ -1624,11 +1624,53 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
         }
         else if (autoMatchEnabled && autoMatchFilter.value(firstChar))
         {
-            cursor.insertText(firstChar);
-            cursor.insertText(lastChar);
-            cursor.movePosition(QTextCursor::PreviousCharacter);
-            setTextCursor(cursor);
-            return true;
+            // Get the previous character.  Ensure that it is whitespace.
+            int blockPos = cursor.positionInBlock();
+            bool doMatch = true;
+
+            // If not at the beginning of the line...
+            if (blockPos > 0)
+            {
+                blockPos--;
+
+                if (!cursor.block().text()[blockPos].isSpace())
+                {
+                    // If the previous character is not whitespace, allow
+                    // character matching only for parentheses and similar
+                    // characters that need matching even if preceeded by
+                    // non-whitespace (i.e., for mathematical or computer
+                    // science expressions).  Otherwise, do not match the
+                    // opening character.
+                    //
+                    switch (firstChar.toLatin1())
+                    {
+                        case '(':
+                        case '[':
+                        case '{':
+                        case '<':
+                            break;
+                        default:
+                            doMatch = false;
+                            break;
+                    }
+                }
+            }
+            // Else if at the beginning of the line, do not match if the
+            // opening character is a bullet point character.
+            //
+            else if (firstChar == '*')
+            {
+                doMatch = false;
+            }
+
+            if (doMatch)
+            {
+                cursor.insertText(firstChar);
+                cursor.insertText(lastChar);
+                cursor.movePosition(QTextCursor::PreviousCharacter);
+                setTextCursor(cursor);
+                return true;
+            }
         }
     }
 
