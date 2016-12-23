@@ -1590,7 +1590,12 @@ void MarkdownEditor::createNumberedList(const QChar marker)
 
 bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
 {
-    if (markupPairs.contains(firstChar))
+    if
+    (
+        autoMatchEnabled
+        && markupPairs.contains(firstChar)
+        && autoMatchFilter.value(firstChar)
+    )
     {
         QChar lastChar = markupPairs.value(firstChar);
         QTextCursor cursor = this->textCursor();
@@ -1602,6 +1607,9 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
             block = this->document()->findBlock(cursor.selectionStart());
             end = this->document()->findBlock(cursor.selectionEnd());
 
+            // Only surround selection with matched characters if the
+            // selection belongs to the same block.
+            //
             if (block == end)
             {
                 cursor.beginEditBlock();
@@ -1622,7 +1630,7 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                 return true;
             }
         }
-        else if (autoMatchEnabled && autoMatchFilter.value(firstChar))
+        else
         {
             // Get the previous character.  Ensure that it is whitespace.
             int blockPos = cursor.positionInBlock();

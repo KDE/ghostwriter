@@ -339,7 +339,7 @@ QWidget* PreferencesDialog::initializeEditorTab()
     connect(cycleBulletPointsCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setBulletPointCyclingEnabled(bool)));
     typingGroupLayout->addRow(cycleBulletPointsCheckBox);
 
-    QCheckBox* autoMatchCheckBox = new QCheckBox(tr("Automatically match characters while typing"));
+    QCheckBox* autoMatchCheckBox = new QCheckBox(tr("Automatically match characters"));
     autoMatchCheckBox->setCheckable(true);
     autoMatchCheckBox->setChecked(appSettings->getAutoMatchEnabled());
     connect(autoMatchCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setAutoMatchEnabled(bool)));
