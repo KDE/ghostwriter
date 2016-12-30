@@ -953,6 +953,11 @@ void MainWindow::showQuickReferenceGuide()
     quickReferenceGuideViewer->activateWindow();
 }
 
+void MainWindow::showWikiPage()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/wereturtle/ghostwriter/wiki"));
+}
+
 void MainWindow::showOutlineHud()
 {
     outlineHud->show();
@@ -1322,6 +1327,7 @@ void MainWindow::buildMenuBar()
     helpMenu->addAction(tr("&About"), this, SLOT(showAbout()));
     helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
     helpMenu->addAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
+    helpMenu->addAction(tr("Wiki"), this, SLOT(showWikiPage()));
 
     connect(fileMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
     connect(fileMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));

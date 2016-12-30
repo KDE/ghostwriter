@@ -90,6 +90,7 @@ class MainWindow : public QMainWindow
         void changeEditorWidth(EditorWidth editorWidth);
         void insertImage();
         void showQuickReferenceGuide();
+        void showWikiPage();
         void showOutlineHud();
         void showCheatSheetHud();
         void showDocumentStatisticsHud();
