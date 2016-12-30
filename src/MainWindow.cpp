@@ -1077,6 +1077,7 @@ void MainWindow::refreshRecentFiles()
         for (int i = 0; (i < MAX_RECENT_FILES) && (i < recentFiles.size()); i++)
         {
             recentFilesActions[i]->setText(recentFiles.at(i));
+            recentFilesActions[i]->setData(recentFiles.at(i));
             recentFilesActions[i]->setVisible(true);
         }
 
