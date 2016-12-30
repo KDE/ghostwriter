@@ -142,6 +142,8 @@ class MarkdownEditor : public QPlainTextEdit
 
     protected:
         void dragEnterEvent(QDragEnterEvent* e);
+        void dragMoveEvent(QDragMoveEvent* e);
+        void dragLeaveEvent(QDragLeaveEvent* e);
         void dropEvent(QDropEvent* e);
         void keyPressEvent(QKeyEvent *e);
         bool eventFilter(QObject* watched, QEvent* event);

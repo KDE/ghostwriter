@@ -312,6 +312,16 @@ void MarkdownEditor::dragEnterEvent(QDragEnterEvent* e)
     }
 }
 
+void MarkdownEditor::dragMoveEvent(QDragMoveEvent* e)
+{
+    event->acceptProposedAction();
+}
+
+void MarkdownEditor::dragLeaveEvent(QDragLeaveEvent* e)
+{
+    event->accept();
+}
+
 void MarkdownEditor::dropEvent(QDropEvent* e)
 {
     if (e->mimeData()->hasUrls() && (e->mimeData()->urls().size() == 1))
