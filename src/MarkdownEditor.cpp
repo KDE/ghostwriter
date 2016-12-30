@@ -314,12 +314,12 @@ void MarkdownEditor::dragEnterEvent(QDragEnterEvent* e)
 
 void MarkdownEditor::dragMoveEvent(QDragMoveEvent* e)
 {
-    event->acceptProposedAction();
+    e->acceptProposedAction();
 }
 
 void MarkdownEditor::dragLeaveEvent(QDragLeaveEvent* e)
 {
-    event->accept();
+    e->accept();
 }
 
 void MarkdownEditor::dropEvent(QDropEvent* e)
