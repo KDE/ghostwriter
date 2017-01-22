@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -183,6 +183,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor = new MarkdownEditor(document, highlighter, this);
     editor->setFont(appSettings->getFont().family(), appSettings->getFont().pointSize());
     editor->setUseUnderlineForEmphasis(appSettings->getUseUnderlineForEmphasis());
+    editor->setHighlightLineBreaks(appSettings->getHighlightLineBreaks());
     editor->setEnableLargeHeadingSizes(appSettings->getLargeHeadingSizesEnabled());
     editor->setAutoMatchEnabled(appSettings->getAutoMatchEnabled());
     editor->setBulletPointCyclingEnabled(appSettings->getBulletPointCyclingEnabled());
