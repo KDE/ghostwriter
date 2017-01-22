@@ -21,7 +21,9 @@
 #define DOCUMENTSTATISTICS_H
 
 #include <QObject>
-#include <QTextDocument>
+
+#include "TextDocument.h"
+#include "TextBlockData.h"
 
 /**
  * Class to compute document statistics for a QTextDocument.
@@ -34,7 +36,7 @@ class DocumentStatistics : public QObject
         /**
          * Constructor.  Pass in the QTextDocument as parameter.
          */
-        DocumentStatistics(QTextDocument* document, QObject* parent = NULL);
+        DocumentStatistics(TextDocument* document, QObject* parent = NULL);
 
         /**
          * Destructor.
@@ -101,11 +103,6 @@ class DocumentStatistics : public QObject
 
     public slots:
         /**
-         * Updates block statistics for the entire document.
-         */
-        void refreshStatistics();
-
-        /**
          * Recalculates statistics text selected in the document's editor.
          */
         void onTextSelected
@@ -124,7 +121,7 @@ class DocumentStatistics : public QObject
 
     private slots:
         void onTextChanged(int position, int charsRemoved, int charsAdded);
-        void onBlockCountChanged(int newBlockCount);
+        void onTextBlockRemoved(const QTextBlock& blockData);
 
     private:
         static const QString LESS_THAN_ONE_MINUTE_STR;
@@ -134,8 +131,7 @@ class DocumentStatistics : public QObject
         static const QString DIFFICULT_READING_EASE_STR;
         static const QString VERY_DIFFICULT_READING_EASE_STR;
 
-        QTextDocument* document;
-        int lastBlockCount;
+        TextDocument* document;
 
         int wordCount; // may be count of selected text only or entire document
         int totalWordCount; // word count of entire document

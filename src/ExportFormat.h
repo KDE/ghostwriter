@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2015 wereturtle
+ * Copyright (C) 2015-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,6 +119,9 @@ class ExportFormat
         static const ExportFormat* const RTF;
         static const ExportFormat* const DOCX;
         static const ExportFormat* const PDF;
+        static const ExportFormat* const PDF_LATEX;
+        static const ExportFormat* const PDF_CONTEXT;
+        static const ExportFormat* const PDF_WKHTML;
         static const ExportFormat* const EPUBV2;
         static const ExportFormat* const EPUBV3;
         static const ExportFormat* const FICTIONBOOK2;

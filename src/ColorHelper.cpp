@@ -126,3 +126,16 @@ QString ColorHelper::toRgbaString(const QColor& color)
         .arg(color.blue())
         .arg(color.alpha());
 }
+
+// Algorithm taken from *Grokking the GIMP* by Carey Bunks,
+// section 5.3.
+//
+// Grokking the GIMP
+// by Carey Bunks
+// Copyright (c) 2000 by New Riders Publishing, www.newriders.com
+// ISBN 0-7357-0924-6.
+//
+double ColorHelper::getLuminance(const QColor& color)
+{
+    return (0.30 * color.redF()) + (0.59 * color.greenF()) + (0.11 * color.blueF());
+}

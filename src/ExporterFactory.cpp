@@ -305,8 +305,24 @@ void ExporterFactory::addPandocExporter
     );
     exporter->addFileExportCommand
     (
-        ExportFormat::PDF,
+        ExportFormat::PDF_LATEX,
         QString("pandoc %1 -f %2 -t latex -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::PDF_CONTEXT,
+        QString("pandoc %1 -f %2 -t context --variable pagenumbering:location=footer --variable layout:header=0mm --variable layout:top=1in --variable layout:bottom=1in --variable layout:leftmargin=1in --variable layout:rightmargin=1in -Vlinkcolor=blue --standalone -o %3")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+            .arg(inputFormat)
+            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+    );
+    exporter->addFileExportCommand
+    (
+        ExportFormat::PDF_WKHTML,
+        QString("pandoc %1 -f %2 -t html5 -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --mathjax --standalone -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)

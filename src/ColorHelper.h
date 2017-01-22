@@ -72,6 +72,13 @@ class ColorHelper
          */
          static QString toRgbaString(const QColor& color);
 
+        /**
+         * Returns luminance of the given color on a scale of 0.0 (dark) to
+         * 1.0 (light).  Luminance is based on how light or dark a color
+         * appears to the human eye.
+         */
+        static double getLuminance(const QColor& color);
+
     private:
         /**
          * Helper method for applying alpha value to a single color channel.

@@ -46,6 +46,7 @@
 #include "ExportDialog.h"
 #include "MessageBoxHelper.h"
 #include "ThemeFactory.h"
+#include "TextDocument.h"
 
 const QString DocumentManager::FILE_CHOOSER_FILTER =
     QString("%1 (*.md *.markdown *.txt);;%2 (*.txt);;%3 (*)")
@@ -321,42 +322,9 @@ bool DocumentManager::save()
     }
     else
     {
-        document->setModified(false);
-        emit documentModifiedChanged(false);
-
-        if
-        (
-            this->saveFutureWatcher->isRunning() ||
-            this->saveFutureWatcher->isStarted()
-        )
-        {
-            this->saveFutureWatcher->waitForFinished();
-        }
-
-        saveInProgress = true;
-
-        if (fileWatcher->files().contains(document->getFilePath()))
-        {
-            this->fileWatcher->removePath(document->getFilePath());
-        }
-
-        document->setTimestamp(QDateTime::currentDateTime());
-
-        QFuture<QString> future =
-            QtConcurrent::run
-            (
-                this,
-                &DocumentManager::saveToDisk,
-                document->getFilePath(),
-                document->toPlainText(),
-                createBackupOnSave
-            );
-
-        this->saveFutureWatcher->setFuture(future);
+        saveFile();
         return true;
     }
-
-    return false;
 }
 
 bool DocumentManager::saveAs()
@@ -380,7 +348,8 @@ bool DocumentManager::saveAs()
     if (!filePath.isNull() && !filePath.isEmpty())
     {
         setFilePath(filePath);
-        return save();
+        saveFile();
+        return true;
     }
 
     return false;
@@ -413,7 +382,6 @@ bool DocumentManager::close()
         document->setReadOnly(false);
         setFilePath(QString());
         document->setModified(false);
-        documentStats->refreshStatistics();
         sessionStats->startNewSession(0);
 
         if (fileHistoryEnabled && !documentIsNew)
@@ -555,7 +523,7 @@ void DocumentManager::onFileChangedExternally(const QString& path)
 void DocumentManager::printFileToPrinter(QPrinter* printer)
 {
     QString text = editor->document()->toPlainText();
-    QTextDocument doc(text);
+    TextDocument doc(text);
 
     MarkdownHighlighter h(&doc);
     Theme printerTheme = ThemeFactory::getInstance()->getPrinterFriendlyTheme();
@@ -586,6 +554,42 @@ void DocumentManager::autoSaveFile()
     }
 }
 
+void DocumentManager::saveFile()
+{
+    document->setModified(false);
+    emit documentModifiedChanged(false);
+
+    if
+    (
+        this->saveFutureWatcher->isRunning() ||
+        this->saveFutureWatcher->isStarted()
+    )
+    {
+        this->saveFutureWatcher->waitForFinished();
+    }
+
+    saveInProgress = true;
+
+    if (fileWatcher->files().contains(document->getFilePath()))
+    {
+        this->fileWatcher->removePath(document->getFilePath());
+    }
+
+    document->setTimestamp(QDateTime::currentDateTime());
+
+    QFuture<QString> future =
+        QtConcurrent::run
+        (
+            this,
+            &DocumentManager::saveToDisk,
+            document->getFilePath(),
+            document->toPlainText(),
+            createBackupOnSave
+        );
+
+    this->saveFutureWatcher->setFuture(future);
+}
+
 bool DocumentManager::loadFile(const QString& filePath)
 {
     QFileInfo fileInfo(filePath);
@@ -605,7 +609,6 @@ bool DocumentManager::loadFile(const QString& filePath)
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
     document->setPlainText("");
-    documentStats->refreshStatistics();
 
     QTextCursor cursor(document);
     cursor.setPosition(0);
@@ -859,12 +862,12 @@ QString DocumentManager::saveToDisk
         return QObject::tr("Null or empty file path provided for writing.");
     }
 
-    if (createBackup)
+    QFile outputFile(filePath);
+
+    if (createBackup && outputFile.exists())
     {
         backupFile(filePath);
     }
-
-    QFile outputFile(filePath);
 
     if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
     {

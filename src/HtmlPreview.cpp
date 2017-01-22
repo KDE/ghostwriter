@@ -81,20 +81,7 @@ HtmlPreview::HtmlPreview
     headingTagExp.setPattern("[Hh][1-6]");
 
     this->statusBar()->setSizeGripEnabled(false);
-
-    QString styleSheet;
-    QTextStream stream(&styleSheet);
-
-    stream
-        << "QStatusBar { margin: 0; padding: 0 } "
-        << "QStatusBar::item { border: 0; margin: 0; padding: 0; border: 0px } "
-        << "QPushButton { margin: 0 1px 0 1px; padding: 5px; "
-        << "border-radius: 5px; background: #4183C4; color: #F2F2F2 } "
-        << "QPushButton:hover { background: #5A93CC } "
-        << "QPushButton:pressed, QPushButton:flat, QPushButton:checked "
-        << "{ background-color: #356FA9 }"
-        ;
-    this->statusBar()->setStyleSheet(styleSheet);
+    this->statusBar()->setStyleSheet("QStatusBar::item { border: 0 }");
 
     defaultStyleSheets.append(":/resources/github.css");
 
@@ -167,7 +154,7 @@ HtmlPreview::HtmlPreview
         }
     }
 
-    styleSheetComboBox->addItem(tr("Add/Remove Custom Style Sheets..."));
+    styleSheetComboBox->addItem(tr("Add/Remove Style Sheets..."));
 
     // Find the last used style sheet, and set it as selected in the combo box.
     for (int i = 0; i < styleSheetComboBox->count() - 1; i++)
@@ -296,12 +283,6 @@ void HtmlPreview::navigateToHeading(int headingSequenceNumber)
 void HtmlPreview::onHtmlReady()
 {
     QString html = futureWatcher->result();
-
-    if (html == this->html)
-    {
-        // Don't bother updating if the HTML didn't change.
-        return;
-    }
 
     // Find where the change occurred since last time, and slip an
     // anchor in the location so that we can scroll there.

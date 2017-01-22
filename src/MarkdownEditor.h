@@ -37,6 +37,7 @@
 #include "GraphicsFadeEffect.h"
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
+#include "spelling/dictionary_manager.h"
 
 /**
  * Markdown editor having special shortcut key handing and live spell checking.
@@ -62,9 +63,9 @@ class MarkdownEditor : public QPlainTextEdit
         virtual ~MarkdownEditor();
 
         /**
-         * Sets the dictionary to use for spell checking.
+         * Sets the dictionary language to use for spell checking.
          */
-        void setDictionary(const DictionaryRef& dictionary);
+        Q_SLOT void setDictionary(const QString& language);
 
         /**
          * This editor has a preferred layout that is used to center the text
@@ -111,7 +112,7 @@ class MarkdownEditor : public QPlainTextEdit
         /**
          * Sets the editor aspect.
          */
-        void setAspect(EditorAspect aspect);
+        Q_SLOT void setAspect(EditorAspect aspect);
 
         /**
          * Sets the font.
@@ -119,10 +120,9 @@ class MarkdownEditor : public QPlainTextEdit
         void setFont(const QString& family, double size);
 
         /**
-         * Sets whether automatching is enabled for the given opening
-         * character.
+         * Sets whether tabs and spaces will be shown.
          */
-        void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
+        void setShowTabsAndSpacesEnabled(bool enabled);
 
         /**
          * Sets up the margins on the sides of the editor, so that the text
@@ -142,6 +142,8 @@ class MarkdownEditor : public QPlainTextEdit
 
     protected:
         void dragEnterEvent(QDragEnterEvent* e);
+        void dragMoveEvent(QDragMoveEvent* e);
+        void dragLeaveEvent(QDragLeaveEvent* e);
         void dropEvent(QDropEvent* e);
         void keyPressEvent(QKeyEvent *e);
         bool eventFilter(QObject* watched, QEvent* event);
@@ -274,9 +276,20 @@ class MarkdownEditor : public QPlainTextEdit
         void setEnableLargeHeadingSizes(bool enable);
 
         /**
+         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
+         */
+        void setHighlightLineBreaks(bool enable);
+
+        /**
          * Sets whether automatching of characters is enabled.
          */
         void setAutoMatchEnabled(bool enable);
+
+        /**
+         * Sets whether automatching is enabled for the given opening
+         * character.
+         */
+        void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
         /**
          * Sets whether bullet points should be automatically cycled with

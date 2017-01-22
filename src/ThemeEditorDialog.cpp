@@ -26,6 +26,7 @@
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QDialogButtonBox>
+#include <QPushButton>
 
 #include "ThemeEditorDialog.h"
 #include "Theme.h"

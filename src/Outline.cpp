@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,8 +22,10 @@
 
 #include "Outline.h"
 
-const int Outline::HEADING_LEVEL_ROLE = Qt::UserRole + 1;
-const int Outline::DOCUMENT_POS_ROLE = HEADING_LEVEL_ROLE + 1;
+Q_DECLARE_METATYPE(QTextBlock)
+
+const int Outline::TEXT_BLOCK_ROLE = Qt::UserRole + 1;
+
 
 Outline::Outline(QWidget* parent)
     : QListWidget(parent)
@@ -44,132 +46,56 @@ void Outline::updateCurrentNavigationHeading(int position)
 
     if ((this->count() > 0) && (position >= 0))
     {
-        QListWidgetItem* lastItem = NULL;
-
         // Find out in which subsection of the document the cursor presently is
         // located.
         //
-        for (int i = 0; i < this->count(); i++)
+        int row = findHeading(position, false);
+
+        // If findHeading call recommended an insertion point for a new
+        // heading rather than a matching row, then back up one row
+        // for the actual heading under which the document position falls.
+        //
+        if
+        (
+            (row == this->count())
+            ||
+            (
+                (row >= 0) &&
+                (row < this->count()) &&
+                (getDocumentPosition(this->item(row)) != position)
+            )
+
+        )
         {
-            QListWidgetItem* currentItem = this->item(i);
-            int outlinePos = currentItem->data(DOCUMENT_POS_ROLE).toInt();
-
-            // If current cursor position is less than the first heading's
-            // position, then no heading should be styled.
-            //
-            if ((0 == i) && (position < outlinePos))
-            {
-                setCurrentItem(currentItem, QItemSelectionModel::Clear);
-                this->scrollToItem(currentItem);
-                break;
-            }
-
-            QListWidgetItem* itemToHighlight = NULL;
-
-            // If cursor position is within the last found heading's text
-            // range, then style the last tree item to show that it is the
-            // current section heading.
-            //
-            if ((NULL != lastItem) && (position < outlinePos))
-            {
-                itemToHighlight = lastItem;
-            }
-            // Else if the cursor is right at the beginning of the current
-            // heading's text range, then style the current tree item.
-            //
-            else if ((position == outlinePos) || (this->count() - 1 == i))
-            {
-                itemToHighlight = currentItem;
-            }
-
-            if (NULL != itemToHighlight)
-            {
-                setCurrentItem(itemToHighlight);
-                this->scrollToItem
-                (
-                    itemToHighlight,
-                    QAbstractItemView::PositionAtCenter
-                );
-                break;
-            }
-
-            lastItem = currentItem;
+            row--;
         }
-    }
-}
 
-void Outline::onTextChanged
-(
-    int position,
-    int charsRemoved,
-    int charsAdded
-)
-{
-    int startIndex = position;
-
-    if (startIndex < 0)
-    {
-        startIndex = 0;
-    }
-
-    int endAddedIndex = position + charsAdded - 1;
-
-    if (endAddedIndex < startIndex)
-    {
-        endAddedIndex = startIndex;
-    }
-
-    int endRemovedIndex = -1;
-
-    if (charsRemoved > 0)
-    {
-        endRemovedIndex = position + charsRemoved - 1;
-    }
-
-    // Check for headings that were removed, and remove them from the list
-    // if they fall in the range of deleted text.
-    //
-    int index = 0;
-    bool headingRemoved = false;
-
-    while (index < this->count())
-    {
-        int treePos = this->item(index)->data(DOCUMENT_POS_ROLE).toInt();
-
-        if ((treePos >= startIndex) && (treePos <= endRemovedIndex))
+        if (row >= 0)
         {
-            QListWidgetItem* item = this->takeItem(index);
-            headingRemoved = true;
-
-            if (NULL != item)
-            {
-                delete item;
-                item = NULL;
-            }
+            QListWidgetItem* itemToHighlight = this->item(row);
+            setCurrentItem(itemToHighlight);
+            this->scrollToItem
+            (
+                itemToHighlight,
+                QAbstractItemView::PositionAtCenter
+            );
         }
         else
         {
-            index++;
+            // Document position is before the first heading.  Deselect
+            // any selected headings, and scroll to the top.
+            //
+            setCurrentItem(NULL);
+            this->scrollToTop();
         }
-    }
-
-    // Update document positions in outline.
-    updateDocumentPositions(startIndex, charsAdded - charsRemoved);
-
-    // Refresh which heading is highlighted in the outline as the
-    // current position, but only if a heading was removed.
-    //
-    if (headingRemoved)
-    {
-        this->updateCurrentNavigationHeading(currentPosition);
     }
 }
 
 void Outline::insertHeadingIntoOutline
 (
-    int position,
     int level,
-    const QString heading
+    const QString& text,
+    const QTextBlock& block
 )
 {
     QString headingText("   ");
@@ -179,68 +105,65 @@ void Outline::insertHeadingIntoOutline
         headingText += "    ";
     }
 
-    headingText += heading;
+    headingText += text;
 
-    if (this->count() <= 0)
+    int row = findHeading(block.position(), false);
+
+    if (row < 0)
     {
         QListWidgetItem* item = new QListWidgetItem();
         item->setText(headingText);
-        item->setData(DOCUMENT_POS_ROLE, QVariant(position));
-        this->addItem(item);
+        item->setData(TEXT_BLOCK_ROLE, QVariant::fromValue(block));
+        this->insertItem(0, item);
     }
     else
     {
-        bool added = false;
+        QListWidgetItem* item = this->item(row);
 
-        // Find out where it goes.
-        for (int i = 0; i < this->count(); i++)
+        if (NULL != item)
         {
-            int outlinePos = this->item(i)->data(DOCUMENT_POS_ROLE).toInt();
+            int itemDocPos = getDocumentPosition(item);
 
-            if (position < outlinePos)
+            // If the heading is already in the tree, just update
+            // the displayed text.
+            //
+            if (itemDocPos == block.position())
             {
-                // Insert before
-                QListWidgetItem* item = new QListWidgetItem();
                 item->setText(headingText);
-                item->setData(DOCUMENT_POS_ROLE, QVariant(position));
-                this->insertItem(i, item);
-                added = true;
-                break;
             }
-            else if (position == outlinePos)
+            // Else insert new heading item into list.
+            else
             {
-                // Replace text
-                this->item(i)->setText(headingText);
-                added = true;
-                break;
+                item = new QListWidgetItem();
+                item->setText(headingText);
+                item->setData(TEXT_BLOCK_ROLE, QVariant::fromValue(block));
+                this->insertItem(row, item);
             }
         }
-
-        if (!added)
+        else
         {
-            // Insert at the end
-            QListWidgetItem* item = new QListWidgetItem();
+            item = new QListWidgetItem();
             item->setText(headingText);
-            item->setData(DOCUMENT_POS_ROLE, QVariant(position));
-            this->addItem(item);
-        }
-    }
+            item->setData(TEXT_BLOCK_ROLE, QVariant::fromValue(block));
 
-    // Refresh which heading is highlighted in the outline as the
-    // current position.
-    //
-    this->updateCurrentNavigationHeading(currentPosition);
+            this->insertItem(this->count(), item);
+        }
+
+        updateCurrentNavigationHeading(currentPosition);
+    }
 }
 
 void Outline::removeHeadingFromOutline(int position)
 {
-    for (int i = 0; i < this->count(); i++)
-    {
-        int outlinePos = this->item(i)->data(DOCUMENT_POS_ROLE).toInt();
+    int row = findHeading(position, true);
 
-        if (outlinePos == position)
+    if (row >= 0)
+    {
+        QListWidgetItem* item = this->item(row);
+
+        if (NULL != item)
         {
-            QListWidgetItem* item = this->takeItem(i);
+            item = this->takeItem(row);
 
             if (NULL != item)
             {
@@ -251,30 +174,66 @@ void Outline::removeHeadingFromOutline(int position)
             // Refresh which heading is highlighted in the outline as the
             // current position.
             //
-            this->updateCurrentNavigationHeading(currentPosition);
-
-            return;
+            updateCurrentNavigationHeading(currentPosition);
         }
     }
 }
 
 void Outline::onOutlineHeadingSelected(QListWidgetItem* item)
 {
-    int documentPosition = item->data(DOCUMENT_POS_ROLE).toInt();
+    int documentPosition = getDocumentPosition(item);
     emit documentPositionNavigated(documentPosition);
     emit headingNumberNavigated(this->row(item) + 1);
 }
 
-void Outline::updateDocumentPositions(int startPosition, int offset)
+int Outline::getDocumentPosition(QListWidgetItem* item)
 {
-    for (int i = 0; i < this->count(); i++)
-    {
-        int treePos = this->item(i)->data(DOCUMENT_POS_ROLE).toInt();
+    QTextBlock block = item->data(TEXT_BLOCK_ROLE).value<QTextBlock>();
 
-        if (treePos > startPosition)
+    return block.position();
+}
+
+int Outline::findHeading(int position, bool exactMatch)
+{
+    int low = 0;
+    int high = this->count() - 1;
+    int mid = 0;
+
+    while (low <= high)
+    {
+        mid = low + ((high - low) / 2);
+        int itemDocPos = getDocumentPosition(this->item(mid));
+
+        // Check if desired heading at document position is at row "mid".
+        if (itemDocPos == position)
         {
-            treePos += offset;
-            this->item(i)->setData(DOCUMENT_POS_ROLE, QVariant(treePos));
+            return mid;
         }
+        // Else if document position is greater than the current item's
+        // position, ignore the first half of the list.
+        //
+        else if (itemDocPos < position)
+        {
+            mid++;
+            low = mid;
+        }
+        // Else if document position is smaller, ignore the last half of the
+        // list.
+        //
+        else
+        {
+            high = mid - 1;
+        }
+    }
+
+    // Heading with desired document position is not present.
+
+    if (exactMatch)
+    {
+        return -1;
+    }
+    else
+    {
+        return mid;
     }
 }

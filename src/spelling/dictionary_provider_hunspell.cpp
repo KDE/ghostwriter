@@ -1,7 +1,7 @@
 /***********************************************************************
  *
  * Copyright (C) 2009, 2010, 2011, 2012, 2013 Graeme Gott <graeme@gottcode.org>
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -112,70 +112,111 @@ DictionaryHunspell::~DictionaryHunspell()
 
 QStringRef DictionaryHunspell::check(const QString& string, int start_at) const
 {
-	int index = -1;
-	int length = 0;
-	int chars = 1;
-	bool is_number = false;
-	bool is_uppercase = f_ignore_uppercase;
-	bool is_word = false;
+    // Incorporated ghostwriter's word splitting algorithm into the original
+    // FocusWriter algorithm to ensure hyphenated words are counted as one
+    // word.
 
-	int count = string.length() - 1;
-	for (int i = start_at; i <= count; ++i) {
-		QChar c = string.at(i);
-		switch (c.category()) {
-			case QChar::Number_DecimalDigit:
-			case QChar::Number_Letter:
-			case QChar::Number_Other:
-				is_number = f_ignore_numbers;
-				goto Letter;
-			case QChar::Letter_Lowercase:
-				is_uppercase = false;
-				Letter:
-			case QChar::Letter_Uppercase:
-			case QChar::Letter_Titlecase:
-			case QChar::Letter_Modifier:
-			case QChar::Letter_Other:
-			case QChar::Mark_NonSpacing:
-			case QChar::Mark_SpacingCombining:
-			case QChar::Mark_Enclosing:
-				if (index == -1) {
-					index = i;
-					chars = 1;
-					length = 0;
-				}
-				length += chars;
-				chars = 1;
-				break;
+    bool inWord = false;
+    int separatorCount = 0;
+    int wordLen = 0;
+    bool isNumber = false;
+    bool isUppercase = f_ignore_uppercase;
+    bool isWord = false;
+    int index = -1;
 
-			case QChar::Punctuation_FinalQuote:
-			case QChar::Punctuation_Other:
-				if (c == 0x0027 || c == 0x2019) {
-					chars++;
-					break;
-				}
+    for (int i = start_at; i < string.length(); i++)
+    {
+        QChar c = string.at(i);
 
-			default:
-				if (index != -1) {
-					is_word = true;
-				}
-				break;
-		}
+        if (c.isLetterOrNumber() || c.isMark())
+        {
+            inWord = true;
+            separatorCount = 0;
+            wordLen++;
 
-		if (is_word || (i == count && index != -1)) {
-			if (!is_uppercase && !is_number) {
-				QStringRef check(&string, index, length);
-				QString word = check.toString();
-				word.replace(QChar(0x2019), QLatin1Char('\''));
-				if (!m_dictionary->spell(m_codec->fromUnicode(word).constData())) {
-					return check;
-				}
-			}
-			index = -1;
-			is_word = false;
-			is_number = false;
-			is_uppercase = f_ignore_uppercase;
-		}
-	}
+            if (index < 0)
+            {
+                index = i;
+            }
+
+            if (c.isNumber())
+            {
+                isNumber = f_ignore_numbers;
+            }
+            else if (c.isLower())
+            {
+                isUppercase = false;
+            }
+        }
+        else if (c.isSpace() && inWord)
+        {
+            inWord = false;
+            isWord = true;
+
+            if (separatorCount > 0)
+            {
+                wordLen--;
+            }
+        }
+        else
+        {
+            // This is to handle things like double dashes (`--`)
+            // that separate words, while still counting hyphenated
+            // words as a single word.
+            //
+            separatorCount++;
+
+            if (inWord)
+            {
+                if (separatorCount > 1)
+                {
+                    separatorCount = 0;
+                    inWord = false;
+                    isWord = true;
+                    wordLen--;
+                }
+                else
+                {
+                    wordLen++;
+                }
+            }
+        }
+
+        if (inWord && ((string.length() - 1) == i))
+        {
+            isWord = true;
+
+            if (separatorCount > 0)
+            {
+                wordLen--;
+            }
+        }
+
+        if (isWord && (index >= 0))
+        {
+            if (!isUppercase && !isNumber)
+            {
+                QStringRef check(&string, index, wordLen);
+                QString word = check.toString();
+
+                // Replace any fancy single quotes with a "normal" single quote.
+                word.replace(QChar(0x2019), QLatin1Char('\''));
+
+                if (!m_dictionary->spell(m_codec->fromUnicode(word).constData()))
+                {
+                    return check;
+                }
+            }
+
+            index = -1;
+            wordLen = 0;
+            separatorCount = 0;
+            isWord = false;
+            inWord = false;
+            isNumber = false;
+            isUppercase = f_ignore_uppercase;
+        }
+    }
 
 	return QStringRef();
 }
@@ -186,7 +227,10 @@ QStringList DictionaryHunspell::suggestions(const QString& word) const
 {
 	QStringList result;
 	QString check = word;
+
+    // Replace any fancy single quotes with a "normal" single quote.
 	check.replace(QChar(0x2019), QLatin1Char('\''));
+
 	char** suggestions = 0;
 	int count = m_dictionary->suggest(&suggestions, m_codec->fromUnicode(check).constData());
 	if (suggestions != 0) {
@@ -203,7 +247,11 @@ QStringList DictionaryHunspell::suggestions(const QString& word) const
 
 void DictionaryHunspell::addToPersonal(const QString& word)
 {
-	DictionaryManager::instance().add(word);
+    // Replace any fancy single quotes with a "normal" single quote.
+    QString sanitized = word;
+    sanitized.replace(QChar(0x2019), QLatin1Char('\''));
+
+    DictionaryManager::instance().add(sanitized);
 }
 
 //-----------------------------------------------------------------------------

@@ -26,13 +26,13 @@
 #include "MarkdownTokenizer.h"
 #include "MarkdownStyles.h"
 #include "Token.h"
+#include "TextDocument.h"
 
 class QColor;
 class QRegExp;
 class QString;
 class QTextCharFormat;
 class QTextDocument;
-class HighlightTokenizer;
 
 /**
  * Highlighter for the Markdown text format.
@@ -46,7 +46,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          * Constructor.  Takes as a parameter the text document that is to
          * be highlighted.
          */
-        MarkdownHighlighter(QTextDocument* document);
+        MarkdownHighlighter(TextDocument* document);
 
         /**
          * Destructor.
@@ -89,7 +89,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         /**
          * Sets whether large heading sizes are enabled.
          */
-		void setEnableLargeHeadingSizes(const bool enable);
+        void setEnableLargeHeadingSizes(const bool enable);
 
         /**
          * Sets whether emphasized text is underlined instead of italicized.
@@ -106,17 +106,12 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void setSpellCheckEnabled(const bool enabled);
 
-        /**
-         * Sets the blockquote style.
-         */
-        void setBlockquoteStyle(const BlockquoteStyle style);
-
     signals:
         /**
-         * Notifies listeners that a heading was found in the document at the
-         * given cursor position and with the given level and heading text.
+         * Notifies listeners that a heading was found in the document in the
+         * given QTextBlock and with the given level and heading text.
          */
-        void headingFound(int position, int level, const QString heading);
+        void headingFound(int level, const QString& text, QTextBlock block);
 
         /**
          * Notifies listeners that a heading was discovered to have been removed
@@ -163,6 +158,16 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void onTypingPaused();
 
+        /**
+         * Sets the blockquote style.
+         */
+        void setBlockquoteStyle(const BlockquoteStyle style);
+
+        /**
+         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
+         */
+        void setHighlightLineBreaks(bool enable);
+
     private slots:
         /*
          * Highlights the text block at the given cursor position of the
@@ -170,13 +175,20 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void onHighlightBlockAtPosition(int position);
 
+        /*
+         * Determines if the text block being removed is a heading, and if so,
+         * emits the headingRemoved() signal.
+         */
+        void onTextBlockRemoved(const QTextBlock& block);
+
     private:
-        HighlightTokenizer* tokenizer;
+        MarkdownTokenizer* tokenizer;
         DictionaryRef dictionary;
         int cursorPosition;
         bool spellCheckEnabled;
         bool typingPaused;
         bool useUndlerlineForEmphasis;
+        bool highlightLineBreaks;
         bool inBlockquote;
         BlockquoteStyle blockquoteStyle;
         QColor defaultTextColor;
@@ -194,17 +206,18 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         bool strikethroughToken[TokenLast];
         int fontSizeIncrease[TokenLast];
 
-        /*
-         * Returns true if the given QTextBlock userState indicates that the
-         * text block contains a heading.
-         */
-        bool isHeadingBlockState(int state) const;
-
         void spellCheck(const QString& text);
         void setupTokenColors();
         void setupHeadingFontSize(bool useLargeHeadings);
 
         void applyFormattingForToken(const Token& token);
+        void storeHeadingData(const Token& token, const QString& text);
+
+        /*
+         * Returns true if the given QTextBlock userState indicates that the
+         * text block contains a heading.
+         */
+        bool isHeadingBlockState(int state) const;
 
 };
 

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,24 +31,27 @@
 #include <QStyle>
 #include <QApplication>
 #include <Qt>
+#include <QTextLayout>
 
 #include "MarkdownHighlighter.h"
 #include "MarkdownTokenizer.h"
 #include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
 #include "ColorHelper.h"
+#include "TextBlockData.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 
-#define GW_FADE_ALPHA 200
+#define GW_FADE_ALPHA 140
 
-MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
+MarkdownHighlighter::MarkdownHighlighter(TextDocument* document)
     : QSyntaxHighlighter(document), tokenizer(NULL),
         dictionary(DictionaryManager::instance().requestDictionary()),
         cursorPosition(0),
         spellCheckEnabled(false),
         typingPaused(true),
         useUndlerlineForEmphasis(false),
+        highlightLineBreaks(false),
         inBlockquote(false),
         defaultTextColor(Qt::black),
         backgroundColor(Qt::white),
@@ -67,6 +70,8 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
         Qt::QueuedConnection
     );
 
+    connect(document, SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
+    
     QFont font;
     font.setFamily("Monospace");
     font.setWeight(QFont::Normal);
@@ -92,7 +97,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     {
         applyStyleToMarkup[i] = true;
     }
-    
+
     applyStyleToMarkup[TokenEmphasis] = true;
     applyStyleToMarkup[TokenStrong] = true;
     applyStyleToMarkup[TokenAtxHeading1] = true;
@@ -125,7 +130,7 @@ MarkdownHighlighter::MarkdownHighlighter(QTextDocument* document)
     strongMarkup[TokenBlockquote] = true;
     strongMarkup[TokenBulletPointList] = true;
 }
-        
+
 MarkdownHighlighter::~MarkdownHighlighter()
 {
     if (NULL != tokenizer)
@@ -135,7 +140,7 @@ MarkdownHighlighter::~MarkdownHighlighter()
     }
 }
 
-// Note:  Never, ever set the QTextBlockFormat for a QTextBlock from within the
+// Note:  Never set the QTextBlockFormat for a QTextBlock from within the
 // highlighter.  Depending on how the block format is modified, a recursive call
 // to the highlighter may be triggered, which will cause the application to
 // crash.
@@ -157,7 +162,7 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     if (NULL != tokenizer)
     {
         tokenizer->clear();
-        
+
         QTextBlock block = this->currentBlock();
         int nextState = MarkdownStateUnknown;
         int previousState = this->previousBlockState();
@@ -191,28 +196,10 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
                 case TokenAtxHeading4:
                 case TokenAtxHeading5:
                 case TokenAtxHeading6:
-                    applyFormattingForToken(token);
-                    emit headingFound
-                    (
-                        block.position(),
-                        token.getType() - TokenAtxHeading1 + 1,
-                        text.mid
-                            (
-                                token.getPosition()
-                                    + token.getOpeningMarkupLength(),
-                                token.getLength()
-                                    - token.getOpeningMarkupLength()
-                                    - token.getClosingMarkupLength()
-                            ).trimmed()
-                    );
-                    break;
                 case TokenSetextHeading1Line1:
-                    applyFormattingForToken(token);
-                    emit headingFound(block.position(), 1, text);
-                    break;
                 case TokenSetextHeading2Line1:
                     applyFormattingForToken(token);
-                    emit headingFound(block.position(), 2, text);
+                    storeHeadingData(token, text);
                     break;
                 case TokenUnknown:
                     qWarning("Highlighter found unknown token type in text block.");
@@ -319,23 +306,6 @@ void MarkdownHighlighter::setSpellCheckEnabled(const bool enabled)
     rehighlight();
 }
 
-void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
-{
-    blockquoteStyle = style;
-
-    switch (style)
-    {
-        case BlockquoteStyleItalic:
-            emphasizeToken[TokenBlockquote] = true;
-            break;
-        default: // Fancy and Plain
-            emphasizeToken[TokenBlockquote] = false;
-            break;
-    }
-
-    rehighlight();
-}
-
 void MarkdownHighlighter::onCursorPositionChanged(int position)
 {
     int oldPosition = cursorPosition;
@@ -367,27 +337,40 @@ void MarkdownHighlighter::onTypingPaused()
     rehighlightBlock(block);
 }
 
+void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
+{
+    blockquoteStyle = style;
+
+    switch (style)
+    {
+        case BlockquoteStyleItalic:
+            emphasizeToken[TokenBlockquote] = true;
+            break;
+        default: // Fancy and Plain
+            emphasizeToken[TokenBlockquote] = false;
+            break;
+    }
+
+    rehighlight();
+}
+
+void MarkdownHighlighter::setHighlightLineBreaks(bool enable)
+{
+    highlightLineBreaks = enable;
+    rehighlight();
+}
+
 void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 {
     QTextBlock block = document()->findBlock(position);
     rehighlightBlock(block);
 }
 
-bool MarkdownHighlighter::isHeadingBlockState(int state) const
+void MarkdownHighlighter::onTextBlockRemoved(const QTextBlock& block)
 {
-    switch (state)
+    if (isHeadingBlockState(block.userState()))
     {
-        case MarkdownStateAtxHeading1:
-        case MarkdownStateAtxHeading2:
-        case MarkdownStateAtxHeading3:
-        case MarkdownStateAtxHeading4:
-        case MarkdownStateAtxHeading5:
-        case MarkdownStateAtxHeading6:
-        case MarkdownStateSetextHeading1Line1:
-        case MarkdownStateSetextHeading2Line1:
-            return true;
-        default:
-            return false;
+        emit headingRemoved(block.position());
     }
 }
 
@@ -436,13 +419,27 @@ void MarkdownHighlighter::setupTokenColors()
         colorForToken[i] = defaultTextColor;
     }
 
-    QColor fadedColor =
-        ColorHelper::applyAlpha
-        (
-            defaultTextColor,
-            backgroundColor,
-            GW_FADE_ALPHA
-        );
+    QColor fadedColor;
+
+    if
+    (
+        ColorHelper::getLuminance(backgroundColor)
+        >
+        ColorHelper::getLuminance(defaultTextColor)
+    )
+    {
+        fadedColor =
+            ColorHelper::applyAlpha
+            (
+                defaultTextColor,
+                backgroundColor,
+                GW_FADE_ALPHA
+            );
+    }
+    else
+    {
+        fadedColor = defaultTextColor.darker(130);
+    }
 
     colorForToken[TokenBlockquote] = fadedColor;
     colorForToken[TokenCodeBlock] = fadedColor;
@@ -514,6 +511,11 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
                     backgroundColor,
                     GW_FADE_ALPHA
                 );
+        }
+
+        if (highlightLineBreaks && token.getType() == TokenLineBreak)
+        {
+            format.setBackground(QBrush(markupColor));
         }
 
         format.setForeground(QBrush(tokenColor));
@@ -635,7 +637,84 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
     }
     else
     {
-        qWarning("Highlighter::applyFormattingForToken() was passed in a "
+        qWarning("MarkdownHighlighter::applyFormattingForToken() was passed in a "
             "token of unknown type.");
+    }
+}
+
+void MarkdownHighlighter::storeHeadingData
+(
+    const Token& token,
+    const QString& text
+)
+{
+    int level;
+    QString headingText;
+
+    switch (token.getType())
+    {
+        case TokenAtxHeading1:
+        case TokenAtxHeading2:
+        case TokenAtxHeading3:
+        case TokenAtxHeading4:
+        case TokenAtxHeading5:
+        case TokenAtxHeading6:
+            level = token.getType() - TokenAtxHeading1 + 1;
+            headingText = text.mid
+                (
+                    token.getPosition()
+                        + token.getOpeningMarkupLength(),
+                    token.getLength()
+                        - token.getOpeningMarkupLength()
+                        - token.getClosingMarkupLength()
+                ).trimmed();
+            break;
+        case TokenSetextHeading1Line1:
+            level = 1;
+            headingText = text;
+            break;
+        case TokenSetextHeading2Line1:
+            level = 2;
+            headingText = text;
+            break;
+        default:
+            qWarning
+            (
+                "MarkdownHighlighter::storeHeadingData() encountered unexpected token %d",
+                token.getType()
+            );
+            return;
+    }
+
+    TextBlockData* blockData = (TextBlockData*) this->currentBlockUserData();
+
+    if (NULL == blockData)
+    {
+        blockData = new TextBlockData
+            (
+                (TextDocument*) document(),
+                this->currentBlock()
+            );
+    }
+
+    this->setCurrentBlockUserData(blockData);
+    emit headingFound(level, headingText, this->currentBlock());
+}
+
+bool MarkdownHighlighter::isHeadingBlockState(int state) const
+{
+    switch (state)
+    {
+        case MarkdownStateAtxHeading1:
+        case MarkdownStateAtxHeading2:
+        case MarkdownStateAtxHeading3:
+        case MarkdownStateAtxHeading4:
+        case MarkdownStateAtxHeading5:
+        case MarkdownStateAtxHeading6:
+        case MarkdownStateSetextHeading1Line1:
+        case MarkdownStateSetextHeading2Line1:
+            return true;
+        default:
+            return false;
     }
 }

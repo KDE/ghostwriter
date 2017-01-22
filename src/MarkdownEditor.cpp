@@ -73,7 +73,7 @@ MarkdownEditor::MarkdownEditor
     blockquoteRegex.setPattern("^ {0,3}(>\\s*)+");
     numberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+");
     bulletListRegex.setPattern("^\\s*[+*-]\\s+");
-    taskListRegex.setPattern("^\\s*[-] \\[([x ])\\]\\s+");
+    taskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+");
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -154,10 +154,10 @@ MarkdownEditor::~MarkdownEditor()
 
 }
 
-void MarkdownEditor::setDictionary(const DictionaryRef& dictionary)
+void MarkdownEditor::setDictionary(const QString& language)
 {
-    this->dictionary = dictionary;
-    this->highlighter->setDictionary(dictionary);
+    dictionary = DictionaryManager::instance().requestDictionary(language);
+    highlighter->setDictionary(dictionary);
 }
 
 QLayout* MarkdownEditor::getPreferredLayout()
@@ -242,9 +242,20 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     fadeEffect->setFadeHeight(this->fontMetrics().height());
 }
 
-void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enabled)
+void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
 {
-    autoMatchFilter.insert(openingCharacter, enabled);
+    QTextOption option = textDocument->defaultTextOption();
+
+    if (enabled)
+    {
+        option.setFlags(option.flags() | QTextOption::ShowTabsAndSpaces);
+    }
+    else
+    {
+        option.setFlags(option.flags() & ~QTextOption::ShowTabsAndSpaces);
+    }
+
+    textDocument->setDefaultTextOption(option);
 }
 
 void MarkdownEditor::setupPaperMargins(int width)
@@ -299,6 +310,16 @@ void MarkdownEditor::dragEnterEvent(QDragEnterEvent* e)
     {
         e->acceptProposedAction();
     }
+}
+
+void MarkdownEditor::dragMoveEvent(QDragMoveEvent* e)
+{
+    e->acceptProposedAction();
+}
+
+void MarkdownEditor::dragLeaveEvent(QDragLeaveEvent* e)
+{
+    e->accept();
 }
 
 void MarkdownEditor::dropEvent(QDropEvent* e)
@@ -1011,11 +1032,11 @@ bool MarkdownEditor::toggleTaskComplete()
             {
                 QChar value = capture.at(1)[0];
                 QChar replacement;
-                int index = block.text().indexOf("- [");
+                int index = block.text().indexOf(" [");
 
                 if (index >= 0)
                 {
-                    index += 3;
+                    index += 2;
                 }
 
                 if (value == 'x')
@@ -1053,9 +1074,19 @@ void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
     highlighter->setEnableLargeHeadingSizes(enable);
 }
 
+void MarkdownEditor::setHighlightLineBreaks(bool enable)
+{
+    highlighter->setHighlightLineBreaks(enable);
+}
+
 void MarkdownEditor::setAutoMatchEnabled(bool enable)
 {
     autoMatchEnabled = enable;
+}
+
+void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enabled)
+{
+    autoMatchFilter.insert(openingCharacter, enabled);
 }
 
 void MarkdownEditor::setBulletPointCyclingEnabled(bool enable)
@@ -1569,7 +1600,12 @@ void MarkdownEditor::createNumberedList(const QChar marker)
 
 bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
 {
-    if (markupPairs.contains(firstChar))
+    if
+    (
+        autoMatchEnabled
+        && markupPairs.contains(firstChar)
+        && autoMatchFilter.value(firstChar)
+    )
     {
         QChar lastChar = markupPairs.value(firstChar);
         QTextCursor cursor = this->textCursor();
@@ -1581,6 +1617,9 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
             block = this->document()->findBlock(cursor.selectionStart());
             end = this->document()->findBlock(cursor.selectionEnd());
 
+            // Only surround selection with matched characters if the
+            // selection belongs to the same block.
+            //
             if (block == end)
             {
                 cursor.beginEditBlock();
@@ -1601,13 +1640,55 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                 return true;
             }
         }
-        else if (autoMatchEnabled && autoMatchFilter.value(firstChar))
+        else
         {
-            cursor.insertText(firstChar);
-            cursor.insertText(lastChar);
-            cursor.movePosition(QTextCursor::PreviousCharacter);
-            setTextCursor(cursor);
-            return true;
+            // Get the previous character.  Ensure that it is whitespace.
+            int blockPos = cursor.positionInBlock();
+            bool doMatch = true;
+
+            // If not at the beginning of the line...
+            if (blockPos > 0)
+            {
+                blockPos--;
+
+                if (!cursor.block().text()[blockPos].isSpace())
+                {
+                    // If the previous character is not whitespace, allow
+                    // character matching only for parentheses and similar
+                    // characters that need matching even if preceeded by
+                    // non-whitespace (i.e., for mathematical or computer
+                    // science expressions).  Otherwise, do not match the
+                    // opening character.
+                    //
+                    switch (firstChar.toLatin1())
+                    {
+                        case '(':
+                        case '[':
+                        case '{':
+                        case '<':
+                            break;
+                        default:
+                            doMatch = false;
+                            break;
+                    }
+                }
+            }
+            // Else if at the beginning of the line, do not match if the
+            // opening character is a bullet point character.
+            //
+            else if (firstChar == '*')
+            {
+                doMatch = false;
+            }
+
+            if (doMatch)
+            {
+                cursor.insertText(firstChar);
+                cursor.insertText(lastChar);
+                cursor.movePosition(QTextCursor::PreviousCharacter);
+                setTextCursor(cursor);
+                return true;
+            }
         }
     }
 

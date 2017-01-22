@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2015 wereturtle
+ * Copyright (C) 2015-2016 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,12 @@ const ExportFormat* const ExportFormat::DOCX
     = new ExportFormat("Word Document", "(*.docx)", "docx", true);
 const ExportFormat* const ExportFormat::PDF
     = new ExportFormat("PDF", "(*.pdf)", "pdf", true);
+const ExportFormat* const ExportFormat::PDF_LATEX
+    = new ExportFormat("PDF (LaTeX)", "(*.pdf)", "pdf", true);
+const ExportFormat* const ExportFormat::PDF_CONTEXT
+    = new ExportFormat("PDF (ConTeXt)", "(*.pdf)", "pdf", true);
+const ExportFormat* const ExportFormat::PDF_WKHTML
+    = new ExportFormat("PDF (wkhtmltopdf)", "(*.pdf)", "pdf", true);
 const ExportFormat* const ExportFormat::EPUBV2
     = new ExportFormat("EPUB v2 Book", "(*.epub)", "epub", true);
 const ExportFormat* const ExportFormat::EPUBV3

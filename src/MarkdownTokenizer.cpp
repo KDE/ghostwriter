@@ -46,6 +46,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     numberedListRegex.setPattern("^ {0,3}[0-9]+[.)]\\s+.*$");
     numberedNestedListRegex.setPattern("^\\s*[0-9]+[.)]\\s+.*$");
     hruleRegex.setPattern("\\s*(\\*\\s*){3,}|(\\s*(_\\s*){3,})|((\\s*(-\\s*){3,}))");
+    lineBreakRegex.setPattern(".*\\s{2,}$");
     emphasisRegex.setPattern("(\\*(?![\\s*]).*[^\\s*]\\*)|_(?![\\s_]).*[^\\s_]_");
     emphasisRegex.setMinimal(true);
     strongRegex.setPattern("\\*\\*(?=\\S).*\\S\\*\\*(?!\\*)|__(?=\\S).*\\S__(?!_)");
@@ -70,7 +71,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     mentionRegex.setPattern("\\B@\\w+(\\-\\w+)*(/\\w+(\\-\\w+)*)?");
     pipeTableDividerRegex.setPattern("^ {0,3}(\\|[ :]?)?-{3,}([ :]?\\|[ :]?-{3,}([ :]?\\|)?)+\\s*$");
 }
-        
+
 MarkdownTokenizer::~MarkdownTokenizer()
 {
     ;
@@ -139,7 +140,7 @@ void MarkdownTokenizer::tokenize
     {
         ; // No further tokenizing required
     }
-    else if 
+    else if
     (
         tokenizeAtxHeading(text)
         || tokenizeSetextHeadingLine1(text)
@@ -148,6 +149,7 @@ void MarkdownTokenizer::tokenize
         || tokenizeBulletPointList(text)
     )
     {
+        tokenizeLineBreak(text);
         tokenizeInline(text);
     }
     else
@@ -178,7 +180,7 @@ void MarkdownTokenizer::tokenize
             setState(MarkdownStateParagraph);
         }
 
-        // tokenize inline
+        tokenizeLineBreak(text);
         tokenizeInline(text);
     }
 
@@ -413,7 +415,7 @@ bool MarkdownTokenizer::tokenizeNumberedList
         {
             index = parenthIndex;
         }
-        
+
         if (index >= 0)
         {
             Token token;
@@ -425,7 +427,7 @@ bool MarkdownTokenizer::tokenizeNumberedList
             setState(MarkdownStateNumberedList);
             return true;
         }
-        
+
         return false;
     }
 
@@ -442,7 +444,7 @@ bool MarkdownTokenizer::tokenizeBulletPointList
     int spaceCount = 0;
     bool whitespaceFoundAfterBulletChar = false;
 
-    if 
+    if
     (
         (MarkdownStateUnknown != previousState)
         && (MarkdownStateParagraphBreak != previousState)
@@ -524,7 +526,7 @@ bool MarkdownTokenizer::tokenizeBulletPointList
                 return false;
             }
         }
-        else if 
+        else if
         (
             (QChar('+') == text[i])
             || (QChar('-') == text[i])
@@ -571,12 +573,53 @@ bool MarkdownTokenizer::tokenizeHorizontalRule(const QString& text)
     return false;
 }
 
+bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
+{
+    switch (currentState)
+    {
+        case MarkdownStateParagraph:
+        case MarkdownStateBlockquote:
+        case MarkdownStateNumberedList:
+        case MarkdownStateBulletPointList:
+            switch (previousState)
+            {
+                case MarkdownStateParagraph:
+                case MarkdownStateBlockquote:
+                case MarkdownStateNumberedList:
+                case MarkdownStateBulletPointList:
+                    this->requestBacktrack();
+                    break;
+            }
+
+            switch (nextState)
+            {
+                case MarkdownStateParagraph:
+                case MarkdownStateBlockquote:
+                case MarkdownStateNumberedList:
+                case MarkdownStateBulletPointList:
+                    if (lineBreakRegex.exactMatch(text))
+                    {
+                        Token token;
+                        token.setType(TokenLineBreak);
+                        token.setPosition(text.length()-1);
+                        token.setLength(1);
+                        this->addToken(token);
+                        return true;   
+                    }
+                    break;
+            }
+            break;
+    }
+
+    return false;
+}
+
 bool MarkdownTokenizer::tokenizeBlockquote
 (
     const QString& text
 )
 {
-    if 
+    if
     (
         (MarkdownStateBlockquote == previousState)
         || blockquoteRegex.exactMatch(text)
@@ -614,7 +657,7 @@ bool MarkdownTokenizer::tokenizeBlockquote
         setState(MarkdownStateBlockquote);
         return true;
     }
-    
+
     return false;
 }
 
@@ -623,7 +666,7 @@ bool MarkdownTokenizer::tokenizeCodeBlock
     const QString& text
 )
 {
-    if 
+    if
     (
         (MarkdownStateInGithubCodeFence == previousState)
         || (MarkdownStateInPandocCodeFence == previousState)
@@ -631,7 +674,7 @@ bool MarkdownTokenizer::tokenizeCodeBlock
     {
         setState(previousState);
 
-        if 
+        if
         (
             (
                 (MarkdownStateInGithubCodeFence == previousState)
@@ -662,7 +705,7 @@ bool MarkdownTokenizer::tokenizeCodeBlock
 
         return true;
     }
-    else if 
+    else if
     (
         (
             (MarkdownStateCodeBlock == previousState)
@@ -712,7 +755,7 @@ bool MarkdownTokenizer::tokenizeCodeBlock
             return true;
         }
     }
-    
+
     return false;
 }
 
