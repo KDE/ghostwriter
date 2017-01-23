@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Copyright (C) 2014-2016 wereturtle
+# Copyright (C) 2014-2017 wereturtle
 # Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -36,7 +36,6 @@ CONFIG -= debug
 CONFIG += warn_on
 
 # Set program version
-VERSION = $$system(git describe --tags)
 isEmpty(VERSION) {
     VERSION = v1.5.0-alpha
 }
