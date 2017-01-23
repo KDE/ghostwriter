@@ -535,17 +535,17 @@
         <translation>Kurzreferenz</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="851"/>
+        <location filename="../src/MainWindow.cpp" line="852"/>
         <source>Insert Image</source>
         <translation>Bild einfügen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="854"/>
+        <location filename="../src/MainWindow.cpp" line="855"/>
         <source>Images</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="855"/>
+        <location filename="../src/MainWindow.cpp" line="856"/>
         <source>All Files</source>
         <translation>Alle Dateien</translation>
     </message>
@@ -558,27 +558,27 @@
         <translation type="vanished">Leerzeichen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="910"/>
+        <location filename="../src/MainWindow.cpp" line="911"/>
         <source>Failed to open Quick Reference Guide.</source>
         <translation>Konnte Kurzreferenz nicht öffnen.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="926"/>
+        <location filename="../src/MainWindow.cpp" line="927"/>
         <source>Quick Reference Guide</source>
         <translation>Kurzreferenz</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="990"/>
+        <location filename="../src/MainWindow.cpp" line="996"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1013"/>
+        <location filename="../src/MainWindow.cpp" line="1019"/>
         <source>About %1</source>
         <translation>Über %1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1175"/>
+        <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation>Bitte starte das Programm neu, damit die Änderungen wirksam werden.</translation>
     </message>
@@ -591,42 +591,42 @@
         <translation type="vanished">Übereinstimmende Zeichen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1229"/>
+        <location filename="../src/MainWindow.cpp" line="1236"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1231"/>
+        <location filename="../src/MainWindow.cpp" line="1238"/>
         <source>&amp;New</source>
         <translation>&amp;Neu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1232"/>
+        <location filename="../src/MainWindow.cpp" line="1239"/>
         <source>&amp;Open</source>
         <translation>&amp;Öffnen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1235"/>
+        <location filename="../src/MainWindow.cpp" line="1242"/>
         <source>Reopen Closed File</source>
         <translation>Geschlossene Datei wieder öffnen.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1244"/>
+        <location filename="../src/MainWindow.cpp" line="1251"/>
         <source>Clear Menu</source>
         <translation>Liste geöffneter Dateien löschen.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1249"/>
+        <location filename="../src/MainWindow.cpp" line="1256"/>
         <source>&amp;Save</source>
         <translation>&amp;Speichern</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1250"/>
+        <location filename="../src/MainWindow.cpp" line="1257"/>
         <source>Save &amp;As...</source>
         <translation>Speichern &amp;Als...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1234"/>
+        <location filename="../src/MainWindow.cpp" line="1241"/>
         <source>Open &amp;Recent...</source>
         <translation>Öffne &amp;kürzlich geöffnete Dateien...</translation>
     </message>
@@ -651,7 +651,7 @@
         <translation>Session Statistiken</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/MainWindow.cpp" line="1018"/>
+        <location filename="../src/MainWindow.cpp" line="1024"/>
         <source>%Ln word(s)</source>
         <translation>
             <numerusform>%Ln word</numerusform>
@@ -659,217 +659,217 @@
         </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1251"/>
+        <location filename="../src/MainWindow.cpp" line="1258"/>
         <source>R&amp;ename...</source>
         <translation>&amp;Umbenennen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1252"/>
+        <location filename="../src/MainWindow.cpp" line="1259"/>
         <source>Re&amp;load from Disk...</source>
         <translation>Nochmal &amp;laden...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1254"/>
+        <location filename="../src/MainWindow.cpp" line="1261"/>
         <source>Print Pre&amp;view</source>
         <translation>Druck&amp;vorschau</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1255"/>
+        <location filename="../src/MainWindow.cpp" line="1262"/>
         <source>&amp;Print</source>
         <translation>&amp;Drucken</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1257"/>
+        <location filename="../src/MainWindow.cpp" line="1264"/>
         <source>&amp;Export</source>
         <translation>&amp;Exportieren</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1259"/>
+        <location filename="../src/MainWindow.cpp" line="1266"/>
         <source>&amp;Quit</source>
         <translation>&amp;Schließen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1261"/>
+        <location filename="../src/MainWindow.cpp" line="1268"/>
         <source>&amp;Edit</source>
         <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1262"/>
+        <location filename="../src/MainWindow.cpp" line="1269"/>
         <source>&amp;Undo</source>
         <translation>&amp;Rückgängig</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1263"/>
+        <location filename="../src/MainWindow.cpp" line="1270"/>
         <source>&amp;Redo</source>
         <translation>&amp;Wiederholen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1265"/>
+        <location filename="../src/MainWindow.cpp" line="1272"/>
         <source>Cu&amp;t</source>
         <translation>Aus&amp;schneiden</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1266"/>
+        <location filename="../src/MainWindow.cpp" line="1273"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1267"/>
+        <location filename="../src/MainWindow.cpp" line="1274"/>
         <source>&amp;Paste</source>
         <translation>&amp;Einfügen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1269"/>
+        <location filename="../src/MainWindow.cpp" line="1276"/>
         <source>&amp;Insert Image...</source>
         <translation>&amp;Bild einfügen...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1271"/>
+        <location filename="../src/MainWindow.cpp" line="1278"/>
         <source>&amp;Find</source>
         <translation>&amp;Finden</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1272"/>
+        <location filename="../src/MainWindow.cpp" line="1279"/>
         <source>Rep&amp;lace</source>
         <translation>&amp;Ersetzen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1274"/>
+        <location filename="../src/MainWindow.cpp" line="1281"/>
         <source>&amp;Spell check</source>
         <translation>&amp;Rechtschreibung prüfen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1276"/>
+        <location filename="../src/MainWindow.cpp" line="1283"/>
         <source>For&amp;mat</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1277"/>
+        <location filename="../src/MainWindow.cpp" line="1284"/>
         <source>&amp;Bold</source>
         <translation>Fett</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1278"/>
+        <location filename="../src/MainWindow.cpp" line="1285"/>
         <source>&amp;Italic</source>
         <translation>Kursiv</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1279"/>
+        <location filename="../src/MainWindow.cpp" line="1286"/>
         <source>Stri&amp;kthrough</source>
         <translation>Durchgestrichen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1280"/>
+        <location filename="../src/MainWindow.cpp" line="1287"/>
         <source>&amp;HTML Comment</source>
         <translation>HTML Kommentar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1282"/>
+        <location filename="../src/MainWindow.cpp" line="1289"/>
         <source>I&amp;ndent</source>
         <translation>Einrückung</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1283"/>
+        <location filename="../src/MainWindow.cpp" line="1290"/>
         <source>&amp;Unindent</source>
         <translation>Ausrücken</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1285"/>
+        <location filename="../src/MainWindow.cpp" line="1292"/>
         <source>Block &amp;Quote</source>
         <translation>Blockzitat</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1286"/>
+        <location filename="../src/MainWindow.cpp" line="1293"/>
         <source>&amp;Strip Block Quote</source>
         <translation>Blockzitat entfernen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1288"/>
+        <location filename="../src/MainWindow.cpp" line="1295"/>
         <source>&amp;* Bullet List</source>
         <translation>&amp;* Stichpunkliste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1289"/>
+        <location filename="../src/MainWindow.cpp" line="1296"/>
         <source>&amp;- Bullet List</source>
         <translation>&amp;- Stichpunkliste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1290"/>
+        <location filename="../src/MainWindow.cpp" line="1297"/>
         <source>&amp;+ Bullet List</source>
         <translation>&amp;+ Stichpunktliste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1292"/>
+        <location filename="../src/MainWindow.cpp" line="1299"/>
         <source>1&amp;. Numbered List</source>
         <translation>1&amp;. Nummerierte Liste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1293"/>
+        <location filename="../src/MainWindow.cpp" line="1300"/>
         <source>1&amp;) Numbered List</source>
         <translation>1&amp;) Nummerierte Liste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1295"/>
+        <location filename="../src/MainWindow.cpp" line="1302"/>
         <source>&amp;Task List</source>
         <translation>Aufgabenliste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1296"/>
+        <location filename="../src/MainWindow.cpp" line="1303"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation>Umschalter Aufgaben erledigt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1298"/>
+        <location filename="../src/MainWindow.cpp" line="1305"/>
         <source>&amp;View</source>
         <translation>Ansicht</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1300"/>
+        <location filename="../src/MainWindow.cpp" line="1307"/>
         <source>&amp;Full Screen</source>
         <translation>Vollbild</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1307"/>
+        <location filename="../src/MainWindow.cpp" line="1314"/>
         <source>&amp;Preview in HTML</source>
         <translation>HTML Vorschau</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1308"/>
+        <location filename="../src/MainWindow.cpp" line="1315"/>
         <source>&amp;Outline HUD</source>
         <translation>Übersicht HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1309"/>
+        <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>&amp;Cheat Sheet HUD</source>
         <translation>Kurzreferenz HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1310"/>
+        <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>&amp;Document Statistics HUD</source>
         <translation>Dokument Statistiken HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1311"/>
+        <location filename="../src/MainWindow.cpp" line="1318"/>
         <source>&amp;Session Statistics HUD</source>
         <translation>Session Statistiken HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1314"/>
+        <location filename="../src/MainWindow.cpp" line="1321"/>
         <source>&amp;Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1315"/>
+        <location filename="../src/MainWindow.cpp" line="1322"/>
         <source>Themes...</source>
         <translation>Themes...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1316"/>
+        <location filename="../src/MainWindow.cpp" line="1323"/>
         <source>Font...</source>
         <translation>Font...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1318"/>
+        <location filename="../src/MainWindow.cpp" line="1325"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -966,7 +966,7 @@
         <translation type="vanished">Wörterbücher</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1317"/>
+        <location filename="../src/MainWindow.cpp" line="1324"/>
         <source>Application Language...</source>
         <translation>Programmsprache...</translation>
     </message>
@@ -1015,47 +1015,52 @@
         <translation type="vanished">HUD Fenster Deckkraft</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1320"/>
+        <location filename="../src/MainWindow.cpp" line="1327"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1321"/>
+        <location filename="../src/MainWindow.cpp" line="1328"/>
         <source>&amp;About</source>
         <translation>&amp;Über</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1322"/>
+        <location filename="../src/MainWindow.cpp" line="1329"/>
         <source>About &amp;Qt</source>
         <translation>Über &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1323"/>
+        <location filename="../src/MainWindow.cpp" line="1330"/>
         <source>Quick &amp;Reference Guide</source>
         <translation>Kurzreferenz</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1368"/>
+        <location filename="../src/MainWindow.cpp" line="1331"/>
+        <source>Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1376"/>
         <source>Hemingway</source>
         <translation>Hemingway</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1370"/>
+        <location filename="../src/MainWindow.cpp" line="1378"/>
         <source>Toggle Hemingway mode</source>
         <translation>Umschalter Hemingway Modus</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1375"/>
+        <location filename="../src/MainWindow.cpp" line="1383"/>
         <source>Focus</source>
         <translation>Fokus</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1377"/>
+        <location filename="../src/MainWindow.cpp" line="1385"/>
         <source>Toggle distraction free mode</source>
         <translation>Umschalter Ablenkungsfreier Modus</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1385"/>
+        <location filename="../src/MainWindow.cpp" line="1393"/>
         <source>Toggle full screen mode</source>
         <translation>Umschalter Vollbild</translation>
     </message>
@@ -1073,7 +1078,7 @@
         <translation>Rechtschreibung prüfen...</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="587"/>
+        <location filename="../src/MarkdownEditor.cpp" line="597"/>
         <source>No spelling suggestions found</source>
         <translation>Keine Vorschläge für Schreibweise gefunden</translation>
     </message>
@@ -1273,7 +1278,7 @@
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
-        <source>Automatically match characters while typing</source>
+        <source>Automatically match characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
