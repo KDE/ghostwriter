@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -364,8 +364,17 @@ class MarkdownEditor : public QPlainTextEdit
         QRegExp numberedListRegex;
         QRegExp bulletListRegex;
         QRegExp taskListRegex;
-        QHash<QChar, QChar> markupPairs; // Used for auto-insert and pairing.
-        QHash<QChar, bool> autoMatchFilter; // Used for filtering paired characters.
+
+        // Used for auto-insert and pairing.
+        QHash<QChar, QChar> markupPairs;
+
+        // Used for filtering paired characters.
+        QHash<QChar, bool> autoMatchFilter;
+
+        // Used for determining if whitespace is allowed between paired
+        // characters when autopairing.
+        QHash<QChar, QChar> nonEmptyMarkupPairs;
+
         bool mouseButtonDown;
         GraphicsFadeEffect* fadeEffect;
 
@@ -385,6 +394,7 @@ class MarkdownEditor : public QPlainTextEdit
         void createNumberedList(const QChar marker);
         bool insertPairedCharacters(const QChar firstChar);
         bool handleEndPairCharacterTyped(const QChar ch);
+        bool handleWhitespaceInEmptyMatch(const QChar whitespace);
         void insertFormattingMarkup(const QString& markup);
         QString getPriorIndentation();
         QString getPriorMarkdownBlockItemStart(QRegExp& itemRegex);

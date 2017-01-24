@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) Dmitry Shachnev 2012
  *
@@ -111,6 +111,10 @@ MarkdownEditor::MarkdownEditor
     autoMatchFilter.insert('_', true);
     autoMatchFilter.insert('`', true);
     autoMatchFilter.insert('<', true);
+
+    nonEmptyMarkupPairs.insert('*', '*');
+    nonEmptyMarkupPairs.insert('_', '_');
+    nonEmptyMarkupPairs.insert('<', '>');
 
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this, SIGNAL(cursorPositionChanged(int)), highlighter, SLOT(onCursorPositionChanged(int)));
@@ -448,10 +452,19 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
             }
             break;
         case Qt::Key_Tab:
-            indentText();
+            if (!handleWhitespaceInEmptyMatch('\t'))
+            {
+                indentText();
+            }
             break;
         case Qt::Key_Backtab:
             unindentText();
+            break;
+        case Qt::Key_Space:
+            if (!handleWhitespaceInEmptyMatch(' '))
+            {
+                QPlainTextEdit::keyPressEvent(e);
+            }
             break;
         default:
             if (e->text().size() == 1)
@@ -1673,13 +1686,6 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                     }
                 }
             }
-            // Else if at the beginning of the line, do not match if the
-            // opening character is a bullet point character.
-            //
-            else if (firstChar == '*')
-            {
-                doMatch = false;
-            }
 
             if (doMatch)
             {
@@ -1735,6 +1741,30 @@ bool MarkdownEditor::handleEndPairCharacterTyped(const QChar ch)
                 return true;
             }
         }
+    }
+
+    return false;
+}
+
+bool MarkdownEditor::handleWhitespaceInEmptyMatch(const QChar whitespace)
+{
+    QTextCursor cursor = this->textCursor();
+    QTextBlock block = cursor.block();
+    QString text = block.text();
+    int pos = cursor.positionInBlock();
+
+    if
+    (
+        (text.length() > 0) &&
+        (pos > 0) &&
+        (pos < text.length()) &&
+        nonEmptyMarkupPairs.contains(text[pos - 1]) &&
+        (text[pos] == nonEmptyMarkupPairs.value(text[pos - 1]))
+    )
+    {
+        cursor.deleteChar();
+        cursor.insertText(whitespace);
+        return true;
     }
 
     return false;
