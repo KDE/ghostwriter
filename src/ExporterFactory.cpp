@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -330,7 +330,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV2,
-        QString("pandoc %1 -f %2 -t epub --standalone -o %3")
+        QString("pandoc %1 -f %2 -t epub --standalone --toc --toc-depth 6 -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -338,7 +338,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV3,
-        QString("pandoc %1 -f %2 -t epub3 --standalone -o %3")
+        QString("pandoc %1 -f %2 -t epub3 --standalone --toc --toc-depth 6 -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -346,7 +346,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::FICTIONBOOK2,
-        QString("pandoc %1 -f %2 -t fb2 --standalone -o %3")
+        QString("pandoc %1 -f %2 -t fb2 --standalone --toc --toc-depth 6 -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
