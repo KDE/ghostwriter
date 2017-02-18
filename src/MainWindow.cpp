@@ -262,19 +262,31 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         recentFiles = history.getRecentFiles(MAX_RECENT_FILES + 2);
     }
 
+    bool fileLoadError = false;
+
     if (!filePath.isNull() && !filePath.isEmpty())
     {
         QFileInfo cliFileInfo(filePath);
 
-        if (cliFileInfo.exists())
+        if (!cliFileInfo.exists())
+        {
+            QFile cliFile(filePath);
+
+            // Try to create a new file if the specified file does not exist.
+            cliFile.open(QIODevice::WriteOnly);
+            cliFile.close();
+
+            if (!cliFile.exists())
+            {
+                fileLoadError = true;
+                qCritical("Could not create new file. Check permissions.");
+            }
+        }
+
+        if (!fileLoadError)
         {
             fileToOpen = filePath;
             recentFiles.removeAll(cliFileInfo.absoluteFilePath());
-        }
-        else
-        {
-            qCritical("File specified on command line does not exist.");
-            exit(-1);
         }
     }
 
@@ -512,6 +524,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     if (!fileToOpen.isNull() && !fileToOpen.isEmpty())
     {
         documentManager->open(fileToOpen);
+    }
+
+    if (fileLoadError)
+    {
+        QMessageBox::critical
+        (
+            this,
+            QApplication::applicationName(),
+            tr("Could not create file %1. Check permissions.").arg(filePath)
+        );
     }
 }
 
