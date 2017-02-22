@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) Dmitry Shachnev 2012
  *
@@ -42,10 +42,14 @@
 #include "MarkdownEditor.h"
 #include "MarkdownStates.h"
 #include "MarkdownTokenizer.h"
-#include "GraphicsFadeEffect.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
+
+
+#if QT_VERSION < 0x050800
+#include "GraphicsFadeEffect.h"
+#endif
 
 MarkdownEditor::MarkdownEditor
 (
@@ -144,9 +148,12 @@ MarkdownEditor::MarkdownEditor
         QColor(Qt::red)
     );
 
+
+#if QT_VERSION < 0x050800
     fadeEffect = new GraphicsFadeEffect(this);
     fadeEffect->setFadeHeight(this->fontMetrics().height());
     viewport()->setGraphicsEffect(fadeEffect);
+#endif
 }
 
 MarkdownEditor::~MarkdownEditor()
@@ -239,7 +246,10 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     QPlainTextEdit::setFont(font);
     highlighter->setFont(family, pointSize);
     setTabulationWidth(tabWidth);
+
+#if QT_VERSION < 0x050800
     fadeEffect->setFadeHeight(this->fontMetrics().height());
+#endif
 }
 
 void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
