@@ -34,10 +34,13 @@
 #include "TextDocument.h"
 #include "MarkdownEditorTypes.h"
 #include "MarkdownHighlighter.h"
-#include "GraphicsFadeEffect.h"
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
+
+#if QT_VERSION < 0x050800
+#include "GraphicsFadeEffect.h"
+#endif
 
 /**
  * Markdown editor having special shortcut key handing and live spell checking.
@@ -376,7 +379,10 @@ class MarkdownEditor : public QPlainTextEdit
         QHash<QChar, QChar> nonEmptyMarkupPairs;
 
         bool mouseButtonDown;
+
+#if QT_VERSION < 0x050800
         GraphicsFadeEffect* fadeEffect;
+#endif
 
         // Timer used to determine when typing has paused.
         QTimer* typingTimer;
