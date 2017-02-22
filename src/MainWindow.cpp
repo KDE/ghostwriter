@@ -1668,19 +1668,16 @@ void MainWindow::applyTheme()
         corners = "border-radius: 8;";
     }
 
-    QString cursorColorRGB =
-        ColorHelper::toRgbString(theme.getLinkColor());
+    QString defaultTextColorRGB =
+        ColorHelper::toRgbString(theme.getDefaultTextColor());
 
     stream
         << "QPlainTextEdit { border: 0; "
         << corners
         << "margin: 0; padding: 5px; background-color: "
         << backgroundColorRGBA
-        // The following two lines only set the cursor color, since the
-        // Highlighter always colors the default character format for each block
-        // with the theme's default text color.
         << "; color: "
-        << cursorColorRGB
+        << defaultTextColorRGB
         << "; selection-color: "
         << editorSelectionFgColorRGB
         << "; selection-background-color: "

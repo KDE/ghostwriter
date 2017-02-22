@@ -39,6 +39,7 @@
 #include <QDir>
 
 #include "ColorHelper.h"
+#include "GraphicsFadeEffect.h"
 #include "MarkdownEditor.h"
 #include "MarkdownStates.h"
 #include "MarkdownTokenizer.h"
@@ -46,10 +47,6 @@
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
 
-
-#if QT_VERSION < 0x050800
-#include "GraphicsFadeEffect.h"
-#endif
 
 MarkdownEditor::MarkdownEditor
 (
@@ -81,7 +78,10 @@ MarkdownEditor::MarkdownEditor
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setCursorWidth(2);
+    
+    // Make sure QPlainTextEdit does not draw a cursor.  (We'll paint it manually.)
+    setCursorWidth(0);
+    
     setCenterOnScroll(true);
     ensureCursorVisible();
     spellCheckEnabled = false;
@@ -152,17 +152,38 @@ MarkdownEditor::MarkdownEditor
         QColor(Qt::red)
     );
 
-
-#if QT_VERSION < 0x050800
     fadeEffect = new GraphicsFadeEffect(this);
     fadeEffect->setFadeHeight(this->fontMetrics().height());
     viewport()->setGraphicsEffect(fadeEffect);
-#endif
+    
+    textCursorVisible = true;
+    
+    cursorBlinkTimer = new QTimer(this);
+    connect(cursorBlinkTimer, SIGNAL(timeout()), this, SLOT(toggleCursorBlink()));
+    cursorBlinkTimer->start(500);
 }
 
 MarkdownEditor::~MarkdownEditor()
 {
 
+}
+
+void MarkdownEditor::paintEvent(QPaintEvent* event)
+{
+    QPlainTextEdit::paintEvent(event);
+    	
+    if (textCursorVisible)
+    {
+        // Get the cursor rect so that we have the ideal height for it,
+        // and then set it to be 2 pixels wide.  (The width will be zero,
+        // because we set it to be taht in the constructor so that 
+        // QPlainTextEdit will not draw another cursor underneath this one.)
+        QRect r = cursorRect();
+        r.setWidth(2);
+        
+        QPainter painter(viewport());
+        painter.fillRect(r, QBrush(cursorColor));
+    }
 }
 
 void MarkdownEditor::setDictionary(const QString& language)
@@ -231,6 +252,8 @@ void MarkdownEditor::setColorScheme
         linkColor,
         spellingErrorColor
     );
+    
+    this->cursorColor = linkColor;
 
     QColor fadedForegroundColor = defaultTextColor;
     fadedForegroundColor.setAlpha(100);
@@ -251,9 +274,7 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     highlighter->setFont(family, pointSize);
     setTabulationWidth(tabWidth);
 
-#if QT_VERSION < 0x050800
     fadeEffect->setFadeHeight(this->fontMetrics().height());
-#endif
 }
 
 void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
@@ -1358,8 +1379,24 @@ void MarkdownEditor::onCursorPositionChanged()
             centerCursor();
         }
     }
+    
+    // Set the text cursor back to visible and reset the blink timer so that
+    // the cursor is always visible whenever it moves to a new position.
+    //
+    textCursorVisible = true;
+    cursorBlinkTimer->stop();
+    cursorBlinkTimer->start();
+    
+    // Update widget to ensure cursor is drawn.
+    update();
 
     emit cursorPositionChanged(this->textCursor().position());
+}
+
+void MarkdownEditor::toggleCursorBlink()
+{
+    textCursorVisible = !textCursorVisible;
+    update();
 }
 
 void MarkdownEditor::handleCarriageReturn()

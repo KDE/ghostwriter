@@ -31,16 +31,14 @@
 #include <QListWidget>
 #include <QRegExp>
 
-#include "TextDocument.h"
+#include "GraphicsFadeEffect.h"
 #include "MarkdownEditorTypes.h"
 #include "MarkdownHighlighter.h"
+#include "TextDocument.h"
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 
-#if QT_VERSION < 0x050800
-#include "GraphicsFadeEffect.h"
-#endif
 
 /**
  * Markdown editor having special shortcut key handing and live spell checking.
@@ -64,6 +62,18 @@ class MarkdownEditor : public QPlainTextEdit
          * Destructor.
          */
         virtual ~MarkdownEditor();
+        
+        /**
+         * Draws the text cursor.  This has to be done as of Qt 5.8, since
+         * this version of Qt chooses the cursor's color based on the
+         * editor's background color, rather than the foreground color as it
+         * used to in prior versions.  This means that we cannot control the
+         * cursor color via the "color" style sheet property.  Also, using
+         * the GraphicsFadeEffect class that fades the text at the bottom of
+         * the editor will cause the cursor to disappear entirely unless
+         * we draw the cursor manually.
+         */
+        void paintEvent(QPaintEvent* event);
 
         /**
          * Sets the dictionary language to use for spell checking.
@@ -342,6 +352,7 @@ class MarkdownEditor : public QPlainTextEdit
         void checkIfTypingPaused();
         void spellCheckFinished(int result);
         void onCursorPositionChanged();
+        void toggleCursorBlink();
 
     private:
         TextDocument* textDocument;
@@ -379,10 +390,11 @@ class MarkdownEditor : public QPlainTextEdit
         QHash<QChar, QChar> nonEmptyMarkupPairs;
 
         bool mouseButtonDown;
+        QColor cursorColor;
+        bool textCursorVisible;
+        QTimer* cursorBlinkTimer;
 
-#if QT_VERSION < 0x050800
         GraphicsFadeEffect* fadeEffect;
-#endif
 
         // Timer used to determine when typing has paused.
         QTimer* typingTimer;
