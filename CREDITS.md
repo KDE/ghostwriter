@@ -11,6 +11,7 @@ Translations
 * Italian - Tristano Ajmone (tajmone)
 * Japanese - piyo-gh
 * German - dhbwmawhd
+* Czech - Pavel Fric (pafri)
 
 Libraries
 =========
