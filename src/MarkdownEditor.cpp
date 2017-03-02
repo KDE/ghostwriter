@@ -702,8 +702,8 @@ void MarkdownEditor::wheelEvent(QWheelEvent *e)
             fontSize -= 1;
 
         // check for negative value
-        if(fontSize < 0 )
-            fontSize = 0;
+        if(fontSize <= 0 )
+            fontSize = 1;
 
         setFont(QPlainTextEdit::font().family(), fontSize);
     }
