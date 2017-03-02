@@ -160,6 +160,7 @@ class MarkdownEditor : public QPlainTextEdit
         void dropEvent(QDropEvent* e);
         void keyPressEvent(QKeyEvent *e);
         bool eventFilter(QObject* watched, QEvent* event);
+        void wheelEvent(QWheelEvent* e);
 
     signals:
         /**
