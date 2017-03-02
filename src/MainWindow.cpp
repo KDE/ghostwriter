@@ -1305,7 +1305,7 @@ void MainWindow::buildMenuBar()
     QMenu* formatMenu = this->menuBar()->addMenu(tr("For&mat"));
     formatMenu->addAction(tr("&Bold"), editor, SLOT(bold()), QKeySequence::Bold);
     formatMenu->addAction(tr("&Italic"), editor, SLOT(italic()), QKeySequence::Italic);
-    formatMenu->addAction(tr("Stri&kthrough"), editor, SLOT(strikethrough()), QKeySequence("Ctrl+K"));
+    formatMenu->addAction(tr("Stri&kethrough"), editor, SLOT(strikethrough()), QKeySequence("Ctrl+K"));
     formatMenu->addAction(tr("&HTML Comment"), editor, SLOT(insertComment()), QKeySequence("Ctrl+/"));
     formatMenu->addSeparator();
     formatMenu->addAction(tr("I&ndent"), editor, SLOT(indentText()), QKeySequence("Tab"));
