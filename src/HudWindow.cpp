@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  * Copyright(c) 2009 by Gabriel M. Beddingfield <gabriel@teuton.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -157,6 +157,22 @@ HudWindow::HudWindow(QWidget *parent)
 HudWindow::~HudWindow()
 {
 
+}
+
+void HudWindow::keyPressEvent(QKeyEvent* e)
+{
+    int key = e->key();
+
+    switch (key)
+    {
+        case Qt::Key_Escape:
+            this->hide();
+            break;
+        default:
+            break;
+    }
+
+    QWidget::keyPressEvent(e);
 }
 
 void HudWindow::setCentralWidget(QWidget* widget)

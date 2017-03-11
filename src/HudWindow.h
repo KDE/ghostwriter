@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,6 +49,12 @@ class HudWindow : public QWidget
          * Destructor.
          */
         virtual ~HudWindow();
+
+        /**
+         * Listens for key press events, and hides the HUD if the Escape key is
+         * pressed.
+         */
+        void keyPressEvent(QKeyEvent* e);
 
         /**
          * Sets the central widget to display in this HUD.
