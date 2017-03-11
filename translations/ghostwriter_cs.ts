@@ -536,17 +536,17 @@
         <translation>Krátké odkazy</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="852"/>
+        <location filename="../src/MainWindow.cpp" line="875"/>
         <source>Insert Image</source>
         <translation>Vložit obrázek</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="855"/>
+        <location filename="../src/MainWindow.cpp" line="878"/>
         <source>Images</source>
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="856"/>
+        <location filename="../src/MainWindow.cpp" line="879"/>
         <source>All Files</source>
         <translation>Všechny soubory</translation>
     </message>
@@ -559,27 +559,27 @@
         <translation type="vanished">Mezery</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="911"/>
+        <location filename="../src/MainWindow.cpp" line="934"/>
         <source>Failed to open Quick Reference Guide.</source>
         <translation>Nepodařilo se otevřít rychlé odkazy.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="927"/>
+        <location filename="../src/MainWindow.cpp" line="950"/>
         <source>Quick Reference Guide</source>
         <translation>Rychlé odkazy</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="996"/>
+        <location filename="../src/MainWindow.cpp" line="1019"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Autorské právo &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Tento software můžete používat a šířit za podmínek &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;licence GNU General Public verze 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Navštivte veřejné stránky na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Zvláštní poděkování a zásluhy za použitý kód&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graemovi Gottovi&lt;/a&gt;, autoru programu &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitryovi Shachnevovi, autoru programu &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrieli M. Beddingfieldovi&lt;/a&gt;, autoru programu &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Také jsem hluboce zavázán &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfu Vollprechtovi&lt;/a&gt;, autoru programu &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za vynikající myšlenku poskytnutou vytvořením překrásného nástroje pro úpravy Markdown.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1019"/>
+        <location filename="../src/MainWindow.cpp" line="1042"/>
         <source>About %1</source>
         <translation>O programu %1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1182"/>
+        <location filename="../src/MainWindow.cpp" line="1212"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation>Spusťte, prosím, program znovu, aby se projevily změny.</translation>
     </message>
@@ -592,42 +592,42 @@
         <translation type="vanished">Shodující se znaky</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1236"/>
+        <location filename="../src/MainWindow.cpp" line="1266"/>
         <source>&amp;File</source>
         <translation>&amp;Soubor</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1238"/>
+        <location filename="../src/MainWindow.cpp" line="1268"/>
         <source>&amp;New</source>
         <translation>&amp;Nový</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1239"/>
+        <location filename="../src/MainWindow.cpp" line="1269"/>
         <source>&amp;Open</source>
         <translation>&amp;Otevřít</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1242"/>
+        <location filename="../src/MainWindow.cpp" line="1272"/>
         <source>Reopen Closed File</source>
         <translation>Otevřít zavřený soubor znovu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1251"/>
+        <location filename="../src/MainWindow.cpp" line="1281"/>
         <source>Clear Menu</source>
         <translation>Vyprázdnit nabídku</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1256"/>
+        <location filename="../src/MainWindow.cpp" line="1286"/>
         <source>&amp;Save</source>
         <translation>&amp;Uložit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1257"/>
+        <location filename="../src/MainWindow.cpp" line="1287"/>
         <source>Save &amp;As...</source>
         <translation>Uložit &amp;jako...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1241"/>
+        <location filename="../src/MainWindow.cpp" line="1271"/>
         <source>Open &amp;Recent...</source>
         <translation>Otevřít &amp;nedávný...</translation>
     </message>
@@ -651,8 +651,13 @@
         <source>Session Statistics</source>
         <translation>Statistika sezení</translation>
     </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="536"/>
+        <source>Could not create file %1. Check permissions.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location filename="../src/MainWindow.cpp" line="1024"/>
+        <location filename="../src/MainWindow.cpp" line="1047"/>
         <source>%Ln word(s)</source>
         <translation>
             <numerusform>%Ln slovo</numerusform>
@@ -661,217 +666,221 @@
         </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1258"/>
+        <location filename="../src/MainWindow.cpp" line="1288"/>
         <source>R&amp;ename...</source>
         <translation>&amp;Přejmenovat...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1259"/>
+        <location filename="../src/MainWindow.cpp" line="1289"/>
         <source>Re&amp;load from Disk...</source>
         <translation>Na&amp;hrát znovu z disku...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1261"/>
+        <location filename="../src/MainWindow.cpp" line="1291"/>
         <source>Print Pre&amp;view</source>
         <translation>Ná&amp;hled tisku</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1262"/>
+        <location filename="../src/MainWindow.cpp" line="1292"/>
         <source>&amp;Print</source>
         <translation>&amp;Tisk</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1264"/>
+        <location filename="../src/MainWindow.cpp" line="1294"/>
         <source>&amp;Export</source>
         <translation>&amp;Vyvést</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1266"/>
+        <location filename="../src/MainWindow.cpp" line="1296"/>
         <source>&amp;Quit</source>
         <translation>&amp;Ukončit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1268"/>
+        <location filename="../src/MainWindow.cpp" line="1298"/>
         <source>&amp;Edit</source>
         <translation>Úp&amp;ravy</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1269"/>
+        <location filename="../src/MainWindow.cpp" line="1299"/>
         <source>&amp;Undo</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1270"/>
+        <location filename="../src/MainWindow.cpp" line="1300"/>
         <source>&amp;Redo</source>
         <translation>&amp;Znovu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1272"/>
+        <location filename="../src/MainWindow.cpp" line="1302"/>
         <source>Cu&amp;t</source>
         <translation>Vyj&amp;mout</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1273"/>
+        <location filename="../src/MainWindow.cpp" line="1303"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1274"/>
+        <location filename="../src/MainWindow.cpp" line="1304"/>
         <source>&amp;Paste</source>
         <translation>&amp;Vložit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1276"/>
+        <location filename="../src/MainWindow.cpp" line="1306"/>
         <source>&amp;Insert Image...</source>
         <translation>&amp;Vložit obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1278"/>
+        <location filename="../src/MainWindow.cpp" line="1308"/>
         <source>&amp;Find</source>
         <translation>&amp;Najít</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1279"/>
+        <location filename="../src/MainWindow.cpp" line="1309"/>
         <source>Rep&amp;lace</source>
         <translation>&amp;Nahradit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1281"/>
+        <location filename="../src/MainWindow.cpp" line="1311"/>
         <source>&amp;Spell check</source>
         <translation>&amp;Ověření správného psaní</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1283"/>
+        <location filename="../src/MainWindow.cpp" line="1313"/>
         <source>For&amp;mat</source>
         <translation>For&amp;mát</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1284"/>
+        <location filename="../src/MainWindow.cpp" line="1314"/>
         <source>&amp;Bold</source>
         <translation>&amp;Tučné</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1285"/>
+        <location filename="../src/MainWindow.cpp" line="1315"/>
         <source>&amp;Italic</source>
         <translation>&amp;Kurzíva</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1286"/>
-        <source>Stri&amp;kthrough</source>
-        <translation>Přešk&amp;rtnutí</translation>
+        <location filename="../src/MainWindow.cpp" line="1316"/>
+        <source>Stri&amp;kethrough</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1287"/>
+        <source>Stri&amp;kthrough</source>
+        <translation type="vanished">Přešk&amp;rtnutí</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>&amp;HTML Comment</source>
         <translation>Poznámka &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1289"/>
+        <location filename="../src/MainWindow.cpp" line="1319"/>
         <source>I&amp;ndent</source>
         <translation>&amp;Odsadit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1290"/>
+        <location filename="../src/MainWindow.cpp" line="1320"/>
         <source>&amp;Unindent</source>
         <translation>&amp;Zrušit odsazení</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1292"/>
+        <location filename="../src/MainWindow.cpp" line="1322"/>
         <source>Block &amp;Quote</source>
         <translation>Blokové &amp;uvozovky</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1293"/>
+        <location filename="../src/MainWindow.cpp" line="1323"/>
         <source>&amp;Strip Block Quote</source>
         <translation>&amp;Odstranit blokové uvozovky</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1295"/>
+        <location filename="../src/MainWindow.cpp" line="1325"/>
         <source>&amp;* Bullet List</source>
         <translation>&amp;* Seznam s odrážkami</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1296"/>
+        <location filename="../src/MainWindow.cpp" line="1326"/>
         <source>&amp;- Bullet List</source>
         <translation>&amp;- Seznam s odrážkami</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1297"/>
+        <location filename="../src/MainWindow.cpp" line="1327"/>
         <source>&amp;+ Bullet List</source>
         <translation>&amp;+ Seznam s odrážkami</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1299"/>
+        <location filename="../src/MainWindow.cpp" line="1329"/>
         <source>1&amp;. Numbered List</source>
         <translation>1&amp;. Číslovaný seznam</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1300"/>
+        <location filename="../src/MainWindow.cpp" line="1330"/>
         <source>1&amp;) Numbered List</source>
         <translation>1&amp;) Číslovaný seznam</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1302"/>
+        <location filename="../src/MainWindow.cpp" line="1332"/>
         <source>&amp;Task List</source>
         <translation>Seznam ú&amp;kolů</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1303"/>
+        <location filename="../src/MainWindow.cpp" line="1333"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation>Přepnout &amp;vyřízení úkolů</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1305"/>
+        <location filename="../src/MainWindow.cpp" line="1335"/>
         <source>&amp;View</source>
         <translation>&amp;Pohled</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1307"/>
+        <location filename="../src/MainWindow.cpp" line="1337"/>
         <source>&amp;Full Screen</source>
         <translation>&amp;Celá obrazovka</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1314"/>
+        <location filename="../src/MainWindow.cpp" line="1344"/>
         <source>&amp;Preview in HTML</source>
         <translation>&amp;Náhled v HTML</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1315"/>
+        <location filename="../src/MainWindow.cpp" line="1345"/>
         <source>&amp;Outline HUD</source>
         <translation>&amp;Přehled HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1316"/>
+        <location filename="../src/MainWindow.cpp" line="1346"/>
         <source>&amp;Cheat Sheet HUD</source>
         <translation>&amp;Krátké odkazy HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1317"/>
+        <location filename="../src/MainWindow.cpp" line="1347"/>
         <source>&amp;Document Statistics HUD</source>
         <translation>Statistika &amp;dokumentu HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1318"/>
+        <location filename="../src/MainWindow.cpp" line="1348"/>
         <source>&amp;Session Statistics HUD</source>
         <translation>Statistika &amp;sezení HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1321"/>
+        <location filename="../src/MainWindow.cpp" line="1351"/>
         <source>&amp;Settings</source>
         <translation>&amp;Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1322"/>
+        <location filename="../src/MainWindow.cpp" line="1352"/>
         <source>Themes...</source>
         <translation>Motivy...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1323"/>
+        <location filename="../src/MainWindow.cpp" line="1353"/>
         <source>Font...</source>
         <translation>Písmo...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1325"/>
+        <location filename="../src/MainWindow.cpp" line="1355"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -968,7 +977,7 @@
         <translation type="vanished">Slovníky...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1324"/>
+        <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Application Language...</source>
         <translation>Jazyk programu...</translation>
     </message>
@@ -1017,52 +1026,52 @@
         <translation type="vanished">Neprůhlednost okna HUD...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1327"/>
+        <location filename="../src/MainWindow.cpp" line="1357"/>
         <source>&amp;Help</source>
         <translation>Nápo&amp;věda</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1328"/>
+        <location filename="../src/MainWindow.cpp" line="1358"/>
         <source>&amp;About</source>
         <translation>&amp;O programu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1329"/>
+        <location filename="../src/MainWindow.cpp" line="1359"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1330"/>
+        <location filename="../src/MainWindow.cpp" line="1360"/>
         <source>Quick &amp;Reference Guide</source>
         <translation>Rychlé &amp;odkazy</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1331"/>
+        <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1376"/>
+        <location filename="../src/MainWindow.cpp" line="1406"/>
         <source>Hemingway</source>
         <translation>Hemingway</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1378"/>
+        <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Toggle Hemingway mode</source>
         <translation>Přepnout režim Hemingway</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1383"/>
+        <location filename="../src/MainWindow.cpp" line="1413"/>
         <source>Focus</source>
         <translation>Zaměření</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1385"/>
+        <location filename="../src/MainWindow.cpp" line="1415"/>
         <source>Toggle distraction free mode</source>
         <translation>Přepnout nerozptylující režim</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1393"/>
+        <location filename="../src/MainWindow.cpp" line="1423"/>
         <source>Toggle full screen mode</source>
         <translation>Přepnout režim na celou obrazovku</translation>
     </message>
@@ -1070,17 +1079,17 @@
 <context>
     <name>MarkdownEditor</name>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="122"/>
+        <location filename="../src/MarkdownEditor.cpp" line="130"/>
         <source>Add word to dictionary</source>
         <translation>Přidat slovo do slovníku</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="123"/>
+        <location filename="../src/MarkdownEditor.cpp" line="131"/>
         <source>Check spelling...</source>
         <translation>Ověření pravopisu...</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="597"/>
+        <location filename="../src/MarkdownEditor.cpp" line="641"/>
         <source>No spelling suggestions found</source>
         <translation>Nenalezeny žádné návrhy na správné psaní</translation>
     </message>
@@ -1496,17 +1505,17 @@
         <translation>Písmová rodina</translation>
     </message>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="72"/>
+        <location filename="../src/SimpleFontDialog.cpp" line="96"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="75"/>
+        <location filename="../src/SimpleFontDialog.cpp" line="99"/>
         <source>AaBbCcXxYyZz</source>
         <translation>AaBbCcXxYyZz</translation>
     </message>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="79"/>
+        <location filename="../src/SimpleFontDialog.cpp" line="103"/>
         <source>Preview</source>
         <translation>Náhled</translation>
     </message>
