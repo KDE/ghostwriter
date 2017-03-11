@@ -1908,14 +1908,14 @@ void MainWindow::applyTheme()
            << "font-size: "
            << hudFontSize
            << "pt } "
-           << "QScrollBar::horizontal { border: 0; background: transparent; height: 10px; margin: 0 } "
+           << "QScrollBar::horizontal { border: 0; background: transparent; height: 8px; margin: 0 } "
            << "QScrollBar::handle:horizontal { border: 0; background: "
            << hudFgString
-           << "; min-width: 20px; border-radius: 5px; } "
-           << "QScrollBar::vertical { border: 0; background: transparent; width: 10px; margin: 0 } "
+           << "; min-width: 20px; border-radius: 4px; } "
+           << "QScrollBar::vertical { border: 0; background: transparent; width: 8px; margin: 0 } "
            << "QScrollBar::handle:vertical { border: 0; background: "
            << hudFgString
-           << "; min-height: 20px; border-radius: 5px;} "
+           << "; min-height: 20px; border-radius: 4px;} "
            << "QScrollBar::add-line { background: transparent; border: 0 } "
            << "QScrollBar::sub-line { background: transparent; border: 0 } "
            << "QAbstractScrollArea::corner { background: transparent } "
