@@ -1,7 +1,7 @@
 /***********************************************************************
  *
  * Copyright (C) 2009, 2010, 2011, 2012, 2013 Graeme Gott <graeme@gottcode.org>
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -168,7 +168,23 @@ QStringRef DictionaryHunspell::check(const QString& string, int start_at) const
 
             if (inWord)
             {
-                if (separatorCount > 1)
+                // Only count dashes (`-`), periods (`.`) and single
+                // quotation marks (`'`) as separators that can be
+                // used inside a single word.
+                //
+                if
+                (
+                    (1 == separatorCount) &&
+                    (QChar('-') != c) &&
+                    (QChar('.') != c) &&
+                    (QChar('\'') != c)
+                )
+                {
+                    separatorCount = 0;
+                    inWord = false;
+                    isWord = true;
+                }
+                else if (separatorCount > 1)
                 {
                     separatorCount = 0;
                     inWord = false;
