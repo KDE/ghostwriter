@@ -714,8 +714,10 @@ void MarkdownEditor::wheelEvent(QWheelEvent *e)
         setFont(this->font().family(), fontSize);
         emit fontSizeChanged(fontSize);
     }
-
-    QPlainTextEdit::wheelEvent(e);
+    else
+    {
+        QPlainTextEdit::wheelEvent(e);
+    }
 }
 
 void MarkdownEditor::navigateDocument(const int pos)
