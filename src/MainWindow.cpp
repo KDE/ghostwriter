@@ -191,6 +191,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setEditorWidth((EditorWidth) appSettings->getEditorWidth());
     connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
     connect(editor, SIGNAL(cursorPositionChanged(int)), outlineWidget, SLOT(updateCurrentNavigationHeading(int)));
+    connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
 
     // We need to set an empty style for the editor's scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
@@ -1179,6 +1180,13 @@ void MainWindow::changeFont()
         editor->setFont(font.family(), font.pointSize());
         appSettings->setFont(font);
     }
+}
+
+void MainWindow::onFontSizeChanged(int size)
+{
+    QFont font = editor->font();
+    font.setPointSize(size);
+    appSettings->setFont(font);
 }
 
 void MainWindow::onSetLocale()

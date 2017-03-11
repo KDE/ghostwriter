@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,6 +45,7 @@ SimpleFontDialog::SimpleFontDialog(const QFont& initial, QWidget* parent)
     familyLayout->addWidget(fontComboBox);
 
     QList<int> sizes = QFontDatabase::standardSizes();
+
     QComboBox* sizeComboBox = new QComboBox(this);
     sizeComboBox->setEditable(true);
 
@@ -53,17 +54,40 @@ SimpleFontDialog::SimpleFontDialog(const QFont& initial, QWidget* parent)
 
     int currentSizeIndex = 0;
     QFontInfo fontInfo(initial);
+    bool currentFontInserted = false;
 
     for (int i = 0; i < sizes.size(); i++)
     {
         int size = sizes[i];
 
-        sizeComboBox->addItem(QString("%1").arg(size), size);
-
-        if (fontInfo.pointSize() == size)
+        // If the current font size is a non-standard size, then insert
+        // it in the appropriate place in the sorted list of fonts.
+        //
+        if ((fontInfo.pointSize() < size) && !currentFontInserted)
         {
             currentSizeIndex = i;
+            sizeComboBox->addItem(QString("%1").arg(fontInfo.pointSize()), fontInfo.pointSize());
+            currentFontInserted = true;
         }
+        // Else current font size is in the standard font sizes list.  Set
+        // the index in the combo box to its position in the list.
+        //
+        else
+        {
+            if (fontInfo.pointSize() == size)
+            {
+                currentSizeIndex = i;
+                currentFontInserted = true;
+            }
+        }
+
+        sizeComboBox->addItem(QString("%1").arg(size), size);
+    }
+
+    if (!currentFontInserted)
+    {
+        sizeComboBox->addItem(QString("%1").arg(fontInfo.pointSize()), fontInfo.pointSize());
+        currentSizeIndex = sizeComboBox->count() - 1;
     }
 
     sizeComboBox->setCurrentIndex(currentSizeIndex);

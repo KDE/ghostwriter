@@ -687,6 +687,37 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
     }
 }
 
+void MarkdownEditor::wheelEvent(QWheelEvent *e)
+{
+    Qt::KeyboardModifiers modifier = e->modifiers(); // QApplication::keyboardModifiers();
+    QPoint numDegrees = e->angleDelta();
+
+    if ((Qt::ControlModifier == modifier) && (!numDegrees.isNull()))
+    {
+        int fontSize = this->font().pointSize();
+
+        if (numDegrees.y() > 0)
+        {
+            fontSize += 1;
+        }
+        else
+        {
+            fontSize -= 1;
+        }
+
+        // check for negative value
+        if (fontSize <= 0)
+        {
+            fontSize = 1;
+        }
+
+        setFont(this->font().family(), fontSize);
+        emit fontSizeChanged(fontSize);
+    }
+
+    QPlainTextEdit::wheelEvent(e);
+}
+
 void MarkdownEditor::navigateDocument(const int pos)
 {
     QTextCursor cursor = this->textCursor();

@@ -160,6 +160,7 @@ class MarkdownEditor : public QPlainTextEdit
         void dropEvent(QDropEvent* e);
         void keyPressEvent(QKeyEvent *e);
         bool eventFilter(QObject* watched, QEvent* event);
+        void wheelEvent(QWheelEvent* e);
 
     signals:
         /**
@@ -195,6 +196,12 @@ class MarkdownEditor : public QPlainTextEdit
          * selected in the editor).
          */
         void textDeselected();
+
+        /**
+         * Emitted when the user uses CTRL + mouse scroll wheel to zoom in
+         * and out, changing the font size.
+         */
+        void fontSizeChanged(int size);
 
     public slots:
         /**
