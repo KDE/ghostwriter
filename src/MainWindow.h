@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -108,6 +108,7 @@ class MainWindow : public QMainWindow
         void onOperationStarted(const QString& description);
         void onOperationFinished();
         void changeFont();
+        void onFontSizeChanged(int size);
         void onSetLocale();
         void changeHudOpacity(int value);
 

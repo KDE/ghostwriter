@@ -689,23 +689,30 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
 
 void MarkdownEditor::wheelEvent(QWheelEvent *e)
 {
-    Qt::KeyboardModifiers modifier = QApplication::keyboardModifiers();
+    Qt::KeyboardModifiers modifier = e->modifiers(); // QApplication::keyboardModifiers();
     QPoint numDegrees = e->angleDelta();
 
-    if(modifier == Qt::ControlModifier && (!numDegrees.isNull()))
+    if ((Qt::ControlModifier == modifier) && (!numDegrees.isNull()))
     {
-        int fontSize = QPlainTextEdit::font().pointSize();
+        int fontSize = this->font().pointSize();
 
-        if(numDegrees.y() > 0)
+        if (numDegrees.y() > 0)
+        {
             fontSize += 1;
+        }
         else
+        {
             fontSize -= 1;
+        }
 
         // check for negative value
-        if(fontSize <= 0 )
+        if (fontSize <= 0)
+        {
             fontSize = 1;
+        }
 
-        setFont(QPlainTextEdit::font().family(), fontSize);
+        setFont(this->font().family(), fontSize);
+        emit fontSizeChanged(fontSize);
     }
 
     QPlainTextEdit::wheelEvent(e);

@@ -197,6 +197,12 @@ class MarkdownEditor : public QPlainTextEdit
          */
         void textDeselected();
 
+        /**
+         * Emitted when the user uses CTRL + mouse scroll wheel to zoom in
+         * and out, changing the font size.
+         */
+        void fontSizeChanged(int size);
+
     public slots:
         /**
          * Sets the cursor position in the editor to the given position.
