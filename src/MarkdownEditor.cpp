@@ -47,6 +47,7 @@
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
 
+#define GW_TEXT_FADE_FACTOR 1.5
 
 MarkdownEditor::MarkdownEditor
 (
@@ -153,7 +154,7 @@ MarkdownEditor::MarkdownEditor
     );
 
     fadeEffect = new GraphicsFadeEffect(this);
-    fadeEffect->setFadeHeight(this->fontMetrics().height());
+    fadeEffect->setFadeHeight(this->fontMetrics().height() * GW_TEXT_FADE_FACTOR);
     viewport()->setGraphicsEffect(fadeEffect);
     
     textCursorVisible = true;
@@ -274,7 +275,7 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     highlighter->setFont(family, pointSize);
     setTabulationWidth(tabWidth);
 
-    fadeEffect->setFadeHeight(this->fontMetrics().height());
+    fadeEffect->setFadeHeight(this->fontMetrics().height() * GW_TEXT_FADE_FACTOR);
 }
 
 void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
