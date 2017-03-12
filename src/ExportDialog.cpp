@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -253,6 +253,10 @@ void ExportDialog::accept()
                 if (!err.isNull())
                 {
                     MessageBoxHelper::critical(this, tr("Export failed."), err);
+                }
+                else
+                {
+                    QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
                 }
 
                 break;
