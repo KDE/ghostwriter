@@ -12,6 +12,7 @@ Translations
 * Japanese - piyo-gh
 * German - dhbwmawhd
 * Czech - Pavel Fric (pafri)
+* French - pygoliae
 
 Libraries
 =========
