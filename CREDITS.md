@@ -6,7 +6,7 @@ Developers
 Translations
 ============
 
-* Russian - suhr
+* Russian - suhr, Dmitriy Belyaev (dbelyaev)
 * Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
 * Italian - Tristano Ajmone (tajmone)
 * Japanese - piyo-gh
