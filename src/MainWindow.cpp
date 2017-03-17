@@ -1564,7 +1564,7 @@ void MainWindow::applyTheme()
         )
         {
             buttonFgColor = theme.getDefaultTextColor();
-            buttonFgColor.setAlpha(150);
+            buttonFgColor.setAlpha(130);
 
             buttonFgColor =
                 ColorHelper::applyAlpha
