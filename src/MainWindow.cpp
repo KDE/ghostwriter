@@ -58,7 +58,6 @@
 #include "ColorHelper.h"
 #include "HudWindow.h"
 #include "ThemeSelectionDialog.h"
-#include "MarkdownHighlighter.h"
 #include "DocumentManager.h"
 #include "DocumentHistory.h"
 #include "Outline.h"
@@ -174,13 +173,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     TextDocument* document = new TextDocument();
 
-    highlighter = new MarkdownHighlighter(document);
-    highlighter->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
-    highlighter->setBlockquoteStyle(appSettings->getBlockquoteStyle());
-    connect(highlighter, SIGNAL(headingFound(int,QString,QTextBlock)), outlineWidget, SLOT(insertHeadingIntoOutline(int,QString,QTextBlock)));
-    connect(highlighter, SIGNAL(headingRemoved(int)), outlineWidget, SLOT(removeHeadingFromOutline(int)));
-
-    editor = new MarkdownEditor(document, highlighter, this);
+    editor = new MarkdownEditor(document, this);
     editor->setFont(appSettings->getFont().family(), appSettings->getFont().pointSize());
     editor->setUseUnderlineForEmphasis(appSettings->getUseUnderlineForEmphasis());
     editor->setHighlightLineBreaks(appSettings->getHighlightLineBreaks());
@@ -189,9 +182,13 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setBulletPointCyclingEnabled(appSettings->getBulletPointCyclingEnabled());
     editor->setPlainText("");
     editor->setEditorWidth((EditorWidth) appSettings->getEditorWidth());
+    editor->setBlockquoteStyle(appSettings->getBlockquoteStyle());
+    editor->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
     connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
     connect(editor, SIGNAL(cursorPositionChanged(int)), outlineWidget, SLOT(updateCurrentNavigationHeading(int)));
     connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
+    connect(editor, SIGNAL(headingFound(int,QString,QTextBlock)), outlineWidget, SLOT(insertHeadingIntoOutline(int,QString,QTextBlock)));
+    connect(editor, SIGNAL(headingRemoved(int)), outlineWidget, SLOT(removeHeadingFromOutline(int)));
 
     // We need to set an empty style for the editor's scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
@@ -372,12 +369,12 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), editor, SLOT(setDictionary(QString)));
     connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), editor, SLOT(setSpellCheckEnabled(bool)));
     connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
-    connect(appSettings, SIGNAL(blockquoteStyleChanged(BlockquoteStyle)), highlighter, SLOT(setBlockquoteStyle(BlockquoteStyle)));
+    connect(appSettings, SIGNAL(blockquoteStyleChanged(BlockquoteStyle)), editor, SLOT(setBlockquoteStyle(BlockquoteStyle)));
     connect(appSettings, SIGNAL(hudButtonLayoutChanged(HudWindowButtonLayout)), this, SLOT(changeHudButtonLayout(HudWindowButtonLayout)));
     connect(appSettings, SIGNAL(alternateHudRowColorsChanged(bool)), this, SLOT(toggleOutlineAlternateRowColors(bool)));
     connect(appSettings, SIGNAL(desktopCompositingChanged(bool)), this, SLOT(toggleDesktopCompositingEffects(bool)));
     connect(appSettings, SIGNAL(hudOpacityChanged(int)), this, SLOT(changeHudOpacity(int)));
-    connect(appSettings, SIGNAL(highlightLineBreaksChanged(bool)), highlighter, SLOT(setHighlightLineBreaks(bool)));
+    connect(appSettings, SIGNAL(highlightLineBreaksChanged(bool)), editor, SLOT(setHighlightLineBreaks(bool)));
 
     if (this->isFullScreen())
     {

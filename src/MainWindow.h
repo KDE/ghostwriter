@@ -48,7 +48,6 @@ class QTextBrowser;
 class QCheckBox;
 class QListWidget;
 class DocumentManager;
-class MarkdownHighlighter;
 class Outline;
 class DocumentStatistics;
 class DocumentStatisticsWidget;
@@ -114,7 +113,6 @@ class MainWindow : public QMainWindow
 
 	private:
         MarkdownEditor* editor;
-        MarkdownHighlighter* highlighter;
         DocumentManager* documentManager;
         ThemeFactory* themeFactory;
         Theme theme;

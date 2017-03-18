@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,12 +27,13 @@
 #include "MarkdownStyles.h"
 #include "Token.h"
 #include "TextDocument.h"
+#include "MarkdownEditor.h"
 
 class QColor;
 class QRegExp;
 class QString;
 class QTextCharFormat;
-class QTextDocument;
+class MarkdownEditor;
 
 /**
  * Highlighter for the Markdown text format.
@@ -43,10 +44,10 @@ class MarkdownHighlighter : public QSyntaxHighlighter
 
 	public:
         /**
-         * Constructor.  Takes as a parameter the text document that is to
-         * be highlighted.
+         * Constructor.  Takes as a parameter the Markdown editor whose
+         * TextDocument is to be highlighted.
          */
-        MarkdownHighlighter(TextDocument* document);
+        MarkdownHighlighter(MarkdownEditor* editor);
 
         /**
          * Destructor.
@@ -106,6 +107,16 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void setSpellCheckEnabled(const bool enabled);
 
+        /**
+         * Sets the blockquote style.
+         */
+        void setBlockquoteStyle(const BlockquoteStyle style);
+
+        /**
+         * Sets whether manual linebreaks (2 spaces at the end of a line) will be highlighted
+         */
+        void setHighlightLineBreaks(bool enable);
+
     signals:
         /**
          * Notifies listeners that a heading was found in the document in the
@@ -135,14 +146,6 @@ class MarkdownHighlighter : public QSyntaxHighlighter
 
     public slots:
         /**
-         * Connect to this slot to signal when the the cursor position
-         * in the text editor changes.  The cursor position is used
-         * during spell checking, so that the current word being typed
-         * isn't spell checked with the rest of the text.
-         */
-        void onCursorPositionChanged(int position);
-
-        /**
          * Signalled by a text editor when the user has resumed typing.
          * This signal is used to ensure spell checking is not performed
          * for the current word the cursor is on while the user is still
@@ -158,16 +161,6 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void onTypingPaused();
 
-        /**
-         * Sets the blockquote style.
-         */
-        void setBlockquoteStyle(const BlockquoteStyle style);
-
-        /**
-         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
-         */
-        void setHighlightLineBreaks(bool enable);
-
     private slots:
         /*
          * Highlights the text block at the given cursor position of the
@@ -182,9 +175,9 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         void onTextBlockRemoved(const QTextBlock& block);
 
     private:
+        MarkdownEditor* editor;
         MarkdownTokenizer* tokenizer;
         DictionaryRef dictionary;
-        int cursorPosition;
         bool spellCheckEnabled;
         bool typingPaused;
         bool useUndlerlineForEmphasis;

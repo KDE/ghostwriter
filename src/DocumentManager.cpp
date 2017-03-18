@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,6 @@
 #include "MarkdownEditor.h"
 #include "Exporter.h"
 #include "ExporterFactory.h"
-#include "MarkdownHighlighter.h"
 #include "MarkdownTokenizer.h"
 #include "ExportDialog.h"
 #include "MessageBoxHelper.h"
@@ -524,10 +523,10 @@ void DocumentManager::printFileToPrinter(QPrinter* printer)
 {
     QString text = editor->document()->toPlainText();
     TextDocument doc(text);
+    MarkdownEditor e(&doc);
 
-    MarkdownHighlighter h(&doc);
     Theme printerTheme = ThemeFactory::getInstance()->getPrinterFriendlyTheme();
-    h.setColorScheme
+    e.setColorScheme
     (
         printerTheme.getDefaultTextColor(),
         printerTheme.getBackgroundColor(),
@@ -535,8 +534,8 @@ void DocumentManager::printFileToPrinter(QPrinter* printer)
         printerTheme.getLinkColor(),
         printerTheme.getSpellingErrorColor()
     );
-    h.setSpellCheckEnabled(false);
-    h.setFont(editor->font().family(), editor->font().pointSizeF());
+    e.setSpellCheckEnabled(false);
+    e.setFont(editor->font().family(), editor->font().pointSizeF());
     doc.print(printer);
 }
 

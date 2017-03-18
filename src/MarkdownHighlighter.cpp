@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,10 +44,11 @@
 
 #define GW_FADE_ALPHA 140
 
-MarkdownHighlighter::MarkdownHighlighter(TextDocument* document)
-    : QSyntaxHighlighter(document), tokenizer(NULL),
+MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
+    : QSyntaxHighlighter(editor),
+      editor(editor),
+        tokenizer(NULL),
         dictionary(DictionaryManager::instance().requestDictionary()),
-        cursorPosition(0),
         spellCheckEnabled(false),
         typingPaused(true),
         useUndlerlineForEmphasis(false),
@@ -59,6 +60,13 @@ MarkdownHighlighter::MarkdownHighlighter(TextDocument* document)
         linkColor(Qt::blue),
         spellingErrorColor(Qt::red)
 {
+    setDocument(editor->document());
+
+    connect(editor, SIGNAL(typingResumed()), this, SLOT(onTypingResumed()));
+    connect(editor, SIGNAL(typingPaused()), this, SLOT(onTypingPaused()));
+    connect(this, SIGNAL(headingFound(int,QString,QTextBlock)), editor, SIGNAL(headingFound(int,QString,QTextBlock)));
+    connect(this, SIGNAL(headingRemoved(int)), editor, SIGNAL(headingRemoved(int)));
+
     this->tokenizer = new MarkdownTokenizer();
 
     connect
@@ -70,7 +78,7 @@ MarkdownHighlighter::MarkdownHighlighter(TextDocument* document)
         Qt::QueuedConnection
     );
 
-    connect(document, SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
+    connect(editor->document(), SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
     
     QFont font;
     font.setFamily("Monospace");
@@ -306,25 +314,6 @@ void MarkdownHighlighter::setSpellCheckEnabled(const bool enabled)
     rehighlight();
 }
 
-void MarkdownHighlighter::onCursorPositionChanged(int position)
-{
-    int oldPosition = cursorPosition;
-    cursorPosition = position;
-
-    if (spellCheckEnabled)
-    {
-        QTextBlock oldBlock = document()->findBlock(oldPosition);
-        QTextBlock newBlock = document()->findBlock(cursorPosition);
-
-        if (oldBlock != newBlock)
-        {
-            rehighlightBlock(oldBlock);
-        }
-
-        rehighlightBlock(newBlock);
-    }
-}
-
 void MarkdownHighlighter::onTypingResumed()
 {
     typingPaused = false;
@@ -333,7 +322,7 @@ void MarkdownHighlighter::onTypingResumed()
 void MarkdownHighlighter::onTypingPaused()
 {
     typingPaused = true;
-    QTextBlock block = document()->findBlock(cursorPosition);
+    QTextBlock block = document()->findBlock(editor->textCursor().position());
     rehighlightBlock(block);
 }
 
@@ -376,6 +365,7 @@ void MarkdownHighlighter::onTextBlockRemoved(const QTextBlock& block)
 
 void MarkdownHighlighter::spellCheck(const QString& text)
 {
+    int cursorPosition = editor->textCursor().position();
     QTextBlock cursorPosBlock = this->document()->findBlock(cursorPosition);
     int cursorPosInBlock = -1;
 

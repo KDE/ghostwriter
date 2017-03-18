@@ -33,12 +33,13 @@
 
 #include "GraphicsFadeEffect.h"
 #include "MarkdownEditorTypes.h"
-#include "MarkdownHighlighter.h"
+#include "MarkdownStyles.h"
 #include "TextDocument.h"
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 
+class MarkdownHighlighter;
 
 /**
  * Markdown editor having special shortcut key handing and live spell checking.
@@ -54,7 +55,6 @@ class MarkdownEditor : public QPlainTextEdit
         MarkdownEditor
         (
             TextDocument* textDocument,
-            MarkdownHighlighter* highlighter,
             QWidget* parent = 0
         );
 
@@ -163,6 +163,18 @@ class MarkdownEditor : public QPlainTextEdit
         void wheelEvent(QWheelEvent* e);
 
     signals:
+        /**
+         * Notifies listeners that a heading was found in the document in the
+         * given QTextBlock and with the given level and heading text.
+         */
+        void headingFound(int level, const QString& text, QTextBlock block);
+
+        /**
+         * Notifies listeners that a heading was discovered to have been removed
+         * from the document at the given cursor position.
+         */
+        void headingRemoved(int position);
+
         /**
          * Emitted when the user has resumed typing text.
          */
@@ -296,7 +308,12 @@ class MarkdownEditor : public QPlainTextEdit
         void setEnableLargeHeadingSizes(bool enable);
 
         /**
-         * Sets wheter manual linebreaks (2 spaces at the end of a line) will be highlighted
+         * Sets the blockquote style.
+         */
+        void setBlockquoteStyle(const BlockquoteStyle style);
+
+        /**
+         * Sets whether manual linebreaks (2 spaces at the end of a line) will be highlighted
          */
         void setHighlightLineBreaks(bool enable);
 
@@ -423,6 +440,7 @@ class MarkdownEditor : public QPlainTextEdit
         void insertFormattingMarkup(const QString& markup);
         QString getPriorIndentation();
         QString getPriorMarkdownBlockItemStart(QRegExp& itemRegex);
+        void checkSpelling(const QString& text);
 
 };
 

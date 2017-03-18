@@ -23,7 +23,6 @@
 #include <QString>
 #include <QMimeData>
 #include <QScrollBar>
-#include <QSyntaxHighlighter>
 #include <QTextBoundaryFinder>
 #include <QHeaderView>
 #include <QMenu>
@@ -43,6 +42,7 @@
 #include "MarkdownEditor.h"
 #include "MarkdownStates.h"
 #include "MarkdownTokenizer.h"
+#include "MarkdownHighlighter.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 #include "spelling/spell_checker.h"
@@ -52,18 +52,20 @@
 MarkdownEditor::MarkdownEditor
 (
     TextDocument* textDocument,
-    MarkdownHighlighter* highlighter,
     QWidget* parent
 )
     : QPlainTextEdit(parent),
         textDocument(textDocument),
-        highlighter(highlighter),
         dictionary(DictionaryManager::instance().requestDictionary()),
         autoMatchEnabled(true),
         bulletPointCyclingEnabled(true),
         mouseButtonDown(false)
 {
     setDocument(textDocument);
+
+    highlighter = new MarkdownHighlighter(this);
+
+
     setAcceptDrops(true);
 
     preferredLayout = new QGridLayout();
@@ -122,11 +124,8 @@ MarkdownEditor::MarkdownEditor
     nonEmptyMarkupPairs.insert('<', '>');
 
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
-    connect(this, SIGNAL(cursorPositionChanged(int)), highlighter, SLOT(onCursorPositionChanged(int)));
     connect(this->document(), SIGNAL(contentsChange(int,int,int)), this, SLOT(onContentsChanged(int,int,int)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
-    connect(this, SIGNAL(typingResumed()), highlighter, SLOT(onTypingResumed()));
-    connect(this, SIGNAL(typingPaused()), highlighter, SLOT(onTypingPaused()));
 
     addWordToDictionaryAction = new QAction(tr("Add word to dictionary"), this);
     checkSpellingAction = new QAction(tr("Check spelling..."), this);
@@ -1150,6 +1149,11 @@ bool MarkdownEditor::toggleTaskComplete()
 void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
 {
     highlighter->setEnableLargeHeadingSizes(enable);
+}
+
+void MarkdownEditor::setBlockquoteStyle(const BlockquoteStyle style)
+{
+    highlighter->setBlockquoteStyle(style);
 }
 
 void MarkdownEditor::setHighlightLineBreaks(bool enable)
