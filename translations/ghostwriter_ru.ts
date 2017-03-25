@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<TS version="2.0" language="ru_RU">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -33,7 +33,7 @@
     <name>DictionaryDialog</name>
     <message>
         <source>Set Dictionary</source>
-        <translation type="vanished">Выбрать словарь</translation>
+        <translation>Выбрать словарь</translation>
     </message>
 </context>
 <context>
@@ -401,7 +401,7 @@
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
-        <translation type="vanished">Добавить/удалить собственные таблицы стилей...</translation>
+        <translation>Добавить/удалить собственные таблицы стилей...</translation>
     </message>
 </context>
 <context>
@@ -561,15 +561,15 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished"></translation>
+        <translation>Пере&amp;чёркнуто</translation>
     </message>
     <message>
         <source>Tabulation Width</source>
-        <translation type="vanished">Ширина табуляции</translation>
+        <translation>Ширина табуляции</translation>
     </message>
     <message>
         <source>Spaces</source>
-        <translation type="vanished">Пробелы</translation>
+        <translation>Пробелы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="934"/>
@@ -769,10 +769,6 @@
         <translation>&amp;Курсив</translation>
     </message>
     <message>
-        <source>Stri&amp;kthrough</source>
-        <translation type="vanished">Пере&amp;чёркнуто</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>&amp;HTML Comment</source>
         <translation>Комментарий &amp;HTML</translation>
@@ -892,138 +888,9 @@
         <translation>Параметры...</translation>
     </message>
     <message>
-        <source>Focus Mode</source>
-        <translatorcomment>Назовём пока так. Есть варианты получше?</translatorcomment>
-        <translation type="vanished">Режим фокусировки</translation>
-    </message>
-    <message>
-        <source>Sentence</source>
-        <translation type="vanished">Предложение</translation>
-    </message>
-    <message>
-        <source>Current Line</source>
-        <translation type="vanished">Строка</translation>
-    </message>
-    <message>
-        <source>Three Lines</source>
-        <translation type="vanished">Три строки</translation>
-    </message>
-    <message>
-        <source>Paragraph</source>
-        <translation type="vanished">Абзац</translation>
-    </message>
-    <message>
-        <source>Editor Width</source>
-        <translation type="vanished">Ширина редактора</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation type="vanished">Узко</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="vanished">Средне</translation>
-    </message>
-    <message>
-        <source>Wide</source>
-        <translation type="vanished">Широко</translation>
-    </message>
-    <message>
-        <source>Full</source>
-        <translation type="vanished">Во всю ширину</translation>
-    </message>
-    <message>
-        <source>Blockquote Style</source>
-        <translation type="vanished">Стиль цитат</translation>
-    </message>
-    <message>
-        <source>Plain</source>
-        <translation type="vanished">Просто</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="vanished">Курсив</translation>
-    </message>
-    <message>
-        <source>Fancy</source>
-        <translation type="vanished">Вычурно</translation>
-    </message>
-    <message>
-        <source>Hide menu bar in full screen mode</source>
-        <translation type="vanished">Скрывать меню в полноэкранном режиме</translation>
-    </message>
-    <message>
-        <source>Use Large Headings</source>
-        <translation type="vanished">Использовать большие заголовки</translation>
-    </message>
-    <message>
-        <source>Use Underline Instead of Italics for Emphasis</source>
-        <translation type="vanished">Подчёркивание вместо курсива для выделения</translation>
-    </message>
-    <message>
-        <source>Automatically Match Characters while Typing</source>
-        <translation type="vanished">Автоматически дополнять символы при наборе</translation>
-    </message>
-    <message>
-        <source>Customize Matched Characters...</source>
-        <translation type="obsolete">Настроить дополняемые символы...</translation>
-    </message>
-    <message>
-        <source>Display Current Time in Full Screen Mode</source>
-        <translation type="vanished">Показывать время в полноэкранном режиме</translation>
-    </message>
-    <message>
-        <source>Live Spellcheck Enabled</source>
-        <translation type="vanished">Проверять орфографию на лету</translation>
-    </message>
-    <message>
-        <source>Dictionaries...</source>
-        <translation type="vanished">Словари...</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Application Language...</source>
         <translation>Язык приложения...</translation>
-    </message>
-    <message>
-        <source>Remember File History</source>
-        <translation type="vanished">Запоминать историю файла</translation>
-    </message>
-    <message>
-        <source>Auto Save</source>
-        <translation type="vanished">Автосохранение</translation>
-    </message>
-    <message>
-        <source>Backup File on Save</source>
-        <translation type="vanished">Создавать резервную копию при сохранении</translation>
-    </message>
-    <message>
-        <source>Insert Spaces for Tabs</source>
-        <translation type="vanished">Вставлять пробелы вместо табуляции</translation>
-    </message>
-    <message>
-        <source>Tabulation Width...</source>
-        <translation type="vanished">Ширина табуляции...</translation>
-    </message>
-    <message>
-        <source>Alternate Row Colors in HUD Windows</source>
-        <translation type="obsolete">Чередовать цвета строк в плавающих окнах</translation>
-    </message>
-    <message>
-        <source>HUD Window Button Layout</source>
-        <translation type="obsolete">Расположение кнопок в плавающем окне</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="obsolete">Слева</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="obsolete">Справа</translation>
-    </message>
-    <message>
-        <source>HUD Window Opacity...</source>
-        <translation type="obsolete">Прозрачность плавающих окон...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>

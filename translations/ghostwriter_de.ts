@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -33,7 +33,7 @@
     <name>DictionaryDialog</name>
     <message>
         <source>Set Dictionary</source>
-        <translation type="vanished">Wähle Wörterbuch</translation>
+        <translation>Wähle Wörterbuch</translation>
     </message>
 </context>
 <context>
@@ -398,7 +398,7 @@
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
-        <translation type="vanished">Hinzufügen / Löschen von eigenen Stilen...</translation>
+        <translation>Hinzufügen / Löschen von eigenen Stilen...</translation>
     </message>
 </context>
 <context>
@@ -551,11 +551,11 @@
     </message>
     <message>
         <source>Tabulation Width</source>
-        <translation type="vanished">Breite der Einrückung</translation>
+        <translation>Breite der Einrückung</translation>
     </message>
     <message>
         <source>Spaces</source>
-        <translation type="vanished">Leerzeichen</translation>
+        <translation>Leerzeichen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="934"/>
@@ -584,11 +584,11 @@
     </message>
     <message>
         <source>Hud Window Opacity</source>
-        <translation type="vanished">HUD Fenster Deckkraft</translation>
+        <translation>HUD Fenster Deckkraft</translation>
     </message>
     <message>
         <source>Matched Characters</source>
-        <translation type="vanished">Übereinstimmende Zeichen</translation>
+        <translation>Übereinstimmende Zeichen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1266"/>
@@ -761,11 +761,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Stri&amp;kthrough</source>
-        <translation type="vanished">Durchgestrichen</translation>
+        <translation>Durchgestrichen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
@@ -883,145 +879,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Focus Mode</source>
-        <translation type="vanished">Fokus Modus</translation>
-    </message>
-    <message>
-        <source>Sentence</source>
-        <translation type="vanished">Satz</translation>
-    </message>
-    <message>
-        <source>Current Line</source>
-        <translation type="vanished">Aktuelle Zeile</translation>
-    </message>
-    <message>
-        <source>Three Lines</source>
-        <translation type="vanished">Drei Zeilen</translation>
-    </message>
-    <message>
-        <source>Paragraph</source>
-        <translation type="vanished">Absatz</translation>
-    </message>
-    <message>
-        <source>Editor Width</source>
-        <translation type="vanished">Editor Breite</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation type="vanished">Eng</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="vanished">Mittel</translation>
-    </message>
-    <message>
-        <source>Wide</source>
-        <translation type="vanished">Breit</translation>
-    </message>
-    <message>
-        <source>Full</source>
-        <translation type="vanished">Voll</translation>
-    </message>
-    <message>
-        <source>Blockquote Style</source>
-        <translation type="vanished">Blockzitat Stil</translation>
-    </message>
-    <message>
-        <source>Plain</source>
-        <translation type="vanished">Schlicht</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="vanished">Kursiv</translation>
-    </message>
-    <message>
-        <source>Fancy</source>
-        <translation type="vanished">Extravagant</translation>
-    </message>
-    <message>
-        <source>Hide menu bar in full screen mode</source>
-        <translation type="vanished">Menüleiste im Vollbildmodus verstecken</translation>
-    </message>
-    <message>
-        <source>Use Large Headings</source>
-        <translation type="vanished">Große Überschriften verwenden</translation>
-    </message>
-    <message>
-        <source>Use Underline Instead of Italics for Emphasis</source>
-        <translation type="vanished">Benutze Unterstrich statt Kursivschrift zur Hervorhebung</translation>
-    </message>
-    <message>
-        <source>Automatically Match Characters while Typing</source>
-        <translation type="vanished">Zeichen automatisch beim Tippen gruppieren</translation>
-    </message>
-    <message>
-        <source>Customize Matched Characters...</source>
-        <translation type="vanished">Gruppierte Zeichen anpassen...</translation>
-    </message>
-    <message>
-        <source>Cycle Bullet Point Markers</source>
-        <translation type="vanished">Aufzählungszeichen abwechseln</translation>
-    </message>
-    <message>
-        <source>Display Current Time in Full Screen Mode</source>
-        <translation type="vanished">Aktuelle Zeit im Vollbild Modus anzeigen</translation>
-    </message>
-    <message>
-        <source>Live Spellcheck Enabled</source>
-        <translation type="vanished">Live Rechtschreibprüfung aktiviert</translation>
-    </message>
-    <message>
-        <source>Dictionaries...</source>
-        <translation type="vanished">Wörterbücher</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Application Language...</source>
         <translation>Programmsprache...</translation>
     </message>
     <message>
         <source>Remember File History</source>
-        <translation type="vanished">Geöffnete Dateien merken</translation>
-    </message>
-    <message>
-        <source>Auto Save</source>
-        <translation type="vanished">Automatisch speichern</translation>
-    </message>
-    <message>
-        <source>Backup File on Save</source>
-        <translation type="vanished">Beim Speichern ein Backup machen</translation>
-    </message>
-    <message>
-        <source>Insert Spaces for Tabs</source>
-        <translation type="vanished">Leerzeichen statt Tabulatoren verwenden</translation>
-    </message>
-    <message>
-        <source>Tabulation Width...</source>
-        <translation type="vanished">Tabulatorbreite...</translation>
-    </message>
-    <message>
-        <source>Alternate Row Colors in HUD Windows</source>
-        <translation type="vanished">Zeilenfarben im HUD Fenster abwechseln</translation>
-    </message>
-    <message>
-        <source>HUD Window Button Layout</source>
-        <translation type="vanished">Layout der Knöpfe im HUD Fenster</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">Links</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">Rechts</translation>
-    </message>
-    <message>
-        <source>Enable Desktop Compositing Effects</source>
-        <translation type="vanished">Effekte für die Generierung aktivieren</translation>
-    </message>
-    <message>
-        <source>HUD Window Opacity...</source>
-        <translation type="vanished">HUD Fenster Deckkraft</translation>
+        <translation>Geöffnete Dateien merken</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
@@ -1132,7 +996,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aktuelle Zeit im Vollbild Modus anzeigen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
@@ -1147,12 +1011,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Automatisch speichern</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Beim Speichern ein Backup machen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
@@ -1162,7 +1026,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Geöffnete Dateien merken</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
@@ -1172,12 +1036,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Leerzeichen statt Tabulatoren verwenden</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tabulatorbreite</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
@@ -1207,7 +1071,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fokus Modus</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
@@ -1232,7 +1096,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Editor Breite</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
@@ -1253,7 +1117,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Blockzitat Stil</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
@@ -1263,12 +1127,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="316"/>
         <source>Emphasis style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hervorhebung Stil</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Große Überschriften verwenden</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
@@ -1283,22 +1147,22 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aufzählungszeichen abwechseln</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zeichen automatisch beim Tippen gruppieren</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gruppierte Zeichen anpassen...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Live Rechtschreibprüfung aktiviert</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
@@ -1308,7 +1172,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wörterbücher</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
@@ -1323,22 +1187,22 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Layout der Knöpfe im HUD Fenster</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zeilenfarben im HUD Fenster abwechseln</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Effekte für die Generierung aktivieren</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HUD Fenster Deckkraft</translation>
     </message>
 </context>
 <context>

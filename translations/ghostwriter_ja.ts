@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ja_JP">
+<TS version="2.0" language="ja_JP">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -33,7 +33,7 @@
     <name>DictionaryDialog</name>
     <message>
         <source>Set Dictionary</source>
-        <translation type="vanished">辞書の設定</translation>
+        <translation>辞書の設定</translation>
     </message>
 </context>
 <context>
@@ -397,7 +397,7 @@
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
-        <translation type="vanished">独自のCSSを追加/削除...</translation>
+        <translation>独自のCSSを追加/削除...</translation>
     </message>
 </context>
 <context>
@@ -576,15 +576,15 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished"></translation>
+        <translation>取り消し線(&amp;K)</translation>
     </message>
     <message>
         <source>Tabulation Width</source>
-        <translation type="vanished">タブ幅</translation>
+        <translation>タブ幅</translation>
     </message>
     <message>
         <source>Spaces</source>
-        <translation type="vanished">スペース数</translation>
+        <translation>スペース数</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="934"/>
@@ -620,11 +620,11 @@
     </message>
     <message>
         <source>Hud Window Opacity</source>
-        <translation type="vanished">Hud ウィンドウの不透明度</translation>
+        <translation>Hud ウィンドウの不透明度</translation>
     </message>
     <message>
         <source>Matched Characters</source>
-        <translation type="vanished">自動補完する記号</translation>
+        <translation>自動補完する記号</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1266"/>
@@ -762,10 +762,6 @@
         <translation>強調 / 斜体(&amp;I)</translation>
     </message>
     <message>
-        <source>Stri&amp;kthrough</source>
-        <translation type="vanished">取り消し線(&amp;K)</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>&amp;HTML Comment</source>
         <translation>&amp;HTML コメント</translation>
@@ -881,145 +877,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Focus Mode</source>
-        <translation type="vanished">フォーカス モード</translation>
-    </message>
-    <message>
-        <source>Sentence</source>
-        <translation type="vanished">文</translation>
-    </message>
-    <message>
-        <source>Current Line</source>
-        <translation type="vanished">現在行</translation>
-    </message>
-    <message>
-        <source>Three Lines</source>
-        <translation type="vanished">3行</translation>
-    </message>
-    <message>
-        <source>Paragraph</source>
-        <translation type="vanished">段落</translation>
-    </message>
-    <message>
-        <source>Editor Width</source>
-        <translation type="vanished">エディターの幅</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation type="vanished">狭い</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="vanished">中間</translation>
-    </message>
-    <message>
-        <source>Wide</source>
-        <translation type="vanished">広い</translation>
-    </message>
-    <message>
-        <source>Full</source>
-        <translation type="vanished">全幅</translation>
-    </message>
-    <message>
-        <source>Blockquote Style</source>
-        <translation type="vanished">引用スタイル</translation>
-    </message>
-    <message>
-        <source>Plain</source>
-        <translation type="vanished">普通</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="vanished">斜体</translation>
-    </message>
-    <message>
-        <source>Fancy</source>
-        <translation type="vanished">装飾(Fancy)</translation>
-    </message>
-    <message>
-        <source>Hide menu bar in full screen mode</source>
-        <translation type="vanished">全画面表示ではメニューバーを隠す</translation>
-    </message>
-    <message>
-        <source>Use Large Headings</source>
-        <translation type="vanished">見出しを大きく表示</translation>
-    </message>
-    <message>
-        <source>Use Underline Instead of Italics for Emphasis</source>
-        <translation type="vanished">強調(em)を斜体でなく下線で表示</translation>
-    </message>
-    <message>
-        <source>Automatically Match Characters while Typing</source>
-        <translation type="vanished">対応する記号の自動補完</translation>
-    </message>
-    <message>
-        <source>Customize Matched Characters...</source>
-        <translation type="vanished">自動補完する記号の設定...</translation>
-    </message>
-    <message>
-        <source>Cycle Bullet Point Markers</source>
-        <translation type="vanished">順序なしリストの記号を循環させる</translation>
-    </message>
-    <message>
-        <source>Display Current Time in Full Screen Mode</source>
-        <translation type="vanished">全画面表示で現在時刻を表示</translation>
-    </message>
-    <message>
-        <source>Live Spellcheck Enabled</source>
-        <translation type="vanished">自動スペルチェック</translation>
-    </message>
-    <message>
-        <source>Dictionaries...</source>
-        <translation type="vanished">辞書...</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Application Language...</source>
         <translation>言語...</translation>
-    </message>
-    <message>
-        <source>Remember File History</source>
-        <translation type="vanished">ファイルの履歴を記憶</translation>
-    </message>
-    <message>
-        <source>Auto Save</source>
-        <translation type="vanished">自動保存</translation>
-    </message>
-    <message>
-        <source>Backup File on Save</source>
-        <translation type="vanished">保存時にバックアップを作成</translation>
-    </message>
-    <message>
-        <source>Insert Spaces for Tabs</source>
-        <translation type="vanished">タブでスペースを挿入</translation>
-    </message>
-    <message>
-        <source>Tabulation Width...</source>
-        <translation type="vanished">タブ幅...</translation>
-    </message>
-    <message>
-        <source>Alternate Row Colors in HUD Windows</source>
-        <translation type="vanished">HUD ウィンドウの行を交互に色分け</translation>
-    </message>
-    <message>
-        <source>HUD Window Button Layout</source>
-        <translation type="vanished">HUD ウィンドウのボタン位置</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">左</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">右</translation>
-    </message>
-    <message>
-        <source>Enable Desktop Compositing Effects</source>
-        <translation type="vanished">HUD を半透明表示</translation>
-    </message>
-    <message>
-        <source>HUD Window Opacity...</source>
-        <translation type="vanished">HUD ウィンドウの不透明度...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
@@ -1130,7 +990,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">全画面表示で現在時刻を表示</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
@@ -1145,12 +1005,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">自動保存</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">保存時にバックアップを作成</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
@@ -1160,7 +1020,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ファイルの履歴を記憶</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
@@ -1170,12 +1030,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">タブでスペースを挿入</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">タブ幅</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
@@ -1205,7 +1065,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フォーカス モード</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
@@ -1230,7 +1090,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">エディターの幅</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
@@ -1251,7 +1111,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">引用スタイル</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
@@ -1266,7 +1126,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">見出しを大きく表示</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
@@ -1281,22 +1141,22 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">順序なしリストの記号を循環させる</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">対応する記号の自動補完</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">自動補完する記号の設定...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">自動スペルチェック</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
@@ -1306,7 +1166,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">辞書</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
@@ -1321,22 +1181,22 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HUD ウィンドウのボタン位置</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HUD ウィンドウの行を交互に色分け</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HUD を半透明表示</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HUD ウィンドウの不透明度</translation>
     </message>
 </context>
 <context>

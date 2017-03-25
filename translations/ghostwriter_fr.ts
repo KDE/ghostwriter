@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr_FR">
+<TS version="2.0" language="fr_FR">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -732,10 +732,6 @@
         <translation>&amp;Emphase</translation>
     </message>
     <message>
-        <source>Stri&amp;kthrough</source>
-        <translation type="vanished">&amp;Barré</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>&amp;HTML Comment</source>
         <translation>Commentaire &amp;HTML</translation>
@@ -858,7 +854,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Barré</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>

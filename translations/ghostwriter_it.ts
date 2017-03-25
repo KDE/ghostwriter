@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.0" language="it_IT">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -34,7 +34,7 @@
     <message>
         <source>Set Dictionary</source>
         <translatorcomment>Titolo della finestra per la scelta del dizionario per la correzzione ortografica [ Settings -&gt; Dictionaries… ]</translatorcomment>
-        <translation type="vanished">Imposta il Dizionario</translation>
+        <translation>Imposta il Dizionario</translation>
     </message>
 </context>
 <context>
@@ -429,7 +429,7 @@ NOTA: Il testo deve essere breve dato che spesso l&apos;utente lavorerà con la 
         <source>Add/Remove Custom Style Sheets...</source>
         <translatorcomment>Voce opzioni nel menu a cascata per la scelta dei fogli di stile per l&apos;anteprima,  nella finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]
 NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Anteprima HTML, potrebbe risultare illleggibile (troncato).</translatorcomment>
-        <translation type="vanished">Aggiungi/Rimuovi foglio di stile CSS…</translation>
+        <translation>Aggiungi/Rimuovi foglio di stile CSS…</translation>
     </message>
 </context>
 <context>
@@ -614,17 +614,17 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Barrato</translation>
     </message>
     <message>
         <source>Tabulation Width</source>
         <translatorcomment>Tiitolo finestra dialogo per [ Settings-&gt;Tabulation Width… ]</translatorcomment>
-        <translation type="vanished">Larghezza Tabulazioni</translation>
+        <translation>Larghezza Tabulazioni</translation>
     </message>
     <message>
         <source>Spaces</source>
         <translatorcomment>Etichetta opzione in finestra dialogo per [ Settings-&gt;Tabulation Width… ]</translatorcomment>
-        <translation type="vanished">Numero di spazi</translation>
+        <translation>Numero di spazi</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="934"/>
@@ -653,11 +653,11 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Hud Window Opacity</source>
-        <translation type="vanished">Opacità Finestre HUD</translation>
+        <translation>Opacità Finestre HUD</translation>
     </message>
     <message>
         <source>Matched Characters</source>
-        <translation type="vanished">Caratteri Accoppiabili</translation>
+        <translation>Caratteri Accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1266"/>
@@ -820,10 +820,6 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
         <translation>&amp;Corsivo</translation>
     </message>
     <message>
-        <source>Stri&amp;kthrough</source>
-        <translation type="vanished">&amp;Barrato</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>&amp;HTML Comment</source>
         <translation>Commento &amp;HTML</translation>
@@ -939,156 +935,9 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Focus Mode</source>
-        <translation type="vanished">Modalità Focus</translation>
-    </message>
-    <message>
-        <source>Sentence</source>
-        <translatorcomment>Sottomenù [ Modalità Focus-&gt; ]</translatorcomment>
-        <translation type="vanished">Frase per frase</translation>
-    </message>
-    <message>
-        <source>Current Line</source>
-        <translatorcomment>Sottomenù [ Modalità Focus-&gt; ]</translatorcomment>
-        <translation type="vanished">Riga per riga</translation>
-    </message>
-    <message>
-        <source>Three Lines</source>
-        <translatorcomment>Sottomenù [ Modalità Focus-&gt; ]</translatorcomment>
-        <translation type="vanished">Tre righe alla volta</translation>
-    </message>
-    <message>
-        <source>Paragraph</source>
-        <translatorcomment>Sottomenù [ Modalità Focus-&gt; ]</translatorcomment>
-        <translation type="vanished">Per paragrafo</translation>
-    </message>
-    <message>
-        <source>Editor Width</source>
-        <translation type="vanished">Larghezza Editor</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translatorcomment>Sottomenù di Larghezza Editor [ Editor Width-&gt; ]</translatorcomment>
-        <translation type="vanished">Stretta</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translatorcomment>Sottomenù di Larghezza Editor [ Editor Width-&gt; ]</translatorcomment>
-        <translation type="vanished">Media</translation>
-    </message>
-    <message>
-        <source>Wide</source>
-        <translatorcomment>Sottomenù di Larghezza Editor [ Editor Width-&gt; ]</translatorcomment>
-        <translation type="vanished">Ampia</translation>
-    </message>
-    <message>
-        <source>Full</source>
-        <translatorcomment>Sottomenù di Larghezza Editor [ Editor Width-&gt; ]</translatorcomment>
-        <translation type="vanished">Intera</translation>
-    </message>
-    <message>
-        <source>Blockquote Style</source>
-        <translation type="vanished">Stile Blocchi Citazione</translation>
-    </message>
-    <message>
-        <source>Plain</source>
-        <translatorcomment>Sottomenù &quot;Stile Blocchi Citazione&quot; [ Blockquote Style-&gt; ]</translatorcomment>
-        <translation type="vanished">Normale</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translatorcomment>Sottomenù &quot;Stile Blocchi Citazione&quot; [ Blockquote Style-&gt; ]</translatorcomment>
-        <translation type="vanished">Corsivo</translation>
-    </message>
-    <message>
-        <source>Fancy</source>
-        <translatorcomment>Sottomenù &quot;Stile Blocchi Citazione&quot; [ Blockquote Style-&gt; ]</translatorcomment>
-        <translation type="vanished">Decorato</translation>
-    </message>
-    <message>
-        <source>Hide menu bar in full screen mode</source>
-        <translation type="vanished">Nascondi la barra menù in modalità schermo intero</translation>
-    </message>
-    <message>
-        <source>Use Large Headings</source>
-        <translation type="vanished">Titoli Grandi</translation>
-    </message>
-    <message>
-        <source>Use Underline Instead of Italics for Emphasis</source>
-        <translation type="vanished">Enfasi Sottolineata Anziché in Corsivo</translation>
-    </message>
-    <message>
-        <source>Automatically Match Characters while Typing</source>
-        <translation type="vanished">Rilevamento Automatico dei Caratteri Accoppiabili</translation>
-    </message>
-    <message>
-        <source>Customize Matched Characters...</source>
-        <translation type="vanished">Personalizza Caratteri Accoppiabili...</translation>
-    </message>
-    <message>
-        <source>Cycle Bullet Point Markers</source>
-        <translation type="vanished">Alterna i Marcatori negli Elenchi Puntati</translation>
-    </message>
-    <message>
-        <source>Display Current Time in Full Screen Mode</source>
-        <translation type="vanished">Mostra l&apos;Ora in Modalità Schermo Intero</translation>
-    </message>
-    <message>
-        <source>Live Spellcheck Enabled</source>
-        <translation type="vanished">Controllo Ortografico in Tempo Reale</translation>
-    </message>
-    <message>
-        <source>Dictionaries...</source>
-        <translation type="vanished">Dizionari…</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Application Language...</source>
         <translation>Lingua dell&apos;Applicazione...</translation>
-    </message>
-    <message>
-        <source>Remember File History</source>
-        <translation type="vanished">Conserva la Cronologia dei File</translation>
-    </message>
-    <message>
-        <source>Auto Save</source>
-        <translation type="vanished">Salvataggio Automatico</translation>
-    </message>
-    <message>
-        <source>Backup File on Save</source>
-        <translation type="vanished">Esegui un Backup del File Quando Salvo</translation>
-    </message>
-    <message>
-        <source>Insert Spaces for Tabs</source>
-        <translation type="vanished">Inserisci Spazi al Posto delle Tabulazioni</translation>
-    </message>
-    <message>
-        <source>Tabulation Width...</source>
-        <translation type="vanished">Larghezza Tabulazione</translation>
-    </message>
-    <message>
-        <source>Alternate Row Colors in HUD Windows</source>
-        <translation type="vanished">Alterna i Colori delle Righe Negli HUD</translation>
-    </message>
-    <message>
-        <source>HUD Window Button Layout</source>
-        <translation type="vanished">Layout Pulsante nello HUD</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">Sinistra</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">Destra</translation>
-    </message>
-    <message>
-        <source>Enable Desktop Compositing Effects</source>
-        <translation type="vanished">Abilita Effetti Compositi del Desktop</translation>
-    </message>
-    <message>
-        <source>HUD Window Opacity...</source>
-        <translation type="vanished">Opacità delle Finestre HUD…</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
@@ -1205,7 +1054,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mostra l&apos;Ora in Modalità Schermo Intero</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
@@ -1220,12 +1069,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Salvataggio Automatico</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Esegui un Backup del File Quando Salvo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
@@ -1235,7 +1084,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Conserva la Cronologia dei File</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
@@ -1245,12 +1094,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inserisci Spazi al Posto delle Tabulazioni</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Larghezza Tabulazione</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
@@ -1280,7 +1129,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modalità Focus</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
@@ -1305,7 +1154,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Larghezza Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
@@ -1326,7 +1175,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stile Blocchi Citazione</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
@@ -1341,7 +1190,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Titoli Grandi</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
@@ -1356,22 +1205,22 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alterna i Marcatori negli Elenchi Puntati</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rilevamento Automatico dei Caratteri Accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Personalizza Caratteri Accoppiabili...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Controllo Ortografico in Tempo Reale</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
@@ -1381,7 +1230,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dizionari</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
@@ -1396,22 +1245,22 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Layout Pulsante nello HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alterna i Colori delle Righe Negli HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abilita Effetti Compositi del Desktop</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opacità delle Finestre HUD</translation>
     </message>
 </context>
 <context>
