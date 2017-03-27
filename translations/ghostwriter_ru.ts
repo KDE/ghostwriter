@@ -353,6 +353,7 @@
         <location filename="../src/find_dialog.cpp" line="281"/>
         <location filename="../src/find_dialog.cpp" line="355"/>
         <source>Sorry</source>
+        <translatorcomment>Возможно лучше использовать &quot;Извините&quot;, так как это заголовок окна?</translatorcomment>
         <translation>К сожалению</translation>
     </message>
     <message>
@@ -490,17 +491,17 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="132"/>
         <source>* Bullet List</source>
-        <translation>* Маркерованный список</translation>
+        <translation>* Маркированный список</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="133"/>
         <source>+ Bullet List</source>
-        <translation>+ Маркерованный список</translation>
+        <translation>+ Маркированный список</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="134"/>
         <source>- Bullet List</source>
-        <translation>- Маркерованный список</translation>
+        <translation>- Маркированный список</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="135"/>
