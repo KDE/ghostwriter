@@ -423,7 +423,7 @@ NOTA: Il testo deve essere breve dato che spesso l&apos;utente lavorerà con la 
     <message>
         <location filename="../src/HtmlPreview.cpp" line="157"/>
         <source>Add/Remove Style Sheets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi/Elmina Fogli di Stile...</translation>
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
@@ -594,7 +594,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="536"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile creare il file %1. Verifica i permessi.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="875"/>
@@ -932,7 +932,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1355"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferenze</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
@@ -963,7 +963,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
@@ -1019,248 +1019,248 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="41"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferenze</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="50"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Generale</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="51"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="52"/>
         <source>Spell Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Controllo Ortografico</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="53"/>
         <source>HUD</source>
-        <translation type="unfinished">HUD</translation>
+        <translation>HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="111"/>
         <source>Matched Characters</source>
-        <translation type="unfinished">Caratteri Accoppiabili</translation>
+        <translation>Caratteri Accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="193"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Display</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished">Mostra l&apos;Ora in Modalità Schermo Intero</translation>
+        <translation>Mostra l&apos;Ora in Modalità Schermo Intero</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished">Nascondi la barra menù in modalità schermo intero</translation>
+        <translation>Nascondi la Barra Menù in Modalità Schermo Intero</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="211"/>
         <source>File Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvataggio dei File</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished">Salvataggio Automatico</translation>
+        <translation>Salvataggio Automatico</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished">Esegui un Backup del File Quando Salvo</translation>
+        <translation>Esegui un Backup del File Quando Salvo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Cronologia</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished">Conserva la Cronologia dei File</translation>
+        <translation>Conserva la Cronologia dei File</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
         <source>Tabulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabulazione</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished">Inserisci Spazi al Posto delle Tabulazioni</translation>
+        <translation>Inserisci Spazi al Posto delle Tabulazioni</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished">Larghezza Tabulazione</translation>
+        <translation>Larghezza Tabulazione</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Stile</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="282"/>
         <source>Sentence</source>
-        <translation type="unfinished">Frase per frase</translation>
+        <translation>Frase per frase</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="283"/>
         <source>Current Line</source>
-        <translation type="unfinished">Riga per riga</translation>
+        <translation>Riga per riga</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="284"/>
         <source>Three Lines</source>
-        <translation type="unfinished">Tre righe alla volta</translation>
+        <translation>Tre righe alla volta</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="285"/>
         <source>Paragraph</source>
-        <translation type="unfinished">Per paragrafo</translation>
+        <translation>Per paragrafo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished">Modalità Focus</translation>
+        <translation>Modalità Focus</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
         <source>Narrow</source>
-        <translation type="unfinished">Stretta</translation>
+        <translation>Stretta</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="293"/>
         <source>Medium</source>
-        <translation type="unfinished">Media</translation>
+        <translation>Media</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="294"/>
         <source>Wide</source>
-        <translation type="unfinished">Ampia</translation>
+        <translation>Ampia</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="295"/>
         <source>Full</source>
-        <translation type="unfinished">Intera</translation>
+        <translation>Intera</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished">Larghezza Editor</translation>
+        <translation>Larghezza Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
         <source>Plain</source>
-        <translation type="unfinished">Normale</translation>
+        <translation>Normale</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="303"/>
         <location filename="../src/PreferencesDialog.cpp" line="311"/>
         <source>Italic</source>
-        <translation type="unfinished">Corsivo</translation>
+        <translation>Corsivo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="304"/>
         <source>Fancy</source>
-        <translation type="unfinished">Decorato</translation>
+        <translation>Decorato</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished">Stile Blocchi Citazione</translation>
+        <translation>Stile Blocchi Citazione</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Sottolineato</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="316"/>
         <source>Emphasis style</source>
-        <translation type="unfinished"></translation>
+        <translation>Stile per l&apos;Enfasi</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished">Titoli Grandi</translation>
+        <translation>Titoli Grandi</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
         <source>Highlight line breaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Evidenzia Interruzioni di Riga</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="330"/>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Digitazione</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished">Alterna i Marcatori negli Elenchi Puntati</translation>
+        <translation>Alterna i Marcatori negli Elenchi Puntati</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished">Rilevamento Automatico dei Caratteri Accoppiabili</translation>
+        <translation>Rilevamento Automatico dei Caratteri Accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished">Personalizza Caratteri Accoppiabili...</translation>
+        <translation>Personalizza Caratteri Accoppiabili...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished">Controllo Ortografico in Tempo Reale</translation>
+        <translation>Controllo Ortografico in Tempo Reale</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Lingua</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Dizionari</translation>
+        <translation>Dizionario</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
         <source>Right</source>
-        <translation type="unfinished">Destra</translation>
+        <translation>Destra</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="408"/>
         <source>Left</source>
-        <translation type="unfinished">Sinistra</translation>
+        <translation>Sinistra</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished">Layout Pulsante nello HUD</translation>
+        <translation>Layout Pulsante nello HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished">Alterna i Colori delle Righe Negli HUD</translation>
+        <translation>Alterna i Colori delle Righe Negli HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished">Abilita Effetti Compositi del Desktop</translation>
+        <translation>Abilita Effetti Compositi del Desktop</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished">Opacità delle Finestre HUD</translation>
+        <translation>Opacità delle Finestre HUD</translation>
     </message>
 </context>
 <context>
