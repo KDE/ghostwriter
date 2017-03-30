@@ -349,7 +349,7 @@
         <location filename="../src/find_dialog.cpp" line="281"/>
         <location filename="../src/find_dialog.cpp" line="355"/>
         <source>Phrase not found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Phrase introuvable</translation>
     </message>
 </context>
 <context>
@@ -387,7 +387,7 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="157"/>
         <source>Add/Remove Style Sheets...</source>
-        <translation type="unfinished">Ajouter/Enlever des feuilles de style CSS ...</translation>
+        <translation>Ajouter/Enlever des feuilles de style CSS ...</translation>
     </message>
 </context>
 <context>
@@ -626,7 +626,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="536"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de créer le fichier %1. Vérifiez les permissions.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1047"/>
@@ -879,7 +879,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Wiki</source>
-        <translation type="unfinished">Wiki</translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
@@ -930,248 +930,248 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="41"/>
         <source>Preferences</source>
-        <translation type="unfinished">Préférences</translation>
+        <translation>Préférences</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="50"/>
         <source>General</source>
-        <translation type="unfinished">Général</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="51"/>
         <source>Editor</source>
-        <translation type="unfinished">Éditeur</translation>
+        <translation>Éditeur</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="52"/>
         <source>Spell Check</source>
-        <translation type="unfinished">Correction orthographique</translation>
+        <translation>Correction orthographique</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="53"/>
         <source>HUD</source>
-        <translation type="unfinished">HUD</translation>
+        <translation>HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="111"/>
         <source>Matched Characters</source>
-        <translation type="unfinished">Caractères appariés</translation>
+        <translation>Caractères appariés</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="193"/>
         <source>Display</source>
-        <translation type="unfinished">Affichage</translation>
+        <translation>Affichage</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished">Afficher l&apos;heure en plein écran</translation>
+        <translation>Afficher l&apos;heure en plein écran</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished">Masquer la barre de menus en plein écran</translation>
+        <translation>Masquer la barre de menus en plein écran</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="211"/>
         <source>File Saving</source>
-        <translation type="unfinished">Enregistrement des fichiers </translation>
+        <translation>Enregistrement du fichier </translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished">Enregistrement automatique</translation>
+        <translation>Enregistrement automatique</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished">Copie de sauvegarde à l&apos;enregistrement</translation>
+        <translation>Copie de sauvegarde à l&apos;enregistrement</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
         <source>History</source>
-        <translation type="unfinished">Historique</translation>
+        <translation>Historique</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished">Se souvenir de l&apos;historique des fichiers</translation>
+        <translation>Se souvenir de l&apos;historique des fichiers</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
         <source>Tabulation</source>
-        <translation type="unfinished">Tabulation</translation>
+        <translation>Tabulation</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished">Insérer des espaces au lieu d&apos;une tabulation</translation>
+        <translation>Insérer des espaces au lieu d&apos;une tabulation</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished">Largeur de tabulation</translation>
+        <translation>Largeur de tabulation</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
         <source>Styling</source>
-        <translation type="unfinished">Esthétique</translation>
+        <translation>Esthétique</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="282"/>
         <source>Sentence</source>
-        <translation type="unfinished">Phrase</translation>
+        <translation>Phrase</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="283"/>
         <source>Current Line</source>
-        <translation type="unfinished">Ligne active</translation>
+        <translation>Ligne active</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="284"/>
         <source>Three Lines</source>
-        <translation type="unfinished">Trois lignes</translation>
+        <translation>Trois lignes</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="285"/>
         <source>Paragraph</source>
-        <translation type="unfinished">Paragraphe</translation>
+        <translation>Paragraphe</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished">Mode Focus</translation>
+        <translation>Mode Focus</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
         <source>Narrow</source>
-        <translation type="unfinished">Étroit</translation>
+        <translation>Étroit</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="293"/>
         <source>Medium</source>
-        <translation type="unfinished">Moyen</translation>
+        <translation>Moyen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="294"/>
         <source>Wide</source>
-        <translation type="unfinished">Large</translation>
+        <translation>Large</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="295"/>
         <source>Full</source>
-        <translation type="unfinished">Entier</translation>
+        <translation>Entier</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished">Largeur de l&apos;éditeur</translation>
+        <translation>Largeur de l&apos;éditeur</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
         <source>Plain</source>
-        <translation type="unfinished">Normal</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="303"/>
         <location filename="../src/PreferencesDialog.cpp" line="311"/>
         <source>Italic</source>
-        <translation type="unfinished">Italique</translation>
+        <translation>Italique</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="304"/>
         <source>Fancy</source>
-        <translation type="unfinished">Fantaisie</translation>
+        <translation>Fantaisie</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished">Style des citations</translation>
+        <translation>Style des citations</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
         <source>Underline</source>
-        <translation type="unfinished">Souligné</translation>
+        <translation>Souligné</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="316"/>
         <source>Emphasis style</source>
-        <translation type="unfinished">Style des emphases</translation>
+        <translation>Style des emphases</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished">Utiliser des gros titres</translation>
+        <translation>Utiliser des gros titres</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
         <source>Highlight line breaks</source>
-        <translation type="unfinished">Mettre en évidence les retours à la ligne</translation>
+        <translation>Mettre en évidence les retours à la ligne</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="330"/>
         <source>Typing</source>
-        <translation type="unfinished">Saisie</translation>
+        <translation>Saisie</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished">Alterne le type des puces des listes imbriquées</translation>
+        <translation>Alterne le type des puces des listes imbriquées</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished">Apparier automatiquement les caractères</translation>
+        <translation>Apparier automatiquement les caractères</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished">Personnaliser l&apos;appariement des caractères</translation>
+        <translation>Personnaliser l&apos;appariement des caractères</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished">Correction orthographique automatique activée</translation>
+        <translation>Correction orthographique automatique activée</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
         <source>Language</source>
-        <translation type="unfinished">Langue</translation>
+        <translation>Langue</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Dictionnaire</translation>
+        <translation>Dictionnaire</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
         <source>Right</source>
-        <translation type="unfinished">Droite</translation>
+        <translation>Droite</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="408"/>
         <source>Left</source>
-        <translation type="unfinished">Gauche</translation>
+        <translation>Gauche</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished">Position du bouton de fenêtre</translation>
+        <translation>Position du bouton de fenêtre</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished">Alterner la couleur des lignes</translation>
+        <translation>Alterner la couleur des lignes</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished">Activer les effets de composition du bureau</translation>
+        <translation>Activer les effets de composition du bureau</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished">Opacité</translation>
+        <translation>Opacité</translation>
     </message>
 </context>
 <context>
@@ -1454,7 +1454,7 @@
     <message>
         <location filename="../src/StyleSheetManagerDialog.cpp" line="144"/>
         <source>Don&apos;t worry! No files will be deleted from the hard disk. But are you sure you wish to remove the selected style sheet(s) from the list?</source>
-        <translation>Pas d&apos;inquiétude ! Aucun fichier ne sera effacer du disque dur. Mais voulez-vous vraiment enlever les feuilles de style sélectionnées de la liste ?</translation>
+        <translation>Pas d&apos;inquiétude ! Aucun fichier ne sera effacé du disque dur. Mais voulez-vous vraiment enlever les feuilles de style sélectionnées de la liste ?</translation>
     </message>
 </context>
 <context>
