@@ -13,6 +13,7 @@ Translations
 * German - dhbwmawhd
 * Czech - Pavel Fric (pafri)
 * French - pygoliae
+* Spanish - cemetary
 
 Libraries
 =========
