@@ -353,13 +353,6 @@ void HudWindow::resizeEvent(QResizeEvent* event)
         // resize.  We do this because applying a blur effect to the drop
         // shadow is computationally expensive.
 
-        // First, draw the shadow, using a pleasant gradient.
-        QLinearGradient shadowGradient;
-        shadowGradient.setStart(rect().width() / 2, 0.0);
-        shadowGradient.setFinalStop(rect().width() / 2, rect().height());
-        shadowGradient.setColorAt(0.0, QColor(0, 0, 0, 20));
-        shadowGradient.setColorAt(1.0, QColor(0, 0, 0, 200));
-
         QImage unblurredImage
             (
                 rect().width(),
@@ -371,8 +364,8 @@ void HudWindow::resizeEvent(QResizeEvent* event)
         QPainter painter(&unblurredImage);
         painter.setRenderHint(QPainter::Antialiasing);
         painter.setPen(QPen(Qt::NoPen));
-        painter.setBrush(QBrush(shadowGradient));
-        painter.drawRoundedRect(rect().adjusted(10, 10, -10, -8), 5, 5);
+        painter.setBrush(QBrush(QColor(0, 0, 0, 200)));
+        painter.drawRoundedRect(rect().adjusted(10, 12, -10, -8), 5, 5);
         painter.end();
 
         // Now we need to blur the shadow onto its final destination image,
@@ -390,7 +383,7 @@ void HudWindow::resizeEvent(QResizeEvent* event)
         painter.setRenderHint(QPainter::Antialiasing);
 
         // Note that the blur only applies to the alpha channel.
-        qt_blurImage(&painter, unblurredImage, 20, true, true);
+        qt_blurImage(&painter, unblurredImage, 18, true, true);
         painter.end();
     }
 }
