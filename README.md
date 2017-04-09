@@ -3,27 +3,7 @@
 About *ghostwriter*
 ===================
 
-*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  Here are just a few of its features:
-
-* Syntax highlighting of Markdown
-* Navigation of document headings
-* Full-screen mode
-* Focus mode that highlights the current sentence, line, three lines, or paragraph
-* Two built-in themes, one light and one dark
-* Theme creator for custom colors and background images
-* Spell checking with Hunspell
-* A Live word count
-* A live HTML preview as you type
-* Use of custom CSS style sheets for HTML preview
-* Image URL insertion via dragging and dropping an image file into the editor
-* [Sundown](http://github.com/vmg/sundown/) processor built in for preview and export to HTML
-* Interoperability with the following Markdown processors (if installed) for preview and export to popular document formats, such as PDF, ODT, and RTF:
-    - [Pandoc](http://johnmacfarlane.net/pandoc/)
-    - [MultiMarkdown](http://fletcherpenney.net/multimarkdown/)
-    - [Discount](http://www.pell.portland.or.us/~orc/Code/discount/)
-    - [cmark](https://github.com/jgm/cmark)
-
-The best part is that *ghostwriter* is entirely free and open source.  No longer do you have to look at your friend's stylish Mac OS X Markdown editor with envy.  *ghostwriter* competitively provides the same style and functionality as many other famous editors for both Windows and Linux.
+*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  For a tour of its features, please visit the [*ghostwriter* project page](http://github.io/wereturtle/ghostwriter).
 
 Screenshots
 ===========
@@ -64,19 +44,19 @@ An alternative workaround is to compile ghostwriter for yourself using Qt 4.8.  
 
 **GNU/Linux Help:**  For further help with troubleshooting issues for Qt5 applications, including *ghostwriter*, please see the [GNU/Linux Troubleshooting for Q5 Applications](https://github.com/wereturtle/ghostwriter/wiki/GNU---Linux-Troubleshooting-for-Qt5-Applications) topic in the community wiki.
 
-Mac OS X - Help Wanted!
+MacOS - Help Wanted!
 -----------------------
 
 Unfortunately, since I do not own an Apple computer, I cannot reasonably create a Mac version of this application.  However, if you happen to be a Mac user yourself and have the knowledge, you can build the source code.  Theoretically, it should work;  but you may run into some bugs since *ghostwriter* is untested on this platform.
 
-If you are willing to test *ghostwriter* on Mac OS X and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on Mac OS X, whereas there is hope that they will on version 5, based on the documentation.  Spell checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* lifted and modified parts of it.
+If you are willing to test *ghostwriter* on MacOS and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5.5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on MacOS, whereas there is hope that they will on version 5, based on the documentation.  Also, versions greater than Qt 5.5 do not come with QtWebkit pre-built.  Spell checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* lifted and modified parts of it.
 
-Finally, I based *ghostwriter's* packaging structure on FocusWriter, including for Mac OS X, to give you a head start.  You will want to once again look at FocusWriter's .pro file and resource files to ensure everything is in place within *ghostwriter* for a successful OS X build and installation.
+Finally, I based *ghostwriter's* packaging structure on FocusWriter, including for MacOS, to give you a head start.  You will want to once again look at FocusWriter's .pro file and resource files to ensure everything is in place within *ghostwriter* for a successful MacOS build and installation.
 
 Build
 =====
 
-If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows or Mac OS X, or in your Linux distribution's repository. This documentation assumes you already have the source code unzipped in a folder.
+If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows or MacOS, or in your Linux distribution's repository. This documentation assumes you already have the source code unzipped in a folder.
 
 Windows
 -------
@@ -98,6 +78,8 @@ Unless you have built *ghostwriter* as a standalone executable statically linked
 
 Linux
 -----
+
+These instructions are for Debian or Ubuntu distributions.  However, they will be similar for other Linux flavors.
 
 Before proceeding, ensure that you have the following packages installed for Qt 5:
 
@@ -129,32 +111,41 @@ For example, to install under `/opt`, you would enter:
 
     $ qmake PREFIX=/opt
 
-Mac OS X - Help Wanted!
+**Note:**  If you see blank areas where there should be icons, then you are missing the Qt dependency for the SVG images.  On Debian and Ubuntu, this is libqt5svg5.  Other Linux distributions may vary on the exact package name.
+
+MacOS - Help Wanted!
 -----------------------
 
 Install [homebrew](http://brew.sh).  In a terminal:
+
 ``` shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 Then:
+
 ``` shell
 $ brew install qt qt5
 $ qmake -spec macx-g++
 $ make
 ```
+
 If you see:
+
 ```
 fatal: Not a git repository (or any of the parent directories): .git
 ```
+
 Make sure you're cloned the repo, not just downloaded the src tarball.
 
-If you want Ghostwriter in your applications folder, from the repo root do:
+If you want *ghostwriter* in your applications folder, from the repo root do:
+
 ``` shell
 $ sudo cp -R ./build/release/ghostwriter.app /Applications
 ```
 
-To use Ghostwriter from the command line (assuming `/usr/local/bin` is in your path and you've moved Ghostwriter to the `/Applications` folder):
+To use *ghostwriter* from the command line (assuming `/usr/local/bin` is in your path and you've moved *ghostwriter* to the `/Applications` folder):
+
 ``` shell
 $ sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
 ```
@@ -176,9 +167,9 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 
 - Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Roaming\\ghostwriter\\themes
 - Linux:  /home/\<your_user_name\>/.config/ghostwriter/themes
-- Mac OS X:  ~/Library/Application Support/ghostwriter/themes
+- MacOS:  ~/Library/Application Support/ghostwriter/themes
 
-**Note:**  The Mac OS X settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist OS X developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
+**Note:**  The MacOS settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist MacOS developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
 
 Themes
 ======
@@ -191,7 +182,7 @@ Wiki
 Contribute
 ==========
 
-Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  If you happen to be knowledgeable with C++/Qt, please feel free to submit pull requests for bug fixes and new features.
+Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.
 
 Finally, if you wish to thank me by donating to the tip jar, you can flattr me from GitHub.  Simply sign up for [Flattr](http://flattr.com) if you haven't already, connect your Flattr account to your GitHub account, and then Star my repository from GitHub.  You can also simply visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter) and click on the Flattr button at the bottom of the page.  I'll use your generous tip to treat my family to fish tacos.  Yum!
 
@@ -199,8 +190,9 @@ Roadmap
 ========
 
 - *ghostwriter* added into the various Linux distribution repositories (Debian, Fedora, etc.).  **Help wanted!**
-- A fully-tested Mac OS X port. **Help wanted!**
+- A fully-tested MacOS port. **Help wanted!**
 - Translation of *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
+- A new Windows build maintainer **Help wanted!**
 
 Licensing
 =========
