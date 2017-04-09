@@ -454,6 +454,7 @@ void DocumentManager::onSaveCompleted()
         fileWatcher->addPath(document->getFilePath());
     }
 
+    document->setTimestamp(QDateTime::currentDateTime());
     saveInProgress = false;
 }
 
