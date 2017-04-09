@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pt_BR">
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
         <source>&amp;lt; 1m</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;lt; 1m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
         <source>&amp;lt; 1</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;lt; 1</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="29"/>
         <source>250 words per page</source>
-        <translation type="unfinished"></translation>
+        <translation>250 palavras por página</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="66"/>
         <source>%1h %2m</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>only translated because &quot;m&quot; is actually for &quot;metres&quot;, while &quot;min&quot; is &quot;minutes&quot;.</translatorcomment>
+        <translation>%1h %2min</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="70"/>
         <source>%1m</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>&quot;m&quot; is for &quot;metres&quot;, &quot;min&quot; is for &quot;minutes&quot;</translatorcomment>
+        <translation>%1min</translation>
     </message>
 </context>
 <context>
@@ -41,7 +43,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="163"/>
         <source>Open File</source>
-        <translation>Abrir arquivo</translation>
+        <translation>Abrir Arquivo</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="178"/>
@@ -122,7 +124,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="806"/>
         <source>%1 is read only.</source>
-        <translation>%1 é apenas para leitura.</translation>
+        <translation>%1 é somente para leitura.</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="807"/>
@@ -145,97 +147,97 @@
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="27"/>
         <source>Very Easy</source>
-        <translation type="unfinished"></translation>
+        <translation>Muito Fácil</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
         <source>Easy</source>
-        <translation type="unfinished"></translation>
+        <translation>Fácil</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="29"/>
         <source>Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
         <source>Difficult</source>
-        <translation type="unfinished"></translation>
+        <translation>Difícil</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="31"/>
         <source>Very Difficult</source>
-        <translation type="unfinished"></translation>
+        <translation>Muito Difícil</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Words:</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="35"/>
         <source>Characters:</source>
-        <translation type="unfinished"></translation>
+        <translation>Caracteres:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="36"/>
         <source>Sentences:</source>
-        <translation type="unfinished"></translation>
+        <translation>Orações:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="37"/>
         <source>Paragraphs:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parágrafos:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="38"/>
         <source>Pages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Páginas:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Complex Words:</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras Complexas:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Reading Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo de Leitura:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Reading Ease:</source>
-        <translation type="unfinished"></translation>
+        <translation>Facilidade da Leitura:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>LIX Reading Ease</source>
-        <translation type="unfinished"></translation>
+        <translation>Índice de Facilidade LIX</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Grade Level:</source>
-        <translation type="unfinished"></translation>
+        <translation>Classificação por Série:</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation type="unfinished"></translation>
+        <translation>Índice de Leitura Coleman-Liau (CLI)</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="112"/>
         <source>Kindergarten</source>
-        <translation type="unfinished"></translation>
+        <translation>Jardim-de-infância</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Rocket Science</source>
-        <translation type="unfinished"></translation>
+        <translation>Ciência Espacial</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
         <source>College</source>
-        <translation type="unfinished"></translation>
+        <translation>Faculdade</translation>
     </message>
 </context>
 <context>
@@ -301,12 +303,12 @@
     <message>
         <location filename="../src/find_dialog.cpp" line="56"/>
         <source>Search up</source>
-        <translation>Procurar para trás</translation>
+        <translation>Procurar acima</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="57"/>
         <source>Search down</source>
-        <translation>Procurar para a frente</translation>
+        <translation>Procurar abaixo</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="64"/>
@@ -321,7 +323,7 @@
     <message>
         <location filename="../src/find_dialog.cpp" line="72"/>
         <source>Replace &amp;All</source>
-        <translation>Substituir &amp;Todas as ocorrências</translation>
+        <translation>Substituir &amp;Todas</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="134"/>
@@ -342,7 +344,7 @@
         <location filename="../src/find_dialog.cpp" line="277"/>
         <source>Replace %n instance(s)?</source>
         <translation>
-            <numerusform>Substituir a ocorrência %n?</numerusform>
+            <numerusform>Substituir ocorrência %n?</numerusform>
             <numerusform>Substituir %n ocorrências?</numerusform>
         </translation>
     </message>
@@ -364,7 +366,7 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="70"/>
         <source>HTML Preview</source>
-        <translation>Previsão HTML</translation>
+        <translation>Prever HTML</translation>
     </message>
     <message>
         <location filename="../src/HtmlPreview.cpp" line="88"/>
@@ -384,7 +386,7 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="110"/>
         <source>No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.</source>
-        <translation>Nenhum processador markdown (pandoc, multimarkdown, discount) está instalado. Por favor instale ou adicione suas localizações à variável de sistema PATH.</translation>
+        <translation>Nenhum processador markdown (pandoc, multimarkdown, discount) está instalado.  Por favor instale ou adicione suas localizações à variável de sistema PATH.</translation>
     </message>
     <message>
         <location filename="../src/HtmlPreview.cpp" line="138"/>
@@ -394,11 +396,11 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="157"/>
         <source>Add/Remove Style Sheets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar/Remover Folhas de Estilos...</translation>
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
-        <translation>Adicionar/Remover Folhas de Estilo Personalizadas...</translation>
+        <translation>Adicionar/Remover Folhas de Estilo do Usuário...</translation>
     </message>
 </context>
 <context>
@@ -419,17 +421,17 @@
     <message>
         <location filename="../src/LocaleDialog.cpp" line="37"/>
         <source>Set Application Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir Linguagem da Aplicação</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="48"/>
         <source>The translations folder is missing.</source>
-        <translation type="unfinished"></translation>
+        <translation>A pasta com traduções está faltando.</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="49"/>
         <source>Please reinstall this application for more language options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Favor reinstalar esta aplicação para mais opções de linguagem.</translation>
     </message>
 </context>
 <context>
@@ -537,12 +539,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="158"/>
         <source>Document Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Estatísticas do Documento</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="536"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não é possível criar arquivo %1. Verifique as permissões.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="875"/>
@@ -595,7 +597,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1212"/>
         <source>Please restart the application for changes to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor reinicie a aplicação para que as mudanças tenham efeito.</translation>
     </message>
     <message>
         <source>Hud Window Opacity</source>
@@ -652,12 +654,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="141"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>[ID]: http://link.com &quot;Definição de Referência&quot;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="170"/>
         <source>Session Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Estatísticas da Sessão</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1271"/>
@@ -847,12 +849,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1347"/>
         <source>&amp;Document Statistics HUD</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela de Estatísticas do &amp;Documento</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1348"/>
         <source>&amp;Session Statistics HUD</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela de Estatísticas da &amp;Sessão</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1351"/>
@@ -872,12 +874,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1355"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferências...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Application Language...</source>
-        <translation type="unfinished"></translation>
+        <translation>Linguagem da Aplicação...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
@@ -902,17 +904,17 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
         <source>Hemingway</source>
-        <translation type="unfinished"></translation>
+        <translation>Hemingway</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Toggle Hemingway mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar modo Hemingway</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1413"/>
@@ -953,248 +955,249 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="41"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferências</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="50"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>In Portuguese adjectives go to the plural, I have interpreted the context as &quot;Preferences &gt; General&quot;, meaning that there is a General Preferences tab. In this context, the plural is due.</translatorcomment>
+        <translation>Gerais</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="51"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="52"/>
         <source>Spell Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificação Ortográfica</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="53"/>
         <source>HUD</source>
-        <translation type="unfinished">HUD</translation>
+        <translation>Janelas de Informação</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="111"/>
         <source>Matched Characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Pares de Caracteres</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="193"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibição</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar a hora atual quando em modo de tela cheia</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a barra de menus quando em modo de tela cheia</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="211"/>
         <source>File Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvamento de Arquivos</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished">Salvar Automaticamente</translation>
+        <translation>Salvar Automaticamente</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished">Criar Cópia de Segurança ao Salvar</translation>
+        <translation>Criar Cópia de Segurança ao Salvar</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Histórico</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished">Lembrar Histórico de Arquivos</translation>
+        <translation>Lembrar histórico de arquivos</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
         <source>Tabulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabulação</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished">Inserir Espaços em vez de Tabulações</translation>
+        <translation>Inserir espaços em vez de tabulações</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished">Largura das Tabulações</translation>
+        <translation>Largura da tabulação</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilos</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="282"/>
         <source>Sentence</source>
-        <translation type="unfinished">Sentença</translation>
+        <translation>Sentença</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="283"/>
         <source>Current Line</source>
-        <translation type="unfinished">Linha Atual</translation>
+        <translation>Linha Atual</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="284"/>
         <source>Three Lines</source>
-        <translation type="unfinished">Três Linhas</translation>
+        <translation>Três Linhas</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="285"/>
         <source>Paragraph</source>
-        <translation type="unfinished">Parágrafo</translation>
+        <translation>Parágrafo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished">Política de Foco</translation>
+        <translation>Política de Foco</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
         <source>Narrow</source>
-        <translation type="unfinished">Estreita</translation>
+        <translation>Estreita</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="293"/>
         <source>Medium</source>
-        <translation type="unfinished">Média</translation>
+        <translation>Média</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="294"/>
         <source>Wide</source>
-        <translation type="unfinished">Larga</translation>
+        <translation>Larga</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="295"/>
         <source>Full</source>
-        <translation type="unfinished">Total</translation>
+        <translation>Total</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished">Largura do Editor</translation>
+        <translation>Largura do Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
         <source>Plain</source>
-        <translation type="unfinished">Simples</translation>
+        <translation>Simples</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="303"/>
         <location filename="../src/PreferencesDialog.cpp" line="311"/>
         <source>Italic</source>
-        <translation type="unfinished">Itálico</translation>
+        <translation>Itálico</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="304"/>
         <source>Fancy</source>
-        <translation type="unfinished">Bonito</translation>
+        <translation>Bonito</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished">Estilo das Citações</translation>
+        <translation>Estilo das citações</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Sublinhado</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="316"/>
         <source>Emphasis style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo de ênfase</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished">Fonte Grande nos Títulos</translation>
+        <translation>Use títulos grandes</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
         <source>Highlight line breaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Destacar quebras de linhas</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="330"/>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Digitação</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished">Alternar Entre os Marcadores de Listas</translation>
+        <translation>Alternar entre os marcadores de listas</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished">Completar Caracteres ao Digitar</translation>
+        <translation>Fechar pares de caracteres automaticamente</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir quais caracteres fechar...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished">Ativar Verificação Ortográfica Simultânea</translation>
+        <translation>Ativar verificação ortográfica simultânea</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Linguagem</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Dicionários</translation>
+        <translation>Dicionários</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Direita</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="408"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Arranjo dos botões de janela</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar cores de linhas</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished">Habilitar Efeitos de Composição das Janelas</translation>
+        <translation>Habilitar efeitos de composição das janelas</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished">Opacidade das Janelas HUD</translation>
+        <translation>Opacidade das Janelas de informação</translation>
     </message>
 </context>
 <context>
@@ -1233,7 +1236,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="862"/>
         <source>Null or empty file path provided for writing.</source>
-        <translation>Caminho de arquivo fornecido para edição está em branco ou inválido</translation>
+        <translation>Caminho de arquivo fornecido para edição está em branco ou inválido.</translation>
     </message>
     <message>
         <location filename="../src/Exporter.cpp" line="66"/>
@@ -1328,27 +1331,27 @@
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="25"/>
         <source>Words Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras Escritas:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="26"/>
         <source>Pages Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>Páginas Escritas:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="27"/>
         <source>Average WPM:</source>
-        <translation type="unfinished"></translation>
+        <translation>Média Palavras/Minuto:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="28"/>
         <source>Total Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo Total:</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="29"/>
         <source>Idle Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo Inativo:</translation>
     </message>
 </context>
 <context>
