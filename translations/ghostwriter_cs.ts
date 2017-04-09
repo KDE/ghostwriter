@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
         <source>&amp;lt; 1m</source>
-        <translation>&amp;lt; 1m</translation>
+        <translation>&amp;lt; 1 m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
@@ -21,12 +21,12 @@
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="66"/>
         <source>%1h %2m</source>
-        <translation>%1h %2m</translation>
+        <translation>%1 h %2 m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="70"/>
         <source>%1m</source>
-        <translation>%1m</translation>
+        <translation>%1 m</translation>
     </message>
 </context>
 <context>
@@ -395,7 +395,7 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="157"/>
         <source>Add/Remove Style Sheets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat/Odstranit styly...</translation>
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
@@ -654,7 +654,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="536"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodařilo se vytvořit soubor %1. Prověřte oprávnění.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1047"/>
@@ -763,7 +763,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished">Přešk&amp;rtnutí</translation>
+        <translation>Přešk&amp;rtnutí</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
@@ -878,7 +878,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1355"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
@@ -908,7 +908,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wikipedie</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
@@ -959,248 +959,248 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="41"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="50"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Obecné</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="51"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="52"/>
         <source>Spell Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Ověření správného psaní</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="53"/>
         <source>HUD</source>
-        <translation type="unfinished">HUD</translation>
+        <translation>HUD</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="111"/>
         <source>Matched Characters</source>
-        <translation type="unfinished">Shodující se znaky</translation>
+        <translation>Shodující se znaky</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="193"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished">Zobrazit nynější čas v režimu na celou obrazovku</translation>
+        <translation>Ukázat nynější čas v režimu na celou obrazovku</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished">Skrýt pruh s nabídkou v režimu na celou obrazovku</translation>
+        <translation>Skrýt pruh s nabídkou v režimu na celou obrazovku</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="211"/>
         <source>File Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukládání souboru</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="217"/>
         <source>Auto save</source>
-        <translation type="unfinished">Uložit automaticky</translation>
+        <translation>Uložit automaticky</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Backup file on save</source>
-        <translation type="unfinished">Při uložení udělat zálohu</translation>
+        <translation>Při uložení udělat zálohu</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="229"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historie</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="235"/>
         <source>Remember file history</source>
-        <translation type="unfinished">Pamatovat si otevřené soubory</translation>
+        <translation>Pamatovat si otevřené soubory</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="251"/>
         <source>Tabulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Odsazení</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="257"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished">Vkládat mezery namísto zarážek</translation>
+        <translation>Vkládat mezery namísto zarážek</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="273"/>
         <source>Tabulation width</source>
-        <translation type="unfinished">Šířka zarážky</translation>
+        <translation>Šířka odsazení</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="275"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzhledová úprava</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="282"/>
         <source>Sentence</source>
-        <translation type="unfinished">Věta</translation>
+        <translation>Věta</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="283"/>
         <source>Current Line</source>
-        <translation type="unfinished">Nynější řádek</translation>
+        <translation>Nynější řádek</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="284"/>
         <source>Three Lines</source>
-        <translation type="unfinished">Tři řádky</translation>
+        <translation>Tři řádky</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="285"/>
         <source>Paragraph</source>
-        <translation type="unfinished">Odstavec</translation>
+        <translation>Odstavec</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Focus mode</source>
-        <translation type="unfinished">Režim zaměření</translation>
+        <translation>Režim zaměření</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="292"/>
         <source>Narrow</source>
-        <translation type="unfinished">Úzký</translation>
+        <translation>Úzký</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="293"/>
         <source>Medium</source>
-        <translation type="unfinished">Střední</translation>
+        <translation>Střední</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="294"/>
         <source>Wide</source>
-        <translation type="unfinished">Široký</translation>
+        <translation>Široký</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="295"/>
         <source>Full</source>
-        <translation type="unfinished">Úplný</translation>
+        <translation>Úplný</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Editor width</source>
-        <translation type="unfinished">Šířka editoru</translation>
+        <translation>Šířka editoru</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="302"/>
         <source>Plain</source>
-        <translation type="unfinished">Jednoduchý</translation>
+        <translation>Jednoduchý</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="303"/>
         <location filename="../src/PreferencesDialog.cpp" line="311"/>
         <source>Italic</source>
-        <translation type="unfinished">Kurzíva</translation>
+        <translation>Kurzíva</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="304"/>
         <source>Fancy</source>
-        <translation type="unfinished">Výstřední</translation>
+        <translation>Zdobný</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Blockquote style</source>
-        <translation type="unfinished">Styl blokových uvozovek</translation>
+        <translation>Styl blokových uvozovek</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="312"/>
         <source>Underline</source>
-        <translation type="unfinished">Použít podtržení namísto kurzívy pro zvýraznění</translation>
+        <translation>Podtržení</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="316"/>
         <source>Emphasis style</source>
-        <translation type="unfinished"></translation>
+        <translation>Styl zvýraznění</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <source>Use large headings</source>
-        <translation type="unfinished">Použít velké nadpisy</translation>
+        <translation>Použít velké nadpisy</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="324"/>
         <source>Highlight line breaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýraznit zalomení řádků</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="330"/>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Psaní na stroji</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="336"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished">Střídat značky odrážek</translation>
+        <translation>Střídat značky odrážek</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="342"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished">Při psaní automaticky seskupovat znaky</translation>
+        <translation>Při psaní automaticky seskupovat znaky</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="348"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished">Přizpůsobit seskupené znaky...</translation>
+        <translation>Přizpůsobit seskupené znaky...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="362"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished">Živé ověřování pravopisu zapnuto</translation>
+        <translation>Živé ověřování pravopisu zapnuto</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="368"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Jazyk</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="394"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Slovníky</translation>
+        <translation>Slovník</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="407"/>
         <source>Right</source>
-        <translation type="unfinished">Vpravo</translation>
+        <translation>Vpravo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="408"/>
         <source>Left</source>
-        <translation type="unfinished">Vlevo</translation>
+        <translation>Vlevo</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="412"/>
         <source>Window button layout</source>
-        <translation type="unfinished">Uspořádání tlačítek v okně HUD</translation>
+        <translation>Uspořádání tlačítek v okně</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="414"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished">Střídat barvy řádků v oknech HUD</translation>
+        <translation>Střídat barvy řádků v oknech</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="420"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished">Zapnout kompozitní efekty plochy</translation>
+        <translation>Zapnout kompozitní efekty plochy</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="431"/>
         <source>Opacity</source>
-        <translation type="unfinished">Neprůhlednost okna HUD</translation>
+        <translation>Neprůhlednost</translation>
     </message>
 </context>
 <context>
