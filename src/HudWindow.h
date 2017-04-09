@@ -122,7 +122,7 @@ class HudWindow : public QWidget
         QColor foregroundColor;
         QColor backgroundColor;
         QColor titleBarButtonHoverColor;
-        QImage dropShadowImg;
+        QPixmap dropShadowImg;
         QGraphicsColorizeEffect* closeButtonColorEffect;
         QGraphicsColorizeEffect* sizeGripColorEffect;
         bool isTitleBarBeingDragged;

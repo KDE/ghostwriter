@@ -31,6 +31,7 @@
 #include <QGraphicsColorizeEffect>
 #include <QMouseEvent>
 #include <QPaintEvent>
+#include <QPixmap>
 #include <QPoint>
 #include <QTextStream>
 #include <QApplication>
@@ -310,18 +311,50 @@ void HudWindow::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event);
 
+    // devicePixelRatio
+    qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+    dpr = devicePixelRatio();
+#endif
+
+    int w = rect().width() * dpr;
+    int h = rect().height() * dpr;
+    qreal penWidth = 0.5 * dpr;
+
     if (desktopCompositingEnabled)
     {
+        int adjX1 = 10 * dpr;
+        int adjY1 = 10 * dpr;
+        int adjX2 = -10 * dpr;
+        int adjY2 = -10 * dpr;
+        qreal xRadius = 5 * dpr;
+        qreal yRadius = 5 * dpr;
+
         // Draw the window shadow first.
         QPainter painter(this);
         painter.setRenderHint(QPainter::Antialiasing);
-        painter.drawImage(0, 0, dropShadowImg);
+        painter.drawPixmap(0, 0, dropShadowImg);
 
         // And now draw the window itself.
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.setPen(QPen(QBrush(foregroundColor), 0.5));
-        painter.setBrush(QBrush(QBrush(backgroundColor)));
-        painter.drawRoundedRect(rect().adjusted(10, 10, -10, -10), 5, 5);
+
+        // Draw on QPixmap first for HiDPI scaling.
+        QPixmap pixmap(w, h);
+        pixmap.fill(Qt::transparent);
+
+        QPainter pixPainter(&pixmap);
+        pixPainter.setRenderHint(QPainter::Antialiasing);
+        pixPainter.setCompositionMode(QPainter::CompositionMode_Source);
+        pixPainter.setPen(QPen(QBrush(foregroundColor), penWidth));
+        pixPainter.setBrush(QBrush(QBrush(backgroundColor)));
+        pixPainter.drawRoundedRect(pixmap.rect().adjusted(adjX1, adjY1, adjX2, adjY2), xRadius, yRadius);
+        pixPainter.end();
+
+#if QT_VERSION >= 0x050600
+        pixmap.setDevicePixelRatio(dpr);
+#endif
+
+        painter.drawPixmap(0, 0, pixmap);
         painter.end();
     }
     else
@@ -334,11 +367,25 @@ void HudWindow::paintEvent(QPaintEvent* event)
         QColor bgColor = backgroundColor;
         bgColor.setAlpha(255);
 
+
+        // Draw on QPixmap first for HiDPI scaling.
+        QPixmap pixmap(w, h);
+        pixmap.fill(Qt::transparent);
+
+        QPainter pixPainter(&pixmap);
+        pixPainter.setRenderHint(QPainter::Antialiasing);
+        pixPainter.setCompositionMode(QPainter::CompositionMode_Source);
+        pixPainter.setPen(QPen(QBrush(foregroundColor), penWidth));
+        pixPainter.setBrush(QBrush(QBrush(bgColor)));
+        pixPainter.drawRect(pixmap.rect().adjusted(dpr, dpr, -dpr, -dpr));
+        pixPainter.end();
+
+#if QT_VERSION >= 0x050600
+        pixmap.setDevicePixelRatio(dpr);
+#endif
+
         QPainter painter(this);
-        painter.setCompositionMode(QPainter::CompositionMode_Source);
-        painter.setPen(QPen(QBrush(foregroundColor), 0.5));
-        painter.setBrush(QBrush(QBrush(bgColor)));
-        painter.drawRect(rect().adjusted(0, 0, -1, -1));
+        painter.drawPixmap(0, 0, pixmap);
         painter.end();
     }
 }
@@ -349,14 +396,24 @@ void HudWindow::resizeEvent(QResizeEvent* event)
 
     if (desktopCompositingEnabled)
     {
+        // devicePixelRatio
+        qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+        dpr = devicePixelRatio();
+#endif
+
+        int w = rect().width() * dpr;
+        int h = rect().height() * dpr;
+
         // Pre-draw the window drop shadow.  It only needs to be drawn upon
         // resize.  We do this because applying a blur effect to the drop
         // shadow is computationally expensive.
 
         QImage unblurredImage
             (
-                rect().width(),
-                rect().height(),
+                w,
+                h,
                 QImage::Format_ARGB32_Premultiplied
             );
         unblurredImage.fill(Qt::transparent);
@@ -365,19 +422,18 @@ void HudWindow::resizeEvent(QResizeEvent* event)
         painter.setRenderHint(QPainter::Antialiasing);
         painter.setPen(QPen(Qt::NoPen));
         painter.setBrush(QBrush(QColor(0, 0, 0, 200)));
-        painter.drawRoundedRect(rect().adjusted(10, 12, -10, -8), 5, 5);
+        painter.drawRoundedRect(rect().adjusted(10, 12, -10, -8), 5.0, 5.0);
         painter.end();
 
         // Now we need to blur the shadow onto its final destination image,
         // dropShadowImg, which will be drawn on the next paintEvent().
         //
-        dropShadowImg = QImage
-            (
-                rect().width(),
-                rect().height(),
-                QImage::Format_ARGB32_Premultiplied
-            );
+        dropShadowImg = QPixmap(w, h);
         dropShadowImg.fill(Qt::transparent);
+
+#if QT_VERSION >= 0x050600
+        dropShadowImg.setDevicePixelRatio(dpr);
+#endif
 
         painter.begin(&dropShadowImg);
         painter.setRenderHint(QPainter::Antialiasing);
