@@ -65,7 +65,6 @@ MarkdownEditor::MarkdownEditor
 
     highlighter = new MarkdownHighlighter(this);
 
-
     setAcceptDrops(true);
 
     preferredLayout = new QGridLayout();
@@ -154,7 +153,18 @@ MarkdownEditor::MarkdownEditor
 
     fadeEffect = new GraphicsFadeEffect(this);
     fadeEffect->setFadeHeight(this->fontMetrics().height() * GW_TEXT_FADE_FACTOR);
+
+#if QT_VERSION >= 0x050600
+    qreal dpr = devicePixelRatio();
+
+    if (dpr <= 1.0)
+    {
+        viewport()->setGraphicsEffect(fadeEffect);
+    }
+#else
     viewport()->setGraphicsEffect(fadeEffect);
+#endif
+
     
     textCursorVisible = true;
     
