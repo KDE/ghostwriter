@@ -133,6 +133,7 @@ class HudWindow : public QWidget
         QSize sizeHint() const;
         void paintEvent(QPaintEvent* event);
         void resizeEvent(QResizeEvent* event);
+        void moveEvent(QMoveEvent* event);
         void mousePressEvent(QMouseEvent *event);
         void mouseReleaseEvent(QMouseEvent* event);
         void mouseMoveEvent(QMouseEvent* event);
@@ -140,6 +141,7 @@ class HudWindow : public QWidget
 
     private:
         void resetTitleButtonHoverColor();
+        void predrawDropShadow();
 
 };
 

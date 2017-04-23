@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,6 +38,12 @@
 ThemeEditorDialog::ThemeEditorDialog(const Theme& theme, QWidget* parent)
     : QDialog(parent), theme(theme)
 {
+    qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+    dpr = devicePixelRatioF();
+#endif
+
     this->setWindowTitle(tr("Edit Theme"));
     oldThemeName = theme.getName();
     themeNameEdit = new QLineEdit(this);
@@ -68,7 +74,7 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme& theme, QWidget* parent)
     hudBackgroundColorButton = new ColorButton(this);
     hudBackgroundColorButton->setColor(theme.getHudBackgroundColor());
 
-    backgroundImageButton = new ImageButton(this);
+    backgroundImageButton = new ImageButton(dpr, this);
 
     if
     (

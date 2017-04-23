@@ -70,6 +70,8 @@ class ThemeSelectionDialog : public QDialog
         Theme currentTheme;
         bool currentThemeIsValid;
         bool currentThemeIsNew;
+        int iconWidth;
+        int iconHeight;
 
         // Use this list to count where the custom
         // themes start in the theme selection list.

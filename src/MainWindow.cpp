@@ -564,6 +564,19 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     }
 }
 
+void MainWindow::moveEvent(QMoveEvent* event)
+{
+    Q_UNUSED(event)
+
+    // Need to redraw the background image in case the window has moved
+    // onto a different screen where the device pixel ratio is different.
+    //
+    if (!originalBackgroundImage.isNull())
+    {
+        predrawBackgroundImage();
+    }
+}
+
 void MainWindow::keyPressEvent(QKeyEvent* e)
 {
     int key = e->key();
@@ -599,11 +612,19 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
 void MainWindow::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
-    painter.fillRect(this->rect(), theme.getBackgroundColor().rgb());
+    qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+    dpr = devicePixelRatioF();
+#endif
+
+    QRect rect(event->rect().topLeft() * dpr, event->rect().size() * dpr);
+
+    painter.fillRect(rect, theme.getBackgroundColor().rgb());
 
     if (!adjustedBackgroundImage.isNull())
     {
-        painter.drawImage(0, 0, adjustedBackgroundImage);
+        painter.drawPixmap(0, 0, adjustedBackgroundImage);
     }
 
     if (EditorAspectStretch == theme.getEditorAspect())
@@ -1755,8 +1776,8 @@ void MainWindow::applyTheme()
     styleSheet = "";
 
     // Wipe out old background image drawing material.
-    originalBackgroundImage = QImage();
-    adjustedBackgroundImage = QImage();
+    originalBackgroundImage = QPixmap();
+    adjustedBackgroundImage = QPixmap();
 
     if
     (
@@ -1929,12 +1950,28 @@ void MainWindow::applyTheme()
 // Lifted from FocusWriter's theme.cpp file
 void MainWindow::predrawBackgroundImage()
 {
+    qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+    dpr = this->devicePixelRatioF();
+#endif
+
+    QPixmap image(originalBackgroundImage);
+
+#if QT_VERSION >= 0x050600
+    image.setDevicePixelRatio(dpr);
+#endif
+
     adjustedBackgroundImage =
-        QImage
+        QPixmap
         (
-            this->size(),
-            QImage::Format_ARGB32_Premultiplied
+            this->size() * dpr
         );
+
+#if QT_VERSION >= 0x050600
+    adjustedBackgroundImage.setDevicePixelRatio(dpr);
+#endif
+
     adjustedBackgroundImage.fill(theme.getBackgroundColor().rgb());
 
     QPainter painter(&adjustedBackgroundImage);
@@ -1942,16 +1979,22 @@ void MainWindow::predrawBackgroundImage()
 
     if (PictureAspectTile == theme.getBackgroundImageAspect())
     {
+        qreal inverseRatio = 1.0 / dpr;
+
+        painter.scale(inverseRatio, inverseRatio);
         painter.fillRect
         (
             adjustedBackgroundImage.rect(),
-            originalBackgroundImage
+            image
         );
     }
     else
     {
         Qt::AspectRatioMode aspectRatioMode = Qt::IgnoreAspectRatio;
         bool scaleImage = true;
+        bool centerImage = false;
+        int xpos = 0;
+        int ypos = 0;
 
         switch (theme.getBackgroundImageAspect())
         {
@@ -1960,6 +2003,7 @@ void MainWindow::predrawBackgroundImage()
                 break;
             case PictureAspectScale:
                 aspectRatioMode = Qt::KeepAspectRatio;
+                centerImage = true;
                 break;
             case PictureAspectStretch:
                 aspectRatioMode = Qt::IgnoreAspectRatio;
@@ -1967,28 +2011,37 @@ void MainWindow::predrawBackgroundImage()
             default:
                 // Centered
                 scaleImage = false;
+                centerImage = true;
                 break;
         }
-
-        QImage image(originalBackgroundImage);
 
         if (scaleImage)
         {
             image = image.scaled
                 (
-                    this->size(),
+                    adjustedBackgroundImage.size(),
                     aspectRatioMode,
                     Qt::SmoothTransformation
                 );
+
+#if QT_VERSION >= 0x050600
+            image.setDevicePixelRatio(dpr);
+#endif
         }
 
-        painter.drawImage
+        if (centerImage)
+        {
+            xpos = (adjustedBackgroundImage.width() - image.width()) / (2.0 * dpr);
+            ypos = (adjustedBackgroundImage.height() - image.height()) / (2.0 * dpr);
+        }
+
+        painter.drawPixmap
         (
-            (this->width() - image.width()) / 2,
-            (this->height() - image.height()) / 2,
+            xpos,
+            ypos,
             image
         );
-
-        painter.end();
     }
+
+    painter.end();
 }

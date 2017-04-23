@@ -1,6 +1,7 @@
 /***********************************************************************
  *
  * Copyright (C) 2008, 2009, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +28,7 @@ class ImageButton : public QPushButton
 	Q_OBJECT
 
 public:
-	ImageButton(QWidget* parent = 0);
+    ImageButton(qreal devicePixelRatio, QWidget* parent = 0);
 
 	QString image() const;
 	QString toString() const;
@@ -43,8 +44,9 @@ private slots:
 	void onClicked();
 
 private:
+    qreal devicePixelRatio;
 	QString m_image;
-	QString m_path;
+    QString m_path;
 };
 
 inline QString ImageButton::image() const {

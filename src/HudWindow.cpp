@@ -315,7 +315,7 @@ void HudWindow::paintEvent(QPaintEvent* event)
     qreal dpr = 1.0;
 
 #if QT_VERSION >= 0x050600
-    dpr = devicePixelRatio();
+    dpr = devicePixelRatioF();
 #endif
 
     int w = rect().width() * dpr;
@@ -393,55 +393,16 @@ void HudWindow::paintEvent(QPaintEvent* event)
 void HudWindow::resizeEvent(QResizeEvent* event)
 {
     Q_UNUSED(event);
+    predrawDropShadow();
+}
 
-    if (desktopCompositingEnabled)
-    {
-        // devicePixelRatio
-        qreal dpr = 1.0;
-
-#if QT_VERSION >= 0x050600
-        dpr = devicePixelRatio();
-#endif
-
-        int w = rect().width() * dpr;
-        int h = rect().height() * dpr;
-
-        // Pre-draw the window drop shadow.  It only needs to be drawn upon
-        // resize.  We do this because applying a blur effect to the drop
-        // shadow is computationally expensive.
-
-        QImage unblurredImage
-            (
-                w,
-                h,
-                QImage::Format_ARGB32_Premultiplied
-            );
-        unblurredImage.fill(Qt::transparent);
-
-        QPainter painter(&unblurredImage);
-        painter.setRenderHint(QPainter::Antialiasing);
-        painter.setPen(QPen(Qt::NoPen));
-        painter.setBrush(QBrush(QColor(0, 0, 0, 200)));
-        painter.drawRoundedRect(rect().adjusted(10, 12, -10, -8), 5.0, 5.0);
-        painter.end();
-
-        // Now we need to blur the shadow onto its final destination image,
-        // dropShadowImg, which will be drawn on the next paintEvent().
-        //
-        dropShadowImg = QPixmap(w, h);
-        dropShadowImg.fill(Qt::transparent);
-
-#if QT_VERSION >= 0x050600
-        dropShadowImg.setDevicePixelRatio(dpr);
-#endif
-
-        painter.begin(&dropShadowImg);
-        painter.setRenderHint(QPainter::Antialiasing);
-
-        // Note that the blur only applies to the alpha channel.
-        qt_blurImage(&painter, unblurredImage, 18, true, true);
-        painter.end();
-    }
+void HudWindow::moveEvent(QMoveEvent *event)
+{
+    // Need to redraw the background image in case the window has moved
+    // onto a different screen where the device pixel ratio is different.
+    //
+    Q_UNUSED(event);
+    predrawDropShadow();
 }
 
 void HudWindow::mousePressEvent(QMouseEvent* event)
@@ -513,4 +474,56 @@ void HudWindow::resetTitleButtonHoverColor()
             backgroundColor,
             200
         );
+}
+
+void HudWindow::predrawDropShadow()
+{
+    if (desktopCompositingEnabled)
+    {
+        // devicePixelRatio
+        qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+        dpr = devicePixelRatioF();
+#endif
+
+        int w = rect().width() * dpr;
+        int h = rect().height() * dpr;
+
+        // Pre-draw the window drop shadow.  It only needs to be drawn upon
+        // resize.  We do this because applying a blur effect to the drop
+        // shadow is computationally expensive.
+
+        QImage unblurredImage
+            (
+                w,
+                h,
+                QImage::Format_ARGB32_Premultiplied
+            );
+        unblurredImage.fill(Qt::transparent);
+
+        QPainter painter(&unblurredImage);
+        painter.setRenderHint(QPainter::Antialiasing);
+        painter.setPen(QPen(Qt::NoPen));
+        painter.setBrush(QBrush(QColor(0, 0, 0, 200)));
+        painter.drawRoundedRect(rect().adjusted(10, 12, -10, -8), 5.0, 5.0);
+        painter.end();
+
+        // Now we need to blur the shadow onto its final destination image,
+        // dropShadowImg, which will be drawn on the next paintEvent().
+        //
+        dropShadowImg = QPixmap(w, h);
+        dropShadowImg.fill(Qt::transparent);
+
+#if QT_VERSION >= 0x050600
+        dropShadowImg.setDevicePixelRatio(dpr);
+#endif
+
+        painter.begin(&dropShadowImg);
+        painter.setRenderHint(QPainter::Antialiasing);
+
+        // Note that the blur only applies to the alpha channel.
+        qt_blurImage(&painter, unblurredImage, 18, true, true);
+        painter.end();
+    }
 }

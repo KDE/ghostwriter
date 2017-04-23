@@ -1,6 +1,7 @@
 /***********************************************************************
  *
  * Copyright (C) 2008, 2009, 2010, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,8 +30,8 @@
 
 //-----------------------------------------------------------------------------
 
-ImageButton::ImageButton(QWidget* parent)
-	: QPushButton(parent)
+ImageButton::ImageButton(qreal devicePixelRatio, QWidget* parent)
+    : QPushButton(parent), devicePixelRatio(devicePixelRatio)
 {
 	setAutoDefault(false);
 	setIconSize(QSize(100, 100));
@@ -46,10 +47,8 @@ void ImageButton::setImage(const QString& image, const QString& path)
 	if (source.canRead()) {
 		m_image = image;
 		QSize size = source.size();
-		if (size.width() > 100 || size.height() > 100) {
-			size.scale(100, 100, Qt::KeepAspectRatio);
-			source.setScaledSize(size);
-		}
+        size.scale(100 * devicePixelRatio, 100 * devicePixelRatio, Qt::KeepAspectRatio);
+        source.setScaledSize(size);
 		setIcon(QPixmap::fromImage(source.read(), Qt::AutoColor | Qt::AvoidDither));
 
 		m_path = (!path.isEmpty() && QImageReader(path).canRead()) ? path : QString();

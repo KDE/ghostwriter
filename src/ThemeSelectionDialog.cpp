@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,6 +40,9 @@
 #include "ThemeEditorDialog.h"
 #include "MessageBoxHelper.h"
 
+#define GW_LIST_WIDGET_ICON_WIDTH 150
+#define GW_LIST_WIDGET_ICON_HEIGHT 100
+
 ThemeSelectionDialog::ThemeSelectionDialog
 (
     const QString& currentThemeName,
@@ -47,6 +50,15 @@ ThemeSelectionDialog::ThemeSelectionDialog
 )
     : QDialog(parent)
 {
+    qreal dpr = 1.0;
+
+#if QT_VERSION >= 0x050600
+    dpr = devicePixelRatioF();
+#endif
+
+    iconWidth = GW_LIST_WIDGET_ICON_WIDTH * dpr;
+    iconHeight = GW_LIST_WIDGET_ICON_HEIGHT * dpr;
+
     this->setWindowTitle(tr("Themes"));
     this->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -55,7 +67,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
     QStringList availableThemes =
         ThemeFactory::getInstance()->getAvailableThemes();
     themeListWidget = new QListWidget(this);
-    themeListWidget->setIconSize(QSize(150, 100));
+    themeListWidget->setIconSize(QSize(GW_LIST_WIDGET_ICON_WIDTH, GW_LIST_WIDGET_ICON_HEIGHT));
 
     for (int i = 0; i < availableThemes.size(); i++)
     {
@@ -71,7 +83,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
         }
         else
         {
-            ThemePreviewer previewer(theme, 100, 70);
+            ThemePreviewer previewer(theme, iconWidth, iconHeight);
             themeIcon = previewer.getIcon();
         }
 
@@ -122,7 +134,6 @@ ThemeSelectionDialog::~ThemeSelectionDialog()
 
 void ThemeSelectionDialog::onThemeSelected()
 {
-
     QList<QListWidgetItem*> selectedThemes = themeListWidget->selectedItems();
     QString themeName;
     Theme theme;
@@ -197,7 +208,7 @@ void ThemeSelectionDialog::onNewTheme()
     }
     else
     {
-        ThemePreviewer previewer(newTheme, 100, 70);
+        ThemePreviewer previewer(newTheme, iconWidth, iconHeight);
         themeIcon = previewer.getIcon();
     }
 
@@ -339,9 +350,8 @@ void ThemeSelectionDialog::onThemeUpdated(const Theme& theme)
             currentTheme = theme;
             currentThemeIsValid = true;
 
-            ThemePreviewer previewer(theme, 100, 70);
+            ThemePreviewer previewer(theme, iconWidth, iconHeight);
             QIcon themeIcon = previewer.getIcon();
-
             item->setIcon(themeIcon);
         }
     }

@@ -68,6 +68,7 @@ class MainWindow : public QMainWindow
     protected:
         QSize sizeHint() const;
         void resizeEvent(QResizeEvent* event);
+        void moveEvent(QMoveEvent* event);
         void keyPressEvent(QKeyEvent* e);
         void paintEvent(QPaintEvent* event);
         void closeEvent(QCloseEvent* event);
@@ -140,8 +141,8 @@ class MainWindow : public QMainWindow
         SessionStatistics* sessionStats;
         SessionStatisticsWidget* sessionStatsWidget;
         QListWidget* cheatSheetWidget;
-        QImage originalBackgroundImage;
-        QImage adjustedBackgroundImage;
+        QPixmap originalBackgroundImage;
+        QPixmap adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;
         QDialog* hudOpacityDialog = NULL;
         QAction* recentFilesActions[MAX_RECENT_FILES];
