@@ -1992,9 +1992,6 @@ void MainWindow::predrawBackgroundImage()
     {
         Qt::AspectRatioMode aspectRatioMode = Qt::IgnoreAspectRatio;
         bool scaleImage = true;
-        bool centerImage = false;
-        int xpos = 0;
-        int ypos = 0;
 
         switch (theme.getBackgroundImageAspect())
         {
@@ -2003,7 +2000,6 @@ void MainWindow::predrawBackgroundImage()
                 break;
             case PictureAspectScale:
                 aspectRatioMode = Qt::KeepAspectRatio;
-                centerImage = true;
                 break;
             case PictureAspectStretch:
                 aspectRatioMode = Qt::IgnoreAspectRatio;
@@ -2011,7 +2007,6 @@ void MainWindow::predrawBackgroundImage()
             default:
                 // Centered
                 scaleImage = false;
-                centerImage = true;
                 break;
         }
 
@@ -2029,11 +2024,8 @@ void MainWindow::predrawBackgroundImage()
 #endif
         }
 
-        if (centerImage)
-        {
-            xpos = (adjustedBackgroundImage.width() - image.width()) / (2.0 * dpr);
-            ypos = (adjustedBackgroundImage.height() - image.height()) / (2.0 * dpr);
-        }
+        int xpos = (adjustedBackgroundImage.width() - image.width()) / (2.0 * dpr);
+        int ypos = (adjustedBackgroundImage.height() - image.height()) / (2.0 * dpr);
 
         painter.drawPixmap
         (
