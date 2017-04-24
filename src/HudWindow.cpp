@@ -324,21 +324,25 @@ void HudWindow::paintEvent(QPaintEvent* event)
 
     if (desktopCompositingEnabled)
     {
-        int adjX1 = 10 * dpr;
-        int adjY1 = 10 * dpr;
-        int adjX2 = -10 * dpr;
-        int adjY2 = -10 * dpr;
-        qreal xRadius = 5 * dpr;
-        qreal yRadius = 5 * dpr;
+        int adjX1 = 10;
+        int adjY1 = 10;
+        int adjX2 = -10;
+        int adjY2 = -10;
+        qreal xRadius = 5;
+        qreal yRadius = 5;
 
         // Draw the window shadow first.
         QPainter painter(this);
         painter.setRenderHint(QPainter::Antialiasing);
         painter.drawPixmap(0, 0, dropShadowImg);
 
-        // And now draw the window itself.
+        // Clear out drop shadow background, leaving only the edges around the HUD shadowed.
+        painter.setCompositionMode(QPainter::CompositionMode_Clear);
+        painter.setPen(QPen(Qt::transparent, penWidth));
+        painter.setBrush(QBrush(Qt::transparent));
+        painter.drawRoundedRect(rect().adjusted(adjX1, adjY1, adjX2, adjY2), 5, 5);
 
-        // Draw on QPixmap first for HiDPI scaling.
+        // And now draw the HUD window itself.
         QPixmap pixmap(w, h);
         pixmap.fill(Qt::transparent);
 
@@ -347,13 +351,19 @@ void HudWindow::paintEvent(QPaintEvent* event)
         pixPainter.setCompositionMode(QPainter::CompositionMode_Source);
         pixPainter.setPen(QPen(QBrush(foregroundColor), penWidth));
         pixPainter.setBrush(QBrush(QBrush(backgroundColor)));
-        pixPainter.drawRoundedRect(pixmap.rect().adjusted(adjX1, adjY1, adjX2, adjY2), xRadius, yRadius);
+        pixPainter.drawRoundedRect
+            (
+                pixmap.rect().adjusted(adjX1 * dpr, adjY1 * dpr, adjX2 * dpr, adjY2 * dpr),
+                xRadius * dpr,
+                yRadius * dpr
+            );
         pixPainter.end();
 
 #if QT_VERSION >= 0x050600
         pixmap.setDevicePixelRatio(dpr);
 #endif
 
+        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
         painter.drawPixmap(0, 0, pixmap);
         painter.end();
     }
@@ -491,9 +501,9 @@ void HudWindow::predrawDropShadow()
         int h = rect().height() * dpr;
 
         // Pre-draw the window drop shadow.  It only needs to be drawn upon
-        // resize.  We do this because applying a blur effect to the drop
-        // shadow is computationally expensive.
-
+        // resizing or moving the window.  We do this because applying a blur
+        // effect to the drop shadow is computationally expensive.
+        //
         QImage unblurredImage
             (
                 w,
