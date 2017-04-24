@@ -8,10 +8,10 @@
   <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
-<h1 id="introduction">はじめに</h1>
+<h1 id="はじめに">はじめに</h1>
 <p><em>ghostwriter</em>にようこそ！ このクイック リファレンス ガイドではMarkdownの記述例を提示します。(MarkdownはJohn Gruber氏が作成したプレーンテキスト形式のマークアップ言語です。) さらに詳しい情報やヘルプはJohn Gruber氏のウェブサイト <a href="http://www.daringfireball.net" class="uri">http://www.daringfireball.net</a> を訪れてください。 <em>ghostwriter</em>の公式ウェブサイトは <a href="http://www.github.com/wereturtle/ghostwriter" class="uri">http://www.github.com/wereturtle/ghostwriter</a> です。</p>
 <p><em>ghostwriter</em>は標準でSundownプロセッサが組み込まれています。 しかしながらPandoc、MultiMarkdown、Discount、またはcmarkプロセッサを自動検出することも可能です。 後者3つのどれかまたはすべてを使用するには、単にそれらをインストールし、それらのインストール場所をシステムの<code>PATH</code>環境変数に加えるだけです。 <em>ghostwriter</em>は起動時にそれらのインストールを自動検出し、ライブHTMLプレビューやエクスポートの選択肢として使用できます。</p>
-<h1 id="headings">見出し</h1>
+<h1 id="見出し">見出し</h1>
 <pre><code># 見出しレベル 1
 ## 見出しレベル 2 ##
 ###### 見出しレベル 6
@@ -23,12 +23,12 @@
 見出しレベル 2
 ---------------
 ここは別の本文</code></pre>
-<h1 id="paragraphs">段落</h1>
+<h1 id="段落">段落</h1>
 <pre><code>これは段落です。
 これは手動で改行した同じ段落内の別の行です。
 
 これは新しい段落です。</code></pre>
-<h1 id="inline-formatting">インライン書式</h1>
+<h1 id="インライン書式">インライン書式</h1>
 <p><em>斜体</em> や <strong>太字</strong> にするには2つの方法があります。 1つめはテキストをアスタリスク(*)で囲む方法で、2つめはアンダースコア(_)で囲む方法です。</p>
 <pre><code>これはアスタリスクを使って *斜体* にしています。
 これはアンダースコアを使って _斜体_ にしています。
@@ -40,21 +40,21 @@
 これは両者を組み合わせて **_太字かつ斜体_** にしています。
 これは別の組み合わせで *__太字かつ斜体__* にしています。
 等々</code></pre>
-<h1 id="links">リンク</h1>
+<h1 id="リンク">リンク</h1>
 <p>さまざまなウェブサイトにリンクすることができます:</p>
 <pre><code>[ここ](http://url.com &quot;タイトル&quot;)をクリックしてウェブサイトに行く。</code></pre>
 <p>参照リンクを使用することもできます:</p>
 <pre><code>[これ][id]は次のように定義されたリンクを参照します。
 
 [id]: http://url.com &quot;タイトル&quot;</code></pre>
-<h1 id="images">画像</h1>
+<h1 id="画像">画像</h1>
 <p>このように画像を埋め込むことができます:</p>
 <pre><code>![代替テキスト](./image.jpg &quot;タイトル&quot;)</code></pre>
 <p>参照リンクと同じ構文を使用することもできます:</p>
 <pre><code>![代替テキスト][id]は次のように定義された画像を参照します。
 
 [id]: ./image.jpg &quot;タイトル&quot;</code></pre>
-<h1 id="lists">リスト</h1>
+<h1 id="リスト">リスト</h1>
 <p>番号付きリストが使用できます:</p>
 <pre><code>1. 項目 1
 2. 項目 2
@@ -72,7 +72,7 @@
     - サブ項目 2
 3. 項目 3
     1. サブ項目 1</code></pre>
-<h1 id="code-blocks">コード ブロック</h1>
+<h1 id="コード-ブロック">コード ブロック</h1>
 <p>4つ以上のスペースまたはタブ文字でインデントすることで、コード ブロックを作成できます:</p>
 <pre><code>これは普通の段落です。後ろにコード ブロックが続きます。
     
@@ -88,14 +88,14 @@ for (int i = 0; i &lt; 10; i++) {
 }
 ```</code></pre>
 <p>上記も同様に整形済みのコード ブロックとして表示されます。</p>
-<h1 id="code-spans">コード範囲</h1>
+<h1 id="コード範囲">コード範囲</h1>
 <p>段落の途中でコード部分を区切るために、<code>`&lt;html&gt;`</code>タグ、のようにバッククォートが使用できます。 1つ以上のバッククォートを使用することで、<code>`` `エスケープされたバッククォート` ``</code>のようにバッククォートをリテラル文字として使用できます。</p>
-<h1 id="blockquotes">引用</h1>
+<h1 id="引用">引用</h1>
 <p>このように引用ブロックを区切るためにEメール形式のアングルブラケットが使用できます:</p>
 <pre><code>&gt; これは引用ブロックです。
 &gt;
 &gt;&gt; これは入れ子状態の引用ブロックです。</code></pre>
-<h1 id="horizontal-rules">区切り線</h1>
+<h1 id="区切り線">区切り線</h1>
 <p>このように区切り線には3つ以上のダッシュ(-)、アンダースコア(_)、またはアスタリスク(*)を使用します:</p>
 <pre><code>---
 
@@ -103,7 +103,7 @@ for (int i = 0; i &lt; 10; i++) {
 ___</code></pre>
 <p>文字間にスペースを挟むこともできます:</p>
 <pre><code>- - -</code></pre>
-<h1 id="markdown-extensions">Markdown 拡張</h1>
+<h1 id="markdown-拡張">Markdown 拡張</h1>
 <p>いくつかのMarkdownプロセッサは、オリジナルのJohn Gruber氏のMarkdown仕様を拡張するために、表や脚注などのための構文を追加しています。 下の例はPandoc、MultiMarkdown、その他のプロセッサが対応している脚注の例です:</p>
 <pre><code>これは脚注が付けられている本文です。[^footnoteid]
 
@@ -129,38 +129,38 @@ Row Text 1  |  Row Text 2</code></pre>
 <li>cmark: <a href="http://github.com/jgm/cmark/" class="uri">http://github.com/jgm/cmark/</a></li>
 </ul>
 <p>オリジナルのJohn Gruber氏のMarkdown仕様は <a href="http://daringfireball.net/projects/markdown/" class="uri">http://daringfireball.net/projects/markdown/</a> にあります。</p>
-<h1 id="ghostwriter-shortcuts">Ghostwriterのショートカット</h1>
+<h1 id="ghostwriterのショートカット">Ghostwriterのショートカット</h1>
 <p><em>ghostwriter</em>はMarkdown編集のためのいくつかのショートカット キーに対応しています:</p>
 <dl>
 <dt><code>Ctrl+B</code></dt>
-<dd><p>太字(重要)を適用します。</p>
+<dd>太字(重要)を適用します。
 </dd>
 <dt><code>Ctrl+I</code></dt>
-<dd><p>斜体(強調)を適用します。</p>
+<dd>斜体(強調)を適用します。
 </dd>
 <dt><code>Ctrl+K</code></dt>
-<dd><p>取り消し線を適用します。</p>
+<dd>取り消し線を適用します。
 </dd>
 <dt><code>Ctrl+/</code></dt>
-<dd><p><code>Ctrl</code>と<code>/</code>キーを押すと、 カーソル位置にHTMLコメントタグを挿入するか、選択テキストをHTMLコメントにします。</p>
+<dd><code>Ctrl</code>と<code>/</code>キーを押すと、 カーソル位置にHTMLコメントタグを挿入するか、選択テキストをHTMLコメントにします。
 </dd>
 <dt><code>Tab</code></dt>
-<dd><p>テキストが選択されている時に<code>Tab</code>キーを押すと、選択行のテキストをインデントします。</p>
+<dd>テキストが選択されている時に<code>Tab</code>キーを押すと、選択行のテキストをインデントします。
 </dd>
 <dt><code>Shift+Tab</code></dt>
-<dd><p>テキストが選択されている時に<code>Shift</code>と<code>Tab</code>キーを押すと、選択行のテキストを逆インデントします。</p>
+<dd>テキストが選択されている時に<code>Shift</code>と<code>Tab</code>キーを押すと、選択行のテキストを逆インデントします。
 </dd>
 <dt><code>Shift+Enter</code></dt>
-<dd><p>Markdown形式の改行を挿入します。</p>
+<dd>Markdown形式の改行を挿入します。
 </dd>
 <dt><code>Ctrl+Enter</code></dt>
-<dd><p>通常の改行を挿入しますが、インデントを無視します。 つまりインデント行で入力中に<code>Ctrl+Enter</code>キーを押すと、新しい行にはインデントは追加されません。 <code>Ctrl</code>キーは<code>Shift</code>キーと併用して使用でき、その場合Markdown形式の改行とインデントの解除の両方が適用されます。</p>
+<dd>通常の改行を挿入しますが、インデントを無視します。 つまりインデント行で入力中に<code>Ctrl+Enter</code>キーを押すと、新しい行にはインデントは追加されません。 <code>Ctrl</code>キーは<code>Shift</code>キーと併用して使用でき、その場合Markdown形式の改行とインデントの解除の両方が適用されます。
 </dd>
 <dt><code>Ctrl+.</code></dt>
-<dd><p><code>Ctrl</code>と<code>.</code>キーを押すと現在行または選択行を引用ブロックにします。</p>
+<dd><code>Ctrl</code>と<code>.</code>キーを押すと現在行または選択行を引用ブロックにします。
 </dd>
 <dt><code>Ctrl+,</code></dt>
-<dd><p><code>Ctrl</code>と<code>,</code>キーを押すと現在行または選択行の引用ブロックを解除します。</p>
+<dd><code>Ctrl</code>と<code>,</code>キーを押すと現在行または選択行の引用ブロックを解除します。
 </dd>
 <dt><code>Ctrl+8</code></dt>
 <dd><p><code>Ctrl</code>と<code>8</code>キーを押すと現在行または選択行を<code>*</code>マーク付きの順序なしリストにします。 たとえば以下の行を選択しているときに:</p>
@@ -170,19 +170,19 @@ Row Text 1  |  Row Text 2</code></pre>
 <pre><code>* 項目 1
 * 項目 2</code></pre>
 </dd>
-<dt><code>Ctrl+-</code></dt>
-<dd><p><code>Ctrl</code>と<code>-</code>キーを押すと現在行または選択行を<code>-</code>マーク付きの順序なしリストにします。 たとえば以下の行を選択しているときに:</p>
+<dt><code>Ctrl+Shift+-</code></dt>
+<dd><p><code>Ctrl</code>と<code>Shift</code>と<code>-</code>キーを押すと現在行または選択行を<code>-</code>マーク付きの順序なしリストにします。 たとえば以下の行を選択しているときに:</p>
 <pre><code>項目 1
 項目 2</code></pre>
-<p><code>Ctrl+-</code>キーを押すと選択行はこのように順序なしリストに変わります:</p>
+<p><code>Ctrl+Shift+-</code>キーを押すと選択行はこのように順序なしリストに変わります:</p>
 <pre><code>- 項目 1
 - 項目 2</code></pre>
 </dd>
-<dt><code>Ctrl+=</code></dt>
-<dd><p><code>Ctrl</code>と<code>=</code>キーを押すと現在行または選択行を<code>+</code>マーク付きの順序なしリストにします。 たとえば以下の行を選択しているときに:</p>
+<dt><code>Ctrl+Shift+=</code></dt>
+<dd><p><code>Ctrl</code>と<code>Shift</code>と<code>=</code>キーを押すと現在行または選択行を<code>+</code>マーク付きの順序なしリストにします。 たとえば以下の行を選択しているときに:</p>
 <pre><code>項目 1
 項目 2</code></pre>
-<p><code>Ctrl+=</code>キーを押すと選択行はこのように順序なしリストに変わります:</p>
+<p><code>Ctrl+Shift+=</code>キーを押すと選択行はこのように順序なしリストに変わります:</p>
 <pre><code>+ 項目 1
 + 項目 2</code></pre>
 </dd>
@@ -220,59 +220,59 @@ Row Text 1  |  Row Text 2</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th>開始</th>
-<th>終了</th>
+<th align="left">開始</th>
+<th align="left">終了</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>&quot;</code></td>
-<td><code>&quot;</code></td>
+<td align="left"><code>&quot;</code></td>
+<td align="left"><code>&quot;</code></td>
 </tr>
 <tr class="even">
-<td><code>'</code></td>
-<td><code>'</code></td>
+<td align="left"><code>'</code></td>
+<td align="left"><code>'</code></td>
 </tr>
 <tr class="odd">
-<td><code>(</code></td>
-<td><code>)</code></td>
+<td align="left"><code>(</code></td>
+<td align="left"><code>)</code></td>
 </tr>
 <tr class="even">
-<td><code>[</code></td>
-<td><code>]</code></td>
+<td align="left"><code>[</code></td>
+<td align="left"><code>]</code></td>
 </tr>
 <tr class="odd">
-<td><code>{</code></td>
-<td><code>}</code></td>
+<td align="left"><code>{</code></td>
+<td align="left"><code>}</code></td>
 </tr>
 <tr class="even">
-<td><code>*</code></td>
-<td><code>*</code></td>
+<td align="left"><code>*</code></td>
+<td align="left"><code>*</code></td>
 </tr>
 <tr class="odd">
-<td><code>_</code></td>
-<td><code>_</code></td>
+<td align="left"><code>_</code></td>
+<td align="left"><code>_</code></td>
 </tr>
 <tr class="even">
-<td><code>`</code></td>
-<td><code>`</code></td>
+<td align="left"><code>`</code></td>
+<td align="left"><code>`</code></td>
 </tr>
 <tr class="odd">
-<td><code>&lt;</code></td>
-<td><code>&gt;</code></td>
+<td align="left"><code>&lt;</code></td>
+<td align="left"><code>&gt;</code></td>
 </tr>
 </tbody>
 </table>
-<p>入力時に記号の自動補間を有効にするには、メニューバーの&quot;設定&quot;メニューの&quot;対応する記号の自動補間&quot;を有効にします。 また&quot;設定&quot;メニューの&quot;自動補間する記号の設定...&quot;を選択して、記号ごとに補完の有効無効を設定することができます。</p>
+<p>入力時に記号の自動補間を有効にするには、メニューバーの“設定”メニューの“対応する記号の自動補間”を有効にします。 また“設定”メニューの“自動補間する記号の設定…”を選択して、記号ごとに補完の有効無効を設定することができます。</p>
 </dd>
 <dt>画像ファイルのドラッグ アンド ドロップ</dt>
-<dd><p>&quot;編集&quot;メニューから&quot;画像の挿入...&quot;を選択する代わりに、任意の画像ファイルをファイルシステムから編集ウィンドウにドラッグ アンド ドロップすることができます。 アプリは現在のドキュメントから画像ファイルへの相対パスでインライン画像テキストを挿入します。あるいはドキュメントが保存されていない場合には絶対パスで挿入します。 例:</p>
+<dd><p>“編集”メニューから“画像の挿入…”を選択する代わりに、任意の画像ファイルをファイルシステムから編集ウィンドウにドラッグ アンド ドロップすることができます。 アプリは現在のドキュメントから画像ファイルへの相対パスでインライン画像テキストを挿入します。あるいはドキュメントが保存されていない場合には絶対パスで挿入します。 例:</p>
 <pre><code>![](../../relative/path/to/your/file.png)</code></pre>
 <p>ドキュメントが保存されていない場合は:</p>
 <pre><code>![](file:///full/path/to/your/file.png)</code></pre>
 </dd>
 </dl>
 <hr />
-<p>Copyright (c) 2014-2016 <a href="http://www.github.com/wereturtle">wereturtle</a></p>
+<p>Copyright (c) 2014-2017 <a href="http://www.github.com/wereturtle">wereturtle</a></p>
 </body>
 </html>
