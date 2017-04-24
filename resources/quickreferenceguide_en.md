@@ -217,24 +217,24 @@ The original John Gruber Markdown specification can be found at <http://daringfi
         * List item one.
         * List item two.
 
-`Ctrl+-`
-:   Pressing `Ctrl` with the `-` character turns the current line or the selected lines into a bullet list with the `-` marker.  For example, if you have selected text within the following lines:
+`Ctrl+Shift+-`
+:   Pressing `Ctrl` and `Shift` with the `-` character turns the current line or the selected lines into a bullet list with the `-` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Ctrl+-` will turn the selected lines into a bullet list like so:
+    Pressing `Ctrl+Shift+-` will turn the selected lines into a bullet list like so:
 
         - List item one.
         - List item two.
 
-`Ctrl+=`
-:   Pressing `Ctrl` with the `=` character turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
+`Ctrl+Shift+=`
+:   Pressing `Ctrl` and `Shift` with the `=` character turns the current line or the selected lines into a bullet list with the `+` marker.  For example, if you have selected text within the following lines:
 
         List item one.
         List item two.
         
-    Pressing `Ctrl+=` will turn the selected lines into a bullet list like so:
+    Pressing `Ctrl+Shift+=` will turn the selected lines into a bullet list like so:
 
         + List item one.
         + List item two.
@@ -306,4 +306,4 @@ Drag and Drop Image Files
 
 - - - -
 
-Copyright (c) 2014-2016 [wereturtle](http://www.github.com/wereturtle)
+Copyright (c) 2014-2017 [wereturtle](http://www.github.com/wereturtle)
