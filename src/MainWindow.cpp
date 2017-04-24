@@ -1365,6 +1365,8 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(tr("&Document Statistics HUD"), this, SLOT(showDocumentStatisticsHud()));
     viewMenu->addAction(tr("&Session Statistics HUD"), this, SLOT(showSessionStatisticsHud()));
     viewMenu->addSeparator();
+    viewMenu->addAction(tr("Increase Font Size"), editor, SLOT(increaseFontSize()), QKeySequence("CTRL+="));
+    viewMenu->addAction(tr("Decrease Font Size"), editor, SLOT(decreaseFontSize()), QKeySequence("CTRL+-"));
 
     QMenu* settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
     settingsMenu->addAction(tr("Themes..."), this, SLOT(changeTheme()));

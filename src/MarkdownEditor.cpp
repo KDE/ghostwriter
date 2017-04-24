@@ -699,7 +699,7 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
 
 void MarkdownEditor::wheelEvent(QWheelEvent *e)
 {
-    Qt::KeyboardModifiers modifier = e->modifiers(); // QApplication::keyboardModifiers();
+    Qt::KeyboardModifiers modifier = e->modifiers();
 
 #if QT_VERSION >= 0x050000
     int numDegrees = 0;
@@ -1236,6 +1236,29 @@ void MarkdownEditor::setSpellCheckEnabled(const bool enabled)
 {
     spellCheckEnabled = enabled;
     highlighter->setSpellCheckEnabled(enabled);
+}
+
+void MarkdownEditor::increaseFontSize()
+{
+    int fontSize = this->font().pointSize() + 1;
+
+    setFont(this->font().family(), fontSize);
+    emit fontSizeChanged(fontSize);
+
+}
+
+void MarkdownEditor::decreaseFontSize()
+{
+    int fontSize = this->font().pointSize() - 1;
+
+    // check for negative value
+    if (fontSize <= 0)
+    {
+        fontSize = 1;
+    }
+
+    setFont(this->font().family(), fontSize);
+    emit fontSizeChanged(fontSize);
 }
 
 void MarkdownEditor::suggestSpelling(QAction* action)

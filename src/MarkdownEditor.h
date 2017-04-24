@@ -368,6 +368,16 @@ class MarkdownEditor : public QPlainTextEdit
          */
         void setSpellCheckEnabled(const bool enabled);
 
+        /**
+         * Increases the font size by 1 pt.
+         */
+        void increaseFontSize();
+
+        /**
+         * Decreases the font size by 1 pt.
+         */
+        void decreaseFontSize();
+
     private slots:
         void suggestSpelling(QAction* action);
         void onContentsChanged(int position, int charsAdded, int charsRemoved);
