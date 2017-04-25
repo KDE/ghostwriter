@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es_ES">
+<TS version="2.1" language="es_ES">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -829,12 +829,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1368"/>
         <source>Increase Font Size</source>
-        <translation type="unfinished">Aumentar el tamaño de la fuente</translation>
+        <translation>Aumentar el tamaño de la fuente</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Decrease Font Size</source>
-        <translation type="unfinished">Disminuir tamaño de fuente</translation>
+        <translation>Disminuir tamaño de la fuente</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
