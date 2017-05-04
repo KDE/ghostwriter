@@ -394,7 +394,7 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="157"/>
         <source>Add/Remove Style Sheets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen / Löschen von Standard-Stilen</translation>
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
@@ -487,17 +487,17 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="132"/>
         <source>* Bullet List</source>
-        <translation type="unfinished">* Aufzählung</translation>
+        <translation>* Aufzählungsliste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="133"/>
         <source>+ Bullet List</source>
-        <translation type="unfinished">+ Aufzählung</translation>
+        <translation>+ Aufzählungliste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="134"/>
         <source>- Bullet List</source>
-        <translation type="unfinished">- Aufzählung</translation>
+        <translation>- Aufzählungliste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="135"/>
@@ -653,7 +653,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="533"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstellen von %1 nicht möglich. Bitte Benutzerrechte überprüfen.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1065"/>
@@ -791,17 +791,17 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1343"/>
         <source>&amp;* Bullet List</source>
-        <translation type="unfinished">&amp;* Aufzählung</translation>
+        <translation>&amp;* Aufzählungsliste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1344"/>
         <source>&amp;- Bullet List</source>
-        <translation type="unfinished">&amp;- Aufzählung</translation>
+        <translation>&amp;- Aufzählungsliste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1345"/>
         <source>&amp;+ Bullet List</source>
-        <translation type="unfinished">&amp;+ Aufzählung</translation>
+        <translation>&amp;+ Aufzählungsliste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1347"/>
@@ -861,12 +861,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1368"/>
         <source>Increase Font Size</source>
-        <translation type="unfinished">Schriftgröße vergrößern</translation>
+        <translation>Schrift vergrößern</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Decrease Font Size</source>
-        <translation type="unfinished">Verringern Sie die Schriftgröße</translation>
+        <translation>Schrift verkleinern</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
@@ -876,17 +876,17 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1372"/>
         <source>Themes...</source>
-        <translation>Themes...</translation>
+        <translation>Designs...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1373"/>
         <source>Font...</source>
-        <translation>Font...</translation>
+        <translation>Schrift...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1375"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1374"/>
@@ -920,7 +920,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1381"/>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1426"/>
@@ -971,37 +971,37 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="41"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="50"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="51"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="52"/>
         <source>Spell Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechtschreibprüfung</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="53"/>
         <source>HUD</source>
-        <translation type="unfinished">HUD</translation>
+        <translation>HUD (Kopf-oben-Anzeige)</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="111"/>
         <source>Matched Characters</source>
-        <translation type="unfinished">Übereinstimmende Zeichen</translation>
+        <translation>Übereinstimmende Zeichen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="193"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Display</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="199"/>
