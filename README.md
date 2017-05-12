@@ -125,7 +125,8 @@ Install [homebrew](http://brew.sh).  In a terminal:
 Then:
 
 ``` shell
-$ brew install qt qt5
+$ brew install qt5 --with-qtwebkit # Compication takes a while, and drains the battery
+$ resources/mac/Info.plist resources/
 $ qmake -spec macx-g++
 $ make
 ```
