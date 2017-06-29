@@ -283,6 +283,7 @@ QWidget* PreferencesDialog::initializeEditorTab()
     focusModeCombo->addItem(tr("Current Line"), FocusModeCurrentLine);
     focusModeCombo->addItem(tr("Three Lines"), FocusModeThreeLines);
     focusModeCombo->addItem(tr("Paragraph"), FocusModeParagraph);
+    focusModeCombo->addItem(tr("Typewriter"), FocusModeTypewriter);
     focusModeCombo->setCurrentIndex(appSettings->getFocusMode() - 1);
 
     connect(focusModeCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(onFocusModeChanged(int)));

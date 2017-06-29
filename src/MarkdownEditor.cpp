@@ -1417,7 +1417,7 @@ void MarkdownEditor::focusText()
 
                 break;
             }
-
+            // `FocusModeTypewriter` implicitly handeled here as we don't highlight anything but center the current line.
             default:
                 break;
         }
