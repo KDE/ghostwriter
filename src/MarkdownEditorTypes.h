@@ -26,7 +26,8 @@ enum FocusMode
     FocusModeSentence,
     FocusModeCurrentLine,
     FocusModeThreeLines,
-    FocusModeParagraph
+    FocusModeParagraph,
+    FocusModeTypewriter
 };
 
 enum EditorWidth
