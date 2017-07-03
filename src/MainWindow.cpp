@@ -1524,21 +1524,12 @@ void MainWindow::applyTheme()
         // Create a UI chrome color based on a lightened editor text color,
         // such that the new color achieves a lower contrast ratio.
         //
-        const double desiredContrastRatio = 2.1;
-
-        double contrastRatio = bgBrightness / fgBrightness;
-        double colorFactor = desiredContrastRatio / contrastRatio;
-
-        if (chromeFgColor == QColor(Qt::black))
-        {
-            chromeFgColor.setRgb(1, 1, 1);
-        }
-
-        qreal r = chromeFgColor.redF() / colorFactor;
-        qreal g = chromeFgColor.greenF() / colorFactor;
-        qreal b = chromeFgColor.blueF() / colorFactor;
-
-        chromeFgColor.setRgbF(r, g, b);
+        chromeFgColor = ColorHelper::lightenToMatchContrastRatio
+            (
+                theme.getDefaultTextColor(),
+                theme.getEditorBackgroundColor(),
+                2.1
+            );
 
         // Slightly blend the new UI chrome color with the editor background color
         // to help it match the theme better.

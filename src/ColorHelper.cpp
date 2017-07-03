@@ -139,10 +139,68 @@ double ColorHelper::getLuminance(const QColor& color)
 {
     QColor c = color;
 
+    // Ensure color is non-zero.
     if (c == QColor(Qt::black))
     {
         c.setRgb(1, 1, 1);
     }
 
     return (0.30 * c.redF()) + (0.59 * c.greenF()) + (0.11 * c.blueF());
+}
+
+QColor ColorHelper::lightenToMatchContrastRatio
+(
+    const QColor& foreground,
+    const QColor& background,
+    double contrastRatio
+)
+{
+    double fgBrightness = getLuminance(foreground);
+    double bgBrightness = getLuminance(background);
+
+    // If the background color is brighter than the foreground color...
+    if (bgBrightness > fgBrightness)
+    {
+        double actualContrastRatio = bgBrightness / fgBrightness;
+        double colorFactor = contrastRatio / actualContrastRatio;
+
+        QColor result = foreground;
+
+        // Ensure color is non-zero.
+        if (result == QColor(Qt::black))
+        {
+            result.setRgb(1, 1, 1);
+        }
+
+        qreal r = result.redF() / colorFactor;
+        qreal g = result.greenF() / colorFactor;
+        qreal b = result.blueF() / colorFactor;
+
+        if (r > 1.0)
+        {
+            r = 1.0;
+        }
+
+        if (g > 1.0)
+        {
+            g = 1.0;
+        }
+
+        if (b > 1.0)
+        {
+            b = 1.0;
+        }
+
+        result.setRgbF(r, g, b);
+
+        return result;
+    }
+    else
+    {
+        // This algorithm cannot change the foreground color when it is
+        // lighter than the background color, so return the original
+        // foreground color.
+        //
+        return foreground;
+    }
 }
