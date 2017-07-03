@@ -118,7 +118,6 @@ class MainWindow : public QMainWindow
         ThemeFactory* themeFactory;
         Theme theme;
         QString language;
-        QGridLayout* statusBarLayout;
         QLabel* wordCountLabel;
         QLabel* statusLabel;
         TimeLabel* timeLabel;
@@ -128,9 +127,8 @@ class MainWindow : public QMainWindow
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;
         QAction* fullScreenMenuAction;
-        QCheckBox* fullScreenButton;
+        QPushButton* fullScreenButton;
         QGraphicsColorizeEffect* fullScreenButtonColorEffect;
-        QFrame* statusBarWidget;
         HudWindow* outlineHud;
         Outline* outlineWidget;
         HudWindow* cheatSheetHud;
@@ -166,6 +164,7 @@ class MainWindow : public QMainWindow
         void buildMenuBar();
         void buildStatusBar();
 
+        void applyStatusBarStyle(bool borderEnabled);
         void applyTheme();
         void predrawBackgroundImage();
 };

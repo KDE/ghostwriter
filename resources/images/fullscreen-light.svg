@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22"
+   height="22"
+   viewBox="0 0 22 22"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="fullscreen-light.svg">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1886"
+     inkscape:window-height="1135"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="10.727273"
+     inkscape:cx="11"
+     inkscape:cy="11"
+     inkscape:window-x="34"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <style
+       type="text/css"
+       id="current-color-scheme">
+   .ColorScheme-Text { color:#5c616c; } .ColorScheme-Highlight { color:#5294e2; } .ColorScheme-ButtonBackground { color:#d3dae3; }
+  </style>
+  </defs>
+  <path
+     style="fill:#f8f8f8;opacity:1;fill-opacity:1"
+     class="ColorScheme-Text"
+     transform="translate(3 3)"
+     d="M 2 2.0039062 C 1 2.0039062 1 3.0039062 1 3.0039062 L 1 7.0039062 L 3 7.0039062 L 3 4.0039062 L 6 4.0039062 L 6 2.0039062 L 2 2.0039062 z M 10 2.0039062 L 10 4.0039062 L 13 4.0039062 L 13 7.0039062 L 15 7.0039062 L 15 3.0039062 C 15 2.0039062 14 2.0039062 14 2.0039062 L 10 2.0039062 z M 1 9.0039062 L 1 13.003906 C 1 14.003906 2 14.003906 2 14.003906 L 6 14.003906 L 6 12.003906 L 3 12.003906 L 3 9.0039062 L 1 9.0039062 z M 13 9.0039062 L 13 12.003906 L 10 12.003906 L 10 14.003906 L 14 14.003906 C 14 14.003906 15 14.003906 15 13.003906 L 15 9.0039062 L 13 9.0039062 z"
+     id="path7" />
+</svg>

@@ -64,9 +64,12 @@ HudWindow::HudWindow(QWidget *parent)
     // Set up the close button.
     closeButton = new QPushButton(this);
     closeButton->setFocusPolicy(Qt::NoFocus);
-    closeButton->setStyleSheet("margin: 1; padding: 0; border: 0; width: 16px; "
-        "height: 16px; background: transparent; "
-        "image: url(:/resources/images/close-delete.svg)");
+    closeButton->setStyleSheet(
+        "QPushButton { margin: 1; padding: 0; border: 0; width: 16px; "
+            "height: 16px; background: transparent; "
+            "image: url(:/resources/images/close.svg) } "
+        "QPushButton:hover:!pressed { image: url(:/resources/images/close-hover.svg) } "
+        "QPushButton:pressed { image: url(:/resources/images/close-pressed.svg) }");
     closeButtonColorEffect = new QGraphicsColorizeEffect();
     closeButtonColorEffect->setColor(QColor(Qt::white));
     closeButtonColorEffect->setStrength(1.0);
@@ -86,7 +89,8 @@ HudWindow::HudWindow(QWidget *parent)
     QGridLayout* sizeGripLayout = new QGridLayout();
     sizeGripContainer->setLayout(sizeGripLayout);
     sizeGrip = new QSizeGrip(this);
-    sizeGrip->setStyleSheet("width: 16px; height 16px; "
+    sizeGrip->setStyleSheet(
+        "width: 16px; height 16px; "
         "image: url(:/resources/images/size-grip.svg)");
     sizeGripColorEffect = new QGraphicsColorizeEffect();
     sizeGripColorEffect->setColor(QColor(Qt::white));
@@ -211,8 +215,6 @@ void HudWindow::setForegroundColor(const QColor& color)
     this->setStyleSheet(styleSheet);
     closeButtonColorEffect->setColor(foregroundColor);
     sizeGripColorEffect->setColor(foregroundColor);
-
-    resetTitleButtonHoverColor();
 }
 
 QColor HudWindow::getBackgroundColor()
@@ -223,7 +225,6 @@ QColor HudWindow::getBackgroundColor()
 void HudWindow::setBackgroundColor(const QColor& color)
 {
     backgroundColor = color;
-    resetTitleButtonHoverColor();
 }
 
 void HudWindow::setSizeGripEnabled(bool enabled)
@@ -455,35 +456,6 @@ void HudWindow::mouseMoveEvent(QMouseEvent* event)
     {
         event->ignore();
     }
-}
-
-bool HudWindow::eventFilter(QObject* obj, QEvent* event)
-{
-    if (obj == closeButton)
-    {
-        if (QEvent::HoverEnter == event->type())
-        {
-            closeButtonColorEffect->setColor(titleBarButtonHoverColor);
-        }
-        else if (QEvent::HoverLeave == event->type())
-        {
-            closeButtonColorEffect->setColor(foregroundColor);
-        }
-    }
-
-    return false;
-}
-
-void HudWindow::resetTitleButtonHoverColor()
-{
-    // Set up the close button hover color based on the foreground
-    // and background colors.
-    titleBarButtonHoverColor = ColorHelper::applyAlpha
-        (
-            foregroundColor,
-            backgroundColor,
-            200
-        );
 }
 
 void HudWindow::predrawDropShadow()

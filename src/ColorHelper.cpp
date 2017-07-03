@@ -137,5 +137,12 @@ QString ColorHelper::toRgbaString(const QColor& color)
 //
 double ColorHelper::getLuminance(const QColor& color)
 {
-    return (0.30 * color.redF()) + (0.59 * color.greenF()) + (0.11 * color.blueF());
+    QColor c = color;
+
+    if (c == QColor(Qt::black))
+    {
+        c.setRgb(1, 1, 1);
+    }
+
+    return (0.30 * c.redF()) + (0.59 * c.greenF()) + (0.11 * c.blueF());
 }

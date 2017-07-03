@@ -1,16 +1,16 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/images/close-delete.svg</file>
+        <file>resources/images/close.svg</file>
+        <file>resources/images/close-hover.svg</file>
+        <file>resources/images/close-pressed.svg</file>
         <file>resources/images/size-grip.svg</file>
         <file>resources/images/unavailable.svg</file>
-        <file>resources/images/view-fullscreen-dark-hover.svg</file>
-        <file>resources/images/view-fullscreen-dark.svg</file>
-        <file>resources/images/view-fullscreen-light-hover.svg</file>
-        <file>resources/images/view-fullscreen-light.svg</file>
-        <file>resources/images/view-restore-dark-hover.svg</file>
-        <file>resources/images/view-restore-dark.svg</file>
-        <file>resources/images/view-restore-light-hover.svg</file>
-        <file>resources/images/view-restore-light.svg</file>
+        <file>resources/images/focus-dark.svg</file>
+        <file>resources/images/focus-light.svg</file>
+        <file>resources/images/fullscreen-dark.svg</file>
+        <file>resources/images/fullscreen-light.svg</file>
+        <file>resources/images/hemingway-dark.svg</file>
+        <file>resources/images/hemingway-light.svg</file>
         <file>resources/images/ghostwriter.svg</file>
         <file>resources/github.css</file>
         <file>resources/quickreferenceguide_en.html</file>

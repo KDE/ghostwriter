@@ -391,9 +391,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     theme = ThemeFactory::getInstance()->loadTheme(themeName, err);
 
-    fullScreenButtonColorEffect = new QGraphicsColorizeEffect();
-    fullScreenButtonColorEffect->setColor(QColor(Qt::white));
-
     // Default language for dictionary is set from AppSettings intialization.
     QString language = appSettings->getDictionaryLanguage();
 
@@ -749,7 +746,6 @@ void MainWindow::toggleFullScreen(bool checked)
         {
             if (appSettings->getDisplayTimeInFullScreenEnabled())
             {
-                statusBarLayout->removeWidget(timeLabel);
                 timeLabel->hide();
             }
 
@@ -786,7 +782,6 @@ void MainWindow::toggleFullScreen(bool checked)
         {
             if (appSettings->getDisplayTimeInFullScreenEnabled())
             {
-                statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
                 timeLabel->show();
             }
 
@@ -843,12 +838,10 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
     {
         if (checked)
         {
-            statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
             this->timeLabel->show();
         }
         else
         {
-            statusBarLayout->removeWidget(timeLabel);
             this->timeLabel->hide();
         }
     }
@@ -1034,7 +1027,7 @@ void MainWindow::showAbout()
     QString aboutText =
         QString("<p><b>") +  qAppName() + QString(" ")
         + qApp->applicationVersion() + QString("</b></p>")
-        + tr("<p>Copyright &copy; 2014-2016 wereturtle</b>"
+        + tr("<p>Copyright &copy; 2014-2017 wereturtle</b>"
              "<p>You may use and redistribute this software under the terms of the "
              "<a href=\"http://www.gnu.org/licenses/gpl.html\">"
              "GNU General Public License Version 3</a>.</p>"
@@ -1167,8 +1160,6 @@ void MainWindow::onOperationStarted(const QString& description)
         statusLabel->setText(description);
     }
 
-    statusBarLayout->removeWidget(wordCountLabel);
-    statusBarLayout->addWidget(statusLabel, 0, 1, Qt::AlignCenter);
     wordCountLabel->hide();
     statusLabel->show();
     this->update();
@@ -1178,10 +1169,8 @@ void MainWindow::onOperationStarted(const QString& description)
 void MainWindow::onOperationFinished()
 {
     statusLabel->setText(QString());
-    statusBarLayout->removeWidget(statusLabel);
     wordCountLabel->show();
     statusLabel->hide();
-    statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
     this->update();
     qApp->processEvents();
 }
@@ -1396,10 +1385,43 @@ void MainWindow::buildMenuBar()
 
 void MainWindow::buildStatusBar()
 {
-    statusBarWidget = new QFrame();
-    statusBarLayout = new QGridLayout(statusBarWidget);
+    QFrame* statusBarWidget = new QFrame(statusBar());
+    QGridLayout* statusBarLayout = new QGridLayout(statusBarWidget);
 
+    // Divide the status bar into thirds for placing widgets.
+    QFrame* leftWidget = new QFrame(statusBarWidget);
+    leftWidget->setObjectName("leftStatusBarWidget");
+    leftWidget->setStyleSheet("#leftStatusBarWidget { border: 0; margin: 0; padding: 0 }");
+    QFrame* midWidget = new QFrame(statusBarWidget);
+    midWidget->setObjectName("midStatusBarWidget");
+    midWidget->setStyleSheet("#midStatusBarWidget { border: 0; margin: 0; padding: 0 }");
+    QFrame* rightWidget = new QFrame(statusBarWidget);
+    rightWidget->setObjectName("rightStatusBarWidget");
+    rightWidget->setStyleSheet("#rightStatusBarWidget { border: 0; margin: 0; padding: 0 }");
+
+    QHBoxLayout* leftLayout = new QHBoxLayout(leftWidget);
+    leftWidget->setLayout(leftLayout);
+    leftLayout->setMargin(0);
+    QHBoxLayout* midLayout = new QHBoxLayout(midWidget);
+    midWidget->setLayout(midLayout);
+    midLayout->setMargin(0);
+    QHBoxLayout* rightLayout = new QHBoxLayout(rightWidget);
+    rightWidget->setLayout(rightLayout);
+    rightLayout->setMargin(0);
+
+    // Add left-most widgets to status bar.
+    timeLabel = new TimeLabel(this);
+    leftLayout->addWidget(timeLabel, 0, Qt::AlignLeft);
+    statusBarLayout->addWidget(leftWidget, 0, 0, 0, 1, Qt::AlignLeft);
+
+    if (!this->isFullScreen() || appSettings->getDisplayTimeInFullScreenEnabled())
+    {
+        timeLabel->hide();
+    }
+
+    // Add middle widgets to status bar.
     statusLabel = new QLabel();
+    midLayout->addWidget(statusLabel, 0, Qt::AlignCenter);
     statusLabel->hide();
 
     wordCountLabel = new QLabel();
@@ -1407,67 +1429,72 @@ void MainWindow::buildStatusBar()
     wordCountLabel->setFrameShape(QFrame::NoFrame);
     wordCountLabel->setLineWidth(0);
     updateWordCount(0);
-    statusBarLayout->addWidget(wordCountLabel, 0, 1, Qt::AlignCenter);
-    statusBarLayout->setColumnStretch(1, 1);
+    midLayout->addWidget(wordCountLabel, 0, Qt::AlignCenter);
+    statusBarLayout->addWidget(midWidget, 0, 1, 0, 1, Qt::AlignCenter);
 
-    timeLabel = new TimeLabel(this);
-
-    if (this->isFullScreen() && appSettings->getDisplayTimeInFullScreenEnabled())
-    {
-        statusBarLayout->addWidget(timeLabel, 0, 0, Qt::AlignLeft);
-    }
-    else
-    {
-        timeLabel->hide();
-    }
-
-    statusBarLayout->setColumnStretch(0, 0);
-
-    hemingwayModeButton = new QPushButton(tr("Hemingway"));
+    // Add right-most widgets to status bar.
+    hemingwayModeButton = new QPushButton();
     hemingwayModeButton->setFocusPolicy(Qt::NoFocus);
     hemingwayModeButton->setToolTip(tr("Toggle Hemingway mode"));
     hemingwayModeButton->setCheckable(true);
     connect(hemingwayModeButton, SIGNAL(toggled(bool)), this, SLOT(toggleHemingwayMode(bool)));
-    statusBar()->addPermanentWidget(hemingwayModeButton);
+    rightLayout->addWidget(hemingwayModeButton, 0, Qt::AlignRight);
 
-    focusModeButton = new QPushButton(tr("Focus"));
+    focusModeButton = new QPushButton();
     focusModeButton->setFocusPolicy(Qt::NoFocus);
     focusModeButton->setToolTip(tr("Toggle distraction free mode"));
     focusModeButton->setCheckable(true);
     connect(focusModeButton, SIGNAL(toggled(bool)), this, SLOT(toggleFocusMode(bool)));
-    statusBar()->addPermanentWidget(focusModeButton);
+    rightLayout->addWidget(focusModeButton, 0, Qt::AlignRight);
 
-    fullScreenButton = new QCheckBox();
+    fullScreenButton = new QPushButton();
     fullScreenButton->setFocusPolicy(Qt::NoFocus);
     fullScreenButton->setObjectName("fullscreenButton");
     fullScreenButton->setToolTip(tr("Toggle full screen mode"));
     fullScreenButton->setCheckable(true);
     fullScreenButton->setChecked(this->isFullScreen());
     connect(fullScreenButton, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
-    statusBar()->addPermanentWidget(fullScreenButton);
+    rightLayout->addWidget(fullScreenButton, 0, Qt::AlignRight);
+
+    statusBarLayout->addWidget(rightWidget, 0, 2, 0, 1, Qt::AlignRight);
 
     statusBarLayout->setSpacing(0);
     statusBarWidget->setLayout(statusBarLayout);
-    statusBarWidget->setObjectName("statusbar");
-    statusBarWidget->setStyleSheet("background: transparent; border: 0; padding: 0; margin: 0");
     statusBar()->addWidget(statusBarWidget, 1);
     statusBar()->setSizeGripEnabled(false);
 
-    // The permanent widgets added to the right of the status bar offset the centering
-    // of the word count.  Set the minimum column width of the status label
-    // (the leftmost column in the layout) to compensate and recenter the word count.
-    //
-    statusBarLayout->setColumnMinimumWidth
-    (
-        0,
-        hemingwayModeButton->sizeHint().width()
-        +
-        focusModeButton->sizeHint().width()
-        +
-        fullScreenButton->sizeHint().width()
-    );
+    statusBar()->layout()->setContentsMargins(0, 0, 0, 0);
+    statusBarLayout->setContentsMargins(2, 0, 2, 0);
 
     statusBar()->show();
+}
+
+void MainWindow::applyStatusBarStyle(bool borderEnabled)
+{
+    QString styleSheet = "";
+    QTextStream stream(&styleSheet);
+
+    int border = 0;
+
+    if (borderEnabled)
+    {
+        border = 1;
+    }
+
+    QColor borderColor = theme.getDefaultTextColor();
+    borderColor.setAlpha(30);
+
+    QString borderColorRGBA = ColorHelper::toRgbaString(borderColor);
+
+    stream
+        << "QStatusBar { margin: 0; padding: 0; border-top: "
+        << border
+        << "px solid "
+        << borderColorRGBA
+        << "; border-left: 0; border-right: 0; border-bottom: 0; background: transparent } "
+        << "QStatusBar::item { border: 0; padding: 0; margin: 0 } ";
+
+    statusBar()->setStyleSheet(styleSheet);
 }
 
 void MainWindow::applyTheme()
@@ -1485,36 +1512,62 @@ void MainWindow::applyTheme()
     QString styleSheet;
     QTextStream stream(&styleSheet);
 
-    QColor scrollBarColor = theme.getDefaultTextColor();
+    double fgBrightness = ColorHelper::getLuminance(theme.getDefaultTextColor());
+    double bgBrightness = ColorHelper::getLuminance(theme.getEditorBackgroundColor());
 
-    // If the background color is brighter than the text, then
-    // set the scrollbar color to be a blend of the text foreground
-    // with the editor background color, rather than calling
-    // QColor::lighter(), which doesn't work on black due to
-    // black having a value of zero.
-    //
-    if
-    (
-        ColorHelper::getLuminance(theme.getEditorBackgroundColor())
-        > ColorHelper::getLuminance(theme.getDefaultTextColor())
-    )
+    QColor scrollBarColor;
+    QColor chromeFgColor = theme.getDefaultTextColor();
+
+    // If the background color is brighter than the foreground color...
+    if (bgBrightness > fgBrightness)
     {
-        scrollBarColor = theme.getDefaultTextColor();
-        scrollBarColor.setAlpha(100);
+        // Create a UI chrome color based on a lightened editor text color,
+        // such that the new color achieves a lower contrast ratio.
+        //
+        const double desiredContrastRatio = 2.1;
 
-        scrollBarColor =
-            ColorHelper::applyAlpha
+        double contrastRatio = bgBrightness / fgBrightness;
+        double colorFactor = desiredContrastRatio / contrastRatio;
+
+        if (chromeFgColor == QColor(Qt::black))
+        {
+            chromeFgColor.setRgb(1, 1, 1);
+        }
+
+        qreal r = chromeFgColor.redF() / colorFactor;
+        qreal g = chromeFgColor.greenF() / colorFactor;
+        qreal b = chromeFgColor.blueF() / colorFactor;
+
+        chromeFgColor.setRgbF(r, g, b);
+
+        // Slightly blend the new UI chrome color with the editor background color
+        // to help it match the theme better.
+        //
+        chromeFgColor.setAlpha(220);
+        chromeFgColor = ColorHelper::applyAlpha
+            (
+                chromeFgColor,
+                theme.getEditorBackgroundColor()
+            );
+
+        // Blend the UI chrome color with the background color even further for
+        // the scroll bar color, as the scroll bar will otherwise tend to
+        // stand out.
+        //
+        scrollBarColor = chromeFgColor;
+        scrollBarColor.setAlpha(200);
+        scrollBarColor = ColorHelper::applyAlpha
             (
                 scrollBarColor,
                 theme.getEditorBackgroundColor()
             );
+
     }
-    // Else simply set the scrollbar color to be the darkened
-    // text color.
-    //
+    // Else if the foreground color is brighter than the background color...
     else
     {
-        scrollBarColor = theme.getDefaultTextColor().darker(160);
+        chromeFgColor = chromeFgColor.darker(120);
+        scrollBarColor = chromeFgColor;
     }
 
     QString scrollbarColorRGB = ColorHelper::toRgbString(scrollBarColor);
@@ -1545,12 +1598,8 @@ void MainWindow::applyTheme()
     QString menuBarItemBgPressColorRGBA;
 
     QString fullScreenIcon;
-    QString fullScreenIconHover;
-    QString fullScreenIconPressed;
-
-    QString restoreIcon;
-    QString restoreIconHover;
-    QString restoreIconPressed;
+    QString focusIcon;
+    QString hemingwayIcon;
 
     QString statusBarItemFgColorRGB;
     QString statusBarButtonFgPressHoverColorRGB;
@@ -1559,63 +1608,29 @@ void MainWindow::applyTheme()
     // Add status bar widgets to a list for convenience
     // in applying graphics effects to them.
     //
-    QList<QWidget*> statusBarWidgets;
+    QList<QWidget*> statusBarButtons;
+    statusBarButtons.append(hemingwayModeButton);
+    statusBarButtons.append(focusModeButton);
+    statusBarButtons.append(fullScreenButton);
+
+    QList<QWidget*> statusBarWidgets = statusBarButtons;
     statusBarWidgets.append(timeLabel);
     statusBarWidgets.append(wordCountLabel);
-    statusBarWidgets.append(hemingwayModeButton);
-    statusBarWidgets.append(focusModeButton);
-    statusBarWidgets.append(fullScreenButton);
 
     if (EditorAspectStretch == theme.getEditorAspect())
     {
-        QColor buttonFgColor = theme.getDefaultTextColor();
+        fullScreenIcon = ":/resources/images/fullscreen-dark.svg";
+        focusIcon = ":/resources/images/focus-dark.svg";
+        hemingwayIcon = ":/resources/images/hemingway-dark.svg";
 
-        // If the background color is brighter than the text, then
-        // set the button/label foreground color to be a blend of the
-        // text foreground with the editor background color, rather than
-        // calling QColor::lighter(), which doesn't work on black due to
-        // black having a value of zero.
-        //
-        if
-        (
-            ColorHelper::getLuminance(theme.getEditorBackgroundColor())
-            >
-            ColorHelper::getLuminance(buttonFgColor)
-        )
-        {
-            buttonFgColor = theme.getDefaultTextColor();
-            buttonFgColor.setAlpha(130);
+        QColor buttonPressColor(chromeFgColor);
+        buttonPressColor.setAlpha(30);
 
-            buttonFgColor =
-                ColorHelper::applyAlpha
-                (
-                    buttonFgColor,
-                    theme.getEditorBackgroundColor()
-                );
-        }
-        // Else simply set the button/label color to be the darkened
-        // text color.
-        //
-        else
-        {
-            buttonFgColor = theme.getDefaultTextColor().darker(160);
-        }
-
-        QColor buttonPressColor(theme.getDefaultTextColor());
-        buttonPressColor.setAlpha(20);
-
-        menuBarItemFgColorRGB = ColorHelper::toRgbString(buttonFgColor);
+        menuBarItemFgColorRGB = ColorHelper::toRgbString(chromeFgColor);
         menuBarItemBgColorRGBA = "transparent";
         menuBarItemFgPressColorRGB = menuBarItemFgColorRGB;
         menuBarItemBgPressColorRGBA =
             ColorHelper::toRgbaString(buttonPressColor);
-
-        fullScreenIcon = ":/resources/images/view-fullscreen-dark.svg";
-        fullScreenIconHover = ":/resources/images/view-fullscreen-dark-hover.svg";
-        fullScreenIconPressed = ":/resources/images/view-fullscreen-dark-hover.svg";
-        restoreIcon = ":/resources/images/view-restore-dark.svg";
-        restoreIconHover = ":/resources/images/view-restore-dark-hover.svg";
-        restoreIconPressed = ":/resources/images/view-restore-dark-hover.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;
@@ -1624,24 +1639,29 @@ void MainWindow::applyTheme()
         // Remove old graphics effects from the status bar widgets.
         foreach (QWidget* widget, statusBarWidgets)
         {
+            // Do NOT delete the old QGraphicsColorizeEffect.  Qt seems to
+            // delete it at an arbitrary time, based on parental ownership.
+            //
             widget->setGraphicsEffect(NULL);
+        }
+
+        // Set colorize effects for icon buttons.
+        foreach (QWidget* widget, statusBarButtons)
+        {
+            QGraphicsColorizeEffect* colorizeEffect = new QGraphicsColorizeEffect(this);
+            colorizeEffect->setColor(chromeFgColor);
+            widget->setGraphicsEffect(colorizeEffect);
         }
 
         // Remove menu bar text drop shadow effect.
         effectsMenuBar->removeDropShadow();
-
-        // We can't reuse the old QGraphicsColorizeEffect once it's
-        // been removed from the button, since Qt seems to delete it
-        // at an arbitrary time, sooner or later causing a crash while
-        // switching themes.  Thus, create a new one.
-        //
-        fullScreenButtonColorEffect = new QGraphicsColorizeEffect();
-        fullScreenButtonColorEffect->setColor(buttonFgColor);
-        fullScreenButton->setGraphicsEffect(fullScreenButtonColorEffect);
     }
     else
     {
-        QColor chromeFgColor = QColor("#FFFFFF");
+        // Make the UI chrome color an off white.  A drop shadow will be
+        // applied to supply contrast with the background image.
+        //
+        QColor chromeFgColor = QColor("#e5e8e8");
 
         menuBarItemFgColorRGB = ColorHelper::toRgbString(chromeFgColor);
         menuBarItemBgColorRGBA = "transparent";
@@ -1649,21 +1669,13 @@ void MainWindow::applyTheme()
         chromeFgColor.setAlpha(50);
         menuBarItemBgPressColorRGBA = ColorHelper::toRgbaString(chromeFgColor);
 
-        fullScreenIcon = ":/resources/images/view-fullscreen-light.svg";
-        fullScreenIconHover = ":/resources/images/view-fullscreen-light-hover.svg";
-        fullScreenIconPressed = ":/resources/images/view-fullscreen-light-hover.svg";
-        restoreIcon = ":/resources/images/view-restore-light.svg";
-        restoreIconHover = ":/resources/images/view-restore-light-hover.svg";
-        restoreIconPressed = ":/resources/images/view-restore-light-hover.svg";
+        fullScreenIcon = ":/resources/images/fullscreen-light.svg";
+        focusIcon = ":/resources/images/focus-light.svg";
+        hemingwayIcon = ":/resources/images/hemingway-light.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;
         statusBarButtonBgPressHoverColorRGBA = menuBarItemBgPressColorRGBA;
-
-        // Do NOT delete the old QGraphicsColorizeEffect.  Qt seems to
-        // delete it at an arbitrary time, based on parental ownership.
-        //
-        fullScreenButton->setGraphicsEffect(NULL);
 
         // Set drop shadow effect for status bar widgets.
         foreach (QWidget* widget, statusBarWidgets)
@@ -1741,40 +1753,6 @@ void MainWindow::applyTheme()
     );
     editor->setStyleSheet(styleSheet);
 
-    // Ensure DPI scaling of full screen button with application menu bar font.
-    //
-    int menuBarFontWidth = this->menuBar()->fontInfo().pixelSize() + 3;
-    styleSheet = "";
-
-    stream
-        << "QCheckBox { background: transparent; padding: 3 3 3 3; margin: 0 5 0 5 } "
-        << "QCheckBox::indicator { width: "
-        << menuBarFontWidth
-        << "px; height: "
-        << menuBarFontWidth
-        << "px; background: transparent } "
-        << "QCheckBox::indicator:unchecked { image: url("
-        << fullScreenIcon
-        << ") } "
-        << "QCheckBox::indicator:unchecked:hover { image: url("
-        << fullScreenIconHover
-        << ") } "
-        << "QCheckBox::indicator:unchecked:pressed { image: url("
-        << fullScreenIconPressed
-        << ") } "
-        << "QCheckBox::indicator:checked { image: url("
-        << restoreIcon
-        << ") } "
-        << "QCheckBox::indicator:checked:hover { image: url("
-        << restoreIconHover
-        << ") } "
-        << "QCheckBox::indicator:checked:pressed { image: url("
-        << restoreIconHover
-        << ") } "
-        ;
-
-    fullScreenButton->setStyleSheet(styleSheet);
-
     styleSheet = "";
 
     // Wipe out old background image drawing material.
@@ -1810,6 +1788,8 @@ void MainWindow::applyTheme()
 
     setStyleSheet(styleSheet);
 
+    applyStatusBarStyle(EditorAspectStretch == theme.getEditorAspect());
+
 
     // Make the word count and focus mode button font size
     // match the menu bar's font size, since on Windows using
@@ -1822,27 +1802,37 @@ void MainWindow::applyTheme()
     styleSheet = "";
 
     stream
-        << "QStatusBar { margin: 0; padding: 0; border: 0; background: transparent } "
-        << "QStatusBar::item { border: 0 } "
         << "QLabel { font-size: "
         << menuBarFontSize
-        << "pt; margin: 3px; padding: 5px; border: 0; background: transparent; color: "
+        << "pt; margin: 0px; padding: 5px; border: 0; background: transparent; color: "
         << statusBarItemFgColorRGB
         << " } "
-        << "QPushButton { font-size: "
-        << menuBarFontSize
-        << "pt; padding: 5px; margin: 3px; border: 0; border-radius: 5px; background: transparent"
+        << "QPushButton { padding: 2 5 2 5; margin: 0; border: 0; border-radius: 5px; background: transparent"
         << "; color: "
         << statusBarItemFgColorRGB
         << " } "
-        << "QPushButton:pressed, QPushButton:flat, QPushButton:checked, QPushButton:hover { padding: 5px; margin: 3px; color: "
+        << "QPushButton:pressed, QPushButton:flat, QPushButton:checked, QPushButton:hover { padding: 2 5 2 5; margin: 0; color: "
         << statusBarButtonFgPressHoverColorRGB
         << "; background-color: "
         << statusBarButtonBgPressHoverColorRGBA
         << " } "
         ;
 
-    statusBar()->setStyleSheet(styleSheet);
+    foreach (QWidget* w, statusBarWidgets)
+    {
+        w->setStyleSheet(styleSheet);
+    }
+
+    // Ensure DPI scaling of buttons with application menu bar font.
+    //
+    int menuBarFontWidth = this->menuBar()->fontInfo().pixelSize() + 10;
+
+    fullScreenButton->setIcon(QIcon(fullScreenIcon));
+    fullScreenButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    focusModeButton->setIcon(QIcon(focusIcon));
+    focusModeButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    hemingwayModeButton->setIcon(QIcon(hemingwayIcon));
+    hemingwayModeButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
 
     styleSheet = "";
 
