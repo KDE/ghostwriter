@@ -79,6 +79,25 @@ class ColorHelper
          */
         static double getLuminance(const QColor& color);
 
+        /**
+         * Returns a new color based on the given foreground color,
+         * such that the new color is lightened to achieve the desired
+         * contrast ratio against the given background color.
+         *
+         * Note:
+         *
+         *   This method assumes that the foreground color is darker
+         *   than the background color.  Passing in a foreground color
+         *   that is lighter than the background color results in
+         *   the original foreground color being returned.
+         */
+        static QColor lightenToMatchContrastRatio
+        (
+            const QColor& foreground,
+            const QColor& background,
+            double contrastRatio
+        );
+
     private:
         /**
          * Helper method for applying alpha value to a single color channel.

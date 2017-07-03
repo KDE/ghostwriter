@@ -193,6 +193,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
 		QTextCharFormat defaultFormat;
         bool applyStyleToMarkup[TokenLast];
         QColor colorForToken[TokenLast];
+        QColor fadedColorForToken[TokenLast];
         bool emphasizeToken[TokenLast];
         bool strongToken[TokenLast];
         bool strongMarkup[TokenLast];
