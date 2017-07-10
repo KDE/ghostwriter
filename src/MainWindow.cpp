@@ -435,6 +435,8 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     splitter = new QSplitter(this);
     splitter->addWidget(editorPane);
     splitter->addWidget(htmlPreview);
+    splitter->setStyleSheet("QSplitter:handle { border: 0 }"
+        "QSplitter { border: 0; margin: 0; padding: 0 }");
     setCentralWidget(splitter);
 
     if (appSettings->getHtmlPreviewVisible())
