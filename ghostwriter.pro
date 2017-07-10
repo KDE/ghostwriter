@@ -149,7 +149,7 @@ HEADERS += src/MainWindow.h \
     src/SessionStatistics.h \
     src/SessionStatisticsWidget.h \
     src/PreferencesDialog.h \
-    src/MarkdownOptionsDialog.h \
+    src/PreviewOptionsDialog.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
@@ -204,7 +204,7 @@ SOURCES += src/AppMain.cpp \
     src/DocumentStatistics.cpp \
     src/DocumentStatisticsWidget.cpp \
     src/PreferencesDialog.cpp \
-    src/MarkdownOptionsDialog.cpp \
+    src/PreviewOptionsDialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
     src/color_button.cpp \
