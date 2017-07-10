@@ -35,7 +35,6 @@
 #include "HtmlPreview.h"
 #include "AppSettings.h"
 #include "TimeLabel.h"
-#include "EffectsMenuBar.h"
 #include "find_dialog.h"
 #include "spelling/dictionary_manager.h"
 
@@ -70,6 +69,7 @@ class MainWindow : public QMainWindow
         void resizeEvent(QResizeEvent* event);
         void moveEvent(QMoveEvent* event);
         void keyPressEvent(QKeyEvent* e);
+        bool eventFilter(QObject* obj, QEvent* event);
         void paintEvent(QPaintEvent* event);
         void closeEvent(QCloseEvent* event);
 
@@ -78,6 +78,7 @@ class MainWindow : public QMainWindow
         void changeTheme();
         void showFindReplaceDialog();
         void openPreferencesDialog();
+        void toggleHtmlPreview(bool checked);
         void toggleHemingwayMode(bool checked);
         void toggleFocusMode(bool checked);
         void toggleFullScreen(bool checked);
@@ -89,6 +90,7 @@ class MainWindow : public QMainWindow
         void changeHudButtonLayout(HudWindowButtonLayout layout);
         void changeEditorWidth(EditorWidth editorWidth);
         void insertImage();
+        void showStyleSheetManager();
         void showQuickReferenceGuide();
         void showWikiPage();
         void showOutlineHud();
@@ -100,7 +102,6 @@ class MainWindow : public QMainWindow
         void updateWordCount(int newWordCount);
         void changeFocusMode(FocusMode focusMode);
         void applyTheme(const Theme& theme);
-        void openHtmlPreview();
         void openRecentFile();
         void refreshRecentFiles();
         void clearRecentFileHistory();
@@ -111,9 +112,12 @@ class MainWindow : public QMainWindow
         void onFontSizeChanged(int size);
         void onSetLocale();
         void changeHudOpacity(int value);
+        void copyHtml();
+        void showMarkdownOptions();
 
 	private:
         MarkdownEditor* editor;
+        QSplitter* splitter;
         DocumentManager* documentManager;
         ThemeFactory* themeFactory;
         Theme theme;
@@ -121,8 +125,12 @@ class MainWindow : public QMainWindow
         QLabel* wordCountLabel;
         QLabel* statusLabel;
         TimeLabel* timeLabel;
+        QPushButton* markdownOptionsButton;
+        QPushButton* exportButton;
+        QPushButton* copyHtmlButton;
         QPushButton* hemingwayModeButton;
         QPushButton* focusModeButton;
+        QPushButton* htmlPreviewButton;
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;
@@ -142,9 +150,12 @@ class MainWindow : public QMainWindow
         QPixmap originalBackgroundImage;
         QPixmap adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;
-        QDialog* hudOpacityDialog = NULL;
         QAction* recentFilesActions[MAX_RECENT_FILES];
-        EffectsMenuBar* effectsMenuBar;
+        int menuBarHeight = 0;
+        QPoint lastMousePos;
+
+        QList<QWidget*> statusBarButtons;
+        QList<QWidget*> statusBarWidgets;
 
         Exporter* exporter;
         QThread* exporterThread;
@@ -164,9 +175,13 @@ class MainWindow : public QMainWindow
         void buildMenuBar();
         void buildStatusBar();
 
-        void applyStatusBarStyle(bool borderEnabled);
+        void adjustEditorWidth(int width);
+        void applyStatusBarStyle();
         void applyTheme();
         void predrawBackgroundImage();
+        void showMenuBar();
+        void hideMenuBar();
+        bool isMenuBarVisible() const;
 };
 
 #endif

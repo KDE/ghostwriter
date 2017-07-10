@@ -1,20 +1,20 @@
-Files: view-fullscreen-light.svg, view-fullscreen-light-hover.svg,
-       view-fullscreen-dark.svg, view-fullscreen-dark-hover.svg,
-       view-restore-light.svg, view-restore-light-hover.svg,
-       view-restore-dark.svg, view-restore-dark-hover.svg
+Files: configure-dark.svg, configure-light.svg,
+       copy-html-dark.svg, copy-html-light.svg,
+       export-dark.svg, export-light.svg, focus-dark.svg,
+       focus-light.svg, fullscreen-dark.svg,
+       fullscreen-light.svg, hemingway-dark.svg,
+       hemingway-light.svg, html-preview-dark.svg,
+       html-preview-light.svg
 Author: wereturtle
-License: CC BY-SA3
-  Creative Commons Attribution 3.0 Share-Alike License
+License: GNU LGPL v3
+  GNU Lesser General Public License Version 3.0
   
-  These are derivative of the "Adwaita Icon Theme" by the GNOME Project
-  <http://www.gnome.org>, used under a Creative Commons Attribution 3.0
-  Share-Alike License. They are licened under Creative Commons Attribution
-  3.0 Share-Alike License by wereturtle. The original version from the
-  Gnome Project can be found at <https://github.com/GNOME/adwaita-icon-theme>.
+  These are derived from the "Papirus Icon Theme", Copyright 2016 Sergei
+  Eremenko.  The "Papirus Icon Theme" is distributed under the terms of
+  the GNU LGPL v3.  The original version can be found at
+  <http://github.com/PapirusDevelopmentTeam/papirus-icon-theme>.
   
-  To view a copy of this licence, visit 
-  http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
-  Commons, 171 Second Street, Suite 300, San Francisco, California 94105, USA.
+  To view a copy of this licence, visit <http://www.gnu.org/licenses/>.
 
 
 Files: ghostwriter.svg, close-delete.svg, size-grip.svg, unavailable.svg

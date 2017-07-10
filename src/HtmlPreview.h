@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,12 +23,10 @@
 #include <QWidget>
 #include <QMainWindow>
 #include <QTextDocument>
-#include <QComboBox>
 #include <QThread>
 #include <QTimer>
 #include <QList>
 #include <QPrinter>
-#include <QPushButton>
 #include <QRegExp>
 #include <QUrl>
 #include <QFutureWatcher>
@@ -61,6 +59,7 @@ class HtmlPreview : public QMainWindow
         HtmlPreview
         (
             TextDocument* document,
+            Exporter* exporter,
             QWidget* parent = 0
         );
 
@@ -68,24 +67,6 @@ class HtmlPreview : public QMainWindow
          * Destructor.
          */
         virtual ~HtmlPreview();
-
-    signals:
-        /**
-         * Emitted when a lengthy operation has started, such as when the user
-         * chooses to export the document to disk, so that the user can be
-         * informed, perhaps via a progress bar.  The description provides
-         * descriptive text as to the nature of the operation to display to
-         * the user.
-         */
-        void operationStarted(const QString& description);
-
-        /**
-         * Emitted when a lengthy operation has finished, such as when an
-         * exportation of the document to disk has completed, so that the user
-         * can be informed, perhaps via the removal of a progress bar previously
-         * displayed when the operation began.
-         */
-        void operationFinished();
 
     public slots:
         /**
@@ -102,14 +83,26 @@ class HtmlPreview : public QMainWindow
          */
         void navigateToHeading(int headingSequenceNumber);
 
+        /**
+         * Call this method to set the HTML exporter used in
+         * generating HTML from the Markdown document.
+         */
+        void setHtmlExporter(Exporter* exporter);
+
+        /**
+         * Call this method to change the CSS style sheet.
+         */
+        void setStyleSheet(const QString& filePath);
+
+        /**
+         * Call this method to display a print preview dialog of
+         * the rendered HTML.
+         */
+        void printPreview();
+
     private slots:
         void onHtmlReady();
-        void onPreviewerChanged(int index);
-        void changeStyleSheet(int index);
-        void printPreview();
         void printHtmlToPrinter(QPrinter* printer);
-        void onExport();
-        void copyHtml();
         void onLinkClicked(const QUrl& url);
 
         /**
@@ -127,17 +120,12 @@ class HtmlPreview : public QMainWindow
         QWebView* htmlBrowser;
         QUrl baseUrl;
         TextDocument* document;
-        QComboBox* previewerComboBox;
-        QComboBox* styleSheetComboBox;
-        Exporter* exporter;
         QTimer* htmlPreviewUpdateTimer;
-        int minWidth;
         bool documentChanged;
         bool typingPaused;
         QString html;
         QRegExp headingTagExp;
-        int lastStyleSheetIndex;
-        QStringList customCssFiles;
+        Exporter* exporter;
 
         /*
          * Used to set default page layout options for printing.  Also,
@@ -147,11 +135,7 @@ class HtmlPreview : public QMainWindow
          */
         QPrinter printer;
 
-        // flag used to prevent recursion in changeStyleSheet
-        bool handlingStyleSheetChange;
-
         QFutureWatcher<QString>* futureWatcher;
-        QStringList defaultStyleSheets;
 
         /*
          * Sets the HTML contents to display, and creates a backup of the old

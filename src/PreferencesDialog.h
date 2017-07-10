@@ -40,7 +40,7 @@ class PreferencesDialog : public QDialog
         /**
          * Destructor.
          */
-        ~PreferencesDialog();
+        virtual ~PreferencesDialog();
 
     private slots:
         void onFocusModeChanged(int index);

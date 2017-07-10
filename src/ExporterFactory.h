@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -50,6 +50,12 @@ class ExporterFactory
          * HTML live preview rendering.
          */
         QList<Exporter*> getHtmlExporters();
+
+        /**
+         * Returns the exporter with the given name, or NULL if one
+         * with that name does not exist.
+         */
+        Exporter* getExporterByName(const QString& name);
 
     private:
         static ExporterFactory* instance;

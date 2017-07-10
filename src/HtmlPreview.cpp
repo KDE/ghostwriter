@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,52 +18,30 @@
  ***********************************************************************/
 
 #include <QVariant>
-#include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
 #include <QString>
-#include <QStatusBar>
-#include <QList>
-#include <QPushButton>
 #include <QPrintPreviewDialog>
 #include <QApplication>
-#include <QClipboard>
 #include <QStack>
 #include <QDir>
 #include <QDesktopServices>
-#include <QAction>
 #include <QtConcurrentRun>
 #include <QFuture>
-#include <QSettings>
 #include <QPrinter>
 #include <QDesktopWidget>
 
 #include "HtmlPreview.h"
 #include "Exporter.h"
-#include "ExporterFactory.h"
-#include "ExportDialog.h"
-#include "MessageBoxHelper.h"
-#include "StyleSheetManagerDialog.h"
-
-#define GW_CUSTOM_STYLE_SHEETS_KEY "Preview/customStyleSheets"
-#define GW_LAST_USED_STYLE_SHEET_KEY "Preview/lastUsedStyleSheet"
-#define GW_LAST_USED_EXPORTER_KEY "Preview/lastUsedExporter"
 
 HtmlPreview::HtmlPreview
 (
     TextDocument* document,
+    Exporter* exporter,
     QWidget* parent
 )
-    : QMainWindow(parent), document(document), handlingStyleSheetChange(false)
+    : QMainWindow(parent), document(document), exporter(exporter)
 {
-    QSettings settings;
-    QString currentCssFile =
-        settings.value(GW_LAST_USED_STYLE_SHEET_KEY, QString()).toString();
-    QString currentExporterName =
-        settings.value(GW_LAST_USED_EXPORTER_KEY).toString();
-    customCssFiles =
-        settings.value(GW_CUSTOM_STYLE_SHEETS_KEY, QStringList()).toStringList();
-
     htmlBrowser = new QWebView(this);
     htmlBrowser->settings()->setDefaultTextEncoding("utf-8");
 
@@ -80,101 +58,10 @@ HtmlPreview::HtmlPreview
     headingTagExp.setMinimal(true);
     headingTagExp.setPattern("[Hh][1-6]");
 
-    this->statusBar()->setSizeGripEnabled(false);
-    this->statusBar()->setStyleSheet("QStatusBar::item { border: 0 }");
-
-    defaultStyleSheets.append(":/resources/github.css");
-
-    QPushButton* copyHtmlButton = new QPushButton(tr("Copy HTML"));
-    copyHtmlButton->setFocusPolicy(Qt::NoFocus);
-    connect(copyHtmlButton, SIGNAL(clicked()), this, SLOT(copyHtml()));
-    this->statusBar()->addPermanentWidget(copyHtmlButton);
-
-    QPushButton* exportButton = new QPushButton(tr("Export"));
-    exportButton->setFocusPolicy(Qt::NoFocus);
-    connect(exportButton, SIGNAL(clicked()), this, SLOT(onExport()));
-    this->statusBar()->addPermanentWidget(exportButton);
-
-    QPushButton* printButton = new QPushButton(tr("Print"));
-    printButton->setFocusPolicy(Qt::NoFocus);
-    connect(printButton, SIGNAL(clicked()), this, SLOT(printPreview()));
-    this->statusBar()->addPermanentWidget(printButton);
-
-    previewerComboBox = new QComboBox(this);
-
-    QList<Exporter*> exporters = ExporterFactory::getInstance()->getHtmlExporters();
-
-    if (exporters.isEmpty())
-    {
-        setHtml(QString("<b style='color: red'>") +
-            tr("No markdown (pandoc, multimarkdown, discount) processors are "
-                "installed.  Please install or add their installation locations "
-                "to your system PATH environment variable.") + QString("</b>"));
-        exporter = NULL;
-    }
-    else
-    {
-        int currentExporterIndex = 0;
-
-        for (int i = 0; i < exporters.length(); i++)
-        {
-            Exporter* exporter = exporters.at(i);
-            previewerComboBox->addItem(exporter->getName(), qVariantFromValue((void *) exporter));
-
-            if (exporter->getName() == currentExporterName)
-            {
-                currentExporterIndex = i;
-            }
-        }
-
-        exporter = exporters.at(currentExporterIndex);
-        previewerComboBox->setCurrentIndex(currentExporterIndex);
-    }
-
-    this->statusBar()->addWidget(previewerComboBox);
-    connect(previewerComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onPreviewerChanged(int)));
-
-    styleSheetComboBox = new QComboBox(this);
-    styleSheetComboBox->addItem(tr("Github (Default)"));
-    styleSheetComboBox->setItemData(0, QVariant(defaultStyleSheets.at(0)));
-
-    int customCssIndexStart = defaultStyleSheets.size();
-
-    int cssIndex = 0;
-    lastStyleSheetIndex = -1;
-
-    for (int i = 0; i < customCssFiles.size(); i++)
-    {
-        QFileInfo fileInfo(customCssFiles.at(i));
-
-        if (fileInfo.exists())
-        {
-            styleSheetComboBox->addItem(fileInfo.completeBaseName());
-            styleSheetComboBox->setItemData(customCssIndexStart + i, QVariant(customCssFiles.at(i)));
-        }
-    }
-
-    styleSheetComboBox->addItem(tr("Add/Remove Style Sheets..."));
-
-    // Find the last used style sheet, and set it as selected in the combo box.
-    for (int i = 0; i < styleSheetComboBox->count() - 1; i++)
-    {
-        if (styleSheetComboBox->itemData(i).toString() == currentCssFile)
-        {
-            cssIndex = i;
-            styleSheetComboBox->setCurrentIndex(i);
-            break;
-        }
-    }
-
-    connect(styleSheetComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(changeStyleSheet(int)));
-    this->statusBar()->addWidget(styleSheetComboBox);
-
     this->setCentralWidget(htmlBrowser);
 
     futureWatcher = new QFutureWatcher<QString>(this);
     this->connect(futureWatcher, SIGNAL(finished()), SLOT(onHtmlReady()));
-    this->changeStyleSheet(cssIndex);
 
     this->connect(document, SIGNAL(filePathChanged()), SLOT(updateBaseDir()));
     this->updateBaseDir();
@@ -195,49 +82,6 @@ HtmlPreview::HtmlPreview
 
 HtmlPreview::~HtmlPreview()
 {
-    QSettings settings;
-
-    // Store the selected exporter name.
-    QString exporterName;
-
-    if (previewerComboBox->count() > 0)
-    {
-        exporterName =
-            previewerComboBox->itemText(previewerComboBox->currentIndex());
-    }
-
-    if (!exporterName.isNull())
-    {
-        settings.setValue
-        (
-            GW_LAST_USED_EXPORTER_KEY,
-            exporterName
-        );
-    }
-    else
-    {
-        // Clean up key if no exporters were even installed from which
-        // to select.
-        //
-        settings.remove(GW_LAST_USED_EXPORTER_KEY);
-    }
-
-    // Store the custom style sheet list.
-    settings.setValue(GW_CUSTOM_STYLE_SHEETS_KEY, customCssFiles);
-
-    // Store the last used style sheet.
-    // Use count > 1 to exclude the "Add/Remove Custom Style Sheets" option.
-    if
-    (
-        (styleSheetComboBox->count() > 1) &&
-        (styleSheetComboBox->currentIndex() < (styleSheetComboBox->count() - 1))
-    )
-    {
-        QString cssPath =
-            styleSheetComboBox->itemData(styleSheetComboBox->currentIndex()).toString();
-        settings.setValue(GW_LAST_USED_STYLE_SHEET_KEY, cssPath);
-    }
-
     // Wait for thread to finish if in the middle of updating the preview.
     futureWatcher->waitForFinished();
 }
@@ -247,7 +91,7 @@ void HtmlPreview::updatePreview()
     if (this->isVisible())
     {
         // Some markdown processors don't handle empty text very well
-        // and will error.  Thus, only pass in text from the document
+        // and will err.  Thus, only pass in text from the document
         // into the markdown processor if the text isn't empty or null.
         //
         if (document->isEmpty())
@@ -380,136 +224,33 @@ void HtmlPreview::onHtmlReady()
     }
 }
 
-void HtmlPreview::onPreviewerChanged(int index)
+void HtmlPreview::setHtmlExporter(Exporter* exporter)
 {
-    QVariant exporterVariant = previewerComboBox->itemData(index);
-
-    exporter = (Exporter*) exporterVariant.value<void*>();
+    this->exporter = exporter;
     setHtml("");
     updatePreview();
 }
 
-void HtmlPreview::changeStyleSheet(int index)
+void HtmlPreview::setStyleSheet(const QString& filePath)
 {
-    // Prevent recursion, since calls to the combo box's setCurrentIndex
-    // method will trigger changeStyleSheet to be called again.
-    //
-    if (handlingStyleSheetChange)
+    // Update the HTML preview with the newly selected style sheet, if needed.
+    if (!filePath.startsWith(":"))
     {
-        return;
-    }
-
-    bool previewUpdateNeeded = true;
-
-    handlingStyleSheetChange = true;
-
-    QString filePath;
-    int selectionIndex = index;
-
-    // If the "Add/Remove Custom Style Sheets" option was selected...
-    if (styleSheetComboBox->count() == (index + 1))
-    {
-        // Save off the style sheet file path of the last selected item.
-        QString oldSelection =
-            styleSheetComboBox->itemData(lastStyleSheetIndex).toString();
-
-        // Now make sure the last style sheet is what is selected in the
-        // combo box, that way the user doesn't see the
-        // "Add/Remove Custom Style Sheets" as selected.
-        //
-        styleSheetComboBox->setCurrentIndex(lastStyleSheetIndex);
-
-        // Let the user add/remove style sheets via the StyleSheetManagerDialog.
-        StyleSheetManagerDialog ssmDialog(customCssFiles, this);
-        int result = ssmDialog.exec();
-
-        // If changes are accepted (user clicked OK), reload the style sheets
-        // into the combo box, and select the last used style sheet if it
-        // wasn't removed.
-        //
-        if (QDialog::Accepted == result)
-        {
-            customCssFiles = ssmDialog.getStyleSheets();
-
-            // Remove all the old style sheets from the combo box.
-            while (styleSheetComboBox->count() > (defaultStyleSheets.size() + 1))
-            {
-                styleSheetComboBox->removeItem(1);
-            }
-
-            selectionIndex = 0;
-
-            // Now put the new list of style sheets back into the combo box.
-            for (int i = customCssFiles.size() - 1; i >= 0; i--)
-            {
-                QString styleSheet = customCssFiles[i];
-                QFileInfo fileInfo(styleSheet);
-                styleSheetComboBox->insertItem
-                (
-                    defaultStyleSheets.size(),
-                    fileInfo.completeBaseName(),
-                    styleSheet
-                );
-
-                if (styleSheet == oldSelection)
-                {
-                    previewUpdateNeeded = false;
-                    selectionIndex = i + 1;
-                }
-            }
-
-            // If the last selected style sheet was one of the default ones,
-            // and is still currently selected, then we don't need to update
-            // the preview again.
-            //
-            if
-            (
-                (lastStyleSheetIndex == selectionIndex) &&
-                (selectionIndex < defaultStyleSheets.size())
-            )
-            {
-                previewUpdateNeeded = false;
-            }
-
-            styleSheetComboBox->setCurrentIndex(selectionIndex);
-            filePath = styleSheetComboBox->itemData(selectionIndex).toString();
-        }
-        else
-        {
-            // If the user canceled adding/removing custom CSS files, return.
-            handlingStyleSheetChange = false;
-            return;
-        }
+        htmlBrowser->settings()->setUserStyleSheetUrl
+        (
+            QUrl::fromLocalFile(filePath)
+        );
     }
     else
     {
-        filePath = styleSheetComboBox->itemData(index).toString();
+        htmlBrowser->settings()->setUserStyleSheetUrl
+        (
+            QUrl(QString("qrc") + filePath)
+        );
     }
 
-    // Update the HTML preview with the newly selected style sheet, if needed.
-    if (previewUpdateNeeded)
-    {
-        if (selectionIndex >= defaultStyleSheets.size())
-        {
-            htmlBrowser->settings()->setUserStyleSheetUrl
-            (
-                QUrl::fromLocalFile(filePath)
-            );
-        }
-        else
-        {
-            htmlBrowser->settings()->setUserStyleSheetUrl
-            (
-                QUrl(QString("qrc") + defaultStyleSheets.at(selectionIndex))
-            );
-        }
-
-        setHtml("");
-        updatePreview();
-    }
-
-    lastStyleSheetIndex = selectionIndex;
-    handlingStyleSheetChange = false;
+    setHtml("");
+    updatePreview();
 }
 
 void HtmlPreview::printPreview()
@@ -530,22 +271,6 @@ void HtmlPreview::printPreview()
 void HtmlPreview::printHtmlToPrinter(QPrinter* printer)
 {
     this->htmlBrowser->print(printer);
-}
-
-void HtmlPreview::onExport()
-{
-    ExportDialog exportDialog(document);
-
-    connect(&exportDialog, SIGNAL(exportStarted(QString)), this, SIGNAL(operationStarted(QString)));
-    connect(&exportDialog, SIGNAL(exportComplete()), this, SIGNAL(operationFinished()));
-
-    exportDialog.exec();
-}
-
-void HtmlPreview::copyHtml()
-{
-    QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText(html);
 }
 
 void HtmlPreview::onLinkClicked(const QUrl& url)

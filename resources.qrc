@@ -11,6 +11,14 @@
         <file>resources/images/fullscreen-light.svg</file>
         <file>resources/images/hemingway-dark.svg</file>
         <file>resources/images/hemingway-light.svg</file>
+        <file>resources/images/html-preview-dark.svg</file>
+        <file>resources/images/html-preview-light.svg</file>
+        <file>resources/images/copy-html-dark.svg</file>
+        <file>resources/images/copy-html-light.svg</file>
+        <file>resources/images/export-dark.svg</file>
+        <file>resources/images/export-light.svg</file>
+        <file>resources/images/configure-dark.svg</file>
+        <file>resources/images/configure-light.svg</file>
         <file>resources/images/ghostwriter.svg</file>
         <file>resources/github.css</file>
         <file>resources/quickreferenceguide_en.html</file>

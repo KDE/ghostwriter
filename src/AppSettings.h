@@ -27,6 +27,7 @@
 #include "MarkdownEditorTypes.h"
 #include "MarkdownStyles.h"
 #include "HudWindowTypes.h"
+#include "Exporter.h"
 
 /**
  * Loads and stores application settings via QSettings, particularly for
@@ -149,6 +150,21 @@ class AppSettings : public QObject
         Q_SLOT void setHighlightLineBreaks(bool enabled);
         Q_SIGNAL void highlightLineBreaksChanged(bool enabled);
 
+        bool getHtmlPreviewVisible() const;
+        void setHtmlPreviewVisible(bool visible);
+
+        QStringList getCustomCssFiles() const;
+        void setCustomCssFiles(const QStringList& cssFilePathList);
+        Q_SIGNAL void customCssFilesChanged(const QStringList& cssFilePathList);
+
+        QString getCurrentCssFile() const;
+        Q_SLOT void setCurrentCssFile(const QString& filePath);
+        Q_SIGNAL void currentCssFileChanged(const QString& filePath);
+
+        Exporter* getCurrentHtmlExporter() const;
+        Q_SLOT void setCurrentHtmlExporter(Exporter* exporter);
+        Q_SIGNAL void currentHtmlExporterChanged(Exporter* exporter);
+
     private:
         AppSettings();
 
@@ -183,6 +199,10 @@ class AppSettings : public QObject
         bool desktopCompositingEnabled;
         int hudOpacity;
         bool highlightLineBreaks;
+        bool htmlPreviewVisible;
+        QStringList customCssFiles;
+        QString currentCssFile;
+        Exporter* currentHtmlExporter;
 };
 
 #endif // APPSETTINGS_H
