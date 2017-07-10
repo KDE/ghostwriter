@@ -24,13 +24,13 @@
 #include <QPushButton>
 #include <QFileInfo>
 
-#include "MarkdownOptionsDialog.h"
+#include "PreviewOptionsDialog.h"
 #include "AppSettings.h"
 
-MarkdownOptionsDialog::MarkdownOptionsDialog(QWidget *parent)
+PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     : QDialog(parent)
 {
-    this->setWindowTitle(tr("HTML Preview Options"));
+    this->setWindowTitle(tr("Preview Options"));
 
     exporterFactory = ExporterFactory::getInstance();
     defaultStyleSheets.append(":/resources/github.css");
@@ -80,32 +80,32 @@ MarkdownOptionsDialog::MarkdownOptionsDialog(QWidget *parent)
     connect(AppSettings::getInstance(), SIGNAL(customCssFilesChanged(QStringList)), this, SLOT(onCustomCssFilesChanged(QStringList)));
 }
 
-MarkdownOptionsDialog::~MarkdownOptionsDialog()
+PreviewOptionsDialog::~PreviewOptionsDialog()
 {
     ;
 }
 
-void MarkdownOptionsDialog::onExporterChanged(int index)
+void PreviewOptionsDialog::onExporterChanged(int index)
 {
     QVariant exporterVariant = previewerComboBox->itemData(index);
     Exporter* exporter = (Exporter*) exporterVariant.value<void*>();
     AppSettings::getInstance()->setCurrentHtmlExporter(exporter);
 }
 
-void MarkdownOptionsDialog::onStyleSheetChanged(int index)
+void PreviewOptionsDialog::onStyleSheetChanged(int index)
 {
     QString filePath = styleSheetComboBox->itemData(index).toString();
     AppSettings::getInstance()->setCurrentCssFile(filePath);
 }
 
-void MarkdownOptionsDialog::onCustomCssFilesChanged(const QStringList& fileList)
+void PreviewOptionsDialog::onCustomCssFilesChanged(const QStringList& fileList)
 {
     Q_UNUSED(fileList);
 
     buildStyleSheetComboBox();
 }
 
-void MarkdownOptionsDialog::buildStyleSheetComboBox()
+void PreviewOptionsDialog::buildStyleSheetComboBox()
 {
     styleSheetComboBox->disconnect();
     styleSheetComboBox->clear();

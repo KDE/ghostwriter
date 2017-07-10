@@ -73,7 +73,7 @@
 #include "PreferencesDialog.h"
 #include "ExporterFactory.h"
 #include "Exporter.h"
-#include "MarkdownOptionsDialog.h"
+#include "PreviewOptionsDialog.h"
 #include "StyleSheetManagerDialog.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
@@ -652,6 +652,8 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
                 ((lastMousePos.y() < 0) || (lastMousePos.y() < hotSpotHeight))
                 &&
                 isMenuBarVisible()
+                &&
+                !menuBarMenuActivated
             )
             {
                 // Exited the hot spot.  Hide the menu bar if it is not already hidden.
@@ -1353,12 +1355,28 @@ void MainWindow::copyHtml()
     }
 }
 
-void MainWindow::showMarkdownOptions()
+void MainWindow::showPreviewOptions()
 {
-    MarkdownOptionsDialog* dialog = new MarkdownOptionsDialog(this);
+    PreviewOptionsDialog* dialog = new PreviewOptionsDialog(this);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setModal(false);
     dialog->show();
+}
+
+void MainWindow::onAboutToHideMenuBarMenu()
+{
+    menuBarMenuActivated = false;
+
+    if (!this->menuBar()->underMouse())
+    {
+        hideMenuBar();
+    }
+}
+
+void MainWindow::onAboutToShowMenuBarMenu()
+{
+    menuBarMenuActivated = true;
+    showMenuBar();
 }
 
 QAction* MainWindow::addMenuAction
@@ -1489,6 +1507,7 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(tr("Font..."), this, SLOT(changeFont()));
     settingsMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
     settingsMenu->addAction(tr("Style Sheets..."), this, SLOT(showStyleSheetManager()));
+    settingsMenu->addAction(tr("Preview Options..."), this, SLOT(showPreviewOptions()));
     settingsMenu->addAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
 
     QMenu* helpMenu = this->menuBar()->addMenu(tr("&Help"));
@@ -1496,6 +1515,19 @@ void MainWindow::buildMenuBar()
     helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
     helpMenu->addAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
     helpMenu->addAction(tr("Wiki"), this, SLOT(showWikiPage()));
+
+    connect(fileMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
+    connect(fileMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
+    connect(editMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
+    connect(editMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
+    connect(formatMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
+    connect(formatMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
+    connect(viewMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
+    connect(viewMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
+    connect(settingsMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
+    connect(settingsMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
+    connect(helpMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
+    connect(helpMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
 }
 
 void MainWindow::buildStatusBar()
@@ -1533,15 +1565,15 @@ void MainWindow::buildStatusBar()
         timeLabel->hide();
     }
 
-    markdownOptionsButton = new QPushButton();
-    markdownOptionsButton->setFocusPolicy(Qt::NoFocus);
-    markdownOptionsButton->setToolTip(tr("Markdown Options"));
-    connect(markdownOptionsButton, SIGNAL(clicked(bool)), this, SLOT(showMarkdownOptions()));
-    leftLayout->addWidget(markdownOptionsButton, 0, Qt::AlignLeft);
+    previewOptionsButton = new QPushButton();
+    previewOptionsButton->setFocusPolicy(Qt::NoFocus);
+    previewOptionsButton->setToolTip(tr("Preview Options"));
+    connect(previewOptionsButton, SIGNAL(clicked(bool)), this, SLOT(showPreviewOptions()));
+    leftLayout->addWidget(previewOptionsButton, 0, Qt::AlignLeft);
 
     exportButton = new QPushButton();
     exportButton->setFocusPolicy(Qt::NoFocus);
-    exportButton->setToolTip(tr("Markdown Options"));
+    exportButton->setToolTip(tr("Export"));
     connect(exportButton, SIGNAL(clicked(bool)), documentManager, SLOT(exportFile()));
     leftLayout->addWidget(exportButton, 0, Qt::AlignLeft);
 
@@ -1613,7 +1645,7 @@ void MainWindow::buildStatusBar()
     // Add status bar widgets to a list for convenience
     // in applying graphics effects to them.
     //
-    statusBarButtons.append(markdownOptionsButton);
+    statusBarButtons.append(previewOptionsButton);
     statusBarButtons.append(exportButton);
     statusBarButtons.append(copyHtmlButton);
     statusBarButtons.append(htmlPreviewButton);
@@ -2019,8 +2051,8 @@ void MainWindow::applyTheme()
     copyHtmlButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
     exportButton->setIcon(QIcon(exportIcon));
     exportButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
-    markdownOptionsButton->setIcon(QIcon(markdownOptionsIcon));
-    markdownOptionsButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    previewOptionsButton->setIcon(QIcon(markdownOptionsIcon));
+    previewOptionsButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
 
 
     styleSheet = "";

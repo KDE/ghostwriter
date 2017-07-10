@@ -113,7 +113,9 @@ class MainWindow : public QMainWindow
         void onSetLocale();
         void changeHudOpacity(int value);
         void copyHtml();
-        void showMarkdownOptions();
+        void showPreviewOptions();
+        void onAboutToHideMenuBarMenu();
+        void onAboutToShowMenuBarMenu();
 
 	private:
         MarkdownEditor* editor;
@@ -125,7 +127,7 @@ class MainWindow : public QMainWindow
         QLabel* wordCountLabel;
         QLabel* statusLabel;
         TimeLabel* timeLabel;
-        QPushButton* markdownOptionsButton;
+        QPushButton* previewOptionsButton;
         QPushButton* exportButton;
         QPushButton* copyHtmlButton;
         QPushButton* hemingwayModeButton;
@@ -153,6 +155,7 @@ class MainWindow : public QMainWindow
         QAction* recentFilesActions[MAX_RECENT_FILES];
         int menuBarHeight = 0;
         QPoint lastMousePos;
+        bool menuBarMenuActivated;
 
         QList<QWidget*> statusBarButtons;
         QList<QWidget*> statusBarWidgets;
