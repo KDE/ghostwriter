@@ -18,8 +18,8 @@
  ***********************************************************************/
 
 #include <QProcess>
-#include <QObject>
 #include <QRegExp>
+#include <QSettings>
 
 #include "ExporterFactory.h"
 #include "SundownExporter.h"
@@ -52,6 +52,35 @@ QList<Exporter*> ExporterFactory::getFileExporters()
 QList<Exporter*> ExporterFactory::getHtmlExporters()
 {
     return htmlExporters;
+}
+
+Exporter* ExporterFactory::getExporterByName(const QString& name)
+{
+    // Search in HTML exporter list first.
+    foreach (Exporter* exporter, htmlExporters)
+    {
+        if (exporter->getName() == name)
+        {
+            // Found a match!
+            return exporter;
+        }
+    }
+
+    // If HTML exporter list does not contain an exporter
+    // with the desired name, search in the file exporter
+    // list next.
+    //
+    foreach (Exporter* exporter, fileExporters)
+    {
+        if (exporter->getName() == name)
+        {
+            // Found a match!
+            return exporter;
+        }
+    }
+
+    // No match found.
+    return NULL;
 }
 
 ExporterFactory::ExporterFactory()

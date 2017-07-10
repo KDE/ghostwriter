@@ -50,6 +50,8 @@
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QFormLayout>
+#include <QSplitter>
+#include <QClipboard>
 
 #include "MainWindow.h"
 #include "ThemeFactory.h"
@@ -69,6 +71,10 @@
 #include "SessionStatistics.h"
 #include "SessionStatisticsWidget.h"
 #include "PreferencesDialog.h"
+#include "ExporterFactory.h"
+#include "Exporter.h"
+#include "MarkdownOptionsDialog.h"
+#include "StyleSheetManagerDialog.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
@@ -80,8 +86,6 @@
 #define GW_CHEAT_SHEET_HUD_OPEN_KEY "HUD/cheatSheetHudOpen"
 #define GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY "HUD/documentStatisticsHudOpen"
 #define GW_SESSION_STATISTICS_HUD_OPEN_KEY "HUD/sessionStatisticsHudOpen"
-#define GW_HTML_PREVIEW_GEOMETRY_KEY "Preview/htmlPreviewGeometry"
-#define GW_HTML_PREVIEW_OPEN "Preview/htmlPreviewOpen"
 
 MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     : QMainWindow(parent)
@@ -90,6 +94,10 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     setWindowIcon(QIcon(":/resources/images/ghostwriter.svg"));
     this->setObjectName("mainWindow");
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    qApp->installEventFilter(this);
+
+    lastMousePos = QPoint(-1, -1);
 
     appSettings = AppSettings::getInstance();
 
@@ -247,8 +255,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editorPane->setObjectName("editorLayoutArea");
     editorPane->setLayout(editor->getPreferredLayout());
 
-    setCentralWidget(editorPane);
-
     findReplaceDialog = new FindDialog(editor);
     findReplaceDialog->setModal(false);
 
@@ -376,13 +382,9 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(appSettings, SIGNAL(hudOpacityChanged(int)), this, SLOT(changeHudOpacity(int)));
     connect(appSettings, SIGNAL(highlightLineBreaksChanged(bool)), editor, SLOT(setHighlightLineBreaks(bool)));
 
-    if (this->isFullScreen())
+    if (this->isFullScreen() && appSettings->getHideMenuBarInFullScreenEnabled())
     {
-        effectsMenuBar->setAutoHideEnabled(appSettings->getHideMenuBarInFullScreenEnabled());
-    }
-    else
-    {
-        effectsMenuBar->setAutoHideEnabled(false);
+        hideMenuBar();
     }
 
     QString themeName = appSettings->getThemeName();
@@ -416,12 +418,33 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     // Note that the parent widget for this new window must be NULL, so that
     // it will hide beneath other windows when it is deactivated.
     //
-    htmlPreview = new HtmlPreview(documentManager->getDocument(), NULL);
+    htmlPreview = new HtmlPreview
+        (
+            documentManager->getDocument(),
+            appSettings->getCurrentHtmlExporter(),
+            this
+        );
 
     connect(editor, SIGNAL(typingPaused()), htmlPreview, SLOT(updatePreview()));
     connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
-    connect(htmlPreview, SIGNAL(operationStarted(QString)), this, SLOT(onOperationStarted(QString)));
-    connect(htmlPreview, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
+    connect(appSettings, SIGNAL(currentHtmlExporterChanged(Exporter*)), htmlPreview, SLOT(setHtmlExporter(Exporter*)));
+    connect(appSettings, SIGNAL(currentCssFileChanged(QString)), htmlPreview, SLOT(setStyleSheet(QString)));
+
+    htmlPreview->setStyleSheet(appSettings->getCurrentCssFile());
+
+    splitter = new QSplitter(this);
+    splitter->addWidget(editorPane);
+    splitter->addWidget(htmlPreview);
+    setCentralWidget(splitter);
+
+    if (appSettings->getHtmlPreviewVisible())
+    {
+        htmlPreview->show();
+    }
+    else
+    {
+        htmlPreview->hide();
+    }
 
     // Set dimensions for all the windows/HUDs.
 
@@ -465,15 +488,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         sessionStatsHud->adjustSize();
     }
 
-    if (windowSettings.contains(GW_HTML_PREVIEW_GEOMETRY_KEY))
-    {
-        htmlPreview->restoreGeometry(windowSettings.value(GW_HTML_PREVIEW_GEOMETRY_KEY).toByteArray());
-    }
-    else
-    {
-        htmlPreview->adjustSize();
-    }
-
     quickReferenceGuideViewer = NULL;
 
     // Show the main window.
@@ -502,16 +516,12 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         sessionStatsHud->show();
     }
 
-    if (windowSettings.value(GW_HTML_PREVIEW_OPEN, QVariant(false)).toBool())
-    {
-        htmlPreview->show();
-    }
-
     // Apply the theme only after show() is called on all the widgets,
     // since the Outline scrollbars can end up transparent in Windows if
     // the theme is applied before show().
     //
     applyTheme();
+    adjustEditorWidth(this->width());
 
     this->update();
     qApp->processEvents();
@@ -552,8 +562,7 @@ QSize MainWindow::sizeHint() const
 
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
-    // Resize the editor's margins based on the new size of the window.
-    editor->setupPaperMargins(event->size().width());
+    adjustEditorWidth(event->size().width());
 
     if (!originalBackgroundImage.isNull())
     {
@@ -587,15 +596,15 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
             }
             break;
         case Qt::Key_Alt:
-            if (appSettings->getHideMenuBarInFullScreenEnabled())
+            if (this->isFullScreen() && appSettings->getHideMenuBarInFullScreenEnabled())
             {
-                if (!effectsMenuBar->isVisible())
+                if (!isMenuBarVisible())
                 {
-                    effectsMenuBar->showBar();
+                    showMenuBar();
                 }
                 else
                 {
-                    effectsMenuBar->hideBar();
+                    hideMenuBar();
                 }
             }
             break;
@@ -604,6 +613,56 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
     }
 
     QMainWindow::keyPressEvent(e);
+}
+
+bool MainWindow::eventFilter(QObject* obj, QEvent* event)
+{
+    Q_UNUSED(obj)
+
+    if (event->type() == QEvent::MouseMove)
+    {
+        QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
+
+        int hotSpotHeight = 5;
+
+        if (isMenuBarVisible())
+        {
+            hotSpotHeight = menuBarHeight;
+        }
+
+        if (this->isFullScreen() && appSettings->getHideMenuBarInFullScreenEnabled())
+        {
+            // Check for enter hot spot conditions.
+            if (mouseEvent->globalPos().y() < hotSpotHeight)
+            {
+                if
+                (
+                    ((lastMousePos.y() < 0) || (lastMousePos.y() >= hotSpotHeight))
+                    &&
+                    !isMenuBarVisible()
+                )
+                {
+                    // Entered the hot spot.  Show the menu bar if it is not already visible.
+                    showMenuBar();
+                }
+            }
+            // Check for exit hot spot conditions.
+            else if
+            (
+                ((lastMousePos.y() < 0) || (lastMousePos.y() < hotSpotHeight))
+                &&
+                isMenuBarVisible()
+            )
+            {
+                // Exited the hot spot.  Hide the menu bar if it is not already hidden.
+                hideMenuBar();
+            }
+        }
+
+        lastMousePos = mouseEvent->globalPos();
+    }
+
+    return false;
 }
 
 void MainWindow::paintEvent(QPaintEvent* event)
@@ -663,8 +722,6 @@ void MainWindow::quitApplication()
         windowSettings.setValue(GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY, QVariant(documentStatsHud->isVisible()));
         windowSettings.setValue(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY, sessionStatsHud->saveGeometry());
         windowSettings.setValue(GW_SESSION_STATISTICS_HUD_OPEN_KEY, QVariant(sessionStatsHud->isVisible()));
-        windowSettings.setValue(GW_HTML_PREVIEW_GEOMETRY_KEY, htmlPreview->saveGeometry());
-        windowSettings.setValue(GW_HTML_PREVIEW_OPEN, QVariant(htmlPreview->isVisible()));
         windowSettings.sync();
 
         DictionaryManager::instance().addProviders();
@@ -677,10 +734,10 @@ void MainWindow::quitApplication()
 void MainWindow::changeTheme()
 {
     ThemeSelectionDialog* themeDialog = new ThemeSelectionDialog(theme.getName(), this);
+    themeDialog->setAttribute(Qt::WA_DeleteOnClose);
     connect(themeDialog, SIGNAL(applyTheme(Theme)), this, SLOT(applyTheme(Theme)));
     themeDialog->show();
 }
-
 
 void MainWindow::showFindReplaceDialog()
 {
@@ -691,6 +748,25 @@ void MainWindow::openPreferencesDialog()
 {
     PreferencesDialog* preferencesDialog = new PreferencesDialog(this);
     preferencesDialog->show();
+}
+
+void MainWindow::toggleHtmlPreview(bool checked)
+{
+    appSettings->setHtmlPreviewVisible(checked);
+
+    if (checked)
+    {
+        htmlPreview->show();
+        htmlPreview->updatePreview();
+    }
+    else
+    {
+        htmlPreview->hide();
+    }
+
+    adjustEditorWidth(this->width());
+
+    applyStatusBarStyle();
 }
 
 void MainWindow::toggleHemingwayMode(bool checked)
@@ -768,7 +844,7 @@ void MainWindow::toggleFullScreen(bool checked)
 
             if (appSettings->getHideMenuBarInFullScreenEnabled())
             {
-                effectsMenuBar->setAutoHideEnabled(false);
+                showMenuBar();
             }
         }
     }
@@ -799,7 +875,7 @@ void MainWindow::toggleFullScreen(bool checked)
 
             if (appSettings->getHideMenuBarInFullScreenEnabled())
             {
-                effectsMenuBar->setAutoHideEnabled(true);
+                hideMenuBar();
             }
         }
     }
@@ -809,7 +885,14 @@ void MainWindow::toggleHideMenuBarInFullScreen(bool checked)
 {
     if (this->isFullScreen())
     {
-        effectsMenuBar->setAutoHideEnabled(checked);
+        if (checked)
+        {
+            hideMenuBar();
+        }
+        else
+        {
+            showMenuBar();
+        }
     }
 }
 
@@ -866,7 +949,7 @@ void MainWindow::changeHudButtonLayout(HudWindowButtonLayout layout)
 void MainWindow::changeEditorWidth(EditorWidth editorWidth)
 {
     editor->setEditorWidth(editorWidth);
-    editor->setupPaperMargins(this->width());
+    adjustEditorWidth(this->width());
 }
 
 void MainWindow::insertImage()
@@ -916,6 +999,24 @@ void MainWindow::insertImage()
 
         QTextCursor cursor = editor->textCursor();
         cursor.insertText(QString("![](%1)").arg(imagePath));
+    }
+}
+
+void MainWindow::showStyleSheetManager()
+{
+    // Allow the user add/remove style sheets via the StyleSheetManagerDialog.
+    StyleSheetManagerDialog ssmDialog(appSettings->getCustomCssFiles(), this);
+    int result = ssmDialog.exec();
+
+    // If changes are accepted (user clicked OK), store the new
+    // style sheet file list to the app settings.  Note that
+    // all listeners to this app settings property will be
+    // notified of the new list.
+    //
+    if (QDialog::Accepted == result)
+    {
+        QStringList customCssFiles = ssmDialog.getStyleSheets();
+        appSettings->setCustomCssFiles(customCssFiles);
     }
 }
 
@@ -1072,19 +1173,6 @@ void MainWindow::applyTheme(const Theme& theme)
     applyTheme();
 }
 
-void MainWindow::openHtmlPreview()
-{
-    if (!htmlPreview->isVisible())
-    {
-        htmlPreview->show();
-        htmlPreview->updatePreview();
-    }
-    else
-    {
-        htmlPreview->activateWindow();
-    }
-}
-
 void MainWindow::openRecentFile()
 {
     QAction* action = qobject_cast<QAction*>(this->sender());
@@ -1235,6 +1323,44 @@ void MainWindow::changeHudOpacity(int value)
     sessionStatsHud->update();
 }
 
+void MainWindow::copyHtml()
+{
+    Exporter* htmlExporter = appSettings->getCurrentHtmlExporter();
+
+    if (NULL != htmlExporter)
+    {
+        QTextCursor c = editor->textCursor();
+        QString markdownText;
+        QString html;
+
+        if (c.hasSelection())
+        {
+            // Get only selected text from the document.
+            markdownText = c.selectedText();
+        }
+        else
+        {
+            // Get all text from the document.
+            markdownText = editor->toPlainText();
+        }
+
+        // Convert Markdown to HTML.
+        htmlExporter->exportToHtml(markdownText, html);
+
+        // Insert HTML into clipboard.
+        QClipboard *clipboard = QApplication::clipboard();
+        clipboard->setText(html);
+    }
+}
+
+void MainWindow::showMarkdownOptions()
+{
+    MarkdownOptionsDialog* dialog = new MarkdownOptionsDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setModal(false);
+    dialog->show();
+}
+
 QAction* MainWindow::addMenuAction
 (
     QMenu* menu,
@@ -1267,9 +1393,6 @@ QAction* MainWindow::addMenuAction
 
 void MainWindow::buildMenuBar()
 {
-    effectsMenuBar = new EffectsMenuBar(this);
-    this->setMenuBar(effectsMenuBar);
-
     QMenu* fileMenu = this->menuBar()->addMenu(tr("&File"));
 
     fileMenu->addAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New);
@@ -1309,6 +1432,7 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(tr("Cu&t"), editor, SLOT(cut()), QKeySequence::Cut);
     editMenu->addAction(tr("&Copy"), editor, SLOT(copy()), QKeySequence::Copy);
     editMenu->addAction(tr("&Paste"), editor, SLOT(paste()), QKeySequence::Paste);
+    editMenu->addAction(tr("Copy &HTML"), this, SLOT(copyHtml()), QKeySequence("SHIFT+CTRL+C"));
     editMenu->addSeparator();
     editMenu->addAction(tr("&Insert Image..."), this, SLOT(insertImage()));
     editMenu->addSeparator();
@@ -1348,7 +1472,10 @@ void MainWindow::buildMenuBar()
     connect(fullScreenMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
     viewMenu->addAction(fullScreenMenuAction);
 
-    viewMenu->addAction(tr("&Preview in HTML"), this, SLOT(openHtmlPreview()), QKeySequence("CTRL+M"));
+
+    QAction* previewAction = viewMenu->addAction(tr("&Preview in HTML"), this, SLOT(toggleHtmlPreview(bool)), QKeySequence("CTRL+M"));
+    previewAction->setCheckable(true);
+    previewAction->setChecked(appSettings->getHtmlPreviewVisible());
     viewMenu->addAction(tr("&Outline HUD"), this, SLOT(showOutlineHud()), QKeySequence("CTRL+L"));
     viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()));
     viewMenu->addAction(tr("&Document Statistics HUD"), this, SLOT(showDocumentStatisticsHud()));
@@ -1361,6 +1488,7 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(tr("Themes..."), this, SLOT(changeTheme()));
     settingsMenu->addAction(tr("Font..."), this, SLOT(changeFont()));
     settingsMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
+    settingsMenu->addAction(tr("Style Sheets..."), this, SLOT(showStyleSheetManager()));
     settingsMenu->addAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
 
     QMenu* helpMenu = this->menuBar()->addMenu(tr("&Help"));
@@ -1368,19 +1496,6 @@ void MainWindow::buildMenuBar()
     helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
     helpMenu->addAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
     helpMenu->addAction(tr("Wiki"), this, SLOT(showWikiPage()));
-
-    connect(fileMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
-    connect(fileMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
-    connect(editMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
-    connect(editMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
-    connect(formatMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
-    connect(formatMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
-    connect(viewMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
-    connect(viewMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
-    connect(settingsMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
-    connect(settingsMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
-    connect(helpMenu, SIGNAL(aboutToShow()), effectsMenuBar, SLOT(onAboutToShow()));
-    connect(helpMenu, SIGNAL(aboutToHide()), effectsMenuBar, SLOT(onAboutToHide()));
 }
 
 void MainWindow::buildStatusBar()
@@ -1412,12 +1527,31 @@ void MainWindow::buildStatusBar()
     // Add left-most widgets to status bar.
     timeLabel = new TimeLabel(this);
     leftLayout->addWidget(timeLabel, 0, Qt::AlignLeft);
-    statusBarLayout->addWidget(leftWidget, 0, 0, 0, 1, Qt::AlignLeft);
 
     if (!this->isFullScreen() || appSettings->getDisplayTimeInFullScreenEnabled())
     {
         timeLabel->hide();
     }
+
+    markdownOptionsButton = new QPushButton();
+    markdownOptionsButton->setFocusPolicy(Qt::NoFocus);
+    markdownOptionsButton->setToolTip(tr("Markdown Options"));
+    connect(markdownOptionsButton, SIGNAL(clicked(bool)), this, SLOT(showMarkdownOptions()));
+    leftLayout->addWidget(markdownOptionsButton, 0, Qt::AlignLeft);
+
+    exportButton = new QPushButton();
+    exportButton->setFocusPolicy(Qt::NoFocus);
+    exportButton->setToolTip(tr("Markdown Options"));
+    connect(exportButton, SIGNAL(clicked(bool)), documentManager, SLOT(exportFile()));
+    leftLayout->addWidget(exportButton, 0, Qt::AlignLeft);
+
+    copyHtmlButton = new QPushButton();
+    copyHtmlButton->setFocusPolicy(Qt::NoFocus);
+    copyHtmlButton->setToolTip(tr("Copy HTML"));
+    connect(copyHtmlButton, SIGNAL(clicked(bool)), this, SLOT(copyHtml()));
+    leftLayout->addWidget(copyHtmlButton, 0, Qt::AlignLeft);
+
+    statusBarLayout->addWidget(leftWidget, 0, 0, 0, 1, Qt::AlignLeft);
 
     // Add middle widgets to status bar.
     statusLabel = new QLabel();
@@ -1433,6 +1567,14 @@ void MainWindow::buildStatusBar()
     statusBarLayout->addWidget(midWidget, 0, 1, 0, 1, Qt::AlignCenter);
 
     // Add right-most widgets to status bar.
+    htmlPreviewButton = new QPushButton();
+    htmlPreviewButton->setFocusPolicy(Qt::NoFocus);
+    htmlPreviewButton->setToolTip(tr("Toggle Live HTML Preview"));
+    htmlPreviewButton->setCheckable(true);
+    htmlPreviewButton->setChecked(appSettings->getHtmlPreviewVisible());
+    connect(htmlPreviewButton, SIGNAL(toggled(bool)), this, SLOT(toggleHtmlPreview(bool)));
+    rightLayout->addWidget(htmlPreviewButton, 0, Qt::AlignRight);
+
     hemingwayModeButton = new QPushButton();
     hemingwayModeButton->setFocusPolicy(Qt::NoFocus);
     hemingwayModeButton->setToolTip(tr("Toggle Hemingway mode"));
@@ -1467,16 +1609,57 @@ void MainWindow::buildStatusBar()
     statusBarLayout->setContentsMargins(2, 0, 2, 0);
 
     statusBar()->show();
+
+    // Add status bar widgets to a list for convenience
+    // in applying graphics effects to them.
+    //
+    statusBarButtons.append(markdownOptionsButton);
+    statusBarButtons.append(exportButton);
+    statusBarButtons.append(copyHtmlButton);
+    statusBarButtons.append(htmlPreviewButton);
+    statusBarButtons.append(hemingwayModeButton);
+    statusBarButtons.append(focusModeButton);
+    statusBarButtons.append(fullScreenButton);
+
+    statusBarWidgets = statusBarButtons;
+    statusBarWidgets.append(timeLabel);
+    statusBarWidgets.append(wordCountLabel);
 }
 
-void MainWindow::applyStatusBarStyle(bool borderEnabled)
+void MainWindow::adjustEditorWidth(int width)
+{
+    int editorWidth = width;
+
+    if (htmlPreview->isVisible())
+    {
+        editorWidth /= 2;
+
+        QList<int> sizes;
+        sizes.append(editorWidth);
+        sizes.append(editorWidth);
+        splitter->setSizes(sizes);
+    }
+
+    // Resize the editor's margins based on the size of the window.
+    editor->setupPaperMargins(editorWidth);
+
+    // Scroll to cursor position.
+    editor->centerCursor();
+}
+
+void MainWindow::applyStatusBarStyle()
 {
     QString styleSheet = "";
     QTextStream stream(&styleSheet);
 
     int border = 0;
 
-    if (borderEnabled)
+    if
+    (
+        (EditorAspectStretch == theme.getEditorAspect())
+        ||
+        htmlPreview->isVisible()
+    )
     {
         border = 1;
     }
@@ -1591,28 +1774,24 @@ void MainWindow::applyTheme()
     QString fullScreenIcon;
     QString focusIcon;
     QString hemingwayIcon;
+    QString htmlPreviewIcon;
+    QString copyHtmlIcon;
+    QString exportIcon;
+    QString markdownOptionsIcon;
 
     QString statusBarItemFgColorRGB;
     QString statusBarButtonFgPressHoverColorRGB;
     QString statusBarButtonBgPressHoverColorRGBA;
-
-    // Add status bar widgets to a list for convenience
-    // in applying graphics effects to them.
-    //
-    QList<QWidget*> statusBarButtons;
-    statusBarButtons.append(hemingwayModeButton);
-    statusBarButtons.append(focusModeButton);
-    statusBarButtons.append(fullScreenButton);
-
-    QList<QWidget*> statusBarWidgets = statusBarButtons;
-    statusBarWidgets.append(timeLabel);
-    statusBarWidgets.append(wordCountLabel);
 
     if (EditorAspectStretch == theme.getEditorAspect())
     {
         fullScreenIcon = ":/resources/images/fullscreen-dark.svg";
         focusIcon = ":/resources/images/focus-dark.svg";
         hemingwayIcon = ":/resources/images/hemingway-dark.svg";
+        htmlPreviewIcon = ":/resources/images/html-preview-dark.svg";
+        copyHtmlIcon = ":/resources/images/copy-html-dark.svg";
+        exportIcon = ":/resources/images/export-dark.svg";
+        markdownOptionsIcon = ":/resources/images/configure-dark.svg";
 
         QColor buttonPressColor(chromeFgColor);
         buttonPressColor.setAlpha(30);
@@ -1645,7 +1824,7 @@ void MainWindow::applyTheme()
         }
 
         // Remove menu bar text drop shadow effect.
-        effectsMenuBar->removeDropShadow();
+        this->menuBar()->setGraphicsEffect(NULL);
     }
     else
     {
@@ -1663,6 +1842,10 @@ void MainWindow::applyTheme()
         fullScreenIcon = ":/resources/images/fullscreen-light.svg";
         focusIcon = ":/resources/images/focus-light.svg";
         hemingwayIcon = ":/resources/images/hemingway-light.svg";
+        htmlPreviewIcon = ":/resources/images/html-preview-light.svg";
+        copyHtmlIcon = ":/resources/images/copy-html-light.svg";
+        exportIcon = ":/resources/images/export-light.svg";
+        markdownOptionsIcon = ":/resources/images/configure-light.svg";
 
         statusBarItemFgColorRGB = menuBarItemFgColorRGB;
         statusBarButtonFgPressHoverColorRGB = menuBarItemFgPressColorRGB;
@@ -1680,8 +1863,14 @@ void MainWindow::applyTheme()
             widget->setGraphicsEffect(chromeDropShadowEffect);
         }
 
+        QGraphicsDropShadowEffect* menuBarTextDropShadowEffect = new QGraphicsDropShadowEffect();
+        menuBarTextDropShadowEffect->setColor(QColor(Qt::black));
+        menuBarTextDropShadowEffect->setBlurRadius(3.5);
+        menuBarTextDropShadowEffect->setXOffset(1.0);
+        menuBarTextDropShadowEffect->setYOffset(1.0);
+
         // Set drop shadow effect for menu bar text.
-        effectsMenuBar->setDropShadow(Qt::black, 3.5, 1.0, 1.0);
+        this->menuBar()->setGraphicsEffect(menuBarTextDropShadowEffect);
     }
 
     editor->setAspect(theme.getEditorAspect());
@@ -1779,7 +1968,7 @@ void MainWindow::applyTheme()
 
     setStyleSheet(styleSheet);
 
-    applyStatusBarStyle(EditorAspectStretch == theme.getEditorAspect());
+    applyStatusBarStyle();
 
 
     // Make the word count and focus mode button font size
@@ -1824,6 +2013,15 @@ void MainWindow::applyTheme()
     focusModeButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
     hemingwayModeButton->setIcon(QIcon(hemingwayIcon));
     hemingwayModeButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    htmlPreviewButton->setIcon(QIcon(htmlPreviewIcon));
+    htmlPreviewButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    copyHtmlButton->setIcon(QIcon(copyHtmlIcon));
+    copyHtmlButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    exportButton->setIcon(QIcon(exportIcon));
+    exportButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    markdownOptionsButton->setIcon(QIcon(markdownOptionsIcon));
+    markdownOptionsButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+
 
     styleSheet = "";
 
@@ -1927,7 +2125,7 @@ void MainWindow::applyTheme()
     documentStatsWidget->setStyleSheet(styleSheet);
     sessionStatsWidget->setStyleSheet(styleSheet);
 
-    editor->setupPaperMargins(this->width());
+    adjustEditorWidth(this->width());
 }
 
 // Lifted from FocusWriter's theme.cpp file
@@ -2019,4 +2217,40 @@ void MainWindow::predrawBackgroundImage()
     }
 
     painter.end();
+}
+
+void MainWindow::showMenuBar()
+{
+    // Protect against the menu bar being set to a height of zero.
+    if (menuBarHeight > 0)
+    {
+        // Restore the menu bar to its original height to make
+        // it visible.
+        //
+        this->menuBar()->setFixedHeight(menuBarHeight);
+    }
+}
+
+void MainWindow::hideMenuBar()
+{
+    // Protect against menuBarHeight being set to zero in
+    // case this method is mistakenly called twice in
+    // succession.
+    //
+    if (this->menuBar()->height() > 0)
+    {
+        // Store the menu bar height while it was visible.
+        menuBarHeight = this->menuBar()->height();
+    }
+
+    // Hide the menu bar by setting it's height to zero. Note that
+    // we can't call menuBar()->hide() because that will disable
+    // the application shortcut keys in Qt 5.
+    //
+    this->menuBar()->setFixedHeight(0);
+}
+
+bool MainWindow::isMenuBarVisible() const
+{
+    return (this->menuBar()->height() > 0);
 }

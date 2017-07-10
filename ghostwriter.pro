@@ -141,7 +141,6 @@ HEADERS += src/MainWindow.h \
     src/HighlighterLineStates.h \
     src/HighlightTokenizer.h \
     src/MarkdownTokenizer.h \
-    src/EffectsMenuBar.h \
     src/TimeLabel.h \
     src/LocaleDialog.h \
     src/AbstractStatisticsWidget.h \
@@ -150,6 +149,7 @@ HEADERS += src/MainWindow.h \
     src/SessionStatistics.h \
     src/SessionStatisticsWidget.h \
     src/PreferencesDialog.h \
+    src/MarkdownOptionsDialog.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
@@ -171,7 +171,6 @@ SOURCES += src/AppMain.cpp \
     src/MarkdownEditor.cpp \
     src/Token.cpp \
     src/HtmlPreview.cpp \
-    src/Exporter.cpp \
     src/ExportFormat.cpp \
     src/Theme.cpp \
     src/ThemeFactory.cpp \
@@ -180,6 +179,7 @@ SOURCES += src/AppMain.cpp \
     src/ThemeSelectionDialog.cpp \
     src/ThemePreviewer.cpp \
     src/ThemeEditorDialog.cpp \
+    src/Exporter.cpp \
     src/ExporterFactory.cpp \
     src/ColorHelper.cpp \
     src/AppSettings.cpp \
@@ -196,7 +196,6 @@ SOURCES += src/AppMain.cpp \
     src/SundownExporter.cpp \
     src/HighlightTokenizer.cpp \
     src/MarkdownTokenizer.cpp \
-    src/EffectsMenuBar.cpp \
     src/TimeLabel.cpp \
     src/LocaleDialog.cpp \
     src/AbstractStatisticsWidget.cpp \
@@ -205,6 +204,7 @@ SOURCES += src/AppMain.cpp \
     src/DocumentStatistics.cpp \
     src/DocumentStatisticsWidget.cpp \
     src/PreferencesDialog.cpp \
+    src/MarkdownOptionsDialog.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
     src/color_button.cpp \

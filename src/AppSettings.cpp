@@ -28,6 +28,7 @@
 #include <QDebug>
 
 #include "AppSettings.h"
+#include "ExporterFactory.h"
 #include "dictionary_manager.h"
 
 #define GW_AUTOSAVE_KEY "Save/autoSave"
@@ -55,6 +56,10 @@
 #define GW_HUD_ROW_COLORS_KEY "HUD/alternateRowColors"
 #define GW_DESKTOP_COMPOSITING_KEY "HUD/desktopCompositingEnabled"
 #define GW_HUD_OPACITY_KEY "HUD/opacity"
+#define GW_HTML_PREVIEW_OPEN_KEY "Preview/htmlPreviewOpen"
+#define GW_CUSTOM_STYLE_SHEETS_KEY "Preview/customStyleSheets"
+#define GW_LAST_USED_STYLE_SHEET_KEY "Preview/lastUsedStyleSheet"
+#define GW_LAST_USED_EXPORTER_KEY "Preview/lastUsedExporter"
 
 AppSettings* AppSettings::instance = NULL;
 
@@ -103,6 +108,11 @@ void AppSettings::store()
     appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternateHudRowColorsEnabled));
     appSettings.setValue(GW_DESKTOP_COMPOSITING_KEY, QVariant(desktopCompositingEnabled));
     appSettings.setValue(GW_HUD_OPACITY_KEY, QVariant(hudOpacity));
+
+    appSettings.setValue(GW_HTML_PREVIEW_OPEN_KEY, QVariant(htmlPreviewVisible));
+    appSettings.setValue(GW_CUSTOM_STYLE_SHEETS_KEY, QVariant(customCssFiles));
+    appSettings.setValue(GW_LAST_USED_STYLE_SHEET_KEY, QVariant(currentCssFile));
+    appSettings.setValue(GW_LAST_USED_EXPORTER_KEY, QVariant(currentHtmlExporter->getName()));
 
     appSettings.sync();
 }
@@ -434,6 +444,55 @@ void AppSettings::setHighlightLineBreaks(bool enabled)
     emit highlightLineBreaksChanged(enabled);
 }
 
+bool AppSettings::getHtmlPreviewVisible() const
+{
+    return htmlPreviewVisible;
+}
+
+void AppSettings::setHtmlPreviewVisible(bool visible)
+{
+    htmlPreviewVisible = visible;
+}
+
+QStringList AppSettings::getCustomCssFiles() const
+{
+    return customCssFiles;
+}
+
+void AppSettings::setCustomCssFiles(const QStringList& cssFilePathList)
+{
+    customCssFiles = cssFilePathList;
+    emit customCssFilesChanged(customCssFiles);
+}
+
+QString AppSettings::getCurrentCssFile() const
+{
+    return currentCssFile;
+}
+
+void AppSettings::setCurrentCssFile(const QString& filePath)
+{
+    bool emitChangeSignal = (filePath != currentCssFile);
+    currentCssFile = filePath;
+
+    // Only emit the property changed signal if it actually changed.
+    if (emitChangeSignal)
+    {
+        emit currentCssFileChanged(filePath);
+    }
+}
+
+Exporter *AppSettings::getCurrentHtmlExporter() const
+{
+    return currentHtmlExporter;
+}
+
+void AppSettings::setCurrentHtmlExporter(Exporter* exporter)
+{
+    currentHtmlExporter = exporter;
+    emit currentHtmlExporterChanged(exporter);
+}
+
 AppSettings::AppSettings()
 {
     QCoreApplication::setOrganizationName("ghostwriter");
@@ -657,7 +716,6 @@ AppSettings::AppSettings()
         editorWidth = EditorWidthMedium;
     }
 
-
 #ifdef Q_OS_MAC
     HudWindowButtonLayout defaultHudButtonLayout = HudWindowButtonLayoutLeft;
 #else
@@ -668,4 +726,15 @@ AppSettings::AppSettings()
     alternateHudRowColorsEnabled = appSettings.value(GW_HUD_ROW_COLORS_KEY, QVariant(false)).toBool();
     desktopCompositingEnabled = appSettings.value(GW_DESKTOP_COMPOSITING_KEY, QVariant(true)).toBool();
     hudOpacity = appSettings.value(GW_HUD_OPACITY_KEY, QVariant(200)).toInt();
+    htmlPreviewVisible = appSettings.value(GW_HTML_PREVIEW_OPEN_KEY, QVariant(false)).toBool();
+    customCssFiles = appSettings.value(GW_CUSTOM_STYLE_SHEETS_KEY, QStringList()).toStringList();
+    currentCssFile = appSettings.value(GW_LAST_USED_STYLE_SHEET_KEY).toString();
+
+    QString exporterName = appSettings.value(GW_LAST_USED_EXPORTER_KEY).toString();
+    currentHtmlExporter = ExporterFactory::getInstance()->getExporterByName(exporterName);
+
+    if (NULL == currentHtmlExporter)
+    {
+        currentHtmlExporter = ExporterFactory::getInstance()->getHtmlExporters().first();
+    }
 }
