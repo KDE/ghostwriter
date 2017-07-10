@@ -1367,7 +1367,13 @@ void MainWindow::onAboutToHideMenuBarMenu()
 {
     menuBarMenuActivated = false;
 
-    if (!this->menuBar()->underMouse())
+    if
+    (
+        !this->menuBar()->underMouse()
+        && this->isFullScreen()
+        && appSettings->getHideMenuBarInFullScreenEnabled()
+        && isMenuBarVisible()
+    )
     {
         hideMenuBar();
     }
@@ -1376,7 +1382,16 @@ void MainWindow::onAboutToHideMenuBarMenu()
 void MainWindow::onAboutToShowMenuBarMenu()
 {
     menuBarMenuActivated = true;
-    showMenuBar();
+
+    if
+    (
+        this->isFullScreen()
+        && appSettings->getHideMenuBarInFullScreenEnabled()
+        && !isMenuBarVisible()
+    )
+    {
+        showMenuBar();
+    }
 }
 
 QAction* MainWindow::addMenuAction
