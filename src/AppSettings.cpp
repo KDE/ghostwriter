@@ -279,7 +279,7 @@ FocusMode AppSettings::getFocusMode() const
 
 void AppSettings::setFocusMode(FocusMode focusMode)
 {
-    if ((focusMode >= FocusModeDisabled) && (focusMode <= FocusModeParagraph))
+    if ((focusMode >= FocusModeDisabled) && (focusMode <= FocusModeTypewriter))
     {
         this->focusMode = focusMode;
         emit focusModeChanged(focusMode);
@@ -686,7 +686,7 @@ AppSettings::AppSettings()
     bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
-    if ((focusMode < FocusModeDisabled) || (focusMode > FocusModeParagraph))
+    if ((focusMode < FocusModeDisabled) || (focusMode > FocusModeTypewriter))
     {
         focusMode = FocusModeSentence;
     }
