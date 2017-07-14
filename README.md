@@ -1,4 +1,4 @@
-![ghostwriter](http://wereturtle.github.io/images/logo.png)
+![ghostwriter](http://wereturtle.github.io/ghostwriter/images/logo.png)
 
 About *ghostwriter*
 ===================
