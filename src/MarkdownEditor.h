@@ -366,7 +366,7 @@ class MarkdownEditor : public QPlainTextEdit
         /**
          * Sets the editor corners.
          */
-        void setEditorCorners(EditorCorners corners);
+        void setEditorCorners(InterfaceStyle corners);
 
         /**
          * Runs the spell checker over the entire document for the
@@ -428,7 +428,7 @@ class MarkdownEditor : public QPlainTextEdit
         bool insertSpacesForTabs;
         int tabWidth;
         EditorWidth editorWidth;
-        EditorCorners editorCorners;
+        InterfaceStyle editorCorners;
         QRegExp blockquoteRegex;
         QRegExp numberedListRegex;
         QRegExp bulletListRegex;

@@ -45,6 +45,7 @@
 #define GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY "Style/hideMenuBarInFullScreenEnabled"
 #define GW_THEME_KEY "Style/theme"
 #define GW_EDITOR_WIDTH_KEY "Style/editorWidth"
+#define GW_INTERFACE_STYLE_KEY "Style/interfaceStyle"
 #define GW_BLOCKQUOTE_STYLE_KEY "Style/blockquoteStyle"
 #define GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY "Style/displayTimeInFullScreen"
 #define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
@@ -103,6 +104,7 @@ void AppSettings::store()
     appSettings.setValue(GW_LOCALE_KEY, QVariant(locale));
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(liveSpellCheckEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(editorWidth));
+    appSettings.setValue(GW_INTERFACE_STYLE_KEY, QVariant(interfaceStyle));
     appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(blockquoteStyle));
     appSettings.setValue(GW_HUD_BUTTON_LAYOUT_KEY, QVariant(hudButtonLayout));
     appSettings.setValue(GW_HUD_ROW_COLORS_KEY, QVariant(alternateHudRowColorsEnabled));
@@ -279,7 +281,7 @@ FocusMode AppSettings::getFocusMode() const
 
 void AppSettings::setFocusMode(FocusMode focusMode)
 {
-    if ((focusMode >= FocusModeDisabled) && (focusMode <= FocusModeTypewriter))
+    if ((focusMode >= FocusModeFirst) && (focusMode <= FocusModeLast))
     {
         this->focusMode = focusMode;
         emit focusModeChanged(focusMode);
@@ -368,11 +370,22 @@ EditorWidth AppSettings::getEditorWidth() const
 
 void AppSettings::setEditorWidth(EditorWidth editorWidth)
 {
-    if ((editorWidth >= EditorWidthNarrow) && (editorWidth <= EditorWidthFull))
+    if ((editorWidth >= EditorWidthFirst) && (editorWidth <= EditorWidthLast))
     {
         this->editorWidth = editorWidth;
         emit editorWidthChanged(editorWidth);
     }
+}
+
+InterfaceStyle AppSettings::getInterfaceStyle() const
+{
+    return interfaceStyle;
+}
+
+void AppSettings::setInterfaceStyle(InterfaceStyle style)
+{
+    interfaceStyle = style;
+    emit interfaceStyleChanged(style);
 }
 
 BlockquoteStyle AppSettings::getBlockquoteStyle() const
@@ -382,7 +395,7 @@ BlockquoteStyle AppSettings::getBlockquoteStyle() const
 
 void AppSettings::setBlockquoteStyle(BlockquoteStyle style)
 {
-    if ((style >= BlockquoteStylePlain) && (style <= BlockquoteStyleFancy))
+    if ((style >= BlockquoteStyleFirst) && (style <= BlockquoteStyleLast))
     {
         blockquoteStyle = style;
         emit blockquoteStyleChanged(style);
@@ -686,7 +699,7 @@ AppSettings::AppSettings()
     bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
-    if ((focusMode < FocusModeDisabled) || (focusMode > FocusModeTypewriter))
+    if ((focusMode < FocusModeFirst) || (focusMode > FocusModeLast))
     {
         focusMode = FocusModeSentence;
     }
@@ -709,11 +722,22 @@ AppSettings::AppSettings()
     locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
     liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
     editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
+    interfaceStyle = (InterfaceStyle) appSettings.value(GW_INTERFACE_STYLE_KEY, QVariant(InterfaceStyleRounded)).toInt();
     blockquoteStyle = (BlockquoteStyle) appSettings.value(GW_BLOCKQUOTE_STYLE_KEY, QVariant(BlockquoteStylePlain)).toInt();
 
-    if ((editorWidth < EditorWidthNarrow) || (editorWidth > EditorWidthFull))
+    if ((editorWidth < EditorWidthFirst) || (editorWidth > EditorWidthLast))
     {
         editorWidth = EditorWidthMedium;
+    }
+
+    if ((interfaceStyle < InterfaceStyleFirst) || (interfaceStyle > InterfaceStyleLast))
+    {
+        interfaceStyle = InterfaceStyleRounded;
+    }
+
+    if ((blockquoteStyle < BlockquoteStyleFirst) || (blockquoteStyle > BlockquoteStyleLast))
+    {
+        blockquoteStyle = BlockquoteStylePlain;
     }
 
 #ifdef Q_OS_MAC

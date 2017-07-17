@@ -158,26 +158,6 @@ void Theme::setEditorAspect(const EditorAspect value)
     }
 }
 
-EditorCorners Theme::getEditorCorners() const
-{
-    return editorCorners;
-}
-
-void Theme::setEditorCorners(const EditorCorners value)
-{
-    if ((value < EditorCornersFirst) || (value > EditorCornersLast))
-    {
-        editorCorners = EditorCornersFirst;
-        qCritical() << "Theme editor corners value of " << value
-                    << " is out of range. Defaulting to value of "
-                    << editorCorners;
-    }
-    else
-    {
-        editorCorners = value;
-    }
-}
-
 PictureAspect Theme::getBackgroundImageAspect() const
 {
     return backgroundImageAspect;

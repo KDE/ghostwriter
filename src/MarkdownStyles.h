@@ -22,9 +22,11 @@
 
 typedef enum
 {
-    BlockquoteStylePlain,
+    BlockquoteStyleFirst,
+    BlockquoteStylePlain = BlockquoteStyleFirst,
     BlockquoteStyleItalic,
-    BlockquoteStyleFancy
+    BlockquoteStyleFancy,
+    BlockquoteStyleLast = BlockquoteStyleFancy
 } BlockquoteStyle;
 
 #endif // MARKDOWNSTYLES_H

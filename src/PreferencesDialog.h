@@ -45,6 +45,7 @@ class PreferencesDialog : public QDialog
     private slots:
         void onFocusModeChanged(int index);
         void onEditorWidthChanged(int index);
+        void onInterfaceStyleChanged(int index);
         void onBlockquoteStyleChanged(int index);
         void onEmphasisStyleChanged(int index);
         void onDictionaryChanged(int index);

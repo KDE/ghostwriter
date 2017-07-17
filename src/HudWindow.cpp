@@ -60,6 +60,7 @@ HudWindow::HudWindow(QWidget *parent)
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     this->setMouseTracking(true);
     desktopCompositingEnabled = true;
+    hudWindowShape = HudWindowShapeRounded;
 
     // Set up the close button.
     closeButton = new QPushButton(this);
@@ -286,6 +287,13 @@ void HudWindow::setButtonLayout(HudWindowButtonLayout layout)
     }
 }
 
+void HudWindow::setShape(HudWindowShape shape)
+{
+    hudWindowShape = shape;
+    predrawDropShadow();
+    repaint(rect());
+}
+
 void HudWindow::setDesktopCompositingEnabled(bool enabled)
 {
     desktopCompositingEnabled = enabled;
@@ -341,7 +349,17 @@ void HudWindow::paintEvent(QPaintEvent* event)
         painter.setCompositionMode(QPainter::CompositionMode_Clear);
         painter.setPen(QPen(Qt::transparent, penWidth));
         painter.setBrush(QBrush(Qt::transparent));
-        painter.drawRoundedRect(rect().adjusted(adjX1, adjY1, adjX2, adjY2), 5, 5);
+
+        QRect r = rect().adjusted(adjX1, adjY1, adjX2, adjY2);
+
+        if (HudWindowShapeRounded == hudWindowShape)
+        {
+            painter.drawRoundedRect(r, 5, 5);
+        }
+        else
+        {
+            painter.drawRect(r);
+        }
 
         // And now draw the HUD window itself.
         QPixmap pixmap(w, h);
@@ -352,12 +370,23 @@ void HudWindow::paintEvent(QPaintEvent* event)
         pixPainter.setCompositionMode(QPainter::CompositionMode_Source);
         pixPainter.setPen(QPen(QBrush(foregroundColor), penWidth));
         pixPainter.setBrush(QBrush(QBrush(backgroundColor)));
-        pixPainter.drawRoundedRect
-            (
-                pixmap.rect().adjusted(adjX1 * dpr, adjY1 * dpr, adjX2 * dpr, adjY2 * dpr),
-                xRadius * dpr,
-                yRadius * dpr
-            );
+
+        r = pixmap.rect().adjusted(adjX1 * dpr, adjY1 * dpr, adjX2 * dpr, adjY2 * dpr);
+
+        if (HudWindowShapeRounded == hudWindowShape)
+        {
+            pixPainter.drawRoundedRect
+                (
+                    r,
+                    xRadius * dpr,
+                    yRadius * dpr
+                );
+        }
+        else
+        {
+            pixPainter.drawRect(r);
+        }
+
         pixPainter.end();
 
 #if QT_VERSION >= 0x050600
@@ -488,7 +517,18 @@ void HudWindow::predrawDropShadow()
         painter.setRenderHint(QPainter::Antialiasing);
         painter.setPen(QPen(Qt::NoPen));
         painter.setBrush(QBrush(QColor(0, 0, 0, 200)));
-        painter.drawRoundedRect(rect().adjusted(10, 12, -10, -8), 5.0, 5.0);
+
+        QRect r = rect().adjusted(10, 12, -10, -8);
+
+        if (HudWindowShapeRounded == hudWindowShape)
+        {
+            painter.drawRoundedRect(r, 5.0, 5.0);
+        }
+        else
+        {
+            painter.drawRect(r);
+        }
+
         painter.end();
 
         // Now we need to blur the shadow onto its final destination image,

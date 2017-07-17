@@ -35,7 +35,6 @@
 #include "AppSettings.h"
 
 #define GW_EDITOR_ASPECT "Editor/aspect"
-#define GW_EDITOR_CORNERS "Editor/corners"
 #define GW_EDITOR_BACKGROUND_COLOR "Editor/backgroundColor"
 #define GW_EDITOR_BACKGROUND_OPACITY "Editor/backgroundOpacity"
 #define GW_SPELLING_ERROR_COLOR "Editor/spellingErrorColor"
@@ -79,7 +78,6 @@ void ThemeFactory::loadLightTheme()
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#31363b");
     theme.setHudForegroundColor("#eff0f1");
-    theme.setEditorCorners(EditorCornersRounded);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#eff0f1");
     theme.setDefaultTextColor("#31363b");
@@ -101,7 +99,6 @@ void ThemeFactory::loadDarkTheme()
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#152F3D");
     theme.setHudForegroundColor("#bdc3c7");
-    theme.setEditorCorners(EditorCornersRounded);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#151719");
     theme.setDefaultTextColor("#bdc3c7");
@@ -166,7 +163,6 @@ Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
         int editorAspect;
         int backgroundImageAspect;
         QString backgroundImageUrl;
-        int editorCorners = EditorCornersSquare;
         QColor editorBackgroundColor;
         QColor spellingErrorColor;
         QColor backgroundColor;
@@ -234,15 +230,6 @@ Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
         theme.setEmphasisColor(emphasisColor);
         theme.setBlockquoteColor(blockquoteColor);
         theme.setCodeColor(codeColor);
-
-        // Check that if the editor aspect is set to Center, that the corners are set.
-        if (!extractIntSetting(themeSettings, GW_EDITOR_CORNERS, editorCorners, EditorCornersFirst, EditorCornersLast, err))
-        {
-            // Default to rounded corners if not set.
-            editorCorners = EditorCornersRounded;
-        }
-
-        theme.setEditorCorners((EditorCorners) editorCorners);
 
         // Check if the picture aspect is set to be a background image (not None), that
         // the background image URL is set.
@@ -471,7 +458,6 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
     }
 
     settings.setValue(GW_EDITOR_ASPECT, QVariant((int) theme.getEditorAspect()));
-    settings.setValue(GW_EDITOR_CORNERS, QVariant((int) theme.getEditorCorners()));
     settings.setValue(GW_EDITOR_BACKGROUND_COLOR, QVariant(theme.getEditorBackgroundColor().name()));
     settings.setValue(GW_EDITOR_BACKGROUND_OPACITY, QVariant(theme.getEditorBackgroundColor().alpha()));
     settings.setValue(GW_SPELLING_ERROR_COLOR, QVariant(theme.getSpellingErrorColor().name()));

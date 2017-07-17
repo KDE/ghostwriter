@@ -107,11 +107,6 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme& theme, QWidget* parent)
         }
     }
 
-    cornersComboBox = new QComboBox(this);
-    cornersComboBox->addItem(tr("Rounded"), QVariant(EditorCornersRounded));
-    cornersComboBox->addItem(tr("Square"), QVariant(EditorCornersSquare));
-    cornersComboBox->setCurrentIndex((int) theme.getEditorCorners());
-
     editorAspectComboBox = new QComboBox(this);
     editorAspectComboBox->addItem(tr("Stretch"), QVariant(EditorAspectStretch));
     editorAspectComboBox->addItem(tr("Center"), QVariant(EditorAspectCenter));
@@ -166,7 +161,6 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme& theme, QWidget* parent)
     backgroundSettingsLayout->addRow(tr("Background Color"), backgroundColorButton);
     backgroundSettingsLayout->addWidget(backgroundImageButton);
     backgroundSettingsLayout->addRow(tr("Editor Aspect"), editorAspectComboBox);
-    backgroundSettingsLayout->addRow(tr("Editor Corners"), cornersComboBox);
     backgroundSettingsLayout->addRow(tr("Editor Opacity"), editorOpacitySlider);
 
     tab = new QWidget();
@@ -240,7 +234,6 @@ bool ThemeEditorDialog::saveTheme()
     editorBgColor.setAlpha(editorOpacitySlider->value());
     theme.setEditorBackgroundColor(editorBgColor);
     theme.setEditorAspect((EditorAspect) editorAspectComboBox->currentIndex());
-    theme.setEditorCorners((EditorCorners) cornersComboBox->currentIndex());
 
     if (PictureAspectNone == theme.getBackgroundImageAspect())
     {

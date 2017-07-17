@@ -78,6 +78,12 @@ void PreferencesDialog::onEditorWidthChanged(int index)
     appSettings->setEditorWidth((EditorWidth) combo->itemData(index).toInt());
 }
 
+void PreferencesDialog::onInterfaceStyleChanged(int index)
+{
+    QComboBox* combo = (QComboBox*) sender();
+    appSettings->setInterfaceStyle((InterfaceStyle) combo->itemData(index).toInt());
+}
+
 void PreferencesDialog::onBlockquoteStyleChanged(int index)
 {
     QComboBox* combo = (QComboBox*) sender();
@@ -207,6 +213,14 @@ QWidget* PreferencesDialog::initializeGeneralTab()
     menuBarCheckBox->setChecked(appSettings->getHideMenuBarInFullScreenEnabled());
     connect(menuBarCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideMenuBarInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(menuBarCheckBox);
+
+    QComboBox* cornersComboBox = new QComboBox(this);
+    cornersComboBox->addItem(tr("Rounded"), QVariant(InterfaceStyleRounded));
+    cornersComboBox->addItem(tr("Square"), QVariant(InterfaceStyleSquare));
+    cornersComboBox->setCurrentIndex((int) appSettings->getInterfaceStyle());
+
+    connect(cornersComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onInterfaceStyleChanged(int)));
+    displayGroupLayout->addRow(tr("Interface style"), cornersComboBox);
 
     QGroupBox* savingGroupBox = new QGroupBox(tr("File Saving"));
     tabLayout->addWidget(savingGroupBox);

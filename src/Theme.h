@@ -31,14 +31,6 @@ enum EditorAspect
     EditorAspectLast = EditorAspectCenter
 };
 
-enum EditorCorners
-{
-    EditorCornersFirst,
-    EditorCornersRounded = EditorCornersFirst,
-    EditorCornersSquare,
-    EditorCornersLast = EditorCornersSquare,
-};
-
 enum TextWidth
 {
     TextWidthNarrow,
@@ -101,9 +93,6 @@ class Theme
         EditorAspect getEditorAspect() const;
         void setEditorAspect(const EditorAspect value);
 
-        EditorCorners getEditorCorners() const;
-        void setEditorCorners(const EditorCorners value);
-
         PictureAspect getBackgroundImageAspect() const;
         void setBackgroundImageAspect(const PictureAspect value);
 
@@ -139,7 +128,6 @@ class Theme
         QColor spellingErrorColor;
 
         EditorAspect editorAspect;
-        EditorCorners editorCorners;
         PictureAspect backgroundImageAspect;
         QString backgroundImageUrl;
         QColor backgroundColor;
