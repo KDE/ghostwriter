@@ -37,12 +37,9 @@
 #include "MarkdownTokenizer.h"
 #include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
-#include "ColorHelper.h"
 #include "TextBlockData.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
-
-#define GW_FADE_ALPHA 140
 
 MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
     : QSyntaxHighlighter(editor),
@@ -58,6 +55,10 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
         backgroundColor(Qt::white),
         markupColor(Qt::black),
         linkColor(Qt::blue),
+        headingColor(Qt::black),
+        emphasisColor(Qt::black),
+        blockquoteColor(Qt::black),
+        codeColor(Qt::black),
         spellingErrorColor(Qt::red)
 {
     setDocument(editor->document());
@@ -272,6 +273,10 @@ void MarkdownHighlighter::setColorScheme
     const QColor& backgroundColor,
     const QColor& markupColor,
     const QColor& linkColor,
+    const QColor& headingColor,
+    const QColor& emphasisColor,
+    const QColor& blockquoteColor,
+    const QColor& codeColor,
     const QColor& spellingErrorColor
 )
 {
@@ -279,6 +284,10 @@ void MarkdownHighlighter::setColorScheme
     this->backgroundColor = backgroundColor;
     this->markupColor = markupColor;
     this->linkColor = linkColor;
+    this->headingColor = headingColor;
+    this->emphasisColor = emphasisColor;
+    this->blockquoteColor = blockquoteColor;
+    this->codeColor = codeColor;
     this->spellingErrorColor = spellingErrorColor;
     defaultFormat.setForeground(QBrush(defaultTextColor));
     setupTokenColors();
@@ -404,50 +413,22 @@ void MarkdownHighlighter::spellCheck(const QString& text)
 
 void MarkdownHighlighter::setupTokenColors()
 {
-    const double contrastRatio = 1.9;
-    const int darkenPercent = 130;
-
-    double bgBrightness = ColorHelper::getLuminance(backgroundColor);
-    double fgBrightness = ColorHelper::getLuminance(defaultTextColor);
-
     for (int i = 0; i < TokenLast; i++)
     {
         colorForToken[i] = defaultTextColor;
-
-        if (bgBrightness > fgBrightness)
-        {
-            fadedColorForToken[i] = ColorHelper::lightenToMatchContrastRatio
-                (
-                    defaultTextColor,
-                    backgroundColor,
-                    contrastRatio
-                );
-        }
-        else
-        {
-            fadedColorForToken[i] = defaultTextColor.darker(darkenPercent);
-        }
     }
 
-    QColor fadedColor;
-
-    if (bgBrightness > fgBrightness)
-    {
-        fadedColor = ColorHelper::lightenToMatchContrastRatio
-            (
-                defaultTextColor,
-                backgroundColor,
-                contrastRatio
-            );
-    }
-    else
-    {
-        fadedColor = defaultTextColor.darker(darkenPercent);
-    }
-
-    colorForToken[TokenBlockquote] = fadedColor;
-    colorForToken[TokenCodeBlock] = fadedColor;
-    colorForToken[TokenVerbatim] = fadedColor;
+    colorForToken[TokenAtxHeading1] = headingColor;
+    colorForToken[TokenAtxHeading2] = headingColor;
+    colorForToken[TokenAtxHeading3] = headingColor;
+    colorForToken[TokenAtxHeading4] = headingColor;
+    colorForToken[TokenAtxHeading5] = headingColor;
+    colorForToken[TokenAtxHeading6] = headingColor;
+    colorForToken[TokenEmphasis] = emphasisColor;
+    colorForToken[TokenStrong] = emphasisColor;
+    colorForToken[TokenBlockquote] = blockquoteColor;
+    colorForToken[TokenCodeBlock] = codeColor;
+    colorForToken[TokenVerbatim] = codeColor;
     colorForToken[TokenHtmlTag] = markupColor;
     colorForToken[TokenHtmlEntity] = markupColor;
     colorForToken[TokenAutomaticLink] = linkColor;
@@ -461,28 +442,12 @@ void MarkdownHighlighter::setupTokenColors()
     colorForToken[TokenGithubCodeFence] = markupColor;
     colorForToken[TokenPandocCodeFence] = markupColor;
     colorForToken[TokenCodeFenceEnd] = markupColor;
+    colorForToken[TokenSetextHeading1Line1] = headingColor;
+    colorForToken[TokenSetextHeading2Line1] = headingColor;
     colorForToken[TokenSetextHeading1Line2] = markupColor;
     colorForToken[TokenSetextHeading2Line2] = markupColor;
     colorForToken[TokenTableDivider] = markupColor;
     colorForToken[TokenTablePipe] = markupColor;
-
-    fadedColorForToken[TokenHtmlTag] = colorForToken[TokenHtmlTag];
-    fadedColorForToken[TokenHtmlEntity] = colorForToken[TokenHtmlEntity];
-    fadedColorForToken[TokenAutomaticLink] = colorForToken[TokenAutomaticLink];
-    fadedColorForToken[TokenInlineLink] = colorForToken[TokenInlineLink];
-    fadedColorForToken[TokenReferenceLink] = colorForToken[TokenReferenceLink];
-    fadedColorForToken[TokenReferenceDefinition] = colorForToken[TokenReferenceDefinition];
-    fadedColorForToken[TokenImage] = colorForToken[TokenImage];
-    fadedColorForToken[TokenMention] = colorForToken[TokenMention];
-    fadedColorForToken[TokenHtmlComment] = colorForToken[TokenHtmlComment];
-    fadedColorForToken[TokenHorizontalRule] = colorForToken[TokenHorizontalRule];
-    fadedColorForToken[TokenGithubCodeFence] = colorForToken[TokenGithubCodeFence];
-    fadedColorForToken[TokenPandocCodeFence] = colorForToken[TokenPandocCodeFence];
-    fadedColorForToken[TokenCodeFenceEnd] = colorForToken[TokenCodeFenceEnd];
-    fadedColorForToken[TokenSetextHeading1Line2] = colorForToken[TokenSetextHeading1Line2];
-    fadedColorForToken[TokenSetextHeading2Line2] = colorForToken[TokenSetextHeading2Line2];
-    fadedColorForToken[TokenTableDivider] = colorForToken[TokenTableDivider];
-    fadedColorForToken[TokenTablePipe] = colorForToken[TokenTablePipe];
 }
 
 void MarkdownHighlighter::setupHeadingFontSize(bool useLargeHeadings)
@@ -523,11 +488,6 @@ void MarkdownHighlighter::applyFormattingForToken(const Token& token)
         QTextCharFormat format = this->format(token.getPosition());
 
         QColor tokenColor = colorForToken[tokenType];
-
-        if (inBlockquote && token.getType() != TokenBlockquote)
-        {
-            tokenColor = fadedColorForToken[token.getType()];
-        }
 
         if (highlightLineBreaks && token.getType() == TokenLineBreak)
         {

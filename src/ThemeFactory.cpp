@@ -42,6 +42,10 @@
 #define GW_DEFAULT_TEXT_COLOR "Markdown/defaultTextColor"
 #define GW_MARKUP_COLOR "Markdown/markupColor"
 #define GW_LINK_COLOR "Markdown/linkColor"
+#define GW_HEADING_COLOR "Markdown/headingColor"
+#define GW_EMPHASIS_COLOR "Markdown/emphasisColor"
+#define GW_BLOCKQUOTE_COLOR "Markdown/blockquoteColor"
+#define GW_CODE_COLOR "Markdown/codeColor"
 #define GW_IMAGE_ASPECT "Background/imageAspect"
 #define GW_IMAGE_URL "Background/imageUrl"
 #define GW_BACKGROUND_COLOR "Background/color"
@@ -75,12 +79,16 @@ void ThemeFactory::loadLightTheme()
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#31363b");
     theme.setHudForegroundColor("#eff0f1");
-    theme.setEditorCorners(EditorCornersSquare);
+    theme.setEditorCorners(EditorCornersRounded);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#eff0f1");
     theme.setDefaultTextColor("#31363b");
     theme.setMarkupColor("#bdc3c7");
     theme.setLinkColor("#2980b9");
+    theme.setHeadingColor("#31363b");
+    theme.setEmphasisColor("#31363b");
+    theme.setBlockquoteColor("#31363b");
+    theme.setCodeColor("#31363b");
     theme.setSpellingErrorColor("#da4453");
 
     builtInThemes.append(theme);
@@ -93,12 +101,16 @@ void ThemeFactory::loadDarkTheme()
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#152F3D");
     theme.setHudForegroundColor("#bdc3c7");
-    theme.setEditorCorners(EditorCornersSquare);
+    theme.setEditorCorners(EditorCornersRounded);
     theme.setEditorAspect(EditorAspectStretch);
     theme.setEditorBackgroundColor("#151719");
     theme.setDefaultTextColor("#bdc3c7");
     theme.setMarkupColor("#575b5f");
     theme.setLinkColor("#5f8eb1");
+    theme.setHeadingColor("#bdc3c7");
+    theme.setEmphasisColor("#bdc3c7");
+    theme.setBlockquoteColor("#bdc3c7");
+    theme.setCodeColor("#bdc3c7");
     theme.setSpellingErrorColor("#da4453");
 
     builtInThemes.append(theme);
@@ -163,6 +175,10 @@ Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
         QColor defaultTextColor;
         QColor markupColor;
         QColor linkColor;
+        QColor headingColor;
+        QColor emphasisColor;
+        QColor blockquoteColor;
+        QColor codeColor;
 
         // Load and validate the theme contents.
         if
@@ -184,6 +200,24 @@ Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
             return builtInThemes[0];
         }
 
+        // If theme colors added after 1.5.0 are missing, clear the error message and set
+        // default colors for backwards compatiblity with older themes.
+        //
+        if
+        (
+            !extractColorSetting(themeSettings, GW_HEADING_COLOR, headingColor, err)
+            || !extractColorSetting(themeSettings, GW_EMPHASIS_COLOR, emphasisColor, err)
+            || !extractColorSetting(themeSettings, GW_BLOCKQUOTE_COLOR, blockquoteColor, err)
+            || !extractColorSetting(themeSettings, GW_CODE_COLOR, codeColor, err)
+        )
+        {
+            err = QString();
+            headingColor = defaultTextColor;
+            emphasisColor = defaultTextColor;
+            blockquoteColor = defaultTextColor;
+            codeColor = defaultTextColor;
+        }
+
         Theme theme;
         theme.setEditorAspect((EditorAspect) editorAspect);
         editorBackgroundColor.setAlpha(editorBackgroundAlpha);
@@ -196,13 +230,13 @@ Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
         theme.setDefaultTextColor(defaultTextColor);
         theme.setMarkupColor(markupColor);
         theme.setLinkColor(linkColor);
+        theme.setHeadingColor(headingColor);
+        theme.setEmphasisColor(emphasisColor);
+        theme.setBlockquoteColor(blockquoteColor);
+        theme.setCodeColor(codeColor);
 
         // Check that if the editor aspect is set to Center, that the corners are set.
-        if
-        (
-            (EditorAspectCenter == theme.getEditorAspect())
-            && !extractIntSetting(themeSettings, GW_EDITOR_CORNERS, editorCorners, EditorCornersFirst, EditorCornersLast, err)
-        )
+        if (!extractIntSetting(themeSettings, GW_EDITOR_CORNERS, editorCorners, EditorCornersFirst, EditorCornersLast, err))
         {
             // Default to rounded corners if not set.
             editorCorners = EditorCornersRounded;
@@ -444,6 +478,10 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
     settings.setValue(GW_DEFAULT_TEXT_COLOR, QVariant(theme.getDefaultTextColor().name()));
     settings.setValue(GW_MARKUP_COLOR, QVariant(theme.getMarkupColor().name()));
     settings.setValue(GW_LINK_COLOR, QVariant(theme.getLinkColor().name()));
+    settings.setValue(GW_HEADING_COLOR, QVariant(theme.getHeadingColor().name()));
+    settings.setValue(GW_EMPHASIS_COLOR, QVariant(theme.getEmphasisColor().name()));
+    settings.setValue(GW_BLOCKQUOTE_COLOR, QVariant(theme.getBlockquoteColor().name()));
+    settings.setValue(GW_CODE_COLOR, QVariant(theme.getCodeColor().name()));
     settings.setValue(GW_IMAGE_ASPECT, QVariant((int) theme.getBackgroundImageAspect()));
     settings.setValue(GW_BACKGROUND_COLOR, QVariant(theme.getBackgroundColor().name()));
     settings.setValue(GW_HUD_FOREGROUND_COLOR, QVariant(theme.getHudForegroundColor().name()));

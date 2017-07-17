@@ -91,11 +91,6 @@ void MarkdownTokenizer::tokenize
 
     if
     (
-        (
-            (MarkdownStateInGithubCodeFence == previousState)
-            || (MarkdownStateInPandocCodeFence == previousState)
-        )
-        &&
         tokenizeCodeBlock(text)
     )
     {
@@ -132,7 +127,6 @@ void MarkdownTokenizer::tokenize
     else if
     (
         tokenizeSetextHeadingLine2(text)
-        || tokenizeCodeBlock(text)
         || tokenizeMultilineComment(text)
         || tokenizeHorizontalRule(text)
         || tokenizeTableDivider(text)
@@ -729,6 +723,7 @@ bool MarkdownTokenizer::tokenizeCodeBlock
         || (MarkdownStateParagraph == previousState)
         || (MarkdownStateUnknown == previousState)
         || (MarkdownStateListLineBreak == previousState)
+        || (MarkdownStateCodeFenceEnd == previousState)
     )
     {
         bool foundCodeFenceStart = false;

@@ -94,6 +94,7 @@ MarkdownEditor::MarkdownEditor
     insertSpacesForTabs = false;
     setTabulationWidth(4);
     editorWidth = EditorWidthMedium;
+    editorCorners = EditorCornersRounded;
 
     markupPairs.insert('"', '"');
     markupPairs.insert('\'', '\'');
@@ -148,6 +149,10 @@ MarkdownEditor::MarkdownEditor
         QColor(Qt::white),
         QColor(Qt::black),
         QColor(Qt::blue),
+        QColor(Qt::black),
+        QColor(Qt::black),
+        QColor(Qt::black),
+        QColor(Qt::black),
         QColor(Qt::red)
     );
 
@@ -180,8 +185,145 @@ MarkdownEditor::~MarkdownEditor()
 
 void MarkdownEditor::paintEvent(QPaintEvent* event)
 {
+    QPainter painter(viewport());
+    QRect viewportRect = viewport()->rect();
+    painter.fillRect(viewportRect, Qt::transparent);
+
+    QPointF offset(contentOffset());
+    QTextBlock block = firstVisibleBlock();
+
+    bool firstVisible = true;
+
+    QRectF blockAreaRect; // Code or block quote rect.
+    bool inBlockArea = false;
+    BlockType blockType = BlockTypeNone;
+    bool clipTop = false;
+    bool drawBlock = false;
+    int dy = 0;
+    bool done = false;
+
+    int cornerRadius = 5;
+
+    if (EditorCornersSquare == editorCorners)
+    {
+        cornerRadius = 0;
+    }
+
+    // Draw text block area backgrounds for code blocks and block quotes.
+    // The backgrounds are drawn per each block area (consisting of multiple
+    // text blocks or lines), rather than one rectangle area per text block/
+    // line in case there are margins between each text block.  This way,
+    // the background will extend to cover the margins between text blocks
+    // as well.
+    //
+    // NOTE: Algorithm for looping through text blocks is a partial lift from
+    //       Qt's QPlainTextEdit paintEvent() code. Please refer to the
+    //       LGPL v. 3 license for the original Qt code.
+    //
+    while (block.isValid() && !done)
+    {
+        QRectF r = blockBoundingRect(block).translated(offset);
+
+        // If the block begins a new text block area...
+        if (!inBlockArea && atBlockAreaStart(block, blockType))
+        {
+            blockAreaRect = r;
+            dy = 0;
+            inBlockArea = true;
+
+            BlockType prevType;
+
+            // If this is the first visible block within the viewport
+            // and if the previous block is part of the text block area,
+            // then the rectangle to draw for the block area will have
+            // its top clipped by the viewport and will need to be
+            // drawn specially.
+            //
+            if
+            (
+                firstVisible
+                && atBlockAreaStart(block.previous(), prevType)
+                && (blockType == prevType)
+            )
+            {
+                clipTop = true;
+            }
+        }
+        // Else if the block ends a text block area...
+        else if (inBlockArea && atBlockAreaEnd(block, blockType))
+        {
+            drawBlock = true;
+            inBlockArea = false;
+            blockAreaRect.setHeight(dy);
+        }
+
+        // If the block is at the end of the document and ends a text
+        // block area...
+        //
+        if (inBlockArea && (block == this->document()->lastBlock()))
+        {
+            drawBlock = true;
+            inBlockArea = false;
+            dy += r.height();
+            blockAreaRect.setHeight(dy);
+        }
+
+        offset.ry() += r.height();
+        dy += r.height();
+
+        // If this is the last text block visible within the viewport...
+        if (offset.y() > viewportRect.height())
+        {
+            if (inBlockArea)
+            {
+                blockAreaRect.setHeight(dy);
+                drawBlock = true;
+            }
+
+            // Finished drawing.
+            done = true;
+        }
+
+        if (drawBlock)
+        {
+            painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+            painter.setPen(Qt::NoPen);
+            painter.setBrush(QBrush(blockColor));
+
+            // If the first visible block is "clipped" such that the previous block
+            // is part of the text block area, then only draw a rectangle with the
+            // bottom corners rounded, and with the top corners square to reflect
+            // that the first visible block is part of a larger block of text.
+            //
+            if (clipTop)
+            {
+                QPainterPath path;
+                path.setFillRule(Qt::WindingFill);
+                path.addRoundedRect(blockAreaRect, cornerRadius, cornerRadius);
+                qreal adjustedHeight = blockAreaRect.height() / 2;
+                path.addRect(blockAreaRect.adjusted(0, 0, 0, -adjustedHeight));
+                painter.drawPath(path.simplified());
+                clipTop = false;
+            }
+            // Else draw the entire rectangle with all corners rounded.
+            else
+            {
+                painter.drawRoundedRect(blockAreaRect, cornerRadius, cornerRadius);
+            }
+
+            drawBlock = false;
+        }
+
+        block = block.next();
+        firstVisible = false;
+    }
+
+    painter.end();
+
+    // Draw the visible editor text.
     QPlainTextEdit::paintEvent(event);
-    	
+
+    // Draw the text cursor/caret.
     if (textCursorVisible)
     {
         // Get the cursor rect so that we have the ideal height for it,
@@ -193,6 +335,7 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
         
         QPainter painter(viewport());
         painter.fillRect(r, QBrush(cursorColor));
+        painter.end();
     }
 }
 
@@ -251,6 +394,10 @@ void MarkdownEditor::setColorScheme
     const QColor& backgroundColor,
     const QColor& markupColor,
     const QColor& linkColor,
+    const QColor& headingColor,
+    const QColor& emphasisColor,
+    const QColor& blockquoteColor,
+    const QColor& codeColor,
     const QColor& spellingErrorColor
 )
 {
@@ -260,10 +407,29 @@ void MarkdownEditor::setColorScheme
         backgroundColor,
         markupColor,
         linkColor,
+        headingColor,
+        emphasisColor,
+        blockquoteColor,
+        codeColor,
         spellingErrorColor
     );
     
     this->cursorColor = linkColor;
+
+    blockColor = defaultTextColor;
+
+    int blockAlpha = 20;
+
+    if (backgroundColor.alpha() < 255)
+    {
+        blockAlpha = 18;
+    }
+    else if (ColorHelper::getLuminance(blockColor) < 0.5)
+    {
+        blockAlpha = 10;
+    }
+
+    blockColor.setAlpha(blockAlpha);
 
     QColor fadedForegroundColor = defaultTextColor;
     fadedForegroundColor.setAlpha(100);
@@ -1220,6 +1386,11 @@ void MarkdownEditor::setEditorWidth(EditorWidth width)
     editorWidth = width;
 }
 
+void MarkdownEditor::setEditorCorners(EditorCorners corners)
+{
+    editorCorners = corners;
+}
+
 void MarkdownEditor::runSpellChecker()
 {
     if (this->spellCheckEnabled)
@@ -1968,4 +2139,67 @@ QString MarkdownEditor::getPriorMarkdownBlockItemStart(QRegExp& itemRegex)
     }
 
     return QString("");
+}
+
+bool MarkdownEditor::atBlockAreaStart(const QTextBlock& block, MarkdownEditor::BlockType& type) const
+{
+    if (!block.isValid())
+    {
+        type = BlockTypeNone;
+        return false;
+    }
+
+    if (atCodeBlockStart(block))
+    {
+        type = BlockTypeCode;
+        return true;
+    }
+
+    if (isBlockquote(block))
+    {
+        type = BlockTypeQuote;
+        return true;
+    }
+
+    type = BlockTypeNone;
+    return false;
+}
+
+bool MarkdownEditor::atBlockAreaEnd(const QTextBlock& block, const MarkdownEditor::BlockType type) const
+{
+    switch (type)
+    {
+        case BlockTypeCode:
+            return atCodeBlockEnd(block);
+        case BlockTypeQuote:
+            return !isBlockquote(block);
+        default:
+            return true;
+    }
+}
+
+bool MarkdownEditor::atCodeBlockStart(const QTextBlock& block) const
+{
+    return
+        (
+            (MarkdownStateCodeBlock == block.userState())
+            || (MarkdownStateInGithubCodeFence == block.userState())
+            || (MarkdownStateInPandocCodeFence == block.userState())
+        );
+}
+
+bool MarkdownEditor::atCodeBlockEnd(const QTextBlock& block) const
+{
+    return
+        (
+            (MarkdownStateCodeBlock != block.userState())
+            && (MarkdownStateInPandocCodeFence != block.userState())
+            && (MarkdownStateInGithubCodeFence != block.userState())
+            && (MarkdownStateCodeFenceEnd != block.userState())
+        );
+}
+
+bool MarkdownEditor::isBlockquote(const QTextBlock& block) const
+{
+    return (MarkdownStateBlockquote == block.userState());
 }

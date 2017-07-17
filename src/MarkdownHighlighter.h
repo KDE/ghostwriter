@@ -84,6 +84,10 @@ class MarkdownHighlighter : public QSyntaxHighlighter
             const QColor& backgroundColor,
             const QColor& markupColor,
             const QColor& linkColor,
+            const QColor& headingColor,
+            const QColor& emphasisColor,
+            const QColor& blockquoteColor,
+            const QColor& codeColor,
             const QColor& spellingErrorColor
         );
 
@@ -188,12 +192,15 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         QColor backgroundColor;
         QColor markupColor;
         QColor linkColor;
+        QColor headingColor;
+        QColor emphasisColor;
+        QColor blockquoteColor;
+        QColor codeColor;
         QColor spellingErrorColor;
 
 		QTextCharFormat defaultFormat;
         bool applyStyleToMarkup[TokenLast];
         QColor colorForToken[TokenLast];
-        QColor fadedColorForToken[TokenLast];
         bool emphasizeToken[TokenLast];
         bool strongToken[TokenLast];
         bool strongMarkup[TokenLast];

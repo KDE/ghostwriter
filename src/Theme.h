@@ -83,6 +83,18 @@ class Theme
         QColor getLinkColor() const;
         void setLinkColor(const QColor& value);
 
+        QColor getHeadingColor() const;
+        void setHeadingColor(const QColor& value);
+
+        QColor getEmphasisColor() const;
+        void setEmphasisColor(const QColor& value);
+
+        QColor getBlockquoteColor() const;
+        void setBlockquoteColor(const QColor& value);
+
+        QColor getCodeColor() const;
+        void setCodeColor(const QColor& value);
+
         QColor getSpellingErrorColor() const;
         void setSpellingErrorColor(const QColor& value);
 
@@ -120,6 +132,10 @@ class Theme
         QColor editorBackgroundColor;
         QColor markupColor;
         QColor linkColor;
+        QColor headingColor;
+        QColor emphasisColor;
+        QColor blockquoteColor;
+        QColor codeColor;
         QColor spellingErrorColor;
 
         EditorAspect editorAspect;

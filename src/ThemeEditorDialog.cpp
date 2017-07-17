@@ -58,6 +58,12 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme& theme, QWidget* parent)
     linkColorButton = new ColorButton(this);
     linkColorButton->setColor(theme.getLinkColor());
 
+    emphasisColorButton = new ColorButton(this);
+    emphasisColorButton->setColor(theme.getEmphasisColor());
+
+    blockTextColorButton = new ColorButton(this);
+    blockTextColorButton->setColor(theme.getBlockquoteColor());
+
     spellcheckColorButton = new ColorButton(this);
     spellcheckColorButton->setColor(theme.getSpellingErrorColor());
 
@@ -144,6 +150,8 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme& theme, QWidget* parent)
     editorColorsLayout->addRow(tr("Text Color"), textColorButton);
     editorColorsLayout->addRow(tr("Markup Color"), markupColorButton);
     editorColorsLayout->addRow(tr("Link Color"), linkColorButton);
+    editorColorsLayout->addRow(tr("Emphasis Color"), emphasisColorButton);
+    editorColorsLayout->addRow(tr("Block Text Color"), blockTextColorButton);
     editorColorsLayout->addRow(tr("Spelling Error Color"), spellcheckColorButton);
     editorColorsLayout->addRow(tr("Text Area Background Color"), editorBackgroundColorButton);
 
@@ -220,6 +228,10 @@ bool ThemeEditorDialog::saveTheme()
     theme.setDefaultTextColor(textColorButton->color());
     theme.setMarkupColor(markupColorButton->color());
     theme.setLinkColor(linkColorButton->color());
+    theme.setHeadingColor(emphasisColorButton->color());
+    theme.setEmphasisColor(emphasisColorButton->color());
+    theme.setBlockquoteColor(blockTextColorButton->color());
+    theme.setCodeColor(blockTextColorButton->color());
     theme.setSpellingErrorColor(spellcheckColorButton->color());
     theme.setBackgroundColor(backgroundColorButton->color());
     theme.setBackgroundImageAspect((PictureAspect) pictureAspectComboBox->currentIndex());
