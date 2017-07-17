@@ -533,6 +533,10 @@ void DocumentManager::printFileToPrinter(QPrinter* printer)
         printerTheme.getBackgroundColor(),
         printerTheme.getMarkupColor(),
         printerTheme.getLinkColor(),
+        printerTheme.getHeadingColor(),
+        printerTheme.getEmphasisColor(),
+        printerTheme.getBlockquoteColor(),
+        printerTheme.getCodeColor(),
         printerTheme.getSpellingErrorColor()
     );
     e.setSpellCheckEnabled(false);

@@ -88,6 +88,46 @@ void Theme::setLinkColor(const QColor& value)
     linkColor = value;
 }
 
+QColor Theme::getHeadingColor() const
+{
+    return headingColor;
+}
+
+void Theme::setHeadingColor(const QColor& value)
+{
+    headingColor = value;
+}
+
+QColor Theme::getEmphasisColor() const
+{
+    return emphasisColor;
+}
+
+void Theme::setEmphasisColor(const QColor& value)
+{
+    emphasisColor = value;
+}
+
+QColor Theme::getBlockquoteColor() const
+{
+    return blockquoteColor;
+}
+
+void Theme::setBlockquoteColor(const QColor& value)
+{
+    blockquoteColor = value;
+}
+
+QColor Theme::getCodeColor() const
+{
+    return codeColor;
+}
+
+void Theme::setCodeColor(const QColor& value)
+{
+    codeColor = value;
+}
+
 QColor Theme::getSpellingErrorColor() const
 {
     return spellingErrorColor;

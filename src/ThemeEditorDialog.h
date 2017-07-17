@@ -71,6 +71,8 @@ class ThemeEditorDialog : public QDialog
         ColorButton* textColorButton;
         ColorButton* markupColorButton;
         ColorButton* linkColorButton;
+        ColorButton* emphasisColorButton;
+        ColorButton* blockTextColorButton;
         ColorButton* spellcheckColorButton;
         ColorButton* editorBackgroundColorButton;
         ColorButton* hudForegroundColorButton;

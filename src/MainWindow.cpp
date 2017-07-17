@@ -1741,6 +1741,8 @@ void MainWindow::applyTheme()
         theme.setBackgroundColor(theme.getEditorBackgroundColor());
     }
 
+    editor->setEditorCorners(theme.getEditorCorners());
+
     QString styleSheet;
     QTextStream stream(&styleSheet);
 
@@ -1927,14 +1929,22 @@ void MainWindow::applyTheme()
     styleSheet = "";
 
     QString corners = "";
+    QString scrollBarRadius = "0px";
+    QString scrollAreaPadding = "3px 3px 0px 3px";
 
-    if
-    (
-        (EditorCornersRounded == theme.getEditorCorners()) &&
-        (EditorAspectStretch != theme.getEditorAspect())
-    )
+    if (EditorAspectCenter == theme.getEditorAspect())
     {
-        corners = "border-radius: 8;";
+        scrollAreaPadding = "3px";
+    }
+
+    if (EditorCornersRounded == theme.getEditorCorners())
+    {
+        if (EditorAspectStretch != theme.getEditorAspect())
+        {
+            corners = "border-radius: 8;";
+        }
+
+        scrollBarRadius = "4px";
     }
 
     QString defaultTextColorRGB =
@@ -1953,15 +1963,21 @@ void MainWindow::applyTheme()
         << editorSelectionBgColorRGB
         << " } "
         << "QAbstractScrollArea::corner { background: transparent } "
-        << "QAbstractScrollArea { padding: 3 } "
+        << "QAbstractScrollArea { padding: "
+        << scrollAreaPadding
+        << "; margin: 0 } "
         << "QScrollBar::horizontal { border: 0; background: transparent; height: 8px; margin: 0 } "
         << "QScrollBar::handle:horizontal { border: 0; background: "
         << scrollbarColorRGB
-        << "; min-width: 50px; border-radius: 4px; } "
+        << "; min-width: 50px; border-radius: "
+        << scrollBarRadius
+        << "; } "
         << "QScrollBar::vertical { border: 0; background: transparent; width: 8px; margin: 0 } "
         << "QScrollBar::handle:vertical { border: 0; background: "
         << scrollbarColorRGB
-        << "; min-height: 50px; border-radius: 4px; } "
+        << "; min-height: 50px; border-radius: "
+        << scrollBarRadius
+        << "; } "
         << "QScrollBar::handle:vertical:hover { background: "
         << scrollBarHoverRGB
         << " } "
@@ -1978,6 +1994,10 @@ void MainWindow::applyTheme()
         theme.getEditorBackgroundColor(),
         theme.getMarkupColor(),
         theme.getLinkColor(),
+        theme.getHeadingColor(),
+        theme.getEmphasisColor(),
+        theme.getBlockquoteColor(),
+        theme.getCodeColor(),
         theme.getSpellingErrorColor()
     );
     editor->setStyleSheet(styleSheet);

@@ -64,7 +64,9 @@ class MarkdownEditor : public QPlainTextEdit
         virtual ~MarkdownEditor();
         
         /**
-         * Draws the text cursor.  This has to be done as of Qt 5.8, since
+         * Draws the block quote and code block backgrounds.
+         *
+         * Also draws the text cursor.  This has to be done as of Qt 5.8, since
          * this version of Qt chooses the cursor's color based on the
          * editor's background color, rather than the foreground color as it
          * used to in prior versions.  This means that we cannot control the
@@ -119,6 +121,10 @@ class MarkdownEditor : public QPlainTextEdit
             const QColor& backgroundColor,
             const QColor& markupColor,
             const QColor& linkColor,
+            const QColor& headingColor,
+            const QColor& emphasisColor,
+            const QColor& blockquoteColor,
+            const QColor& codeColor,
             const QColor& spellingErrorColor
         );
 
@@ -358,6 +364,11 @@ class MarkdownEditor : public QPlainTextEdit
         void setEditorWidth(EditorWidth width);
 
         /**
+         * Sets the editor corners.
+         */
+        void setEditorCorners(EditorCorners corners);
+
+        /**
          * Runs the spell checker over the entire document for the
          * live spell checking.
          */
@@ -389,6 +400,14 @@ class MarkdownEditor : public QPlainTextEdit
         void toggleCursorBlink();
 
     private:
+
+        typedef enum
+        {
+            BlockTypeNone,
+            BlockTypeQuote,
+            BlockTypeCode
+        } BlockType;
+
         TextDocument* textDocument;
         MarkdownHighlighter* highlighter;
         QGridLayout* preferredLayout;
@@ -404,10 +423,12 @@ class MarkdownEditor : public QPlainTextEdit
         bool hemingwayModeEnabled;
         FocusMode focusMode;
         QBrush fadeColor;
+        QColor blockColor;
         EditorAspect aspect;
         bool insertSpacesForTabs;
         int tabWidth;
         EditorWidth editorWidth;
+        EditorCorners editorCorners;
         QRegExp blockquoteRegex;
         QRegExp numberedListRegex;
         QRegExp bulletListRegex;
@@ -451,6 +472,12 @@ class MarkdownEditor : public QPlainTextEdit
         QString getPriorIndentation();
         QString getPriorMarkdownBlockItemStart(QRegExp& itemRegex);
         void checkSpelling(const QString& text);
+
+        bool atBlockAreaStart(const QTextBlock& block, BlockType& type) const;
+        bool atBlockAreaEnd(const QTextBlock& block, const BlockType type) const;
+        bool atCodeBlockStart(const QTextBlock& block) const;
+        bool atCodeBlockEnd(const QTextBlock& block) const;
+        bool isBlockquote(const QTextBlock& block) const;
 
 };
 
