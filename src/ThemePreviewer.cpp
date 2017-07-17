@@ -116,21 +116,7 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
 
     if (EditorAspectCenter == theme.getEditorAspect())
     {
-        if (EditorCornersSquare == theme.getEditorCorners())
-        {
-            painter.drawRect(x, y, w, h);
-        }
-        else if (EditorCornersRounded == theme.getEditorCorners())
-        {
-            int cornerRadius = 5.0 * height / 100.0;
-
-            if (cornerRadius > 10.0)
-            {
-                cornerRadius = 10.0;
-            }
-
-            painter.drawRoundedRect(x, y, w, h, cornerRadius, cornerRadius);
-        }
+        painter.drawRect(x, y, w, h);
     }
     else
     {

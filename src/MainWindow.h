@@ -89,6 +89,7 @@ class MainWindow : public QMainWindow
         void toggleDesktopCompositingEffects(bool checked);
         void changeHudButtonLayout(HudWindowButtonLayout layout);
         void changeEditorWidth(EditorWidth editorWidth);
+        void changeInterfaceStyle(InterfaceStyle style);
         void insertImage();
         void showStyleSheetManager();
         void showQuickReferenceGuide();
@@ -144,6 +145,9 @@ class MainWindow : public QMainWindow
         HudWindow* cheatSheetHud;
         HudWindow* documentStatsHud;
         HudWindow* sessionStatsHud;
+        QVector<HudWindow*> huds;
+        QVector<QString> hudGeometryKeys;
+        QVector<QString> hudOpenKeys;
         DocumentStatistics* documentStats;
         DocumentStatisticsWidget* documentStatsWidget;
         SessionStatistics* sessionStats;

@@ -26,4 +26,10 @@ enum HudWindowButtonLayout
     HudWindowButtonLayoutLeft
 };
 
+enum HudWindowShape
+{
+    HudWindowShapeRounded,
+    HudWindowShapeSquare
+};
+
 #endif // HUDWINDOWTYPES_H

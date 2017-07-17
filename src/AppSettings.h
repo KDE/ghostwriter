@@ -127,6 +127,10 @@ class AppSettings : public QObject
         void setEditorWidth(EditorWidth editorWidth);
         Q_SIGNAL void editorWidthChanged(EditorWidth editorWidth);
 
+        InterfaceStyle getInterfaceStyle() const;
+        void setInterfaceStyle(InterfaceStyle style);
+        Q_SIGNAL void interfaceStyleChanged(InterfaceStyle style);
+
         BlockquoteStyle getBlockquoteStyle() const;
         void setBlockquoteStyle(BlockquoteStyle style);
         Q_SIGNAL void blockquoteStyleChanged(BlockquoteStyle style);
@@ -194,6 +198,7 @@ class AppSettings : public QObject
         QString locale;
         bool liveSpellCheckEnabled;
         EditorWidth editorWidth;
+        InterfaceStyle interfaceStyle;
         BlockquoteStyle blockquoteStyle;
         HudWindowButtonLayout hudButtonLayout;
         bool alternateHudRowColorsEnabled;

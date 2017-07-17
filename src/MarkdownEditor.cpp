@@ -94,7 +94,7 @@ MarkdownEditor::MarkdownEditor
     insertSpacesForTabs = false;
     setTabulationWidth(4);
     editorWidth = EditorWidthMedium;
-    editorCorners = EditorCornersRounded;
+    editorCorners = InterfaceStyleRounded;
 
     markupPairs.insert('"', '"');
     markupPairs.insert('\'', '\'');
@@ -204,7 +204,7 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
 
     int cornerRadius = 5;
 
-    if (EditorCornersSquare == editorCorners)
+    if (InterfaceStyleSquare == editorCorners)
     {
         cornerRadius = 0;
     }
@@ -1386,7 +1386,7 @@ void MarkdownEditor::setEditorWidth(EditorWidth width)
     editorWidth = width;
 }
 
-void MarkdownEditor::setEditorCorners(EditorCorners corners)
+void MarkdownEditor::setEditorCorners(InterfaceStyle corners)
 {
     editorCorners = corners;
 }

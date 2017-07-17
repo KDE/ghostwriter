@@ -65,7 +65,6 @@ class ThemeEditorDialog : public QDialog
 
     private:
         QLineEdit* themeNameEdit;
-        QComboBox* cornersComboBox;
         QComboBox* editorAspectComboBox;
         QComboBox* pictureAspectComboBox;
         ColorButton* textColorButton;

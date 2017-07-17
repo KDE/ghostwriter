@@ -104,6 +104,13 @@ class HudWindow : public QWidget
         void setButtonLayout(HudWindowButtonLayout layout);
 
         /**
+         * Sets the shape of the window to have either square or rounded
+         * corners.  Note that if desktop compositing is disabled, the
+         * corners will be square regardless of this setting.
+         */
+        void setShape(HudWindowShape shape);
+
+        /**
          * Sets whether desktop compositing is enabled for the HUD.  Enabling
          * will allow transparency of the HUD, as well as the drop shadow
          * and rounded corners of the window.  Disabling will cause a plain
@@ -129,6 +136,7 @@ class HudWindow : public QWidget
         QPoint mouseDragStartingPoint;
         bool desktopCompositingEnabled;
         QGridLayout* titleBarLayout;
+        HudWindowShape hudWindowShape;
 
         QSize sizeHint() const;
         void paintEvent(QPaintEvent* event);

@@ -22,20 +22,32 @@
 
 enum FocusMode
 {
-    FocusModeDisabled,
+    FocusModeFirst,
+    FocusModeDisabled = FocusModeFirst,
     FocusModeSentence,
     FocusModeCurrentLine,
     FocusModeThreeLines,
     FocusModeParagraph,
-    FocusModeTypewriter
+    FocusModeTypewriter,
+    FocusModeLast = FocusModeTypewriter
 };
 
 enum EditorWidth
 {
-    EditorWidthNarrow,
+    EditorWidthFirst,
+    EditorWidthNarrow = EditorWidthFirst,
     EditorWidthMedium,
     EditorWidthWide,
-    EditorWidthFull
+    EditorWidthFull,
+    EditorWidthLast = EditorWidthFull
+};
+
+enum InterfaceStyle
+{
+    InterfaceStyleFirst,
+    InterfaceStyleRounded = InterfaceStyleFirst,
+    InterfaceStyleSquare,
+    InterfaceStyleLast = InterfaceStyleSquare,
 };
 
 #endif // MARKDOWNEDITORTYPES_H
