@@ -19,6 +19,8 @@
         <file>resources/images/export-light.svg</file>
         <file>resources/images/configure-dark.svg</file>
         <file>resources/images/configure-light.svg</file>
+        <file>resources/images/task-open-light.svg</file>
+        <file>resources/images/task-closed-light.svg</file>
         <file>resources/images/ghostwriter.svg</file>
         <file>resources/github.css</file>
         <file>resources/quickreferenceguide_en.html</file>

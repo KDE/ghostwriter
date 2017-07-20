@@ -63,6 +63,7 @@
 #include "DocumentManager.h"
 #include "DocumentHistory.h"
 #include "Outline.h"
+#include "Tasklist.h"
 #include "MessageBoxHelper.h"
 #include "SimpleFontDialog.h"
 #include "LocaleDialog.h"
@@ -79,16 +80,19 @@
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
 #define GW_OUTLINE_HUD_GEOMETRY_KEY "HUD/outlineHudGeometry"
+#define GW_TASKLIST_HUD_GEOMETRY_KEY "HUD/tasklistHudGeometry"
 #define GW_CHEAT_SHEET_HUD_GEOMETRY_KEY "HUD/cheatSheetHudGeometry"
 #define GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY "HUD/documentStatisticsHudGeometry"
 #define GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY "HUD/sessionStatisticsHudGeometry"
 #define GW_OUTLINE_HUD_OPEN_KEY "HUD/outlineHudOpen"
+#define GW_TASKLIST_HUD_OPEN_KEY "HUD/tasklistHudOpen"
 #define GW_CHEAT_SHEET_HUD_OPEN_KEY "HUD/cheatSheetHudOpen"
 #define GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY "HUD/documentStatisticsHudOpen"
 #define GW_SESSION_STATISTICS_HUD_OPEN_KEY "HUD/sessionStatisticsHudOpen"
 
 MainWindow::MainWindow(const QString& filePath, QWidget* parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent),
+      menuBarHeight(0)
 {
     QString fileToOpen;
     setWindowIcon(QIcon(":/resources/images/ghostwriter.svg"));
@@ -191,6 +195,27 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     hudGeometryKeys.append(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY);
     hudOpenKeys.append(GW_SESSION_STATISTICS_HUD_OPEN_KEY);
 
+    tasklistWidget = new Tasklist();
+    tasklistWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
+
+    // We need to set an empty style for the editor's scrollbar in order for the
+    // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
+    // background color will have the Windows 98 checkered look rather than
+    // being a solid or transparent color.
+    //
+    tasklistWidget->verticalScrollBar()->setStyle(new QCommonStyle());
+    tasklistWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+
+    tasklistHud = new HudWindow(this);
+    tasklistHud->setWindowTitle(tr("Tasklist"));
+    tasklistHud->setCentralWidget(tasklistWidget);
+    tasklistHud->setButtonLayout(appSettings->getHudButtonLayout());
+    tasklistHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
+    huds.append(tasklistHud);
+    hudGeometryKeys.append(GW_TASKLIST_HUD_GEOMETRY_KEY);
+    hudOpenKeys.append(GW_TASKLIST_HUD_OPEN_KEY);
+
+
     TextDocument* document = new TextDocument();
 
     editor = new MarkdownEditor(document, this);
@@ -206,10 +231,14 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setBlockquoteStyle(appSettings->getBlockquoteStyle());
     editor->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
     connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
+    connect(tasklistWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
+    connect(tasklistWidget, SIGNAL(taskToggled()), editor, SLOT(toggleTaskComplete()));
     connect(editor, SIGNAL(cursorPositionChanged(int)), outlineWidget, SLOT(updateCurrentNavigationHeading(int)));
     connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
     connect(editor, SIGNAL(headingFound(int,QString,QTextBlock)), outlineWidget, SLOT(insertHeadingIntoOutline(int,QString,QTextBlock)));
     connect(editor, SIGNAL(headingRemoved(int)), outlineWidget, SLOT(removeHeadingFromOutline(int)));
+    connect(editor, SIGNAL(tasklistFound(Qt::CheckState, QString, QTextBlock)), tasklistWidget, SLOT(insertTask(Qt::CheckState, QString, QTextBlock)));
+    connect(editor, SIGNAL(tasklistRemoved(int)), tasklistWidget, SLOT(removeTask(int)));
 
     // We need to set an empty style for the editor's scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
@@ -1146,6 +1175,12 @@ void MainWindow::showSessionStatisticsHud()
     sessionStatsHud->activateWindow();
 }
 
+void MainWindow::showTasklistHud()
+{
+    tasklistHud->show();
+    tasklistHud->activateWindow();
+}
+
 void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
 {
     QDesktopServices::openUrl(url);
@@ -1537,6 +1572,7 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()));
     viewMenu->addAction(tr("&Document Statistics HUD"), this, SLOT(showDocumentStatisticsHud()));
     viewMenu->addAction(tr("&Session Statistics HUD"), this, SLOT(showSessionStatisticsHud()));
+    viewMenu->addAction(tr("&Tasklist HUD"), this, SLOT(showTasklistHud()));
     viewMenu->addSeparator();
     viewMenu->addAction(tr("Increase Font Size"), editor, SLOT(increaseFontSize()), QKeySequence("CTRL+="));
     viewMenu->addAction(tr("Decrease Font Size"), editor, SLOT(decreaseFontSize()), QKeySequence("CTRL+-"));
@@ -2226,6 +2262,7 @@ void MainWindow::applyTheme()
     }
 
     outlineWidget->setStyleSheet(styleSheet);
+    tasklistWidget->setStyleSheet(styleSheet);
     cheatSheetWidget->setStyleSheet(styleSheet);
     documentStatsWidget->setStyleSheet(styleSheet);
     sessionStatsWidget->setStyleSheet(styleSheet);

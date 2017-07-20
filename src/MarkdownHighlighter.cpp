@@ -67,6 +67,8 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
     connect(editor, SIGNAL(typingPaused()), this, SLOT(onTypingPaused()));
     connect(this, SIGNAL(headingFound(int,QString,QTextBlock)), editor, SIGNAL(headingFound(int,QString,QTextBlock)));
     connect(this, SIGNAL(headingRemoved(int)), editor, SIGNAL(headingRemoved(int)));
+    connect(this, SIGNAL(tasklistFound(Qt::CheckState, QString, QTextBlock)), editor, SIGNAL(tasklistFound(Qt::CheckState, QString, QTextBlock)));
+    connect(this, SIGNAL(tasklistRemoved(int)), editor, SIGNAL(tasklistRemoved(int)));
 
     this->tokenizer = new MarkdownTokenizer();
 
@@ -210,6 +212,14 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
                     applyFormattingForToken(token);
                     storeHeadingData(token, text);
                     break;
+                case TokenTaskListUnchecked:
+                    applyFormattingForToken(token);
+                    storeTasklistData(Qt::Unchecked, token, text);
+                    break;
+                case TokenTaskListChecked:
+                    applyFormattingForToken(token);
+                    storeTasklistData(Qt::Checked, token, text);
+                    break;
                 case TokenUnknown:
                     qWarning("Highlighter found unknown token type in text block.");
                     break;
@@ -242,6 +252,15 @@ void MarkdownHighlighter::highlightBlock(const QString& text)
     )
     {
         emit headingRemoved(currentBlock().position());
+    }
+    
+    if
+            (
+             lastState == MarkdownStateTaskList
+             && currentBlockState() != MarkdownStateTaskList
+             )
+    {
+        emit tasklistRemoved(currentBlock().position());
     }
 }
 
@@ -369,6 +388,10 @@ void MarkdownHighlighter::onTextBlockRemoved(const QTextBlock& block)
     if (isHeadingBlockState(block.userState()))
     {
         emit headingRemoved(block.position());
+    }
+    else if(block.userState() == MarkdownStateTaskList)
+    {
+        emit tasklistRemoved(block.position());
     }
 }
 
@@ -664,6 +687,13 @@ void MarkdownHighlighter::storeHeadingData
     emit headingFound(level, headingText, this->currentBlock());
 }
 
+void MarkdownHighlighter::storeTasklistData(Qt::CheckState checked, const Token &, const QString &text)
+{
+    QString stripped(text.trimmed());
+    stripped.remove(0, 5);
+    emit tasklistFound(checked, stripped, this->currentBlock());
+}
+
 bool MarkdownHighlighter::isHeadingBlockState(int state) const
 {
     switch (state)
@@ -681,3 +711,4 @@ bool MarkdownHighlighter::isHeadingBlockState(int state) const
             return false;
     }
 }
+

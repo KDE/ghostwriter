@@ -1281,13 +1281,13 @@ bool MarkdownEditor::toggleTaskComplete()
         end = block.next();
     }
 
-    cursor.beginEditBlock();
+    //cursor.beginEditBlock();
 
     while (block != end)
     {
         if
         (
-            (block.userState() == MarkdownStateBulletPointList)
+            (block.userState() == MarkdownStateTaskList)
             && (block.text().indexOf(taskListRegex) == 0)
         )
         {
@@ -1330,7 +1330,7 @@ bool MarkdownEditor::toggleTaskComplete()
         block = block.next();
     }
 
-    cursor.endEditBlock();
+    //cursor.endEditBlock();
     return true;
 }
 

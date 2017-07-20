@@ -4,7 +4,7 @@ Files: configure-dark.svg, configure-light.svg,
        focus-light.svg, fullscreen-dark.svg,
        fullscreen-light.svg, hemingway-dark.svg,
        hemingway-light.svg, html-preview-dark.svg,
-       html-preview-light.svg
+       html-preview-light.svg, task-closed-light.svg, task-open-light.svg
 Author: wereturtle
 License: GNU LGPL v3
   GNU Lesser General Public License Version 3.0

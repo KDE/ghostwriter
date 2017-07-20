@@ -175,11 +175,15 @@ class MarkdownEditor : public QPlainTextEdit
          */
         void headingFound(int level, const QString& text, QTextBlock block);
 
+        void tasklistFound(Qt::CheckState checked, const QString& text, QTextBlock);
+
         /**
          * Notifies listeners that a heading was discovered to have been removed
          * from the document at the given cursor position.
          */
         void headingRemoved(int position);
+
+        void tasklistRemoved(int position);
 
         /**
          * Emitted when the user has resumed typing text.
