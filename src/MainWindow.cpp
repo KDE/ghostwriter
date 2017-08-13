@@ -1362,7 +1362,7 @@ void MainWindow::copyHtml()
         if (c.hasSelection())
         {
             // Get only selected text from the document.
-            markdownText = c.selectedText();
+            markdownText = c.selection().toPlainText();
         }
         else
         {
