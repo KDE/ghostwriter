@@ -53,6 +53,8 @@ enum MarkdownTokenType
     TokenHtmlComment,
     TokenNumberedList,
     TokenBulletPointList,
+    TokenTaskListChecked,
+    TokenTaskListUnchecked,
     TokenHorizontalRule,
     TokenLineBreak,
     TokenBlockquote,

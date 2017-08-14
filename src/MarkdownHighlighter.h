@@ -128,11 +128,15 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void headingFound(int level, const QString& text, QTextBlock block);
 
+        void tasklistFound(Qt::CheckState checked, const QString& text, QTextBlock block);
+
         /**
          * Notifies listeners that a heading was discovered to have been removed
          * from the document at the given cursor position.
          */
         void headingRemoved(int position);
+
+        void tasklistRemoved(int position);
 
         /**
          * FOR INTERNAL USE ONLY
@@ -213,6 +217,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
 
         void applyFormattingForToken(const Token& token);
         void storeHeadingData(const Token& token, const QString& text);
+        void storeTasklistData(Qt::CheckState checked, const Token& token, const QString& text);
 
         /*
          * Returns true if the given QTextBlock userState indicates that the

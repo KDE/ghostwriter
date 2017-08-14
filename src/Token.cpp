@@ -21,14 +21,13 @@
 
 #include "Token.h"
 
-Token::Token()
-{
-    type = -1;
-    position = 0;
-    length = 0;
-    openingMarkupLength = 0;
-    closingMarkupLength = 0;
-}
+Token::Token():
+    type(-1),
+    position(0),
+    length(0),
+    openingMarkupLength(0),
+    closingMarkupLength(0)
+{ }
 
 Token::~Token()
 {

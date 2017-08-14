@@ -47,6 +47,7 @@ enum MarkdownState
     MarkdownStateHorizontalRule,
     MarkdownStateNumberedList,
     MarkdownStateBulletPointList,
+    MarkdownStateTaskList,
     MarkdownStateSetextHeading1Line1,
     MarkdownStateSetextHeading1Line2,
     MarkdownStateSetextHeading2Line1,
