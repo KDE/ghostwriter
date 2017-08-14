@@ -107,7 +107,6 @@ void MarkdownTokenizer::tokenize
             (MarkdownStateListLineBreak == previousState)
             || (MarkdownStateNumberedList == previousState)
             || (MarkdownStateBulletPointList == previousState)
-            || (MarkdownStateTaskList == previousState)
         )
         {
             setState(MarkdownStateListLineBreak);
@@ -154,7 +153,6 @@ void MarkdownTokenizer::tokenize
             (MarkdownStateListLineBreak == previousState)
             || (MarkdownStateNumberedList == previousState)
             || (MarkdownStateBulletPointList == previousState)
-            || (MarkdownStateTaskList == previousState)
         )
         {
             if
@@ -386,7 +384,6 @@ bool MarkdownTokenizer::tokenizeNumberedList
                 (MarkdownStateListLineBreak == previousState)
                 || (MarkdownStateNumberedList == previousState)
                 || (MarkdownStateBulletPointList == previousState)
-                || (MarkdownStateTaskList == previousState)
             )
             && numberedNestedListRegex.exactMatch(text)
         )
@@ -448,7 +445,6 @@ bool MarkdownTokenizer::tokenizeBulletPointList
         && (MarkdownStateListLineBreak != previousState)
         && (MarkdownStateNumberedList != previousState)
         && (MarkdownStateBulletPointList != previousState)
-        && (MarkdownStateTaskList != previousState)
         && (MarkdownStateCodeBlock != previousState)
         && (MarkdownStateCodeFenceEnd != previousState)
     )
@@ -486,7 +482,6 @@ bool MarkdownTokenizer::tokenizeBulletPointList
                     (spaceCount > 3)
                     && (MarkdownStateNumberedList != previousState)
                     && (MarkdownStateBulletPointList != previousState)
-                    && (MarkdownStateTaskList != previousState)
                     && (MarkdownStateListLineBreak != previousState)
                     &&
                     (
@@ -544,28 +539,12 @@ bool MarkdownTokenizer::tokenizeBulletPointList
     if ((bulletCharIndex >= 0) && whitespaceFoundAfterBulletChar)
     {
         Token token;
-
-        QString cmp(text.data() + bulletCharIndex + 2, 3);
-        if(cmp == "[ ]")
-        {
-          token.setType(TokenTaskListUnchecked);
-          setState(MarkdownStateTaskList);
-        }
-        else if(cmp == "[x]")
-        {
-          token.setType(TokenTaskListChecked);
-          setState(MarkdownStateTaskList);
-        }
-        else
-        {
-          token.setType(TokenBulletPointList);
-          setState(MarkdownStateBulletPointList);
-        }
+        token.setType(TokenBulletPointList);
         token.setPosition(0);
         token.setLength(text.length());
         token.setOpeningMarkupLength(bulletCharIndex + 1);
         this->addToken(token);
-
+        setState(MarkdownStateBulletPointList);
         return true;
     }
 
@@ -596,14 +575,12 @@ bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
         case MarkdownStateBlockquote:
         case MarkdownStateNumberedList:
         case MarkdownStateBulletPointList:
-        case MarkdownStateTaskList:
             switch (previousState)
             {
                 case MarkdownStateParagraph:
                 case MarkdownStateBlockquote:
                 case MarkdownStateNumberedList:
                 case MarkdownStateBulletPointList:
-                case MarkdownStateTaskList:
                     this->requestBacktrack();
                     break;
             }
@@ -614,7 +591,6 @@ bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
                 case MarkdownStateBlockquote:
                 case MarkdownStateNumberedList:
                 case MarkdownStateBulletPointList:
-                case MarkdownStateTaskList:
                     if (lineBreakRegex.exactMatch(text))
                     {
                         Token token;

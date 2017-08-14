@@ -48,7 +48,6 @@ class QCheckBox;
 class QListWidget;
 class DocumentManager;
 class Outline;
-class Tasklist;
 class DocumentStatistics;
 class DocumentStatisticsWidget;
 class SessionStatistics;
@@ -99,7 +98,6 @@ class MainWindow : public QMainWindow
         void showCheatSheetHud();
         void showDocumentStatisticsHud();
         void showSessionStatisticsHud();
-        void showTasklistHud();
         void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);
@@ -144,11 +142,9 @@ class MainWindow : public QMainWindow
         QGraphicsColorizeEffect* fullScreenButtonColorEffect;
         HudWindow* outlineHud;
         Outline* outlineWidget;
-        Tasklist* tasklistWidget;
         HudWindow* cheatSheetHud;
         HudWindow* documentStatsHud;
         HudWindow* sessionStatsHud;
-        HudWindow* tasklistHud;
         QVector<HudWindow*> huds;
         QVector<QString> hudGeometryKeys;
         QVector<QString> hudOpenKeys;
@@ -161,7 +157,7 @@ class MainWindow : public QMainWindow
         QPixmap adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;
         QAction* recentFilesActions[MAX_RECENT_FILES];
-        int menuBarHeight;
+        int menuBarHeight = 0;
         QPoint lastMousePos;
         bool menuBarMenuActivated;
 
