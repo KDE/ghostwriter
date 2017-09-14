@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 #include <QPrinter>
 
 #include "MarkdownEditor.h"
+#include "Outline.h"
 #include "DocumentStatistics.h"
 #include "SessionStatistics.h"
 #include "TextDocument.h"
@@ -50,6 +51,7 @@ class DocumentManager : public QObject
         DocumentManager
         (
             MarkdownEditor* editor,
+            Outline* outline,
             DocumentStatistics* documentStats,
             SessionStatistics* sessionStats,
             QWidget* parent = 0
@@ -229,6 +231,7 @@ class DocumentManager : public QObject
         QWidget* parentWidget;
         TextDocument* document;
         MarkdownEditor* editor;
+        Outline* outline;
         DocumentStatistics* documentStats;
         SessionStatistics* sessionStats;
         QFutureWatcher<QString>* saveFutureWatcher;
