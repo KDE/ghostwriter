@@ -1,4 +1,4 @@
-![ghostwriter](http://wereturtle.github.io/images/logo.png)
+![ghostwriter](http://wereturtle.github.io/ghostwriter/images/logo.png)
 
 About *ghostwriter*
 ===================
@@ -183,9 +183,7 @@ Wiki
 Contribute
 ==========
 
-Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.
-
-Finally, if you wish to thank me by donating to the tip jar, you can flattr me from GitHub.  Simply sign up for [Flattr](http://flattr.com) if you haven't already, connect your Flattr account to your GitHub account, and then Star my repository from GitHub.  You can also simply visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter) and click on the Flattr button at the bottom of the page.  I'll use your generous tip to treat my family to fish tacos.  Yum!
+Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  New translations are also welcome. However, please note that new feature requests are no longer being accepted.  Please read the [contributing guide](https://github.com/wereturtle/ghostwriter/blob/master/CONTRIBUTING.md) for further details on how you can contribute to the project.
 
 Roadmap
 ========
