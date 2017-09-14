@@ -56,14 +56,15 @@ const QString DocumentManager::FILE_CHOOSER_FILTER =
 DocumentManager::DocumentManager
 (
     MarkdownEditor* editor,
+    Outline* outline,
     DocumentStatistics* documentStats,
     SessionStatistics* sessionStats,
     QWidget* parent
 )
     : QObject(parent), parentWidget(parent), editor(editor),
-        documentStats(documentStats), sessionStats(sessionStats),
-        fileHistoryEnabled(true), createBackupOnSave(true),
-        saveInProgress(false)
+        outline(outline), documentStats(documentStats),
+        sessionStats(sessionStats), fileHistoryEnabled(true),
+        createBackupOnSave(true), saveInProgress(false)
 {
     saveFutureWatcher = new QFutureWatcher<QString>(this);
 
@@ -610,6 +611,7 @@ bool DocumentManager::loadFile(const QString& filePath)
         return false;
     }
 
+    outline->clear();
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
     document->setPlainText("");

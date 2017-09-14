@@ -242,7 +242,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(editor, SIGNAL(typingPaused()), sessionStats, SLOT(onTypingPaused()));
     connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
 
-    documentManager = new DocumentManager(editor, documentStats, sessionStats, this);
+    documentManager = new DocumentManager(editor, outlineWidget, documentStats, sessionStats, this);
     documentManager->setAutoSaveEnabled(appSettings->getAutoSaveEnabled());
     documentManager->setFileBackupEnabled(appSettings->getBackupFileEnabled());
     documentManager->setFileHistoryEnabled(appSettings->getFileHistoryEnabled());
