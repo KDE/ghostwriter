@@ -137,6 +137,7 @@ class MainWindow : public QMainWindow
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;
+        QAction* htmlPreviewMenuAction;
         QAction* fullScreenMenuAction;
         QPushButton* fullScreenButton;
         QGraphicsColorizeEffect* fullScreenButtonColorEffect;
