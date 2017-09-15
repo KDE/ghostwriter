@@ -207,6 +207,9 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         bool strikethroughToken[TokenLast];
         int fontSizeIncrease[TokenLast];
 
+        QRegExp heading1SetextRegex;
+        QRegExp heading2SetextRegex;
+
         void spellCheck(const QString& text);
         void setupTokenColors();
         void setupHeadingFontSize(bool useLargeHeadings);
@@ -219,6 +222,18 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          * text block contains a heading.
          */
         bool isHeadingBlockState(int state) const;
+
+        /**
+         * Returns true if the given block of text matches the markup for
+         * the second line of a setext heading for level 1.
+         */
+        bool matchesHeading1SetextMarkup(const QString& text) const;
+
+        /**
+         * Returns true if the given block of text matches the markup for
+         * the second line of a setext heading for level 2.
+         */
+        bool matchesHeading2SetextMarkup(const QString& text) const;
 
 };
 
