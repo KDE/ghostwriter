@@ -238,6 +238,7 @@ class DocumentManager : public QObject
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;
         bool createBackupOnSave;
+        bool documentModifiedNotifVisible;
 
         /*
          * Used to set default page layout options for printing.  Also,
