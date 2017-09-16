@@ -521,6 +521,10 @@ void MarkdownEditor::dragEnterEvent(QDragEnterEvent* e)
     {
         e->acceptProposedAction();
     }
+    else
+    {
+        QPlainTextEdit::dragEnterEvent(e);
+    }
 }
 
 void MarkdownEditor::dragMoveEvent(QDragMoveEvent* e)
@@ -606,6 +610,10 @@ void MarkdownEditor::dropEvent(QDropEvent* e)
         {
             QPlainTextEdit::dropEvent(e);
         }
+    }
+    else
+    {
+        QPlainTextEdit::dropEvent(e);
     }
 }
 
