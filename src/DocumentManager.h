@@ -238,7 +238,6 @@ class DocumentManager : public QObject
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;
         bool createBackupOnSave;
-        bool documentModifiedNotifVisible;
 
         /*
          * Used to set default page layout options for printing.  Also,
@@ -261,6 +260,13 @@ class DocumentManager : public QObject
          */
         QTimer* autoSaveTimer;
         bool autoSaveEnabled;
+
+        /*
+         * Boolean flag used to track if the prompt for the file having been
+         * externally modified is already displayed and should not be displayed
+         * again.
+         */
+        bool documentModifiedNotifVisible;
 
         /*
          * Begins asynchronous save operation.  Called by save() and saveAs().
