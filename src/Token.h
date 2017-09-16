@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@
  * them to be formatted together in one chunk, as that is more efficient for
  * the editor.  Of course, this could be solved by traversing an AST, but
  * it was instead decided to use a flattened AST in the form of a list of tokens
- * per line in the document.  See LineParser.h for rationale.
+ * per line in the document.  See MarkdownTokenizer.h for rationale.
  */
 class Token
 {

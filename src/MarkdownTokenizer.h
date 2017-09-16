@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,9 +21,10 @@
 #ifndef MARKDOWNTOKENIZER_H
 #define MARKDOWNTOKENIZER_H
 
+#include <QRegularExpression>
+
 #include "HighlightTokenizer.h"
 
-class QRegExp;
 class QString;
 
 enum MarkdownTokenType
@@ -90,32 +91,39 @@ class MarkdownTokenizer : public HighlightTokenizer
         int previousState;
         int nextState;
 
-        QRegExp paragraphBreakRegex;
-        QRegExp heading1SetextRegex;
-        QRegExp heading2SetextRegex;
-        QRegExp blockquoteRegex;
-        QRegExp githubCodeFenceStartRegex;
-        QRegExp githubCodeFenceEndRegex;
-        QRegExp pandocCodeFenceStartRegex;
-        QRegExp pandocCodeFenceEndRegex;
-        QRegExp numberedListRegex;
-        QRegExp numberedNestedListRegex;
-        QRegExp hruleRegex;
-        QRegExp lineBreakRegex;
-        QRegExp emphasisRegex;
-        QRegExp strongRegex;
-        QRegExp strikethroughRegex;
-        QRegExp verbatimRegex;
-        QRegExp htmlTagRegex;
-        QRegExp htmlEntityRegex;
-        QRegExp automaticLinkRegex;
-        QRegExp inlineLinkRegex;
-        QRegExp referenceLinkRegex;
-        QRegExp referenceDefinitionRegex;
-        QRegExp imageRegex;
-        QRegExp htmlInlineCommentRegex;
-        QRegExp mentionRegex;
-        QRegExp pipeTableDividerRegex;
+        QRegularExpression paragraphBreakRegex;
+        QRegularExpression heading1SetextRegex;
+        QRegularExpression heading2SetextRegex;
+        QRegularExpression blockquoteRegex;
+        QRegularExpression githubCodeFenceStartRegex;
+        QRegularExpression githubCodeFenceEndRegex;
+        QRegularExpression pandocCodeFenceStartRegex;
+        QRegularExpression pandocCodeFenceEndRegex;
+        QRegularExpression numberedListRegex;
+        QRegularExpression numberedNestedListRegex;
+        QRegularExpression hruleRegex;
+        QRegularExpression lineBreakRegex;
+        QRegularExpression emphasisRegex;
+        QRegularExpression strongRegex;
+        QRegularExpression strongEmphasisRegex1;
+        QRegularExpression strongEmphasisRegex2;
+        QRegularExpression emphasisStrongRegex1;
+        QRegularExpression emphasisStrongRegex2;
+        QRegularExpression smartEmphasisRegex;
+        QRegularExpression nestedEmphasisRegex;
+        QRegularExpression nestedStrongRegex;
+        QRegularExpression strikethroughRegex;
+        QRegularExpression verbatimRegex;
+        QRegularExpression htmlTagRegex;
+        QRegularExpression htmlEntityRegex;
+        QRegularExpression automaticLinkRegex;
+        QRegularExpression inlineLinkRegex;
+        QRegularExpression referenceLinkRegex;
+        QRegularExpression referenceDefinitionRegex;
+        QRegularExpression imageRegex;
+        QRegularExpression htmlInlineCommentRegex;
+        QRegularExpression mentionRegex;
+        QRegularExpression pipeTableDividerRegex;
 
 
         bool tokenizeSetextHeadingLine1(const QString& text);
@@ -162,7 +170,7 @@ class MarkdownTokenizer : public HighlightTokenizer
         (
             MarkdownTokenType tokenType,
             QString& text,
-            QRegExp& regex,
+            QRegularExpression& regex,
             const int markupStartCount = 0,
             const int markupEndCount = 0,
             const bool replaceMarkupChars = false,

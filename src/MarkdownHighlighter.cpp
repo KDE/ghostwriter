@@ -21,7 +21,7 @@
 #include <QColor>
 #include <QFont>
 #include <QObject>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
@@ -711,10 +711,10 @@ bool MarkdownHighlighter::isHeadingBlockState(int state) const
 
 bool MarkdownHighlighter::matchesHeading1SetextMarkup(const QString& text) const
 {
-    return heading1SetextRegex.exactMatch(text);
+    return heading1SetextRegex.match(text).hasMatch();
 }
 
 bool MarkdownHighlighter::matchesHeading2SetextMarkup(const QString &text) const
 {
-    return heading2SetextRegex.exactMatch(text);
+    return heading2SetextRegex.match(text).hasMatch();
 }
