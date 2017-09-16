@@ -65,7 +65,7 @@ DocumentManager::DocumentManager
         outline(outline), documentStats(documentStats),
         sessionStats(sessionStats), fileHistoryEnabled(true),
         createBackupOnSave(true), saveInProgress(false),
-        documentModifiedNotifVisible(false)
+        autoSaveEnabled(false), documentModifiedNotifVisible(false)
 {
     saveFutureWatcher = new QFutureWatcher<QString>(this);
 
