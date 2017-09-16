@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,8 @@
 
 #include <QString>
 #include <QChar>
-#include <QRegExp>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "MarkdownTokenizer.h"
 #include "MarkdownStates.h"
@@ -45,29 +46,36 @@ MarkdownTokenizer::MarkdownTokenizer()
     pandocCodeFenceEndRegex.setPattern("^~~~+\\s*$");
     numberedListRegex.setPattern("^ {0,3}[0-9]+[.)]\\s+.*$");
     numberedNestedListRegex.setPattern("^\\s*[0-9]+[.)]\\s+.*$");
-    hruleRegex.setPattern("\\s*(\\*\\s*){3,}|(\\s*(_\\s*){3,})|((\\s*(-\\s*){3,}))");
+    hruleRegex.setPattern("^\\s*(\\*\\s*){3,}$|^(\\s*(_\\s*){3,})$|^((\\s*(-\\s*){3,}))$");
     lineBreakRegex.setPattern(".*\\s{2,}$");
-    emphasisRegex.setPattern("(\\*(?![\\s*]).*[^\\s*]\\*)|_(?![\\s_]).*[^\\s_]_");
-    emphasisRegex.setMinimal(true);
-    strongRegex.setPattern("\\*\\*(?=\\S).*\\S\\*\\*(?!\\*)|__(?=\\S).*\\S__(?!_)");
-    strongRegex.setMinimal(true);
-    strikethroughRegex.setPattern("~~[^\\s]+.*[^\\s]+~~");
-    strikethroughRegex.setMinimal(true);
+    // **strong** text
+    strongRegex.setPattern("(\\*|_){2}(?=\\S)(.+?)(?<=\\S)\\1{2}");
+    // *emphasis* text
+    emphasisRegex.setPattern("(\\*|_)(?=\\S)(.+?)(?<=\\S)\\1");
+    // *emphasis **strong emphasis*** text
+    emphasisStrongRegex1.setPattern("(\\*|_)(?=\\S)(.+?)\\1{2}(?=\\S)(.+?)(?<=\\S)\\1{3}");
+    // ***strong emphasis** emphasis* text
+    emphasisStrongRegex2.setPattern("(\\*|_){3}(?=\\S)(.+?)(?<=\\S)\\1{2}(.+?)(?<=\\S)\\1");
+    // ***strong emphasis*** text
+    strongEmphasisRegex1.setPattern("(\\*|_){3}(?=\\S)(.+?)(?<=\\S)\\1{3}");
+    // **strong *strong emphasis*** text
+    strongEmphasisRegex2.setPattern("(\\*|_){2}(?=\\S)(.+?)\\1(?=\\S)(.+?)(?<=\\S)\\1{3}");
+    // _smart_emphasis_
+    smartEmphasisRegex.setPattern("(?<!\\w)(_)(?!_)(.+?)(?<!_)\\1(?!\\w)");
+    // *nested *emphasis* text*
+    nestedEmphasisRegex.setPattern("(\\*|_)(?=\\S)(.+?)\\1(?=\\S)(.+?)(?<=\\S)\\1(.+?)(?<=\\S)\\1");
+    // **nested **strong** text**
+    nestedStrongRegex.setPattern("(\\*\\*|__)(?=\\S)(.+?)\\1(?=\\S)(.+?)(?<=\\S)\\1(.+?)(?<=\\S)\\1");
+    strikethroughRegex.setPattern("(~~)(?=\\S)(.+?)(?<=\\S)\\1");
     verbatimRegex.setPattern("`+");
-    htmlTagRegex.setPattern("<[^<>]+>");
-    htmlTagRegex.setMinimal(true);
+    htmlTagRegex.setPattern("(?:<[a-zA-Z!$](?:[^<>])*>)|(?s:<\\?.*?\\?>)|(?:</[a-zA-Z]+>)");
     htmlEntityRegex.setPattern("&[a-zA-Z]+;|&#x?[0-9]+;");
-    automaticLinkRegex.setPattern("(<[a-zA-Z]+\\:.+>)|(<.+@.+>)");
-    automaticLinkRegex.setMinimal(true);
-    inlineLinkRegex.setPattern("\\[.+\\]\\(.+\\)");
-    inlineLinkRegex.setMinimal(true);
-    referenceLinkRegex.setPattern("\\[(.+)\\]");
-    referenceLinkRegex.setMinimal(true);
-    referenceDefinitionRegex.setPattern("^\\s*\\[.+\\]:");
-    imageRegex.setPattern("!\\[.*\\]\\(.+\\)");
-    imageRegex.setMinimal(true);
-    htmlInlineCommentRegex.setPattern("<!--.*-->");
-    htmlInlineCommentRegex.setMinimal(true);
+    automaticLinkRegex.setPattern("(<[a-zA-Z]+\\:(.+?)>)|(<.+@(.+?)>)");
+    inlineLinkRegex.setPattern("\\[(.+?)\\]\\((.+?)\\)");
+    referenceLinkRegex.setPattern("\\[(.+?)\\]");
+    referenceDefinitionRegex.setPattern("^\\s*\\[(.+?)\\]:");
+    imageRegex.setPattern("!\\[(.*?)\\]\\((.+?)\\)");
+    htmlInlineCommentRegex.setPattern("<!--(.*?)-->");
     mentionRegex.setPattern("\\B@\\w+(\\-\\w+)*(/\\w+(\\-\\w+)*)?");
     pipeTableDividerRegex.setPattern("^ {0,3}(\\|[ :]?)?-{3,}([ :]?\\|[ :]?-{3,}([ :]?\\|)?)+\\s*$");
 }
@@ -99,7 +107,7 @@ void MarkdownTokenizer::tokenize
     else if
     (
         (MarkdownStateComment != previousState)
-        && paragraphBreakRegex.exactMatch(text)
+        && paragraphBreakRegex.match(text).hasMatch()
     )
     {
         if
@@ -245,21 +253,21 @@ bool MarkdownTokenizer::tokenizeSetextHeadingLine2
     if (MarkdownStateSetextHeading1Line1 == previousState)
     {
         level = 1;
-        setextMatch = heading1SetextRegex.exactMatch(text);
+        setextMatch = heading1SetextRegex.match(text).hasMatch();
         setState(MarkdownStateSetextHeading1Line2);
         token.setType(TokenSetextHeading1Line2);
     }
     else if (MarkdownStateSetextHeading2Line1 == previousState)
     {
         level = 2;
-        setextMatch = heading2SetextRegex.exactMatch(text);
+        setextMatch = heading2SetextRegex.match(text).hasMatch();
         setState(MarkdownStateSetextHeading2Line2);
         token.setType(TokenSetextHeading2Line2);
     }
     else if (MarkdownStateParagraph == previousState)
     {
-        bool h1Line2 = heading1SetextRegex.exactMatch(text);
-        bool h2Line2 = heading2SetextRegex.exactMatch(text);
+        bool h1Line2 = heading1SetextRegex.match(text).hasMatch();
+        bool h2Line2 = heading2SetextRegex.match(text).hasMatch();
 
         if (h1Line2 || h2Line2)
         {
@@ -376,7 +384,7 @@ bool MarkdownTokenizer::tokenizeNumberedList
                 || (MarkdownStateCodeBlock == previousState)
                 || (MarkdownStateCodeFenceEnd == previousState)
             )
-            && numberedListRegex.exactMatch(text)
+            && numberedListRegex.match(text).hasMatch()
         )
         ||
         (
@@ -385,7 +393,7 @@ bool MarkdownTokenizer::tokenizeNumberedList
                 || (MarkdownStateNumberedList == previousState)
                 || (MarkdownStateBulletPointList == previousState)
             )
-            && numberedNestedListRegex.exactMatch(text)
+            && numberedNestedListRegex.match(text).hasMatch()
         )
     )
     {
@@ -553,7 +561,7 @@ bool MarkdownTokenizer::tokenizeBulletPointList
 
 bool MarkdownTokenizer::tokenizeHorizontalRule(const QString& text)
 {
-    if (hruleRegex.exactMatch(text))
+    if (hruleRegex.match(text).hasMatch())
     {
         Token token;
         token.setType(TokenHorizontalRule);
@@ -591,7 +599,7 @@ bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
                 case MarkdownStateBlockquote:
                 case MarkdownStateNumberedList:
                 case MarkdownStateBulletPointList:
-                    if (lineBreakRegex.exactMatch(text))
+                    if (lineBreakRegex.match(text).hasMatch())
                     {
                         Token token;
                         token.setType(TokenLineBreak);
@@ -616,7 +624,7 @@ bool MarkdownTokenizer::tokenizeBlockquote
     if
     (
         (MarkdownStateBlockquote == previousState)
-        || blockquoteRegex.exactMatch(text)
+        || blockquoteRegex.match(text).hasMatch()
     )
     {
         // Find any '>' characters at the front of the line.
@@ -672,12 +680,12 @@ bool MarkdownTokenizer::tokenizeCodeBlock
         (
             (
                 (MarkdownStateInGithubCodeFence == previousState)
-                && githubCodeFenceEndRegex.exactMatch(text)
+                && githubCodeFenceEndRegex.match(text).hasMatch()
             )
             ||
             (
                 (MarkdownStateInPandocCodeFence == previousState)
-                && pandocCodeFenceEndRegex.exactMatch(text)
+                && pandocCodeFenceEndRegex.match(text).hasMatch()
             )
         )
         {
@@ -729,13 +737,13 @@ bool MarkdownTokenizer::tokenizeCodeBlock
         bool foundCodeFenceStart = false;
         Token token;
 
-        if (githubCodeFenceStartRegex.exactMatch(text))
+        if (githubCodeFenceStartRegex.match(text).hasMatch())
         {
             foundCodeFenceStart = true;
             token.setType(TokenGithubCodeFence);
             setState(MarkdownStateInGithubCodeFence);
         }
-        else if (pandocCodeFenceStartRegex.exactMatch(text))
+        else if (pandocCodeFenceStartRegex.match(text).hasMatch())
         {
             foundCodeFenceStart = true;
             token.setType(TokenPandocCodeFence);
@@ -798,7 +806,7 @@ bool MarkdownTokenizer::tokenizeInline
     QString escapedText = dummyOutEscapeCharacters(text);
 
     // Check if the line is a reference definition.
-    if (referenceDefinitionRegex.exactMatch(escapedText))
+    if (referenceDefinitionRegex.match(escapedText).hasMatch())
     {
         int colonIndex = escapedText.indexOf(':');
         Token token;
@@ -828,9 +836,17 @@ bool MarkdownTokenizer::tokenizeInline
     tokenizeMatches(TokenHtmlEntity, escapedText, htmlEntityRegex);
     tokenizeMatches(TokenAutomaticLink, escapedText, automaticLinkRegex, 0, 0, false, true);
     tokenizeMatches(TokenStrikethrough, escapedText, strikethroughRegex, 2, 2);
+
+    tokenizeMatches(TokenStrong, escapedText, strongEmphasisRegex1, 2, 2, true);
+    tokenizeMatches(TokenEmphasis, escapedText, emphasisStrongRegex2, 1, 1, true);
+    tokenizeMatches(TokenStrong, escapedText, strongEmphasisRegex2, 2, 2, true);
+    tokenizeMatches(TokenEmphasis, escapedText, emphasisStrongRegex1, 1, 1, true);
+    tokenizeMatches(TokenStrong, escapedText, nestedStrongRegex, 2, 2, true);
     tokenizeMatches(TokenStrong, escapedText, strongRegex, 2, 2, true);
+    tokenizeMatches(TokenEmphasis, escapedText, nestedEmphasisRegex, 1, 1, true);
+    tokenizeMatches(TokenEmphasis, escapedText, smartEmphasisRegex, 1, 1, true);
     tokenizeMatches(TokenEmphasis, escapedText, emphasisRegex, 1, 1, true);
-    tokenizeMatches(TokenHtmlTag, escapedText, htmlTagRegex);
+    tokenizeMatches(TokenHtmlTag, escapedText, htmlTagRegex, 0, 0, false, true);
     tokenizeMatches(TokenMention, escapedText, mentionRegex, 0, 0, false, true);
 
     return true;
@@ -838,12 +854,13 @@ bool MarkdownTokenizer::tokenizeInline
 
 void MarkdownTokenizer::tokenizeVerbatim(QString& text)
 {
-    int index = verbatimRegex.indexIn(text);
+    QRegularExpressionMatch match = verbatimRegex.match(text);
+    int index = match.capturedStart();
 
-    while (index >= 0)
+    while ((match.hasMatch()) && (index >= 0))
     {
         QString end = "";
-        int count = verbatimRegex.matchedLength();
+        int count = match.capturedLength();
 
         // Search for the matching end, which should have the same number
         // of back ticks as the start.
@@ -884,7 +901,8 @@ void MarkdownTokenizer::tokenizeVerbatim(QString& text)
             index++;
         }
 
-        index = verbatimRegex.indexIn(text, index);
+        match = verbatimRegex.match(text, index);
+        index = match.capturedStart();
     }
 }
 
@@ -905,11 +923,12 @@ void MarkdownTokenizer::tokenizeHtmlComments(QString& text)
     }
 
     // Now check for inline comments (non-multiline).
-    int commentStart = text.indexOf(htmlInlineCommentRegex);
+    QRegularExpressionMatch match;
+    int commentStart = text.indexOf(htmlInlineCommentRegex, 0, &match);
 
     while (commentStart >= 0)
     {
-        int commentLength = htmlInlineCommentRegex.matchedLength();
+        int commentLength = match.capturedLength();
         Token token;
 
         token.setType(TokenHtmlComment);
@@ -928,7 +947,8 @@ void MarkdownTokenizer::tokenizeHtmlComments(QString& text)
         commentStart = text.indexOf
             (
                 htmlInlineCommentRegex,
-                commentStart + commentLength
+                commentStart + commentLength,
+                &match
             );
     }
 
@@ -1031,7 +1051,7 @@ bool MarkdownTokenizer::tokenizeTableDivider(const QString& text)
 {
     if (MarkdownStatePipeTableHeader == previousState)
     {
-        if (pipeTableDividerRegex.exactMatch(text))
+        if (pipeTableDividerRegex.match(text).hasMatch())
         {
             setState(MarkdownStatePipeTableDivider);
 
@@ -1051,7 +1071,7 @@ bool MarkdownTokenizer::tokenizeTableDivider(const QString& text)
     }
     else if (MarkdownStateParagraph == previousState)
     {
-        if (pipeTableDividerRegex.exactMatch(text))
+        if (pipeTableDividerRegex.match(text).hasMatch())
         {
             // Restart tokenizing on the previous line.
             this->requestBacktrack();
@@ -1105,18 +1125,19 @@ void MarkdownTokenizer::tokenizeMatches
 (
     MarkdownTokenType tokenType,
     QString& text,
-    QRegExp& regex,
+    QRegularExpression& regex,
     const int markupStartCount,
     const int markupEndCount,
     const bool replaceMarkupChars,
     const bool replaceAllChars
 )
 {
-    int index = text.indexOf(regex);
+    QRegularExpressionMatch match;
+    int index = text.indexOf(regex, 0, &match);
 
-    while (index >= 0)
+    while (match.hasMatch() && (index >= 0))
     {
-        int length = regex.matchedLength();
+        int length = match.capturedLength();
         Token token;
 
         token.setType(tokenType);
@@ -1154,7 +1175,7 @@ void MarkdownTokenizer::tokenizeMatches
         }
 
         addToken(token);
-        index = text.indexOf(regex, index + length);
+        index = text.indexOf(regex, index + length, &match);
     }
 }
 
