@@ -64,7 +64,8 @@ DocumentManager::DocumentManager
     : QObject(parent), parentWidget(parent), editor(editor),
         outline(outline), documentStats(documentStats),
         sessionStats(sessionStats), fileHistoryEnabled(true),
-        createBackupOnSave(true), saveInProgress(false)
+        createBackupOnSave(true), saveInProgress(false),
+        documentModifiedNotifVisible(false)
 {
     saveFutureWatcher = new QFutureWatcher<QString>(this);
 
@@ -500,9 +501,12 @@ void DocumentManager::onFileChangedExternally(const QString& path)
         if
         (
             !saveInProgress &&
-            (fileInfo.lastModified() > document->getTimestamp())
+            (fileInfo.lastModified() > document->getTimestamp()) &&
+            !documentModifiedNotifVisible
         )
         {
+            documentModifiedNotifVisible = true;
+
             int response =
                 MessageBoxHelper::question
                 (
@@ -512,6 +516,8 @@ void DocumentManager::onFileChangedExternally(const QString& path)
                     QMessageBox::Yes | QMessageBox::No,
                     QMessageBox::Yes
                 );
+
+            documentModifiedNotifVisible = false;
 
             if (QMessageBox::Yes == response)
             {
