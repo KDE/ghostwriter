@@ -90,6 +90,7 @@ ExporterFactory::ExporterFactory()
     bool mmdIsAvailable = isCommandAvailable("multimarkdown --version");
     bool discountIsAvailable = isCommandAvailable("markdown -V");
     bool cmarkIsAvailable = isCommandAvailable("cmark --version");
+    bool cmarkGfmIsAvailable = isCommandAvailable("cmark-gfm --version");
 
     SundownExporter* sundownExporter = new SundownExporter();
     fileExporters.append(sundownExporter);
@@ -214,6 +215,40 @@ ExporterFactory::ExporterFactory()
         (
             ExportFormat::MANPAGE,
             QString("cmark -t man %1")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
+        fileExporters.append(exporter);
+        htmlExporters.append(exporter);
+    }
+
+    if (cmarkGfmIsAvailable)
+    {
+        QString commandStr = "cmark-gfm -t %1 %2"
+            " -e table -e strikethrough -e autolink -e tagfilter";
+        exporter = new CommandLineExporter("cmark-gfm");
+        exporter->setSmartTypographyOnArgument("--smart");
+        exporter->setHtmlRenderCommand(commandStr
+            .arg("html")
+            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            commandStr
+                .arg("html")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::LATEX,
+            commandStr
+                .arg("latex")
+                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
+        exporter->addFileExportCommand
+        (
+            ExportFormat::MANPAGE,
+            commandStr
+                .arg("man")
                 .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
         );
         fileExporters.append(exporter);
