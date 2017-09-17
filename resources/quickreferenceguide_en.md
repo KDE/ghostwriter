@@ -2,7 +2,7 @@
 
 Welcome to *ghostwriter*!  This quick reference guide gives examples of writing in Markdown, a plain text markup format created by John Gruber.  For more information and help, please visit John Gruber's website at <http://www.daringfireball.net>.  The official *ghostwriter* website can be found at <http://www.github.com/wereturtle/ghostwriter>.
 
-*ghostwriter* has built-in support for the Sundown processor.  However, it also can auto-detect Pandoc, MultiMarkdown, Discount, or cmark processors.  To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system's `PATH` environment variable.  *ghostwriter* will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.
+*ghostwriter* has built-in support for the Sundown processor.  However, it also can auto-detect Pandoc, MultiMarkdown, Discount, cmark, or cmark-gfm processors.  To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system's `PATH` environment variable.  *ghostwriter* will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.
 
 # Headings
 
@@ -169,6 +169,7 @@ There are even more table syntaxes that these Markdown processors can support.  
 + MultiMarkdown: <http://fletcherpenney.net/multimarkdown/>
 + Discount: <http://www.pell.portland.or.us/~orc/Code/discount/>
 + cmark: <http://github.com/jgm/cmark/>
++ cmark-gfm: <http://github.com/github/cmark>
 
 The original John Gruber Markdown specification can be found at <http://daringfireball.net/projects/markdown/>.
 
