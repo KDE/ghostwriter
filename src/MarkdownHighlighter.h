@@ -165,6 +165,16 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void onTypingPaused();
 
+        /**
+         * Signalled by a text editor when the user changes the text
+         * cursor position.  This signal is used to ensure spell
+         * checking is performed for the previous line in which the
+         * text cursor was positioned before the user changed the text
+         * position, in case the last word the user was typing was not
+         * yet spell checked.
+         */
+        void onCursorPositionChanged();
+
     private slots:
         /*
          * Highlights the text block at the given cursor position of the
@@ -184,6 +194,7 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         DictionaryRef dictionary;
         bool spellCheckEnabled;
         bool typingPaused;
+        QTextBlock currentLine;
         bool useUndlerlineForEmphasis;
         bool highlightLineBreaks;
         bool inBlockquote;

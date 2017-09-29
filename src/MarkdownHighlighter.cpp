@@ -65,6 +65,7 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
 
     connect(editor, SIGNAL(typingResumed()), this, SLOT(onTypingResumed()));
     connect(editor, SIGNAL(typingPaused()), this, SLOT(onTypingPaused()));
+    connect(editor, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this, SIGNAL(headingFound(int,QString,QTextBlock)), editor, SIGNAL(headingFound(int,QString,QTextBlock)));
     connect(this, SIGNAL(headingRemoved(int)), editor, SIGNAL(headingRemoved(int)));
 
@@ -358,8 +359,26 @@ void MarkdownHighlighter::onTypingResumed()
 void MarkdownHighlighter::onTypingPaused()
 {
     typingPaused = true;
-    QTextBlock block = document()->findBlock(editor->textCursor().position());
-    rehighlightBlock(block);
+
+    if (spellCheckEnabled)
+    {
+        QTextBlock block = document()->findBlock(editor->textCursor().position());
+        rehighlightBlock(block);
+    }
+}
+
+void MarkdownHighlighter::onCursorPositionChanged()
+{
+    if
+    (
+        spellCheckEnabled &&
+        (currentLine != editor->textCursor().block())
+    )
+    {
+        rehighlightBlock(currentLine);
+    }
+
+    currentLine = editor->textCursor().block();
 }
 
 void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
