@@ -164,61 +164,65 @@ void HtmlPreview::onHtmlReady()
     //
     while (!newLine.isNull())
     {
+        differenceFound = true;
         anchoredHtmlDoc << newLine << "\n";
         newLine = newHtmlDoc.readLine();
     }
 
-    setHtml(anchoredHtml);
-    this->html = html;
-
-    // Traverse the DOM in the browser, and find all the H1-H6 tags.
-    // Set the id attribute of each heading tag to have a unique
-    // sequence number, so that when the navigateToHeading() slot
-    // is triggered, we can scroll to the desired heading.
-    //
-    QWebFrame* frame = htmlBrowser->page()->mainFrame();
-    QWebElement element = frame->documentElement();
-    QStack<QWebElement> elementStack;
-    int headingId = 1;
-
-    elementStack.push(element);
-
-    while (!elementStack.isEmpty())
+    if (differenceFound)
     {
-        element = elementStack.pop();
+        setHtml(anchoredHtml);
+        this->html = html;
 
-        // If the element is a heading tag (H1-H6), set an anchor id for it.
-        if (headingTagExp.exactMatch(element.tagName()))
-        {
-            element.prependOutside(QString("<span id='livepreviewhnbr%1'></span>").arg(headingId));
-            headingId++;
-        }
-        // else if the element is something that would have a heading tag
-        // (not a paragraph, blockquote, code, etc.), then add its children
-        // to traverse and look for headings.
+        // Traverse the DOM in the browser, and find all the H1-H6 tags.
+        // Set the id attribute of each heading tag to have a unique
+        // sequence number, so that when the navigateToHeading() slot
+        // is triggered, we can scroll to the desired heading.
         //
-        else if
-        (
-            (0 != element.tagName().compare("blockquote", Qt::CaseInsensitive))
-            && (0 != element.tagName().compare("code", Qt::CaseInsensitive))
-            && (0 != element.tagName().compare("p", Qt::CaseInsensitive))
-            && (0 != element.tagName().compare("ol", Qt::CaseInsensitive))
-            && (0 != element.tagName().compare("ul", Qt::CaseInsensitive))
-            && (0 != element.tagName().compare("table", Qt::CaseInsensitive))
-        )
+        QWebFrame* frame = htmlBrowser->page()->mainFrame();
+        QWebElement element = frame->documentElement();
+        QStack<QWebElement> elementStack;
+        int headingId = 1;
+
+        elementStack.push(element);
+
+        while (!elementStack.isEmpty())
         {
-            QStack<QWebElement> childStack;
-            element = element.firstChild();
+            element = elementStack.pop();
 
-            while (!element.isNull())
+            // If the element is a heading tag (H1-H6), set an anchor id for it.
+            if (headingTagExp.exactMatch(element.tagName()))
             {
-                childStack.push(element);
-                element = element.nextSibling();
+                element.prependOutside(QString("<span id='livepreviewhnbr%1'></span>").arg(headingId));
+                headingId++;
             }
-
-            while (!childStack.isEmpty())
+            // else if the element is something that would have a heading tag
+            // (not a paragraph, blockquote, code, etc.), then add its children
+            // to traverse and look for headings.
+            //
+            else if
+            (
+                (0 != element.tagName().compare("blockquote", Qt::CaseInsensitive))
+                && (0 != element.tagName().compare("code", Qt::CaseInsensitive))
+                && (0 != element.tagName().compare("p", Qt::CaseInsensitive))
+                && (0 != element.tagName().compare("ol", Qt::CaseInsensitive))
+                && (0 != element.tagName().compare("ul", Qt::CaseInsensitive))
+                && (0 != element.tagName().compare("table", Qt::CaseInsensitive))
+            )
             {
-                elementStack.push(childStack.pop());
+                QStack<QWebElement> childStack;
+                element = element.firstChild();
+
+                while (!element.isNull())
+                {
+                    childStack.push(element);
+                    element = element.nextSibling();
+                }
+
+                while (!childStack.isEmpty())
+                {
+                    elementStack.push(childStack.pop());
+                }
             }
         }
     }
