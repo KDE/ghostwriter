@@ -62,10 +62,6 @@ MarkdownTokenizer::MarkdownTokenizer()
     strongEmphasisRegex2.setPattern("(\\*|_){2}(?=\\S)(.+?)\\1(?=\\S)(.+?)(?<=\\S)\\1{3}");
     // _smart_emphasis_
     smartEmphasisRegex.setPattern("(?<!\\w)(_)(?!_)(.+?)(?<!_)\\1(?!\\w)");
-    // *nested *emphasis* text*
-    nestedEmphasisRegex.setPattern("(\\*|_)(?=\\S)(.+?)\\1(?=\\S)(.+?)(?<=\\S)\\1(.+?)(?<=\\S)\\1");
-    // **nested **strong** text**
-    nestedStrongRegex.setPattern("(\\*\\*|__)(?=\\S)(.+?)\\1(?=\\S)(.+?)(?<=\\S)\\1(.+?)(?<=\\S)\\1");
     strikethroughRegex.setPattern("(~~)(?=\\S)(.+?)(?<=\\S)\\1");
     verbatimRegex.setPattern("`+");
     htmlTagRegex.setPattern("(?:<[a-zA-Z!$](?:[^<>])*>)|(?s:<\\?.*?\\?>)|(?:</[a-zA-Z]+>)");
@@ -841,9 +837,7 @@ bool MarkdownTokenizer::tokenizeInline
     tokenizeMatches(TokenEmphasis, escapedText, emphasisStrongRegex2, 1, 1, true);
     tokenizeMatches(TokenStrong, escapedText, strongEmphasisRegex2, 2, 2, true);
     tokenizeMatches(TokenEmphasis, escapedText, emphasisStrongRegex1, 1, 1, true);
-    tokenizeMatches(TokenStrong, escapedText, nestedStrongRegex, 2, 2, true);
     tokenizeMatches(TokenStrong, escapedText, strongRegex, 2, 2, true);
-    tokenizeMatches(TokenEmphasis, escapedText, nestedEmphasisRegex, 1, 1, true);
     tokenizeMatches(TokenEmphasis, escapedText, smartEmphasisRegex, 1, 1, true);
     tokenizeMatches(TokenEmphasis, escapedText, emphasisRegex, 1, 1, true);
     tokenizeMatches(TokenHtmlTag, escapedText, htmlTagRegex, 0, 0, false, true);
