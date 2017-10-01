@@ -110,8 +110,6 @@ class MarkdownTokenizer : public HighlightTokenizer
         QRegularExpression emphasisStrongRegex1;
         QRegularExpression emphasisStrongRegex2;
         QRegularExpression smartEmphasisRegex;
-        QRegularExpression nestedEmphasisRegex;
-        QRegularExpression nestedStrongRegex;
         QRegularExpression strikethroughRegex;
         QRegularExpression verbatimRegex;
         QRegularExpression htmlTagRegex;
