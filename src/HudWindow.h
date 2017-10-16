@@ -39,6 +39,8 @@ class QGraphicsColorizeEffect;
  */
 class HudWindow : public QWidget
 {
+    Q_OBJECT
+
     public:
         /**
          * Constructor.
@@ -120,6 +122,9 @@ class HudWindow : public QWidget
          * effect and not have an unpleasant-looking window.
          */
         void setDesktopCompositingEnabled(bool enabled);
+
+    signals:
+        void closed();
 
     protected:
         QGridLayout* layout;

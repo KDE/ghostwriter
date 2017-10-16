@@ -78,6 +78,7 @@ HudWindow::HudWindow(QWidget *parent)
     closeButton->installEventFilter(this);
     closeButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(closeButton, SIGNAL(clicked()), this, SIGNAL(closed()));
 
     // Set up initial window title (blank).
     windowTitleLabel = new QLabel("");
@@ -168,11 +169,11 @@ HudWindow::~HudWindow()
 void HudWindow::keyPressEvent(QKeyEvent* e)
 {
     int key = e->key();
-
     switch (key)
     {
         case Qt::Key_Escape:
             this->hide();
+            emit closed();
             break;
         default:
             break;

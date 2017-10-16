@@ -109,6 +109,14 @@ class AppSettings : public QObject
         Q_SLOT void setDisplayTimeInFullScreenEnabled(bool enabled);
         Q_SIGNAL void displayTimeInFullScreenChanged(bool enabled);
 
+        bool getHideHudsWhenTypingEnabled() const;
+        Q_SLOT void setHideHudsWhenTypingEnabled(bool enabled);
+        Q_SIGNAL void hideHudsWhenTypingChanged(bool enabled);
+
+        bool getHideHudsOnPreviewEnabled() const;
+        Q_SLOT void setHideHudsOnPreviewEnabled(bool enabled);
+        Q_SIGNAL void hideHudsOnPreviewChanged(bool enabled);
+
         QString getThemeName() const;
         void setThemeName(const QString& name);
 
@@ -193,6 +201,8 @@ class AppSettings : public QObject
         bool hideMenuBarInFullScreenEnabled;
         bool fileHistoryEnabled;
         bool displayTimeInFullScreenEnabled;
+        bool hideHudsWhenTypingEnabled;
+        bool hideHudsOnPreviewEnabled;
         QString themeName;
         QString dictionaryLanguage;
         QString locale;

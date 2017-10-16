@@ -112,14 +112,14 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     outlineWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     outlineWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
 
-    outlineHud = new HudWindow(this);
-    outlineHud->setWindowTitle(tr("Outline"));
-    outlineHud->setCentralWidget(outlineWidget);
-    outlineHud->setButtonLayout(appSettings->getHudButtonLayout());
-    outlineHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
-    huds.append(outlineHud);
-    hudGeometryKeys.append(GW_OUTLINE_HUD_GEOMETRY_KEY);
-    hudOpenKeys.append(GW_OUTLINE_HUD_OPEN_KEY);
+    outlineHud =
+        createHudWindow
+        (
+            tr("Outline"),
+            outlineWidget,
+            GW_OUTLINE_HUD_GEOMETRY_KEY,
+            GW_OUTLINE_HUD_OPEN_KEY
+        );
 
     cheatSheetWidget = new QListWidget();
 
@@ -152,14 +152,14 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetWidget->addItem(tr("![Image][./image.jpg \"Title\"]"));
     cheatSheetWidget->addItem(tr("--- *** ___ Horizontal Rule"));
 
-    cheatSheetHud = new HudWindow(this);
-    cheatSheetHud->setWindowTitle(tr("Cheat Sheet"));
-    cheatSheetHud->setCentralWidget(cheatSheetWidget);
-    cheatSheetHud->setButtonLayout(appSettings->getHudButtonLayout());
-    cheatSheetHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
-    huds.append(cheatSheetHud);
-    hudGeometryKeys.append(GW_CHEAT_SHEET_HUD_GEOMETRY_KEY);
-    hudOpenKeys.append(GW_CHEAT_SHEET_HUD_OPEN_KEY);
+    cheatSheetHud =
+        createHudWindow
+        (
+            tr("Cheat Sheet"),
+            cheatSheetWidget,
+            GW_CHEAT_SHEET_HUD_GEOMETRY_KEY,
+            GW_CHEAT_SHEET_HUD_OPEN_KEY
+        );
 
     documentStatsWidget = new DocumentStatisticsWidget();
     documentStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
@@ -167,14 +167,14 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     documentStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
     documentStatsWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
-    documentStatsHud = new HudWindow(this);
-    documentStatsHud->setWindowTitle(tr("Document Statistics"));
-    documentStatsHud->setCentralWidget(documentStatsWidget);
-    documentStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
-    documentStatsHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
-    huds.append(documentStatsHud);
-    hudGeometryKeys.append(GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY);
-    hudOpenKeys.append(GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY);
+    documentStatsHud =
+        createHudWindow
+        (
+            tr("Document Statistics"),
+            documentStatsWidget,
+            GW_DOCUMENT_STATISTICS_HUD_GEOMETRY_KEY,
+            GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY
+        );
 
     sessionStatsWidget =new SessionStatisticsWidget();
     sessionStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
@@ -182,14 +182,16 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     sessionStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
     sessionStatsWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
-    sessionStatsHud = new HudWindow(this);
-    sessionStatsHud->setWindowTitle(tr("Session Statistics"));
-    sessionStatsHud->setCentralWidget(sessionStatsWidget);
-    sessionStatsHud->setButtonLayout(appSettings->getHudButtonLayout());
-    sessionStatsHud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
-    huds.append(sessionStatsHud);
-    hudGeometryKeys.append(GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY);
-    hudOpenKeys.append(GW_SESSION_STATISTICS_HUD_OPEN_KEY);
+    sessionStatsHud =
+        createHudWindow
+        (
+            tr("Session Statistics"),
+            sessionStatsWidget,
+            GW_SESSION_STATISTICS_HUD_GEOMETRY_KEY,
+            GW_SESSION_STATISTICS_HUD_OPEN_KEY
+        );
+
+    connect(appSettings, SIGNAL(hideHudsOnPreviewChanged(bool)), this, SLOT(onHideHudsOnPreviewChanged(bool)));
 
     TextDocument* document = new TextDocument();
 
@@ -210,6 +212,8 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
     connect(editor, SIGNAL(headingFound(int,QString,QTextBlock)), outlineWidget, SLOT(insertHeadingIntoOutline(int,QString,QTextBlock)));
     connect(editor, SIGNAL(headingRemoved(int)), outlineWidget, SLOT(removeHeadingFromOutline(int)));
+    connect(editor, SIGNAL(typingPaused()), this, SLOT(onTypingPaused()));
+    connect(editor, SIGNAL(typingResumed()), this, SLOT(onTypingResumed()));
 
     // We need to set an empty style for the editor's scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
@@ -481,6 +485,8 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     quickReferenceGuideViewer = NULL;
 
+    openHudsVisible = !appSettings->getHideHudsOnPreviewEnabled() || !appSettings->getHtmlPreviewVisible();
+
     // Show the main window.
     show();
 
@@ -494,7 +500,8 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
         if (windowSettings.value(key, QVariant(false)).toBool())
         {
-            hud->show();
+            hud->setVisible(openHudsVisible);
+            openHuds.append(hud);
         }
     }
 
@@ -504,23 +511,6 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     //
     applyTheme();
     adjustEditorWidth(this->width());
-
-    HudWindowShape hudShape;
-
-    switch (appSettings->getInterfaceStyle())
-    {
-        case InterfaceStyleRounded:
-            hudShape = HudWindowShapeRounded;
-            break;
-        default:
-            hudShape = HudWindowShapeSquare;
-            break;
-    }
-
-    foreach (HudWindow* hud, huds)
-    {
-        hud->setShape(hudShape);
-    }
 
     this->update();
     qApp->processEvents();
@@ -618,7 +608,23 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
 {
     Q_UNUSED(obj)
 
-    if (event->type() == QEvent::MouseMove)
+    // If the option to hide the HUD windows when viewing the HTML preview
+    // is enabled, and if the HTML preview is currently visible and the
+    // main window has now been activated (instead of a HUD), then hide
+    // any visible HUDs.
+    //
+    if
+    (
+        (obj == this) &&
+        (event->type() == QEvent::WindowActivate) &&
+        !openHudsVisible &&
+        appSettings->getHideHudsOnPreviewEnabled() &&
+        htmlPreview->isVisible()
+    )
+    {
+        setOpenHudsVisibility(false);
+    }
+    else if (event->type() == QEvent::MouseMove)
     {
         QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
 
@@ -724,7 +730,15 @@ void MainWindow::quitApplication()
             QString openKey = hudOpenKeys.at(i);
 
             windowSettings.setValue(geomKey, hud->saveGeometry());
-            windowSettings.setValue(openKey, QVariant(hud->isVisible()));
+
+            bool isVisible = hud->isVisible();
+
+            if (openHuds.contains(hud))
+            {
+                isVisible = true;
+            }
+
+            windowSettings.setValue(openKey, QVariant(isVisible));
         }
 
         windowSettings.sync();
@@ -768,10 +782,20 @@ void MainWindow::toggleHtmlPreview(bool checked)
     {
         htmlPreview->show();
         htmlPreview->updatePreview();
+
+        if (appSettings->getHideHudsOnPreviewEnabled())
+        {
+            setOpenHudsVisibility(false);
+        }
     }
     else
     {
         htmlPreview->hide();
+
+        if (appSettings->getHideHudsOnPreviewEnabled())
+        {
+            setOpenHudsVisibility(true);
+        }
     }
 
     adjustEditorWidth(this->width());
@@ -1109,26 +1133,63 @@ void MainWindow::showWikiPage()
 
 void MainWindow::showOutlineHud()
 {
-    outlineHud->show();
-    outlineHud->activateWindow();
+    showHud(outlineHud);
 }
 
 void MainWindow::showCheatSheetHud()
 {
-    cheatSheetHud->show();
-    cheatSheetHud->activateWindow();
+    showHud(cheatSheetHud);
 }
 
 void MainWindow::showDocumentStatisticsHud()
 {
-    documentStatsHud->show();
-    documentStatsHud->activateWindow();
+    showHud(documentStatsHud);
 }
 
 void MainWindow::showSessionStatisticsHud()
 {
-    sessionStatsHud->show();
-    sessionStatsHud->activateWindow();
+    showHud(sessionStatsHud);
+}
+
+void MainWindow::toggleOpenHudsVisibility()
+{
+    setOpenHudsVisibility(!openHudsVisible);
+}
+
+void MainWindow::onHideHudsOnPreviewChanged(bool enabled)
+{
+    if (enabled)
+    {
+        setOpenHudsVisibility(!htmlPreview->isVisible());
+    }
+    else
+    {
+        setOpenHudsVisibility(true);
+    }
+}
+
+void MainWindow::onHudClosed()
+{
+    openHuds.removeAll((HudWindow*)QObject::sender());
+}
+
+void MainWindow::onTypingPaused()
+{
+    if (appSettings->getHideHudsWhenTypingEnabled())
+    {
+        if (!appSettings->getHideHudsOnPreviewEnabled() || !htmlPreview->isVisible())
+        {
+            setOpenHudsVisibility(true);
+        }
+    }
+}
+
+void MainWindow::onTypingResumed()
+{
+    if (appSettings->getHideHudsWhenTypingEnabled())
+    {
+        setOpenHudsVisibility(false);
+    }
 }
 
 void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
@@ -1433,6 +1494,41 @@ QAction* MainWindow::addMenuAction
     return action;
 }
 
+HudWindow* MainWindow::createHudWindow
+(
+    const QString& title,
+    QWidget* centralWidget,
+    const QString& geometrySettingsKey,
+    const QString& openSettingsKey
+)
+{
+    HudWindow* hud = new HudWindow(this);
+    hud->setWindowTitle(title);
+    hud->setCentralWidget(centralWidget);
+    hud->setButtonLayout(appSettings->getHudButtonLayout());
+    hud->setDesktopCompositingEnabled(appSettings->getDesktopCompositingEnabled());
+    huds.append(hud);
+    hudGeometryKeys.append(geometrySettingsKey);
+    hudOpenKeys.append(openSettingsKey);
+    connect(hud, SIGNAL(closed()), this, SLOT(onHudClosed()));
+
+    HudWindowShape hudShape;
+
+    switch (appSettings->getInterfaceStyle())
+    {
+        case InterfaceStyleRounded:
+            hudShape = HudWindowShapeRounded;
+            break;
+        default:
+            hudShape = HudWindowShapeSquare;
+            break;
+    }
+
+    hud->setShape(hudShape);
+
+    return hud;
+}
+
 void MainWindow::buildMenuBar()
 {
     QMenu* fileMenu = this->menuBar()->addMenu(tr("&File"));
@@ -1522,9 +1618,12 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(htmlPreviewMenuAction);
 
     viewMenu->addAction(tr("&Outline HUD"), this, SLOT(showOutlineHud()), QKeySequence("CTRL+L"));
-    viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()));
+    viewMenu->addAction(tr("&Cheat Sheet HUD"), this, SLOT(showCheatSheetHud()), QKeySequence::HelpContents);
     viewMenu->addAction(tr("&Document Statistics HUD"), this, SLOT(showDocumentStatisticsHud()));
     viewMenu->addAction(tr("&Session Statistics HUD"), this, SLOT(showSessionStatisticsHud()));
+    viewMenu->addSeparator();
+    hideOpenHudsAction =
+        viewMenu->addAction(tr("Hide Open &HUD Windows"), this, SLOT(toggleOpenHudsVisibility()), QKeySequence("CTRL+SHIFT+H"));
     viewMenu->addSeparator();
     viewMenu->addAction(tr("Increase Font Size"), editor, SLOT(increaseFontSize()), QKeySequence("CTRL+="));
     viewMenu->addAction(tr("Decrease Font Size"), editor, SLOT(decreaseFontSize()), QKeySequence("CTRL+-"));
@@ -1683,6 +1782,39 @@ void MainWindow::buildStatusBar()
     statusBarWidgets = statusBarButtons;
     statusBarWidgets.append(timeLabel);
     statusBarWidgets.append(wordCountLabel);
+}
+
+void MainWindow::showHud(HudWindow *hud)
+{
+    hud->show();
+    hud->activateWindow();
+
+    if (!openHuds.contains(hud))
+    {
+        openHuds.append(hud);
+    }
+}
+
+void MainWindow::setOpenHudsVisibility(bool visible)
+{
+    openHudsVisible = visible;
+
+    foreach (HudWindow* hud, openHuds)
+    {
+        hud->setVisible(visible);
+    }
+
+    if (visible)
+    {
+        hideOpenHudsAction->setText(tr("Hide Open &HUD Windows"));
+
+        // Set focus on the editor.
+        this->activateWindow();
+    }
+    else
+    {
+        hideOpenHudsAction->setText(tr("Show Open &HUD Windows"));
+    }
 }
 
 void MainWindow::adjustEditorWidth(int width)
