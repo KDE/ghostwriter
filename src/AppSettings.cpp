@@ -48,6 +48,8 @@
 #define GW_INTERFACE_STYLE_KEY "Style/interfaceStyle"
 #define GW_BLOCKQUOTE_STYLE_KEY "Style/blockquoteStyle"
 #define GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY "Style/displayTimeInFullScreen"
+#define GW_HIDE_HUDS_WHEN_TYPING_KEY "Style/hideHudsWhenTypingEnabled"
+#define GW_HIDE_HUDS_ON_PREVIEW_KEY "Style/hideHudsOnPreviewEnabled"
 #define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
 #define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
 #define GW_DICTIONARY_KEY "Spelling/locale"
@@ -98,6 +100,8 @@ void AppSettings::store()
     appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(hideMenuBarInFullScreenEnabled));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
     appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(displayTimeInFullScreenEnabled));
+    appSettings.setValue(GW_HIDE_HUDS_WHEN_TYPING_KEY, QVariant(hideHudsWhenTypingEnabled));
+    appSettings.setValue(GW_HIDE_HUDS_ON_PREVIEW_KEY, QVariant(hideHudsOnPreviewEnabled));
 
     appSettings.setValue(GW_THEME_KEY, QVariant(themeName));
     appSettings.setValue(GW_DICTIONARY_KEY, QVariant(dictionaryLanguage));
@@ -319,6 +323,28 @@ void AppSettings::setDisplayTimeInFullScreenEnabled(bool enabled)
 {
     displayTimeInFullScreenEnabled = enabled;
     emit displayTimeInFullScreenChanged(enabled);
+}
+
+bool AppSettings::getHideHudsWhenTypingEnabled() const
+{
+    return hideHudsWhenTypingEnabled;
+}
+
+void AppSettings::setHideHudsWhenTypingEnabled(bool enabled)
+{
+    hideHudsWhenTypingEnabled = enabled;
+    emit hideHudsWhenTypingChanged(enabled);
+}
+
+bool AppSettings::getHideHudsOnPreviewEnabled() const
+{
+    return hideHudsOnPreviewEnabled;
+}
+
+void AppSettings::setHideHudsOnPreviewEnabled(bool enabled)
+{
+    hideHudsOnPreviewEnabled = enabled;
+    emit hideHudsOnPreviewChanged(enabled);
 }
 
 QString AppSettings::getThemeName() const
@@ -707,6 +733,8 @@ AppSettings::AppSettings()
     hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
     displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    hideHudsWhenTypingEnabled = appSettings.value(GW_HIDE_HUDS_WHEN_TYPING_KEY, QVariant(false)).toBool();
+    hideHudsOnPreviewEnabled = appSettings.value(GW_HIDE_HUDS_ON_PREVIEW_KEY, QVariant(false)).toBool();
     themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
     dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
 
