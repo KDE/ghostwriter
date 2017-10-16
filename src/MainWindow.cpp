@@ -2179,18 +2179,9 @@ void MainWindow::applyTheme()
 
     styleSheet = "";
 
-    QColor splitterHandleColor = theme.getDefaultTextColor();
-    splitterHandleColor.setAlpha(30);
-
-    QString splitterHandleColorRGBA = ColorHelper::toRgbaString(splitterHandleColor);
-
     stream
-        << "QSplitter::handle:vertical { height: 1px; background: "
-        << splitterHandleColorRGBA
-        << " } "
-        << "QSplitter::handle:horizontal { width: 1px; background: "
-        << splitterHandleColorRGBA
-        << " } ";
+        << "QSplitter::handle:vertical { height: 0px; } "
+        << "QSplitter::handle:horizontal { width: 0px; } ";
 
     splitter->setStyleSheet(styleSheet);
 
