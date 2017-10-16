@@ -214,18 +214,6 @@ QWidget* PreferencesDialog::initializeGeneralTab()
     connect(menuBarCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideMenuBarInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(menuBarCheckBox);
 
-    QCheckBox* hideHudsWhenTypingCheckBox = new QCheckBox(tr("Auto-hide HUD windows when typing"));
-    hideHudsWhenTypingCheckBox->setCheckable(true);
-    hideHudsWhenTypingCheckBox->setChecked(appSettings->getHideHudsWhenTypingEnabled());
-    connect(hideHudsWhenTypingCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideHudsWhenTypingEnabled(bool)));
-    displayGroupLayout->addRow(hideHudsWhenTypingCheckBox);
-
-    QCheckBox* hideHudsOnPreviewCheckBox = new QCheckBox(tr("Auto-hide HUD windows when previewing HTML"));
-    hideHudsOnPreviewCheckBox->setCheckable(true);
-    hideHudsOnPreviewCheckBox->setChecked(appSettings->getHideHudsOnPreviewEnabled());
-    connect(hideHudsOnPreviewCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideHudsOnPreviewEnabled(bool)));
-    displayGroupLayout->addRow(hideHudsOnPreviewCheckBox);
-
     QComboBox* cornersComboBox = new QComboBox(this);
     cornersComboBox->addItem(tr("Rounded"), QVariant(InterfaceStyleRounded));
     cornersComboBox->addItem(tr("Square"), QVariant(InterfaceStyleSquare));
@@ -449,6 +437,18 @@ QWidget* PreferencesDialog::initializeHudTab()
     compositingCheckBox->setChecked(appSettings->getDesktopCompositingEnabled());
     connect(compositingCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setDesktopCompositingEnabled(bool)));
     tabLayout->addRow(compositingCheckBox);
+
+    QCheckBox* hideHudsWhenTypingCheckBox = new QCheckBox(tr("Auto-hide HUD windows when typing"));
+    hideHudsWhenTypingCheckBox->setCheckable(true);
+    hideHudsWhenTypingCheckBox->setChecked(appSettings->getHideHudsWhenTypingEnabled());
+    connect(hideHudsWhenTypingCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideHudsWhenTypingEnabled(bool)));
+    tabLayout->addRow(hideHudsWhenTypingCheckBox);
+
+    QCheckBox* hideHudsOnPreviewCheckBox = new QCheckBox(tr("Auto-hide HUD windows when previewing HTML"));
+    hideHudsOnPreviewCheckBox->setCheckable(true);
+    hideHudsOnPreviewCheckBox->setChecked(appSettings->getHideHudsOnPreviewEnabled());
+    connect(hideHudsOnPreviewCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideHudsOnPreviewEnabled(bool)));
+    tabLayout->addRow(hideHudsOnPreviewCheckBox);
 
     QSlider* slider = new QSlider(Qt::Horizontal, this);
     slider->setMinimum(0);
