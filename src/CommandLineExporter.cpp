@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014, 2015 wereturtle
+ * Copyright (C) 2014-2017 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -188,6 +188,17 @@ bool CommandLineExporter::executeCommand
         (
             SMART_TYPOGRAPHY_ARG,
             smartTypographyOffArgument
+        );
+    }
+    else
+    {
+        // Replace the smart typography argument with an empty string
+        // in case the above two cases are not applicable.
+        //
+        expandedCommand.replace
+        (
+            SMART_TYPOGRAPHY_ARG,
+            ""
         );
     }
 
