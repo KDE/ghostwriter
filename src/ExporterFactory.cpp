@@ -98,41 +98,60 @@ ExporterFactory::ExporterFactory()
 
     if (pandocIsAvailable)
     {
-        addPandocExporter("Pandoc", "markdown");
+        int majorVersion = 0;
+        int minorVersion = 0;
 
         // Check whether version of Pandoc can read CommonMark.
         QList<int> versionNumber = extractVersionNumber("pandoc --version");
 
         if (versionNumber.length() > 0)
         {
-            int majorVersion = versionNumber[0];
-            int minorVersion = 0;
+            majorVersion = versionNumber[0];
 
             if (versionNumber.length() > 1)
             {
                 minorVersion = versionNumber[1];
             }
-
-            if
-            (
-                (majorVersion > 1) ||
-                ((1 == majorVersion) && (minorVersion >= 14))
-            )
-            {
-                addPandocExporter("Pandoc CommonMark", "commonmark");
-            }
         }
 
-        addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github");
-        addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra");
-        addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd");
-        addPandocExporter("Pandoc Strict", "markdown_strict");
+        addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
+
+        if
+        (
+            (majorVersion > 1) ||
+            ((1 == majorVersion) && (minorVersion >= 14))
+        )
+        {
+            addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
+        }
+
+        addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github", majorVersion, minorVersion);
+        addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
+        addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
+        addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
     }
 
     if (mmdIsAvailable)
     {
+        int majorVersion = 0;
+
+        QList<int> versionNumber = extractVersionNumber("multimarkdown --version");
+
+        if (versionNumber.length() > 0)
+        {
+            majorVersion = versionNumber[0];
+        }
+
         exporter = new CommandLineExporter("MultiMarkdown");
-        exporter->setSmartTypographyOnArgument("--smart");
+
+        // Smart typography option (--smart) is only availabe in version 5 and below.
+        // The option is was removed and enabled by default in version 6 and above.
+        //
+        if (majorVersion < 6)
+        {
+            exporter->setSmartTypographyOnArgument("--smart");
+        }
+
         exporter->setSmartTypographyOffArgument("--nosmart");
         exporter->setHtmlRenderCommand(QString("multimarkdown %1 -t html")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
@@ -311,125 +330,115 @@ bool ExporterFactory::isCommandAvailable(const QString& testCommand) const
 void ExporterFactory::addPandocExporter
 (
     const QString& name,
-    const QString& inputFormat
+    const QString& inputFormat,
+    int majorVersion,
+    int minorVersion
 )
 {
+    Q_UNUSED(minorVersion)
+
     CommandLineExporter* exporter = new CommandLineExporter(name);
-    exporter->setSmartTypographyOnArgument("--smart");
-    exporter->setHtmlRenderCommand(QString("pandoc %1 -f %2 -t html")
-        .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-        .arg(inputFormat));
+
+    if (majorVersion >= 2)
+    {
+        exporter->setSmartTypographyOnArgument("+smart");
+        exporter->setSmartTypographyOffArgument("-smart");
+    }
+    else
+    {
+        exporter->setSmartTypographyOnArgument(" --smart");
+    }
+
+    exporter->setHtmlRenderCommand
+    (
+        QString("pandoc -f ") +
+            inputFormat +
+            CommandLineExporter::SMART_TYPOGRAPHY_ARG +
+            " -t html"
+    );
+
+    QString standardExportStr =
+        QString("pandoc -f ") +
+        inputFormat +
+        CommandLineExporter::SMART_TYPOGRAPHY_ARG +
+        " -t %1 --standalone -o " +
+        CommandLineExporter::OUTPUT_FILE_PATH_VAR;
+
     exporter->addFileExportCommand
     (
         ExportFormat::HTML,
-        QString("pandoc %1 -f %2 -t html --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("html")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::HTML5,
-        QString("pandoc %1 -f %2 -t html5 --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("html5")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::ODT,
-        QString("pandoc %1 -f %2 -t odt --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("odt")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::ODF,
-        QString("pandoc %1 -f %2 -t opendocument --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("opendocument")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::RTF,
-        QString("pandoc %1 -f %2 -t rtf --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("rtf")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::DOCX,
-        QString("pandoc %1 -f %2 -t docx --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("docx")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_LATEX,
-        QString("pandoc %1 -f %2 -t latex -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("latex") +
+            " -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_CONTEXT,
-        QString("pandoc %1 -f %2 -t context --variable pagenumbering:location=footer --variable layout:header=0mm --variable layout:top=1in --variable layout:bottom=1in --variable layout:leftmargin=1in --variable layout:rightmargin=1in -Vlinkcolor=blue --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("context") +
+            " --variable pagenumbering:location=footer --variable layout:header=0mm --variable layout:top=1in --variable layout:bottom=1in --variable layout:leftmargin=1in --variable layout:rightmargin=1in -Vlinkcolor=blue"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_WKHTML,
-        QString("pandoc %1 -f %2 -t html5 -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --mathjax --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("html5") +
+            " -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --mathjax"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV2,
-        QString("pandoc %1 -f %2 -t epub --standalone --toc --toc-depth 6 -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("epub") +
+            " --toc --toc-depth 6"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV3,
-        QString("pandoc %1 -f %2 -t epub3 --standalone --toc --toc-depth 6 -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("epub3") +
+            " --toc --toc-depth 6"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::FICTIONBOOK2,
-        QString("pandoc %1 -f %2 -t fb2 --standalone --toc --toc-depth 6 -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("fb2") +
+            " --toc --toc-depth 6"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::LATEX,
-        QString("pandoc %1 -f %2 -t latex --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("latex")
     );
     exporter->addFileExportCommand
     (
         ExportFormat::GROFFMAN,
-        QString("pandoc %1 -f %2 -t man --standalone -o %3")
-            .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-            .arg(inputFormat)
-            .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+        standardExportStr.arg("man")
     );
     fileExporters.append(exporter);
     htmlExporters.append(exporter);

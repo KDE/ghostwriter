@@ -98,7 +98,9 @@ class ExporterFactory
         void addPandocExporter
         (
             const QString& name,
-            const QString& inputFormat
+            const QString& inputFormat,
+            int majorVersion,
+            int minorVersion
         );
 
 
