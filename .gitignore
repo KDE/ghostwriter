@@ -36,3 +36,5 @@ Makefile*
 *.qm
 
 build/
+.kdev4/
+ghostwriter.kdev4
