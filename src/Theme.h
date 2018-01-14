@@ -66,7 +66,7 @@ class Theme
     public:
         Theme();
         Theme(const QString& name, bool builtIn = true);
-        ~Theme();
+        virtual ~Theme();
 
         QString getName() const;
         void setName(const QString& value);

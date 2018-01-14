@@ -25,6 +25,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QTextStream>
+#include <QUrl>
 
 #include "SundownExporter.h"
 
@@ -112,6 +113,7 @@ void SundownExporter::exportToHtml(const QString& text, QString& html)
 void SundownExporter::exportToFile
 (
     const ExportFormat* format,
+    const QUrl& stylesheet,
     const QString& inputFilePath,
     const QString& text,
     const QString& outputFilePath,

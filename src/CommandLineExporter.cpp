@@ -21,6 +21,7 @@
 #include <QFileInfo>
 #include <QObject>
 #include <QDir>
+#include <QUrl>
 
 #include "CommandLineExporter.h"
 
@@ -33,14 +34,10 @@ CommandLineExporter::CommandLineExporter(const QString& name)
     : Exporter(name), smartTypographyOnArgument(""),
         smartTypographyOffArgument(""),
         htmlRenderCommand(QString())
-{
-    ;
-}
+{}
 
 CommandLineExporter::~CommandLineExporter()
-{
-    ;
-}
+{}
 
 void CommandLineExporter::setHtmlRenderCommand(const QString& command)
 {
@@ -87,7 +84,7 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
         return;
     }
 
-    if (!executeCommand(htmlRenderCommand, QString(), text, QString(), html, stderrOuptut))
+    if (!executeCommand(htmlRenderCommand, QUrl(),  QString(), text, QString(), html, stderrOuptut))
     {
         html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>)").arg(htmlRenderCommand);
     }
@@ -100,6 +97,7 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
 void CommandLineExporter::exportToFile
 (
     const ExportFormat* format,
+    const QUrl& stylesheet,
     const QString& inputFilePath,
     const QString& text,
     const QString& outputFilePath,
@@ -117,7 +115,7 @@ void CommandLineExporter::exportToFile
 
     QString command = formatToCommandMap.value(format);
 
-    if (!executeCommand(command, inputFilePath, text, outputFilePath, stdoutOutput, stderrOuptut))
+    if (!executeCommand(command, stylesheet, inputFilePath, text, outputFilePath, stdoutOutput, stderrOuptut))
     {
         err = QObject::tr("Failed to execute command: ") + QString("%1").arg(command);
     }
@@ -134,6 +132,7 @@ void CommandLineExporter::exportToFile
 bool CommandLineExporter::executeCommand
 (
     const QString& command,
+    const QUrl& stylesheet,
     const QString& inputFilePath,
     const QString& textInput,
     const QString& outputFilePath,
@@ -143,8 +142,17 @@ bool CommandLineExporter::executeCommand
 {
     QProcess process;
     process.setReadChannel(QProcess::StandardOutput);
+    QString commandSuffix;
+    
+    if (stylesheet.toLocalFile() != NULL) {
+      commandSuffix = QString(" --css ") + stylesheet.toLocalFile();
+    } else {
+      commandSuffix = QString(" ");
+    }
 
-    QString expandedCommand = command + QString(" ");
+    QString expandedCommand = command + commandSuffix;
+    
+    
 
     if (!outputFilePath.isNull() && !outputFilePath.isEmpty())
     {

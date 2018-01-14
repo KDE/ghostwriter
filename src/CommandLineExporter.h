@@ -100,6 +100,7 @@ class CommandLineExporter : public Exporter
         void exportToFile
         (
             const ExportFormat* format,
+	    const QUrl& stylesheet,
             const QString& inputFilePath,
             const QString& text,
             const QString& outputFilePath,
@@ -172,6 +173,7 @@ class CommandLineExporter : public Exporter
         bool executeCommand
         (
             const QString& command,
+	    const QUrl& stylesheet,
             const QString& inputFilePath,
             const QString& textInput,
             const QString& outputFilePath,
