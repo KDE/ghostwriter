@@ -1949,8 +1949,9 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                 cursor.insertText(firstChar);
                 cursor.setPosition(textCursor().selectionEnd());
                 cursor.insertText(lastChar);
-                cursor = textCursor();
+                cursor.endEditBlock();
 
+                cursor = this->textCursor();
                 cursor.setPosition(cursor.selectionStart());
                 cursor.setPosition
                 (
@@ -1958,7 +1959,6 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                     QTextCursor::KeepAnchor
                 );
                 setTextCursor(cursor);
-                cursor.endEditBlock();
                 return true;
             }
         }
