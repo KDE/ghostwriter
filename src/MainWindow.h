@@ -87,6 +87,8 @@ class MainWindow : public QMainWindow
         void toggleFileHistoryEnabled(bool checked);
         void toggleDisplayTimeInFullScreen(bool checked);
         void toggleDesktopCompositingEffects(bool checked);
+        void toggleOpenHudsVisibility();
+        void toggleOpenHudsVisibility(bool checked);
         void changeHudButtonLayout(HudWindowButtonLayout layout);
         void changeEditorWidth(EditorWidth editorWidth);
         void changeInterfaceStyle(InterfaceStyle style);
@@ -98,7 +100,6 @@ class MainWindow : public QMainWindow
         void showCheatSheetHud();
         void showDocumentStatisticsHud();
         void showSessionStatisticsHud();
-        void toggleOpenHudsVisibility();
         void onHideHudsOnPreviewChanged(bool enabled);
         void onHudClosed();
         void onTypingPaused();
@@ -139,6 +140,7 @@ class MainWindow : public QMainWindow
         QPushButton* hemingwayModeButton;
         QPushButton* focusModeButton;
         QPushButton* htmlPreviewButton;
+        QPushButton* hideOpenHudsButton;
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
         QWebView* quickReferenceGuideViewer;
@@ -200,7 +202,6 @@ class MainWindow : public QMainWindow
         void buildStatusBar();
 
         void showHud(HudWindow* hud);
-        void setOpenHudsVisibility(bool visible);
         void adjustEditorWidth(int width);
         void applyStatusBarStyle();
         void applyTheme();
@@ -208,6 +209,7 @@ class MainWindow : public QMainWindow
         void showMenuBar();
         void hideMenuBar();
         bool isMenuBarVisible() const;
+        void setOpenHudsVisibility(bool visible);
 };
 
 #endif

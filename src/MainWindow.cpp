@@ -952,6 +952,16 @@ void MainWindow::toggleDesktopCompositingEffects(bool checked)
     }
 }
 
+void MainWindow::toggleOpenHudsVisibility()
+{
+    setOpenHudsVisibility(!openHudsVisible);
+}
+
+void MainWindow::toggleOpenHudsVisibility(bool checked)
+{
+    setOpenHudsVisibility(!checked);
+}
+
 void MainWindow::changeHudButtonLayout(HudWindowButtonLayout layout)
 {
     foreach (HudWindow* hud, huds)
@@ -1149,11 +1159,6 @@ void MainWindow::showDocumentStatisticsHud()
 void MainWindow::showSessionStatisticsHud()
 {
     showHud(sessionStatsHud);
-}
-
-void MainWindow::toggleOpenHudsVisibility()
-{
-    setOpenHudsVisibility(!openHudsVisible);
 }
 
 void MainWindow::onHideHudsOnPreviewChanged(bool enabled)
@@ -1725,6 +1730,14 @@ void MainWindow::buildStatusBar()
     statusBarLayout->addWidget(midWidget, 0, 1, 0, 1, Qt::AlignCenter);
 
     // Add right-most widgets to status bar.
+    hideOpenHudsButton = new QPushButton();
+    hideOpenHudsButton->setFocusPolicy(Qt::NoFocus);
+    hideOpenHudsButton->setToolTip(tr("Hide Open HUD Windows"));
+    hideOpenHudsButton->setCheckable(true);
+    hideOpenHudsButton->setChecked(appSettings->getHtmlPreviewVisible());
+    connect(hideOpenHudsButton, SIGNAL(toggled(bool)), this, SLOT(toggleOpenHudsVisibility(bool)));
+    rightLayout->addWidget(hideOpenHudsButton, 0, Qt::AlignRight);
+
     htmlPreviewButton = new QPushButton();
     htmlPreviewButton->setFocusPolicy(Qt::NoFocus);
     htmlPreviewButton->setToolTip(tr("Toggle Live HTML Preview"));
@@ -1774,6 +1787,7 @@ void MainWindow::buildStatusBar()
     statusBarButtons.append(previewOptionsButton);
     statusBarButtons.append(exportButton);
     statusBarButtons.append(copyHtmlButton);
+    statusBarButtons.append(hideOpenHudsButton);
     statusBarButtons.append(htmlPreviewButton);
     statusBarButtons.append(hemingwayModeButton);
     statusBarButtons.append(focusModeButton);
@@ -1792,28 +1806,6 @@ void MainWindow::showHud(HudWindow *hud)
     if (!openHuds.contains(hud))
     {
         openHuds.append(hud);
-    }
-}
-
-void MainWindow::setOpenHudsVisibility(bool visible)
-{
-    openHudsVisible = visible;
-
-    foreach (HudWindow* hud, openHuds)
-    {
-        hud->setVisible(visible);
-    }
-
-    if (visible)
-    {
-        hideOpenHudsAction->setText(tr("Hide Open &HUD Windows"));
-
-        // Set focus on the editor.
-        this->activateWindow();
-    }
-    else
-    {
-        hideOpenHudsAction->setText(tr("Show Open &HUD Windows"));
     }
 }
 
@@ -1966,6 +1958,7 @@ void MainWindow::applyTheme()
     QString focusIcon;
     QString hemingwayIcon;
     QString htmlPreviewIcon;
+    QString hideOpenHudsIcon;
     QString copyHtmlIcon;
     QString exportIcon;
     QString markdownOptionsIcon;
@@ -1980,6 +1973,7 @@ void MainWindow::applyTheme()
         focusIcon = ":/resources/images/focus-dark.svg";
         hemingwayIcon = ":/resources/images/hemingway-dark.svg";
         htmlPreviewIcon = ":/resources/images/html-preview-dark.svg";
+        hideOpenHudsIcon = ":/resources/images/hide-huds-dark.svg";
         copyHtmlIcon = ":/resources/images/copy-html-dark.svg";
         exportIcon = ":/resources/images/export-dark.svg";
         markdownOptionsIcon = ":/resources/images/configure-dark.svg";
@@ -2034,6 +2028,7 @@ void MainWindow::applyTheme()
         focusIcon = ":/resources/images/focus-light.svg";
         hemingwayIcon = ":/resources/images/hemingway-light.svg";
         htmlPreviewIcon = ":/resources/images/html-preview-light.svg";
+        hideOpenHudsIcon = ":/resources/images/hide-huds-light.svg";
         copyHtmlIcon = ":/resources/images/copy-html-light.svg";
         exportIcon = ":/resources/images/export-light.svg";
         markdownOptionsIcon = ":/resources/images/configure-light.svg";
@@ -2232,6 +2227,8 @@ void MainWindow::applyTheme()
     hemingwayModeButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
     htmlPreviewButton->setIcon(QIcon(htmlPreviewIcon));
     htmlPreviewButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
+    hideOpenHudsButton->setIcon(QIcon(hideOpenHudsIcon));
+    hideOpenHudsButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
     copyHtmlButton->setIcon(QIcon(copyHtmlIcon));
     copyHtmlButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
     exportButton->setIcon(QIcon(exportIcon));
@@ -2486,4 +2483,35 @@ void MainWindow::hideMenuBar()
 bool MainWindow::isMenuBarVisible() const
 {
     return (this->menuBar()->height() > 0);
+}
+
+void MainWindow::setOpenHudsVisibility(bool visible)
+{
+    openHudsVisible = visible;
+
+    foreach (HudWindow* hud, openHuds)
+    {
+        hud->setVisible(visible);
+    }
+
+    if (visible)
+    {
+        hideOpenHudsAction->setText(tr("Hide Open &HUD Windows"));
+
+        hideOpenHudsButton->blockSignals(true);
+        hideOpenHudsButton->setChecked(false);
+        hideOpenHudsButton->setToolTip(tr("Hide Open HUD Windows"));
+        hideOpenHudsButton->blockSignals(false);
+
+        // Set focus on the editor.
+        this->activateWindow();
+    }
+    else
+    {
+        hideOpenHudsAction->setText(tr("Show Open &HUD Windows"));
+        hideOpenHudsButton->blockSignals(true);
+        hideOpenHudsButton->setChecked(true);
+        hideOpenHudsButton->setToolTip(tr("Show Open HUD Windows"));
+        hideOpenHudsButton->blockSignals(false);
+    }
 }
