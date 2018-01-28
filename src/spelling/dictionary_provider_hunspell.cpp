@@ -301,7 +301,7 @@ DictionaryProviderHunspell::DictionaryProviderHunspell()
 		xdg.append("/usr/local/share");
 		xdg.append("/usr/share");
 	}
-	QStringList subdirs = QStringList() << "/hunspell" << "/myspell/dicts" << "/myspell";
+	QStringList subdirs = QStringList() << "/hunspell" << "/myspell/dicts" << "/myspell" << "/mozilla-dicts";
 	foreach (const QString& subdir, subdirs) {
 		foreach (const QString& dir, xdg) {
 			QString path = dir + subdir;
