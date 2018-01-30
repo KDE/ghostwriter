@@ -126,7 +126,7 @@ Then:
 
 ``` shell
 $ brew install qt5 --with-qtwebkit # Compication takes a while, and drains the battery
-$ resources/mac/Info.plist resources/
+$ cp resources/mac/Info.plist resources/
 $ qmake -spec macx-g++
 $ make
 ```
