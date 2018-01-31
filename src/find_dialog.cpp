@@ -234,6 +234,7 @@ void FindDialog::replace()
                 	}
             	}
             	match.replace(regex, *replacement);
+		delete replacement;
             	cursor.insertText(match);
             	document->setTextCursor(cursor);
         	} else if (regex.exactMatch(match)) {
@@ -326,6 +327,7 @@ void FindDialog::replaceAll()
 		    			}
 				}
 				match.replace(regex, *replacement);
+				delete replacement;
                 		cursor.insertText(match);
 	      		}
             	} else {
