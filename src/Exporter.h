@@ -98,6 +98,7 @@ class Exporter
         virtual void exportToFile
         (
             const ExportFormat* format,
+	    const QUrl& stylesheet,
             const QString& inputFilePath,
             const QString& text,
             const QString& outputFilePath,

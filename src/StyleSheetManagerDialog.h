@@ -46,7 +46,7 @@ class StyleSheetManagerDialog : public QDialog
         /**
          * Destructor.
          */
-        ~StyleSheetManagerDialog();
+        virtual ~StyleSheetManagerDialog();
 
         /**
          * Gets the list of user style sheets (as file paths).  Call this

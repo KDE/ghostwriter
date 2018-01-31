@@ -36,7 +36,7 @@ class SundownExporter : public Exporter
         /**
          * Destructor.
          */
-        ~SundownExporter();
+        virtual ~SundownExporter();
 
         /**
          * Exports the given Markdown text to HTML, setting the html parameter
@@ -53,6 +53,7 @@ class SundownExporter : public Exporter
         void exportToFile
         (
             const ExportFormat* format,
+	    const QUrl& stylesheet,
             const QString& inputFilePath,
             const QString& text,
             const QString& outputFilePath,

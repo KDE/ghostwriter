@@ -252,21 +252,21 @@ void ExporterFactory::addPandocExporter
 {
     CommandLineExporter* exporter = new CommandLineExporter(name);
     exporter->setSmartTypographyOnArgument("--smart");
-    exporter->setHtmlRenderCommand(QString("pandoc %1 -f %2 -t html")
+    exporter->setHtmlRenderCommand(QString("pandoc %1 -f %2 -t html5")
         .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
         .arg(inputFormat));
     exporter->addFileExportCommand
     (
-        ExportFormat::HTML,
-        QString("pandoc %1 -f %2 -t html --standalone -o %3")
+        ExportFormat::HTML5,
+        QString("pandoc %1 -f %2 -t html5 --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
     );
     exporter->addFileExportCommand
     (
-        ExportFormat::HTML5,
-        QString("pandoc %1 -f %2 -t html5 --standalone -o %3")
+        ExportFormat::HTML,
+        QString("pandoc %1 -f %2 -t html --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -274,7 +274,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::ODT,
-        QString("pandoc %1 -f %2 -t odt --standalone -o %3")
+        QString("pandoc %1 -f %2 -t odt --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -282,7 +282,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::ODF,
-        QString("pandoc %1 -f %2 -t opendocument --standalone -o %3")
+        QString("pandoc %1 -f %2 -t opendocument --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -290,7 +290,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::RTF,
-        QString("pandoc %1 -f %2 -t rtf --standalone -o %3")
+        QString("pandoc %1 -f %2 -t rtf --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -298,7 +298,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::DOCX,
-        QString("pandoc %1 -f %2 -t docx --standalone -o %3")
+        QString("pandoc %1 -f %2 -t docx --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -306,7 +306,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_LATEX,
-        QString("pandoc %1 -f %2 -t latex -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --standalone -o %3")
+        QString("pandoc %1 -f %2 -t latex -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -314,7 +314,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_CONTEXT,
-        QString("pandoc %1 -f %2 -t context --variable pagenumbering:location=footer --variable layout:header=0mm --variable layout:top=1in --variable layout:bottom=1in --variable layout:leftmargin=1in --variable layout:rightmargin=1in -Vlinkcolor=blue --standalone -o %3")
+        QString("pandoc %1 -f %2 -t context --variable pagenumbering:location=footer --variable layout:header=0mm --variable layout:top=1in --variable layout:bottom=1in --variable layout:leftmargin=1in --variable layout:rightmargin=1in -Vlinkcolor=blue --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -322,7 +322,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_WKHTML,
-        QString("pandoc %1 -f %2 -t html5 -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --mathjax --standalone -o %3")
+        QString("pandoc %1 -f %2 -t html5 -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --mathjax --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -330,7 +330,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV2,
-        QString("pandoc %1 -f %2 -t epub --standalone --toc --toc-depth 6 -o %3")
+        QString("pandoc %1 -f %2 -t epub --self-contained --toc --toc-depth 6 -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -338,7 +338,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV3,
-        QString("pandoc %1 -f %2 -t epub3 --standalone --toc --toc-depth 6 -o %3")
+        QString("pandoc %1 -f %2 -t epub3 --self-contained --toc --toc-depth 6 -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -346,7 +346,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::FICTIONBOOK2,
-        QString("pandoc %1 -f %2 -t fb2 --standalone --toc --toc-depth 6 -o %3")
+        QString("pandoc %1 -f %2 -t fb2 --self-contained --toc --toc-depth 6 -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -354,7 +354,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::LATEX,
-        QString("pandoc %1 -f %2 -t latex --standalone -o %3")
+        QString("pandoc %1 -f %2 -t latex --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
@@ -362,7 +362,7 @@ void ExporterFactory::addPandocExporter
     exporter->addFileExportCommand
     (
         ExportFormat::GROFFMAN,
-        QString("pandoc %1 -f %2 -t man --standalone -o %3")
+        QString("pandoc %1 -f %2 -t man --self-contained -o %3")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(inputFormat)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)

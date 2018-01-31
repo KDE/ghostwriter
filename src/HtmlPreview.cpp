@@ -535,6 +535,7 @@ void HtmlPreview::printHtmlToPrinter(QPrinter* printer)
 void HtmlPreview::onExport()
 {
     ExportDialog exportDialog(document);
+    exportDialog.setStyle(htmlBrowser->settings()->userStyleSheetUrl());
 
     connect(&exportDialog, SIGNAL(exportStarted(QString)), this, SIGNAL(operationStarted(QString)));
     connect(&exportDialog, SIGNAL(exportComplete()), this, SIGNAL(operationFinished()));

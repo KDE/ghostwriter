@@ -241,6 +241,7 @@ void ExportDialog::accept()
                 exporter->exportToFile
                 (
                     format,
+		    this->stylesheet,
                     this->document->getFilePath(),
                     document->toPlainText(),
                     fileName,
@@ -308,3 +309,9 @@ void ExportDialog::onFilterSelected(const QString& filter)
         }
     }
 }
+
+void ExportDialog::setStyle(const QUrl& stylesheet)
+{
+  this->stylesheet = stylesheet;
+}
+

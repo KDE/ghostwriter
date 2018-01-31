@@ -205,8 +205,8 @@ void FindDialog::findChanged(const QString& text)
 
 void FindDialog::replace()
 {
-	QString text = m_find_string->text();
-	if (text.isEmpty()) {
+	QString searchText = m_find_string->text();
+	if (searchText.isEmpty()) {
 		return;
 	}
 
@@ -214,20 +214,37 @@ void FindDialog::replace()
 	QTextCursor cursor = document->textCursor();
 	Qt::CaseSensitivity cs = m_ignore_case->isChecked() ? Qt::CaseInsensitive : Qt::CaseSensitive;
 	if (!m_regular_expressions->isChecked()) {
-		if (QString::compare(cursor.selectedText(), text, cs) == 0) {
+		if (QString::compare(cursor.selectedText(), searchText, cs) == 0) {
 			cursor.insertText(m_replace_string->text());
 			document->setTextCursor(cursor);
 		}
 	} else {
-		QRegExp regex(text, cs, QRegExp::RegExp2);
-		QString match = cursor.selectedText();
-        if (regex.exactMatch(match)) {
-            match.replace(regex, m_replace_string->text());
+		QRegExp regex(searchText, cs, QRegExp::RegExp2);
+        	QString match = cursor.selectedText();
+
+        	if (regex.indexIn(match) != -1) {
+	    		QString* replacement = NULL;	    
+            		QStringList groupsList = regex.capturedTexts();
+            		if (groupsList.length() > 1) {
+                		for (int g = 1; g < groupsList.length(); g++) {
+				  if (replacement == NULL) {
+		   			replacement =  new QString(m_replace_string->text());
+				  } 
+				  replacement->replace(QStringLiteral("$%1").arg(g), groupsList.at(g), cs);
+				}
+			      match.replace(regex, *replacement);
+			      delete replacement;
+			} else {
+			  match.replace(regex, m_replace_string->text());  
+			}
 			cursor.insertText(match);
 			document->setTextCursor(cursor);
-		}
+        	} else if (regex.exactMatch(match)) {
+            		match.replace(regex, m_replace_string->text());
+            		cursor.insertText(match);
+            		document->setTextCursor(cursor);
+        	}
 	}
-
 	find();
 }
 
@@ -286,7 +303,7 @@ void FindDialog::replaceAll()
 	QTextCursor start_cursor = document->textCursor();
     start_cursor.beginEditBlock();
 	if (!m_regular_expressions->isChecked()) {
-        forever {
+	  forever {
 			cursor = document->document()->find(text, cursor, flags);
             if (!cursor.isNull()) {
                 cursor.insertText(m_replace_string->text());
@@ -295,16 +312,33 @@ void FindDialog::replaceAll()
 			}
 		}
 	} else {
-        forever {
-			cursor = document->document()->find(regex, cursor, flags);
-			if (!cursor.isNull() && cursor.hasSelection()) {
-                QString match = cursor.selectedText();
-                match.replace(regex, m_replace_string->text());
-                cursor.insertText(match);
-			} else {
-				break;
+	  forever {
+		cursor = document->document()->find(regex, cursor, flags);
+            	if (!cursor.isNull() && cursor.hasSelection()) {
+	      		Qt::CaseSensitivity cs = m_ignore_case->isChecked() ? Qt::CaseInsensitive : Qt::CaseSensitive;
+	      		QString match = cursor.selectedText();
+	      		if (regex.indexIn(match) != -1) {
+				QString* replacement = NULL; 
+				QStringList groupsList = regex.capturedTexts();
+				if (groupsList.length() > 1) {
+			    		for (int g = 1; g < groupsList.length(); g++) {
+		      				if (replacement == NULL) {
+		      					replacement =  new QString(m_replace_string->text());
+		      				} 
+		      				replacement->replace(QStringLiteral("$%1").arg(g), groupsList.at(g), cs);
+		    			}
+		    			match.replace(regex, *replacement);
+					delete replacement;
+				} else {
+					match.replace(regex, m_replace_string->text());  
+				}
+				cursor.insertText(match);
+				document->setTextCursor(cursor);		
 			}
-		}
+            	} else {
+                	break;
+            	}
+	  }
 	}
     start_cursor.endEditBlock();
     document->setTextCursor(start_cursor);

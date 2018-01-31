@@ -1324,7 +1324,7 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(tr("&Insert Image..."), this, SLOT(insertImage()));
     editMenu->addSeparator();
     editMenu->addAction(tr("&Find"), findReplaceDialog, SLOT(showFindMode()), QKeySequence::Find);
-    editMenu->addAction(tr("Rep&lace"), findReplaceDialog, SLOT(showReplaceMode()), QKeySequence::Replace);
+    editMenu->addAction(tr("Rep&lace"), findReplaceDialog, SLOT(showReplaceMode()), QKeySequence("Ctrl+R"));
     editMenu->addSeparator();
     editMenu->addAction(tr("&Spell check"), editor, SLOT(runSpellChecker()));
 

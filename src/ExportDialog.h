@@ -21,6 +21,7 @@
 #define EXPORTDIALOG_H
 
 #include <QDialog>
+#include <QUrl>
 
 #include "TextDocument.h"
 
@@ -44,8 +45,9 @@ class ExportDialog : public QDialog
          * Constructor that takes text document to export as the parameter,
          * as well as the parent widget which will own this dialog.
          */
-        ExportDialog(TextDocument* document, QWidget* parent = 0);
+        ExportDialog(TextDocument* document, QWidget* parent = 0);	
         virtual ~ExportDialog();
+        void setStyle(const QUrl& stylesheet);
 
     signals:
         /**
@@ -92,6 +94,7 @@ class ExportDialog : public QDialog
         QCheckBox* smartTypographyCheckBox;
         TextDocument* document;
         QStringList fileFilters;
+	QUrl stylesheet;
 };
 
 #endif // EXPORTDIALOG_H
