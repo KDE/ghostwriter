@@ -227,16 +227,18 @@ void FindDialog::replace()
             		QStringList groupsList = regex.capturedTexts();
             		if (groupsList.length() > 1) {
                 		for (int g = 1; g < groupsList.length(); g++) {
-		  		if (replacement == NULL) {
+				  if (replacement == NULL) {
 		   			replacement =  new QString(m_replace_string->text());
-		  		} 
-                  		replacement->replace(QStringLiteral("$%1").arg(g), groupsList.at(g), cs);
-                	}
-            	}
-            	match.replace(regex, *replacement);
-		delete replacement;
-            	cursor.insertText(match);
-            	document->setTextCursor(cursor);
+				  } 
+				  replacement->replace(QStringLiteral("$%1").arg(g), groupsList.at(g), cs);
+				}
+			      match.replace(regex, *replacement);
+			      delete replacement;
+			} else {
+			  match.replace(regex, m_replace_string->text());  
+			}
+			cursor.insertText(match);
+			document->setTextCursor(cursor);
         	} else if (regex.exactMatch(match)) {
             		match.replace(regex, m_replace_string->text());
             		cursor.insertText(match);
@@ -325,11 +327,14 @@ void FindDialog::replaceAll()
 		      				} 
 		      				replacement->replace(QStringLiteral("$%1").arg(g), groupsList.at(g), cs);
 		    			}
+		    			match.replace(regex, *replacement);
+					delete replacement;
+				} else {
+					match.replace(regex, m_replace_string->text());  
 				}
-				match.replace(regex, *replacement);
-				delete replacement;
-                		cursor.insertText(match);
-	      		}
+				cursor.insertText(match);
+				document->setTextCursor(cursor);		
+			}
             	} else {
                 	break;
             	}
