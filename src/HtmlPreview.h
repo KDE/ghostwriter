@@ -27,7 +27,7 @@
 #include <QTimer>
 #include <QList>
 #include <QPrinter>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QUrl>
 #include <QFutureWatcher>
 #include <QStringList>
@@ -124,7 +124,7 @@ class HtmlPreview : public QMainWindow
         bool documentChanged;
         bool typingPaused;
         QString html;
-        QRegExp headingTagExp;
+        QRegularExpression headingTagExp;
         Exporter* exporter;
 
         /*

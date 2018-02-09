@@ -29,7 +29,7 @@
 #include <QGridLayout>
 #include <QTextCursor>
 #include <QListWidget>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include "GraphicsFadeEffect.h"
 #include "MarkdownEditorTypes.h"
@@ -429,10 +429,14 @@ class MarkdownEditor : public QPlainTextEdit
         int tabWidth;
         EditorWidth editorWidth;
         InterfaceStyle editorCorners;
-        QRegExp blockquoteRegex;
-        QRegExp numberedListRegex;
-        QRegExp bulletListRegex;
-        QRegExp taskListRegex;
+        QRegularExpression emptyBlockquoteRegex;
+        QRegularExpression emptyNumberedListRegex;
+        QRegularExpression emptyBulletListRegex;
+        QRegularExpression emptyTaskListRegex;
+        QRegularExpression blockquoteRegex;
+        QRegularExpression numberedListRegex;
+        QRegularExpression bulletListRegex;
+        QRegularExpression taskListRegex;
 
         // Used for auto-insert and pairing.
         QHash<QChar, QChar> markupPairs;
@@ -470,8 +474,11 @@ class MarkdownEditor : public QPlainTextEdit
         bool handleWhitespaceInEmptyMatch(const QChar whitespace);
         void insertFormattingMarkup(const QString& markup);
         QString getPriorIndentation();
-        QString getPriorMarkdownBlockItemStart(QRegExp& itemRegex);
-        void checkSpelling(const QString& text);
+        QString getPriorMarkdownBlockItemStart
+        (
+            const QRegularExpression& itemRegex,
+            QRegularExpressionMatch& match
+        );
 
         bool atBlockAreaStart(const QTextBlock& block, BlockType& type) const;
         bool atBlockAreaEnd(const QTextBlock& block, const BlockType type) const;

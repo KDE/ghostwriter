@@ -18,7 +18,7 @@
  ***********************************************************************/
 
 #include <QProcess>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QSettings>
 
 #include "ExporterFactory.h"
@@ -292,12 +292,13 @@ QList<int> ExporterFactory::extractVersionNumber(const QString& command) const
     }
 
     QString versionStr = QString::fromUtf8(process.readAllStandardOutput().data());
-    QRegExp versionRegex("\\d+(\\.\\d+)*");
-    int pos = versionRegex.indexIn(versionStr);
+    QRegularExpression versionRegex("\\d+(\\.\\d+)*");
+    QRegularExpressionMatch match;
+    int pos = versionStr.indexOf(versionRegex, 0, &match);
 
-    if (pos >= 0)
+    if ((pos >= 0) && match.hasMatch())
     {
-        versionStr = versionStr.mid(pos, versionRegex.matchedLength());
+        versionStr = match.captured();
     }
 
     QStringList numbers = versionStr.split('.', QString::SkipEmptyParts);

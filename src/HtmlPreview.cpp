@@ -55,8 +55,7 @@ HtmlPreview::HtmlPreview
     htmlBrowser->page()->action(QWebPage::OpenLink)->setVisible(false);
     htmlBrowser->page()->action(QWebPage::OpenLinkInNewWindow)->setVisible(false);
     connect(htmlBrowser, SIGNAL(linkClicked(QUrl)), this, SLOT(onLinkClicked(QUrl)));
-    headingTagExp.setMinimal(true);
-    headingTagExp.setPattern("[Hh][1-6]");
+    headingTagExp.setPattern("^[Hh][1-6]$");
 
     this->setCentralWidget(htmlBrowser);
 
@@ -191,7 +190,7 @@ void HtmlPreview::onHtmlReady()
             element = elementStack.pop();
 
             // If the element is a heading tag (H1-H6), set an anchor id for it.
-            if (headingTagExp.exactMatch(element.tagName()))
+            if (element.tagName().contains(headingTagExp))
             {
                 element.prependOutside(QString("<span id='livepreviewhnbr%1'></span>").arg(headingId));
                 headingId++;

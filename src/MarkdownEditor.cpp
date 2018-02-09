@@ -77,6 +77,10 @@ MarkdownEditor::MarkdownEditor
     numberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+");
     bulletListRegex.setPattern("^\\s*[+*-]\\s+");
     taskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+");
+    emptyBlockquoteRegex.setPattern("^ {0,3}(>\\s*)+$");
+    emptyNumberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+$");
+    emptyBulletListRegex.setPattern("^\\s*[+*-]\\s+$");
+    emptyTaskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+$");
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -635,6 +639,7 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
                 {
                     // Insert Markdown-style line break
                     cursor.insertText("  ");
+                    highlighter->rehighlightBlock(cursor.block());
                 }
 
                 if (e->modifiers() & Qt::ControlModifier)
@@ -1076,20 +1081,23 @@ void MarkdownEditor::indentText()
     {
         int indent = tabWidth;
         QString indentText = "";
+        QRegularExpressionMatch match;
 
         cursor.beginEditBlock();
 
         switch (cursor.block().userState())
         {
             case MarkdownStateNumberedList:
-                if (numberedListRegex.exactMatch(cursor.block().text()))
+                match = emptyNumberedListRegex.match(cursor.block().text());
+
+                if (match.hasMatch())
                 {
-                    QStringList capture = numberedListRegex.capturedTexts();
+                    QStringList capture = match.capturedTexts();
 
                     // Restart numbering for the nested list.
                     if (capture.size() == 2)
                     {
-                        QRegExp numberRegex("\\d+");
+                        QRegularExpression numberRegex("\\d+");
 
                         cursor.movePosition(QTextCursor::StartOfBlock);
                         cursor.movePosition
@@ -1113,7 +1121,11 @@ void MarkdownEditor::indentText()
                 break;
             case MarkdownStateBulletPointList:
             {
-                if (bulletListRegex.exactMatch(cursor.block().text()))
+                if (emptyTaskListRegex.match(cursor.block().text()).hasMatch())
+                {
+                    cursor.movePosition(QTextCursor::StartOfBlock);
+                }
+                else if (emptyBulletListRegex.match(cursor.block().text()).hasMatch())
                 {
                     if (bulletPointCyclingEnabled)
                     {
@@ -1151,10 +1163,6 @@ void MarkdownEditor::indentText()
                         cursor.insertText(replacementText);
                     }
 
-                    cursor.movePosition(QTextCursor::StartOfBlock);
-                }
-                else if (taskListRegex.exactMatch(cursor.block().text()))
-                {
                     cursor.movePosition(QTextCursor::StartOfBlock);
                 }
 
@@ -1231,7 +1239,7 @@ void MarkdownEditor::unindentText()
     if
     (
         (MarkdownStateBulletPointList == cursor.block().userState())
-        && (bulletListRegex.exactMatch(cursor.block().text()))
+        && (emptyBulletListRegex.match(cursor.block().text()).hasMatch())
         && bulletPointCyclingEnabled
     )
     {
@@ -1293,13 +1301,15 @@ bool MarkdownEditor::toggleTaskComplete()
 
     while (block != end)
     {
+        QRegularExpressionMatch match;
+
         if
         (
             (block.userState() == MarkdownStateBulletPointList)
-            && (block.text().indexOf(taskListRegex) == 0)
+            && (block.text().indexOf(taskListRegex, 0, &match) == 0)
         )
         {
-            QStringList capture = taskListRegex.capturedTexts();
+            QStringList capture = match.capturedTexts();
 
             if (capture.size() == 2)
             {
@@ -1678,12 +1688,14 @@ void MarkdownEditor::handleCarriageReturn()
     }
     else
     {
+        QRegularExpressionMatch match;
+
         switch (cursor.block().userState())
         {
             case MarkdownStateNumberedList:
             {
-                autoInsertText = getPriorMarkdownBlockItemStart(numberedListRegex);
-                QStringList capture = numberedListRegex.capturedTexts();
+                autoInsertText = getPriorMarkdownBlockItemStart(numberedListRegex, match);
+                QStringList capture = match.capturedTexts();
 
                 if (!autoInsertText.isEmpty() && (capture.size() == 2))
                 {
@@ -1695,7 +1707,7 @@ void MarkdownEditor::handleCarriageReturn()
                     // Else auto-increment the list number.
                     else
                     {
-                        QRegExp numberRegex("\\d+");
+                        QRegularExpression numberRegex("\\d+");
                         int number = capture.at(1).toInt();
                         number++;
                         autoInsertText =
@@ -1714,14 +1726,14 @@ void MarkdownEditor::handleCarriageReturn()
             }
             case MarkdownStateBulletPointList:
                 // Check for GFM task list before checking for bullet point.
-                autoInsertText = getPriorMarkdownBlockItemStart(taskListRegex);
+                autoInsertText = getPriorMarkdownBlockItemStart(taskListRegex, match);
 
                 // If the string is empty, then it wasn't a GFM task list item.
                 // Treat it as a normal bullet point.
                 //
                 if (autoInsertText.isEmpty())
                 {
-                    autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex);
+                    autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex, match);
 
                     if (autoInsertText.isEmpty())
                     {
@@ -1752,7 +1764,7 @@ void MarkdownEditor::handleCarriageReturn()
                 }
                 break;
             case MarkdownStateBlockquote:
-                autoInsertText = getPriorMarkdownBlockItemStart(blockquoteRegex);
+                autoInsertText = getPriorMarkdownBlockItemStart(blockquoteRegex, match);
                 break;
             default:
                 autoInsertText = getPriorIndentation();
@@ -1788,24 +1800,24 @@ bool MarkdownEditor::handleBackspaceKey()
     {
         case MarkdownStateNumberedList:
         {
-            if (numberedListRegex.exactMatch(textCursor().block().text()))
+            if (emptyNumberedListRegex.match(textCursor().block().text()).hasMatch())
             {
-                backtrackIndex = cursor.block().text().indexOf(QRegExp("\\d"));
+                backtrackIndex = cursor.block().text().indexOf(QRegularExpression("\\d"));
             }
             break;
         }
         case MarkdownStateBulletPointList:
             if
             (
-                bulletListRegex.exactMatch(cursor.block().text())
-                || taskListRegex.exactMatch(cursor.block().text())
+                emptyBulletListRegex.match(cursor.block().text()).hasMatch()
+                || emptyTaskListRegex.match(cursor.block().text()).hasMatch()
             )
             {
-                backtrackIndex = cursor.block().text().indexOf(QRegExp("[+*-]"));
+                backtrackIndex = cursor.block().text().indexOf(QRegularExpression("[+*-]"));
             }
             break;
         case MarkdownStateBlockquote:
-            if (blockquoteRegex.exactMatch(cursor.block().text()))
+            if (emptyBlockquoteRegex.match(cursor.block().text()).hasMatch())
             {
                 backtrackIndex = cursor.block().text().lastIndexOf('>');
             }
@@ -2134,16 +2146,20 @@ QString MarkdownEditor::getPriorIndentation()
     return indent;
 }
 
-QString MarkdownEditor::getPriorMarkdownBlockItemStart(QRegExp& itemRegex)
+QString MarkdownEditor::getPriorMarkdownBlockItemStart
+(
+    const QRegularExpression& itemRegex,
+    QRegularExpressionMatch& match
+)
 {
     QTextCursor cursor = this->textCursor();
     QTextBlock block = cursor.block();
 
     QString text = block.text();
 
-    if (itemRegex.indexIn(text, 0) >= 0)
+    if ((text.indexOf(itemRegex, 0, &match) >= 0) && match.hasMatch())
     {
-        return text.left(itemRegex.matchedLength());
+        return match.captured();
     }
 
     return QString("");
