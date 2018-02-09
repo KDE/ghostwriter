@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Copyright (C) 2014-2017 wereturtle
+# Copyright (C) 2014-2018 wereturtle
 # Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -18,26 +18,20 @@
 #
 ################################################################################
 
-lessThan(QT_VERSION, 4.8) {
-    error("ghostwriter requires Qt 4.8 or greater")
-}
-macx:greaterThan(QT_MAJOR_VERSION, 4):lessThan(QT_VERSION, 5.2) {
+lessThan(QT_VERSION, 5.2) {
     error("ghostwriter requires Qt 5.2 or greater")
 }
 
 TEMPLATE = app
-greaterThan(QT_MAJOR_VERSION, 4) { # QT v. 5
-    QT += printsupport webkitwidgets widgets concurrent
-}
-else { # QT v. 4
-    QT += webkit concurrent
-}
+
+QT += printsupport webkitwidgets widgets concurrent
+
 CONFIG -= debug
 CONFIG += warn_on
 
 # Set program version
 isEmpty(VERSION) {
-    VERSION = v1.6.0-alpha
+    VERSION = v1.6.0
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
@@ -68,9 +62,7 @@ macx {
 
 	OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
 } else:win32 {
-	greaterThan(QT_MAJOR_VERSION, 4) {
-		LIBS += -lz
-	}
+	LIBS += -lz
 
 	INCLUDEPATH += src/spelling/hunspell
 
@@ -90,9 +82,6 @@ macx {
 		src/spelling/hunspell/replist.cxx \
         src/spelling/hunspell/suggestmgr.cxx
 
-	lessThan(QT_MAJOR_VERSION, 5) {
-		LIBS += -lOle32
-	}
 } else:unix {
 	CONFIG += link_pkgconfig
 	PKGCONFIG += hunspell
