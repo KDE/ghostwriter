@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) Dmitry Shachnev 2012
  *

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

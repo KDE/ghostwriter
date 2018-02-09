@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -1207,7 +1207,7 @@ void MainWindow::showAbout()
     QString aboutText =
         QString("<p><b>") +  qAppName() + QString(" ")
         + qApp->applicationVersion() + QString("</b></p>")
-        + tr("<p>Copyright &copy; 2014-2017 wereturtle</b>"
+        + tr("<p>Copyright &copy; 2014-2018 wereturtle</b>"
              "<p>You may use and redistribute this software under the terms of the "
              "<a href=\"http://www.gnu.org/licenses/gpl.html\">"
              "GNU General Public License Version 3</a>.</p>"
