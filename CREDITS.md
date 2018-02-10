@@ -12,8 +12,9 @@ Translations
 * Japanese - piyo-gh
 * German - dhbwmawhd
 * Czech - Pavel Fric (pafri)
+* Polish - mleko69
 * French - pygoliae
-* Spanish - cemetary
+* Spanish - cemetary, Icaro Perseo (icaroperseo)
 
 Libraries
 =========
