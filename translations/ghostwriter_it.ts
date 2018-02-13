@@ -917,12 +917,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1368"/>
         <source>Increase Font Size</source>
-        <translation type="unfinished">Aumenta la dimensione del carattere</translation>
+        <translation>Aumenta la Dimensione del Carattere</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Decrease Font Size</source>
-        <translation type="unfinished">Diminuisci dimensione carattere</translation>
+        <translation>Diminuisci la Dimensione Carattere</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
@@ -942,7 +942,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1375"/>
         <source>Preferences...</source>
-        <translation>Preferenze</translation>
+        <translation>Preferenze...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1374"/>
@@ -1769,7 +1769,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
         <location filename="../src/ThemeSelectionDialog.cpp" line="108"/>
         <source>Edit...</source>
         <translatorcomment>Etichetta pulsante nella finestra di dialogo per la scelta dei Temi [ Settings-&gt;Themes… ]</translatorcomment>
-        <translation>Modifica</translation>
+        <translation>Modifica...</translation>
     </message>
     <message>
         <location filename="../src/ThemeSelectionDialog.cpp" line="169"/>
