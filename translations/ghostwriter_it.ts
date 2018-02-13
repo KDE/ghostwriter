@@ -922,7 +922,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Decrease Font Size</source>
-        <translation>Diminuisci la Dimensione Carattere</translation>
+        <translation>Diminuisci la Dimensione del Carattere</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
