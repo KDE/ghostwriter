@@ -353,8 +353,7 @@
         <location filename="../src/find_dialog.cpp" line="281"/>
         <location filename="../src/find_dialog.cpp" line="355"/>
         <source>Sorry</source>
-        <translatorcomment>Возможно лучше использовать &quot;Извините&quot;, так как это заголовок окна?</translatorcomment>
-        <translation>К сожалению</translation>
+        <translation>Извините</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="281"/>
@@ -800,17 +799,17 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1599"/>
         <source>&amp;* Bullet List</source>
-        <translation>&amp;* Маркерованный список</translation>
+        <translation>&amp;* Маркированный список</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1600"/>
         <source>&amp;- Bullet List</source>
-        <translation>&amp;- Маркерованный список</translation>
+        <translation>&amp;- Маркированный список</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1601"/>
         <source>&amp;+ Bullet List</source>
-        <translation>&amp;+ Маркерованный список</translation>
+        <translation>&amp;+ Маркированный список</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1603"/>
@@ -875,7 +874,8 @@
         <location filename="../src/MainWindow.cpp" line="1631"/>
         <location filename="../src/MainWindow.cpp" line="2499"/>
         <source>Hide Open &amp;HUD Windows</source>
-        <translation>Скрыть открытые &amp;плавающие окна</translation>
+        <translatorcomment>Не прямой перевод (open - открытые, а не используемые), но более точный по смыслу. Заодно, чтобы не плодить тафталогии &quot;Открыть открытые&quot;.</translatorcomment>
+        <translation>Скрыть используемые &amp;плавающие окна</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1633"/>
@@ -936,7 +936,8 @@
         <location filename="../src/MainWindow.cpp" line="1735"/>
         <location filename="../src/MainWindow.cpp" line="2503"/>
         <source>Hide Open HUD Windows</source>
-        <translation>Скрыть открытые плавающие окна</translation>
+        <translatorcomment>Не прямой перевод (open - открытые, а не используемые), но более точный по смыслу. Заодно, чтобы не плодить тафталогии &quot;Открыть открытые&quot;.</translatorcomment>
+        <translation>Скрыть используемые плавающие окна</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1743"/>
@@ -946,12 +947,14 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="2511"/>
         <source>Show Open &amp;HUD Windows</source>
-        <translation>Показать открытые &amp;плавающие окна</translation>
+        <translatorcomment>Не прямой перевод (open - открытые, а не используемые), но более точный по смыслу. Заодно, чтобы не плодить тафталогии &quot;Открыть открытые&quot;.</translatorcomment>
+        <translation>Показать использовуемые &amp;плавающие окна</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2514"/>
         <source>Show Open HUD Windows</source>
-        <translation>Показать открытые плавающие окна</translation>
+        <translatorcomment>Не прямой перевод (open - открытые, а не используемые), но более точный по смыслу. Заодно, чтобы не плодить тафталогии &quot;Открыть открытые&quot;.</translatorcomment>
+        <translation>Показать используемые плавающие окна</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1639"/>
@@ -1076,12 +1079,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="218"/>
         <source>Rounded</source>
-        <translation>Закруглённые</translation>
+        <translation>Закруглённые уголки</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="219"/>
         <source>Square</source>
-        <translation>Прямоугольные</translation>
+        <translation>Прямоугольные грани</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
@@ -1166,22 +1169,26 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="307"/>
         <source>Narrow</source>
-        <translation>Узкий</translation>
+        <translatorcomment>В связке со строкой &quot;Ширина редактора&quot; (какая?)</translatorcomment>
+        <translation>Узкая</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Medium</source>
-        <translation>Средний</translation>
+        <translatorcomment>В связке со строкой &quot;Ширина редактора&quot; (какая?)</translatorcomment>
+        <translation>Средняя</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="309"/>
         <source>Wide</source>
-        <translation>Широкий</translation>
+        <translatorcomment>В связке со строкой &quot;Ширина редактора&quot; (какая?)</translatorcomment>
+        <translation>Широкая</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="310"/>
         <source>Full</source>
-        <translation>Полноразмерный</translation>
+        <translatorcomment>В связке со строкой &quot;Ширина редактора&quot; (какая?)</translatorcomment>
+        <translation>Полная</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="314"/>
@@ -1227,7 +1234,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="339"/>
         <source>Highlight line breaks</source>
-        <translation>Отображать конец строки</translation>
+        <translation>Подсвечивать разрыв строки</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="345"/>
@@ -1469,7 +1476,7 @@
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="27"/>
         <source>Average WPM:</source>
-        <translation>В среднем, слов/мин:</translation>
+        <translation>В среднем (слов/мин):</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="28"/>
@@ -1578,7 +1585,7 @@
     <message>
         <location filename="../src/StyleSheetManagerDialog.cpp" line="38"/>
         <source>Custom Style Sheets</source>
-        <translatorcomment>Ох уж эти обыгрывание аббревиатур... Ну, пусть будет так.</translatorcomment>
+        <translatorcomment>Ох уж эти обыгрывания аббревиатур... Ну, пусть будет так.</translatorcomment>
         <translation>Собственные таблицы стилей</translation>
     </message>
     <message>
@@ -1692,6 +1699,7 @@
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="148"/>
         <source>Emphasis Color</source>
+        <translatorcomment>Вариант: &quot;Цвет курсива&quot; ? Не совсем верно будет, так как заголовки тоже подразумеваются.</translatorcomment>
         <translation>Цвет выделения</translation>
     </message>
     <message>
