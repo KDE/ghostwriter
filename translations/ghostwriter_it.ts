@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<TS version="2.1" language="it_IT">
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
@@ -34,7 +34,7 @@
     <message>
         <source>Set Dictionary</source>
         <translatorcomment>Titolo della finestra per la scelta del dizionario per la correzzione ortografica [ Settings -&gt; Dictionaries... ]</translatorcomment>
-        <translation>Imposta il dizionario</translation>
+        <translation type="vanished">Imposta il dizionario</translation>
     </message>
 </context>
 <context>
@@ -393,37 +393,37 @@ NOTA: Meglio non tradurre dato che  è il nome proprio di un filtro, ed è il no
         <source>Copy HTML</source>
         <translatorcomment>Etichetta puslante &quot;Copy HTML&quot;,  nella finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]
 NOTA: Il testo deve essere breve dato che spesso l&apos;utente lavorerà con la finestra di Anteprima HTML affiancata all&apos;editor (e magari anche agli HUD)</translatorcomment>
-        <translation>Copia HTML</translation>
+        <translation type="vanished">Copia HTML</translation>
     </message>
     <message>
         <source>Export</source>
         <translatorcomment>Etichetta puslante &quot;Export&quot;,  nella finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]</translatorcomment>
-        <translation>Esporta</translation>
+        <translation type="vanished">Esporta</translation>
     </message>
     <message>
         <source>Print</source>
         <translatorcomment>Etichetta puslante &quot;Print&quot;,  nella finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]</translatorcomment>
-        <translation>Stampa</translation>
+        <translation type="vanished">Stampa</translation>
     </message>
     <message>
         <source>No markdown (pandoc, multimarkdown, discount) processors are installed.  Please install or add their installation locations to your system PATH environment variable.</source>
         <translatorcomment>NOTA: La traduzione è molto lunga, bisogna verificare che non ecceda lo spazio di visualizzazion!</translatorcomment>
-        <translation>Su questo PC non risulta presente alcuno strumento per l&apos;elaborazione del Markdown (pandoc, multimarkdown, discount). Sei pregato di installarne almeno uno, o di aggiungere alla variabile PATH del sistema il percorso di eventuali strumenti presenti nel sistema.</translation>
+        <translation type="vanished">Su questo PC non risulta presente alcuno strumento per l&apos;elaborazione del Markdown (pandoc, multimarkdown, discount). Sei pregato di installarne almeno uno, o di aggiungere alla variabile PATH del sistema il percorso di eventuali strumenti presenti nel sistema.</translation>
     </message>
     <message>
         <source>Github (Default)</source>
         <translatorcomment>Voce predefinita nel menu a cascata per la scelta dei fogli di stile per l&apos;anteprima,  nella finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]</translatorcomment>
-        <translation>GitHub (predefinito)</translation>
+        <translation type="vanished">GitHub (predefinito)</translation>
     </message>
     <message>
         <source>Add/Remove Style Sheets...</source>
-        <translation>Aggiungi/elmina fogli di stile...</translation>
+        <translation type="vanished">Aggiungi/elmina fogli di stile...</translation>
     </message>
     <message>
         <source>Add/Remove Custom Style Sheets...</source>
         <translatorcomment>Voce opzioni nel menu a cascata per la scelta dei fogli di stile per l&apos;anteprima,  nella finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]
 NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Anteprima HTML, potrebbe risultare illleggibile (troncato).</translatorcomment>
-        <translation>Aggiungi/rimuovi foglio di stile CSS...</translation>
+        <translation type="vanished">Aggiungi/rimuovi foglio di stile CSS...</translation>
     </message>
 </context>
 <context>
@@ -613,12 +613,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <source>Tabulation Width</source>
         <translatorcomment>Tiitolo finestra dialogo per [ Settings-&gt;Tabulation Width... ]</translatorcomment>
-        <translation>Larghezza tabulazioni</translation>
+        <translation type="vanished">Larghezza tabulazioni</translation>
     </message>
     <message>
         <source>Spaces</source>
         <translatorcomment>Etichetta opzione in finestra dialogo per [ Settings-&gt;Tabulation Width... ]</translatorcomment>
-        <translation>Numero di spazi</translation>
+        <translation type="vanished">Numero di spazi</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1093"/>
@@ -632,7 +632,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Puoi utilizzare e redistribuire questo software secondo i termini della &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visita il sito ufficiale al link &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;La mia gratitudine, ed il dovuto credito per il riutilizzo del loro codice, vanno a &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, autore di &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, autore di &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, autore di &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Sono inoltre debitore verso &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;autore di &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, per l&apos;ispirazione che mi ha fornito creando uno strumento di editing per Markdown così stupendo.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Puoi utilizzare e redistribuire questo software secondo i termini della &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visita il sito ufficiale al link &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;La mia gratitudine, ed il dovuto credito per il riutilizzo del loro codice, vanno a &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, autore di &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, autore di &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, autore di &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Sono inoltre debitore verso &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;autore di &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, per l&apos;ispirazione che mi ha fornito creando uno strumento di editing per Markdown così stupendo.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1233"/>
@@ -646,11 +646,11 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Hud Window Opacity</source>
-        <translation>Opacità finestre HUD</translation>
+        <translation type="vanished">Opacità finestre HUD</translation>
     </message>
     <message>
         <source>Matched Characters</source>
-        <translation>Caratteri accoppiabili</translation>
+        <translation type="vanished">Caratteri accoppiabili</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1539"/>
@@ -1033,7 +1033,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Hemingway</source>
-        <translation>Hemingway</translation>
+        <translation type="vanished">Hemingway</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1751"/>
@@ -1043,7 +1043,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <message>
         <source>Focus</source>
         <translatorcomment>Etichetta Pulsante nel bordo inferiore dell&apos;editor.</translatorcomment>
-        <translation>Modalità focus</translation>
+        <translation type="vanished">Modalità focus</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1758"/>
@@ -1705,12 +1705,12 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <source>Rounded</source>
         <translatorcomment>Voce del menu di scelta a scascata per l&apos;opzione &quot;Editor Corners&quot; nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes...-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Arrotondati</translation>
+        <translation type="vanished">Arrotondati</translation>
     </message>
     <message>
         <source>Square</source>
         <translatorcomment>Voce del menu di scelta a scascata per l&apos;opzione &quot;Editor Corners&quot; nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes...-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Squadrati</translation>
+        <translation type="vanished">Squadrati</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="111"/>
@@ -1828,7 +1828,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <source>Editor Corners</source>
         <translatorcomment>Etichetta opzioni nella finestra di dialogo per la modifica dei temi  [ Settings-&gt;Themes...-&gt;Edit-&gt;Background ]</translatorcomment>
-        <translation>Angoli editor</translation>
+        <translation type="vanished">Angoli editor</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="164"/>
