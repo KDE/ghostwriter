@@ -25,5 +25,6 @@
         <file>resources/github.css</file>
         <file>resources/quickreferenceguide_en.html</file>
         <file>resources/quickreferenceguide_ja.html</file>
+        <file>resources/quickreferenceguide_ru.html</file>
     </qresource>
 </RCC>
