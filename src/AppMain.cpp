@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,9 +40,14 @@ int main(int argc, char* argv[])
     AppSettings* appSettings = AppSettings::getInstance();
     QLocale::setDefault(appSettings->getLocale());
 
+    QTranslator qtTranslator;
+    qtTranslator.load("qt_" + QLocale::system().name(),
+        QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    app.installTranslator(&qtTranslator);
+
     // Translate application based on locale.
-    QTranslator translator;
-    bool ok = translator.load
+    QTranslator appTranslator;
+    bool ok = appTranslator.load
     (
         QString("ghostwriter_") + appSettings->getLocale(),
         appSettings->getTranslationsPath()
@@ -50,14 +55,14 @@ int main(int argc, char* argv[])
 
     if (!ok)
     {
-        translator.load
+        appTranslator.load
         (
             "ghostwriter_en",
             appSettings->getTranslationsPath()
         );
     }
 
-    app.installTranslator(&translator);
+    app.installTranslator(&appTranslator);
 
     QString filePath = QString();
 
