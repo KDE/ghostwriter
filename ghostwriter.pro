@@ -18,7 +18,11 @@
 #
 ################################################################################
 
-lessThan(QT_VERSION, 5.2) {
+lessThan(QT_MAJOR_VERSION, 5) {
+    error("ghostwriter requires Qt 5.2 or greater")
+}
+
+isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 2) {
     error("ghostwriter requires Qt 5.2 or greater")
 }
 
