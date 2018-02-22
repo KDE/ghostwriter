@@ -294,12 +294,12 @@
     <message>
         <location filename="../src/find_dialog.cpp" line="56"/>
         <source>Search up</source>
-        <translation>Vers le haut</translation>
+        <translation>Recherche vers le haut</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="57"/>
         <source>Search down</source>
-        <translation>Vers le bas</translation>
+        <translation>Recherche vers le bas</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="64"/>
