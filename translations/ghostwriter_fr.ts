@@ -294,12 +294,12 @@
     <message>
         <location filename="../src/find_dialog.cpp" line="56"/>
         <source>Search up</source>
-        <translation>Vers le haut</translation>
+        <translation>Recherche vers le haut</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="57"/>
         <source>Search down</source>
-        <translation>Vers le bas</translation>
+        <translation>Recherche vers le bas</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="64"/>
@@ -600,7 +600,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="153"/>
         <source>--- *** ___ Horizontal Rule</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">--- *** ___ Trait horizontal</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="173"/>
@@ -620,8 +620,8 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1210"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
+        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;Vous pouvez utiliser et redistribuer ce logiciel selon les termes de la licence &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiter le site internet officiel &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Crédits et remerciements spéciaux pour le code d'origine à &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, auteur de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, auteur de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, auteur de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;J'ai également une dette abyssale envers &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l'auteur de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, pour l'inspiration qu'il m'a donné en créant un si beau éditeur Markdown.&lt;/p&gt;</translation>
+    </message>    
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1238"/>
         <source>%Ln word(s)</source>
@@ -693,7 +693,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1578"/>
         <source>Copy &amp;HTML</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Copier le &amp;HTML</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1580"/>
@@ -829,7 +829,7 @@
         <location filename="../src/MainWindow.cpp" line="1631"/>
         <location filename="../src/MainWindow.cpp" line="2499"/>
         <source>Hide Open &amp;HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cacher la fenêtre HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1633"/>
@@ -859,22 +859,22 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1640"/>
         <source>Style Sheets...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"Feuilles de style ...></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1641"/>
         <source>Preview Options...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Options de prévisualisation ...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1642"/>
         <source>Preferences...</source>
-        <translation type="unfinished">Options avancées ...</translation>
+        <translation type="unfinished">Préférences ...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1701"/>
         <source>Preview Options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Options de prévisualisation</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1707"/>
@@ -890,22 +890,22 @@
         <location filename="../src/MainWindow.cpp" line="1735"/>
         <location filename="../src/MainWindow.cpp" line="2503"/>
         <source>Hide Open HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cacher la fenêtre HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1743"/>
         <source>Toggle Live HTML Preview</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bascule Prévisualisation HTML</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2511"/>
         <source>Show Open &amp;HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Montrer la fenêtre &amp;HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2514"/>
         <source>Show Open HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Montrer la fenêtre HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1639"/>
@@ -958,7 +958,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1758"/>
         <source>Toggle distraction free mode</source>
-        <translation>Focus activé/désactivé</translation>
+        <translation>Bascule Mode Concentration</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1766"/>
@@ -1044,7 +1044,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Interface style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Style de l'interface</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="225"/>
@@ -1114,7 +1114,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="300"/>
         <source>Typewriter</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Machine à écrire</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="304"/>
@@ -1250,12 +1250,12 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="441"/>
         <source>Auto-hide HUD windows when typing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cacher automatiquement la fenêtre HUD pendant l'écriture</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="447"/>
         <source>Auto-hide HUD windows when previewing HTML</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cacher automatiquement la fenêtre HUD pendant la prévisualisation HTML</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="458"/>
@@ -1268,17 +1268,17 @@
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="33"/>
         <source>Preview Options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Options de prévisualisation</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="68"/>
         <source>Markdown Flavor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Type de Markdown</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="72"/>
         <source>Style Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Feuille de style</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="112"/>
@@ -1649,12 +1649,12 @@
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="148"/>
         <source>Emphasis Color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Couleur de l'emphase</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="149"/>
         <source>Block Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Couleur du bloc de texte</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="150"/>
