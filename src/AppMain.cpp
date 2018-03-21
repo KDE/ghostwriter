@@ -45,7 +45,11 @@ int main(int argc, char* argv[])
         QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     app.installTranslator(&qtTranslator);
 
-    // Translate application based on locale.
+    QTranslator qtBaseTranslator;
+    qtBaseTranslator.load("qtbase_" + appSettings->getLocale(),
+        QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    app.installTranslator(&qtBaseTranslator);
+
     QTranslator appTranslator;
     bool ok = appTranslator.load
     (
