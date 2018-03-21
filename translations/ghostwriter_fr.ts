@@ -859,7 +859,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1640"/>
         <source>Style Sheets...</source>
-        <translation type="unfinished"Feuilles de style ...></translation>
+        <translation type="unfinished">Feuilles de style ...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1641"/>
