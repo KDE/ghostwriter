@@ -15,6 +15,7 @@ Translations
 * Polish - mleko69
 * French - pygoliae
 * Spanish - cemetary, Icaro Perseo (icaroperseo)
+* Chinese - gledos
 
 Libraries
 =========
