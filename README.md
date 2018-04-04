@@ -122,10 +122,15 @@ Install [homebrew](http://brew.sh).  In a terminal:
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+Since currently official Homebrew formulas for Qt do not allow to install it with QWebKit support, you need to install it from custom repository:
+
+```
+brew install uncovertruth/qt/qt --with-qtwebkit # Compication takes a while, and drains the battery
+```
+
 Then:
 
 ``` shell
-$ brew install qt5 --with-qtwebkit # Compication takes a while, and drains the battery
 $ cp resources/mac/Info.plist resources/
 $ qmake -spec macx-g++
 $ make
@@ -138,6 +143,14 @@ fatal: Not a git repository (or any of the parent directories): .git
 ```
 
 Make sure you're cloned the repo, not just downloaded the src tarball.
+
+If you get something like:
+
+```
+/usr/local/Cellar/qt/5.9.1/lib/QtCore.framework/Headers/qsystemdetection.h:95:12: fatal error: 'TargetConditionals.h' file not found
+```
+
+Make sure you don't have `.qmake.stash` file in projects root directory.
 
 If you want *ghostwriter* in your applications folder, from the repo root do:
 
