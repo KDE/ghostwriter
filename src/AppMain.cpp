@@ -41,17 +41,31 @@ int main(int argc, char* argv[])
     QLocale::setDefault(appSettings->getLocale());
 
     QTranslator qtTranslator;
-    qtTranslator.load("qt_" + appSettings->getLocale(),
+    bool ok = qtTranslator.load("qt_" + appSettings->getLocale(),
         QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+
+    if (!ok)
+    {
+        qtTranslator.load("qt_" + appSettings->getLocale(),
+            appSettings->getTranslationsPath());
+    }
+
     app.installTranslator(&qtTranslator);
 
     QTranslator qtBaseTranslator;
-    qtBaseTranslator.load("qtbase_" + appSettings->getLocale(),
+    ok = qtBaseTranslator.load("qtbase_" + appSettings->getLocale(),
         QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+
+    if (!ok)
+    {
+        qtBaseTranslator.load("qtbase_" + appSettings->getLocale(),
+            appSettings->getTranslationsPath());
+    }
+
     app.installTranslator(&qtBaseTranslator);
 
     QTranslator appTranslator;
-    bool ok = appTranslator.load
+    ok = appTranslator.load
     (
         QString("ghostwriter_") + appSettings->getLocale(),
         appSettings->getTranslationsPath()
