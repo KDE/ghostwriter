@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -618,12 +618,20 @@ bool DocumentManager::loadFile(const QString& filePath)
     }
 
     outline->clear();
+
+    // NOTE: Must set editor's text cursor to the beginning
+    // of the document before clearing the document/editor
+    // of text to prevent a crash in Qt 5.10. on opening or
+    // reloading a file if a file has already been previously
+    // opened in the editor.
+    //
+    QTextCursor cursor(document);
+    cursor.setPosition(0);
+    editor->setTextCursor(cursor);
+
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
     document->setPlainText("");
-
-    QTextCursor cursor(document);
-    cursor.setPosition(0);
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     emit operationStarted(tr("opening %1").arg(filePath));
