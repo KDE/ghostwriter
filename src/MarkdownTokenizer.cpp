@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ MarkdownTokenizer::MarkdownTokenizer()
     numberedListRegex.setPattern("^ {0,3}[0-9]+[.)]\\s+.*$");
     numberedNestedListRegex.setPattern("^\\s*[0-9]+[.)]\\s+.*$");
     hruleRegex.setPattern("^\\s*(\\*\\s*){3,}$|^(\\s*(_\\s*){3,})$|^((\\s*(-\\s*){3,}))$");
-    lineBreakRegex.setPattern(".*\\s{2,}$");
+    lineBreakRegex.setPattern("^.*\\S+.*\\s{2,}$");
     // **strong** text
     strongRegex.setPattern("(\\*|_){2}(?=\\S)(.+?)(?<=\\S)\\1{2}");
     // *emphasis* text
@@ -127,6 +127,8 @@ void MarkdownTokenizer::tokenize
         {
             setState(MarkdownStateParagraphBreak);
         }
+
+        tokenizeLineBreak(text);
     }
     else if
     (
@@ -579,6 +581,8 @@ bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
         case MarkdownStateBlockquote:
         case MarkdownStateNumberedList:
         case MarkdownStateBulletPointList:
+        case MarkdownStateParagraphBreak:
+        case MarkdownStateListLineBreak:
             switch (previousState)
             {
                 case MarkdownStateParagraph:
@@ -586,6 +590,8 @@ bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
                 case MarkdownStateNumberedList:
                 case MarkdownStateBulletPointList:
                     this->requestBacktrack();
+                    break;
+                default:
                     break;
             }
 
@@ -605,7 +611,11 @@ bool MarkdownTokenizer::tokenizeLineBreak(const QString& text)
                         return true;   
                     }
                     break;
+                default:
+                    break;
             }
+            break;
+        default:
             break;
     }
 
