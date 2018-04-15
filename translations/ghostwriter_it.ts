@@ -40,113 +40,113 @@
 <context>
     <name>DocumentManager</name>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="164"/>
+        <location filename="../src/DocumentManager.cpp" line="168"/>
         <source>Open File</source>
         <translatorcomment>Titolo finestra dialogo per la scelta del file da aprire [ File -&gt; Open ]</translatorcomment>
         <translation>Apri file</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="179"/>
+        <location filename="../src/DocumentManager.cpp" line="183"/>
         <source>Could not open %1</source>
         <translatorcomment>messaggio di errore quando non riesce ad aprire un file</translatorcomment>
         <translation>Impossibile aprire %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="180"/>
+        <location filename="../src/DocumentManager.cpp" line="184"/>
         <source>Permission denied.</source>
         <translatorcomment>messaggio di errore quando non riesce ad aprire un file</translatorcomment>
         <translation>Permesso negato.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="256"/>
+        <location filename="../src/DocumentManager.cpp" line="260"/>
         <source>The document has been modified.</source>
         <translation>Il documento è stato modificato.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="257"/>
+        <location filename="../src/DocumentManager.cpp" line="261"/>
         <source>Discard changes?</source>
         <translation>Cestinare le modifiche?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="291"/>
+        <location filename="../src/DocumentManager.cpp" line="295"/>
         <source>Rename File</source>
         <translatorcomment>Titolo finestra dialogo file per la scelta del nuovo nome da dare [ File -&gt; Rename ]</translatorcomment>
         <translation>Rinomina il file</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="306"/>
+        <location filename="../src/DocumentManager.cpp" line="310"/>
         <source>Failed to rename %1</source>
         <translation>Impossibile rinominare %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="344"/>
+        <location filename="../src/DocumentManager.cpp" line="348"/>
         <source>Save File</source>
         <translatorcomment>Finestra dialogo file di &quot;Salva con Nome...&quot; [ File -&gt; Save As... ]</translatorcomment>
         <translation>Salva il file</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="450"/>
+        <location filename="../src/DocumentManager.cpp" line="457"/>
         <source>Error saving %1</source>
         <translatorcomment>NOTA: controllare che il testo non ecceda le dimensioni della finestra!</translatorcomment>
         <translation>Errore durante il salvataggio di %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="514"/>
+        <location filename="../src/DocumentManager.cpp" line="521"/>
         <source>The document has been modified by another program.</source>
         <translation>Il documento è stato modificato da un altro programma.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="515"/>
+        <location filename="../src/DocumentManager.cpp" line="522"/>
         <source>Would you like to reload the document?</source>
         <translatorcomment>Testo legato al precedente messaggio (&quot;Il documento è stato modificato da un altro programma.&quot;)</translatorcomment>
         <translation>Desideri ricaricare il documento?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="614"/>
-        <location filename="../src/DocumentManager.cpp" line="671"/>
+        <location filename="../src/DocumentManager.cpp" line="621"/>
+        <location filename="../src/DocumentManager.cpp" line="686"/>
         <source>Could not read %1</source>
         <translation>Impossibile leggere %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="629"/>
+        <location filename="../src/DocumentManager.cpp" line="644"/>
         <source>opening %1</source>
         <translatorcomment>NOTA: verificare il contesto in cui si inserisce questo scampolo di testo -- alternative: &quot;apertura di %1 in corso&quot;, &quot;lettura di %1 in corso&quot;, &quot;sto leggendo %1&quot;</translatorcomment>
         <translation>sto aprendo %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="769"/>
+        <location filename="../src/DocumentManager.cpp" line="784"/>
         <source>File has been modified.</source>
         <translatorcomment>Messaggio mostrato nel caso di un Nuovo documento che è cambiato.</translatorcomment>
         <translation>Il file è stato modificato.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="773"/>
+        <location filename="../src/DocumentManager.cpp" line="788"/>
         <source>%1 has been modified.</source>
         <translatorcomment>Messaggio mostrato nel caso di un documento non-Nuovo (già salvato con nome) che è cambiato.</translatorcomment>
         <translation>%1 è stato modificato.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="782"/>
+        <location filename="../src/DocumentManager.cpp" line="797"/>
         <source>Would you like to save your changes?</source>
         <translation>Vuoi salvare le modifiche?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="818"/>
+        <location filename="../src/DocumentManager.cpp" line="833"/>
         <source>%1 is read only.</source>
         <translation>%1 è un file di sola lettura.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="819"/>
+        <location filename="../src/DocumentManager.cpp" line="834"/>
         <source>Overwrite protected file?</source>
         <translation>Sovrascrivere il file protetto?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="845"/>
+        <location filename="../src/DocumentManager.cpp" line="860"/>
         <source>Overwrite failed.</source>
         <translation>Sovrascrittura non riuscita.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="846"/>
+        <location filename="../src/DocumentManager.cpp" line="861"/>
         <source>Please save file to another location.</source>
         <translation>Salva il file in un percorso alternativo!</translation>
     </message>
@@ -1419,7 +1419,7 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
         <translation>Tutti</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="874"/>
+        <location filename="../src/DocumentManager.cpp" line="889"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>È stato fornito un percorso file di scrittura nullo o vuoto.</translation>
     </message>

@@ -32,103 +32,103 @@
 <context>
     <name>DocumentManager</name>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="164"/>
+        <location filename="../src/DocumentManager.cpp" line="168"/>
         <source>Open File</source>
         <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="179"/>
+        <location filename="../src/DocumentManager.cpp" line="183"/>
         <source>Could not open %1</source>
         <translation>Impossible d&apos;ouvrir %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="180"/>
+        <location filename="../src/DocumentManager.cpp" line="184"/>
         <source>Permission denied.</source>
         <translation>Permission refusée.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="256"/>
+        <location filename="../src/DocumentManager.cpp" line="260"/>
         <source>The document has been modified.</source>
         <translation>Le document a été modifié.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="257"/>
+        <location filename="../src/DocumentManager.cpp" line="261"/>
         <source>Discard changes?</source>
         <translation>Annuler les modifications ?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="291"/>
+        <location filename="../src/DocumentManager.cpp" line="295"/>
         <source>Rename File</source>
         <translation>Renommer le fichier</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="306"/>
+        <location filename="../src/DocumentManager.cpp" line="310"/>
         <source>Failed to rename %1</source>
         <translation>Impossible de renommer %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="344"/>
+        <location filename="../src/DocumentManager.cpp" line="348"/>
         <source>Save File</source>
         <translation>Enregistrer le fichier</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="450"/>
+        <location filename="../src/DocumentManager.cpp" line="457"/>
         <source>Error saving %1</source>
         <translation>Erreur à l&apos;enregistrement de %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="514"/>
+        <location filename="../src/DocumentManager.cpp" line="521"/>
         <source>The document has been modified by another program.</source>
         <translation>Le document a été modifié par un autre programme.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="515"/>
+        <location filename="../src/DocumentManager.cpp" line="522"/>
         <source>Would you like to reload the document?</source>
         <translation>Voulez-vous recharger le document ?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="614"/>
-        <location filename="../src/DocumentManager.cpp" line="671"/>
+        <location filename="../src/DocumentManager.cpp" line="621"/>
+        <location filename="../src/DocumentManager.cpp" line="686"/>
         <source>Could not read %1</source>
         <translation>Impossible de lire %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="629"/>
+        <location filename="../src/DocumentManager.cpp" line="644"/>
         <source>opening %1</source>
         <translation>Ouverture de %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="769"/>
+        <location filename="../src/DocumentManager.cpp" line="784"/>
         <source>File has been modified.</source>
         <translation>Le fichier a été modifié.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="773"/>
+        <location filename="../src/DocumentManager.cpp" line="788"/>
         <source>%1 has been modified.</source>
         <translation>%1 a été modifié.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="782"/>
+        <location filename="../src/DocumentManager.cpp" line="797"/>
         <source>Would you like to save your changes?</source>
         <translation>Voulez-vous enregistrer vos modifications ?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="818"/>
+        <location filename="../src/DocumentManager.cpp" line="833"/>
         <source>%1 is read only.</source>
         <translation>%1 est en lecture seule.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="819"/>
+        <location filename="../src/DocumentManager.cpp" line="834"/>
         <source>Overwrite protected file?</source>
         <translation>Remplacer le fichier protégé ?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="845"/>
+        <location filename="../src/DocumentManager.cpp" line="860"/>
         <source>Overwrite failed.</source>
         <translation>Le remplacement a échoué.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="846"/>
+        <location filename="../src/DocumentManager.cpp" line="861"/>
         <source>Please save file to another location.</source>
         <translation>Enregistrer le fichier à un autre emplacement, SVP.</translation>
     </message>
@@ -620,8 +620,8 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1210"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;Vous pouvez utiliser et redistribuer ce logiciel selon les termes de la licence &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiter le site internet officiel &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Crédits et remerciements spéciaux pour le code d'origine à &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, auteur de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, auteur de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, auteur de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;J'ai également une dette abyssale envers &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l'auteur de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, pour l'inspiration qu'il m'a donné en créant un si beau éditeur Markdown.&lt;/p&gt;</translation>
-    </message>    
+        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;Vous pouvez utiliser et redistribuer ce logiciel selon les termes de la licence &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiter le site internet officiel &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Crédits et remerciements spéciaux pour le code d&apos;origine à &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, auteur de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, auteur de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, auteur de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;J&apos;ai également une dette abyssale envers &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;auteur de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, pour l&apos;inspiration qu&apos;il m&apos;a donné en créant un si beau éditeur Markdown.&lt;/p&gt;</translation>
+    </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1238"/>
         <source>%Ln word(s)</source>
@@ -1044,7 +1044,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Interface style</source>
-        <translation type="unfinished">Style de l'interface</translation>
+        <translation type="unfinished">Style de l&apos;interface</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="225"/>
@@ -1250,7 +1250,7 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="441"/>
         <source>Auto-hide HUD windows when typing</source>
-        <translation type="unfinished">Cacher automatiquement la fenêtre HUD pendant l'écriture</translation>
+        <translation type="unfinished">Cacher automatiquement la fenêtre HUD pendant l&apos;écriture</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="447"/>
@@ -1320,7 +1320,7 @@
         <translation>Tous</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="874"/>
+        <location filename="../src/DocumentManager.cpp" line="889"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>Chemin d&apos;écriture nul ou vide.</translation>
     </message>
@@ -1649,7 +1649,7 @@
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="148"/>
         <source>Emphasis Color</source>
-        <translation type="unfinished">Couleur de l'emphase</translation>
+        <translation type="unfinished">Couleur de l&apos;emphase</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="149"/>

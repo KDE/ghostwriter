@@ -41,103 +41,103 @@
 <context>
     <name>DocumentManager</name>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="164"/>
+        <location filename="../src/DocumentManager.cpp" line="168"/>
         <source>Open File</source>
         <translation>Abrir Arquivo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="179"/>
+        <location filename="../src/DocumentManager.cpp" line="183"/>
         <source>Could not open %1</source>
         <translation>Impossível abrir %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="180"/>
+        <location filename="../src/DocumentManager.cpp" line="184"/>
         <source>Permission denied.</source>
         <translation>Permissão negada.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="256"/>
+        <location filename="../src/DocumentManager.cpp" line="260"/>
         <source>The document has been modified.</source>
         <translation>O documento foi modificado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="257"/>
+        <location filename="../src/DocumentManager.cpp" line="261"/>
         <source>Discard changes?</source>
         <translation>Descartar alterações?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="291"/>
+        <location filename="../src/DocumentManager.cpp" line="295"/>
         <source>Rename File</source>
         <translation>Renomear Arquivo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="306"/>
+        <location filename="../src/DocumentManager.cpp" line="310"/>
         <source>Failed to rename %1</source>
         <translation>Falha ao renomear %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="344"/>
+        <location filename="../src/DocumentManager.cpp" line="348"/>
         <source>Save File</source>
         <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="450"/>
+        <location filename="../src/DocumentManager.cpp" line="457"/>
         <source>Error saving %1</source>
         <translation>Falha ao salvar %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="514"/>
+        <location filename="../src/DocumentManager.cpp" line="521"/>
         <source>The document has been modified by another program.</source>
         <translation>O documento foi modificado por outro programa.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="515"/>
+        <location filename="../src/DocumentManager.cpp" line="522"/>
         <source>Would you like to reload the document?</source>
         <translation>Gostaria de reabrir o documento?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="614"/>
-        <location filename="../src/DocumentManager.cpp" line="671"/>
+        <location filename="../src/DocumentManager.cpp" line="621"/>
+        <location filename="../src/DocumentManager.cpp" line="686"/>
         <source>Could not read %1</source>
         <translation>Impossível ler %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="629"/>
+        <location filename="../src/DocumentManager.cpp" line="644"/>
         <source>opening %1</source>
         <translation>abrindo %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="769"/>
+        <location filename="../src/DocumentManager.cpp" line="784"/>
         <source>File has been modified.</source>
         <translation>O arquivo foi modificado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="773"/>
+        <location filename="../src/DocumentManager.cpp" line="788"/>
         <source>%1 has been modified.</source>
         <translation>%1 foi modificado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="782"/>
+        <location filename="../src/DocumentManager.cpp" line="797"/>
         <source>Would you like to save your changes?</source>
         <translation>Gostaria de salvar suas alterações?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="818"/>
+        <location filename="../src/DocumentManager.cpp" line="833"/>
         <source>%1 is read only.</source>
         <translation>%1 é somente para leitura.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="819"/>
+        <location filename="../src/DocumentManager.cpp" line="834"/>
         <source>Overwrite protected file?</source>
         <translation>Sobrescrever arquivo protegido?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="845"/>
+        <location filename="../src/DocumentManager.cpp" line="860"/>
         <source>Overwrite failed.</source>
         <translation>Sobrescrita falhou.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="846"/>
+        <location filename="../src/DocumentManager.cpp" line="861"/>
         <source>Please save file to another location.</source>
         <translation>Por favor salve o arquivo em outro local.</translation>
     </message>
@@ -1350,7 +1350,7 @@
         <translation>Tudo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="874"/>
+        <location filename="../src/DocumentManager.cpp" line="889"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>Caminho de arquivo fornecido para edição está em branco ou inválido.</translation>
     </message>

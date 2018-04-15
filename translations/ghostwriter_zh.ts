@@ -32,103 +32,103 @@
 <context>
     <name>DocumentManager</name>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="164"/>
+        <location filename="../src/DocumentManager.cpp" line="168"/>
         <source>Open File</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="179"/>
+        <location filename="../src/DocumentManager.cpp" line="183"/>
         <source>Could not open %1</source>
         <translation>无法打开%1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="180"/>
+        <location filename="../src/DocumentManager.cpp" line="184"/>
         <source>Permission denied.</source>
         <translation>你没有权限。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="256"/>
+        <location filename="../src/DocumentManager.cpp" line="260"/>
         <source>The document has been modified.</source>
         <translation>该文件已被修改。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="257"/>
+        <location filename="../src/DocumentManager.cpp" line="261"/>
         <source>Discard changes?</source>
         <translation>放弃更改？</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="291"/>
+        <location filename="../src/DocumentManager.cpp" line="295"/>
         <source>Rename File</source>
         <translation>重命名文件</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="306"/>
+        <location filename="../src/DocumentManager.cpp" line="310"/>
         <source>Failed to rename %1</source>
         <translation>无法重命名%1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="344"/>
+        <location filename="../src/DocumentManager.cpp" line="348"/>
         <source>Save File</source>
         <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="450"/>
+        <location filename="../src/DocumentManager.cpp" line="457"/>
         <source>Error saving %1</source>
         <translation>保存%1时出错</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="514"/>
+        <location filename="../src/DocumentManager.cpp" line="521"/>
         <source>The document has been modified by another program.</source>
         <translation>该文件已被其他程序修改。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="515"/>
+        <location filename="../src/DocumentManager.cpp" line="522"/>
         <source>Would you like to reload the document?</source>
         <translation>你想重新加载文件吗？</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="614"/>
-        <location filename="../src/DocumentManager.cpp" line="671"/>
+        <location filename="../src/DocumentManager.cpp" line="621"/>
+        <location filename="../src/DocumentManager.cpp" line="686"/>
         <source>Could not read %1</source>
         <translation>无法读取%1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="629"/>
+        <location filename="../src/DocumentManager.cpp" line="644"/>
         <source>opening %1</source>
         <translation>打开%1中</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="769"/>
+        <location filename="../src/DocumentManager.cpp" line="784"/>
         <source>File has been modified.</source>
         <translation>文件已被修改。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="773"/>
+        <location filename="../src/DocumentManager.cpp" line="788"/>
         <source>%1 has been modified.</source>
         <translation>%1已被修改。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="782"/>
+        <location filename="../src/DocumentManager.cpp" line="797"/>
         <source>Would you like to save your changes?</source>
         <translation>你想保存更改吗？</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="818"/>
+        <location filename="../src/DocumentManager.cpp" line="833"/>
         <source>%1 is read only.</source>
         <translation>文件 %1 是只读的。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="819"/>
+        <location filename="../src/DocumentManager.cpp" line="834"/>
         <source>Overwrite protected file?</source>
         <translation>要覆盖受保护的文件吗？</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="845"/>
+        <location filename="../src/DocumentManager.cpp" line="860"/>
         <source>Overwrite failed.</source>
         <translation>覆盖失败。</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="846"/>
+        <location filename="../src/DocumentManager.cpp" line="861"/>
         <source>Please save file to another location.</source>
         <translation>请将文件保存到其他位置。</translation>
     </message>
@@ -1288,7 +1288,7 @@ QAQ</translatorcomment>
         <translation>全部</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="874"/>
+        <location filename="../src/DocumentManager.cpp" line="889"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>为写入提供空或空文件路径。</translation>
     </message>
