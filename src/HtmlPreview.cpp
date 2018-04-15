@@ -44,7 +44,7 @@ HtmlPreview::HtmlPreview
 {
     htmlBrowser = new QWebView(this);
     htmlBrowser->settings()->setDefaultTextEncoding("utf-8");
-
+    
     setWindowTitle(tr("HTML Preview"));
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     html = "";
@@ -59,15 +59,13 @@ HtmlPreview::HtmlPreview
 
     this->setCentralWidget(htmlBrowser);
 
+    printer = NULL;
+
     futureWatcher = new QFutureWatcher<QString>(this);
     this->connect(futureWatcher, SIGNAL(finished()), SLOT(onHtmlReady()));
 
     this->connect(document, SIGNAL(filePathChanged()), SLOT(updateBaseDir()));
     this->updateBaseDir();
-
-    // Set up default page layout and page size for printing.
-    printer.setPaperSize(QPrinter::Letter);
-    printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
 
     // Set zoom factor for WebKit browser to account for system DPI settings,
     // since WebKit assumes 96 DPI as a fixed resolution.
@@ -83,6 +81,12 @@ HtmlPreview::~HtmlPreview()
 {
     // Wait for thread to finish if in the middle of updating the preview.
     futureWatcher->waitForFinished();
+    
+    if (NULL != printer)
+    {
+        delete printer;
+        printer = NULL;
+    }
 }
 
 void HtmlPreview::updatePreview()
@@ -258,7 +262,8 @@ void HtmlPreview::setStyleSheet(const QString& filePath)
 
 void HtmlPreview::printPreview()
 {
-    QPrintPreviewDialog printPreviewDialog(&printer, this);
+    QPrinter* printer = getPrinterSettings();
+    QPrintPreviewDialog printPreviewDialog(printer, this);
 
     connect
     (
@@ -343,4 +348,18 @@ QString HtmlPreview::exportToHtml
     exporter->setSmartTypographyEnabled(smartTypographyEnabled);
 
     return html;
+}
+
+QPrinter* HtmlPreview::getPrinterSettings()
+{
+    // If the printer has not yet been initialized, then
+    // set up default page layout and page size for printing.
+    if (NULL == printer)
+    {
+        printer = new QPrinter();
+        printer->setPaperSize(QPrinter::Letter);
+        printer->setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
+    }
+    
+    return printer;
 }

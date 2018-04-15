@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -245,7 +245,7 @@ class DocumentManager : public QObject
          * page size settings are remembered in the event that the user reopens
          * the dialog during the same application session.
          */
-        QPrinter printer;
+        QPrinter* printer;
 
         /*
          * This flag is used to prevent notifying the user that the document
@@ -319,6 +319,13 @@ class DocumentManager : public QObject
          * interact with any widgets.
          */
         void backupFile(const QString& filePath) const;
+        
+        /*
+         * Gets the current printer settings. Default settings are lazy loaded
+         * as needed, since initializing the QPrinter class can take several
+         * seconds on some systems.
+         */
+        QPrinter* getPrinterSettings();
 };
 
 #endif // DOCUMENTMANAGER_H

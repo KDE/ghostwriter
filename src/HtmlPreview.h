@@ -133,7 +133,7 @@ class HtmlPreview : public QMainWindow
          * page size settings are remembered in the event that the user reopens
          * the dialog during the same application session.
          */
-        QPrinter printer;
+        QPrinter* printer;
 
         QFutureWatcher<QString>* futureWatcher;
 
@@ -145,6 +145,13 @@ class HtmlPreview : public QMainWindow
         void setHtml(const QString& html);
 
         QString exportToHtml(const QString& text, Exporter* exporter) const;
+        
+        /*
+         * Gets the current printer settings. Default settings are lazy loaded
+         * as needed, since initializing the QPrinter class can take several
+         * seconds on some systems.
+         */
+        QPrinter* getPrinterSettings();
 };
 
 #endif

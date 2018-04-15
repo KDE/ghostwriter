@@ -74,9 +74,7 @@ DocumentManager::DocumentManager
 
     connect(document, SIGNAL(modificationChanged(bool)), this, SLOT(onDocumentModifiedChanged(bool)));
 
-    // Set up default page layout and page size for printing.
-    printer.setPaperSize(QPrinter::Letter);
-    printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
+    printer = NULL;
 
     // Set up auto-save timer to save the file once every minute.
     autoSaveTimer = new QTimer(this);
@@ -97,6 +95,12 @@ DocumentManager::DocumentManager
 DocumentManager::~DocumentManager()
 {
     this->saveFutureWatcher->waitForFinished();
+    
+    if (NULL != printer)
+    {
+        delete printer;
+        printer = NULL;
+    }
 }
 
 TextDocument* DocumentManager::getDocument() const
@@ -415,18 +419,21 @@ void DocumentManager::exportFile()
 
 void DocumentManager::printPreview()
 {
-    QPrintPreviewDialog printPreviewDialog(&printer, parentWidget);
+    QPrinter* printer = getPrinterSettings();
+    QPrintPreviewDialog printPreviewDialog(printer, parentWidget);
     connect(&printPreviewDialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(printFileToPrinter(QPrinter*)));
     printPreviewDialog.exec();
 }
 
 void DocumentManager::print()
 {
-    QPrintDialog printDialog(&printer, parentWidget);
+    QPrinter* printer = getPrinterSettings();
+    
+    QPrintDialog printDialog(printer, parentWidget);
 
     if (printDialog.exec() == QDialog::Accepted)
     {
-        printFileToPrinter(&printer);
+        printFileToPrinter(printer);
     }
 }
 
@@ -938,3 +945,18 @@ void DocumentManager::backupFile(const QString& filePath) const
             file.errorString().toLatin1().data());
     }
 }
+
+QPrinter* DocumentManager::getPrinterSettings()
+{
+    // If the printer has not yet been initialized, then
+    // set up default page layout and page size for printing.
+    if (NULL == printer)
+    {
+        printer = new QPrinter();
+        printer->setPaperSize(QPrinter::Letter);
+        printer->setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
+    }
+    
+    return printer;
+}
+
