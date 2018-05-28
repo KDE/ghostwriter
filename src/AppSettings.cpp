@@ -39,6 +39,7 @@
 #define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
 #define GW_AUTO_MATCH_FILTER_KEY "Typing/autoMatchFilter"
+#define GW_TYPING_SOUNDS_KEY "Sounds/typingSoundsEnabled"
 #define GW_BULLET_CYCLING_KEY "Typing/bulletPointCyclingEnabled"
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
@@ -93,6 +94,7 @@ void AppSettings::store()
     appSettings.setValue(GW_HIGHLIGHT_LINE_BREAKS, QVariant(highlightLineBreaks));
     appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
     appSettings.setValue(GW_AUTO_MATCH_FILTER_KEY, QVariant(autoMatchedCharFilter));
+    appSettings.setValue(GW_TYPING_SOUNDS_KEY, QVariant(typingSoundsEnabled));
     appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(bulletPointCyclingEnabled));
 
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(useUnderlineForEmphasis));
@@ -265,6 +267,17 @@ void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool ena
         default:
             break;
     }
+}
+
+bool AppSettings::getTypingSoundsEnabled() const
+{
+    return typingSoundsEnabled;
+}
+
+void AppSettings::setTypingSoundsEnabled(bool enabled)
+{
+    typingSoundsEnabled = enabled;
+    emit typingSoundsChanged(enabled);
 }
 
 bool AppSettings::getBulletPointCyclingEnabled() const
@@ -722,6 +735,7 @@ AppSettings::AppSettings()
     highlightLineBreaks = appSettings.value(GW_HIGHLIGHT_LINE_BREAKS, QVariant(false)).toBool();
     autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
     autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
+    typingSoundsEnabled = appSettings.value(GW_TYPING_SOUNDS_KEY, QVariant(false)).toBool();
     bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 

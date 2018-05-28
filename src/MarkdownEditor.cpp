@@ -36,6 +36,8 @@
 #include <QPainter>
 #include <QFileInfo>
 #include <QDir>
+#include <QAudioDeviceInfo>
+#include <QSoundEffect>
 
 #include "ColorHelper.h"
 #include "GraphicsFadeEffect.h"
@@ -59,7 +61,8 @@ MarkdownEditor::MarkdownEditor
         dictionary(DictionaryManager::instance().requestDictionary()),
         autoMatchEnabled(true),
         bulletPointCyclingEnabled(true),
-        mouseButtonDown(false)
+        mouseButtonDown(false),
+        keySound(this)
 {
     setDocument(textDocument);
 
@@ -180,6 +183,11 @@ MarkdownEditor::MarkdownEditor
     cursorBlinkTimer = new QTimer(this);
     connect(cursorBlinkTimer, SIGNAL(timeout()), this, SLOT(toggleCursorBlink()));
     cursorBlinkTimer->start(500);
+
+    keySound.setSource(QUrl::fromLocalFile("sounds/key.wav"));
+    while (keySound.status() == QSoundEffect::Loading) {
+        QApplication::processEvents();
+    }
 }
 
 MarkdownEditor::~MarkdownEditor()
@@ -701,6 +709,31 @@ void MarkdownEditor::keyPressEvent(QKeyEvent* e)
                 QPlainTextEdit::keyPressEvent(e);
             }
             break;
+    }
+
+    if (typingSoundsEnabled) {
+
+        // Audio starts popping when it's cancelled during playback
+        // So if the user is typing really fast, we can't simply restart
+        // the current QSoundEffect.
+        // That's why we create additional QSoundEffects if there
+        // are no others availabe that are currently not playing.
+        // The following code has been taken from focuswriter (https://github.com/gottcode/focuswriter)
+        QSoundEffect *sound = nullptr;
+        for (int i = 0, end = sounds.size(); i < end; ++i) {
+            if(!sounds.at(i)->isPlaying()) {
+                sound = sounds.at(i);
+                break;
+            }
+        }
+
+        if (!sound) {
+            sound = new QSoundEffect(this);
+            sound->setSource(keySound.source());
+            sounds.append(sound);
+        }
+
+        sound->play();
     }
 }
 
@@ -1425,6 +1458,11 @@ void MarkdownEditor::setSpellCheckEnabled(const bool enabled)
 {
     spellCheckEnabled = enabled;
     highlighter->setSpellCheckEnabled(enabled);
+}
+
+void MarkdownEditor::setTypingSoundsEnabled(const bool enabled)
+{
+    typingSoundsEnabled = enabled;
 }
 
 void MarkdownEditor::increaseFontSize()

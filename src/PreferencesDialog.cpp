@@ -364,6 +364,18 @@ QWidget* PreferencesDialog::initializeEditorTab()
     connect(matchedCharsButton, SIGNAL(pressed()), this, SLOT(showAutoMatchFilterDialog()));
     typingGroupLayout->addRow(matchedCharsButton);
 
+    QGroupBox* soundsGroupBox = new QGroupBox(tr("Sounds"));
+    tabLayout->addWidget(soundsGroupBox);
+
+    QFormLayout* soundsGroupLayout = new QFormLayout();
+    soundsGroupBox->setLayout(soundsGroupLayout);
+
+    QCheckBox* typingSoundsCheckBox = new QCheckBox(tr("Enable typing sounds"));
+    typingSoundsCheckBox->setCheckable(true);
+    typingSoundsCheckBox->setChecked(appSettings->getTypingSoundsEnabled());
+    connect(typingSoundsCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setTypingSoundsEnabled(bool)));
+    soundsGroupLayout->addRow(typingSoundsCheckBox);
+
     return tab;
 }
 

@@ -28,7 +28,7 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 2) {
 
 TEMPLATE = app
 
-QT += printsupport webkitwidgets widgets concurrent
+QT += printsupport webkitwidgets widgets concurrent multimedia
 
 CONFIG -= debug
 CONFIG += warn_on
