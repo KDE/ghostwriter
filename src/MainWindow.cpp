@@ -207,6 +207,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setEditorCorners((InterfaceStyle) appSettings->getInterfaceStyle());
     editor->setBlockquoteStyle(appSettings->getBlockquoteStyle());
     editor->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
+    editor->setTypingSoundsEnabled(appSettings->getTypingSoundsEnabled());
     connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
     connect(editor, SIGNAL(cursorPositionChanged(int)), outlineWidget, SLOT(updateCurrentNavigationHeading(int)));
     connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
@@ -391,6 +392,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
     connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), editor, SLOT(setDictionary(QString)));
     connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), editor, SLOT(setSpellCheckEnabled(bool)));
+    connect(appSettings, SIGNAL(typingSoundsChanged(bool)), editor, SLOT(setTypingSoundsEnabled(bool)));
     connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
     connect(appSettings, SIGNAL(blockquoteStyleChanged(BlockquoteStyle)), editor, SLOT(setBlockquoteStyle(BlockquoteStyle)));

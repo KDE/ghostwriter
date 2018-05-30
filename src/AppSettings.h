@@ -89,6 +89,10 @@ class AppSettings : public QObject
         Q_SLOT void setAutoMatchCharEnabled(const QChar openingCharacter, bool enabled);
         Q_SIGNAL void autoMatchCharChanged(const QChar openingChar, bool enabled);
 
+        bool getTypingSoundsEnabled() const;
+        Q_SLOT void setTypingSoundsEnabled(bool enabled);
+        Q_SIGNAL void typingSoundsChanged(bool enabled);
+
         bool getBulletPointCyclingEnabled() const;
         Q_SLOT void setBulletPointCyclingEnabled(bool enabled);
         Q_SIGNAL void bulletPointCyclingChanged(bool enabled);
@@ -195,6 +199,7 @@ class AppSettings : public QObject
         bool useUnderlineForEmphasis;
         bool largeHeadingSizesEnabled;
         bool autoMatchEnabled;
+        bool typingSoundsEnabled;
         QString autoMatchedCharFilter;
         bool bulletPointCyclingEnabled;
         FocusMode focusMode;

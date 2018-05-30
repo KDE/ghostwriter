@@ -30,6 +30,7 @@
 #include <QTextCursor>
 #include <QListWidget>
 #include <QRegularExpression>
+#include <QSoundEffect>
 
 #include "GraphicsFadeEffect.h"
 #include "MarkdownEditorTypes.h"
@@ -380,6 +381,11 @@ class MarkdownEditor : public QPlainTextEdit
         void setSpellCheckEnabled(const bool enabled);
 
         /**
+         * Sets whether typing sounds are enabled.
+         */
+        void setTypingSoundsEnabled(const bool enabled);
+
+        /**
          * Increases the font size by 1 pt.
          */
         void increaseFontSize();
@@ -454,6 +460,11 @@ class MarkdownEditor : public QPlainTextEdit
         QTimer* cursorBlinkTimer;
 
         GraphicsFadeEffect* fadeEffect;
+
+        // Sound effects for typing
+        QSoundEffect keySound;
+        QVector<QSoundEffect*> sounds;
+        bool typingSoundsEnabled;
 
         // Timer used to determine when typing has paused.
         QTimer* typingTimer;
