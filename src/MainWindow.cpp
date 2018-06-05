@@ -2060,7 +2060,6 @@ void MainWindow::applyTheme()
     }
 
     editor->setAspect(theme.getEditorAspect());
-
     styleSheet = "";
 
     QString corners = "";
@@ -2135,8 +2134,8 @@ void MainWindow::applyTheme()
         theme.getCodeColor(),
         theme.getSpellingErrorColor()
     );
-    editor->setStyleSheet(styleSheet);
 
+    editor->setStyleSheet(styleSheet);
     styleSheet = "";
 
     // Wipe out old background image drawing material.
@@ -2170,8 +2169,11 @@ void MainWindow::applyTheme()
         << " } "
         ;
 
-    setStyleSheet(styleSheet);
-
+    // Do not call this->setStyleSheet().  Calling it more than once in a run
+    // (i.e., when changing a theme) causes a crash in Qt 5.11.  Instead,
+    // change the main window's style sheet via qApp.
+    //
+    qApp->setStyleSheet(styleSheet);
     styleSheet = "";
 
     stream
@@ -2181,7 +2183,6 @@ void MainWindow::applyTheme()
     splitter->setStyleSheet(styleSheet);
 
     applyStatusBarStyle();
-
 
     // Make the word count and focus mode button font size
     // match the menu bar's font size, since on Windows using
@@ -2236,7 +2237,6 @@ void MainWindow::applyTheme()
     previewOptionsButton->setIcon(QIcon(markdownOptionsIcon));
     previewOptionsButton->setIconSize(QSize(menuBarFontWidth, menuBarFontWidth));
 
-
     styleSheet = "";
 
     stream
@@ -2248,7 +2248,6 @@ void MainWindow::applyTheme()
         ;
 
     statusLabel->setStyleSheet(styleSheet);
-
     styleSheet = "";
 
     // Style the HUDs
