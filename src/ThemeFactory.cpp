@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,8 +51,10 @@
 #define GW_HUD_FOREGROUND_COLOR "HUD/foregroundColor"
 #define GW_HUD_BACKGROUND_COLOR "HUD/backgroundColor"
 
-const QString ThemeFactory::LIGHT_THEME_NAME = QString("Classic Light");
-const QString ThemeFactory::DARK_THEME_NAME = QString("Classic Dark");
+const QString ThemeFactory::CLASSIC_LIGHT_THEME_NAME = QString("Classic Light");
+const QString ThemeFactory::CLASSIC_DARK_THEME_NAME = QString("Classic Dark");
+const QString ThemeFactory::PLAINSTRACTION_LIGHT_THEME_NAME = QString("Plainstraction Light");
+const QString ThemeFactory::PLAINSTRACTION_DARK_THEME_NAME = QString("Plainstraction Dark");
 
 ThemeFactory* ThemeFactory::instance = NULL;
 
@@ -71,9 +73,9 @@ ThemeFactory::~ThemeFactory()
     ;
 }
 
-void ThemeFactory::loadLightTheme()
+void ThemeFactory::loadClassicLightTheme()
 {
-    Theme theme(LIGHT_THEME_NAME);
+    Theme theme(CLASSIC_LIGHT_THEME_NAME);
     theme.setBackgroundColor("#eff0f1");
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#31363b");
@@ -92,9 +94,9 @@ void ThemeFactory::loadLightTheme()
     builtInThemes.append(theme);
 }
 
-void ThemeFactory::loadDarkTheme()
+void ThemeFactory::loadClassicDarkTheme()
 {
-    Theme theme(DARK_THEME_NAME);
+    Theme theme(CLASSIC_DARK_THEME_NAME);
     theme.setBackgroundColor("#151719");
     theme.setBackgroundImageAspect(PictureAspectNone);
     theme.setHudBackgroundColor("#152F3D");
@@ -109,6 +111,48 @@ void ThemeFactory::loadDarkTheme()
     theme.setBlockquoteColor("#bdc3c7");
     theme.setCodeColor("#bdc3c7");
     theme.setSpellingErrorColor("#da4453");
+
+    builtInThemes.append(theme);
+}
+
+void ThemeFactory::loadPlainstractionLightTheme()
+{
+    Theme theme(PLAINSTRACTION_LIGHT_THEME_NAME);
+    theme.setBackgroundColor("#ffffff");
+    theme.setBackgroundImageAspect(PictureAspectNone);
+    theme.setHudBackgroundColor("#eff0f1");
+    theme.setHudForegroundColor("#009bc8");
+    theme.setEditorAspect(EditorAspectStretch);
+    theme.setEditorBackgroundColor("#ffffff");
+    theme.setDefaultTextColor("#1d2023");
+    theme.setMarkupColor("#c4e4f1");
+    theme.setLinkColor("#c23184");
+    theme.setHeadingColor("#009bc8");
+    theme.setEmphasisColor("#009bc8");
+    theme.setBlockquoteColor("#009bc8");
+    theme.setCodeColor("#009bc8");
+    theme.setSpellingErrorColor("#c23184");
+
+    builtInThemes.append(theme);
+}
+
+void ThemeFactory::loadPlainstractionDarkTheme()
+{
+    Theme theme(PLAINSTRACTION_DARK_THEME_NAME);
+    theme.setBackgroundColor("#141414");
+    theme.setBackgroundImageAspect(PictureAspectNone);
+    theme.setHudBackgroundColor("#1e262d");
+    theme.setHudForegroundColor("#009bc8");
+    theme.setEditorAspect(EditorAspectStretch);
+    theme.setEditorBackgroundColor("#141414");
+    theme.setDefaultTextColor("#c7cfd0");
+    theme.setMarkupColor("#074051");
+    theme.setLinkColor("#b31771");
+    theme.setHeadingColor("#009bc8");
+    theme.setEmphasisColor("#009bc8");
+    theme.setBlockquoteColor("#009bc8");
+    theme.setCodeColor("#009bc8");
+    theme.setSpellingErrorColor("#b31771");
 
     builtInThemes.append(theme);
 }
@@ -129,7 +173,7 @@ QStringList ThemeFactory::getAvailableThemes() const
 Theme ThemeFactory::getPrinterFriendlyTheme() const
 {
     QString err;
-    return loadTheme(LIGHT_THEME_NAME, err);
+    return loadTheme(CLASSIC_LIGHT_THEME_NAME, err);
 }
 
 Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
@@ -634,8 +678,10 @@ ThemeFactory::ThemeFactory()
     customThemeNames = sortedThemes.values();
 
     // Set up built-in themes.
-    loadLightTheme();
-    loadDarkTheme();
+    loadClassicLightTheme();
+    loadClassicDarkTheme();
+    loadPlainstractionLightTheme();
+    loadPlainstractionDarkTheme();
 }
 
 bool ThemeFactory::extractColorSetting
