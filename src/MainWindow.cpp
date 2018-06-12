@@ -2276,14 +2276,29 @@ void MainWindow::applyTheme()
     //
     if (outlineWidget->alternatingRowColors())
     {
+        int primaryRowAlpha = 0;
+        int alternateRowAlpha = 20;
+
+        double hudFgBrightness = ColorHelper::getLuminance(theme.getHudForegroundColor());
+        double hudBgBrightness = ColorHelper::getLuminance(theme.getHudBackgroundColor());
+
+        // If the HUD background color is brighter than the foreground color...
+        if (hudBgBrightness > hudFgBrightness)
+        {
+            primaryRowAlpha = 10;
+            alternateRowAlpha = 50;
+        }
+
         stream << "QListWidget { outline: none; border: 0; padding: 1; background-color: transparent; color: "
                << hudFgString
-               << "; alternate-background-color: rgba(255, 255, 255, 50)"
-               << "; font-size: "
+               << "; alternate-background-color: rgba(255, 255, 255, "
+               << alternateRowAlpha
+               << "); font-size: "
                << hudFontSize
                << "pt } QListWidget::item { padding: 1 0 1 0; margin: 0; background-color: "
-               << "rgba(0, 0, 0, 10)"
-               << " } QListWidget::item:alternate { padding: 1; margin: 0; background-color: "
+               << "rgba(0, 0, 0, "
+               << primaryRowAlpha
+               << ") } QListWidget::item:alternate { padding: 1; margin: 0; background-color: "
                << "rgba(255, 255, 255, 10)"
                << " } "
                << "QListWidget::item:selected { border-radius: "
