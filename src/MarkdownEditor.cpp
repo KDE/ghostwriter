@@ -1624,7 +1624,7 @@ void MarkdownEditor::checkIfTypingPaused()
     }
 
     // Scale timer interval based on document size.
-    int interval = (document()->characterCount() / 30000) * 10;
+    int interval = (document()->characterCount() / 30000) * 20;
 
     if (interval > 1000)
     {

@@ -120,9 +120,8 @@ class HtmlPreview : public QMainWindow
         QWebView* htmlBrowser;
         QUrl baseUrl;
         TextDocument* document;
-        QTimer* htmlPreviewUpdateTimer;
-        bool documentChanged;
-        bool typingPaused;
+        bool updateInProgress;
+        bool updateAgain;
         QString html;
         QRegularExpression headingTagExp;
         Exporter* exporter;

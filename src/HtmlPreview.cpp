@@ -40,7 +40,8 @@ HtmlPreview::HtmlPreview
     Exporter* exporter,
     QWidget* parent
 )
-    : QMainWindow(parent), document(document), exporter(exporter)
+    : QMainWindow(parent), document(document), updateInProgress(false),
+        updateAgain(false), exporter(exporter)
 {
     htmlBrowser = new QWebView(this);
     htmlBrowser->settings()->setDefaultTextEncoding("utf-8");
@@ -91,6 +92,12 @@ HtmlPreview::~HtmlPreview()
 
 void HtmlPreview::updatePreview()
 {
+    if (updateInProgress)
+    {
+        updateAgain = true;
+        return;
+    }
+
     if (this->isVisible())
     {
         // Some markdown processors don't handle empty text very well
@@ -107,6 +114,7 @@ void HtmlPreview::updatePreview()
 
             if (!text.isNull() && !text.isEmpty())
             {
+                updateInProgress = true;
                 QFuture<QString> future =
                     QtConcurrent::run
                     (
@@ -243,6 +251,15 @@ void HtmlPreview::onHtmlReady()
             }
         }
     }
+
+    updateInProgress = false;
+
+    if (updateAgain)
+    {
+        updateAgain = false;
+        updatePreview();
+    }
+
 }
 
 void HtmlPreview::setHtmlExporter(Exporter* exporter)
