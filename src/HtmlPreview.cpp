@@ -162,11 +162,25 @@ void HtmlPreview::onHtmlReady()
         }
     }
 
+    // If lines were removed at the end of the new document,
+    // ensure anchor point is inserted.
+    //
+    if (!differenceFound && !oldLine.isNull() && newLine.isNull())
+    {
+        differenceFound = true;
+        anchoredHtmlDoc << "<div id=\"livepreviewmodifypoint\" />";
+    }
+
     // Put any remaining new HTML data into the
     // anchored HTML string.
     //
     while (!newLine.isNull())
     {
+        if (!differenceFound)
+        {
+            anchoredHtmlDoc << "<div id=\"livepreviewmodifypoint\" />";
+        }
+
         differenceFound = true;
         anchoredHtmlDoc << newLine << "\n";
         newLine = newHtmlDoc.readLine();
