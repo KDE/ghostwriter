@@ -1623,6 +1623,21 @@ void MarkdownEditor::checkIfTypingPaused()
         emit typingPaused();
     }
 
+    // Scale timer interval based on document size.
+    int interval = (document()->characterCount() / 30000) * 10;
+
+    if (interval > 1000)
+    {
+        interval = 1000;
+    }
+    else if (interval < 20)
+    {
+        interval = 20;
+    }
+
+    typingTimer->stop();
+    typingTimer->start(interval);
+
     typingHasPaused = true;
 }
 
