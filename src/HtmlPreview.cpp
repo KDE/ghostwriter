@@ -123,8 +123,17 @@ void HtmlPreview::updatePreview()
 
 void HtmlPreview::navigateToHeading(int headingSequenceNumber)
 {
-    QString anchor = QString("livepreviewhnbr%1").arg(headingSequenceNumber);
-    this->htmlBrowser->page()->mainFrame()->scrollToAnchor(anchor);
+    this->htmlBrowser->page()->mainFrame()->evaluateJavaScript
+    (
+        QString
+        (
+            "var headers = document.querySelectorAll(\"h1, h2, h3, h4, h5, h6\");\n"
+            "\n"
+            "if (%1 < headers.length && %1 >= 0) {\n"
+            "    headers[%1].scrollIntoView();\n"
+            "}\n"
+        ).arg(headingSequenceNumber - 1)
+    );
 }
 
 void HtmlPreview::onHtmlReady()
@@ -190,58 +199,6 @@ void HtmlPreview::onHtmlReady()
     {
         setHtml(anchoredHtml);
         this->html = html;
-
-        // Traverse the DOM in the browser, and find all the H1-H6 tags.
-        // Set the id attribute of each heading tag to have a unique
-        // sequence number, so that when the navigateToHeading() slot
-        // is triggered, we can scroll to the desired heading.
-        //
-        QWebFrame* frame = htmlBrowser->page()->mainFrame();
-        QWebElement element = frame->documentElement();
-        QStack<QWebElement> elementStack;
-        int headingId = 1;
-
-        elementStack.push(element);
-
-        while (!elementStack.isEmpty())
-        {
-            element = elementStack.pop();
-
-            // If the element is a heading tag (H1-H6), set an anchor id for it.
-            if (element.tagName().contains(headingTagExp))
-            {
-                element.prependOutside(QString("<span id='livepreviewhnbr%1'></span>").arg(headingId));
-                headingId++;
-            }
-            // else if the element is something that would have a heading tag
-            // (not a paragraph, blockquote, code, etc.), then add its children
-            // to traverse and look for headings.
-            //
-            else if
-            (
-                (0 != element.tagName().compare("blockquote", Qt::CaseInsensitive))
-                && (0 != element.tagName().compare("code", Qt::CaseInsensitive))
-                && (0 != element.tagName().compare("p", Qt::CaseInsensitive))
-                && (0 != element.tagName().compare("ol", Qt::CaseInsensitive))
-                && (0 != element.tagName().compare("ul", Qt::CaseInsensitive))
-                && (0 != element.tagName().compare("table", Qt::CaseInsensitive))
-            )
-            {
-                QStack<QWebElement> childStack;
-                element = element.firstChild();
-
-                while (!element.isNull())
-                {
-                    childStack.push(element);
-                    element = element.nextSibling();
-                }
-
-                while (!childStack.isEmpty())
-                {
-                    elementStack.push(childStack.pop());
-                }
-            }
-        }
     }
 }
 
