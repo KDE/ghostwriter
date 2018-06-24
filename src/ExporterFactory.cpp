@@ -162,13 +162,49 @@ ExporterFactory::ExporterFactory()
                 .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
                 .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
         );
-        exporter->addFileExportCommand
-        (
-            ExportFormat::ODF,
-            QString("multimarkdown %1 -t odf -o %2")
-                .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
-                .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
-        );
+
+        // Version 6 removed ODF option and replaced it with ODT and FODT.
+        if (majorVersion >= 6)
+        {
+            exporter->addFileExportCommand
+            (
+                ExportFormat::ODT,
+                QString("multimarkdown %1 -t odt -o %2")
+                    .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                    .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+            );
+
+            exporter->addFileExportCommand
+            (
+                ExportFormat::ODF,
+                QString("multimarkdown %1 -t fodt -o %2")
+                    .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                    .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+            );
+        }
+        else
+        {
+            exporter->addFileExportCommand
+            (
+                ExportFormat::ODF,
+                QString("multimarkdown %1 -t odf -o %2")
+                    .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                    .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+            );
+        }
+
+        // Version 6 added EPUB 3
+        if (majorVersion >= 6)
+        {
+            exporter->addFileExportCommand
+            (
+                ExportFormat::EPUBV3,
+                QString("multimarkdown %1 -b -t epub -o %2")
+                    .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+                    .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
+            );
+        }
+
         exporter->addFileExportCommand
         (
             ExportFormat::LATEX,
