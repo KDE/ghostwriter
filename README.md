@@ -23,6 +23,8 @@ The portable version is a zip file which you can unzip to any location on your c
 Linux
 -----
 
+Fedora and openSUSE users just need to visit https://software.opensuse.org/package/ghostwriter – The Fedora releases are Community Packages.
+
 If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.), simply add the [wereturtle Launchpad PPA](http://launchpad.net/~wereturtle/+archive/ubuntu/ppa) to your system.  Open a terminal, and enter the following:
 
     $ sudo add-apt-repository ppa:wereturtle/ppa
