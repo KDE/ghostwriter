@@ -125,7 +125,7 @@ ExporterFactory::ExporterFactory()
             addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
         }
 
-        addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github", majorVersion, minorVersion);
+        addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
         addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
         addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
         addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
