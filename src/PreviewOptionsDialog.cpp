@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2017 wereturtle
+ * Copyright (C) 2017-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
 
     exporterFactory = ExporterFactory::getInstance();
     defaultStyleSheets.append(":/resources/github.css");
+    defaultStyleSheets.append(":/resources/github-dark.css");
 
     QWidget* mainContents = new QWidget(this);
     QVBoxLayout* layout = new QVBoxLayout();
@@ -111,6 +112,8 @@ void PreviewOptionsDialog::buildStyleSheetComboBox()
     styleSheetComboBox->clear();
     styleSheetComboBox->addItem(tr("Github (Default)"));
     styleSheetComboBox->setItemData(0, QVariant(defaultStyleSheets.at(0)));
+    styleSheetComboBox->addItem(tr("Github Dark"));
+    styleSheetComboBox->setItemData(1, QVariant(defaultStyleSheets.at(1)));
 
     int customCssIndexStart = defaultStyleSheets.size();
 
