@@ -624,6 +624,22 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
     {
         setOpenHudsVisibility(false);
     }
+    else if
+    (
+        (
+            (event->type() == QEvent::Leave)
+            || (event->type() == QEvent::WindowDeactivate)
+        )
+        && this->isFullScreen()
+        && appSettings->getHideMenuBarInFullScreenEnabled()
+        && isMenuBarVisible()
+    )
+    {
+        // Hide menu bar if it is visible in full screen and the focus is
+        // switching to a different application.
+        //
+        hideMenuBar();
+    }
     else if (event->type() == QEvent::MouseMove)
     {
         QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
