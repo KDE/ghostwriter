@@ -28,7 +28,7 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 2) {
 
 TEMPLATE = app
 
-QT += printsupport webkitwidgets widgets concurrent
+QT += printsupport webkitwidgets widgets concurrent svg
 
 CONFIG -= debug
 CONFIG += warn_on
@@ -58,7 +58,7 @@ TARGET = ghostwriter
 # Input
 
 macx {
-    QMAKE_INFO_PLIST = resources/Info.plist
+        QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.10
 
 	LIBS += -lz -framework AppKit
 
@@ -218,7 +218,18 @@ TRANSLATIONS = $$files(translations/ghostwriter_*.ts)
 RESOURCES += resources.qrc
 
 macx {
+    # generate property list for macOS
     ICON = resources/mac/ghostwriter.icns
+    QMAKE_INFO_PLIST = resources/mac/Info.plist
+
+    # run macdeployqt after building ghostwriter - copies frameworks & libraries.
+    QMAKE_POST_LINK =  macdeployqt $$sprintf("%1/%2/%3.app", $$OUT_PWD, $$DESTDIR, $$TARGET)
+
+    # copy translations using a helper script.
+    QMAKE_POST_LINK += $$escape_expand(\n\t) $$PWD/resources/mac/macdeploy_helper.sh \
+        $${OUT_PWD}/$${DESTDIR}/$${TARGET}.app/Contents/Resources/translations \
+        $${OUT_PWD}/$${DESTDIR}/translations
+
 } else:win32 {
     RC_FILE = resources/windows/ghostwriter.rc
 } else:unix {

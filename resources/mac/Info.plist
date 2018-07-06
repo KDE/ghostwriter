@@ -20,9 +20,12 @@
     <string>@SHORT_VERSION@</string>
     <key>CFBundleVersion</key>
     <string>@SHORT_VERSION@</string>
+    <key>CFBundleGetInfoString</key>
+    <string>ghostwriter @SHORT_VERSION@</string>
     <key>CFBundleName</key>
     <string>ghostwriter</string>
-
+    <key>NSHumanReadableCopyright</key>
+    <string>© 2014-2018 wereturtle. GPLv3</string>
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>

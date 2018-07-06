@@ -1566,7 +1566,7 @@ void MainWindow::buildMenuBar()
     fileMenu->addSeparator();
     fileMenu->addAction(tr("&Export"), documentManager, SLOT(exportFile()), QKeySequence("CTRL+E"));
     fileMenu->addSeparator();
-    fileMenu->addAction(tr("&Quit"), this, SLOT(quitApplication()), QKeySequence::Quit);
+    fileMenu->addAction(tr("&Quit"), this, SLOT(quitApplication()), QKeySequence::Quit)->setMenuRole(QAction::QuitRole);
 
     QMenu* editMenu = this->menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(tr("&Undo"), editor, SLOT(undo()), QKeySequence::Undo);
@@ -1639,11 +1639,11 @@ void MainWindow::buildMenuBar()
     settingsMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
     settingsMenu->addAction(tr("Style Sheets..."), this, SLOT(showStyleSheetManager()));
     settingsMenu->addAction(tr("Preview Options..."), this, SLOT(showPreviewOptions()));
-    settingsMenu->addAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
+    settingsMenu->addAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()))->setMenuRole(QAction::PreferencesRole);
 
     QMenu* helpMenu = this->menuBar()->addMenu(tr("&Help"));
-    helpMenu->addAction(tr("&About"), this, SLOT(showAbout()));
-    helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
+    helpMenu->addAction(tr("&About"), this, SLOT(showAbout()))->setMenuRole(QAction::AboutRole);
+    helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()))->setMenuRole(QAction::AboutQtRole);
     helpMenu->addAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide()));
     helpMenu->addAction(tr("Wiki"), this, SLOT(showWikiPage()));
 

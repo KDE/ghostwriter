@@ -36,3 +36,6 @@ Makefile*
 *.qm
 
 build/
+
+# Mac finder stub
+.DS_Store
