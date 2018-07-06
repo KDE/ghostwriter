@@ -212,8 +212,8 @@ SOURCES += src/AppMain.cpp \
     src/sundown/markdown.c \
     src/sundown/stack.c
 
-# Allow for updating translations
-TRANSLATIONS = $$files(translations/ghostwriter_*.ts)
+# build translations
+include(translations.pri)
 
 RESOURCES += resources.qrc
 
@@ -250,7 +250,7 @@ macx {
     man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
 
-    qm.files = translations/*.qm
+    qm.files = $$OUT_PWD/$$DESTDIR/translations/ghostwriter_*.qm
     qm.path = $$DATADIR/ghostwriter/translations
 
     INSTALLS += target icon pixmap desktop appdata man qm
