@@ -36,3 +36,5 @@ Makefile*
 *.qm
 
 build/
+
+*.AppImage
