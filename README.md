@@ -23,6 +23,8 @@ The portable version is a zip file which you can unzip to any location on your c
 Linux
 -----
 
+Fedora and openSUSE users just need to visit https://software.opensuse.org/package/ghostwriter – The Fedora releases are Community Packages.
+
 If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.), simply add the [wereturtle Launchpad PPA](http://launchpad.net/~wereturtle/+archive/ubuntu/ppa) to your system.  Open a terminal, and enter the following:
 
     $ sudo add-apt-repository ppa:wereturtle/ppa
@@ -44,19 +46,17 @@ An alternative workaround is to compile ghostwriter for yourself using Qt 4.8.  
 
 **GNU/Linux Help:**  For further help with troubleshooting issues for Qt5 applications, including *ghostwriter*, please see the [GNU/Linux Troubleshooting for Q5 Applications](https://github.com/wereturtle/ghostwriter/wiki/GNU---Linux-Troubleshooting-for-Qt5-Applications) topic in the community wiki.
 
-MacOS - Help Wanted!
+MacOS - Testers needed.
 -----------------------
 
-Unfortunately, since I do not own an Apple computer, I cannot reasonably create a Mac version of this application.  However, if you happen to be a Mac user yourself and have the knowledge, you can build the source code.  Theoretically, it should work;  but you may run into some bugs since *ghostwriter* is untested on this platform.
-
-If you are willing to test *ghostwriter* on MacOS and provide bug fixes through GitHub, your help would be very much appreciated.  Should you choose to do so, you will want to use Qt 5.5 rather than 4.8, since certain QGraphicsEffects may not work on 4.8 on MacOS, whereas there is hope that they will on version 5, based on the documentation.  Also, versions greater than Qt 5.5 do not come with QtWebkit pre-built.  Spell checking with Hunspell and Voikko will need careful testing as well.  You may wish to consult the source code for [FocusWriter](http://gottcode.org/focuswriter/) to get the latest patches, since *ghostwriter* lifted and modified parts of it.
-
-Finally, I based *ghostwriter's* packaging structure on FocusWriter, including for MacOS, to give you a head start.  You will want to once again look at FocusWriter's .pro file and resource files to ensure everything is in place within *ghostwriter* for a successful MacOS build and installation.
+You can download an application bundle for MacOS and copy it under /Applications (for all the users) or $HOME/Applications (for the current user). That application should work on osx 10.10+, but was tested only on macOS 10.13. Please remember that this build is experimental and you'll find some bugs. Please report those on the issue tracker.
 
 Build
 =====
 
-If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows or MacOS, or in your Linux distribution's repository. This documentation assumes you already have the source code unzipped in a folder.
+If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows, or in your Linux distribution's repository. If you're on MacOS you'll need Qt5.5 from brew. 
+
+This documentation assumes you already have the source code unzipped in a folder.
 
 Windows
 -------
@@ -113,39 +113,47 @@ For example, to install under `/opt`, you would enter:
 
 **Note:**  If you see blank areas where there should be icons, then you are missing the Qt dependency for the SVG images.  On Debian and Ubuntu, this is libqt5svg5.  Other Linux distributions may vary on the exact package name.
 
-MacOS - Help Wanted!
------------------------
+MacOS
+-----
+1. You need either *XCode* or *XCode command line tools* to install and run brew and to build ghostwriter and other Qt applications.
 
-Install [homebrew](http://brew.sh).  In a terminal:
+- You can install XCode from Mac App Store
+- You can install XCode command line tools from your terminal typing `xcode-select --install`
+
+2. Install [homebrew](http://brew.sh).  In a terminal:
 
 ``` shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Then:
+3. Install Qt5.5 from brew.
 
 ``` shell
-$ brew install qt5 --with-qtwebkit # Compication takes a while, and drains the battery
-$ cp resources/mac/Info.plist resources/
-$ qmake -spec macx-g++
-$ make
+$ brew install qt@5.5
 ```
 
-If you see:
+*Note:* if you installed XCode command line tools qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](doc/BUILD_MAC.md)
 
-```
-fatal: Not a git repository (or any of the parent directories): .git
+
+4. Clone this repository and build ghostwriter:
+
+``` shell
+git clone https://github.com/wereturtle/ghostwriter
+cd ghostwriter
+qmake
+make
+
 ```
 
 Make sure you're cloned the repo, not just downloaded the src tarball.
 
-If you want *ghostwriter* in your applications folder, from the repo root do:
+5. If you want *ghostwriter* in your applications folder, from the repo root do:
 
 ``` shell
 $ sudo cp -R ./build/release/ghostwriter.app /Applications
 ```
 
-To use *ghostwriter* from the command line (assuming `/usr/local/bin` is in your path and you've moved *ghostwriter* to the `/Applications` folder):
+6. To use *ghostwriter* from the command line, do:
 
 ``` shell
 $ sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
