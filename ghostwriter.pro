@@ -55,6 +55,8 @@ UI_DIR = $${DESTDIR}
 
 TARGET = ghostwriter
 
+QMAKE_EXTRA_TARGETS += deploy
+
 # Input
 
 macx {
@@ -87,6 +89,7 @@ macx {
         src/spelling/hunspell/suggestmgr.cxx
 
 } else:unix {
+
 	CONFIG += link_pkgconfig
 	PKGCONFIG += hunspell
 
@@ -254,4 +257,11 @@ macx {
     qm.path = $$DATADIR/ghostwriter/translations
 
     INSTALLS += target icon pixmap desktop appdata man qm
+}
+
+linux {
+    contains(QMAKE_HOST.arch, x86_64) {
+        deploy.commands += $$escape_expand(\n\t) $$PWD/resources/linux/linuxdeploy_helper.sh \
+            $$PWD $$OUT_PWD/$$DESTDIR/AppImage
+    }
 }
