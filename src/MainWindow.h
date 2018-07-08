@@ -168,7 +168,7 @@ class MainWindow : public QMainWindow
         QPixmap adjustedBackgroundImage;
         QFileSystemWatcher* fileWatcher;
         QAction* recentFilesActions[MAX_RECENT_FILES];
-        int menuBarHeight = 0;
+        int menuBarHeight;
         QPoint lastMousePos;
         bool menuBarMenuActivated;
 

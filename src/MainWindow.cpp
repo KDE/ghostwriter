@@ -97,6 +97,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     qApp->installEventFilter(this);
 
+    menuBarHeight = 0;
     lastMousePos = QPoint(-1, -1);
 
     appSettings = AppSettings::getInstance();
