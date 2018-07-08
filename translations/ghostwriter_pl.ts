@@ -1036,6 +1036,10 @@
         <source>Github (Default)</source>
         <translation type="unfinished">Github (Domyślny)</translation>
     </message>
+    <message>
+        <source>Github Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -361,7 +361,7 @@
 <context>
     <name>HtmlPreview</name>
     <message>
-        <location filename="../src/HtmlPreview.cpp" line="48"/>
+        <location filename="../src/HtmlPreview.cpp" line="49"/>
         <source>HTML Preview</source>
         <translation>HTML プレビュー</translation>
     </message>
@@ -549,27 +549,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1016"/>
+        <location filename="../src/MainWindow.cpp" line="1032"/>
         <source>Insert Image</source>
         <translation>画像の挿入</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1019"/>
+        <location filename="../src/MainWindow.cpp" line="1035"/>
         <source>Images</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1020"/>
+        <location filename="../src/MainWindow.cpp" line="1036"/>
         <source>All Files</source>
         <translation>すべてのファイル</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1210"/>
+        <location filename="../src/MainWindow.cpp" line="1226"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;あなたは &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt; の条件下で使用ならびに再配布することができます。&lt;/p&gt;&lt;p&gt;公式ウェブサイト &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;&lt;/p&gt;&lt;p&gt;再利用したコードへの深い感謝とクレジットを贈ります&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt; 氏&lt;br/&gt;&lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt; の著作者 Dmitry Shachnev 氏&lt;br/&gt;&lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt; 氏&lt;br/&gt;&lt;p&gt;また、そのような美しいMarkdown編集ツールの作成に刺激を与えてくださった &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt; 氏に大いに感謝します。&lt;/p&gt; {2014-2018 ?} {3&lt;?}</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1590"/>
+        <location filename="../src/MainWindow.cpp" line="1606"/>
         <source>Stri&amp;kethrough</source>
         <translation>取り消し線(&amp;K)</translation>
     </message>
@@ -582,12 +582,12 @@
         <translation type="vanished">スペース数</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1093"/>
+        <location filename="../src/MainWindow.cpp" line="1109"/>
         <source>Failed to open Quick Reference Guide.</source>
         <translation>クイック リファレンス ガイドが開けません。</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1109"/>
+        <location filename="../src/MainWindow.cpp" line="1125"/>
         <source>Quick Reference Guide</source>
         <translation>クイック リファレンス ガイド</translation>
     </message>
@@ -596,19 +596,19 @@
         <translation type="vanished">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;あなたは &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt; の条件下で使用ならびに再配布することができます。&lt;/p&gt;&lt;p&gt;公式ウェブサイト &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;&lt;/p&gt;&lt;p&gt;再利用したコードへの深い感謝とクレジットを贈ります&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt; 氏&lt;br/&gt;&lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt; の著作者 Dmitry Shachnev 氏&lt;br/&gt;&lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt; 氏&lt;br/&gt;&lt;p&gt;また、そのような美しいMarkdown編集ツールの作成に刺激を与えてくださった &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt; 氏に大いに感謝します。&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1233"/>
+        <location filename="../src/MainWindow.cpp" line="1249"/>
         <source>About %1</source>
         <translation>%1 について</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/MainWindow.cpp" line="1238"/>
+        <location filename="../src/MainWindow.cpp" line="1254"/>
         <source>%Ln word(s)</source>
         <translation>
             <numerusform>単語数 %Ln</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1386"/>
+        <location filename="../src/MainWindow.cpp" line="1402"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation>変更を反映させるためにアプリを再起動してください。</translation>
     </message>
@@ -621,349 +621,349 @@
         <translation type="vanished">自動補完する記号</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1539"/>
+        <location filename="../src/MainWindow.cpp" line="1555"/>
         <source>&amp;File</source>
         <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1541"/>
+        <location filename="../src/MainWindow.cpp" line="1557"/>
         <source>&amp;New</source>
         <translation>新規(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1542"/>
+        <location filename="../src/MainWindow.cpp" line="1558"/>
         <source>&amp;Open</source>
         <translation>開く(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1544"/>
+        <location filename="../src/MainWindow.cpp" line="1560"/>
         <source>Open &amp;Recent...</source>
         <translation>最近使用したファイル(&amp;R)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1545"/>
+        <location filename="../src/MainWindow.cpp" line="1561"/>
         <source>Reopen Closed File</source>
         <translation>閉じたファイルを開きなおす</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1554"/>
+        <location filename="../src/MainWindow.cpp" line="1570"/>
         <source>Clear Menu</source>
         <translation>メニューをクリア</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1559"/>
+        <location filename="../src/MainWindow.cpp" line="1575"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1560"/>
+        <location filename="../src/MainWindow.cpp" line="1576"/>
         <source>Save &amp;As...</source>
         <translation>名前を付けて保存(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1561"/>
+        <location filename="../src/MainWindow.cpp" line="1577"/>
         <source>R&amp;ename...</source>
         <translation>名前の変更(&amp;E)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1562"/>
+        <location filename="../src/MainWindow.cpp" line="1578"/>
         <source>Re&amp;load from Disk...</source>
         <translation>ディスクから再読み込み(&amp;L)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1564"/>
+        <location filename="../src/MainWindow.cpp" line="1580"/>
         <source>Print Pre&amp;view</source>
         <translation>印刷プレビュー(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1565"/>
+        <location filename="../src/MainWindow.cpp" line="1581"/>
         <source>&amp;Print</source>
         <translation>印刷(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1567"/>
+        <location filename="../src/MainWindow.cpp" line="1583"/>
         <source>&amp;Export</source>
         <translation>エクスポート(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1569"/>
+        <location filename="../src/MainWindow.cpp" line="1585"/>
         <source>&amp;Quit</source>
         <translation>終了(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1571"/>
+        <location filename="../src/MainWindow.cpp" line="1587"/>
         <source>&amp;Edit</source>
         <translation>編集(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1572"/>
+        <location filename="../src/MainWindow.cpp" line="1588"/>
         <source>&amp;Undo</source>
         <translation>元に戻す(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1573"/>
+        <location filename="../src/MainWindow.cpp" line="1589"/>
         <source>&amp;Redo</source>
         <translation>やり直し(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1575"/>
+        <location filename="../src/MainWindow.cpp" line="1591"/>
         <source>Cu&amp;t</source>
         <translation>切り取り(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1576"/>
+        <location filename="../src/MainWindow.cpp" line="1592"/>
         <source>&amp;Copy</source>
         <translation>コピー(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1577"/>
+        <location filename="../src/MainWindow.cpp" line="1593"/>
         <source>&amp;Paste</source>
         <translation>貼り付け(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1578"/>
+        <location filename="../src/MainWindow.cpp" line="1594"/>
         <source>Copy &amp;HTML</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1580"/>
+        <location filename="../src/MainWindow.cpp" line="1596"/>
         <source>&amp;Insert Image...</source>
         <translation>画像の挿入(&amp;I)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1582"/>
+        <location filename="../src/MainWindow.cpp" line="1598"/>
         <source>&amp;Find</source>
         <translation>検索(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1583"/>
+        <location filename="../src/MainWindow.cpp" line="1599"/>
         <source>Rep&amp;lace</source>
         <translation>置換(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1585"/>
+        <location filename="../src/MainWindow.cpp" line="1601"/>
         <source>&amp;Spell check</source>
         <translation>スペルチェック(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1587"/>
+        <location filename="../src/MainWindow.cpp" line="1603"/>
         <source>For&amp;mat</source>
         <translation>書式(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1588"/>
+        <location filename="../src/MainWindow.cpp" line="1604"/>
         <source>&amp;Bold</source>
         <translation>重要 / 太字(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1589"/>
+        <location filename="../src/MainWindow.cpp" line="1605"/>
         <source>&amp;Italic</source>
         <translation>強調 / 斜体(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1591"/>
+        <location filename="../src/MainWindow.cpp" line="1607"/>
         <source>&amp;HTML Comment</source>
         <translation>&amp;HTML コメント</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1593"/>
+        <location filename="../src/MainWindow.cpp" line="1609"/>
         <source>I&amp;ndent</source>
         <translation>インデント(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1594"/>
+        <location filename="../src/MainWindow.cpp" line="1610"/>
         <source>&amp;Unindent</source>
         <translation>逆インデント(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1596"/>
+        <location filename="../src/MainWindow.cpp" line="1612"/>
         <source>Block &amp;Quote</source>
         <translation>引用ブロック(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1597"/>
+        <location filename="../src/MainWindow.cpp" line="1613"/>
         <source>&amp;Strip Block Quote</source>
         <translation>引用ブロックを解除(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1599"/>
+        <location filename="../src/MainWindow.cpp" line="1615"/>
         <source>&amp;* Bullet List</source>
         <translation>&amp;* 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1600"/>
+        <location filename="../src/MainWindow.cpp" line="1616"/>
         <source>&amp;- Bullet List</source>
         <translation>&amp;- 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1601"/>
+        <location filename="../src/MainWindow.cpp" line="1617"/>
         <source>&amp;+ Bullet List</source>
         <translation>&amp;+ 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1603"/>
+        <location filename="../src/MainWindow.cpp" line="1619"/>
         <source>1&amp;. Numbered List</source>
         <translation>1&amp;. 番号付きリスト</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1604"/>
+        <location filename="../src/MainWindow.cpp" line="1620"/>
         <source>1&amp;) Numbered List</source>
         <translation>1&amp;) 番号付きリスト</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1606"/>
+        <location filename="../src/MainWindow.cpp" line="1622"/>
         <source>&amp;Task List</source>
         <translation>タスクリスト(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1607"/>
+        <location filename="../src/MainWindow.cpp" line="1623"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation>タスクの完了を切り替え(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1609"/>
+        <location filename="../src/MainWindow.cpp" line="1625"/>
         <source>&amp;View</source>
         <translation>表示(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1611"/>
+        <location filename="../src/MainWindow.cpp" line="1627"/>
         <source>&amp;Full Screen</source>
         <translation>全画面表示(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1618"/>
+        <location filename="../src/MainWindow.cpp" line="1634"/>
         <source>&amp;Preview in HTML</source>
         <translation>HTMLでプレビュー(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1625"/>
+        <location filename="../src/MainWindow.cpp" line="1641"/>
         <source>&amp;Outline HUD</source>
         <translation>アウトライン HUD(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1626"/>
+        <location filename="../src/MainWindow.cpp" line="1642"/>
         <source>&amp;Cheat Sheet HUD</source>
         <translation>チートシート HUD(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1627"/>
+        <location filename="../src/MainWindow.cpp" line="1643"/>
         <source>&amp;Document Statistics HUD</source>
         <translation>文書の詳細 HUD(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1628"/>
+        <location filename="../src/MainWindow.cpp" line="1644"/>
         <source>&amp;Session Statistics HUD</source>
         <translation>セッションの詳細 HUD(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1631"/>
-        <location filename="../src/MainWindow.cpp" line="2499"/>
+        <location filename="../src/MainWindow.cpp" line="1647"/>
+        <location filename="../src/MainWindow.cpp" line="2529"/>
         <source>Hide Open &amp;HUD Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1633"/>
+        <location filename="../src/MainWindow.cpp" line="1649"/>
         <source>Increase Font Size</source>
         <translation type="unfinished">フォントサイズを大きくする</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1634"/>
+        <location filename="../src/MainWindow.cpp" line="1650"/>
         <source>Decrease Font Size</source>
         <translation type="unfinished">フォントサイズを小さくする</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1636"/>
+        <location filename="../src/MainWindow.cpp" line="1652"/>
         <source>&amp;Settings</source>
         <translation>設定(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1637"/>
+        <location filename="../src/MainWindow.cpp" line="1653"/>
         <source>Themes...</source>
         <translation>テーマ...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1638"/>
+        <location filename="../src/MainWindow.cpp" line="1654"/>
         <source>Font...</source>
         <translation>フォント...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1640"/>
+        <location filename="../src/MainWindow.cpp" line="1656"/>
         <source>Style Sheets...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1641"/>
+        <location filename="../src/MainWindow.cpp" line="1657"/>
         <source>Preview Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1642"/>
+        <location filename="../src/MainWindow.cpp" line="1658"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1701"/>
+        <location filename="../src/MainWindow.cpp" line="1717"/>
         <source>Preview Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1707"/>
+        <location filename="../src/MainWindow.cpp" line="1723"/>
         <source>Export</source>
         <translation type="unfinished">エクスポート</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1713"/>
+        <location filename="../src/MainWindow.cpp" line="1729"/>
         <source>Copy HTML</source>
         <translation type="unfinished">HTMLをコピー</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1735"/>
-        <location filename="../src/MainWindow.cpp" line="2503"/>
+        <location filename="../src/MainWindow.cpp" line="1751"/>
+        <location filename="../src/MainWindow.cpp" line="2533"/>
         <source>Hide Open HUD Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1743"/>
+        <location filename="../src/MainWindow.cpp" line="1759"/>
         <source>Toggle Live HTML Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2511"/>
+        <location filename="../src/MainWindow.cpp" line="2541"/>
         <source>Show Open &amp;HUD Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2514"/>
+        <location filename="../src/MainWindow.cpp" line="2544"/>
         <source>Show Open HUD Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1639"/>
+        <location filename="../src/MainWindow.cpp" line="1655"/>
         <source>Application Language...</source>
         <translation>言語...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1644"/>
+        <location filename="../src/MainWindow.cpp" line="1660"/>
         <source>&amp;Help</source>
         <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1645"/>
+        <location filename="../src/MainWindow.cpp" line="1661"/>
         <source>&amp;About</source>
         <translation>ghostwriter について(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1646"/>
+        <location filename="../src/MainWindow.cpp" line="1662"/>
         <source>About &amp;Qt</source>
         <translation>Qt について(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1647"/>
+        <location filename="../src/MainWindow.cpp" line="1663"/>
         <source>Quick &amp;Reference Guide</source>
         <translation>クイック リファレンス ガイド(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1648"/>
+        <location filename="../src/MainWindow.cpp" line="1664"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
@@ -972,7 +972,7 @@
         <translation type="vanished">ヘミングウェイ</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1751"/>
+        <location filename="../src/MainWindow.cpp" line="1767"/>
         <source>Toggle Hemingway mode</source>
         <translation>ヘミングウェイ モードの切り替え</translation>
     </message>
@@ -981,12 +981,12 @@
         <translation type="vanished">フォーカス</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1758"/>
+        <location filename="../src/MainWindow.cpp" line="1774"/>
         <source>Toggle distraction free mode</source>
         <translation>没入モードの切り替え</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1766"/>
+        <location filename="../src/MainWindow.cpp" line="1782"/>
         <source>Toggle full screen mode</source>
         <translation>全画面表示モードの切り替え</translation>
     </message>
@@ -1296,19 +1296,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="68"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="69"/>
         <source>Markdown Flavor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="72"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="73"/>
         <source>Style Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="112"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="113"/>
         <source>Github (Default)</source>
         <translation type="unfinished">Github (既定)</translation>
+    </message>
+    <message>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="115"/>
+        <source>Github Dark</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1360,79 +1365,79 @@
         <translation>Sundown プロセッサでは %1 形式には対応していません。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="156"/>
+        <location filename="../src/ThemeFactory.cpp" line="204"/>
         <source>The specified theme does not exist in the file system: </source>
         <translation>指定のテーマはファイル システムに存在しません: </translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="273"/>
+        <location filename="../src/ThemeFactory.cpp" line="321"/>
         <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
         <translation>指定のテーマが見つかりません。  アプリを再起動してみてください。もしそれでも問題がある場合にはバグレポートを提出してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="343"/>
+        <location filename="../src/ThemeFactory.cpp" line="391"/>
         <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
         <translation>テーマから  %1 を削除できません。  テーマ ファイルに書き込み権限を設定してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="366"/>
+        <location filename="../src/ThemeFactory.cpp" line="414"/>
         <source>&apos;%1&apos; already exists.  Please choose another name.</source>
         <translation>&apos;%1&apos; はすでに存在します。  別の名前を選択してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="376"/>
+        <location filename="../src/ThemeFactory.cpp" line="424"/>
         <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
         <translation>&apos;%1&apos; というテーマはすでに存在します。  別の名前を選択してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="411"/>
+        <location filename="../src/ThemeFactory.cpp" line="459"/>
         <source>Failed to rename theme.  Please check file permissions.</source>
         <translation>テーマ名の変更に失敗しました。ファイルの権限を確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="456"/>
+        <location filename="../src/ThemeFactory.cpp" line="504"/>
         <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
         <translation>テーマは読み取り専用です。  テーマ名を変更するかファイルを書き込み可能に設定してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="496"/>
+        <location filename="../src/ThemeFactory.cpp" line="544"/>
         <source>Failed to remove old theme image.  Please check file permissions.</source>
         <translation>古いテーマ画像の削除に失敗しました。  ファイルの権限を確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="528"/>
+        <location filename="../src/ThemeFactory.cpp" line="576"/>
         <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
         <translation>古いテーマ画像をテーマ ディレクトリから削除できませんでした。  ファイルの権限を確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="540"/>
+        <location filename="../src/ThemeFactory.cpp" line="588"/>
         <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
         <translation>テーマ画像ファイルをテーマ ディレクトリにコピーできませんでした。  ファイルの権限を確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="559"/>
+        <location filename="../src/ThemeFactory.cpp" line="607"/>
         <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
         <translation>テーマをディスクに保存できませんでした。  ファイルの権限を確認するかテーマ名を変更してください。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="584"/>
+        <location filename="../src/ThemeFactory.cpp" line="632"/>
         <source>Untitled 1</source>
         <translation>無題 1</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="597"/>
+        <location filename="../src/ThemeFactory.cpp" line="645"/>
         <source>Untitled %1</source>
         <translation>無題 %1</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="653"/>
-        <location filename="../src/ThemeFactory.cpp" line="675"/>
         <location filename="../src/ThemeFactory.cpp" line="703"/>
+        <location filename="../src/ThemeFactory.cpp" line="725"/>
+        <location filename="../src/ThemeFactory.cpp" line="753"/>
         <source>Invalid or missing value for %1 provided.</source>
         <translation>%1 に対して無効または空の値が与えられました。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="683"/>
+        <location filename="../src/ThemeFactory.cpp" line="733"/>
         <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
         <translation>%1 は範囲外の値です。有効な値は %2 から %3 までの範囲です。</translation>
     </message>
@@ -1760,42 +1765,42 @@
         <translation>テーマ</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="108"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="138"/>
         <source>Edit...</source>
         <translation>編集...</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="169"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="199"/>
         <source>Unable to load theme.</source>
         <translation>テーマを読み込めません。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="250"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="280"/>
         <source>Cannot delete theme.</source>
         <translation>テーマを削除できません。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="251"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="281"/>
         <source>Sorry, this is a built-in theme that cannot be deleted.</source>
         <translation>組み込みのテーマは削除できません。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="262"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="292"/>
         <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
         <translation>&apos;%1&apos; テーマを完全に削除しますか？</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="280"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="310"/>
         <source>Failed to delete theme.</source>
         <translation>テーマを削除できません。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="311"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="341"/>
         <source>Cannot edit theme.</source>
         <translation>テーマを編集できません。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="312"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="342"/>
         <source>Sorry, this is a built-in theme that cannot be edited.</source>
         <translation>組み込みのテーマは編集できません。</translation>
     </message>
