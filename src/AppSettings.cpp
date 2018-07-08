@@ -566,7 +566,12 @@ AppSettings::AppSettings()
             userDir + "/settings"
         );
 
+#ifdef Q_OS_MAC
+        translationsPath = appDir + "../Resources/translations";
+#else
         translationsPath = appDir + "/translations";
+#endif
+
     }
     else
     {
