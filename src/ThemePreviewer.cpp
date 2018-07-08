@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2018 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -107,8 +107,8 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
 
     int w = 2 * width / 3;
     int h = height / 4;
-    int x = (width) / 3 - 3;
-    int y = (3 * height) / 4 - 3;
+    int x = (width / 3) - 3;
+    int y = ((3 * height) / 4) - 3;
 
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(Qt::NoPen);
@@ -138,6 +138,26 @@ void ThemePreviewer::renderPreview(const Theme& newSettings)
     painter.setBrush(QBrush(theme.getLinkColor()));
     painter.drawEllipse(QPoint(cx3, cy), radius, radius);
 
+    // Draw icon to indicate if theme is built-in
+    if (theme.isBuiltIn())
+    {
+        w = width / 10;
+        h = w;
+        x = w / 4;
+        y = x;
+
+        painter.drawImage
+        (
+            x,
+            y,
+            QImage(":/resources/images/ghostwriter.svg").scaled
+            (
+                QSize(w, h),
+                Qt::KeepAspectRatioByExpanding,
+                Qt::SmoothTransformation
+            )
+        );
+    }
     painter.end();
     thumbnailPreviewIcon = QIcon(thumbnailPixmap);
 }

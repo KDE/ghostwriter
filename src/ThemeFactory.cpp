@@ -90,6 +90,7 @@ void ThemeFactory::loadClassicLightTheme()
     theme.setBlockquoteColor("#31363b");
     theme.setCodeColor("#31363b");
     theme.setSpellingErrorColor("#da4453");
+    theme.setBuiltIn(true);
 
     builtInThemes.append(theme);
 }
@@ -111,6 +112,7 @@ void ThemeFactory::loadClassicDarkTheme()
     theme.setBlockquoteColor("#bdc3c7");
     theme.setCodeColor("#bdc3c7");
     theme.setSpellingErrorColor("#da4453");
+    theme.setBuiltIn(true);
 
     builtInThemes.append(theme);
 }
@@ -132,6 +134,7 @@ void ThemeFactory::loadPlainstractionLightTheme()
     theme.setBlockquoteColor("#009bc8");
     theme.setCodeColor("#009bc8");
     theme.setSpellingErrorColor("#c23184");
+    theme.setBuiltIn(true);
 
     builtInThemes.append(theme);
 }
@@ -153,6 +156,7 @@ void ThemeFactory::loadPlainstractionDarkTheme()
     theme.setBlockquoteColor("#009bc8");
     theme.setCodeColor("#009bc8");
     theme.setSpellingErrorColor("#b31771");
+    theme.setBuiltIn(true);
 
     builtInThemes.append(theme);
 }
