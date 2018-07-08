@@ -23,8 +23,6 @@ The portable version is a zip file which you can unzip to any location on your c
 Linux
 -----
 
-Fedora and openSUSE users just need to visit https://software.opensuse.org/package/ghostwriter – The Fedora releases are Community Packages.
-
 If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.), simply add the [wereturtle Launchpad PPA](http://launchpad.net/~wereturtle/+archive/ubuntu/ppa) to your system.  Open a terminal, and enter the following:
 
     $ sudo add-apt-repository ppa:wereturtle/ppa
@@ -33,6 +31,8 @@ If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.),
 You can now install the ghostwriter package.  Please consult the Launchpad guide, [*Installing software from a PPA*](https://help.launchpad.net/Packaging/PPA/InstallingSoftware), for further details.
 
 Also, be on the lookout for *ghostwriter* making its debut in the Debian and Ubuntu repositories in the future.  In the meantime, if you are a repository maintainer of any Linux distribution, I would appreciate your help in getting *ghostwriter* packaged.
+
+Fedora and openSUSE users can visit https://software.opensuse.org/package/ghostwriter – The Fedora releases are Community Packages.
 
 Finally, you may follow the build instructions below to install on Linux with the latest source code.
 
