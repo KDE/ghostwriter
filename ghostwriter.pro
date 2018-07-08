@@ -35,7 +35,7 @@ CONFIG += warn_on
 
 # Set program version
 isEmpty(VERSION) {
-    VERSION = v1.6.2
+    VERSION = v1.7.0
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
@@ -58,43 +58,42 @@ TARGET = ghostwriter
 # Input
 
 macx {
-        QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.10
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.10
 
-	LIBS += -lz -framework AppKit
+    LIBS += -framework AppKit
 
-	HEADERS += src/spelling/dictionary_provider_nsspellchecker.h
+    HEADERS += src/spelling/dictionary_provider_nsspellchecker.h
 
-	OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
+    OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
 } else:win32 {
-	LIBS += -lz
 
-	INCLUDEPATH += src/spelling/hunspell
+    INCLUDEPATH += src/spelling/hunspell
 
-	HEADERS += src/spelling/dictionary_provider_hunspell.h \
-		src/spelling/dictionary_provider_voikko.h
+    HEADERS += src/spelling/dictionary_provider_hunspell.h \
+        src/spelling/dictionary_provider_voikko.h
 
-	SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
-		src/spelling/dictionary_provider_voikko.cpp \
-		src/spelling/hunspell/affentry.cxx \
-		src/spelling/hunspell/affixmgr.cxx \
-		src/spelling/hunspell/csutil.cxx \
-		src/spelling/hunspell/filemgr.cxx \
-		src/spelling/hunspell/hashmgr.cxx \
-		src/spelling/hunspell/hunspell.cxx \
-		src/spelling/hunspell/hunzip.cxx \
-		src/spelling/hunspell/phonet.cxx \
-		src/spelling/hunspell/replist.cxx \
+    SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
+        src/spelling/dictionary_provider_voikko.cpp \
+        src/spelling/hunspell/affentry.cxx \
+        src/spelling/hunspell/affixmgr.cxx \
+        src/spelling/hunspell/csutil.cxx \
+        src/spelling/hunspell/filemgr.cxx \
+        src/spelling/hunspell/hashmgr.cxx \
+        src/spelling/hunspell/hunspell.cxx \
+        src/spelling/hunspell/hunzip.cxx \
+        src/spelling/hunspell/phonet.cxx \
+        src/spelling/hunspell/replist.cxx \
         src/spelling/hunspell/suggestmgr.cxx
 
 } else:unix {
-	CONFIG += link_pkgconfig
-	PKGCONFIG += hunspell
+    CONFIG += link_pkgconfig
+    PKGCONFIG += hunspell
 
-	HEADERS += src/spelling/dictionary_provider_hunspell.h \
-		src/spelling/dictionary_provider_voikko.h
+    HEADERS += src/spelling/dictionary_provider_hunspell.h \
+        src/spelling/dictionary_provider_voikko.h
 
-	SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
-		src/spelling/dictionary_provider_voikko.cpp
+    SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
+        src/spelling/dictionary_provider_voikko.cpp
 }
 
 INCLUDEPATH += src src/spelling
