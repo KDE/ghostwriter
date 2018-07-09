@@ -23,6 +23,7 @@
 
 #include "ExporterFactory.h"
 #include "SundownExporter.h"
+#include "HoedownExporter.h"
 #include "CommandLineExporter.h"
 
 ExporterFactory* ExporterFactory::instance = NULL;
@@ -95,6 +96,10 @@ ExporterFactory::ExporterFactory()
     SundownExporter* sundownExporter = new SundownExporter();
     fileExporters.append(sundownExporter);
     htmlExporters.append(sundownExporter);
+
+    HoedownExporter* hoedownExporter = new HoedownExporter();
+    fileExporters.append(hoedownExporter);
+    htmlExporters.append(hoedownExporter);
 
     if (pandocIsAvailable)
     {
