@@ -634,6 +634,8 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
         && this->isFullScreen()
         && appSettings->getHideMenuBarInFullScreenEnabled()
         && isMenuBarVisible()
+        && ((lastMousePos.y() >= menuBarHeight) || (lastMousePos.y() < 0))
+        && !menuBarMenuActivated
     )
     {
         // Hide menu bar if it is visible in full screen and the focus is
