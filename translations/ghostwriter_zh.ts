@@ -498,77 +498,77 @@
         <translation>无法创建文件 %1，请检查权限。</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1033"/>
+        <location filename="../src/MainWindow.cpp" line="1035"/>
         <source>Insert Image</source>
         <translation>插入图像</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1036"/>
+        <location filename="../src/MainWindow.cpp" line="1038"/>
         <source>Images</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1037"/>
+        <location filename="../src/MainWindow.cpp" line="1039"/>
         <source>All Files</source>
         <translation>全部文件</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1110"/>
+        <location filename="../src/MainWindow.cpp" line="1112"/>
         <source>Failed to open Quick Reference Guide.</source>
         <translation>打开快速参考指南失败。</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1126"/>
+        <location filename="../src/MainWindow.cpp" line="1128"/>
         <source>Quick Reference Guide</source>
         <translation>快速参考指南</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1250"/>
+        <location filename="../src/MainWindow.cpp" line="1252"/>
         <source>About %1</source>
         <translation>关于 %1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1403"/>
+        <location filename="../src/MainWindow.cpp" line="1405"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation>为了使更改生效，请重新启动应用程序。</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1556"/>
+        <location filename="../src/MainWindow.cpp" line="1558"/>
         <source>&amp;File</source>
         <translation>文件(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1558"/>
+        <location filename="../src/MainWindow.cpp" line="1560"/>
         <source>&amp;New</source>
         <translation>新建(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1559"/>
+        <location filename="../src/MainWindow.cpp" line="1561"/>
         <source>&amp;Open</source>
         <translation>打开(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1562"/>
+        <location filename="../src/MainWindow.cpp" line="1564"/>
         <source>Reopen Closed File</source>
         <translation>重新打开已关闭的文件</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1571"/>
+        <location filename="../src/MainWindow.cpp" line="1573"/>
         <source>Clear Menu</source>
         <translation>清除菜单</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1576"/>
+        <location filename="../src/MainWindow.cpp" line="1578"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1577"/>
+        <location filename="../src/MainWindow.cpp" line="1579"/>
         <source>Save &amp;As...</source>
         <translation>保存为(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1561"/>
+        <location filename="../src/MainWindow.cpp" line="1563"/>
         <source>Open &amp;Recent...</source>
         <translation>打开最近的文件(&amp;R)...</translation>
     </message>
@@ -593,343 +593,343 @@
         <translation>会话统计</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1227"/>
+        <location filename="../src/MainWindow.cpp" line="1229"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translatorcomment>不知道为什么翻译没用啊！！！
 QAQ</translatorcomment>
         <translation type="unfinished">&lt;p&gt;版权声明; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;您可以根据&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU通用公共许可证版本3&lt;/a&gt;的条款使用和重新分发此软件。&lt;/p&gt;&lt;p&gt;此软件的官方网站在&lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;。&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;我也非常感激&lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;他的灵感&lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;，他为我创建这样一个漂亮的Markdown编辑工具提供了灵感。&lt;/p&gt;</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/MainWindow.cpp" line="1255"/>
+        <location filename="../src/MainWindow.cpp" line="1257"/>
         <source>%Ln word(s)</source>
         <translation>
             <numerusform>%n 行</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1578"/>
+        <location filename="../src/MainWindow.cpp" line="1580"/>
         <source>R&amp;ename...</source>
         <translation>重命名(&amp;E)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1579"/>
+        <location filename="../src/MainWindow.cpp" line="1581"/>
         <source>Re&amp;load from Disk...</source>
         <translation>从硬盘中重新加载(&amp;L)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1581"/>
+        <location filename="../src/MainWindow.cpp" line="1583"/>
         <source>Print Pre&amp;view</source>
         <translation>打印预览(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1582"/>
+        <location filename="../src/MainWindow.cpp" line="1584"/>
         <source>&amp;Print</source>
         <translation>打印(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1584"/>
+        <location filename="../src/MainWindow.cpp" line="1586"/>
         <source>&amp;Export</source>
         <translation>导出(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1586"/>
+        <location filename="../src/MainWindow.cpp" line="1588"/>
         <source>&amp;Quit</source>
         <translation>退出(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1588"/>
+        <location filename="../src/MainWindow.cpp" line="1590"/>
         <source>&amp;Edit</source>
         <translation>编辑(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1589"/>
+        <location filename="../src/MainWindow.cpp" line="1591"/>
         <source>&amp;Undo</source>
         <translation>撤消(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1590"/>
+        <location filename="../src/MainWindow.cpp" line="1592"/>
         <source>&amp;Redo</source>
         <translation>恢复(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1592"/>
+        <location filename="../src/MainWindow.cpp" line="1594"/>
         <source>Cu&amp;t</source>
         <translation>剪切(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1593"/>
+        <location filename="../src/MainWindow.cpp" line="1595"/>
         <source>&amp;Copy</source>
         <translation>复制(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1594"/>
+        <location filename="../src/MainWindow.cpp" line="1596"/>
         <source>&amp;Paste</source>
         <translation>粘贴(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1595"/>
+        <location filename="../src/MainWindow.cpp" line="1597"/>
         <source>Copy &amp;HTML</source>
         <translation>复制 &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1597"/>
+        <location filename="../src/MainWindow.cpp" line="1599"/>
         <source>&amp;Insert Image...</source>
         <translation>插入图片(&amp;I)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1599"/>
+        <location filename="../src/MainWindow.cpp" line="1601"/>
         <source>&amp;Find</source>
         <translation>搜索(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1600"/>
+        <location filename="../src/MainWindow.cpp" line="1602"/>
         <source>Rep&amp;lace</source>
         <translation>替换(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1602"/>
+        <location filename="../src/MainWindow.cpp" line="1604"/>
         <source>&amp;Spell check</source>
         <translation>拼写检查(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1604"/>
+        <location filename="../src/MainWindow.cpp" line="1606"/>
         <source>For&amp;mat</source>
         <translation>格式(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1605"/>
+        <location filename="../src/MainWindow.cpp" line="1607"/>
         <source>&amp;Bold</source>
         <translation>粗体(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1606"/>
+        <location filename="../src/MainWindow.cpp" line="1608"/>
         <source>&amp;Italic</source>
         <translation>斜体(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1608"/>
+        <location filename="../src/MainWindow.cpp" line="1610"/>
         <source>&amp;HTML Comment</source>
         <translation>&amp;HTML注释</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1610"/>
+        <location filename="../src/MainWindow.cpp" line="1612"/>
         <source>I&amp;ndent</source>
         <translation>缩进(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1611"/>
+        <location filename="../src/MainWindow.cpp" line="1613"/>
         <source>&amp;Unindent</source>
         <translation>取消缩进(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1613"/>
+        <location filename="../src/MainWindow.cpp" line="1615"/>
         <source>Block &amp;Quote</source>
         <translation>块引用(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1614"/>
+        <location filename="../src/MainWindow.cpp" line="1616"/>
         <source>&amp;Strip Block Quote</source>
         <translation>代码块引用(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1616"/>
+        <location filename="../src/MainWindow.cpp" line="1618"/>
         <source>&amp;* Bullet List</source>
         <translation>&amp;* 无序列表</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1617"/>
+        <location filename="../src/MainWindow.cpp" line="1619"/>
         <source>&amp;- Bullet List</source>
         <translation>&amp;- 无序列表</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1618"/>
+        <location filename="../src/MainWindow.cpp" line="1620"/>
         <source>&amp;+ Bullet List</source>
         <translation>&amp;+ 无序列表</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1620"/>
+        <location filename="../src/MainWindow.cpp" line="1622"/>
         <source>1&amp;. Numbered List</source>
         <translation>1&amp;. 有序列表</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1621"/>
+        <location filename="../src/MainWindow.cpp" line="1623"/>
         <source>1&amp;) Numbered List</source>
         <translation>1&amp;) 有序列表</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1623"/>
+        <location filename="../src/MainWindow.cpp" line="1625"/>
         <source>&amp;Task List</source>
         <translation>添加TODO(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1624"/>
+        <location filename="../src/MainWindow.cpp" line="1626"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation>TODO完成(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1626"/>
+        <location filename="../src/MainWindow.cpp" line="1628"/>
         <source>&amp;View</source>
         <translation>查看(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1628"/>
+        <location filename="../src/MainWindow.cpp" line="1630"/>
         <source>&amp;Full Screen</source>
         <translation>全屏(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1635"/>
+        <location filename="../src/MainWindow.cpp" line="1637"/>
         <source>&amp;Preview in HTML</source>
         <translation>在HTML中预览(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1642"/>
+        <location filename="../src/MainWindow.cpp" line="1644"/>
         <source>&amp;Outline HUD</source>
         <translation>大纲HUD(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1643"/>
+        <location filename="../src/MainWindow.cpp" line="1645"/>
         <source>&amp;Cheat Sheet HUD</source>
         <translation>备忘单HUD(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1644"/>
+        <location filename="../src/MainWindow.cpp" line="1646"/>
         <source>&amp;Document Statistics HUD</source>
         <translation>文档统计HUD(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1645"/>
+        <location filename="../src/MainWindow.cpp" line="1647"/>
         <source>&amp;Session Statistics HUD</source>
         <translation>会话统计HUD(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1648"/>
-        <location filename="../src/MainWindow.cpp" line="2530"/>
+        <location filename="../src/MainWindow.cpp" line="1650"/>
+        <location filename="../src/MainWindow.cpp" line="2532"/>
         <source>Hide Open &amp;HUD Windows</source>
         <translation>隐藏打开HUD窗口(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1650"/>
+        <location filename="../src/MainWindow.cpp" line="1652"/>
         <source>Increase Font Size</source>
         <translation>增加字体大小</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1651"/>
+        <location filename="../src/MainWindow.cpp" line="1653"/>
         <source>Decrease Font Size</source>
         <translation>缩小字体大小</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1653"/>
+        <location filename="../src/MainWindow.cpp" line="1655"/>
         <source>&amp;Settings</source>
         <translation>设置(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1654"/>
+        <location filename="../src/MainWindow.cpp" line="1656"/>
         <source>Themes...</source>
         <translation>主题...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1655"/>
+        <location filename="../src/MainWindow.cpp" line="1657"/>
         <source>Font...</source>
         <translation>字体...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1657"/>
+        <location filename="../src/MainWindow.cpp" line="1659"/>
         <source>Style Sheets...</source>
         <translation>样式表...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1658"/>
+        <location filename="../src/MainWindow.cpp" line="1660"/>
         <source>Preview Options...</source>
         <translation>预览选项...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1659"/>
+        <location filename="../src/MainWindow.cpp" line="1661"/>
         <source>Preferences...</source>
         <translation>首选项(偏好)...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1718"/>
+        <location filename="../src/MainWindow.cpp" line="1720"/>
         <source>Preview Options</source>
         <translation>预览选项</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1724"/>
+        <location filename="../src/MainWindow.cpp" line="1726"/>
         <source>Export</source>
         <translation>导出</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1730"/>
+        <location filename="../src/MainWindow.cpp" line="1732"/>
         <source>Copy HTML</source>
         <translation>复制 HTML</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1752"/>
-        <location filename="../src/MainWindow.cpp" line="2534"/>
+        <location filename="../src/MainWindow.cpp" line="1754"/>
+        <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>Hide Open HUD Windows</source>
         <translation>显示打开HUD窗口</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1760"/>
+        <location filename="../src/MainWindow.cpp" line="1762"/>
         <source>Toggle Live HTML Preview</source>
         <translation>切换为实时HTML预览</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2542"/>
+        <location filename="../src/MainWindow.cpp" line="2544"/>
         <source>Show Open &amp;HUD Windows</source>
         <translation>显示打开HUD窗口(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2545"/>
+        <location filename="../src/MainWindow.cpp" line="2547"/>
         <source>Show Open HUD Windows</source>
         <translation>显示打开HUD窗口</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1656"/>
+        <location filename="../src/MainWindow.cpp" line="1658"/>
         <source>Application Language...</source>
         <translation>软件的语言...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1607"/>
+        <location filename="../src/MainWindow.cpp" line="1609"/>
         <source>Stri&amp;kethrough</source>
         <translation>删除线(&amp;K)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1661"/>
+        <location filename="../src/MainWindow.cpp" line="1663"/>
         <source>&amp;Help</source>
         <translation>帮助(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1662"/>
+        <location filename="../src/MainWindow.cpp" line="1664"/>
         <source>&amp;About</source>
         <translation>关于(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1663"/>
+        <location filename="../src/MainWindow.cpp" line="1665"/>
         <source>About &amp;Qt</source>
         <translation>关于 &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1664"/>
+        <location filename="../src/MainWindow.cpp" line="1666"/>
         <source>Quick &amp;Reference Guide</source>
         <translation>快速参考指南(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1665"/>
+        <location filename="../src/MainWindow.cpp" line="1667"/>
         <source>Wiki</source>
         <translation>Wiki</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1768"/>
+        <location filename="../src/MainWindow.cpp" line="1770"/>
         <source>Toggle Hemingway mode</source>
         <translation>切换到海明威模式</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1775"/>
+        <location filename="../src/MainWindow.cpp" line="1777"/>
         <source>Toggle distraction free mode</source>
         <translation>切换到专注模式</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1783"/>
+        <location filename="../src/MainWindow.cpp" line="1785"/>
         <source>Toggle full screen mode</source>
         <translation>切换全屏模式</translation>
     </message>
@@ -1696,42 +1696,42 @@ QAQ</translatorcomment>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="138"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="137"/>
         <source>Edit...</source>
         <translation>编辑...</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="199"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="198"/>
         <source>Unable to load theme.</source>
         <translation>无法加载主题。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="280"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="279"/>
         <source>Cannot delete theme.</source>
         <translation>无法删除主题。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="281"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="280"/>
         <source>Sorry, this is a built-in theme that cannot be deleted.</source>
         <translation>对不起，您无法删除的内置主题。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="292"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="291"/>
         <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
         <translation>您确定要永久删除&apos;%1&apos;主题吗？</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="310"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="309"/>
         <source>Failed to delete theme.</source>
         <translation>无法删除主题。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="341"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="340"/>
         <source>Cannot edit theme.</source>
         <translation>无法编辑主题。</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="342"/>
+        <location filename="../src/ThemeSelectionDialog.cpp" line="341"/>
         <source>Sorry, this is a built-in theme that cannot be edited.</source>
         <translation>对不起，您无法编辑的内置主题。</translation>
     </message>
