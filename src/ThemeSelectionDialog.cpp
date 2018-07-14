@@ -82,7 +82,6 @@ ThemeSelectionDialog::ThemeSelectionDialog
         (GW_LIST_WIDGET_ICON_HEIGHT + fontMetrics().height() + frame + focusv + (spacing * 2)) * rowCount
     );
 
-
     // Set up theme list
     themeListWidget = new QListWidget(this);
     themeListWidget->setSortingEnabled(true);
@@ -127,7 +126,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
 
         if (themeName == currentThemeName)
         {
-            themeListWidget->setCurrentRow(themeListWidget->count() - 1);
+            themeListWidget->setCurrentItem(item);
             currentTheme = theme;
         }
     }
