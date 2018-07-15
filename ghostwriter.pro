@@ -211,8 +211,14 @@ SOURCES += src/AppMain.cpp \
     src/sundown/markdown.c \
     src/sundown/stack.c
 
-# Allow for updating translations
+# Generate translations
 TRANSLATIONS = $$files(translations/ghostwriter_*.ts)
+qtPrepareTool(LRELEASE, lrelease)
+updateqm.input = TRANSLATIONS
+updateqm.output = $${DESTDIR}/translations/${QMAKE_FILE_BASE}.qm
+updateqm.commands = $$LRELEASE -silent ${QMAKE_FILE_IN} -qm ${QMAKE_FILE_OUT}
+updateqm.CONFIG += no_link target_predeps no_check_exist
+QMAKE_EXTRA_COMPILERS += updateqm
 
 RESOURCES += resources.qrc
 
@@ -260,8 +266,9 @@ macx {
     man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
 
-    qm.files = translations/*.qm
+    qm.files = $${DESTDIR}/translations/*.qm
     qm.path = $$DATADIR/ghostwriter/translations
+    qm.CONFIG += no_check_exist
 
     INSTALLS += target icon pixmap desktop appdata man qm
 }
