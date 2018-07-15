@@ -132,8 +132,8 @@ ThemeSelectionDialog::ThemeSelectionDialog
     }
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
-    QPushButton* newThemeButton = new QPushButton("+");
-    QPushButton* deleteThemeButton = new QPushButton("-");
+    QPushButton* newThemeButton = new QPushButton(" + ");
+    QPushButton* deleteThemeButton = new QPushButton(" - ");
     QPushButton* editThemeButton = new QPushButton(tr("Edit..."));
 
     buttonBox->addButton(newThemeButton, QDialogButtonBox::ActionRole);
