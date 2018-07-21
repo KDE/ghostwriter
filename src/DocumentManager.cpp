@@ -948,7 +948,7 @@ void DocumentManager::backupFile(const QString& filePath) const
 
     QFile file(filePath);
 
-    if (!file.rename(backupFilePath))
+    if (!file.copy(backupFilePath))
     {
         qCritical("Failed to backup file to %s: %s",
             backupFilePath.toLatin1().data(),
