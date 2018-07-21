@@ -398,7 +398,7 @@ void ExporterFactory::addPandocExporter
         QString("pandoc -f ") +
         inputFormat +
         CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-        " -t %1 --standalone -o " +
+        " -t %1 --standalone --quiet -o " +
         CommandLineExporter::OUTPUT_FILE_PATH_VAR;
 
     exporter->addFileExportCommand
