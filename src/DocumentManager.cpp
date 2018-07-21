@@ -906,7 +906,7 @@ QString DocumentManager::saveToDisk
         backupFile(filePath);
     }
 
-    if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
+    if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
     {
         return outputFile.errorString();
     }
