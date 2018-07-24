@@ -266,8 +266,8 @@ macx {
     man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
 
-    qm.files = $${DESTDIR}/translations/*
-    qm.path = $$DATADIR/ghostwriter/translations
+    qm.files = $${DESTDIR}/translations
+    qm.path = $$DATADIR/ghostwriter
     qm.CONFIG += no_check_exist
 
     INSTALLS += target icon pixmap desktop appdata man qm
