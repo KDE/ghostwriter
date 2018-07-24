@@ -266,7 +266,7 @@ macx {
     man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
 
-    qm.files = $${DESTDIR}/translations/*.qm
+    qm.files = $${DESTDIR}/translations/*
     qm.path = $$DATADIR/ghostwriter/translations
     qm.CONFIG += no_check_exist
 
