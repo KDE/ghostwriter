@@ -394,12 +394,26 @@ void ExporterFactory::addPandocExporter
             " -t html"
     );
 
-    QString standardExportStr =
-        QString("pandoc -f ") +
-        inputFormat +
-        CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-        " -t %1 --standalone --quiet -o " +
-        CommandLineExporter::OUTPUT_FILE_PATH_VAR;
+    QString standardExportStr;
+    if ( (majorVersion > 1) || ((1 == majorVersion) && (minorVersion > 17)) )
+    {
+        standardExportStr =
+            QString("pandoc -f ") +
+            inputFormat +
+            CommandLineExporter::SMART_TYPOGRAPHY_ARG +
+            " -t %1 --standalone --quiet -o " +
+            CommandLineExporter::OUTPUT_FILE_PATH_VAR;
+    }
+    else
+    {
+        // older Pandoc releases like in Debian 9 don't know the option '--quiet'
+        standardExportStr =
+            QString("pandoc -f ") +
+            inputFormat +
+            CommandLineExporter::SMART_TYPOGRAPHY_ARG +
+            " -t %1 --standalone -o " +
+            CommandLineExporter::OUTPUT_FILE_PATH_VAR;
+    }
 
     exporter->addFileExportCommand
     (
