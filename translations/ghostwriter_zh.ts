@@ -1249,12 +1249,12 @@ QAQ</translatorcomment>
         <translation>样式表</translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="113"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="114"/>
         <source>Github (Default)</source>
         <translation>Github (默认)</translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="115"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="116"/>
         <source>Github Dark</source>
         <translation type="unfinished"></translation>
     </message>

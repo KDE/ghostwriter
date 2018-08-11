@@ -1375,12 +1375,12 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
         <translation>Foglio di stile</translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="113"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="114"/>
         <source>Github (Default)</source>
         <translation>GitHub (predefinito)</translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="115"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="116"/>
         <source>Github Dark</source>
         <translation type="unfinished"></translation>
     </message>

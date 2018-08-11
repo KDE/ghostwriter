@@ -1249,12 +1249,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="113"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="114"/>
         <source>Github (Default)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="115"/>
+        <location filename="../src/PreviewOptionsDialog.cpp" line="116"/>
         <source>Github Dark</source>
         <translation type="unfinished"></translation>
     </message>

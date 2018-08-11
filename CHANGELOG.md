@@ -1,3 +1,11 @@
+1.7.3
+=====
+
+Fixes
+-----
+
+* Issue #369: Fixed segfault that occurred when changing the theme or interface style after opening the Preview Options dialog.
+
 1.7.2
 =====
 

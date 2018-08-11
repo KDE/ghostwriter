@@ -35,7 +35,7 @@ CONFIG += warn_on
 
 # Set program version
 isEmpty(VERSION) {
-    VERSION = v1.7.2
+    VERSION = v1.7.3
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
