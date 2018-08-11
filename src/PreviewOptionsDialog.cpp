@@ -44,7 +44,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     QFormLayout* optionsLayout = new QFormLayout();
     mainContents->setLayout(optionsLayout);
 
-    previewerComboBox = new QComboBox();
+    previewerComboBox = new QComboBox(this);
 
     QList<Exporter*> exporters = exporterFactory->getHtmlExporters();
     Exporter* currentExporter = AppSettings::getInstance()->getCurrentHtmlExporter();
@@ -71,6 +71,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     styleSheetComboBox = new QComboBox(this);
     buildStyleSheetComboBox();
     optionsLayout->addRow(tr("Style Sheet"), styleSheetComboBox);
+    connect(styleSheetComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onStyleSheetChanged(int)));
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Close);
@@ -108,7 +109,7 @@ void PreviewOptionsDialog::onCustomCssFilesChanged(const QStringList& fileList)
 
 void PreviewOptionsDialog::buildStyleSheetComboBox()
 {
-    styleSheetComboBox->disconnect();
+    styleSheetComboBox->blockSignals(true);
     styleSheetComboBox->clear();
     styleSheetComboBox->addItem(tr("Github (Default)"));
     styleSheetComboBox->setItemData(0, QVariant(defaultStyleSheets.at(0)));
@@ -151,5 +152,5 @@ void PreviewOptionsDialog::buildStyleSheetComboBox()
         AppSettings::getInstance()->setCurrentCssFile(defaultStyleSheets.first());
     }
 
-    connect(styleSheetComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onStyleSheetChanged(int)));
+    styleSheetComboBox->blockSignals(false);
 }
