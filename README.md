@@ -54,7 +54,7 @@ You can download an application bundle for MacOS and copy it under /Applications
 Build
 =====
 
-If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows, or in your Linux distribution's repository. If you're on MacOS you'll need Qt5.5 from brew. 
+If you wish to build from the source code, you will need either Qt 4.8 or Qt 5, available from <http://www.qt.io/> if you are on Windows, or in your Linux distribution's repository. If you're on MacOS you'll need Qt5.5 from brew.
 
 This documentation assumes you already have the source code unzipped in a folder.
 
@@ -79,21 +79,17 @@ Unless you have built *ghostwriter* as a standalone executable statically linked
 Linux
 -----
 
-These instructions are for Debian or Ubuntu distributions.  However, they will be similar for other Linux flavors.
+Before proceeding, ensure that you have the necessary packages installed for Qt 5.
 
-Before proceeding, ensure that you have the following packages installed for Qt 5:
+For Debian or Ubuntu distributions:
 
-* qt5-default,
-* qtbase5-dev,
-* libqt5svg5-dev,
-* qtmultimedia5-dev,
-* libqt5webkit5-dev,
-* libhunspell-dev,
-* pkg-config
-* libqt5concurrent5
-* libqt5printsupport5
-* libqt5svg5
-* qttools5-dev-tools
+    $ sudo apt-get install qt5-default qtbase5-dev libqt5svg5-dev qtmultimedia5-dev libqt5webkit5-dev libhunspell-dev pkg-config libqt5concurrent5 libqt5printsupport5
+
+For fedora:
+
+    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebkit-devel hunspell-devel
+
+For other Linux flavors, the list will be similar; `qmake` will tell you if you're missing anything.
 
 Note that you may also compile and run against Qt 4.8;  however, Qt 5 is optimal for for its newer features.  Qt 4.8 has similar package dependencies to what is listed above.  You will have to find their Qt 4.8 equivalents in your Linux distribution's repository.
 
