@@ -395,7 +395,7 @@ void ExporterFactory::addPandocExporter
     );
 
     QString standardExportStr;
-    if ( (majorVersion > 1) || ((1 == majorVersion) && (minorVersion > 17)) )
+    if (majorVersion >= 2)
     {
         standardExportStr =
             QString("pandoc -f ") +
@@ -406,7 +406,7 @@ void ExporterFactory::addPandocExporter
     }
     else
     {
-        // older Pandoc releases like in Debian 9 don't know the option '--quiet'
+        // older Pandoc releases don't know the option '--quiet'
         standardExportStr =
             QString("pandoc -f ") +
             inputFormat +
