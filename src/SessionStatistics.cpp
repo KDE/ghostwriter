@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,6 +44,7 @@ void SessionStatistics::startNewSession(int initialWordCount)
     lastWordCount = initialWordCount;
     totalSeconds = 0;
     idleSeconds = 0;
+    secondsSinceTypingPaused = 0;
     idle = true;
     sessionTimer->stop();
     sessionTimer->start();
@@ -75,6 +76,10 @@ void SessionStatistics::onDocumentWordCountChanged(int newWordCount)
     emit wordCountChanged(sessionWordCount);
     emit pageCountChanged(sessionWordCount / 250);
 
+    // For the first minute of the session, calculate WPM.
+    // Afterward, only update WPM when the session timer
+    // expires to keep the count from looking jittery.
+    //
     if (totalSeconds < 60)
     {
         emit wordsPerMinuteChanged(calculateWPM());
@@ -89,13 +94,23 @@ void SessionStatistics::onTypingPaused()
 void SessionStatistics::onTypingResumed()
 {
     idle = false;
+    secondsSinceTypingPaused = 0;
 }
 
 void SessionStatistics::onSessionTimerExpired()
 {
     if (idle)
     {
-        idleSeconds++;
+        // typingPaused signal from editor can be milliseconds apart from the
+        // last keystroke.  Ensure that idleSeconds gets incremented only if
+        // about 1 second has passed since the typingPaused signal was emitted.
+        //
+        if (secondsSinceTypingPaused >= 1)
+        {
+            idleSeconds++;
+        }
+
+        secondsSinceTypingPaused++;
     }
 
     totalSeconds++;
@@ -108,6 +123,9 @@ void SessionStatistics::onSessionTimerExpired()
 int SessionStatistics::calculateWPM() const
 {
     unsigned long delta = totalSeconds - idleSeconds;
+
+    qWarning("totalSeconds = %d, idleSeconds = %d", totalSeconds, idleSeconds);
+    qWarning("totalWordsWritten = %d, delta = %d", totalWordsWritten, delta);
 
     if (delta > 0)
     {

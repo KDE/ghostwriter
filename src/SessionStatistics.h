@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2018 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -90,6 +90,7 @@ class SessionStatistics : public QObject
         bool idle;
         unsigned long totalSeconds;
         unsigned long idleSeconds;
+        unsigned long secondsSinceTypingPaused;
 
         int calculateWPM() const;
 };
