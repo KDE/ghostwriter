@@ -124,9 +124,6 @@ int SessionStatistics::calculateWPM() const
 {
     unsigned long delta = totalSeconds - idleSeconds;
 
-    qWarning("totalSeconds = %d, idleSeconds = %d", totalSeconds, idleSeconds);
-    qWarning("totalWordsWritten = %d, delta = %d", totalWordsWritten, delta);
-
     if (delta > 0)
     {
         return (int)(((float)totalWordsWritten * 60.0f) / (float)delta);
