@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
   <id>ghostwriter.desktop</id>
-  <metadata_license>CC BY-SA3</metadata_license>
+  <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>ghostwriter</name>
   <summary>Distraction-free text editor for Markdown</summary>
@@ -15,8 +15,16 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/appdata/screenshot1.png</image>
-      <caption>ghostwriter main window with outline HUD for document navigation</caption>
+      <image>https://raw.githubusercontent.com/wereturtle/ghostwriter/master/resources/linux/screenshot_distraction_free_editing.png</image>
+      <caption>Enjoy a distraction-free writing experience, including a full screen mode and a clean interface</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/wereturtle/ghostwriter/master/resources/linux/screenshot_theming.png</image>
+      <caption>The built-in light and dark themes provide an aesthetic writing experience out of the box</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/wereturtle/ghostwriter/master/resources/linux/screenshot_live_preview.png</image>
+      <caption>Preview your Markdown document in HTML</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">http://wereturtle.github.io/ghostwriter/</url>
