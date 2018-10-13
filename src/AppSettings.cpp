@@ -691,7 +691,7 @@ AppSettings::AppSettings()
         // cross-platform.  This is just a precaution.
         //
         qWarning() <<
-            "No fixed-width fonts were found. Using sytem default...";
+            "No fixed-width fonts were found. Using system default...";
         defaultFont = QFont("");
         defaultFont.setFixedPitch(true);
         defaultFont.setStyleHint(QFont::Monospace);
