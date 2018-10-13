@@ -651,7 +651,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1229"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt; {2014-2018 ?} {3&lt;?}</translation>
+        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt; {2014-2018 ?} {3&lt;?}</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1257"/>
@@ -724,7 +724,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1597"/>
         <source>Copy &amp;HTML</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;HTML kopieren</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1599"/>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1646"/>
         <source>&amp;Document Statistics HUD</source>
-        <translation>Dokument Statistiken HUD</translation>
+        <translation>&amp;Dokumentenstatistiken HUD</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1647"/>
@@ -865,7 +865,7 @@
         <location filename="../src/MainWindow.cpp" line="1650"/>
         <location filename="../src/MainWindow.cpp" line="2532"/>
         <source>Hide Open &amp;HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Offene &amp;HUD-Fenster verstecken</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1652"/>
@@ -895,12 +895,12 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1659"/>
         <source>Style Sheets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Formatvorlagen...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1660"/>
         <source>Preview Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorschauoptionen...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1661"/>
@@ -910,38 +910,38 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1720"/>
         <source>Preview Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorschauoptionen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1726"/>
         <source>Export</source>
-        <translation type="unfinished">Exportieren</translation>
+        <translation>Exportieren</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1732"/>
         <source>Copy HTML</source>
-        <translation type="unfinished">HTML kopieren</translation>
+        <translation>HTML kopieren</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1754"/>
         <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>Hide Open HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Offene HUD-Fenster schließen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1762"/>
         <source>Toggle Live HTML Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Live HTML-Vorschau ein/ausschalten</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2544"/>
         <source>Show Open &amp;HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Offene &amp;HUD-Fenster anzeigen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2547"/>
         <source>Show Open HUD Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Offene HUD-Fenster anzeigen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1658"/>
@@ -1059,243 +1059,243 @@
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="205"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished">Aktuelle Zeit im Vollbild Modus anzeigen</translation>
+        <translation>Aktuelle Zeit im Vollbildmodus anzeigen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="211"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished">Menüleiste im Vollbildmodus verstecken</translation>
+        <translation>Menüleiste im Vollbildmodus verstecken</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="218"/>
         <source>Rounded</source>
-        <translation type="unfinished">Rund</translation>
+        <translation>Rund</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="219"/>
         <source>Square</source>
-        <translation type="unfinished">Eckig</translation>
+        <translation>Eckig</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="223"/>
         <source>Interface style</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzeroberflächenstil</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="225"/>
         <source>File Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateisicherung</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="231"/>
         <source>Auto save</source>
-        <translation type="unfinished">Automatisch speichern</translation>
+        <translation>Automatisch speichern</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="237"/>
         <source>Backup file on save</source>
-        <translation type="unfinished">Beim Speichern ein Backup machen</translation>
+        <translation>Beim Speichern ein Backup anlegen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="243"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlauf</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="249"/>
         <source>Remember file history</source>
-        <translation type="unfinished">Geöffnete Dateien merken</translation>
+        <translation>Geöffnete Dateien merken</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="265"/>
         <source>Tabulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabulierung</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="271"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished">Leerzeichen statt Tabulatoren verwenden</translation>
+        <translation>Leerzeichen statt Tabulatoren verwenden</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="287"/>
         <source>Tabulation width</source>
-        <translation type="unfinished">Tabulatorbreite</translation>
+        <translation>Tabulatorbreite</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Stil</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="296"/>
         <source>Sentence</source>
-        <translation type="unfinished">Satz</translation>
+        <translation>Satz</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="297"/>
         <source>Current Line</source>
-        <translation type="unfinished">Aktuelle Zeile</translation>
+        <translation>Aktuelle Zeile</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="298"/>
         <source>Three Lines</source>
-        <translation type="unfinished">Drei Zeilen</translation>
+        <translation>Drei Zeilen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Paragraph</source>
-        <translation type="unfinished">Absatz</translation>
+        <translation>Absatz</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="300"/>
         <source>Typewriter</source>
-        <translation type="unfinished"></translation>
+        <translation>Schreibmaschine</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="304"/>
         <source>Focus mode</source>
-        <translation type="unfinished">Fokus Modus</translation>
+        <translation>Fokus-Modus</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="307"/>
         <source>Narrow</source>
-        <translation type="unfinished">Eng</translation>
+        <translation>Eng</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Medium</source>
-        <translation type="unfinished">Mittel</translation>
+        <translation>Mittel</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="309"/>
         <source>Wide</source>
-        <translation type="unfinished">Breit</translation>
+        <translation>Breit</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="310"/>
         <source>Full</source>
-        <translation type="unfinished">Voll</translation>
+        <translation>Voll</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="314"/>
         <source>Editor width</source>
-        <translation type="unfinished">Editor Breite</translation>
+        <translation>Editor-Breite</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="317"/>
         <source>Plain</source>
-        <translation type="unfinished">Schlicht</translation>
+        <translation>Schlicht</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="318"/>
         <location filename="../src/PreferencesDialog.cpp" line="326"/>
         <source>Italic</source>
-        <translation type="unfinished">Kursiv</translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="319"/>
         <source>Fancy</source>
-        <translation type="unfinished">Extravagant</translation>
+        <translation>Extravagant</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="323"/>
         <source>Blockquote style</source>
-        <translation type="unfinished">Blockzitat Stil</translation>
+        <translation>Blockzitat-Stil</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="327"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterstrichen</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="331"/>
         <source>Emphasis style</source>
-        <translation type="unfinished">Hervorhebung Stil</translation>
+        <translation>Hervorhebungs-Stil</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="333"/>
         <source>Use large headings</source>
-        <translation type="unfinished">Große Überschriften verwenden</translation>
+        <translation>Große Überschriften verwenden</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="339"/>
         <source>Highlight line breaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeilenumbrüche hervorherben</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="345"/>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabe</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="351"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished">Aufzählungszeichen abwechseln</translation>
+        <translation>Aufzählungszeichen abwechseln</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="357"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished">Zeichen automatisch beim Tippen gruppieren</translation>
+        <translation>Zeichen automatisch beim Tippen gruppieren</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="363"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished">Gruppierte Zeichen anpassen...</translation>
+        <translation>Gruppierte Zeichen anpassen...</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="377"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished">Live Rechtschreibprüfung aktiviert</translation>
+        <translation>Live-Rechtschreibprüfung aktiviert</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="383"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="409"/>
         <source>Dictionary</source>
-        <translation type="unfinished">Wörterbücher</translation>
+        <translation>Wörterbuch</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="422"/>
         <source>Right</source>
-        <translation type="unfinished">Rechts</translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="423"/>
         <source>Left</source>
-        <translation type="unfinished">Links</translation>
+        <translation>Links</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="427"/>
         <source>Window button layout</source>
-        <translation type="unfinished">Layout der Knöpfe im HUD Fenster</translation>
+        <translation>Layout der Knöpfe im HUD Fenster</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="429"/>
         <source>Alternate row colors</source>
-        <translation type="unfinished">Zeilenfarben im HUD Fenster abwechseln</translation>
+        <translation>Zeilenfarben im HUD Fenster abwechseln</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="435"/>
         <source>Enable desktop compositing effects</source>
-        <translation type="unfinished">Effekte für die Generierung aktivieren</translation>
+        <translation>Desktop-Effekte aktivieren</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="441"/>
         <source>Auto-hide HUD windows when typing</source>
-        <translation type="unfinished"></translation>
+        <translation>HUD-Fenster während des Tippens automatisch verstecken</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="447"/>
         <source>Auto-hide HUD windows when previewing HTML</source>
-        <translation type="unfinished"></translation>
+        <translation>HUD-Fenster automatisch verstecken, wenn HTML-Vorschau aktiv ist</translation>
     </message>
     <message>
         <location filename="../src/PreferencesDialog.cpp" line="458"/>
         <source>Opacity</source>
-        <translation type="unfinished">HUD Fenster Deckkraft</translation>
+        <translation>Deckkraft</translation>
     </message>
 </context>
 <context>
@@ -1303,27 +1303,27 @@
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="33"/>
         <source>Preview Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorschauoptionen</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="69"/>
         <source>Markdown Flavor</source>
-        <translation type="unfinished"></translation>
+        <translation>Markdown-Art</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="73"/>
         <source>Style Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Formatvorlage</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="114"/>
         <source>Github (Default)</source>
-        <translation type="unfinished">Github (Standard)</translation>
+        <translation>Github (Standard)</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="116"/>
         <source>Github Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Github Dunkel</translation>
     </message>
 </context>
 <context>
@@ -1689,12 +1689,12 @@
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="148"/>
         <source>Emphasis Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungsfarbe</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="149"/>
         <source>Block Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Farbe der Blockzitate</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="150"/>
