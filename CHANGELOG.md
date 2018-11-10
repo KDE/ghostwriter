@@ -1,3 +1,16 @@
+1.7.4
+=====
+
+Fixes
+-----
+
+* Issue #178: Only use --quiet option for Pandoc version 2 or greater.
+* Fixed words-per-minute calculations to not be jumpy or overly high.
+* Fixed issue where creating a new theme resulted in inconsistent selection and display of themes in the Theme Selection dialog.
+* Fixed broken icon when running under Wayland.
+* Fixed screenshots in appdata.
+* Issue #385: Updated resource files license to CC BY-SA 4.0.
+
 1.7.3
 =====
 
