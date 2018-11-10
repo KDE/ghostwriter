@@ -32,6 +32,10 @@ int main(int argc, char* argv[])
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
+#if QT_VERSION >= 0x050700 && defined(Q_OS_LINUX)
+    QGuiApplication::setDesktopFileName("ghostwriter");
+#endif
+
     QApplication app(argc, argv);
 
     // Call this to force settings initialization before the application
