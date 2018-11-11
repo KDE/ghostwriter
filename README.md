@@ -160,6 +160,29 @@ $ sudo cp -R ./build/release/ghostwriter.app /Applications
 $ sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
 ```
 
+FreeBSD
+-------
+
+Prerequisites
+
+* Git (`git` or `git-lite`)
+
+Install the dependencies
+
+    sudo pkg inst hunspell en-hunspell pkgconf qt5-svg qt5-multimedia \
+    qt5-webkit qt5-concurrent qt5-printsupport qt5-buildtools qt5-qmake \
+    qt5-linguist
+
+Get the sources
+
+    git clone https://github.com/wereturtle/ghostwriter
+
+Build
+
+    cd ghostwriter
+    qmake
+    make
+    sudo make install
 
 Command Line Usage
 ==================
