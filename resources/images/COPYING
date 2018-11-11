@@ -7,21 +7,15 @@ Files: configure-dark.svg, configure-light.svg,
        html-preview-light.svg, hide-huds-dark.svg,
        hide-huds-light.svg
 Author: wereturtle
-License: CC BY-SA 4.0
-  Creative Commons Attribution 4.0 Share-Alike License
+License: GNU GPL v3
+  GNU General Public License, version 3
   
   These are derived from the "Papirus Icon Theme", Copyright 2016 Sergei
   Eremenko.  The "Papirus Icon Theme" is distributed under the terms of
-  the GNU LGPL v3.  The original version can be found at
+  the GNU GPL v3.  The original version can be found at
   <http://github.com/PapirusDevelopmentTeam/papirus-icon-theme>.
   
   To view a copy of this licence, visit <http://www.gnu.org/licenses/>.
-  
-  This derivative work is licenced under the Creative Commons
-  Attribution-Share Alike 4.0 United States License. To view a copy of
-  this licence, visit http://creativecommons.org/licenses/by-sa/4.0/ or
-  send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042,
-  USA.
 
   When attributing the artwork, using "wereturtle" is enough. Please link to
   http://github.com/wereturtle/ghostwriter where available.
@@ -34,8 +28,8 @@ License: CC BY-SA 4.0
   Creative Commons Attribution 4.0 Share-Alike License
     
   This work is licenced under the Creative Commons Attribution-Share Alike 4.0
-  United States License. To view a copy of this licence, visit
-  http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative
+  International License. To view a copy of this licence, visit
+  <http://creativecommons.org/licenses/by-sa/4.0/> or send a letter to Creative
   Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
   When attributing the artwork, using "wereturtle" is enough. Please link to
