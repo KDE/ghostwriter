@@ -51,6 +51,13 @@ MacOS - Testers needed.
 
 You can download an application bundle for MacOS and copy it under /Applications (for all the users) or $HOME/Applications (for the current user). That application should work on osx 10.10+, but was tested only on macOS 10.13. Please remember that this build is experimental and you'll find some bugs. Please report those on the issue tracker.
 
+FreeBSD
+-------
+
+A package exist for FreeBSD, so just type:
+
+    sudo pkg install ghostwriter
+
 Build
 =====
 
