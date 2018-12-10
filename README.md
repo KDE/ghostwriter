@@ -94,7 +94,7 @@ Next, open a terminal window, and enter the following commands:
     $ cd <your_ghostwriter_folder_location>
     $ qmake
     $ make
-    $ make install
+    # make install
 
 The last command will install *ghostwriter* on your machine.  If you need to install the application in an alternative location to `/usr/local`, enter the following command in lieu of the second command above, passing in the desired value for `PREFIX`:
 
