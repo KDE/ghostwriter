@@ -318,6 +318,21 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
             drawBlock = false;
         }
 
+        // This fixes the RTL bug of QPlainTextEdit
+        // https://bugreports.qt.io/browse/QTBUG-7516.
+        //
+        // Credit goes to Patrizio Bekerle (qmarkdowntextedit) for discovering
+        // this workaround.
+        //
+        if (block.text().isRightToLeft())
+        {
+            QTextLayout* layout = block.layout();
+            QTextOption opt = document()->defaultTextOption();
+            opt = QTextOption(Qt::AlignRight);
+            opt.setTextDirection(Qt::RightToLeft);
+            layout->setTextOption(opt);
+        }
+
         block = block.next();
         firstVisible = false;
     }
