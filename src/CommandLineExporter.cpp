@@ -79,7 +79,7 @@ void CommandLineExporter::setSmartTypographyOffArgument(const QString& argument)
 
 void CommandLineExporter::exportToHtml(const QString& text, QString& html)
 {
-    QString stderrOuptut;
+    QString stderrOutput;
 
     if (htmlRenderCommand.isNull() || htmlRenderCommand.isEmpty())
     {
@@ -87,13 +87,13 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
         return;
     }
 
-    if (!executeCommand(htmlRenderCommand, QString(), text, QString(), html, stderrOuptut))
+    if (!executeCommand(htmlRenderCommand, QString(), text, QString(), html, stderrOutput))
     {
         html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>)").arg(htmlRenderCommand);
     }
-    else if (!stderrOuptut.isNull() && !stderrOuptut.isEmpty())
+    else if (!stderrOutput.isNull() && !stderrOutput.isEmpty())
     {
-        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>").arg(stderrOuptut);
+        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>").arg(stderrOutput);
     }
 }
 
@@ -107,7 +107,7 @@ void CommandLineExporter::exportToFile
 )
 {
     QString stdoutOutput;
-    QString stderrOuptut;
+    QString stderrOutput;
 
     if (!formatToCommandMap.contains(format))
     {
@@ -117,13 +117,16 @@ void CommandLineExporter::exportToFile
 
     QString command = formatToCommandMap.value(format);
 
-    if (!executeCommand(command, inputFilePath, text, outputFilePath, stdoutOutput, stderrOuptut))
+    if (!executeCommand(command, inputFilePath, text, outputFilePath, stdoutOutput, stderrOutput))
     {
-        err = QObject::tr("Failed to execute command: ") + QString("%1").arg(command);
-    }
-    else if (!stderrOuptut.isNull() && !stderrOuptut.isEmpty())
-    {
-        err = stderrOuptut;
+        if (!stderrOutput.isNull() && !stderrOutput.isEmpty())
+        {
+            err = stderrOutput;
+        }
+        else
+        {
+            err = QObject::tr("Failed to execute command: ") + QString("%1").arg(command);
+        }
     }
     else
     {
@@ -229,6 +232,15 @@ bool CommandLineExporter::executeCommand
         {
             stdoutOutput = QString::fromUtf8(process.readAllStandardOutput().data());
             stderrOutput = QString::fromUtf8(process.readAllStandardError().data());
+
+            if
+            (
+                (QProcess::NormalExit != process.exitStatus()) ||
+                (0 != process.exitCode())
+            )
+            {
+                return false;
+            }
         }
     }
 

@@ -457,12 +457,17 @@ void ExporterFactory::addPandocExporter
         standardExportStr.arg("context") +
             " --variable pagenumbering:location=footer --variable layout:header=0mm --variable layout:top=1in --variable layout:bottom=1in --variable layout:leftmargin=1in --variable layout:rightmargin=1in -Vlinkcolor=blue"
     );
+
+    // Note: Do not use --mathjax option with WKHTMLTOPDF export, as this will
+    // cause pandoc to hang.
+    //
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_WKHTML,
         standardExportStr.arg("html5") +
-            " -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in --mathjax"
+            " -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in"
     );
+
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV2,
