@@ -388,7 +388,7 @@ void ExporterFactory::addPandocExporter
 
     exporter->setHtmlRenderCommand
     (
-        QString("pandoc -f ") +
+        QString("pandoc --mathml -f ") +
             inputFormat +
             CommandLineExporter::SMART_TYPOGRAPHY_ARG +
             " -t html"
@@ -401,7 +401,7 @@ void ExporterFactory::addPandocExporter
             QString("pandoc -f ") +
             inputFormat +
             CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-            " -t %1 --standalone --quiet -o " +
+            " -t %1 --standalone --mathml --quiet -o " +
             CommandLineExporter::OUTPUT_FILE_PATH_VAR;
     }
     else
@@ -411,7 +411,7 @@ void ExporterFactory::addPandocExporter
             QString("pandoc -f ") +
             inputFormat +
             CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-            " -t %1 --standalone -o " +
+            " -t %1 --standalone --mathml -o " +
             CommandLineExporter::OUTPUT_FILE_PATH_VAR;
     }
 
