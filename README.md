@@ -81,7 +81,7 @@ Before proceeding, ensure that you have the necessary packages installed for Qt 
 
 For Debian or Ubuntu distributions:
 
-    $ sudo apt install qt5-default qtbase5-dev libqt5svg5-dev qtmultimedia5-dev libqt5webkit5-dev libhunspell-dev pkg-config libqt5concurrent5 libqt5printsupport5
+    $ sudo apt install g++ qt5-default qtbase5-dev libqt5svg5-dev qtmultimedia5-dev libqt5webkit5-dev libhunspell-dev pkg-config libqt5concurrent5 libqt5printsupport5 qttools5-dev-tools
 
 For fedora:
 
