@@ -214,13 +214,21 @@ void ThemeSelectionDialog::onThemeSelected()
 void ThemeSelectionDialog::onNewTheme()
 {
     QString err = QString();
+    Theme newTheme;
     QList<QListWidgetItem*> selectedThemes = themeListWidget->selectedItems();
 
-    Theme newTheme = ThemeFactory::getInstance()->loadTheme
+    if (selectedThemes.size() > 0)
+    {
+        newTheme = ThemeFactory::getInstance()->loadTheme
         (
             selectedThemes[0]->text(),
             err
         );
+    }
+    else
+    {
+        newTheme = ThemeFactory::getInstance()->getDefaultTheme();
+    }
 
     newTheme.setBuiltIn(false);
 
