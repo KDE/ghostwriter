@@ -89,11 +89,14 @@ void CommandLineExporter::exportToHtml(const QString& text, QString& html)
 
     if (!executeCommand(htmlRenderCommand, QString(), text, QString(), html, stderrOutput))
     {
-        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>)").arg(htmlRenderCommand);
-    }
-    else if (!stderrOutput.isNull() && !stderrOutput.isEmpty())
-    {
-        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>").arg(stderrOutput);
+        QString errorMessage = htmlRenderCommand;
+
+        if (!stderrOutput.isNull() && !stderrOutput.isEmpty())
+        {
+            errorMessage = stderrOutput;
+        }
+
+        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>").arg(errorMessage);
     }
 }
 
