@@ -13,20 +13,6 @@
        can integrate with Pandoc, MultiMarkdown, Discount, cmark, and cmark-gfm
        processors if they are installed.</p>
   </description>
-  <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/wereturtle/ghostwriter/master/resources/linux/screenshot_distraction_free_editing.png</image>
-      <caption>Enjoy a distraction-free writing experience, including a full screen mode and a clean interface</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/wereturtle/ghostwriter/master/resources/linux/screenshot_theming.png</image>
-      <caption>The built-in light and dark themes provide an aesthetic writing experience out of the box</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/wereturtle/ghostwriter/master/resources/linux/screenshot_live_preview.png</image>
-      <caption>Preview your Markdown document in HTML</caption>
-    </screenshot>
-  </screenshots>
   <url type="homepage">http://wereturtle.github.io/ghostwriter/</url>
   <url type="bugtracker">http://github.com/wereturtle/ghostwriter/</url>
   <url type="donation">http://wereturtle.github.io/ghostwriter/</url>
