@@ -38,7 +38,6 @@
 #include <QDir>
 
 #include "ColorHelper.h"
-#include "GraphicsFadeEffect.h"
 #include "MarkdownEditor.h"
 #include "MarkdownStates.h"
 #include "MarkdownTokenizer.h"
@@ -160,21 +159,6 @@ MarkdownEditor::MarkdownEditor
         QColor(Qt::red)
     );
 
-    fadeEffect = new GraphicsFadeEffect(this);
-    fadeEffect->setFadeHeight(this->fontMetrics().height() * GW_TEXT_FADE_FACTOR);
-
-#if QT_VERSION >= 0x050600
-    qreal dpr = devicePixelRatio();
-
-    if (dpr <= 1.0)
-    {
-        viewport()->setGraphicsEffect(fadeEffect);
-    }
-#else
-    viewport()->setGraphicsEffect(fadeEffect);
-#endif
-
-    
     textCursorVisible = true;
     
     cursorBlinkTimer = new QTimer(this);
@@ -347,7 +331,7 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
     {
         // Get the cursor rect so that we have the ideal height for it,
         // and then set it to be 2 pixels wide.  (The width will be zero,
-        // because we set it to be taht in the constructor so that 
+        // because we set it to be that in the constructor so that
         // QPlainTextEdit will not draw another cursor underneath this one.)
         QRect r = cursorRect();
         r.setWidth(2);
@@ -468,8 +452,6 @@ void MarkdownEditor::setFont(const QString& family, double pointSize)
     QPlainTextEdit::setFont(font);
     highlighter->setFont(family, pointSize);
     setTabulationWidth(tabWidth);
-
-    fadeEffect->setFadeHeight(this->fontMetrics().height() * GW_TEXT_FADE_FACTOR);
 }
 
 void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)

@@ -31,7 +31,6 @@
 #include <QListWidget>
 #include <QRegularExpression>
 
-#include "GraphicsFadeEffect.h"
 #include "MarkdownEditorTypes.h"
 #include "MarkdownStyles.h"
 #include "TextDocument.h"
@@ -70,10 +69,7 @@ class MarkdownEditor : public QPlainTextEdit
          * this version of Qt chooses the cursor's color based on the
          * editor's background color, rather than the foreground color as it
          * used to in prior versions.  This means that we cannot control the
-         * cursor color via the "color" style sheet property.  Also, using
-         * the GraphicsFadeEffect class that fades the text at the bottom of
-         * the editor will cause the cursor to disappear entirely unless
-         * we draw the cursor manually.
+         * cursor color via the "color" style sheet property.
          */
         void paintEvent(QPaintEvent* event);
 
@@ -452,8 +448,6 @@ class MarkdownEditor : public QPlainTextEdit
         QColor cursorColor;
         bool textCursorVisible;
         QTimer* cursorBlinkTimer;
-
-        GraphicsFadeEffect* fadeEffect;
 
         // Timer used to determine when typing has paused.
         QTimer* typingTimer;

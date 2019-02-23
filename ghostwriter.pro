@@ -126,7 +126,6 @@ HEADERS += src/MainWindow.h \
     src/MarkdownHighlighter.h \
     src/MarkdownStyles.h \
     src/MessageBoxHelper.h \
-    src/GraphicsFadeEffect.h \
     src/SundownExporter.h \
     src/StyleSheetManagerDialog.h \
     src/SimpleFontDialog.h \
@@ -182,7 +181,6 @@ SOURCES += src/AppMain.cpp \
     src/Outline.cpp \
     src/MarkdownHighlighter.cpp \
     src/MessageBoxHelper.cpp \
-    src/GraphicsFadeEffect.cpp \
     src/StyleSheetManagerDialog.cpp \
     src/SimpleFontDialog.cpp \
     src/SundownExporter.cpp \
