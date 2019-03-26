@@ -6,27 +6,27 @@
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
         <source>&amp;lt; 1m</source>
-        <translation></translation>
+        <translation>&amp;lt; 1m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
         <source>&amp;lt; 1</source>
-        <translation></translation>
+        <translation>&amp;lt; 1</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="29"/>
         <source>250 words per page</source>
-        <translation>250 文字原始页面</translation>
+        <translation>每页 250 词</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="66"/>
         <source>%1h %2m</source>
-        <translation></translation>
+        <translation>%1h %2m</translation>
     </message>
     <message>
         <location filename="../src/AbstractStatisticsWidget.cpp" line="70"/>
         <source>%1m</source>
-        <translation></translation>
+        <translation>%1m</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="183"/>
         <source>Could not open %1</source>
-        <translation>无法打开%1</translation>
+        <translation>无法打开 %1</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="184"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="310"/>
         <source>Failed to rename %1</source>
-        <translation>无法重命名%1</translation>
+        <translation>无法重命名 %1</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="348"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="467"/>
         <source>Error saving %1</source>
-        <translation>保存%1时出错</translation>
+        <translation>保存 %1 时出错</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="531"/>
@@ -90,12 +90,12 @@
         <location filename="../src/DocumentManager.cpp" line="631"/>
         <location filename="../src/DocumentManager.cpp" line="696"/>
         <source>Could not read %1</source>
-        <translation>无法读取%1</translation>
+        <translation>无法读取 %1</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="654"/>
         <source>opening %1</source>
-        <translation>打开%1中</translation>
+        <translation>正在打开 %1</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="794"/>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../src/DocumentManager.cpp" line="798"/>
         <source>%1 has been modified.</source>
-        <translation>%1已被修改。</translation>
+        <translation>%1 已被修改。</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="807"/>
@@ -163,42 +163,42 @@
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Words:</source>
-        <translation>行数:</translation>
+        <translation>词数：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="35"/>
         <source>Characters:</source>
-        <translation>字符:</translation>
+        <translation>字符：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="36"/>
         <source>Sentences:</source>
-        <translation>句子:</translation>
+        <translation>句子：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="37"/>
         <source>Paragraphs:</source>
-        <translation>段落:</translation>
+        <translation>段落：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="38"/>
         <source>Pages:</source>
-        <translation>页数:</translation>
+        <translation>页数：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Complex Words:</source>
-        <translation>复合词:</translation>
+        <translation>复合词：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Reading Time:</source>
-        <translation>阅读时间:</translation>
+        <translation>阅读时间：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Reading Ease:</source>
-        <translation>易于阅读:</translation>
+        <translation>阅读难易：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
@@ -208,12 +208,12 @@
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Grade Level:</source>
-        <translation>年级水平:</translation>
+        <translation>年级水平：</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation>科尔曼-凫可读性指数(CLI)</translation>
+        <translation>科尔曼-凫可读性指数（CLI）</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="112"/>
@@ -223,7 +223,7 @@
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Rocket Science</source>
-        <translation>火箭科学(什么鬼翻译(╯‵□′)╯︵┻━┻)</translation>
+        <translation>火箭科学</translation>
     </message>
     <message>
         <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../src/ExportDialog.cpp" line="195"/>
         <source>Markdown Converter:</source>
-        <translation>Markdown转换器:</translation>
+        <translation>Markdown 转换器：</translation>
     </message>
     <message>
         <location filename="../src/ExportDialog.cpp" line="238"/>
@@ -261,7 +261,7 @@
     <message>
         <location filename="../src/ExportDialog.cpp" line="255"/>
         <source>Export failed.</source>
-        <translation>导出失败.</translation>
+        <translation>导出失败。</translation>
     </message>
 </context>
 <context>
@@ -269,12 +269,12 @@
     <message>
         <location filename="../src/find_dialog.cpp" line="45"/>
         <source>Search for:</source>
-        <translation>搜索:</translation>
+        <translation>搜索：</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="47"/>
         <source>Replace with:</source>
-        <translation>用〇〇来代替:</translation>
+        <translation>替换使用：</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="51"/>
@@ -284,12 +284,12 @@
     <message>
         <location filename="../src/find_dialog.cpp" line="52"/>
         <source>Whole words only</source>
-        <translation>只允许整个词(暂时)</translation>
+        <translation>只允许整个词</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="53"/>
         <source>Regular expressions</source>
-        <translation>常用表达</translation>
+        <translation>正则表达式</translation>
     </message>
     <message>
         <location filename="../src/find_dialog.cpp" line="56"/>
@@ -335,7 +335,7 @@
         <location filename="../src/find_dialog.cpp" line="277"/>
         <source>Replace %n instance(s)?</source>
         <translation>
-            <numerusform>替换 %n 实例?</numerusform>
+            <numerusform>替换 %n 个实例？</numerusform>
         </translation>
     </message>
     <message>
@@ -356,7 +356,7 @@
     <message>
         <location filename="../src/HtmlPreview.cpp" line="49"/>
         <source>HTML Preview</source>
-        <translation>HTML预览</translation>
+        <translation>HTML 预览</translation>
     </message>
 </context>
 <context>
@@ -369,7 +369,7 @@
     <message>
         <location filename="../src/image_button.cpp" line="89"/>
         <source>Images(%1)</source>
-        <translation>图片(%1)</translation>
+        <translation>图片 (%1)</translation>
     </message>
 </context>
 <context>
@@ -382,7 +382,7 @@
     <message>
         <location filename="../src/LocaleDialog.cpp" line="48"/>
         <source>The translations folder is missing.</source>
-        <translation>翻译文件丢失。</translation>
+        <translation>翻译文件夹丢失。</translation>
     </message>
     <message>
         <location filename="../src/LocaleDialog.cpp" line="49"/>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="153"/>
         <source>![Image][./image.jpg &quot;Title&quot;]</source>
-        <translation>![图片][[./image.jpg &quot;Title&quot;]</translation>
+        <translation>![图片][[./image.jpg &quot;标题&quot;]</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="154"/>
@@ -490,7 +490,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="159"/>
         <source>Cheat Sheet</source>
-        <translation>备忘录</translation>
+        <translation>速查表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="530"/>
@@ -565,7 +565,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="1579"/>
         <source>Save &amp;As...</source>
-        <translation>保存为(&amp;A)...</translation>
+        <translation>另存为(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1563"/>
@@ -575,7 +575,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="150"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
-        <translation>[链接](http://url.com &quot;Title&quot;)</translation>
+        <translation>[链接](http://url.com &quot;标题&quot;)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="152"/>
@@ -597,13 +597,13 @@
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translatorcomment>不知道为什么翻译没用啊！！！
 QAQ</translatorcomment>
-        <translation type="unfinished">&lt;p&gt;版权声明; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;您可以根据&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU通用公共许可证版本3&lt;/a&gt;的条款使用和重新分发此软件。&lt;/p&gt;&lt;p&gt;此软件的官方网站在&lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;。&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;我也非常感激&lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;他的灵感&lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;，他为我创建这样一个漂亮的Markdown编辑工具提供了灵感。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;版权声明 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;您可以根据&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU通用公共许可证版本3&lt;/a&gt;的条款使用和重新分发此软件。&lt;/p&gt;&lt;p&gt;此软件的官方网站在&lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;。&lt;/p&gt;&lt;p&gt;特别鸣谢以下朋友允许重用他们的代码&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;，&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;的作者&lt;br/&gt;Dmitry Shachnev，&lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;的作者&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;，&lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;的作者&lt;br/&gt;&lt;p&gt;我也非常感激&lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;的&lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;项目启发的灵感，他为我创建这样一个漂亮的 Markdown 编辑工具提供了灵感。&lt;/p&gt;</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="1257"/>
         <source>%Ln word(s)</source>
         <translation>
-            <numerusform>%n 行</numerusform>
+            <numerusform>%n 个词</numerusform>
         </translation>
     </message>
     <message>
@@ -669,7 +669,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/MainWindow.cpp" line="1597"/>
         <source>Copy &amp;HTML</source>
-        <translation>复制 &amp;HTML</translation>
+        <translation>复制 HTML(&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1599"/>
@@ -709,7 +709,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/MainWindow.cpp" line="1610"/>
         <source>&amp;HTML Comment</source>
-        <translation>&amp;HTML注释</translation>
+        <translation>HTML 注释(&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1612"/>
@@ -729,42 +729,42 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/MainWindow.cpp" line="1616"/>
         <source>&amp;Strip Block Quote</source>
-        <translation>代码块引用(&amp;S)</translation>
+        <translation>单行块引用(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1618"/>
         <source>&amp;* Bullet List</source>
-        <translation>&amp;* 无序列表</translation>
+        <translation>无序列表(&amp;*)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1619"/>
         <source>&amp;- Bullet List</source>
-        <translation>&amp;- 无序列表</translation>
+        <translation>无序列表(&amp;-)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1620"/>
         <source>&amp;+ Bullet List</source>
-        <translation>&amp;+ 无序列表</translation>
+        <translation>无序列表(&amp;+)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1622"/>
         <source>1&amp;. Numbered List</source>
-        <translation>1&amp;. 有序列表</translation>
+        <translation>有序列表(1&amp;.)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1623"/>
         <source>1&amp;) Numbered List</source>
-        <translation>1&amp;) 有序列表</translation>
+        <translation>有序列表(1&amp;))</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1625"/>
         <source>&amp;Task List</source>
-        <translation>添加TODO(&amp;T)</translation>
+        <translation>任务表(&amp;T)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1626"/>
         <source>Toggle Task(s) &amp;Complete</source>
-        <translation>TODO完成(&amp;C)</translation>
+        <translation>设置任务已完成(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1628"/>
@@ -779,33 +779,33 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/MainWindow.cpp" line="1637"/>
         <source>&amp;Preview in HTML</source>
-        <translation>在HTML中预览(&amp;P)</translation>
+        <translation>在 HTML 中预览(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1644"/>
         <source>&amp;Outline HUD</source>
-        <translation>大纲HUD(&amp;O)</translation>
+        <translation>大纲 HUD (&amp;O)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1645"/>
         <source>&amp;Cheat Sheet HUD</source>
-        <translation>备忘单HUD(&amp;C)</translation>
+        <translation>速查表 HUD (&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1646"/>
         <source>&amp;Document Statistics HUD</source>
-        <translation>文档统计HUD(&amp;D)</translation>
+        <translation>文档统计 HUD (&amp;D)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1647"/>
         <source>&amp;Session Statistics HUD</source>
-        <translation>会话统计HUD(&amp;S)</translation>
+        <translation>会话统计 HUD (&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1650"/>
         <location filename="../src/MainWindow.cpp" line="2532"/>
         <source>Hide Open &amp;HUD Windows</source>
-        <translation>隐藏打开HUD窗口(&amp;H)</translation>
+        <translation>隐藏打开 HUD 窗口(&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1652"/>
@@ -845,7 +845,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/MainWindow.cpp" line="1661"/>
         <source>Preferences...</source>
-        <translation>首选项(偏好)...</translation>
+        <translation>首选项...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1720"/>
@@ -866,22 +866,22 @@ QAQ</translatorcomment>
         <location filename="../src/MainWindow.cpp" line="1754"/>
         <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>Hide Open HUD Windows</source>
-        <translation>显示打开HUD窗口</translation>
+        <translation>显示打开 HUD 窗口</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1762"/>
         <source>Toggle Live HTML Preview</source>
-        <translation>切换为实时HTML预览</translation>
+        <translation>切换实时 HTML 预览</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2544"/>
         <source>Show Open &amp;HUD Windows</source>
-        <translation>显示打开HUD窗口(&amp;H)</translation>
+        <translation>显示打开 HUD 窗口(&amp;H)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2547"/>
         <source>Show Open HUD Windows</source>
-        <translation>显示打开HUD窗口</translation>
+        <translation>显示打开 HUD 窗口</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1658"/>
@@ -921,12 +921,12 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/MainWindow.cpp" line="1770"/>
         <source>Toggle Hemingway mode</source>
-        <translation>切换到海明威模式</translation>
+        <translation>切换海明威模式</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1777"/>
         <source>Toggle distraction free mode</source>
-        <translation>切换到专注模式</translation>
+        <translation>切换专注模式</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1785"/>
@@ -1241,7 +1241,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="69"/>
         <source>Markdown Flavor</source>
-        <translation>markdown 风格</translation>
+        <translation>Markdown 风格</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="73"/>
@@ -1251,12 +1251,12 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="114"/>
         <source>Github (Default)</source>
-        <translation>Github (默认)</translation>
+        <translation>Github（默认）</translation>
     </message>
     <message>
         <location filename="../src/PreviewOptionsDialog.cpp" line="116"/>
         <source>Github Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Github 暗黑</translation>
     </message>
 </context>
 <context>
@@ -1265,22 +1265,22 @@ QAQ</translatorcomment>
         <location filename="../src/CommandLineExporter.cpp" line="92"/>
         <location filename="../src/CommandLineExporter.cpp" line="96"/>
         <source>Export failed: </source>
-        <translation>导出失败: </translation>
+        <translation>导出失败：</translation>
     </message>
     <message>
         <location filename="../src/CommandLineExporter.cpp" line="114"/>
         <source>%1 format is not supported by this processor.</source>
-        <translation>此处理器不支持%1格式。</translation>
+        <translation>此处理器不支持 %1 格式。</translation>
     </message>
     <message>
         <location filename="../src/CommandLineExporter.cpp" line="122"/>
         <source>Failed to execute command: </source>
-        <translation>无法执行命令:</translation>
+        <translation>无法执行命令：</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="52"/>
         <source>Markdown</source>
-        <translation></translation>
+        <translation>Markdown</translation>
     </message>
     <message>
         <location filename="../src/DocumentManager.cpp" line="53"/>
@@ -1300,7 +1300,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/Exporter.cpp" line="66"/>
         <source>Export to HTML is not supported with this processor.</source>
-        <translation>此处理器不支持导出到HTML。</translation>
+        <translation>此处理器不支持导出到 HTML。</translation>
     </message>
     <message>
         <location filename="../src/SundownExporter.cpp" line="127"/>
@@ -1310,7 +1310,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="204"/>
         <source>The specified theme does not exist in the file system: </source>
-        <translation>指定的主题在文件系统中不存在:</translation>
+        <translation>指定的主题在文件系统中不存在：</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="321"/>
@@ -1325,12 +1325,12 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="414"/>
         <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; 已存在，请选择其他的名字。</translation>
+        <translation>”%1“已存在，请选择其他的名字。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="424"/>
         <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; 主题已存在，请选择其他的名字。</translation>
+        <translation>”%1“主题已存在，请选择其他的名字。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="459"/>
@@ -1340,27 +1340,27 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="504"/>
         <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
-        <translation>这个主题是只读的。请尝试给重命名主题，或者将主题文件设置为可写。</translation>
+        <translation>这个主题是只读的。请尝试重命名主题，或者将主题文件设置为可写。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="544"/>
         <source>Failed to remove old theme image.  Please check file permissions.</source>
-        <translation>移除主题图片失败，请检查文件是否可写。</translation>
+        <translation>移除旧的主题图片失败，请检查文件是否可写。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="576"/>
         <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
-        <translation>无法从主题目录中删除旧的主题图像文件。 请检查文件权限。</translation>
+        <translation>无法从主题目录中删除旧的主题图像文件。请检查文件权限。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="588"/>
         <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
-        <translation>无法将主题图像文件复制到主题目录。 请检查文件权限。</translation>
+        <translation>无法将主题图像文件复制到主题目录。请检查文件权限。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="607"/>
         <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation>无法将主题保存到磁盘。 请检查文件权限或尝试重命名主题。</translation>
+        <translation>无法将主题保存到磁盘。请检查文件权限或尝试重命名主题。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="632"/>
@@ -1377,12 +1377,12 @@ QAQ</translatorcomment>
         <location filename="../src/ThemeFactory.cpp" line="725"/>
         <location filename="../src/ThemeFactory.cpp" line="753"/>
         <source>Invalid or missing value for %1 provided.</source>
-        <translation>数值 %1 是无效的。</translation>
+        <translation>数值 %1 是无效的或已遗失。</translation>
     </message>
     <message>
         <location filename="../src/ThemeFactory.cpp" line="733"/>
         <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
-        <translation>%1 的值超出范围。有效值介于 %2 和 %3 之间, 包括在内。</translation>
+        <translation>%1 的值超出范围。有效值介于 %2 和 %3（含）之间。</translation>
     </message>
 </context>
 <context>
@@ -1391,27 +1391,27 @@ QAQ</translatorcomment>
         <location filename="../src/SessionStatisticsWidget.cpp" line="25"/>
         <source>Words Written:</source>
         <translatorcomment>感谢匿名者提供的翻译</translatorcomment>
-        <translation>已写字数:</translation>
+        <translation>已写词数：</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="26"/>
         <source>Pages Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>已写页数：</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="27"/>
         <source>Average WPM:</source>
-        <translation>编辑用时:</translation>
+        <translation>平均每分钟词数：</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="28"/>
         <source>Total Time:</source>
-        <translation>已写页数:</translation>
+        <translation>总时间：</translation>
     </message>
     <message>
         <location filename="../src/SessionStatisticsWidget.cpp" line="29"/>
         <source>Idle Time:</source>
-        <translation>总时间:</translation>
+        <translation>空闲时间：</translation>
     </message>
 </context>
 <context>
@@ -1429,7 +1429,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/SimpleFontDialog.cpp" line="99"/>
         <source>AaBbCcXxYyZz</source>
-        <translation>AaBbCcXxYyZz这里是预览字体</translation>
+        <translation>AaBbCcXxYyZz 我能吞下玻璃而不伤身体</translation>
     </message>
     <message>
         <location filename="../src/SimpleFontDialog.cpp" line="103"/>
@@ -1447,7 +1447,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="147"/>
         <source>&amp;Add</source>
-        <translation>加入(&amp;A)</translation>
+        <translation>添加(&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="150"/>
@@ -1472,12 +1472,12 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="176"/>
         <source>Not in dictionary:</source>
-        <translation>没有在字典里:</translation>
+        <translation>没有在字典里：</translation>
     </message>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="184"/>
         <source>Change to:</source>
-        <translation>更改为:</translation>
+        <translation>更改为：</translation>
     </message>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="200"/>
@@ -1492,12 +1492,12 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="201"/>
         <source>Please wait</source>
-        <translation>少女祈祷中...</translation>
+        <translation>请等待</translation>
     </message>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="228"/>
         <source>Continue checking at beginning of file?</source>
-        <translation>继续检查文件的开头？</translation>
+        <translation>继续从头检查文件？</translation>
     </message>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="287"/>
@@ -1520,12 +1520,12 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/StyleSheetManagerDialog.cpp" line="67"/>
         <source>Remove selected style sheet(s) from list. (No files will be deleted from the hard disk.)</source>
-        <translation>从列表中删除选定的样式表。(放心，没有文件会受到物理伤害。)</translation>
+        <translation>从列表中删除选定的样式表（不会从磁盘上删除文件）。</translation>
     </message>
     <message>
         <location filename="../src/StyleSheetManagerDialog.cpp" line="113"/>
         <source>Select CSS File</source>
-        <translation>选择CSS文件</translation>
+        <translation>选择 CSS 文件</translation>
     </message>
     <message>
         <location filename="../src/StyleSheetManagerDialog.cpp" line="115"/>
@@ -1540,7 +1540,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/StyleSheetManagerDialog.cpp" line="144"/>
         <source>Don&apos;t worry! No files will be deleted from the hard disk. But are you sure you wish to remove the selected style sheet(s) from the list?</source>
-        <translation>不用担心！没有文件会受到物理伤害。但是您确定要从列表中删除选定的样式表吗？</translation>
+        <translation>不用担心！不会从磁盘上删除文件。但是您确定要从列表中删除选定的样式表吗？</translation>
     </message>
 </context>
 <context>
@@ -1605,7 +1605,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="146"/>
         <source>Markup Color</source>
-        <translation>MD标记颜色</translation>
+        <translation>标记颜色</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="147"/>
@@ -1665,7 +1665,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="173"/>
         <source>HUD Foreground Color</source>
-        <translation>HUB 突出部分的颜色</translation>
+        <translation>HUD 突出部分的颜色</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="174"/>
@@ -1675,17 +1675,17 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="177"/>
         <source>HUD</source>
-        <translation>HUD(平视显示器)</translation>
+        <translation>HUD</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="259"/>
         <source>Unable to save theme.</source>
-        <translation>未能保存主题。</translation>
+        <translation>不能保存主题。</translation>
     </message>
     <message>
         <location filename="../src/ThemeEditorDialog.cpp" line="277"/>
         <source>Failed to rename theme.</source>
-        <translation>从命名主题失败。</translation>
+        <translation>重命名主题失败。</translation>
     </message>
 </context>
 <context>
@@ -1713,17 +1713,17 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeSelectionDialog.cpp" line="280"/>
         <source>Sorry, this is a built-in theme that cannot be deleted.</source>
-        <translation>对不起，您无法删除的内置主题。</translation>
+        <translation>对不起，您无法删除内置的主题。</translation>
     </message>
     <message>
         <location filename="../src/ThemeSelectionDialog.cpp" line="291"/>
         <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
-        <translation>您确定要永久删除&apos;%1&apos;主题吗？</translation>
+        <translation>您确定要永久删除”%1“主题吗？</translation>
     </message>
     <message>
         <location filename="../src/ThemeSelectionDialog.cpp" line="309"/>
         <source>Failed to delete theme.</source>
-        <translation>无法删除主题。</translation>
+        <translation>删除主题失败。</translation>
     </message>
     <message>
         <location filename="../src/ThemeSelectionDialog.cpp" line="340"/>
@@ -1733,7 +1733,7 @@ QAQ</translatorcomment>
     <message>
         <location filename="../src/ThemeSelectionDialog.cpp" line="341"/>
         <source>Sorry, this is a built-in theme that cannot be edited.</source>
-        <translation>对不起，您无法编辑的内置主题。</translation>
+        <translation>对不起，您无法编辑内置的主题。</translation>
     </message>
 </context>
 </TS>
