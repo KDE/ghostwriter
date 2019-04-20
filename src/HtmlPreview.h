@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,14 +32,11 @@
 #include <QFutureWatcher>
 #include <QStringList>
 
-#if QT_VERSION >= 0x050000
-#include <QtWebKitWidgets>
-#else
-#include <QtWebKit>
-#endif
+#include <QtWebEngineWidgets>
 
 #include "Exporter.h"
 #include "TextDocument.h"
+#include "StringObserver.h"
 
 class QPrintPreviewDialog;
 class QPrinter;
@@ -47,7 +44,7 @@ class QPrinter;
 /**
  * Live HTML Preview window.
  */
-class HtmlPreview : public QMainWindow
+class HtmlPreview : public QWebEngineView
 {
     Q_OBJECT
     
@@ -67,6 +64,11 @@ class HtmlPreview : public QMainWindow
          * Destructor.
          */
         virtual ~HtmlPreview();
+
+        /**
+         * Customize QtWebEngine context menu.
+         */
+        void contextMenuEvent(QContextMenuEvent* event);
 
     public slots:
         /**
@@ -94,16 +96,10 @@ class HtmlPreview : public QMainWindow
          */
         void setStyleSheet(const QString& filePath);
 
-        /**
-         * Call this method to display a print preview dialog of
-         * the rendered HTML.
-         */
-        void printPreview();
-
     private slots:
         void onHtmlReady();
-        void printHtmlToPrinter(QPrinter* printer);
-        void onLinkClicked(const QUrl& url);
+        void onLoadFinished(bool ok);
+        void printHtml();
 
         /**
          * Sets the base directory path for determining resource
@@ -117,14 +113,16 @@ class HtmlPreview : public QMainWindow
         void closeEvent(QCloseEvent* event);
 
     private:
-        QWebView* htmlBrowser;
-        QUrl baseUrl;
         TextDocument* document;
         bool updateInProgress;
         bool updateAgain;
-        QString html;
+        QString vanillaHtml;
+        StringObserver livePreviewHtml;
+        StringObserver styleSheetUrl;
+        QString baseUrl;
         QRegularExpression headingTagExp;
         Exporter* exporter;
+        QString wrapperHtml;
 
         /*
          * Used to set default page layout options for printing.  Also,
@@ -141,7 +139,7 @@ class HtmlPreview : public QMainWindow
          * HTML for diffing to scroll to the first difference whenever
          * updatePreview() is called.
          */
-        void setHtml(const QString& html);
+        void setHtmlContent(const QString& html);
 
         QString exportToHtml(const QString& text, Exporter* exporter) const;
         

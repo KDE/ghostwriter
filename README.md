@@ -88,11 +88,11 @@ Before proceeding, ensure that you have the necessary packages installed for Qt 
 
 For Debian or Ubuntu distributions:
 
-    $ sudo apt install g++ qt5-default qtbase5-dev libqt5svg5-dev qtmultimedia5-dev libqt5webkit5-dev libhunspell-dev pkg-config libqt5concurrent5 libqt5printsupport5 qttools5-dev-tools
+    $ sudo apt install g++ qt5-default qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 libqt5printsupport5 qttools5-dev-tools
 
 For fedora:
 
-    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebkit-devel hunspell-devel
+    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel hunspell-devel
 
 For other Linux flavors, the list will be similar; `qmake` will tell you if you are missing anything.
 
@@ -170,8 +170,10 @@ Prerequisites
 Install the dependencies
 
     sudo pkg inst hunspell en-hunspell pkgconf qt5-svg qt5-multimedia \
-    qt5-webkit qt5-concurrent qt5-printsupport qt5-buildtools qt5-qmake \
+    qt5-webengine qt5-concurrent qt5-printsupport qt5-buildtools qt5-qmake \
     qt5-linguist
+
+You will also need to install QtWebEngine
 
 Get the sources
 

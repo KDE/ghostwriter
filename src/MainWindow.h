@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -104,7 +104,6 @@ class MainWindow : public QMainWindow
         void onHudClosed();
         void onTypingPaused();
         void onTypingResumed();
-        void onQuickRefGuideLinkClicked(const QUrl& url);
         void showAbout();
         void updateWordCount(int newWordCount);
         void changeFocusMode(FocusMode focusMode);
@@ -143,7 +142,7 @@ class MainWindow : public QMainWindow
         QPushButton* hideOpenHudsButton;
         FindDialog* findReplaceDialog;
         HtmlPreview* htmlPreview;
-        QWebView* quickReferenceGuideViewer;
+        QWebEngineView* quickReferenceGuideViewer;
         QAction* htmlPreviewMenuAction;
         QAction* fullScreenMenuAction;
         QPushButton* fullScreenButton;

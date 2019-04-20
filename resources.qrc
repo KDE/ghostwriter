@@ -27,5 +27,6 @@
         <file>resources/quickreferenceguide_en.html</file>
         <file>resources/quickreferenceguide_ja.html</file>
         <file>resources/quickreferenceguide_ru.html</file>
+        <file>resources/gw.js</file>
     </qresource>
 </RCC>

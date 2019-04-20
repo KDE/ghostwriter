@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2019 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -75,6 +75,7 @@
 #include "Exporter.h"
 #include "PreviewOptionsDialog.h"
 #include "StyleSheetManagerDialog.h"
+#include "SandboxedWebPage.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
@@ -1121,29 +1122,31 @@ void MainWindow::showQuickReferenceGuide()
         QString html = inStream.readAll();
         inputFile.close();
 
+        // Add style sheet to contents.
+        html += "<link href='qrc:/resources/github.css' rel='stylesheet' />";
+
         // Note that the parent widget for this new window must be NULL, so that
         // it will hide beneath other windows when it is deactivated.
         //
-        quickReferenceGuideViewer = new QWebView(NULL);
+        quickReferenceGuideViewer = new QWebEngineView(NULL);
         quickReferenceGuideViewer->setWindowTitle(tr("Quick Reference Guide"));
         quickReferenceGuideViewer->setWindowFlags(Qt::Window);
         quickReferenceGuideViewer->settings()->setDefaultTextEncoding("utf-8");
-        quickReferenceGuideViewer->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
-        quickReferenceGuideViewer->page()->action(QWebPage::Reload)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebPage::OpenLink)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebPage::OpenLinkInNewWindow)->setVisible(false);
-        quickReferenceGuideViewer->settings()->setUserStyleSheetUrl(QUrl("qrc:/resources/github.css"));
-        quickReferenceGuideViewer->page()->setContentEditable(false);
-        quickReferenceGuideViewer->setContent(html.toUtf8(), "text/html");
-        connect(quickReferenceGuideViewer, SIGNAL(linkClicked(QUrl)), this, SLOT(onQuickRefGuideLinkClicked(QUrl)));
+        quickReferenceGuideViewer->setPage(new SandboxedWebPage(quickReferenceGuideViewer));
+        quickReferenceGuideViewer->page()->action(QWebEnginePage::Reload)->setVisible(false);
+        quickReferenceGuideViewer->page()->action(QWebEnginePage::ReloadAndBypassCache)->setVisible(false);
+        quickReferenceGuideViewer->page()->action(QWebEnginePage::OpenLinkInThisWindow)->setVisible(false);
+        quickReferenceGuideViewer->page()->action(QWebEnginePage::OpenLinkInNewWindow)->setVisible(false);
+        quickReferenceGuideViewer->page()->action(QWebEnginePage::ViewSource)->setVisible(false);
+        quickReferenceGuideViewer->page()->action(QWebEnginePage::SavePage)->setVisible(false);
+        quickReferenceGuideViewer->page()->runJavaScript("document.documentElement.contentEditable = false;");
+        quickReferenceGuideViewer->setHtml(html);
 
-        // Set zoom factor for WebKit browser to account for system DPI settings,
+        // Set zoom factor for QtWebEngine browser to account for system DPI settings,
         // since WebKit assumes 96 DPI as a fixed resolution.
         //
         QWidget* window = QApplication::desktop()->screen();
         int horizontalDpi = window->logicalDpiX();
-        // Don't want to affect image size, only text size.
-        quickReferenceGuideViewer->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
         quickReferenceGuideViewer->setZoomFactor((horizontalDpi / 96.0));
 
         quickReferenceGuideViewer->resize(500, 600);
@@ -1214,11 +1217,6 @@ void MainWindow::onTypingResumed()
     {
         setOpenHudsVisibility(false);
     }
-}
-
-void MainWindow::onQuickRefGuideLinkClicked(const QUrl& url)
-{
-    QDesktopServices::openUrl(url);
 }
 
 void MainWindow::showAbout()
