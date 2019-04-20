@@ -235,7 +235,7 @@ void HtmlPreview::onHtmlReady()
             // beginning of the line.
             //
             differenceFound = true;
-            anchoredHtmlDoc << "<div id=\"livepreviewmodifypoint\" />";
+            anchoredHtmlDoc << "<a id=\"livepreviewmodifypoint\"></a>";
         }
         else
         {
@@ -251,7 +251,7 @@ void HtmlPreview::onHtmlReady()
     if (!differenceFound && !oldLine.isNull() && newLine.isNull())
     {
         differenceFound = true;
-        anchoredHtmlDoc << "<div id=\"livepreviewmodifypoint\" />";
+        anchoredHtmlDoc << "<a id=\"livepreviewmodifypoint\"></a>";
     }
 
     // Put any remaining new HTML data into the
@@ -261,7 +261,7 @@ void HtmlPreview::onHtmlReady()
     {
         if (!differenceFound)
         {
-            anchoredHtmlDoc << "<div id=\"livepreviewmodifypoint\" />";
+            anchoredHtmlDoc << "<a id=\"livepreviewmodifypoint\"></a>";
         }
 
         differenceFound = true;
