@@ -26,7 +26,6 @@
 #include <QThread>
 #include <QTimer>
 #include <QList>
-#include <QPrinter>
 #include <QRegularExpression>
 #include <QUrl>
 #include <QFutureWatcher>
@@ -37,9 +36,6 @@
 #include "Exporter.h"
 #include "TextDocument.h"
 #include "StringObserver.h"
-
-class QPrintPreviewDialog;
-class QPrinter;
 
 /**
  * Live HTML Preview window.
@@ -99,7 +95,6 @@ class HtmlPreview : public QWebEngineView
     private slots:
         void onHtmlReady();
         void onLoadFinished(bool ok);
-        void printHtml();
 
         /**
          * Sets the base directory path for determining resource
@@ -123,15 +118,6 @@ class HtmlPreview : public QWebEngineView
         QRegularExpression headingTagExp;
         Exporter* exporter;
         QString wrapperHtml;
-
-        /*
-         * Used to set default page layout options for printing.  Also,
-         * if the user closes the print preview dialog, the page layout and
-         * page size settings are remembered in the event that the user reopens
-         * the dialog during the same application session.
-         */
-        QPrinter* printer;
-
         QFutureWatcher<QString>* futureWatcher;
 
         /*
@@ -142,13 +128,6 @@ class HtmlPreview : public QWebEngineView
         void setHtmlContent(const QString& html);
 
         QString exportToHtml(const QString& text, Exporter* exporter) const;
-        
-        /*
-         * Gets the current printer settings. Default settings are lazy loaded
-         * as needed, since initializing the QPrinter class can take several
-         * seconds on some systems.
-         */
-        QPrinter* getPrinterSettings();
 };
 
 #endif

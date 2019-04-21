@@ -57,11 +57,6 @@ class ThemeFactory
         Theme getDefaultTheme() const;
 
         /**
-         * Gets a theme that can be used with printing to paper.
-         */
-        Theme getPrinterFriendlyTheme() const;
-
-        /**
          * Returns the theme with the given name.  If an error occurs, the
          * err string will be populated with an error message.  In this event,
          * the theme return will be one of the built-in themes.  If no error

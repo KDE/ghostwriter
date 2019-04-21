@@ -1578,9 +1578,6 @@ void MainWindow::buildMenuBar()
     fileMenu->addAction(tr("R&ename..."), documentManager, SLOT(rename()));
     fileMenu->addAction(tr("Re&load from Disk..."), documentManager, SLOT(reload()));
     fileMenu->addSeparator();
-    fileMenu->addAction(tr("Print Pre&view"), documentManager, SLOT(printPreview()), QKeySequence("SHIFT+CTRL+P"));
-    fileMenu->addAction(tr("&Print"), documentManager, SLOT(print()), QKeySequence::Print);
-    fileMenu->addSeparator();
     fileMenu->addAction(tr("&Export"), documentManager, SLOT(exportFile()), QKeySequence("CTRL+E"));
     fileMenu->addSeparator();
     fileMenu->addAction(tr("&Quit"), this, SLOT(quitApplication()), QKeySequence::Quit)->setMenuRole(QAction::QuitRole);

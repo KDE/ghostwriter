@@ -30,9 +30,6 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QFileDialog>
-#include <QPrinter>
-#include <QPrintPreviewDialog>
-#include <QPrintDialog>
 #include <QTimer>
 #include <QApplication>
 
@@ -74,8 +71,6 @@ DocumentManager::DocumentManager
 
     connect(document, SIGNAL(modificationChanged(bool)), this, SLOT(onDocumentModifiedChanged(bool)));
 
-    printer = NULL;
-
     // Set up auto-save timer to save the file once every minute.
     autoSaveTimer = new QTimer(this);
     autoSaveTimer->start(60000);
@@ -95,12 +90,6 @@ DocumentManager::DocumentManager
 DocumentManager::~DocumentManager()
 {
     this->saveFutureWatcher->waitForFinished();
-    
-    if (NULL != printer)
-    {
-        delete printer;
-        printer = NULL;
-    }
 }
 
 TextDocument* DocumentManager::getDocument() const
@@ -427,26 +416,6 @@ void DocumentManager::exportFile()
     exportDialog.exec();
 }
 
-void DocumentManager::printPreview()
-{
-    QPrinter* printer = getPrinterSettings();
-    QPrintPreviewDialog printPreviewDialog(printer, parentWidget);
-    connect(&printPreviewDialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(printFileToPrinter(QPrinter*)));
-    printPreviewDialog.exec();
-}
-
-void DocumentManager::print()
-{
-    QPrinter* printer = getPrinterSettings();
-    
-    QPrintDialog printDialog(printer, parentWidget);
-
-    if (printDialog.exec() == QDialog::Accepted)
-    {
-        printFileToPrinter(printer);
-    }
-}
-
 void DocumentManager::onDocumentModifiedChanged(bool modified)
 {
     if (document->isNew() || document->isReadOnly() || !autoSaveEnabled)
@@ -542,30 +511,6 @@ void DocumentManager::onFileChangedExternally(const QString& path)
             }
         }
     }
-}
-
-void DocumentManager::printFileToPrinter(QPrinter* printer)
-{
-    QString text = editor->document()->toPlainText();
-    TextDocument doc(text);
-    MarkdownEditor e(&doc);
-
-    Theme printerTheme = ThemeFactory::getInstance()->getPrinterFriendlyTheme();
-    e.setColorScheme
-    (
-        printerTheme.getDefaultTextColor(),
-        printerTheme.getBackgroundColor(),
-        printerTheme.getMarkupColor(),
-        printerTheme.getLinkColor(),
-        printerTheme.getHeadingColor(),
-        printerTheme.getEmphasisColor(),
-        printerTheme.getBlockquoteColor(),
-        printerTheme.getCodeColor(),
-        printerTheme.getSpellingErrorColor()
-    );
-    e.setSpellCheckEnabled(false);
-    e.setFont(editor->font().family(), editor->font().pointSizeF());
-    doc.print(printer);
 }
 
 void DocumentManager::autoSaveFile()
@@ -955,18 +900,3 @@ void DocumentManager::backupFile(const QString& filePath) const
             file.errorString().toLatin1().data());
     }
 }
-
-QPrinter* DocumentManager::getPrinterSettings()
-{
-    // If the printer has not yet been initialized, then
-    // set up default page layout and page size for printing.
-    if (NULL == printer)
-    {
-        printer = new QPrinter();
-        printer->setPaperSize(QPrinter::Letter);
-        printer->setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
-    }
-    
-    return printer;
-}
-

@@ -180,12 +180,6 @@ Theme ThemeFactory::getDefaultTheme() const
     return loadTheme(CLASSIC_LIGHT_THEME_NAME, err);
 }
 
-Theme ThemeFactory::getPrinterFriendlyTheme() const
-{
-    QString err;
-    return loadTheme(CLASSIC_LIGHT_THEME_NAME, err);
-}
-
 Theme ThemeFactory::loadTheme(const QString& name, QString& err) const
 {
     err = QString();

@@ -21,14 +21,12 @@
 #include <QFile>
 #include <QTextStream>
 #include <QString>
-#include <QPrintPreviewDialog>
 #include <QApplication>
 #include <QStack>
 #include <QDir>
 #include <QDesktopServices>
 #include <QtConcurrentRun>
 #include <QFuture>
-#include <QPrinter>
 #include <QWebChannel>
 
 #include "HtmlPreview.h"
@@ -44,7 +42,6 @@ HtmlPreview::HtmlPreview
     : QWebEngineView(parent), document(document), updateInProgress(false),
         updateAgain(false), exporter(exporter)
 {
-    printer = NULL;
     vanillaHtml = "";
     baseUrl = "";
     livePreviewHtml.setText("");
@@ -114,24 +111,11 @@ HtmlPreview::~HtmlPreview()
 {
     // Wait for thread to finish if in the middle of updating the preview.
     futureWatcher->waitForFinished();
-    
-    if (NULL != printer)
-    {
-        delete printer;
-        printer = NULL;
-    }
 }
 
 void HtmlPreview::contextMenuEvent(QContextMenuEvent* event)
 {
     QMenu* menu = page()->createStandardContextMenu();
-
-    if (!this->page()->hasSelection())
-    {
-        menu->addSeparator();
-        menu->addAction(tr("Print"), this, SLOT(printHtml()));
-    }
-
     menu->popup(event->globalPos());
 }
 
@@ -293,12 +277,6 @@ void HtmlPreview::onLoadFinished(bool ok)
     }
 }
 
-void HtmlPreview::printHtml()
-{
-    QPrinter* printer = getPrinterSettings();
-    this->page()->print(printer, [](const bool success){ Q_UNUSED(success) });
-}
-
 void HtmlPreview::updateBaseDir()
 {
     if (!document->getFilePath().isNull() && !document->getFilePath().isEmpty())
@@ -361,18 +339,4 @@ QString HtmlPreview::exportToHtml
     exporter->setSmartTypographyEnabled(smartTypographyEnabled);
 
     return html;
-}
-
-QPrinter* HtmlPreview::getPrinterSettings()
-{
-    // If the printer has not yet been initialized, then
-    // set up default page layout and page size for printing.
-    if (NULL == printer)
-    {
-        printer = new QPrinter();
-        printer->setPaperSize(QPrinter::Letter);
-        printer->setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter::Inch);
-    }
-    
-    return printer;
 }
