@@ -21,6 +21,6 @@
     <binary>ghostwriter</binary>
   </provides>
   <releases>
-    <release version="1.7.4" timestamp="1541880370" />
+    <release version="1.8.0" timestamp="1556401681" />
   </releases>
 </component>

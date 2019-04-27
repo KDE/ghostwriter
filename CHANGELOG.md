@@ -1,3 +1,22 @@
+1.7.8
+=====
+
+New Features
+------------
+
+* HTML preview has been ported from QtWebKit to QtWebEngine (Chromium).
+
+Fixes
+-----
+
+* Issue #206: ghostwriter now has right-to-left language support.
+* Issue #391: mathml option for pandoc is now used to render math equations for preview and export.
+* Issue #411: Fixed crash when adding a new theme with no theme selected.
+* Issue #412: Fixed export to PDF (wkhtmltopdf) failure with Pandoc.
+* Issue #430: Fixed issue extra spaces appearing between `<br/>` tags in the HTML preview.
+* Removed print support, since it has some odd bugs on some platforms, and most users would want to print their exported content anyway.
+* Removed graphics fade effect for the bottom of the editor, as it is a risky feature that has caused bugs in the past and does not work on HiDPI screens.
+
 1.7.4
 =====
 
