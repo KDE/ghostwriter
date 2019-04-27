@@ -13,6 +13,12 @@
        can integrate with Pandoc, MultiMarkdown, Discount, cmark, and cmark-gfm
        processors if they are installed.</p>
   </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://wereturtle.github.io/ghostwriter/images/dark-theme.png</image>
+      <caption>Enjoy a distraction-free writing experience, including a full screen mode and a clean interface</caption>
+    </screenshot>
+  </screenshots>
   <url type="homepage">http://wereturtle.github.io/ghostwriter/</url>
   <url type="bugtracker">http://github.com/wereturtle/ghostwriter/</url>
   <url type="donation">http://wereturtle.github.io/ghostwriter/</url>
