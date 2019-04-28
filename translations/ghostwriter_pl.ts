@@ -292,7 +292,7 @@
     </message>
     <message>
         <source>HTML Preview</source>
-        <translation type="unfinished">Podgląd pliku HTML</translation>
+        <translation type="obsolete">Podgląd pliku HTML</translation>
     </message>
     <message>
         <source>Github (Default)</source>
@@ -429,7 +429,7 @@
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation type="unfinished">Podgląd &amp;wydruku</translation>
+        <translation type="obsolete">Podgląd &amp;wydruku</translation>
     </message>
     <message>
         <source>Quick &amp;Reference Guide</source>
@@ -449,7 +449,7 @@
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished">&amp;Drukuj</translation>
+        <translation type="obsolete">&amp;Drukuj</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
