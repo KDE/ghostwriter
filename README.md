@@ -127,16 +127,22 @@ MacOS
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-3. Install Qt5.5 from brew.
+3. Install Qt5 from brew.
 
 ``` shell
-$ brew install qt@5.5
+$ brew install qt5
 ```
 
 *Note:* if you installed XCode command line tools qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](doc/BUILD_MAC.md)
 
+4. run `brew link` 
 
-4. Clone this repository and build ghostwriter:
+``` shell
+brew link qt5 --force
+```
+*Note:* This command allows you to use `qmake` from the CLI. You'll need it for the final step.
+
+5. Clone this repository and build ghostwriter:
 
 ``` shell
 git clone https://github.com/wereturtle/ghostwriter
