@@ -85,6 +85,7 @@ class MainWindow : public QMainWindow
         void toggleHideMenuBarInFullScreen(bool checked);
         void toggleOutlineAlternateRowColors(bool checked);
         void toggleFileHistoryEnabled(bool checked);
+        void toggleLoadLastFileEnabled(bool checked);
         void toggleDisplayTimeInFullScreen(bool checked);
         void toggleDesktopCompositingEffects(bool checked);
         void toggleOpenHudsVisibility();

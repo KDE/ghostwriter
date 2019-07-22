@@ -251,6 +251,12 @@ QWidget* PreferencesDialog::initializeGeneralTab()
     rememberHistoryCheckBox->setChecked(appSettings->getFileHistoryEnabled());
     connect(rememberHistoryCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setFileHistoryEnabled(bool)));
     historyGroupLayout->addRow(rememberHistoryCheckBox);
+    
+    QCheckBox* loadLastFileCheckBox = new QCheckBox(tr("On start, load last file edited"));
+    loadLastFileCheckBox->setCheckable(true);
+    loadLastFileCheckBox->setChecked(appSettings->getLoadLastFileEnabled());
+    connect(loadLastFileCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setLoadLastFileEnabled(bool)));
+    historyGroupLayout->addRow(loadLastFileCheckBox);
 
     return tab;
 }

@@ -34,6 +34,7 @@
 #define GW_AUTOSAVE_KEY "Save/autoSave"
 #define GW_BACKUP_FILE_KEY "Save/backupFile"
 #define GW_REMEMBER_FILE_HISTORY_KEY "Save/rememberFileHistory"
+#define GW_LOAD_LAST_FILE_KEY "Save/loadLastFile"
 #define GW_FONT_KEY "Style/font"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
 #define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
@@ -99,6 +100,7 @@ void AppSettings::store()
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(focusMode));
     appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(hideMenuBarInFullScreenEnabled));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(fileHistoryEnabled));
+    appSettings.setValue(GW_LOAD_LAST_FILE_KEY, QVariant(loadLastFileEnabled));
     appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(displayTimeInFullScreenEnabled));
     appSettings.setValue(GW_HIDE_HUDS_WHEN_TYPING_KEY, QVariant(hideHudsWhenTypingEnabled));
     appSettings.setValue(GW_HIDE_HUDS_ON_PREVIEW_KEY, QVariant(hideHudsOnPreviewEnabled));
@@ -312,6 +314,17 @@ void AppSettings::setFileHistoryEnabled(bool enabled)
 {
     fileHistoryEnabled = enabled;
     emit fileHistoryChanged(enabled);
+}
+
+bool AppSettings::getLoadLastFileEnabled() const
+{
+    return loadLastFileEnabled;
+}
+
+void AppSettings::setLoadLastFileEnabled(bool enabled)
+{
+    loadLastFileEnabled = enabled;
+    emit loadLastFileChanged(enabled);
 }
 
 bool AppSettings::getDisplayTimeInFullScreenEnabled()
@@ -732,6 +745,7 @@ AppSettings::AppSettings()
 
     hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
+    loadLastFileEnabled = appSettings.value(GW_LOAD_LAST_FILE_KEY, QVariant(true)).toBool();
     displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     hideHudsWhenTypingEnabled = appSettings.value(GW_HIDE_HUDS_WHEN_TYPING_KEY, QVariant(false)).toBool();
     hideHudsOnPreviewEnabled = appSettings.value(GW_HIDE_HUDS_ON_PREVIEW_KEY, QVariant(false)).toBool();

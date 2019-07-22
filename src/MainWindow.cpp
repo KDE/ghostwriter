@@ -252,6 +252,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     documentManager->setAutoSaveEnabled(appSettings->getAutoSaveEnabled());
     documentManager->setFileBackupEnabled(appSettings->getBackupFileEnabled());
     documentManager->setFileHistoryEnabled(appSettings->getFileHistoryEnabled());
+    documentManager->setLoadLastFileEnabled(appSettings->getLoadLastFileEnabled());
     setWindowTitle(documentManager->getDocument()->getDisplayName() + "[*] - " + qAppName());
     connect(documentManager, SIGNAL(documentDisplayNameChanged(QString)), this, SLOT(changeDocumentDisplayName(QString)));
     connect(documentManager, SIGNAL(documentModifiedChanged(bool)), this, SLOT(setWindowModified(bool)));
@@ -313,7 +314,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
         }
     }
 
-    if (fileToOpen.isNull() && appSettings->getFileHistoryEnabled())
+    if (fileToOpen.isNull() && appSettings->getFileHistoryEnabled() && appSettings->getLoadLastFileEnabled())
     {
         QString lastFile;
 
@@ -390,6 +391,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(appSettings, SIGNAL(focusModeChanged(FocusMode)), this, SLOT(changeFocusMode(FocusMode)));
     connect(appSettings, SIGNAL(hideMenuBarInFullScreenChanged(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
     connect(appSettings, SIGNAL(fileHistoryChanged(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
+    connect(appSettings, SIGNAL(loadLastFileChanged(bool)), this, SLOT(toggleLoadLastFileEnabled(bool)));
     connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
     connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), editor, SLOT(setDictionary(QString)));
     connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), editor, SLOT(setSpellCheckEnabled(bool)));
@@ -947,6 +949,11 @@ void MainWindow::toggleFileHistoryEnabled(bool checked)
     }
 
     documentManager->setFileHistoryEnabled(checked);
+}
+
+void MainWindow::toggleLoadLastFileEnabled(bool checked)
+{
+    documentManager->setLoadLastFileEnabled(checked);
 }
 
 void MainWindow::toggleDisplayTimeInFullScreen(bool checked)

@@ -81,6 +81,11 @@ class DocumentManager : public QObject
          * Gets whether tracking the recent file history is enabled.
          */
         void setFileHistoryEnabled(bool enabled);
+        
+        /**
+         * Gets whether loading last file is enabled.        
+         */
+        void setLoadLastFileEnabled(bool enabled);
 
     signals:
         /**
@@ -225,6 +230,7 @@ class DocumentManager : public QObject
         QFileSystemWatcher* fileWatcher;
         bool fileHistoryEnabled;
         bool createBackupOnSave;
+        bool loadLastFileEnabled;
 
         /*
          * This flag is used to prevent notifying the user that the document

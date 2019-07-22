@@ -104,6 +104,10 @@ class AppSettings : public QObject
         bool getFileHistoryEnabled() const;
         Q_SLOT void setFileHistoryEnabled(bool enabled);
         Q_SIGNAL void fileHistoryChanged(bool enabled);
+        
+        bool getLoadLastFileEnabled() const;
+        Q_SLOT void setLoadLastFileEnabled(bool enabled);
+        Q_SIGNAL void loadLastFileChanged(bool enabled);
 
         bool getDisplayTimeInFullScreenEnabled();
         Q_SLOT void setDisplayTimeInFullScreenEnabled(bool enabled);
@@ -189,6 +193,7 @@ class AppSettings : public QObject
         QFont defaultFont;
         bool autoSaveEnabled;
         bool backupFileEnabled;
+        bool loadLastFileEnabled;
         QFont font;
         int tabWidth;
         bool insertSpacesForTabsEnabled;

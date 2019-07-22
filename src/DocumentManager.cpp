@@ -61,7 +61,7 @@ DocumentManager::DocumentManager
     : QObject(parent), parentWidget(parent), editor(editor),
         outline(outline), documentStats(documentStats),
         sessionStats(sessionStats), fileHistoryEnabled(true),
-        createBackupOnSave(true), saveInProgress(false),
+        createBackupOnSave(true), loadLastFileEnabled(true), saveInProgress(false),
         autoSaveEnabled(false), documentModifiedNotifVisible(false)
 {
     saveFutureWatcher = new QFutureWatcher<QString>(this);
@@ -110,6 +110,11 @@ bool DocumentManager::getFileBackupEnabled() const
 void DocumentManager::setFileHistoryEnabled(bool enabled)
 {
     fileHistoryEnabled = enabled;
+}
+
+void DocumentManager::setLoadLastFileEnabled(bool enabled)
+{
+    loadLastFileEnabled = enabled;
 }
 
 void DocumentManager::setAutoSaveEnabled(bool enabled)
