@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -88,9 +88,19 @@ ExporterFactory::ExporterFactory()
     CommandLineExporter* exporter = NULL;
     bool pandocIsAvailable = isCommandAvailable("pandoc --version");
     bool mmdIsAvailable = isCommandAvailable("multimarkdown --version");
-    bool discountIsAvailable = isCommandAvailable("markdown -V");
+    bool discountIsAvailable = false;
     bool cmarkIsAvailable = isCommandAvailable("cmark --version");
     bool cmarkGfmIsAvailable = isCommandAvailable("cmark-gfm --version");
+
+    // MultiMarkdown installs a "markdown" script to launch the "multimarkdown"
+    // command.  Discount's executable also happens to be named "markdown".
+    // To avoid confusion, check if MultiMarkdown is actually installed, and
+    // only if it isn't installed should Discount be checked for availability.
+    //
+    if (!mmdIsAvailable)
+    {
+        discountIsAvailable = isCommandAvailable("markdown -V");
+    }
 
     SundownExporter* sundownExporter = new SundownExporter();
     fileExporters.append(sundownExporter);
@@ -328,13 +338,26 @@ QList<int> ExporterFactory::extractVersionNumber(const QString& command) const
     }
 
     QString versionStr = QString::fromUtf8(process.readAllStandardOutput().data());
-    QRegularExpression versionRegex("\\d+(\\.\\d+)*");
+    QRegularExpression versionRegex1("v(\\d+(\\.\\d+)*)");
+    QRegularExpression versionRegex2("(\\d+(\\.\\d+)*)");
     QRegularExpressionMatch match;
-    int pos = versionStr.indexOf(versionRegex, 0, &match);
+
+    // Prefer searching for "v1.6.3" version format over "1.6.3" format
+    int pos = versionStr.indexOf(versionRegex1, 0, &match);
 
     if ((pos >= 0) && match.hasMatch())
     {
-        versionStr = match.captured();
+        versionStr = match.captured(1);
+    }
+    // Else try the "1.6.3" format without the "v" in front
+    else
+    {
+        pos = versionStr.indexOf(versionRegex2, 0, &match);
+
+        if ((pos >= 0) && match.hasMatch())
+        {
+            versionStr = match.captured(1);
+        }
     }
 
     QStringList numbers = versionStr.split('.', QString::SkipEmptyParts);
