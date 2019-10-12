@@ -75,5 +75,11 @@ var loadStyleSheet = function(styleSheetUrl) {
 var updateText = function(text) {
     placeholder.innerHTML = text;
     insertAnchorsForHeadings();
+
+    // Call MathJax to update document, if the library is available.
+    if (typeof window.MathJax.typeset !== 'undefined') {
+        window.MathJax.typeset();
+    }
+
     scrollToModifyPoint();
 }

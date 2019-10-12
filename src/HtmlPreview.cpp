@@ -57,6 +57,9 @@ HtmlPreview::HtmlPreview
     this->page()->action(QWebEnginePage::OpenLinkInNewWindow)->setVisible(false);
     this->page()->action(QWebEnginePage::ViewSource)->setVisible(false);
     this->page()->action(QWebEnginePage::SavePage)->setVisible(false);
+    QWebEngineProfile::defaultProfile()->setHttpCacheType(QWebEngineProfile::NoCache);
+    QWebEngineProfile::defaultProfile()->clearHttpCache();
+    QWebEngineProfile::defaultProfile()->clearAllVisitedLinks();
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(onLoadFinished(bool)));
     headingTagExp.setPattern("^[Hh][1-6]$");
 
@@ -75,12 +78,19 @@ HtmlPreview::HtmlPreview
     channel->registerObject(QStringLiteral("stylesheeturl"), &styleSheetUrl);
     channel->registerObject(QStringLiteral("livepreviewcontent"), &livePreviewHtml);
     this->page()->setWebChannel(channel);
-
     this->wrapperHtml =
         "<!doctype html>"
         "<html lang=\"en\">"
         "<meta charset=\"utf-8\">"
         "<head>"
+        "    <script>"
+        "         MathJax = {"
+        "            tex: {"
+        "                inlineMath: [['$', '$'], ['\\(', '\\)']]"
+        "             }"
+        "         };"
+        "    </script>"
+        "    <script type=\"text/javascript\" id=\"MathJax-script\" src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>"
         "    <link id='ghostwriter_css' rel='stylesheet' type='text/css' href='qrc:/resources/github.css' media='all' />"
         "    <script src=\"qrc:/qtwebchannel/qwebchannel.js\"></script>"
         "</head>"
