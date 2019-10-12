@@ -151,7 +151,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     cheatSheetWidget->addItem(tr("[Link](http://url.com \"Title\")"));
     cheatSheetWidget->addItem(tr("[Reference Link][ID]"));
     cheatSheetWidget->addItem(tr("[ID]: http://url.com \"Reference Definition\""));
-    cheatSheetWidget->addItem(tr("![Image][./image.jpg \"Title\"]"));
+    cheatSheetWidget->addItem(tr("![Image](./image.jpg \"Title\")"));
     cheatSheetWidget->addItem(tr("--- *** ___ Horizontal Rule"));
 
     cheatSheetHud =
