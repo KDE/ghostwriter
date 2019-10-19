@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2019 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) Dmitry Shachnev 2012
  *
@@ -327,12 +327,13 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
     QPlainTextEdit::paintEvent(event);
 
     // Draw the text cursor/caret.
-    if (textCursorVisible)
+    if (textCursorVisible && this->hasFocus())
     {
         // Get the cursor rect so that we have the ideal height for it,
         // and then set it to be 2 pixels wide.  (The width will be zero,
         // because we set it to be that in the constructor so that
         // QPlainTextEdit will not draw another cursor underneath this one.)
+        //
         QRect r = cursorRect();
         r.setWidth(2);
         
