@@ -30,6 +30,11 @@ If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.),
 
 You can now install the ghostwriter package.  Please consult the Launchpad guide, [*Installing software from a PPA*](https://help.launchpad.net/Packaging/PPA/InstallingSoftware), for further details.
 
+In Debian, you can install *ghostwriter* from the main repositories. In a terminal, you can install It from apt
+
+    $ sudo apt install ghostwriter
+
+
 Also, be on the lookout for *ghostwriter* making its debut in the Debian and Ubuntu repositories in the future.  In the meantime, if you are a repository maintainer of any Linux distribution, I would appreciate your help in getting *ghostwriter* packaged.
 
 Fedora and openSUSE users can visit https://software.opensuse.org/package/ghostwriter – The Fedora releases are Community Packages.
