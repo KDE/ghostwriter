@@ -202,6 +202,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setUseUnderlineForEmphasis(appSettings->getUseUnderlineForEmphasis());
     editor->setHighlightLineBreaks(appSettings->getHighlightLineBreaks());
     editor->setEnableLargeHeadingSizes(appSettings->getLargeHeadingSizesEnabled());
+    editor->setJustifyTextEnabled(appSettings->getJustifyTextEnabled());
     editor->setAutoMatchEnabled(appSettings->getAutoMatchEnabled());
     editor->setBulletPointCyclingEnabled(appSettings->getBulletPointCyclingEnabled());
     editor->setPlainText("");
@@ -383,6 +384,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(appSettings, SIGNAL(insertSpacesForTabsChanged(bool)), editor, SLOT(setInsertSpacesForTabs(bool)));
     connect(appSettings, SIGNAL(useUnderlineForEmphasisChanged(bool)), editor, SLOT(setUseUnderlineForEmphasis(bool)));
     connect(appSettings, SIGNAL(largeHeadingSizesChanged(bool)), editor, SLOT(setEnableLargeHeadingSizes(bool)));
+    connect(appSettings, SIGNAL(justifyTextChanged(bool)), editor, SLOT(setJustifyTextEnabled(bool)));
     connect(appSettings, SIGNAL(autoMatchChanged(bool)), editor, SLOT(setAutoMatchEnabled(bool)));
     connect(appSettings, SIGNAL(autoMatchCharChanged(QChar,bool)), editor, SLOT(setAutoMatchEnabled(QChar,bool)));
     connect(appSettings, SIGNAL(bulletPointCyclingChanged(bool)), editor, SLOT(setBulletPointCyclingEnabled(bool)));

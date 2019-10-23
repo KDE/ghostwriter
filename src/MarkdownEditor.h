@@ -310,6 +310,11 @@ class MarkdownEditor : public QPlainTextEdit
         void setEnableLargeHeadingSizes(bool enable);
 
         /**
+         * Sets whether text in paragraphs should be justified.
+         */
+        void setJustifyTextEnabled(bool enable);
+
+        /**
          * Sets the blockquote style.
          */
         void setBlockquoteStyle(const BlockquoteStyle style);
@@ -415,6 +420,7 @@ class MarkdownEditor : public QPlainTextEdit
         bool spellCheckEnabled;
         bool autoMatchEnabled;
         bool bulletPointCyclingEnabled;
+        bool justifyTextEnabled;
         QList<QAction*> spellingActions;
         bool hemingwayModeEnabled;
         FocusMode focusMode;

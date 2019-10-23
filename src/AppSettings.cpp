@@ -36,6 +36,7 @@
 #define GW_REMEMBER_FILE_HISTORY_KEY "Save/rememberFileHistory"
 #define GW_FONT_KEY "Style/font"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
+#define GW_JUSTIFY_KEY "Style/justifyText"
 #define GW_HIGHLIGHT_LINE_BREAKS "Style/highlightLineBreaks"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
 #define GW_AUTO_MATCH_FILTER_KEY "Typing/autoMatchFilter"
@@ -90,6 +91,7 @@ void AppSettings::store()
     appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(tabWidth));
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(insertSpacesForTabsEnabled));
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(largeHeadingSizesEnabled));
+    appSettings.setValue(GW_JUSTIFY_KEY, QVariant(justifyTextEnabled));
     appSettings.setValue(GW_HIGHLIGHT_LINE_BREAKS, QVariant(highlightLineBreaks));
     appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(autoMatchEnabled));
     appSettings.setValue(GW_AUTO_MATCH_FILTER_KEY, QVariant(autoMatchedCharFilter));
@@ -212,10 +214,21 @@ bool AppSettings::getLargeHeadingSizesEnabled() const
     return largeHeadingSizesEnabled;
 }
 
+bool AppSettings::getJustifyTextEnabled() const
+{
+    return justifyTextEnabled;
+}
+
 void AppSettings::setLargeHeadingSizesEnabled(bool enabled)
 {
     largeHeadingSizesEnabled = enabled;
     emit largeHeadingSizesChanged(enabled);
+}
+
+void AppSettings::setJustifyTextEnabled(bool enabled)
+{
+    justifyTextEnabled = enabled;
+    emit justifyTextChanged(enabled);
 }
 
 bool AppSettings::getAutoMatchEnabled() const
@@ -719,6 +732,7 @@ AppSettings::AppSettings()
     insertSpacesForTabsEnabled = appSettings.value(GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
     useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
     largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
+    justifyTextEnabled = appSettings.value(GW_JUSTIFY_KEY, QVariant(false)).toBool();
     highlightLineBreaks = appSettings.value(GW_HIGHLIGHT_LINE_BREAKS, QVariant(false)).toBool();
     autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
     autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();

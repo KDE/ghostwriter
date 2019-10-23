@@ -81,6 +81,10 @@ class AppSettings : public QObject
         Q_SLOT void setLargeHeadingSizesEnabled(bool enabled);
         Q_SIGNAL void largeHeadingSizesChanged(bool enabled);
 
+        bool getJustifyTextEnabled() const;
+        Q_SLOT void setJustifyTextEnabled(bool enabled);
+        Q_SIGNAL void justifyTextChanged(bool enabled);
+
         bool getAutoMatchEnabled() const;
         Q_SLOT void setAutoMatchEnabled(bool enabled);
         Q_SIGNAL void autoMatchChanged(bool enabled);
@@ -194,6 +198,7 @@ class AppSettings : public QObject
         bool insertSpacesForTabsEnabled;
         bool useUnderlineForEmphasis;
         bool largeHeadingSizesEnabled;
+        bool justifyTextEnabled;
         bool autoMatchEnabled;
         QString autoMatchedCharFilter;
         bool bulletPointCyclingEnabled;

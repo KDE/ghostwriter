@@ -308,14 +308,20 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
         // Credit goes to Patrizio Bekerle (qmarkdowntextedit) for discovering
         // this workaround.
         //
-        if (block.text().isRightToLeft())
-        {
-            QTextLayout* layout = block.layout();
-            QTextOption opt = document()->defaultTextOption();
+        QTextLayout* layout = block.layout();
+        QTextOption opt = document()->defaultTextOption();
+        if (block.text().isRightToLeft()) {
+            // Qt (as of 5.13.1) does not justify e.g. Arabic text correctly,
+            // so ignore the justify setting for RTL text.
             opt = QTextOption(Qt::AlignRight);
             opt.setTextDirection(Qt::RightToLeft);
-            layout->setTextOption(opt);
+        } else {
+            if (justifyTextEnabled) {
+                opt = QTextOption(Qt::AlignJustify);
+            }
+            opt.setTextDirection(Qt::LeftToRight);
         }
+        layout->setTextOption(opt);
 
         block = block.next();
         firstVisible = false;
@@ -1353,6 +1359,11 @@ bool MarkdownEditor::toggleTaskComplete()
 void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
 {
     highlighter->setEnableLargeHeadingSizes(enable);
+}
+
+void MarkdownEditor::setJustifyTextEnabled(bool enable)
+{
+    justifyTextEnabled = enable;
 }
 
 void MarkdownEditor::setBlockquoteStyle(const BlockquoteStyle style)

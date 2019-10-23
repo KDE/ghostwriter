@@ -336,6 +336,12 @@ QWidget* PreferencesDialog::initializeEditorTab()
     connect(largeHeadingsCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setLargeHeadingSizesEnabled(bool)));
     stylingGroupLayout->addRow(largeHeadingsCheckBox);
 
+    QCheckBox* justifyTextCheckBox = new QCheckBox(tr("Justify text"));
+    justifyTextCheckBox->setCheckable(true);
+    justifyTextCheckBox->setChecked(appSettings->getJustifyTextEnabled());
+    connect(justifyTextCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setJustifyTextEnabled(bool)));
+    stylingGroupLayout->addRow(justifyTextCheckBox);
+
     QCheckBox* lineBreaksCheckBox = new QCheckBox(tr("Highlight line breaks"));
     lineBreaksCheckBox->setCheckable(true);
     lineBreaksCheckBox->setChecked(appSettings->getHighlightLineBreaks());
