@@ -2351,7 +2351,9 @@ void MainWindow::applyTheme()
     stream << "QLabel { border: 0; padding: 0; margin: 0; background-color: transparent; "
            << "font-size: "
            << hudFontSize
-           << "pt } "
+           << "pt; color: "
+           << hudFgString
+           << " } "
            << "QScrollBar::horizontal { border: 0; background: transparent; height: 8px; margin: 0 } "
            << "QScrollBar::handle:horizontal { border: 0; background: "
            << hudFgString
@@ -2374,13 +2376,24 @@ void MainWindow::applyTheme()
 
     foreach (HudWindow* hud, huds)
     {
+        // Clear style sheet cache for each HUD.
+        hud->setStyleSheet("");
+
+        // Set HUD colors.
         hud->setForegroundColor(theme.getHudForegroundColor());
         hud->setBackgroundColor(alphaHudBackgroundColor);
     }
 
+    // Clear style sheet cache by setting to empty string before
+    // setting the new style sheet.
+    //
+    outlineWidget->setStyleSheet("");
     outlineWidget->setStyleSheet(styleSheet);
+    cheatSheetWidget->setStyleSheet("");
     cheatSheetWidget->setStyleSheet(styleSheet);
+    documentStatsWidget->setStyleSheet("");
     documentStatsWidget->setStyleSheet(styleSheet);
+    sessionStatsWidget->setStyleSheet("");
     sessionStatsWidget->setStyleSheet(styleSheet);
 
     adjustEditorWidth(this->width());

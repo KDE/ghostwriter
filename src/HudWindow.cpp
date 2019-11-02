@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2019 wereturtle
  * Copyright(c) 2009 by Gabriel M. Beddingfield <gabriel@teuton.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -214,7 +214,7 @@ void HudWindow::setForegroundColor(const QColor& color)
         << foregroundColor.blue()
         << "); background: transparent } #windowTitle { font-weight: bold } ";
 
-    this->setStyleSheet(styleSheet);
+    windowTitleLabel->setStyleSheet(styleSheet);
     closeButtonColorEffect->setColor(foregroundColor);
     sizeGripColorEffect->setColor(foregroundColor);
 }
