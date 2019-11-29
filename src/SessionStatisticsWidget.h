@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@ class SessionStatisticsWidget : public AbstractStatisticsWidget
         /**
          * Sets the time spent writing.
          */
-        void setWritingTime(int minutes);
+        void setWritingTime(unsigned long minutes);
 
         /**
          * Sets the percentage of time spent idle (i.e., NOT writing).

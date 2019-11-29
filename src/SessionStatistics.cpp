@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016-2018 wereturtle
+ * Copyright (C) 2016-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,6 @@ void SessionStatistics::startNewSession(int initialWordCount)
     lastWordCount = initialWordCount;
     totalSeconds = 0;
     idleSeconds = 0;
-    secondsSinceTypingPaused = 0;
     idle = true;
     sessionTimer->stop();
     sessionTimer->start();
@@ -75,15 +74,6 @@ void SessionStatistics::onDocumentWordCountChanged(int newWordCount)
 
     emit wordCountChanged(sessionWordCount);
     emit pageCountChanged(sessionWordCount / 250);
-
-    // For the first minute of the session, calculate WPM.
-    // Afterward, only update WPM when the session timer
-    // expires to keep the count from looking jittery.
-    //
-    if (totalSeconds < 60)
-    {
-        emit wordsPerMinuteChanged(calculateWPM());
-    }
 }
 
 void SessionStatistics::onTypingPaused()
@@ -94,30 +84,34 @@ void SessionStatistics::onTypingPaused()
 void SessionStatistics::onTypingResumed()
 {
     idle = false;
-    secondsSinceTypingPaused = 0;
 }
 
 void SessionStatistics::onSessionTimerExpired()
 {
+    unsigned long elapsedTime = (unsigned long) (sessionTimer->interval() / 1000);
+
+    totalSeconds += elapsedTime;
+
     if (idle)
     {
-        // typingPaused signal from editor can be milliseconds apart from the
-        // last keystroke.  Ensure that idleSeconds gets incremented only if
-        // about 1 second has passed since the typingPaused signal was emitted.
-        //
-        if (secondsSinceTypingPaused >= 1)
-        {
-            idleSeconds++;
-        }
-
-        secondsSinceTypingPaused++;
+        idleSeconds += elapsedTime;
     }
 
-    totalSeconds++;
+    int wpm = calculateWPM();
 
-    emit wordsPerMinuteChanged(calculateWPM());
+    emit wordsPerMinuteChanged(wpm);
     emit writingTimeChanged(totalSeconds / 60);
     emit idleTimePercentageChanged((int) (((float)idleSeconds / (float)totalSeconds) * 100.0f));
+
+    int timerTime = 1000;
+
+    if (wpm > 0)
+    {
+        timerTime = 5000;
+    }
+
+    sessionTimer->stop();
+    sessionTimer->start(timerTime);
 }
 
 int SessionStatistics::calculateWPM() const

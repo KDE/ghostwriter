@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016-2018 wereturtle
+ * Copyright (C) 2016-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ class SessionStatistics : public QObject
         /**
          * Constructor.
          */
-        SessionStatistics(QObject* parent = NULL);
+        SessionStatistics(QObject* parent = nullptr);
 
         /**
          * Destructor.
@@ -61,7 +61,7 @@ class SessionStatistics : public QObject
         /**
          * Emitted when writing time in this session changes.
          */
-        void writingTimeChanged(int value);
+        void writingTimeChanged(unsigned long value);
 
         /**
          * Emitted when the percentage of time spent idle
@@ -90,7 +90,6 @@ class SessionStatistics : public QObject
         bool idle;
         unsigned long totalSeconds;
         unsigned long idleSeconds;
-        unsigned long secondsSinceTypingPaused;
 
         int calculateWPM() const;
 };

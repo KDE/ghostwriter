@@ -243,7 +243,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     connect(sessionStats, SIGNAL(wordCountChanged(int)), sessionStatsWidget, SLOT(setWordCount(int)));
     connect(sessionStats, SIGNAL(pageCountChanged(int)), sessionStatsWidget, SLOT(setPageCount(int)));
     connect(sessionStats, SIGNAL(wordsPerMinuteChanged(int)), sessionStatsWidget, SLOT(setWordsPerMinute(int)));
-    connect(sessionStats, SIGNAL(writingTimeChanged(int)), sessionStatsWidget, SLOT(setWritingTime(int)));
+    connect(sessionStats, SIGNAL(writingTimeChanged(unsigned long)), sessionStatsWidget, SLOT(setWritingTime(unsigned long)));
     connect(sessionStats, SIGNAL(idleTimePercentageChanged(int)), sessionStatsWidget, SLOT(setIdleTime(int)));
     connect(editor, SIGNAL(typingPaused()), sessionStats, SLOT(onTypingPaused()));
     connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
@@ -445,7 +445,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
             this
         );
 
-    connect(editor, SIGNAL(typingPaused()), htmlPreview, SLOT(updatePreview()));
+    connect(editor, SIGNAL(typingPausedScaled()), htmlPreview, SLOT(updatePreview()));
     connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
     connect(appSettings, SIGNAL(currentHtmlExporterChanged(Exporter*)), htmlPreview, SLOT(setHtmlExporter(Exporter*)));
     connect(appSettings, SIGNAL(currentCssFileChanged(QString)), htmlPreview, SLOT(setStyleSheet(QString)));

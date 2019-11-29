@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,11 +51,11 @@ void AbstractStatisticsWidget::setPercentageValueForLabel(QLabel* label, int per
     label->setText(QString("<b>%L1%</b>").arg(percentage));
 }
 
-void AbstractStatisticsWidget::setTimeValueForLabel(QLabel* label, int minutes)
+void AbstractStatisticsWidget::setTimeValueForLabel(QLabel* label, unsigned long minutes)
 {
     QString timeText;
 
-    int hours = minutes / 60;
+    unsigned long hours = minutes / 60;
 
     if (minutes < 1)
     {

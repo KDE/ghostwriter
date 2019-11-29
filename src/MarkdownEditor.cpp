@@ -146,6 +146,19 @@ MarkdownEditor::MarkdownEditor
     );
     typingTimer->start(1000);
 
+    typingPausedScaledSignalSent = true;
+    scaledTypingHasPaused = true;
+
+    scaledTypingTimer = new QTimer(this);
+    connect
+    (
+        scaledTypingTimer,
+        SIGNAL(timeout()),
+        this,
+        SLOT(checkIfTypingPausedScaled())
+    );
+    scaledTypingTimer->start(1000);
+
     setColorScheme
     (
         QColor(Qt::black),
@@ -1480,10 +1493,12 @@ void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRe
     // onContentsChanged(int, int, int) signal, which is only emitted when the
     // document text actually changes.
     //
-    if (typingHasPaused)
+    if (typingHasPaused || scaledTypingHasPaused)
     {
         typingHasPaused = false;
+        scaledTypingHasPaused = false;
         typingPausedSignalSent = false;
+        typingPausedScaledSignalSent = false;
         emit typingResumed();
     }
 }
@@ -1621,6 +1636,20 @@ void MarkdownEditor::checkIfTypingPaused()
         emit typingPaused();
     }
 
+    typingTimer->stop();
+    typingTimer->start(1000);
+
+    typingHasPaused = true;
+}
+
+void MarkdownEditor::checkIfTypingPausedScaled()
+{
+    if (scaledTypingHasPaused && !typingPausedScaledSignalSent)
+    {
+        typingPausedScaledSignalSent = true;
+        emit typingPausedScaled();
+    }
+
     // Scale timer interval based on document size.
     int interval = (document()->characterCount() / 30000) * 20;
 
@@ -1633,10 +1662,10 @@ void MarkdownEditor::checkIfTypingPaused()
         interval = 20;
     }
 
-    typingTimer->stop();
-    typingTimer->start(interval);
+    scaledTypingTimer->stop();
+    scaledTypingTimer->start(interval);
 
-    typingHasPaused = true;
+    scaledTypingHasPaused = true;
 }
 
 void MarkdownEditor::spellCheckFinished(int result)

@@ -64,7 +64,7 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
     setDocument(editor->document());
 
     connect(editor, SIGNAL(typingResumed()), this, SLOT(onTypingResumed()));
-    connect(editor, SIGNAL(typingPaused()), this, SLOT(onTypingPaused()));
+    connect(editor, SIGNAL(typingPausedScaled()), this, SLOT(onTypingPaused()));
     connect(editor, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this, SIGNAL(headingFound(int,QString,QTextBlock)), editor, SIGNAL(headingFound(int,QString,QTextBlock)));
     connect(this, SIGNAL(headingRemoved(int)), editor, SIGNAL(headingRemoved(int)));

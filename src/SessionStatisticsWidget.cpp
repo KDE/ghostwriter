@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@ void SessionStatisticsWidget::setWordsPerMinute(int value)
     setIntegerValueForLabel(wpmLabel, value);
 }
 
-void SessionStatisticsWidget::setWritingTime(int minutes)
+void SessionStatisticsWidget::setWritingTime(unsigned long minutes)
 {
     setTimeValueForLabel(writingTimeLabel, minutes);
 }

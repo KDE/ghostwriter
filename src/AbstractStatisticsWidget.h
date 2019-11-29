@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2019 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,7 +66,7 @@ class AbstractStatisticsWidget : public QListWidget
          * Set the text of the given value label to represent a time in
          * hours and minutes.
          */
-        void setTimeValueForLabel(QLabel* label, int minutes);
+        void setTimeValueForLabel(QLabel* label, unsigned long minutes);
 
         /**
          * Set the text of the given value label to a number of pages.

@@ -184,8 +184,16 @@ class MarkdownEditor : public QPlainTextEdit
 
         /**
          * Emitted when the user has stopped typing text.
+         * Time emitted is 1000ms since last document update.
          */
         void typingPaused();
+
+        /**
+         * Emitted when the user has stopped typing text.
+         * Time emited is scaled per document size up to 1000ms
+         * since last document update.
+         */
+        void typingPausedScaled();
 
         /**
          * Emitted when the cursor position in the editor has changed.
@@ -391,6 +399,7 @@ class MarkdownEditor : public QPlainTextEdit
         void onSelectionChanged();
         void focusText();
         void checkIfTypingPaused();
+        void checkIfTypingPausedScaled();
         void spellCheckFinished(int result);
         void onCursorPositionChanged();
         void toggleCursorBlink();
@@ -449,15 +458,20 @@ class MarkdownEditor : public QPlainTextEdit
         bool textCursorVisible;
         QTimer* cursorBlinkTimer;
 
-        // Timer used to determine when typing has paused.
+        // Timers used to determine when typing has paused.
         QTimer* typingTimer;
-        bool typingHasPaused;
+        QTimer* scaledTypingTimer;
 
-        // Use this flag to keep from sending the typingPaused() signal
-        // multiple times after it's already been sent the first time after
-        // a pause in the user's typing.
+        bool typingHasPaused;
+        bool scaledTypingHasPaused;
+
+        // Use these flags to keep from sending the typingPaused() and
+        // typingPausedScaled() signals multiple times after they have
+        // already been sent the first time after a pause in the user's
+        // typing.
         //
         bool typingPausedSignalSent;
+        bool typingPausedScaledSignalSent;
 
         void handleCarriageReturn();
         bool handleBackspaceKey();
