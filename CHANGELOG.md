@@ -1,3 +1,13 @@
+1.8.1
+=====
+
+Fixes
+-----
+
+* Issue #443: MathJax 3.0 is now built into the HTML preview.  Note that this feature works best with Pandoc and requires an Internet connection.  Other Markdown processors are not currently supported.
+* Issue #447: Cursor is no longer shown when editor is not in focus
+* Issue #471: HUD window styling is fixed for Qt 5.13
+
 1.8.0
 =====
 
