@@ -36,7 +36,7 @@ CONFIG += c++11
 
 # Set program version
 isEmpty(VERSION) {
-    VERSION = v1.8.0
+    VERSION = v1.8.1
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
