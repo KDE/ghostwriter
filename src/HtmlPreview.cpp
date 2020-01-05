@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2019 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -86,7 +86,7 @@ HtmlPreview::HtmlPreview
         "    <script>"
         "         MathJax = {"
         "            tex: {"
-        "                inlineMath: [['$', '$'], ['\\(', '\\)']]"
+        "                inlineMath: [['$', '$']]]"
         "             }"
         "         };"
         "    </script>"
