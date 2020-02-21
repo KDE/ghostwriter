@@ -16,6 +16,8 @@ Translations
 * French - pygoliae
 * Spanish - cemetary, Icaro Perseo (icaroperseo)
 * Chinese - gledos
+* Dutch - Heimen Stoffels (Vistaus)
+* Arabic - Abdurrahman Aborazmeh (aborazmeh)
 
 Libraries
 =========

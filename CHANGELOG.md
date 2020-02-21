@@ -5,8 +5,14 @@ Fixes
 -----
 
 * Issue #443: MathJax 3.0 is now built into the HTML preview.  Note that this feature works best with Pandoc and requires an Internet connection.  Other Markdown processors are not currently supported.
-* Issue #447: Cursor is no longer shown when editor is not in focus
-* Issue #471: HUD window styling is fixed for Qt 5.13
+* Issue #447: Cursor is no longer shown when editor is not in focus.
+* Issue #461: Fixed Cheat Sheet to have correct image example.
+* Issue #471: HUD window styling is fixed for Qt 5.13.
+* Issue #472: Fixed typing paused timers for session statistics and for hiding HUD windows.
+* Discount is not listed as an available Markdown processor if MultiMarkdown is installed.
+* New application translations are available for the following languages:
+    - Arabic
+    - Dutch
 
 1.8.0
 =====
