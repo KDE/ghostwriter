@@ -27,6 +27,6 @@
     <binary>ghostwriter</binary>
   </provides>
   <releases>
-    <release version="1.8.1-rc" date="20191230" type="development"/>
+    <release version="1.8.1" date="20200222" type="stable"/>
   </releases>
 </component>
