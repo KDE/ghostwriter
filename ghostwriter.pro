@@ -264,7 +264,7 @@ macx {
     desktop.path = $$DATADIR/applications/
 
     appdata.files = resources/linux/ghostwriter.appdata.xml
-    appdata.path = $$DATADIR/appdata/
+    appdata.path = $$DATADIR/metainfo/
 
     man.files = resources/linux/ghostwriter.1
     man.path = $$PREFIX/share/man/man1
