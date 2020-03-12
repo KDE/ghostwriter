@@ -26,7 +26,8 @@
   <provides>
     <binary>ghostwriter</binary>
   </provides>
+  <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.8.1" date="20200222" type="stable"/>
+    <release version="1.8.1" date="2020-02-22" type="stable"/>
   </releases>
 </component>
