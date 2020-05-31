@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@
 
 #include "MarkdownEditorTypes.h"
 #include "MarkdownStyles.h"
-#include "TextDocument.h"
+#include "MarkdownDocument.h"
 #include "Theme.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
@@ -53,7 +53,7 @@ class MarkdownEditor : public QPlainTextEdit
          */
         MarkdownEditor
         (
-            TextDocument* textDocument,
+            MarkdownDocument* textDocument,
             QWidget* parent = 0
         );
 
@@ -229,7 +229,7 @@ class MarkdownEditor : public QPlainTextEdit
         /**
          * Sets the cursor position in the editor to the given position.
          */
-        void navigateDocument(const int pos);
+        void navigateDocument(const int position);
 
         /**
          * Inserts bold formatting.
@@ -396,6 +396,7 @@ class MarkdownEditor : public QPlainTextEdit
     private slots:
         void suggestSpelling(QAction* action);
         void onContentsChanged(int position, int charsAdded, int charsRemoved);
+        void onTextBlockRemoved(const QTextBlock&);
         void onSelectionChanged();
         void focusText();
         void checkIfTypingPaused();
@@ -403,6 +404,7 @@ class MarkdownEditor : public QPlainTextEdit
         void spellCheckFinished(int result);
         void onCursorPositionChanged();
         void toggleCursorBlink();
+        void parseDocument();
 
     private:
 
@@ -413,7 +415,7 @@ class MarkdownEditor : public QPlainTextEdit
             BlockTypeCode
         } BlockType;
 
-        TextDocument* textDocument;
+        MarkdownDocument* textDocument;
         MarkdownHighlighter* highlighter;
         QGridLayout* preferredLayout;
         QAction* addWordToDictionaryAction;

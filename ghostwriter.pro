@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Copyright (C) 2014-2019 wereturtle
+# Copyright (C) 2014-2020 wereturtle
 # Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@ CONFIG += c++11
 
 # Set program version
 isEmpty(VERSION) {
-    VERSION = v1.8.1
+    VERSION = v2.0.0-rc
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
@@ -97,122 +97,175 @@ macx {
         src/spelling/dictionary_provider_voikko.cpp
 }
 
-INCLUDEPATH += src src/spelling
+INCLUDEPATH += src src/spelling src/cmark-gfm/core src/cmark-gfm/extensions
 
-HEADERS += src/MainWindow.h \
-    src/MarkdownEditor.h \
-    src/Token.h \
-    src/HtmlPreview.h \
-    src/ExportFormat.h \
-    src/Exporter.h \
-    src/Theme.h \
-    src/ThemeFactory.h \
-    src/CommandLineExporter.h \
-    src/TextBlockData.h \
-    src/HudWindowTypes.h \
-    src/HudWindow.h \
-    src/ThemeSelectionDialog.h \
-    src/ThemePreviewer.h \
-    src/ThemeEditorDialog.h \
-    src/ExporterFactory.h \
-    src/ColorHelper.h \
-    src/MarkdownEditorTypes.h \
-    src/AppSettings.h \
-    src/DocumentManager.h \
-    src/TextDocument.h \
-    src/DocumentHistory.h \
-    src/ExportDialog.h \
-    src/Outline.h \
-    src/MarkdownStates.h \
-    src/MarkdownHighlighter.h \
-    src/MarkdownStyles.h \
-    src/MessageBoxHelper.h \
-    src/SundownExporter.h \
-    src/StyleSheetManagerDialog.h \
-    src/SimpleFontDialog.h \
-    src/HighlighterLineStates.h \
-    src/HighlightTokenizer.h \
-    src/MarkdownTokenizer.h \
-    src/TimeLabel.h \
-    src/LocaleDialog.h \
+HEADERS += \
     src/AbstractStatisticsWidget.h \
+    src/AppSettings.h \
+    src/CmarkGfmAPI.h \
+    src/CmarkGfmExporter.h \
+    src/ColorHelper.h \
+    src/CommandLineExporter.h \
+    src/DocumentHistory.h \
+    src/DocumentManager.h \
     src/DocumentStatistics.h \
     src/DocumentStatisticsWidget.h \
-    src/SessionStatistics.h \
-    src/SessionStatisticsWidget.h \
+    src/ExportDialog.h \
+    src/Exporter.h \
+    src/ExporterFactory.h \
+    src/ExportFormat.h \
+    src/HtmlPreview.h \
+    src/HudWindow.h \
+    src/HudWindowTypes.h \
+    src/LocaleDialog.h \
+    src/MainWindow.h \
+    src/MarkdownDocument.h \
+    src/MarkdownEditor.h \
+    src/MarkdownEditorTypes.h \
+    src/MarkdownHighlighter.h \
+    src/MarkdownAST.h \
+    src/MarkdownNode.h \
+    src/MarkdownStates.h \
+    src/MarkdownStyles.h \
+    src/MemoryArena.h \
+    src/MessageBoxHelper.h \
+    src/Outline.h \
     src/PreferencesDialog.h \
     src/PreviewOptionsDialog.h \
-    src/StringObserver.h \
     src/SandboxedWebPage.h \
+    src/SessionStatistics.h \
+    src/SessionStatisticsWidget.h \
+    src/SimpleFontDialog.h \
+    src/StringObserver.h \
+    src/StyleSheetManagerDialog.h \
+    src/TextBlockData.h \
+    src/Theme.h \
+    src/ThemeEditorDialog.h \
+    src/ThemeFactory.h \
+    src/ThemePreviewer.h \
+    src/ThemeSelectionDialog.h \
+    src/TimeLabel.h \
     src/find_dialog.h \
     src/image_button.h \
     src/color_button.h \
+    src/cmark-gfm/core/buffer.h \
+    src/cmark-gfm/core/chunk.h \
+    src/cmark-gfm/core/cmark_ctype.h \
+    src/cmark-gfm/core/cmark-gfm_export.h \
+    src/cmark-gfm/core/cmark-gfm-extension_api.h \
+    src/cmark-gfm/core/cmark-gfm.h \
+    src/cmark-gfm/core/cmark-gfm_version.h \
+    src/cmark-gfm/core/config.h \
+    src/cmark-gfm/core/footnotes.h \
+    src/cmark-gfm/core/houdini.h \
+    src/cmark-gfm/core/html.h \
+    src/cmark-gfm/core/inlines.h \
+    src/cmark-gfm/core/iterator.h \
+    src/cmark-gfm/core/map.h \
+    src/cmark-gfm/core/node.h \
+    src/cmark-gfm/core/parser.h \
+    src/cmark-gfm/core/plugin.h \
+    src/cmark-gfm/core/references.h \
+    src/cmark-gfm/core/registry.h \
+    src/cmark-gfm/core/render.h \
+    src/cmark-gfm/core/scanners.h \
+    src/cmark-gfm/core/syntax_extension.h \
+    src/cmark-gfm/core/utf8.h \
+    src/cmark-gfm/extensions/autolink.h \
+    src/cmark-gfm/extensions/cmark-gfm-core-extensions.h \
+    src/cmark-gfm/extensions/cmark-gfm-extensions_export.h \
+    src/cmark-gfm/extensions/ext_scanners.h \
+    src/cmark-gfm/extensions/strikethrough.h \
+    src/cmark-gfm/extensions/table.h \
+    src/cmark-gfm/extensions/tagfilter.h \
+    src/cmark-gfm/extensions/tasklist.h \
     src/spelling/abstract_dictionary.h \
     src/spelling/abstract_dictionary_provider.h \
     src/spelling/dictionary_manager.h \
     src/spelling/dictionary_ref.h \
-    src/spelling/spell_checker.h \
-    src/sundown/autolink.h \
-    src/sundown/buffer.h \
-    src/sundown/houdini.h \
-    src/sundown/html_blocks.h \
-    src/sundown/html.h \
-    src/sundown/markdown.h \
-    src/sundown/stack.h
+    src/spelling/spell_checker.h
 
-SOURCES += src/AppMain.cpp \
-    src/MainWindow.cpp \
-    src/MarkdownEditor.cpp \
-    src/Token.cpp \
-    src/HtmlPreview.cpp \
-    src/ExportFormat.cpp \
-    src/Theme.cpp \
-    src/ThemeFactory.cpp \
-    src/CommandLineExporter.cpp \
-    src/HudWindow.cpp \
-    src/ThemeSelectionDialog.cpp \
-    src/ThemePreviewer.cpp \
-    src/ThemeEditorDialog.cpp \
-    src/Exporter.cpp \
-    src/ExporterFactory.cpp \
-    src/ColorHelper.cpp \
-    src/AppSettings.cpp \
-    src/DocumentManager.cpp \
-    src/TextDocument.cpp \
-    src/DocumentHistory.cpp \
-    src/ExportDialog.cpp \
-    src/Outline.cpp \
-    src/MarkdownHighlighter.cpp \
-    src/MessageBoxHelper.cpp \
-    src/StyleSheetManagerDialog.cpp \
-    src/SimpleFontDialog.cpp \
-    src/SundownExporter.cpp \
-    src/HighlightTokenizer.cpp \
-    src/MarkdownTokenizer.cpp \
-    src/TimeLabel.cpp \
-    src/LocaleDialog.cpp \
+SOURCES += \
     src/AbstractStatisticsWidget.cpp \
-    src/SessionStatistics.cpp \
-    src/SessionStatisticsWidget.cpp \
+    src/AppMain.cpp \
+    src/AppSettings.cpp \
+    src/CmarkGfmAPI.cpp \
+    src/CmarkGfmExporter.cpp \
+    src/ColorHelper.cpp \
+    src/CommandLineExporter.cpp \
+    src/DocumentHistory.cpp \
+    src/DocumentManager.cpp \
     src/DocumentStatistics.cpp \
     src/DocumentStatisticsWidget.cpp \
+    src/ExportDialog.cpp \
+    src/Exporter.cpp \
+    src/ExporterFactory.cpp \
+    src/ExportFormat.cpp \
+    src/HtmlPreview.cpp \
+    src/HudWindow.cpp \
+    src/LocaleDialog.cpp \
+    src/MainWindow.cpp \
+    src/MarkdownDocument.cpp \
+    src/MarkdownEditor.cpp \
+    src/MarkdownHighlighter.cpp \
+    src/MarkdownAST.cpp \
+    src/MarkdownNode.cpp \
+    src/MemoryArena.cpp \
+    src/MessageBoxHelper.cpp \
+    src/Outline.cpp \
     src/PreferencesDialog.cpp \
     src/PreviewOptionsDialog.cpp \
-    src/StringObserver.cpp \
     src/SandboxedWebPage.cpp \
+    src/SessionStatistics.cpp \
+    src/SessionStatisticsWidget.cpp \
+    src/SimpleFontDialog.cpp \
+    src/StringObserver.cpp \
+    src/StyleSheetManagerDialog.cpp \
+    src/Theme.cpp \
+    src/ThemeEditorDialog.cpp \
+    src/ThemeFactory.cpp \
+    src/ThemePreviewer.cpp \
+    src/ThemeSelectionDialog.cpp \
+    src/TimeLabel.cpp \
+    src/color_button.cpp \
     src/find_dialog.cpp \
     src/image_button.cpp \
-    src/color_button.cpp \
+    src/cmark-gfm/core/arena.c \
+    src/cmark-gfm/core/blocks.c \
+    src/cmark-gfm/core/buffer.c \
+    src/cmark-gfm/core/cmark.c \
+    src/cmark-gfm/core/cmark_ctype.c \
+    src/cmark-gfm/core/commonmark.c \
+    src/cmark-gfm/core/footnotes.c \
+    src/cmark-gfm/core/houdini_href_e.c \
+    src/cmark-gfm/core/houdini_html_e.c \
+    src/cmark-gfm/core/houdini_html_u.c \
+    src/cmark-gfm/core/html.c \
+    src/cmark-gfm/core/inlines.c \
+    src/cmark-gfm/core/iterator.c \
+    src/cmark-gfm/core/latex.c \
+    src/cmark-gfm/core/linked_list.c \
+    src/cmark-gfm/core/man.c \
+    src/cmark-gfm/core/map.c \
+    src/cmark-gfm/core/node.c \
+    src/cmark-gfm/core/plaintext.c \
+    src/cmark-gfm/core/plugin.c \
+    src/cmark-gfm/core/references.c \
+    src/cmark-gfm/core/registry.c \
+    src/cmark-gfm/core/render.c \
+    src/cmark-gfm/core/scanners.c \
+    src/cmark-gfm/core/syntax_extension.c \
+    src/cmark-gfm/core/utf8.c \
+    src/cmark-gfm/core/xml.c \
+    src/cmark-gfm/extensions/autolink.c \
+    src/cmark-gfm/extensions/core-extensions.c \
+    src/cmark-gfm/extensions/ext_scanners.c \
+    src/cmark-gfm/extensions/strikethrough.c \
+    src/cmark-gfm/extensions/table.c \
+    src/cmark-gfm/extensions/tagfilter.c \
+    src/cmark-gfm/extensions/tasklist.c \
     src/spelling/dictionary_manager.cpp \
-    src/spelling/spell_checker.cpp \
-    src/sundown/autolink.c \
-    src/sundown/buffer.c \
-    src/sundown/houdini_href_e.c \
-    src/sundown/houdini_html_e.c \
-    src/sundown/html_smartypants.c \
-    src/sundown/html.c \
-    src/sundown/markdown.c \
-    src/sundown/stack.c
+    src/spelling/spell_checker.cpp
 
 # Generate translations
 TRANSLATIONS = $$files(translations/ghostwriter_*.ts)

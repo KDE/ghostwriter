@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,10 +23,8 @@
 #include <QSyntaxHighlighter>
 
 #include "spelling/dictionary_ref.h"
-#include "MarkdownTokenizer.h"
 #include "MarkdownStyles.h"
-#include "Token.h"
-#include "TextDocument.h"
+#include "MarkdownDocument.h"
 #include "MarkdownEditor.h"
 
 class QColor;
@@ -123,18 +121,6 @@ class MarkdownHighlighter : public QSyntaxHighlighter
 
     signals:
         /**
-         * Notifies listeners that a heading was found in the document in the
-         * given QTextBlock and with the given level and heading text.
-         */
-        void headingFound(int level, const QString& text, QTextBlock block);
-
-        /**
-         * Notifies listeners that a heading was discovered to have been removed
-         * from the document at the given cursor position.
-         */
-        void headingRemoved(int position);
-
-        /**
          * FOR INTERNAL USE ONLY
          *
          * This signal is used internally to restart highlighting on the
@@ -182,15 +168,8 @@ class MarkdownHighlighter : public QSyntaxHighlighter
          */
         void onHighlightBlockAtPosition(int position);
 
-        /*
-         * Determines if the text block being removed is a heading, and if so,
-         * emits the headingRemoved() signal.
-         */
-        void onTextBlockRemoved(const QTextBlock& block);
-
     private:
         MarkdownEditor* editor;
-        MarkdownTokenizer* tokenizer;
         DictionaryRef dictionary;
         bool spellCheckEnabled;
         bool typingPaused;
@@ -208,43 +187,24 @@ class MarkdownHighlighter : public QSyntaxHighlighter
         QColor blockquoteColor;
         QColor codeColor;
         QColor spellingErrorColor;
+        bool useLargeHeadings;
 
 		QTextCharFormat defaultFormat;
-        bool applyStyleToMarkup[TokenLast];
-        QColor colorForToken[TokenLast];
-        bool emphasizeToken[TokenLast];
-        bool strongToken[TokenLast];
-        bool strongMarkup[TokenLast];
-        bool strikethroughToken[TokenLast];
-        int fontSizeIncrease[TokenLast];
 
         QRegularExpression heading1SetextRegex;
         QRegularExpression heading2SetextRegex;
 
+        QRegularExpression referenceDefinitionRegex;
+
         void spellCheck(const QString& text);
-        void setupTokenColors();
         void setupHeadingFontSize(bool useLargeHeadings);
 
-        void applyFormattingForToken(const Token& token);
-        void storeHeadingData(const Token& token, const QString& text);
-
-        /*
-         * Returns true if the given QTextBlock userState indicates that the
-         * text block contains a heading.
-         */
-        bool isHeadingBlockState(int state) const;
-
-        /**
-         * Returns true if the given block of text matches the markup for
-         * the second line of a setext heading for level 1.
-         */
-        bool matchesHeading1SetextMarkup(const QString& text) const;
-
-        /**
-         * Returns true if the given block of text matches the markup for
-         * the second line of a setext heading for level 2.
-         */
-        bool matchesHeading2SetextMarkup(const QString& text) const;
+        void applyFormattingForNode(const MarkdownNode* const node);
+        int getColumnInLine(const MarkdownNode* const node) const;
+        bool lineMatchesNode(const int line, const MarkdownNode* const node) const;
+        void highlightRefLinks(const int pos, const int length);
+        bool isSetextHeadingState(const int state);
+        void backtrackHighlight(const int state);
 
 };
 

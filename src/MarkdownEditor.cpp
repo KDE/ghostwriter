@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2019 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) Dmitry Shachnev 2012
  *
@@ -30,17 +30,20 @@
 #include <QTimer>
 #include <QColor>
 #include <QApplication>
+#include <QGuiApplication>
+#include <QScreen>
 #include <QDesktopWidget>
 #include <QUrl>
 #include <QPixmap>
 #include <QPainter>
 #include <QFileInfo>
 #include <QDir>
+#include <QDebug>
 
+#include "CmarkGfmAPI.h"
 #include "ColorHelper.h"
 #include "MarkdownEditor.h"
 #include "MarkdownStates.h"
-#include "MarkdownTokenizer.h"
 #include "MarkdownHighlighter.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
@@ -50,7 +53,7 @@
 
 MarkdownEditor::MarkdownEditor
 (
-    TextDocument* textDocument,
+    MarkdownDocument* textDocument,
     QWidget* parent
 )
     : QPlainTextEdit(parent),
@@ -62,7 +65,6 @@ MarkdownEditor::MarkdownEditor
 {
     setDocument(textDocument);
 
-    highlighter = new MarkdownHighlighter(this);
 
     setAcceptDrops(true);
 
@@ -128,7 +130,10 @@ MarkdownEditor::MarkdownEditor
 
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this->document(), SIGNAL(contentsChange(int,int,int)), this, SLOT(onContentsChanged(int,int,int)));
+    connect(this->document(), SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
+
+    highlighter = new MarkdownHighlighter(this);
 
     addWordToDictionaryAction = new QAction(tr("Add word to dictionary"), this);
     checkSpellingAction = new QAction(tr("Check spelling..."), this);
@@ -494,7 +499,7 @@ void MarkdownEditor::setupPaperMargins(int width)
         return;
     }
 
-    int screenWidth = QApplication::desktop()->screenGeometry().width();
+    int screenWidth = QGuiApplication::primaryScreen()->size().width();
     int proposedEditorWidth = width;
     int margin = 0;
 
@@ -767,8 +772,13 @@ bool MarkdownEditor::eventFilter(QObject* watched, QEvent* event)
         //
         bool wordHasSpellingError = false;
         int blockPosition = cursorForWord.positionInBlock();
+#if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 6)
         QList<QTextLayout::FormatRange> formatList =
                 cursorForWord.block().layout()->additionalFormats();
+#else
+        QVector<QTextLayout::FormatRange> formatList =
+                cursorForWord.block().layout()->formats();
+#endif
         int mispelledWordStartPos = 0;
         int mispelledWordLength = 0;
 
@@ -932,10 +942,11 @@ void MarkdownEditor::wheelEvent(QWheelEvent *e)
     }
 }
 
-void MarkdownEditor::navigateDocument(const int pos)
+void MarkdownEditor::navigateDocument(const int position)
 {
     QTextCursor cursor = this->textCursor();
-    cursor.setPosition(pos);
+
+    cursor.setPosition(position);
     this->setTextCursor(cursor);
     this->activateWindow();
 }
@@ -1036,10 +1047,10 @@ void MarkdownEditor::removeBlockquote()
         {
             cursor.deleteChar();
 
-            // Delete any spaces that follow the '>' character, to clean up the
+            // Delete first space that follow the '>' character, to clean up the
             // paragraph.
             //
-            while (this->document()->characterAt(cursor.position()) == ' ')
+            if (this->document()->characterAt(cursor.position()).isSpace())
             {
                 cursor.deleteChar();
             }
@@ -1096,7 +1107,7 @@ void MarkdownEditor::indentText()
 
         cursor.beginEditBlock();
 
-        switch (cursor.block().userState())
+        switch (cursor.block().userState() & MarkdownStateMask)
         {
             case MarkdownStateNumberedList:
                 match = emptyNumberedListRegex.match(cursor.block().text());
@@ -1130,13 +1141,15 @@ void MarkdownEditor::indentText()
                     }
                 }
                 break;
-            case MarkdownStateBulletPointList:
-            {
+            case MarkdownStateTaskList:
                 if (emptyTaskListRegex.match(cursor.block().text()).hasMatch())
                 {
                     cursor.movePosition(QTextCursor::StartOfBlock);
                 }
-                else if (emptyBulletListRegex.match(cursor.block().text()).hasMatch())
+                break;
+            case MarkdownStateBulletPointList:
+            {
+                if (emptyBulletListRegex.match(cursor.block().text()).hasMatch())
                 {
                     if (bulletPointCyclingEnabled)
                     {
@@ -1249,7 +1262,7 @@ void MarkdownEditor::unindentText()
 
     if
     (
-        (MarkdownStateBulletPointList == cursor.block().userState())
+        (MarkdownStateBulletPointList == (cursor.block().userState() & MarkdownStateMask))
         && (emptyBulletListRegex.match(cursor.block().text()).hasMatch())
         && bulletPointCyclingEnabled
     )
@@ -1316,7 +1329,7 @@ bool MarkdownEditor::toggleTaskComplete()
 
         if
         (
-            (block.userState() == MarkdownStateBulletPointList)
+            (MarkdownStateTaskList == (block.userState() & MarkdownStateMask))
             && (block.text().indexOf(taskListRegex, 0, &match) == 0)
         )
         {
@@ -1407,7 +1420,12 @@ void MarkdownEditor::setTabulationWidth(int width)
 {
     QFontMetrics fontMetrics(font());
     tabWidth = width;
-    this->setTabStopWidth(fontMetrics.width(QChar(' ')) * tabWidth);
+
+#if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 10)
+    this->setTabStopWidth(fontMetrics.width(' ') * tabWidth);
+#else
+    this->setTabStopDistance(fontMetrics.horizontalAdvance(' ') * tabWidth);
+#endif
 }
 
 void MarkdownEditor::setEditorWidth(EditorWidth width)
@@ -1486,6 +1504,8 @@ void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRe
     Q_UNUSED(charsAdded)
     Q_UNUSED(charsRemoved)
 
+    parseDocument();
+
     // Don't use the textChanged() or contentsChanged() (no parameters) signals
     // for checking if the typingResumed() signal needs to be emitted.  These
     // two signals are emitted even when the text formatting changes (i.e.,
@@ -1501,6 +1521,11 @@ void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRe
         typingPausedScaledSignalSent = false;
         emit typingResumed();
     }
+}
+
+void MarkdownEditor::onTextBlockRemoved(const QTextBlock&)
+{
+    parseDocument();
 }
 
 void MarkdownEditor::onSelectionChanged()
@@ -1713,6 +1738,21 @@ void MarkdownEditor::toggleCursorBlink()
     update();
 }
 
+void MarkdownEditor::parseDocument()
+{
+    MarkdownAST* ast = 
+        CmarkGfmAPI::getInstance()->parse
+        (
+            this->document()->toPlainText(),
+            false
+        );
+
+    // Note:  MarkdownDocument is responsible for freeing memory
+    // allocated for the AST.
+    //
+    ((MarkdownDocument*) this->document())->setMarkdownAST(ast);
+}
+
 void MarkdownEditor::handleCarriageReturn()
 {
     QString autoInsertText = "";
@@ -1732,7 +1772,7 @@ void MarkdownEditor::handleCarriageReturn()
     {
         QRegularExpressionMatch match;
 
-        switch (cursor.block().userState())
+        switch (cursor.block().userState() & MarkdownStateMask)
         {
             case MarkdownStateNumberedList:
             {
@@ -1766,44 +1806,36 @@ void MarkdownEditor::handleCarriageReturn()
                 }
                 break;
             }
-            case MarkdownStateBulletPointList:
-                // Check for GFM task list before checking for bullet point.
+            case MarkdownStateTaskList:
                 autoInsertText = getPriorMarkdownBlockItemStart(taskListRegex, match);
+                // If the line of text is an empty list item, end the list.
+                if (cursor.block().text().length() == autoInsertText.length())
+                {
+                    endList = true;
+                }
+                else
+                {
+                    // In case the previous line had a completed task with
+                    // an X checking it off, make sure a completed task
+                    // isn't added as the new task (remove the x and replace
+                    // with a space).
+                    //
+                    autoInsertText = autoInsertText.replace('x', ' ');
+                }
+                break;
+            case MarkdownStateBulletPointList:
+                autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex, match);
 
-                // If the string is empty, then it wasn't a GFM task list item.
-                // Treat it as a normal bullet point.
-                //
                 if (autoInsertText.isEmpty())
                 {
-                    autoInsertText = getPriorMarkdownBlockItemStart(bulletListRegex, match);
-
-                    if (autoInsertText.isEmpty())
-                    {
-                        autoInsertText = getPriorIndentation();
-                    }
-                    // If the line of text is an empty list item, end the list.
-                    else if (cursor.block().text().length() == autoInsertText.length())
-                    {
-                        endList = true;
-                    }
+                    autoInsertText = getPriorIndentation();
                 }
-                else // string not empty - GFM task list item
+                // If the line of text is an empty list item, end the list.
+                else if (cursor.block().text().length() == autoInsertText.length())
                 {
-                    // If the line of text is an empty list item, end the list.
-                    if (cursor.block().text().length() == autoInsertText.length())
-                    {
-                        endList = true;
-                    }
-                    else
-                    {
-                        // In case the previous line had a completed task with
-                        // an X checking it off, make sure a completed task
-                        // isn't added as the new task (remove the x and replace
-                        // with a space).
-                        //
-                        autoInsertText = autoInsertText.replace('x', ' ');
-                    }
+                    endList = true;
                 }
+
                 break;
             case MarkdownStateBlockquote:
                 autoInsertText = getPriorMarkdownBlockItemStart(blockquoteRegex, match);
@@ -1838,7 +1870,7 @@ bool MarkdownEditor::handleBackspaceKey()
 
     int backtrackIndex = -1;
 
-    switch (cursor.block().userState())
+    switch (cursor.block().userState() & MarkdownStateMask)
     {
         case MarkdownStateNumberedList:
         {
@@ -1848,7 +1880,7 @@ bool MarkdownEditor::handleBackspaceKey()
             }
             break;
         }
-        case MarkdownStateBulletPointList:
+        case MarkdownStateTaskList:
             if
             (
                 emptyBulletListRegex.match(cursor.block().text()).hasMatch()
@@ -2248,24 +2280,17 @@ bool MarkdownEditor::atCodeBlockStart(const QTextBlock& block) const
 {
     return
         (
-            (MarkdownStateCodeBlock == block.userState())
-            || (MarkdownStateInGithubCodeFence == block.userState())
-            || (MarkdownStateInPandocCodeFence == block.userState())
+            (MarkdownStateCodeBlock == (MarkdownStateCodeBlock & block.userState()))
+            && (MarkdownStateCodeBlock != (MarkdownStateCodeBlock & block.previous().userState()))
         );
 }
 
 bool MarkdownEditor::atCodeBlockEnd(const QTextBlock& block) const
 {
-    return
-        (
-            (MarkdownStateCodeBlock != block.userState())
-            && (MarkdownStateInPandocCodeFence != block.userState())
-            && (MarkdownStateInGithubCodeFence != block.userState())
-            && (MarkdownStateCodeFenceEnd != block.userState())
-        );
+    return (MarkdownStateCodeBlock != (MarkdownStateCodeBlock & block.userState()));
 }
 
 bool MarkdownEditor::isBlockquote(const QTextBlock& block) const
 {
-    return (MarkdownStateBlockquote == block.userState());
+    return (MarkdownStateBlockquote == (MarkdownStateBlockquote & block.userState()));
 }

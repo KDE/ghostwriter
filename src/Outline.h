@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,8 @@
 #include <QString>
 #include <QTextBlock>
 
+#include "MarkdownEditor.h"
+
 /**
  * Outline widget for use in navigating document headings and displaying the
  * current position in the document to the user.
@@ -33,18 +35,10 @@ class Outline : public QListWidget
     Q_OBJECT
 
     public:
-        Outline(QWidget* parent = 0);
+        Outline(MarkdownEditor* editor, QWidget* parent = 0);
         virtual ~Outline();
 
     signals:
-        /**
-         * Emitted when the user selects one of the headings in the outline
-         * in order to navigate to the given position in the document.
-         * This signal should be connected to an editor so that the text
-         * cursor position can be set to the provided value.
-         */
-        void documentPositionNavigated(const int position);
-
         /**
          * Emitted when the user selects one of the headings in the outline
          * in order to navigate to the given position in the document.
@@ -64,22 +58,6 @@ class Outline : public QListWidget
          */
         void updateCurrentNavigationHeading(int position);
 
-        /**
-         * Inserts heading text into the outline for the given heading level
-         * and QTextBlock's document position.
-         */
-        void insertHeadingIntoOutline
-        (
-            int level,
-            const QString& text,
-            const QTextBlock& block
-        );
-
-        /**
-         * Removes heading having the given document position from the outline.
-         */
-        void removeHeadingFromOutline(int position);
-
     private slots:
         /*
          * Invoked when the user selects one of the headings in the outline
@@ -87,10 +65,12 @@ class Outline : public QListWidget
          */
         void onOutlineHeadingSelected(QListWidgetItem* item);
 
-    private:
-        static const int TEXT_BLOCK_ROLE;
+        void reloadOutline();
 
-        int currentPosition;
+    private:
+        static const int DOCUMENT_POSITION_ROLE;
+
+        MarkdownEditor* editor;
 
         /*
          * Gets the document position stored in the given item.
@@ -107,7 +87,6 @@ class Outline : public QListWidget
          * the tree (i.e., an ideal insertion point for a new heading).
          */
         int findHeading(int position, bool exactMatch = true);
-
 };
 
 #endif // OUTLINE_H

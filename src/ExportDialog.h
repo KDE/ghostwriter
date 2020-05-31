@@ -22,7 +22,7 @@
 
 #include <QDialog>
 
-#include "TextDocument.h"
+#include "MarkdownDocument.h"
 
 class QFileDialog;
 class QComboBox;
@@ -44,7 +44,7 @@ class ExportDialog : public QDialog
          * Constructor that takes text document to export as the parameter,
          * as well as the parent widget which will own this dialog.
          */
-        ExportDialog(TextDocument* document, QWidget* parent = 0);
+        ExportDialog(MarkdownDocument* document, QWidget* parent = 0);
         virtual ~ExportDialog();
 
     signals:
@@ -90,7 +90,7 @@ class ExportDialog : public QDialog
         QFileDialog* fileDialogWidget;
         QComboBox* exporterComboBox;
         QCheckBox* smartTypographyCheckBox;
-        TextDocument* document;
+        MarkdownDocument* document;
         QStringList fileFilters;
 };
 

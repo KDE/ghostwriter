@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 
 #include <QObject>
 
-#include "TextDocument.h"
+#include "MarkdownDocument.h"
 #include "TextBlockData.h"
 
 /**
@@ -34,9 +34,9 @@ class DocumentStatistics : public QObject
 
     public:
         /**
-         * Constructor.  Pass in the QTextDocument as parameter.
+         * Constructor.  Pass in the MarkdownDocument as parameter.
          */
-        DocumentStatistics(TextDocument* document, QObject* parent = NULL);
+        DocumentStatistics(MarkdownDocument* document, QObject* parent = NULL);
 
         /**
          * Destructor.
@@ -131,7 +131,7 @@ class DocumentStatistics : public QObject
         static const QString DIFFICULT_READING_EASE_STR;
         static const QString VERY_DIFFICULT_READING_EASE_STR;
 
-        TextDocument* document;
+        MarkdownDocument* document;
 
         int wordCount; // may be count of selected text only or entire document
         int totalWordCount; // word count of entire document

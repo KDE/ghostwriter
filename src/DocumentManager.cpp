@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,32 +17,31 @@
  *
  ***********************************************************************/
 
-#include <QTextDocument>
-#include <QPair>
-#include <QtConcurrentRun>
-#include <QFuture>
-#include <QFutureWatcher>
-#include <QFileSystemWatcher>
-#include <QString>
-#include <QFileInfo>
+#include <QApplication>
 #include <QDir>
 #include <QFile>
-#include <QTextStream>
-#include <QMessageBox>
 #include <QFileDialog>
+#include <QFileInfo>
+#include <QFileSystemWatcher>
+#include <QFuture>
+#include <QFutureWatcher>
+#include <QMessageBox>
+#include <QPair>
+#include <QString>
+#include <QtConcurrentRun>
+#include <QTextDocument>
+#include <QTextStream>
 #include <QTimer>
-#include <QApplication>
 
-#include "DocumentManager.h"
 #include "DocumentHistory.h"
-#include "MarkdownEditor.h"
+#include "DocumentManager.h"
+#include "ExportDialog.h"
 #include "Exporter.h"
 #include "ExporterFactory.h"
-#include "MarkdownTokenizer.h"
-#include "ExportDialog.h"
+#include "MarkdownDocument.h"
+#include "MarkdownEditor.h"
 #include "MessageBoxHelper.h"
 #include "ThemeFactory.h"
-#include "TextDocument.h"
 
 const QString DocumentManager::FILE_CHOOSER_FILTER =
     QString("%1 (*.md *.markdown *.txt);;%2 (*.txt);;%3 (*)")
@@ -67,7 +66,7 @@ DocumentManager::DocumentManager
     saveFutureWatcher = new QFutureWatcher<QString>(this);
 
     fileWatcher = new QFileSystemWatcher(this);
-    document = (TextDocument*) editor->document();
+    document = (MarkdownDocument*) editor->document();
 
     connect(document, SIGNAL(modificationChanged(bool)), this, SLOT(onDocumentModifiedChanged(bool)));
 
@@ -92,7 +91,7 @@ DocumentManager::~DocumentManager()
     this->saveFutureWatcher->waitForFinished();
 }
 
-TextDocument* DocumentManager::getDocument() const
+MarkdownDocument* DocumentManager::getDocument() const
 {
     return this->document;
 }
@@ -606,30 +605,11 @@ bool DocumentManager::loadFile(const QString& filePath)
     inStream.setCodec("UTF-8");
     inStream.setAutoDetectUnicode(true);
 
-    QString text = inStream.read(2048L);
+    QString text = inStream.readAll();
 
-    int count = 0;
-
-    while (!text.isNull())
-    {
-        cursor.insertText(text);
-
-        // Front load enough text to show the beginning of the document
-        // in the editor, and emit the operationUpdate signal to ensure
-        // the GUI is updated to show the front-loaded text.
-        //
-        // Don't put in too much text, or else the application will not
-        // be able to open the document as quickly.
-        //
-        if (count < 5)
-        {
-            editor->navigateDocument(0);
-            emit operationUpdate();
-        }
-
-        count++;
-        text = inStream.read(2048L);
-    }
+    editor->setPlainText(text);
+    editor->navigateDocument(0);
+    emit operationUpdate();
 
     document->setUndoRedoEnabled(true);
 

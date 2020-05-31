@@ -468,7 +468,7 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
                 if (name == customThemeNames[i])
                 {
                     customThemeNames[i] = theme.getName();
-                    qSort(customThemeNames.begin(), customThemeNames.end());
+                    std::sort(customThemeNames.begin(), customThemeNames.end());
                     break;
                 }
             }
@@ -611,7 +611,7 @@ void ThemeFactory::saveTheme(const QString& name, Theme& theme, QString& err)
     if (isNewTheme)
     {
         customThemeNames.append(theme.getName());
-        qSort(customThemeNames.begin(), customThemeNames.end());
+        std::sort(customThemeNames.begin(), customThemeNames.end());
     }
 }
 

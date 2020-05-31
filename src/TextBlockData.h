@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2016 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,10 +21,10 @@
 #define TEXTBLOCKDATA_H
 
 #include <QObject>
-#include <QTextBlockUserData>
 #include <QTextBlock>
+#include <QTextBlockUserData>
 
-#include "TextDocument.h"
+#include "MarkdownDocument.h"
 
 /**
  * User data for use with the MarkdownHighlighter and DocumentStatistics.
@@ -37,7 +37,7 @@ class TextBlockData : public QObject, public QTextBlockUserData
         /**
          * Constructor.
          */
-        TextBlockData(TextDocument* document, const QTextBlock& block)
+        TextBlockData(MarkdownDocument* document, const QTextBlock& block)
             : document(document), blockRef(block)
         {
             wordCount = 0;
@@ -55,7 +55,7 @@ class TextBlockData : public QObject, public QTextBlockUserData
             document->notifyTextBlockRemoved(blockRef);
         }
 
-        TextDocument* document;
+        MarkdownDocument* document;
 
         int wordCount;
         int alphaNumericCharacterCount;

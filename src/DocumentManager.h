@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2018 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,15 +20,15 @@
 #ifndef DOCUMENTMANAGER_H
 #define DOCUMENTMANAGER_H
 
+#include <QFutureWatcher>
 #include <QObject>
 #include <QWidget>
-#include <QFutureWatcher>
 
+#include "DocumentStatistics.h"
+#include "MarkdownDocument.h"
 #include "MarkdownEditor.h"
 #include "Outline.h"
-#include "DocumentStatistics.h"
 #include "SessionStatistics.h"
-#include "TextDocument.h"
 
 class QFileSystemWatcher;
 
@@ -64,7 +64,7 @@ class DocumentManager : public QObject
         /**
          * Gets the current document that is opened.
          */
-        TextDocument* getDocument() const;
+        MarkdownDocument* getDocument() const;
 
         /**
          * Gets whether auto-save is enabled.
@@ -216,7 +216,7 @@ class DocumentManager : public QObject
         static const QString FILE_CHOOSER_FILTER;
 
         QWidget* parentWidget;
-        TextDocument* document;
+        MarkdownDocument* document;
         MarkdownEditor* editor;
         Outline* outline;
         DocumentStatistics* documentStats;

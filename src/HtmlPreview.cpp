@@ -35,7 +35,7 @@
 
 HtmlPreview::HtmlPreview
 (
-    TextDocument* document,
+    MarkdownDocument* document,
     Exporter* exporter,
     QWidget* parent
 )
@@ -70,8 +70,7 @@ HtmlPreview::HtmlPreview
     // Set zoom factor for Chromium browser to account for system DPI settings,
     // since Chromium assumes 96 DPI as a fixed resolution.
     //
-    QWidget* window = QApplication::desktop()->screen();
-    int horizontalDpi = window->logicalDpiX();
+    qreal horizontalDpi = QGuiApplication::primaryScreen()->logicalDotsPerInchX();
     this->setZoomFactor((horizontalDpi / 96.0));
 
     QWebChannel *channel = new QWebChannel(this);

@@ -18,64 +18,64 @@
  *
  ***********************************************************************/
 
-#include <QWidget>
-#include <QApplication>
-#include <QIcon>
-#include <QMainWindow>
-#include <QMenuBar>
-#include <QMenu>
 #include <QAction>
-#include <QStatusBar>
-#include <QPushButton>
-#include <QLabel>
-#include <QFileDialog>
-#include <QFileInfo>
-#include <QTextStream>
-#include <QIODevice>
-#include <QFile>
-#include <QFontMetrics>
-#include <QFont>
-#include <QCommonStyle>
-#include <QScrollBar>
-#include <QGridLayout>
-#include <QGraphicsColorizeEffect>
-#include <QLocale>
-#include <QPainter>
-#include <QSettings>
-#include <QFontDialog>
-#include <QTextBrowser>
+#include <QApplication>
 #include <QCheckBox>
-#include <QInputDialog>
+#include <QClipboard>
+#include <QCommonStyle>
 #include <QDesktopServices>
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QFont>
+#include <QFontDialog>
+#include <QFontMetrics>
 #include <QFormLayout>
+#include <QGraphicsColorizeEffect>
+#include <QGridLayout>
+#include <QIcon>
+#include <QInputDialog>
+#include <QIODevice>
+#include <QLabel>
+#include <QLocale>
+#include <QMainWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QPainter>
+#include <QPushButton>
+#include <QScrollBar>
+#include <QSettings>
 #include <QSplitter>
-#include <QClipboard>
+#include <QStatusBar>
+#include <QTextBrowser>
+#include <QTextStream>
+#include <QWidget>
 
-#include "MainWindow.h"
-#include "ThemeFactory.h"
-#include "HtmlPreview.h"
-#include "find_dialog.h"
 #include "ColorHelper.h"
-#include "HudWindow.h"
-#include "ThemeSelectionDialog.h"
-#include "DocumentManager.h"
 #include "DocumentHistory.h"
-#include "Outline.h"
-#include "MessageBoxHelper.h"
-#include "SimpleFontDialog.h"
-#include "LocaleDialog.h"
+#include "DocumentManager.h"
 #include "DocumentStatistics.h"
 #include "DocumentStatisticsWidget.h"
+#include "Exporter.h"
+#include "ExporterFactory.h"
+#include "find_dialog.h"
+#include "HtmlPreview.h"
+#include "HudWindow.h"
+#include "LocaleDialog.h"
+#include "MainWindow.h"
+#include "MessageBoxHelper.h"
+#include "Outline.h"
+#include "PreferencesDialog.h"
+#include "PreviewOptionsDialog.h"
+#include "SandboxedWebPage.h"
 #include "SessionStatistics.h"
 #include "SessionStatisticsWidget.h"
-#include "PreferencesDialog.h"
-#include "ExporterFactory.h"
-#include "Exporter.h"
-#include "PreviewOptionsDialog.h"
+#include "SimpleFontDialog.h"
 #include "StyleSheetManagerDialog.h"
-#include "SandboxedWebPage.h"
+#include "ThemeFactory.h"
+#include "ThemeSelectionDialog.h"
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
@@ -103,33 +103,17 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     appSettings = AppSettings::getInstance();
 
-    outlineWidget = new Outline();
-    outlineWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
+    cheatSheetWidget = new QListWidget();
 
-    // We need to set an empty style for the editor's scrollbar in order for the
+
+    // We need to set an empty style for the scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
     // background color will have the Windows 98 checkered look rather than
     // being a solid or transparent color.
     //
-    outlineWidget->verticalScrollBar()->setStyle(new QCommonStyle());
-    outlineWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
-
-    outlineHud =
-        createHudWindow
-        (
-            tr("Outline"),
-            outlineWidget,
-            GW_OUTLINE_HUD_GEOMETRY_KEY,
-            GW_OUTLINE_HUD_OPEN_KEY
-        );
-
-    cheatSheetWidget = new QListWidget();
-
-    // Set empty style so that stylesheet takes full effect. (See comment
-    // above on outlineWidget for more details.)
-    //
     cheatSheetWidget->verticalScrollBar()->setStyle(new QCommonStyle());
     cheatSheetWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+
     cheatSheetWidget->setSelectionMode(QAbstractItemView::NoSelection);
     cheatSheetWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
 
@@ -195,7 +179,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     connect(appSettings, SIGNAL(hideHudsOnPreviewChanged(bool)), this, SLOT(onHideHudsOnPreviewChanged(bool)));
 
-    TextDocument* document = new TextDocument();
+    MarkdownDocument* document = new MarkdownDocument();
 
     editor = new MarkdownEditor(document, this);
     editor->setFont(appSettings->getFont().family(), appSettings->getFont().pointSize());
@@ -209,11 +193,7 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     editor->setEditorCorners((InterfaceStyle) appSettings->getInterfaceStyle());
     editor->setBlockquoteStyle(appSettings->getBlockquoteStyle());
     editor->setSpellCheckEnabled(appSettings->getLiveSpellCheckEnabled());
-    connect(outlineWidget, SIGNAL(documentPositionNavigated(int)), editor, SLOT(navigateDocument(int)));
-    connect(editor, SIGNAL(cursorPositionChanged(int)), outlineWidget, SLOT(updateCurrentNavigationHeading(int)));
     connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
-    connect(editor, SIGNAL(headingFound(int,QString,QTextBlock)), outlineWidget, SLOT(insertHeadingIntoOutline(int,QString,QTextBlock)));
-    connect(editor, SIGNAL(headingRemoved(int)), outlineWidget, SLOT(removeHeadingFromOutline(int)));
     connect(editor, SIGNAL(typingPaused()), this, SLOT(onTypingPaused()));
     connect(editor, SIGNAL(typingResumed()), this, SLOT(onTypingResumed()));
 
@@ -224,6 +204,23 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     //
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
+
+    outlineWidget = new Outline(editor, this);
+    outlineWidget->setAlternatingRowColors(appSettings->getAlternateHudRowColorsEnabled());
+
+    // Set empty style so that scrollbar styling takes full effect.
+    //
+    outlineWidget->verticalScrollBar()->setStyle(new QCommonStyle());
+    outlineWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
+    
+    outlineHud =
+        createHudWindow
+        (
+            tr("Outline"),
+            outlineWidget,
+            GW_OUTLINE_HUD_GEOMETRY_KEY,
+            GW_OUTLINE_HUD_OPEN_KEY
+        );
 
     documentStats = new DocumentStatistics(document, this);
     connect(documentStats, SIGNAL(wordCountChanged(int)), documentStatsWidget, SLOT(setWordCount(int)));
@@ -1022,7 +1019,7 @@ void MainWindow::changeInterfaceStyle(InterfaceStyle style)
 void MainWindow::insertImage()
 {
     QString startingDirectory = QString();
-    TextDocument* document = documentManager->getDocument();
+    MarkdownDocument* document = documentManager->getDocument();
 
     if (!document->isNew())
     {
@@ -1145,8 +1142,7 @@ void MainWindow::showQuickReferenceGuide()
         // Set zoom factor for QtWebEngine browser to account for system DPI settings,
         // since WebKit assumes 96 DPI as a fixed resolution.
         //
-        QWidget* window = QApplication::desktop()->screen();
-        int horizontalDpi = window->logicalDpiX();
+        qreal horizontalDpi = QGuiApplication::primaryScreen()->logicalDotsPerInchX();
         quickReferenceGuideViewer->setZoomFactor((horizontalDpi / 96.0));
 
         quickReferenceGuideViewer->resize(500, 600);
@@ -1289,7 +1285,7 @@ void MainWindow::refreshRecentFiles()
     {
         DocumentHistory history;
         QStringList recentFiles = history.getRecentFiles(MAX_RECENT_FILES + 1);
-        TextDocument* document = documentManager->getDocument();
+        MarkdownDocument* document = documentManager->getDocument();
 
         if (!document->isNew())
         {

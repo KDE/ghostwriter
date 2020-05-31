@@ -40,7 +40,7 @@
 #define GW_LAST_EXPORTER_KEY "Export/lastUsedExporter"
 #define GW_SMART_TYPOGRAPHY_KEY "Export/smartTypographyEnabled"
 
-ExportDialog::ExportDialog(TextDocument* document, QWidget* parent)
+ExportDialog::ExportDialog(MarkdownDocument* document, QWidget* parent)
     : QDialog(parent), document(document)
 {
     QList<Exporter*> exporters =

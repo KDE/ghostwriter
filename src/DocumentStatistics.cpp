@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2016 wereturtle
+ * Copyright (C) 2016-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 
 #include "DocumentStatistics.h"
 
-DocumentStatistics::DocumentStatistics(TextDocument* document, QObject* parent)
+DocumentStatistics::DocumentStatistics(MarkdownDocument* document, QObject* parent)
     : QObject(parent), document(document)
 {
     wordCount = 0;

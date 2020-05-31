@@ -129,7 +129,11 @@ SpellChecker::SpellChecker(QPlainTextEdit* document, Dictionary& dictionary) :
 	// Create widgets
     m_context = new QPlainTextEdit(this);
 	m_context->setReadOnly(true);
-	m_context->setTabStopWidth(50);
+#if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 10)
+    m_context->setTabStopWidth(50);
+#else
+    m_context->setTabStopDistance(50);
+#endif
 	QPushButton* add_button = new QPushButton(tr("&Add"), this);
 	add_button->setAutoDefault(false);
 	connect(add_button, SIGNAL(clicked()), this, SLOT(add()));

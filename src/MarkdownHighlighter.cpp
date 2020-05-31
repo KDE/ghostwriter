@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2017 wereturtle
+ * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,10 +32,10 @@
 #include <QApplication>
 #include <Qt>
 #include <QTextLayout>
+#include <QStack>
+#include <QDebug>
 
 #include "MarkdownHighlighter.h"
-#include "MarkdownTokenizer.h"
-#include "MarkdownTokenTypes.h"
 #include "MarkdownStates.h"
 #include "TextBlockData.h"
 #include "spelling/dictionary_ref.h"
@@ -44,7 +44,6 @@
 MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
     : QSyntaxHighlighter(editor),
       editor(editor),
-        tokenizer(NULL),
         dictionary(DictionaryManager::instance().requestDictionary()),
         spellCheckEnabled(false),
         typingPaused(true),
@@ -62,14 +61,11 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
         spellingErrorColor(Qt::red)
 {
     setDocument(editor->document());
+    referenceDefinitionRegex.setPattern("^\\s*\\[(.+?)[^\\\\]\\]:");
 
     connect(editor, SIGNAL(typingResumed()), this, SLOT(onTypingResumed()));
     connect(editor, SIGNAL(typingPausedScaled()), this, SLOT(onTypingPaused()));
     connect(editor, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
-    connect(this, SIGNAL(headingFound(int,QString,QTextBlock)), editor, SIGNAL(headingFound(int,QString,QTextBlock)));
-    connect(this, SIGNAL(headingRemoved(int)), editor, SIGNAL(headingRemoved(int)));
-
-    this->tokenizer = new MarkdownTokenizer();
 
     connect
     (
@@ -79,8 +75,6 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
         SLOT(onHighlightBlockAtPosition(int)),
         Qt::QueuedConnection
     );
-
-    connect(editor->document(), SIGNAL(textBlockRemoved(const QTextBlock&)), this, SLOT(onTextBlockRemoved(const QTextBlock&)));
     
     QFont font;
     font.setFamily("Monospace");
@@ -90,67 +84,11 @@ MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor* editor)
     font.setStyleStrategy(QFont::PreferAntialias);
     defaultFormat.setFont(font);
     defaultFormat.setForeground(QBrush(defaultTextColor));
-
-    setupTokenColors();
-
-    for (int i = 0; i < TokenLast; i++)
-    {
-        applyStyleToMarkup[i] = false;
-        emphasizeToken[i] = false;
-        strongToken[i] = false;
-        strongMarkup[i] = false;
-        strikethroughToken[i] = false;
-        fontSizeIncrease[i] = 0;
-    }
-
-    for (int i = TokenAtxHeading1; i <= TokenAtxHeading6; i++)
-    {
-        applyStyleToMarkup[i] = true;
-    }
-
-    applyStyleToMarkup[TokenEmphasis] = true;
-    applyStyleToMarkup[TokenStrong] = true;
-    applyStyleToMarkup[TokenAtxHeading1] = true;
-    applyStyleToMarkup[TokenAtxHeading2] = true;
-    applyStyleToMarkup[TokenAtxHeading3] = true;
-    applyStyleToMarkup[TokenAtxHeading4] = true;
-    applyStyleToMarkup[TokenAtxHeading5] = true;
-    applyStyleToMarkup[TokenAtxHeading6] = true;
-
-    emphasizeToken[TokenEmphasis] = true;
-    emphasizeToken[TokenBlockquote] = false;
-    strongToken[TokenStrong] = true;
-    strongToken[TokenMention] = true;
-    strongToken[TokenAtxHeading1] = true;
-    strongToken[TokenAtxHeading2] = true;
-    strongToken[TokenAtxHeading3] = true;
-    strongToken[TokenAtxHeading4] = true;
-    strongToken[TokenAtxHeading5] = true;
-    strongToken[TokenAtxHeading6] = true;
-    strongToken[TokenSetextHeading1Line1] = true;
-    strongToken[TokenSetextHeading2Line1] = true;
-    strongToken[TokenSetextHeading1Line2] = true;
-    strongToken[TokenSetextHeading2Line2] = true;
-    strongToken[TokenTableHeader] = true;
-    strikethroughToken[TokenStrikethrough] = true;
-
-    setupHeadingFontSize(true);
-
-    strongMarkup[TokenNumberedList] = true;
-    strongMarkup[TokenBlockquote] = true;
-    strongMarkup[TokenBulletPointList] = true;
-
-    heading1SetextRegex.setPattern("^===+\\s*$");
-    heading2SetextRegex.setPattern("^---+\\s*$");
 }
 
 MarkdownHighlighter::~MarkdownHighlighter()
 {
-    if (NULL != tokenizer)
-    {
-        delete tokenizer;
-        tokenizer = NULL;
-    }
+
 }
 
 // Note:  Never set the QTextBlockFormat for a QTextBlock from within the
@@ -168,108 +106,80 @@ MarkdownHighlighter::~MarkdownHighlighter()
 //
 void MarkdownHighlighter::highlightBlock(const QString& text)
 {
-    int lastState = currentBlockState();
+    int line = currentBlock().blockNumber() + 1;
+    int oldState = currentBlock().userState();
 
-    setFormat(0, text.length(), defaultFormat);
+    MarkdownAST* ast = ((MarkdownDocument*) this->document())->getMarkdownAST();
+    MarkdownNode* node = NULL;
 
-    if (NULL != tokenizer)
+    if (NULL != ast)
     {
-        tokenizer->clear();
+        node = ast->findBlockAtLine(line);
+    }
 
-        QTextBlock block = this->currentBlock();
-        int nextState = MarkdownStateUnknown;
-        int previousState = this->previousBlockState();
+    if ((NULL != node) && (MarkdownNode::Invalid != node->getType()))
+    {
+        applyFormattingForNode(node);
+    }
+    else
+    {
+        setFormat(0, currentBlock().length(), defaultFormat);
 
-        if (block.next().isValid())
+        if (currentBlock().text().trimmed().isEmpty())
         {
-            nextState = block.next().userState();
+            setCurrentBlockState(MarkdownStateParagraphBreak);
         }
-
-        tokenizer->tokenize(text, lastState, previousState, nextState);
-        setCurrentBlockState(tokenizer->getState());
-
-        if (MarkdownStateBlockquote == tokenizer->getState())
+        else if (referenceDefinitionRegex.match(currentBlock().text()).hasMatch())
         {
-            inBlockquote = true;
-        }
-        else
-        {
-            inBlockquote = false;
-        }
+            QTextCharFormat format = defaultFormat;
+            format.setForeground(linkColor);
 
-        QList<Token> tokens = tokenizer->getTokens();
-
-        foreach (Token token, tokens)
-        {
-            switch (token.getType())
-            {
-                case TokenAtxHeading1:
-                case TokenAtxHeading2:
-                case TokenAtxHeading3:
-                case TokenAtxHeading4:
-                case TokenAtxHeading5:
-                case TokenAtxHeading6:
-                case TokenSetextHeading1Line1:
-                case TokenSetextHeading2Line1:
-                    applyFormattingForToken(token);
-                    storeHeadingData(token, text);
-                    break;
-                case TokenUnknown:
-                    qWarning("Highlighter found unknown token type in text block.");
-                    break;
-                default:
-                    applyFormattingForToken(token);
-                    break;
-            }
-        }
-
-        if (tokenizer->backtrackRequested())
-        {
-            QTextBlock previous = currentBlock().previous();
-            emit highlightBlockAtPosition(previous.position());
+            setFormat(0, currentBlock().text().indexOf(':'), format);
+            setCurrentBlockState(MarkdownStateParagraph);
         }
     }
 
-    if (spellCheckEnabled)
+    if (isSetextHeadingState(oldState) && !isSetextHeadingState(currentBlockState()))
     {
-        spellCheck(text);
-    }
-
-    // If the block has transitioned from previously being a heading to now
-    // being a non-heading, signal that the position in the document no longer
-    // contains a heading.
-    //
-    if
-    (
+        QTextBlock block = currentBlock();
+            
+        while
         (
-            isHeadingBlockState(lastState)
-            && !isHeadingBlockState(currentBlockState())
+            block.previous().isValid()
+            && (isSetextHeadingState(block.previous().userState()))
         )
-        ||
-        // The following check is for a rare corner case where if the setext
-        // markup (line #2 of the heading) is selected and then deleted with the
-        // cursor position starting at the end of the previous line (line #1 of
-        // of the heading), then the block state of the setext markup line is
-        // merged with the previous line (the heading text line, or line #1).
-        // This creates a state where the heading text line temporarily has the
-        // wrong block state until it is rehighlighted.  Thus, the lastState
-        // will be set to MarkdownStateSetextHeading1Line2 or
-        // MarkdownStateSetextHeading2Line2 in this situation.
-        //
+        {
+            block = block.previous();
+        }
+
+        if (currentBlock() != block)
+        {
+            emit highlightBlockAtPosition(block.position());
+        }
+    }
+    else if 
+    (
+        currentBlock().previous().isValid()
+        &&
         (
             (
-                (MarkdownStateSetextHeading1Line2 == lastState)
-                || (MarkdownStateSetextHeading2Line2 == lastState)
+                (MarkdownStatePipeTableDivider == (oldState & MarkdownStateMask))
+                && (MarkdownStatePipeTableDivider != (currentBlockState() & MarkdownStateMask))
             )
-            && !isHeadingBlockState(currentBlockState())
-            && (MarkdownStateSetextHeading1Line2 != currentBlockState())
-            && (MarkdownStateSetextHeading2Line2 != currentBlockState())
-            && !matchesHeading1SetextMarkup(text)
-            && !matchesHeading2SetextMarkup(text)
+            ||
+            (
+                (MarkdownStatePipeTableDivider != (oldState & MarkdownStateMask))
+                && (MarkdownStatePipeTableDivider == (currentBlockState() & MarkdownStateMask))
+            )
         )
     )
     {
-        emit headingRemoved(currentBlock().position());
+        emit highlightBlockAtPosition(currentBlock().previous().position());
+    }
+    
+    if (spellCheckEnabled)
+    {
+        spellCheck(text);
     }
 }
 
@@ -318,13 +228,12 @@ void MarkdownHighlighter::setColorScheme
     this->codeColor = codeColor;
     this->spellingErrorColor = spellingErrorColor;
     defaultFormat.setForeground(QBrush(defaultTextColor));
-    setupTokenColors();
     rehighlight();
 }
 
 void MarkdownHighlighter::setEnableLargeHeadingSizes(const bool enable)
 {
-    setupHeadingFontSize(enable);
+    useLargeHeadings = enable;
     rehighlight();
 }
 
@@ -384,17 +293,6 @@ void MarkdownHighlighter::onCursorPositionChanged()
 void MarkdownHighlighter::setBlockquoteStyle(const BlockquoteStyle style)
 {
     blockquoteStyle = style;
-
-    switch (style)
-    {
-        case BlockquoteStyleItalic:
-            emphasizeToken[TokenBlockquote] = true;
-            break;
-        default: // Fancy and Plain
-            emphasizeToken[TokenBlockquote] = false;
-            break;
-    }
-
     rehighlight();
 }
 
@@ -408,14 +306,6 @@ void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 {
     QTextBlock block = document()->findBlock(position);
     rehighlightBlock(block);
-}
-
-void MarkdownHighlighter::onTextBlockRemoved(const QTextBlock& block)
-{
-    if (isHeadingBlockState(block.userState()))
-    {
-        emit headingRemoved(block.position());
-    }
 }
 
 void MarkdownHighlighter::spellCheck(const QString& text)
@@ -457,283 +347,588 @@ void MarkdownHighlighter::spellCheck(const QString& text)
     }
 }
 
-void MarkdownHighlighter::setupTokenColors()
+void MarkdownHighlighter::applyFormattingForNode(const MarkdownNode* const node)
 {
-    for (int i = 0; i < TokenLast; i++)
+    MarkdownNode::NodeType type = node->getType();
+    int pos = node->getPosition();
+    int length = node->getLength();
+    int currentLine = currentBlock().blockNumber() + 1;
+    MarkdownState state = MarkdownStateParagraphBreak;
+
+    QTextCharFormat baseFormat = defaultFormat;
+    baseFormat.setForeground(defaultTextColor);
+
+    unsigned int indent = 0;
+    QString text = currentBlock().text();
+
+    for (int i = 0; i < text.length(); i++)
     {
-        colorForToken[i] = defaultTextColor;
-    }
-
-    colorForToken[TokenAtxHeading1] = headingColor;
-    colorForToken[TokenAtxHeading2] = headingColor;
-    colorForToken[TokenAtxHeading3] = headingColor;
-    colorForToken[TokenAtxHeading4] = headingColor;
-    colorForToken[TokenAtxHeading5] = headingColor;
-    colorForToken[TokenAtxHeading6] = headingColor;
-    colorForToken[TokenEmphasis] = emphasisColor;
-    colorForToken[TokenStrong] = emphasisColor;
-    colorForToken[TokenBlockquote] = blockquoteColor;
-    colorForToken[TokenCodeBlock] = codeColor;
-    colorForToken[TokenVerbatim] = codeColor;
-    colorForToken[TokenHtmlTag] = markupColor;
-    colorForToken[TokenHtmlEntity] = markupColor;
-    colorForToken[TokenAutomaticLink] = linkColor;
-    colorForToken[TokenInlineLink] = linkColor;
-    colorForToken[TokenReferenceLink] = linkColor;
-    colorForToken[TokenReferenceDefinition] = linkColor;
-    colorForToken[TokenImage] = linkColor;
-    colorForToken[TokenMention] = linkColor;
-    colorForToken[TokenHtmlComment] = markupColor;
-    colorForToken[TokenHorizontalRule] = markupColor;
-    colorForToken[TokenGithubCodeFence] = markupColor;
-    colorForToken[TokenPandocCodeFence] = markupColor;
-    colorForToken[TokenCodeFenceEnd] = markupColor;
-    colorForToken[TokenSetextHeading1Line1] = headingColor;
-    colorForToken[TokenSetextHeading2Line1] = headingColor;
-    colorForToken[TokenSetextHeading1Line2] = markupColor;
-    colorForToken[TokenSetextHeading2Line2] = markupColor;
-    colorForToken[TokenTableDivider] = markupColor;
-    colorForToken[TokenTablePipe] = markupColor;
-}
-
-void MarkdownHighlighter::setupHeadingFontSize(bool useLargeHeadings)
-{
-    if (useLargeHeadings)
-    {
-        fontSizeIncrease[TokenSetextHeading1Line1] = 6;
-        fontSizeIncrease[TokenSetextHeading2Line1] = 5;
-        fontSizeIncrease[TokenSetextHeading1Line2] = 6;
-        fontSizeIncrease[TokenSetextHeading2Line2] = 5;
-        fontSizeIncrease[TokenAtxHeading1] = 6;
-        fontSizeIncrease[TokenAtxHeading2] = 5;
-        fontSizeIncrease[TokenAtxHeading3] = 4;
-        fontSizeIncrease[TokenAtxHeading4] = 3;
-        fontSizeIncrease[TokenAtxHeading5] = 2;
-        fontSizeIncrease[TokenAtxHeading6] = 1;
-    }
-    else
-    {
-        fontSizeIncrease[TokenSetextHeading1Line1] = 0;
-        fontSizeIncrease[TokenSetextHeading2Line1] = 0;
-        fontSizeIncrease[TokenSetextHeading1Line2] = 0;
-        fontSizeIncrease[TokenSetextHeading2Line2] = 0;
-        fontSizeIncrease[TokenAtxHeading1] = 0;
-        fontSizeIncrease[TokenAtxHeading2] = 0;
-        fontSizeIncrease[TokenAtxHeading3] = 0;
-        fontSizeIncrease[TokenAtxHeading4] = 0;
-        fontSizeIncrease[TokenAtxHeading5] = 0;
-        fontSizeIncrease[TokenAtxHeading6] = 0;
-    }
-}
-
-void MarkdownHighlighter::applyFormattingForToken(const Token& token)
-{
-    if (TokenUnknown != token.getType())
-    {
-        int tokenType = token.getType();
-        QTextCharFormat format = this->format(token.getPosition());
-
-        QColor tokenColor = colorForToken[tokenType];
-
-        if (highlightLineBreaks && token.getType() == TokenLineBreak)
+        if (text[i].isSpace())
         {
-            format.setBackground(QBrush(markupColor));
-        }
-
-        format.setForeground(QBrush(tokenColor));
-
-        if (strongToken[tokenType])
-        {
-            format.setFontWeight(QFont::Bold);
-        }
-
-        if (emphasizeToken[tokenType])
-        {
-            if (useUndlerlineForEmphasis && (tokenType != TokenBlockquote))
-            {
-                format.setFontUnderline(true);
-            }
-            else
-            {
-                format.setFontItalic(true);
-            }
-        }
-
-        if (strikethroughToken[tokenType])
-        {
-            format.setFontStrikeOut(true);
-        }
-
-        format.setFontPointSize(format.fontPointSize()
-            + (qreal) fontSizeIncrease[tokenType]);
-
-        QTextCharFormat markupFormat;
-
-        if
-        (
-            applyStyleToMarkup[tokenType] &&
-            (!emphasizeToken[tokenType] || !useUndlerlineForEmphasis)
-        )
-        {
-            markupFormat = format;
+            indent++;
         }
         else
         {
-            markupFormat = this->format(token.getPosition());
+            break;
         }
+    }
 
-        markupFormat.setForeground(QBrush(markupColor));
+    bool inBlockquote = node->isInsideBlockquote();
 
-        if (strongMarkup[tokenType])
-        {
-            markupFormat.setFontWeight(QFont::Bold);
-        }
-
-        if (token.getOpeningMarkupLength() > 0)
-        {
-            if
-            (
-                (TokenBlockquote == token.getType())
-                && (BlockquoteStyleFancy == blockquoteStyle)
-            )
-            {
-                markupFormat.setBackground(QBrush(markupColor));
-                QString text = currentBlock().text();
-
-                for (int i = token.getPosition(); i < token.getOpeningMarkupLength(); i++)
-                {
-                    if (!text[i].isSpace())
-                    {
-                        setFormat
-                        (
-                            i,
-                            1,
-                            markupFormat
-                        );
-                    }
-                }
-            }
-            else
-            {
-                setFormat
-                (
-                    token.getPosition(),
-                    token.getOpeningMarkupLength(),
-                    markupFormat
-                );
-            }
-        }
+    if (inBlockquote)
+    {
+        baseFormat.setForeground(markupColor);
+        baseFormat.setFontItalic(BlockquoteStyleItalic == blockquoteStyle);
 
         setFormat
         (
-            token.getPosition() + token.getOpeningMarkupLength(),
-            token.getLength()
-                - token.getOpeningMarkupLength()
-                - token.getClosingMarkupLength(),
-            format
+            0,
+            currentBlock().length(),
+            baseFormat
         );
 
-        if (token.getClosingMarkupLength() > 0)
-        {
-            setFormat
-            (
-                token.getPosition() + token.getLength()
-                    - token.getClosingMarkupLength(),
-                token.getClosingMarkupLength(),
-                markupFormat
-            );
-        }
+        baseFormat.setForeground(blockquoteColor);
     }
     else
     {
-        qWarning("MarkdownHighlighter::applyFormattingForToken() was passed in a "
-            "token of unknown type.");
+        setFormat
+        (
+            0,
+            currentBlock().length(),
+            baseFormat
+        );
     }
-}
+    
+    // Do a pre-order traversal of the nodes.
+    QStack<const MarkdownNode*> nodes;
+    QStack<QTextCharFormat> nodeFormats;
+    nodes.push(node);
+    nodeFormats.push(baseFormat);
 
-void MarkdownHighlighter::storeHeadingData
-(
-    const Token& token,
-    const QString& text
-)
-{
-    int level;
-    QString headingText;
-
-    switch (token.getType())
+    while (!nodes.isEmpty())
     {
-        case TokenAtxHeading1:
-        case TokenAtxHeading2:
-        case TokenAtxHeading3:
-        case TokenAtxHeading4:
-        case TokenAtxHeading5:
-        case TokenAtxHeading6:
-            level = token.getType() - TokenAtxHeading1 + 1;
-            headingText = text.mid
+        const MarkdownNode* current = nodes.pop();
+        QTextCharFormat contextFormat = nodeFormats.pop();
+        MarkdownNode::NodeType parentType = MarkdownNode::Invalid;
+        
+        if (NULL != current->getParent())
+        {
+            parentType = current->getParent()->getType();
+        }
+
+        pos = getColumnInLine(current);
+        length = current->getLength();
+        type = current->getType();
+        
+        if (lineMatchesNode(currentLine, current))
+        {
+            
+            if
+            (
+                (MarkdownNode::FootnoteDefinition == parentType)
+                || (MarkdownNode::FootnoteReference == parentType)
+            )
+            {
+                type = parentType;
+            }
+            
+            QTextCharFormat format = contextFormat;
+
+            switch (type)
+            {
+                case MarkdownNode::Heading:
+                    length = currentBlock().length();
+                    format.setForeground(markupColor);
+                    format.setFontWeight(QFont::Bold);
+                    contextFormat.setFontWeight(QFont::Bold);
+
+                    if (this->useLargeHeadings)
+                    {
+                        format.setFontPointSize(format.fontPointSize()
+                            + (qreal) (7 - current->getHeadingLevel()));
+                        contextFormat.setFontPointSize(format.fontPointSize());
+                    }
+
+                    if (inBlockquote)
+                    {
+                        contextFormat.setForeground(blockquoteColor);
+                    }
+                    else
+                    {
+                        contextFormat.setForeground(headingColor);
+                    }
+
+                    if (current->isSetextHeading())
+                    {
+                        const MarkdownState levelIndex[2] =
+                        {
+                            [0] = MarkdownStateSetextHeading1,
+                            [1] = MarkdownStateSetextHeading2
+                        };
+
+                        if
+                        (
+                            (current->getHeadingLevel() > 0)
+                            &&
+                            (current->getHeadingLevel() <= (int)sizeof(levelIndex))
+                        )
+                        {
+                            state = levelIndex[current->getHeadingLevel() - 1];
+                        }
+                        else
+                        {
+                            state = MarkdownStateUnknown;
+                        }
+
+                        // Rehighlight all blocks contained within this heading node.
+                        if (currentLine != current->getStartLine())
+                        {
+                            QTextBlock block = this->document()->findBlockByNumber(current->getStartLine() - 1);
+
+                            if (block.isValid())
+                            {
+                                emit highlightBlockAtPosition(block.position());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        const MarkdownState levelIndex[6] =
+                        {
+                            [0] = MarkdownStateAtxHeading1,
+                            [1] = MarkdownStateAtxHeading2,
+                            [2] = MarkdownStateAtxHeading3,
+                            [3] = MarkdownStateAtxHeading4,
+                            [4] = MarkdownStateAtxHeading5,
+                            [5] = MarkdownStateAtxHeading6
+                        };
+
+                        if
+                        (
+                            (current->getHeadingLevel() > 0) 
+                            &&
+                            (current->getHeadingLevel() <= (int)sizeof(levelIndex))
+                        )
+                        {
+                            state = levelIndex[current->getHeadingLevel() - 1];
+                        }
+                        else
+                        {
+                            state = MarkdownStateUnknown;
+                        }
+                    }
+                
+                    break;
+                case MarkdownNode::Text:
+                    break;
+                case MarkdownNode::Paragraph:
+                    if (MarkdownStateUnknown == state)
+                    {
+                        state = MarkdownStateParagraph;
+                    }
+
+                    break;
+                case MarkdownNode::BlockQuote:
+                    format.setForeground(markupColor);
+                    format.setFontItalic(BlockquoteStyleItalic == blockquoteStyle);
+                    contextFormat.setForeground(blockquoteColor);
+                    contextFormat.setFontItalic(BlockquoteStyleItalic == blockquoteStyle);
+                    inBlockquote = true;
+                    break;
+                case MarkdownNode::CodeBlock:
+                    if 
+                    (
+                        current->isFencedCodeBlock()
+                        &&
+                        (
+                            ((currentBlock().blockNumber() + 1) == current->getStartLine())
+                            || ((currentBlock().blockNumber() + 1) == current->getEndLine())
+                        )
+                    )
+                    {
+                        format.setForeground(markupColor);
+                        state = MarkdownStateCodeBlock;
+                    }
+                    else if (!currentBlock().text().trimmed().isEmpty())
+                    {
+                        format.setForeground(codeColor);
+                        length = currentBlock().length() - pos + 1;
+                        state = MarkdownStateCodeBlock;
+                    }
+                    else
+                    {
+                        state = MarkdownStateParagraphBreak;
+                    }
+                    
+                    break;
+                case MarkdownNode::ListItem:
+                    format.setForeground(markupColor);
+                    format.setFontWeight(QFont::Bold);
+                    
+                    if (current->isNumberedListItem())
+                    {
+                        state = MarkdownStateNumberedList;
+                    }
+                    else // Assume bullet list item
+                    {
+                        state = MarkdownStateBulletPointList;
+                    }
+                    
+                    break;
+                case MarkdownNode::TaskListItem:
+                {
+                    state = MarkdownStateTaskList;
+                    format.setForeground(markupColor);
+                    format.setFontWeight(QFont::Bold);
+                    break;
+                }
+                case MarkdownNode::Emph:
+                    format.setForeground(markupColor);
+
+                    if (this->useUndlerlineForEmphasis)
+                    {
+                        contextFormat.setFontUnderline(true);
+                    }
+                    else
+                    {
+                        contextFormat.setFontItalic(true);
+                        format.setFontItalic(true);
+                    }
+
+                    contextFormat.setForeground(emphasisColor);
+                    break;
+                case MarkdownNode::Strong:
+                    contextFormat.setForeground(emphasisColor);
+                    contextFormat.setFontWeight(QFont::Bold);
+                    format.setForeground(markupColor);
+                    format.setFontWeight(QFont::Bold);
+                    break;
+                case MarkdownNode::Code:
+                {
+                    int backticks = 0;
+
+                    for (int i = pos - 1; i >= 0; i--)
+                    {
+                        if (text[i] == '`')
+                        {
+                            backticks++;
+                        }
+                    }
+
+                    format.setForeground(markupColor);
+                    setFormat
+                    (
+                        pos - backticks,
+                        length + (2 * backticks),
+                        format
+                    );
+                    format.setForeground(codeColor);
+                    break;
+                }
+                case MarkdownNode::HtmlInline:
+                    format.setForeground(markupColor);
+                    contextFormat.setForeground(markupColor);
+                    break;
+                case MarkdownNode::Link:
+                case MarkdownNode::Image:
+                    format.setForeground(linkColor);
+                    contextFormat.setForeground(linkColor);
+                    break;
+                case MarkdownNode::ThematicBreak:
+                    format.setForeground(markupColor);
+                    state = MarkdownStateHorizontalRule;
+                    break;
+                case MarkdownNode::FootnoteReference:
+                    format.setForeground(linkColor);
+                    contextFormat.setForeground(linkColor);
+                    break;
+                case MarkdownNode::FootnoteDefinition:
+                    format.setForeground(linkColor);
+                    contextFormat.setForeground(linkColor);
+                    state = MarkdownStateParagraph;
+                    break;
+                case MarkdownNode::TableHeading:
+                    format.setForeground(markupColor);
+                    pos = 0;
+                    length = currentBlock().length();
+                    contextFormat.setFontWeight(QFont::Bold);
+                    state = MarkdownStatePipeTableHeader;
+                    break;
+                case MarkdownNode::TableRow:
+                    format.setForeground(markupColor);
+                    pos = 0;
+                    length = currentBlock().length();
+                    state = MarkdownStatePipeTableRow;
+                    break;
+                case MarkdownNode::TableCell:
+                    format = contextFormat;
+
+                    if 
+                    (
+                        (NULL != current->getParent())
+                        && (MarkdownNode::TableHeading == current->getParent()->getType())
+                    )
+                    {
+                        format.setFontWeight(QFont::Bold);
+                    }
+                    break;
+                case MarkdownNode::Table:
+                    format.setForeground(markupColor);
+                    pos = 0;
+                    length = currentBlock().length();
+                    state = MarkdownStatePipeTableDivider;
+                    break;
+                case MarkdownNode::Strikethrough:
+                    format.setForeground(markupColor);
+                    contextFormat.setFontStrikeOut(true);
+                    break;
+                default:
+                    if (referenceDefinitionRegex.match(currentBlock().text()).hasMatch())
+                    {
+                        pos = 0;
+                        length = currentBlock().text().indexOf(':') + 1;
+                        format.setForeground(linkColor);
+                    }
+                    else
+                    {
+                        format.setForeground(markupColor);
+                    }
+
+                    break;
+            }            
+
+            if (length <= 0)
+            {
+                length = currentBlock().length();
+            }
+
+            setFormat
+            (
+                pos,
+                length,
+                format
+            );
+
+            if (MarkdownNode::Text == type)
+            {
+                highlightRefLinks(pos, length);
+            }
+            else if (MarkdownNode::TaskListItem == type)
+            {
+                format = contextFormat;
+                format.setForeground(linkColor);
+
+                int checkboxStart = text.indexOf('[');
+                int checkboxEnd = text.indexOf(']');
+
+                setFormat
                 (
-                    token.getPosition()
-                        + token.getOpeningMarkupLength(),
-                    token.getLength()
-                        - token.getOpeningMarkupLength()
-                        - token.getClosingMarkupLength()
-                ).trimmed();
-            break;
-        case TokenSetextHeading1Line1:
-            level = 1;
-            headingText = text;
-            break;
-        case TokenSetextHeading2Line1:
-            level = 2;
-            headingText = text;
-            break;
-        default:
-            qWarning
-            (
-                "MarkdownHighlighter::storeHeadingData() encountered unexpected token %d",
-                token.getType()
-            );
-            return;
+                    checkboxStart,
+                    checkboxEnd - checkboxStart + 1,
+                    format
+                );
+            }
+        }   
+
+        MarkdownNode* child = current->getLastChild();
+
+        while ((NULL != child) && (!child->isInvalid()))
+        {
+            nodes.push(child);
+            nodeFormats.push(contextFormat);
+            child = child->getPrevious();
+        }
     }
 
-    TextBlockData* blockData = (TextBlockData*) this->currentBlockUserData();
+    if (MarkdownStateUnknown != state)
+    {            
+        state |= indent;
 
-    if (NULL == blockData)
-    {
-        blockData = new TextBlockData
-            (
-                (TextDocument*) document(),
-                this->currentBlock()
-            );
+        if (inBlockquote)
+        {
+            state |= MarkdownStateBlockquote;
+        }
+
+        setCurrentBlockState(state);
     }
-
-    this->setCurrentBlockUserData(blockData);
-    emit headingFound(level, headingText, this->currentBlock());
 }
 
-bool MarkdownHighlighter::isHeadingBlockState(int state) const
+int MarkdownHighlighter::getColumnInLine(const MarkdownNode* const node) const
 {
-    switch (state)
+    MarkdownNode::NodeType prevType = MarkdownNode::Invalid;
+    
+    if (NULL != node->getPrevious())
     {
-        case MarkdownStateAtxHeading1:
-        case MarkdownStateAtxHeading2:
-        case MarkdownStateAtxHeading3:
-        case MarkdownStateAtxHeading4:
-        case MarkdownStateAtxHeading5:
-        case MarkdownStateAtxHeading6:
-        case MarkdownStateSetextHeading1Line1:
-        case MarkdownStateSetextHeading2Line1:
+        prevType = node->getPrevious()->getType();
+    }
+
+    static int offset = 0;
+
+    if (node->isBlockType())
+    {
+        offset = 0;
+    }
+    else if
+    (
+        (MarkdownNode::Softbreak == prevType)
+        || (MarkdownNode::Linebreak == prevType)
+    )
+    {
+        int pos = 0;
+        QChar startChar;
+        QString text = currentBlock().text();
+
+        switch (node->getType())
+        {
+            case MarkdownNode::Text:
+                pos = text.indexOf(node->getText()[0]);
+
+                if (node->getText().startsWith('`'))
+                {
+                    int retValue = pos;
+                    pos += node->getText().length() - node->getLength();
+                    offset = node->getPosition() - pos;
+                    return retValue;
+                }
+
+                break;
+            case MarkdownNode::Code:
+                pos = text.indexOf('`');
+
+                for (int i = pos; i < text.length(); i++)
+                {
+                    if (text[i] != '`')
+                    {
+                        pos = i;
+                        break;
+                    }
+                }
+
+                break;
+            case MarkdownNode::Emph:
+            case MarkdownNode::Strong:
+                pos = text.indexOf(QRegularExpression("[*_]"));
+                break;
+            case MarkdownNode::Link:
+                pos = text.indexOf('[');
+                break;
+            case MarkdownNode::Image:
+                pos = text.indexOf('!');
+                break;
+            case MarkdownNode::HtmlInline:
+                pos = text.indexOf('<');
+                break;
+            case MarkdownNode::Strikethrough:
+                pos = text.indexOf('~');
+                break;
+            default:
+                pos = text.indexOf(node->getText()[0]);
+                break;
+        }
+
+        offset = node->getPosition() - pos;
+    }
+
+    return node->getPosition() - offset;
+}
+
+bool MarkdownHighlighter::lineMatchesNode(const int line, const MarkdownNode* const node) const
+{
+    return
+        (
+            (
+                node->isBlockType()
+                && (line >= node->getStartLine())
+                &&
+                (
+                    (line <= node->getEndLine())
+                    || (0 == node->getEndLine())
+                )
+            )
+            ||
+            (
+                node->isInlineType()
+                &&
+                (
+                    (line == node->getStartLine())
+                    || (line == node->getEndLine())
+                    || (0 == node->getEndLine())
+                )
+            )
+        );
+}
+
+void MarkdownHighlighter::highlightRefLinks(const int pos, const int length)
+{
+    QStack<int> bracketPos;
+    bool skipNext = false;
+    QTextCharFormat format = this->format(pos);
+    format.setForeground(linkColor);
+
+    for (int i = pos; i < (pos + length); i++)
+    {
+        if (skipNext)
+        {
+            skipNext = false;
+            continue;
+        }
+
+        switch (currentBlock().text()[i].toLatin1())
+        {
+            case '\\':
+                skipNext = true;
+                break;
+            case '[':
+                bracketPos.push(i);
+                break;
+            case ']':
+                if (!bracketPos.isEmpty())
+                {
+                    int start = bracketPos.pop();
+                    
+                    setFormat
+                    (
+                        start,
+                        (i - start + 1),
+                        format
+                    );
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+bool MarkdownHighlighter::isSetextHeadingState(const int state)
+{
+    switch(state & MarkdownStateMask)
+    {
+        case MarkdownStateSetextHeading1:
+        case MarkdownStateSetextHeading2:
             return true;
         default:
             return false;
     }
 }
 
-bool MarkdownHighlighter::matchesHeading1SetextMarkup(const QString& text) const
+void MarkdownHighlighter::backtrackHighlight(const int state) 
 {
-    return heading1SetextRegex.match(text).hasMatch();
+    QTextBlock block = currentBlock();
+        
+    while
+    (
+        block.previous().isValid()
+        && (block.previous().userState() == state)
+    )
+    {
+        block = block.previous();
+    }
+
+    if (currentBlock() != block)
+    {
+        emit highlightBlockAtPosition(block.position());
+    }
 }
 
-bool MarkdownHighlighter::matchesHeading2SetextMarkup(const QString &text) const
-{
-    return heading2SetextRegex.match(text).hasMatch();
-}

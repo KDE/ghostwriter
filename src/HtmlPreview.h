@@ -34,7 +34,7 @@
 #include <QtWebEngineWidgets>
 
 #include "Exporter.h"
-#include "TextDocument.h"
+#include "MarkdownDocument.h"
 #include "StringObserver.h"
 
 /**
@@ -51,7 +51,7 @@ class HtmlPreview : public QWebEngineView
          */
         HtmlPreview
         (
-            TextDocument* document,
+            MarkdownDocument* document,
             Exporter* exporter,
             QWidget* parent = 0
         );
@@ -108,7 +108,7 @@ class HtmlPreview : public QWebEngineView
         void closeEvent(QCloseEvent* event);
 
     private:
-        TextDocument* document;
+        MarkdownDocument* document;
         bool updateInProgress;
         bool updateAgain;
         QString vanillaHtml;
