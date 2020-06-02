@@ -1,3 +1,12 @@
+2.0.0-rc
+========
+
+New Features
+------------
+
+* cmark-gfm now replaces Sundown as the default Markdown processor for live previews an export.
+* Syntax highlighting now utilizes cmark-gfm for better accuracy, especially with nested blocks.
+
 1.8.1
 =====
 

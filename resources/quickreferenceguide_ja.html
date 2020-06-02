@@ -10,7 +10,7 @@
 <body>
 <h1 id="はじめに">はじめに</h1>
 <p><em>ghostwriter</em>にようこそ！ このクイック リファレンス ガイドではMarkdownの記述例を提示します。(MarkdownはJohn Gruber氏が作成したプレーンテキスト形式のマークアップ言語です。) さらに詳しい情報やヘルプはJohn Gruber氏のウェブサイト <a href="http://www.daringfireball.net" class="uri">http://www.daringfireball.net</a> を訪れてください。 <em>ghostwriter</em>の公式ウェブサイトは <a href="http://www.github.com/wereturtle/ghostwriter" class="uri">http://www.github.com/wereturtle/ghostwriter</a> です。</p>
-<p><em>ghostwriter</em>は標準でSundownプロセッサが組み込まれています。 しかしながらPandoc、MultiMarkdown、Discount、またはcmarkプロセッサを自動検出することも可能です。 後者3つのどれかまたはすべてを使用するには、単にそれらをインストールし、それらのインストール場所をシステムの<code>PATH</code>環境変数に加えるだけです。 <em>ghostwriter</em>は起動時にそれらのインストールを自動検出し、ライブHTMLプレビューやエクスポートの選択肢として使用できます。</p>
+<p><em>ghostwriter</em>は標準でcmark-gfmプロセッサが組み込まれています。 しかしながらPandoc、MultiMarkdown、Discount、またはcmarkプロセッサを自動検出することも可能です。 後者3つのどれかまたはすべてを使用するには、単にそれらをインストールし、それらのインストール場所をシステムの<code>PATH</code>環境変数に加えるだけです。 <em>ghostwriter</em>は起動時にそれらのインストールを自動検出し、ライブHTMLプレビューやエクスポートの選択肢として使用できます。</p>
 <h1 id="見出し">見出し</h1>
 <pre><code># 見出しレベル 1
 ## 見出しレベル 2 ##
@@ -115,14 +115,14 @@ Row Text 1     Row Text 2
 Row Text 1     Row Text 2
 
 表:  Pandocの表の例</code></pre>
-<p>下の例はSundownまたはMultiMarkdownの表です:</p>
+<p>下の例はcmark-gfmまたはMultiMarkdownの表です:</p>
 <pre><code>   列 1     |      列 2
 ----------  |  ----------
 Row Text 1  |  Row Text 2
 Row Text 1  |  Row Text 2</code></pre>
 <p>これらのMarkdownプロセッサはさらなる表の記述構文に対応しています。またこれら以外にも多くの拡張があります。これらのプロセッサのさらに詳しい情報は、以下のウェブサイトを訪問してください:</p>
 <ul>
-<li>Sundown: <a href="http://github.com/vmg/sundown/" class="uri">http://github.com/vmg/sundown/</a></li>
+<li>cmark-gfm: <a href="http://github.com/github/cmark-gfm/" class="uri">http://github.com/github/cmark-gfm/</a></li>
 <li>Pandoc: <a href="http://johnmacfarlane.net/pandoc/" class="uri">http://johnmacfarlane.net/pandoc/</a></li>
 <li>MultiMarkdown: <a href="http://fletcherpenney.net/multimarkdown/" class="uri">http://fletcherpenney.net/multimarkdown/</a></li>
 <li>Discount: <a href="http://www.pell.portland.or.us/~orc/Code/discount/" class="uri">http://www.pell.portland.or.us/~orc/Code/discount/</a></li>

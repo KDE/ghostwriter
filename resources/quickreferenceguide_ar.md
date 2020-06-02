@@ -2,7 +2,7 @@
 
 أهلاً بك في *ghostwriter*!  يعطي هذا المرجع السريع أمثلةً عن الكتابة بماركداون، صيغة رمزية تكتب نصاً عادياً أنشأها John Gruber.  للمساعدة ومزيدٍ من المعلومات، فضلاً زُر موقع John Gruber <http://www.daringfireball.net>. يمكن الوصول إلى الموقع الرسمي لـ *ghostwriter* عبر الرابط <http://www.github.com/wereturtle/ghostwriter>.
 
-يتضمن *ghostwriter* معالج Sundown داخلياً. لكنه يمكن تلقائياً أن يكتشف معالجات Pandoc، MultiMarkdown، Discount، cmark، cmark-gfm.  ثبّت ما تريد استعماله من أيًّ من الثلاث الماضيات، أو جميعَها، وتأكّد أن يكون مسار البرامج مُضافاً للمتغير البيئيّ `PATH`.  سيقوم *ghostwriter* بالكشف التلقائي عن تثبيتهم عند بدء تشغيله، وسيقوم بتشغيل معاينة HTML وخيارات التصدير بناءً على ذلك.
+يتضمن *ghostwriter* معالج cmark-gfm داخلياً. لكنه يمكن تلقائياً أن يكتشف معالجات Pandoc، MultiMarkdown، Discount, cmark.  ثبّت ما تريد استعماله من أيًّ من الثلاث الماضيات، أو جميعَها، وتأكّد أن يكون مسار البرامج مُضافاً للمتغير البيئيّ `PATH`.  سيقوم *ghostwriter* بالكشف التلقائي عن تثبيتهم عند بدء تشغيله، وسيقوم بتشغيل معاينة HTML وخيارات التصدير بناءً على ذلك.
 
 # العناوين
 
@@ -155,7 +155,7 @@
     
     جدول:  نموذج جدول Pandoc.
 
-أدناه نموذج عن جدول Sundown أو MultiMarkdown:
+أدناه نموذج عن جدول cmark-gfm أو MultiMarkdown:
 
     العمود الأول  |  العمود الثاني
     ----------  |  ----------
@@ -164,7 +164,7 @@
 
 هناك المزيد من صيغ الجداول التي يمكن أن تدعمها معالجات ماركداون هذه. وهناك الكثير من الإضافات الأخرى. لمزيد من المعلومات عن هذه المعالجات، زُر المواقع التالية:
 
-+ Sundown: <http://github.com/vmg/sundown/>
+
 + Pandoc: <http://johnmacfarlane.net/pandoc/>
 + MultiMarkdown: <http://fletcherpenney.net/multimarkdown/>
 + Discount: <http://www.pell.portland.or.us/~orc/Code/discount/>

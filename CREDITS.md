@@ -24,7 +24,7 @@ Libraries
 
 * Qt <http://www.qt.io/>
 * hunspell <http://hunspell.sourceforge.net/>
-* Sundown <http://github.com/vmg/sundown/>
+* cmark-gfm <http://github.com/github/cmark-gfm/>
 
 Reused Code
 ===========

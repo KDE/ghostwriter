@@ -9,8 +9,8 @@
     <p>ghostwriter is a distraction-free text editor for Markdown featuring
        a live HTML preview as you type, theme creation, focus mode, fullscreen
        mode, live word count, and document navigation in an aesthetic writing
-       environment.  It comes with the Sundown Markdown processor built in, and
-       can integrate with Pandoc, MultiMarkdown, Discount, cmark, and cmark-gfm
+       environment.  It comes with the cmark-gfm Markdown processor built in, and
+       can integrate with Pandoc, MultiMarkdown, Discount, and cmark 
        processors if they are installed.</p>
   </description>
   <screenshots>

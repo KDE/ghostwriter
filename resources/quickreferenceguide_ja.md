@@ -2,7 +2,7 @@
 
 *ghostwriter*にようこそ！  このクイック リファレンス ガイドではMarkdownの記述例を提示します。(MarkdownはJohn Gruber氏が作成したプレーンテキスト形式のマークアップ言語です。)  さらに詳しい情報やヘルプはJohn Gruber氏のウェブサイト <http://www.daringfireball.net> を訪れてください。  *ghostwriter*の公式ウェブサイトは <http://www.github.com/wereturtle/ghostwriter> です。
 
-*ghostwriter*は標準でSundownプロセッサが組み込まれています。  しかしながらPandoc、MultiMarkdown、Discount、またはcmarkプロセッサを自動検出することも可能です。  後者3つのどれかまたはすべてを使用するには、単にそれらをインストールし、それらのインストール場所をシステムの`PATH`環境変数に加えるだけです。  *ghostwriter*は起動時にそれらのインストールを自動検出し、ライブHTMLプレビューやエクスポートの選択肢として使用できます。
+*ghostwriter*は標準でcmark-gfmプロセッサが組み込まれています。  しかしながらPandoc、MultiMarkdown、Discount、またはcmarkプロセッサを自動検出することも可能です。  後者3つのどれかまたはすべてを使用するには、単にそれらをインストールし、それらのインストール場所をシステムの`PATH`環境変数に加えるだけです。  *ghostwriter*は起動時にそれらのインストールを自動検出し、ライブHTMLプレビューやエクスポートの選択肢として使用できます。
 
 # 見出し
 
@@ -155,7 +155,7 @@ PandocやGithubなどのいくつかのMarkdownコンバーターでは、ブロ
     
     表:  Pandocの表の例
 
-下の例はSundownまたはMultiMarkdownの表です:
+下の例はcmark-gfmまたはMultiMarkdownの表です:
 
        列 1     |      列 2
     ----------  |  ----------
@@ -164,7 +164,7 @@ PandocやGithubなどのいくつかのMarkdownコンバーターでは、ブロ
 
 これらのMarkdownプロセッサはさらなる表の記述構文に対応しています。またこれら以外にも多くの拡張があります。これらのプロセッサのさらに詳しい情報は、以下のウェブサイトを訪問してください:
 
-+ Sundown: <http://github.com/vmg/sundown/>
+
 + Pandoc: <http://johnmacfarlane.net/pandoc/>
 + MultiMarkdown: <http://fletcherpenney.net/multimarkdown/>
 + Discount: <http://www.pell.portland.or.us/~orc/Code/discount/>

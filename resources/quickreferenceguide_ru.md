@@ -3,7 +3,7 @@
 Добро пожаловать в  *ghostwriter*! Эта краткая справка показывает примеры использования Markdown, облегчённого языка разметки, созданного Джоном Грубером (John Gruber). Для дополнительной информации, посетите сайт Джона Грубера на <http://www.daringfireball.net>.
 Официальный сайт *ghostwriter* доступен на <http://www.github.com/wereturtle/ghostwriter>.
 
-*ghostwriter* имеет встроенный конвертер Sundown. Однако, он может также автоматически обнаружить конвертеры Pandoc, MultiMarkdown, Discount, или cmark. Для их использования, просто установите их, и убедитесь, что их пути установки добавлены в переменную окружения `PATH`. *ghostwriter* обнаружит конвертеры при запуске и предоставит соответствующие опции для предпросмотра HTML и экспорта.
+*ghostwriter* имеет встроенный конвертер cmark-gfm. Однако, он может также автоматически обнаружить конвертеры Pandoc, MultiMarkdown, Discount, или cmark. Для их использования, просто установите их, и убедитесь, что их пути установки добавлены в переменную окружения `PATH`. *ghostwriter* обнаружит конвертеры при запуске и предоставит соответствующие опции для предпросмотра HTML и экспорта.
 
 
 # Заголовки
@@ -157,7 +157,7 @@
     
     Table:  Pandoc sample table.
 
-А вот пример таблицы Sundown или MultiMarkdown:
+А вот пример таблицы cmark-gfm или MultiMarkdown:
 
     Column One  |  Column Two
     ----------  |  ----------
@@ -166,7 +166,7 @@
 
 Конвертеры Markdown могут поддерживать множество других синтаксисов таблиц. И существует ещё много других расширений. Для дополнительной информации, посетите следующие сайты:
 
-+ Sundown: <http://github.com/vmg/sundown/>
+
 + Pandoc: <http://johnmacfarlane.net/pandoc/>
 + MultiMarkdown: <http://fletcherpenney.net/multimarkdown/>
 + Discount: <http://www.pell.portland.or.us/~orc/Code/discount/>

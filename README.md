@@ -225,17 +225,17 @@ Please submit any bugs you find through [GitHub](http://github.com/wereturtle/gh
 Roadmap
 ========
 
-- Port from qmake to cmake in preparation for Qt 6.
-- Add session and document goals.
-- Updating only the changed HTML in live preview to improve rendering speed.
-- Add quick preview popup of equations and images.
-- Add quick preview popup of current paragraph/section.
-- Go to corresponding line in editor on `Ctrl+left click` over text in live preview.
 - Replace HUDs with popup menus or sidebar.
+- Add session and document goals.
+- Update only the changed HTML in live preview to improve rendering speed.
+- Implement synchronized scrolling.
+- Add quick preview popup of equations and images.
+- Go to corresponding line in editor on `Ctrl+left click` over text in live preview.
 - Provide a fully-tested MacOS port with installer. **Help wanted!**
 - Translate *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
+- Port from qmake to cmake in preparation for Qt 6.
 
 Licensing
 =========
 
-The source code for *ghostwriter* is licensed under the [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).  However, various icons and third-party FOSS code (i.e., Hunspell and Sundown) have different licenses compatible with GPLv3.  Please read the COPYING files in the respective folders for the different licenses.
+The source code for *ghostwriter* is licensed under the [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).  However, various icons and third-party FOSS code (i.e., Hunspell and cmark-gfm) have different licenses compatible with GPLv3.  Please read the COPYING files in the respective folders for the different licenses.
