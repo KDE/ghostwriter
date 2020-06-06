@@ -19,7 +19,6 @@
 
 #include <QListWidgetItem>
 #include <QVariant>
-#include <QDebug>
 
 #include "Outline.h"
 

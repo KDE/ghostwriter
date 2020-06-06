@@ -18,7 +18,6 @@
  ***********************************************************************/
 
 #include <errno.h>
-#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QObject>

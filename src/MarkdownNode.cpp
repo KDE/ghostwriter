@@ -21,7 +21,6 @@
 #include <QRegularExpression>
 #include <QSharedPointer>
 #include <QStack>
-#include <QDebug>
 
 #include "cmark-gfm-core-extensions.h"
 #include "MarkdownNode.h"
