@@ -19,34 +19,33 @@
  *
  ***********************************************************************/
 
-#include <QTextStream>
-#include <QString>
-#include <QMimeData>
-#include <QScrollBar>
-#include <QTextBoundaryFinder>
+#include <QApplication>
+#include <QChar>
+#include <QColor>
+#include <QDesktopWidget>
+#include <QDir>
+#include <QFileInfo>
+#include <QGuiApplication>
 #include <QHeaderView>
 #include <QMenu>
-#include <QChar>
-#include <QTimer>
-#include <QColor>
-#include <QApplication>
-#include <QGuiApplication>
-#include <QScreen>
-#include <QDesktopWidget>
-#include <QUrl>
-#include <QPixmap>
+#include <QMimeData>
 #include <QPainter>
-#include <QFileInfo>
-#include <QDir>
-#include <QDebug>
+#include <QPixmap>
+#include <QScreen>
+#include <QScrollBar>
+#include <QString>
+#include <QTextBoundaryFinder>
+#include <QTextStream>
+#include <QTimer>
+#include <QUrl>
 
 #include "CmarkGfmAPI.h"
 #include "ColorHelper.h"
 #include "MarkdownEditor.h"
-#include "MarkdownStates.h"
 #include "MarkdownHighlighter.h"
-#include "spelling/dictionary_ref.h"
+#include "MarkdownStates.h"
 #include "spelling/dictionary_manager.h"
+#include "spelling/dictionary_ref.h"
 #include "spelling/spell_checker.h"
 
 #define GW_TEXT_FADE_FACTOR 1.5
@@ -2268,7 +2267,7 @@ bool MarkdownEditor::atBlockAreaEnd(const QTextBlock& block, const MarkdownEdito
     switch (type)
     {
         case BlockTypeCode:
-            return atCodeBlockEnd(block);
+            return atCodeBlockEnd(block) && !isBlockquote(block);
         case BlockTypeQuote:
             return !isBlockquote(block);
         default:

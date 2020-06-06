@@ -33,7 +33,6 @@
 #include <Qt>
 #include <QTextLayout>
 #include <QStack>
-#include <QDebug>
 
 #include "MarkdownHighlighter.h"
 #include "MarkdownStates.h"
@@ -549,15 +548,19 @@ void MarkdownHighlighter::applyFormattingForNode(const MarkdownNode* const node)
                         format.setForeground(markupColor);
                         state = MarkdownStateCodeBlock;
                     }
-                    else if (!currentBlock().text().trimmed().isEmpty())
+                    else if
+                    (
+                        ((currentBlock().blockNumber() + 1) == current->getEndLine())
+                        && (current->getLength() <= 0)
+                    )
+                    {
+                        state = MarkdownStateParagraphBreak;
+                    }
+                    else
                     {
                         format.setForeground(codeColor);
                         length = currentBlock().length() - pos + 1;
                         state = MarkdownStateCodeBlock;
-                    }
-                    else
-                    {
-                        state = MarkdownStateParagraphBreak;
                     }
                     
                     break;
