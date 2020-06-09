@@ -18,6 +18,7 @@
  ***********************************************************************/
 
 #include <QStack>
+#include <QQueue>
 #include <QTextStream>
 
 #include "MarkdownAST.h"
@@ -192,15 +193,15 @@ QString MarkdownAST::toString() const
 
     QString text;
     QTextStream stream(&text);
-    QStack<MarkdownNode*> nodes;
+    QQueue<MarkdownNode*> nodes;
     QStack<QString> indentation;
 
-    nodes.push(root);
+    nodes.enqueue(root);
     indentation.push("");
 
     while (!nodes.empty())
     {
-        MarkdownNode* node = nodes.pop();
+        MarkdownNode* node = nodes.dequeue();
         QString indent = indentation.pop();
         
         stream << indent << "->" << node->toString() << endl;
@@ -210,7 +211,7 @@ QString MarkdownAST::toString() const
 
         while (NULL != child)
         {
-            nodes.push(child);
+            nodes.enqueue(child);
             indentation.push(indent);
             child = child->getNext();
         }
