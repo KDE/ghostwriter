@@ -30,6 +30,7 @@
 #include <QMenu>
 #include <QMimeData>
 #include <QPainter>
+#include <QPainterPath>
 #include <QPixmap>
 #include <QScreen>
 #include <QScrollBar>
