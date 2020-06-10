@@ -2081,6 +2081,16 @@ bool MarkdownEditor::insertPairedCharacters(const QChar firstChar)
                 }
             }
 
+            // If we are not at the end of the block
+            // and the next character is not whitespace,
+            // most likely the user is either manually adding a pair of
+            // characters around some text,
+            // or there's no need for a closing character at all.
+            if (!cursor.atBlockEnd() && !cursor.block().text()[blockPos + 1].isSpace())
+            {
+                doMatch = false;
+            }
+
             if (doMatch)
             {
                 cursor.insertText(firstChar);
