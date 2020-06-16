@@ -87,6 +87,7 @@
 #define GW_CHEAT_SHEET_HUD_OPEN_KEY "HUD/cheatSheetHudOpen"
 #define GW_DOCUMENT_STATISTICS_HUD_OPEN_KEY "HUD/documentStatisticsHudOpen"
 #define GW_SESSION_STATISTICS_HUD_OPEN_KEY "HUD/sessionStatisticsHudOpen"
+#define GW_FOCUS_MODE_ENABLED "Style/focusModeEnabled"
 
 MainWindow::MainWindow(const QString& filePath, QWidget* parent)
     : QMainWindow(parent)
@@ -373,6 +374,10 @@ MainWindow::MainWindow(const QString& filePath, QWidget* parent)
 
     buildMenuBar();
     buildStatusBar();
+
+    if (windowSettings.contains(GW_FOCUS_MODE_ENABLED)) {
+        toggleFocusMode(windowSettings.value(GW_FOCUS_MODE_ENABLED, QVariant(true)).toBool());
+    }
 
     connect(appSettings, SIGNAL(autoSaveChanged(bool)), documentManager, SLOT(setAutoSaveEnabled(bool)));
     connect(appSettings, SIGNAL(backupFileChanged(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
@@ -739,6 +744,7 @@ void MainWindow::quitApplication()
 
         windowSettings.setValue(GW_MAIN_WINDOW_GEOMETRY_KEY, saveGeometry());
         windowSettings.setValue(GW_MAIN_WINDOW_STATE_KEY, saveState());
+        windowSettings.setValue(GW_FOCUS_MODE_ENABLED, (editor->getFocusMode() != FocusModeDisabled));
 
         for (int i = 0; i < huds.length(); i++)
         {
