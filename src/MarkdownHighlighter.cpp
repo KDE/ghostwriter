@@ -459,24 +459,16 @@ void MarkdownHighlighter::applyFormattingForNode(const MarkdownNode* const node)
 
                     if (current->isSetextHeading())
                     {
-                        const MarkdownState levelIndex[2] =
+                        switch (current->getHeadingLevel())
                         {
-                            [0] = MarkdownStateSetextHeading1,
-                            [1] = MarkdownStateSetextHeading2
-                        };
-
-                        if
-                        (
-                            (current->getHeadingLevel() > 0)
-                            &&
-                            (current->getHeadingLevel() <= (int)sizeof(levelIndex))
-                        )
-                        {
-                            state = levelIndex[current->getHeadingLevel() - 1];
-                        }
-                        else
-                        {
-                            state = MarkdownStateUnknown;
+                            case 1:
+                                state = MarkdownStateSetextHeading1;
+                                break;
+                            case 2:
+                                state = MarkdownStateSetextHeading2;
+                                break;
+                            default:
+                                state = MarkdownStateUnknown;
                         }
 
                         // Rehighlight all blocks contained within this heading node.
@@ -492,28 +484,28 @@ void MarkdownHighlighter::applyFormattingForNode(const MarkdownNode* const node)
                     }
                     else
                     {
-                        const MarkdownState levelIndex[6] =
+                        switch (current->getHeadingLevel())
                         {
-                            [0] = MarkdownStateAtxHeading1,
-                            [1] = MarkdownStateAtxHeading2,
-                            [2] = MarkdownStateAtxHeading3,
-                            [3] = MarkdownStateAtxHeading4,
-                            [4] = MarkdownStateAtxHeading5,
-                            [5] = MarkdownStateAtxHeading6
-                        };
-
-                        if
-                        (
-                            (current->getHeadingLevel() > 0) 
-                            &&
-                            (current->getHeadingLevel() <= (int)sizeof(levelIndex))
-                        )
-                        {
-                            state = levelIndex[current->getHeadingLevel() - 1];
-                        }
-                        else
-                        {
-                            state = MarkdownStateUnknown;
+                            case 1:
+                                state = MarkdownStateAtxHeading1;
+                                break;
+                            case 2:
+                                state = MarkdownStateAtxHeading2;
+                                break;
+                            case 3:
+                                state = MarkdownStateAtxHeading3;
+                                break;
+                            case 4:
+                                state = MarkdownStateAtxHeading4;
+                                break;
+                            case 5:
+                                state = MarkdownStateAtxHeading5;
+                                break;
+                            case 6:
+                                state = MarkdownStateAtxHeading6;
+                                break;
+                            default:
+                                state = MarkdownStateUnknown;
                         }
                     }
                 

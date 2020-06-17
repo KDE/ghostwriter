@@ -31,7 +31,7 @@
 #include <QStringList>
 #include <QTextCodec>
 
-#include <hunspell.hxx>
+#include "hunspell/hunspell.hxx"
 
 //-----------------------------------------------------------------------------
 

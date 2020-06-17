@@ -36,10 +36,16 @@ CONFIG += c++11
 
 # Set program version
 isEmpty(VERSION) {
-    VERSION = v2.0.0-rc
+    win32 {
+        VERSION = 2.0.0-rc
+    } else {
+        VERSION = v2.0.0-rc
+    }
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
-
+DEFINES += CMARK_GFM_STATIC_DEFINE
+DEFINES += CMARK_GFM_EXTENSIONS_STATIC_DEFINE
+DEFINES += CMARK_NO_SHORT_NAMES
 
 CONFIG(debug, debug|release) {
     DESTDIR = build/debug
@@ -68,10 +74,31 @@ macx {
     OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
 } else:win32 {
 
-    INCLUDEPATH += src/spelling/hunspell
+    DEFINES += HUNSPELL_STATIC
 
     HEADERS += src/spelling/dictionary_provider_hunspell.h \
-        src/spelling/dictionary_provider_voikko.h
+        src/spelling/dictionary_provider_voikko.h \
+        src/spelling/hunspell/affentry.hxx \
+        src/spelling/hunspell/affixmgr.hxx \
+        src/spelling/hunspell/atypes.hxx \
+        src/spelling/hunspell/baseaffix.hxx \
+        src/spelling/hunspell/config.h \
+        src/spelling/hunspell/csutil.hxx \
+        src/spelling/hunspell/dictmgr.hxx \
+        src/spelling/hunspell/filemgr.hxx \
+        src/spelling/hunspell/hashmgr.hxx \
+        src/spelling/hunspell/htypes.hxx \
+        src/spelling/hunspell/hunspell.h \
+        src/spelling/hunspell/hunspell.hxx \
+        src/spelling/hunspell/hunvisapi.h \
+        src/spelling/hunspell/hunvisapi.h.in \
+        src/spelling/hunspell/hunzip.hxx \
+        src/spelling/hunspell/langnum.hxx \
+        src/spelling/hunspell/license.hunspell \
+        src/spelling/hunspell/phonet.hxx \
+        src/spelling/hunspell/replist.hxx \
+        src/spelling/hunspell/suggestmgr.hxx \
+        src/spelling/hunspell/w_char.hxx
 
     SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
         src/spelling/dictionary_provider_voikko.cpp \
@@ -293,7 +320,8 @@ macx {
 
 } else:win32 {
     RC_FILE = resources/windows/ghostwriter.rc
-} else:unix {
+}
+else:unix {
     isEmpty(PREFIX) {
         PREFIX = /usr/local
     }

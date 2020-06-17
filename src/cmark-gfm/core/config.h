@@ -13,7 +13,9 @@ extern "C" {
   typedef char bool;
 #endif
 
+#if !defined(_MSC_VER)
 #define HAVE___BUILTIN_EXPECT
+#endif
 
 #define HAVE___ATTRIBUTE__
 
