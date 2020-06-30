@@ -31,7 +31,11 @@
 #include <QStringList>
 #include <QTextCodec>
 
+#ifdef _WIN32
 #include "hunspell/hunspell.hxx"
+#else
+#include <hunspell.hxx>
+#endif
 
 //-----------------------------------------------------------------------------
 
@@ -275,7 +279,11 @@ void DictionaryHunspell::addToPersonal(const QString& word)
 void DictionaryHunspell::addToSession(const QStringList& words)
 {
 	foreach (const QString& word, words) {
+#ifdef _WIN32
 		m_dictionary->add(m_codec->fromUnicode(word).constData());
+#else
+		m_dictionary->add(m_codec->fromUnicode(word).toStdString());
+#endif
 	}
 }
 
@@ -284,7 +292,12 @@ void DictionaryHunspell::addToSession(const QStringList& words)
 void DictionaryHunspell::removeFromSession(const QStringList& words)
 {
 	foreach (const QString& word, words) {
+#ifdef _WIN32
 		m_dictionary->remove(m_codec->fromUnicode(word).constData());
+#else
+		m_dictionary->remove(m_codec->fromUnicode(word).toStdString());
+#endif
+
 	}
 }
 
