@@ -89,6 +89,7 @@ ExporterFactory::ExporterFactory()
     bool pandocIsAvailable = isCommandAvailable("pandoc --version");
     bool mmdIsAvailable = isCommandAvailable("multimarkdown --version");
     bool cmarkIsAvailable = isCommandAvailable("cmark --version");
+    bool md2htmlIsAvailable = isCommandAvailable("md2html --version");
 
     CmarkGfmExporter* cmarkGfmExporter = new CmarkGfmExporter();
     fileExporters.append(cmarkGfmExporter);
@@ -251,6 +252,19 @@ ExporterFactory::ExporterFactory()
             ExportFormat::MANPAGE,
             QString("cmark -t man %1")
                 .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
+        );
+        fileExporters.append(exporter);
+        htmlExporters.append(exporter);
+    }
+
+    if (md2htmlIsAvailable)
+    {
+        exporter = new CommandLineExporter("md2html");
+        exporter->setHtmlRenderCommand(QString("md2html --github"));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            QString("md2html --github")
         );
         fileExporters.append(exporter);
         htmlExporters.append(exporter);
