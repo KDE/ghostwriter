@@ -341,8 +341,20 @@ void MarkdownEditor::paintEvent(QPaintEvent* event)
 
     painter.end();
 
+    // Workaround for #382. Make sure QPlainTextEdit don't draw
+    // its own cursor. More explanation below.
+    setCursorWidth(0);
+
     // Draw the visible editor text.
     QPlainTextEdit::paintEvent(event);
+
+    // Workaround for misplaced IME selection window (#382).
+    // It seems like QPlainTextEdit or one of it's parent classes
+    // utilizes cursorWidth somewhere which plays nice with IMEs
+    // when it's value is greater than 0.
+    // We set cursorWidth here and hides it again above when it's
+    // time to draw the text.
+    setCursorWidth(1);
 
     // Draw the text cursor/caret.
     if (textCursorVisible && this->hasFocus())
