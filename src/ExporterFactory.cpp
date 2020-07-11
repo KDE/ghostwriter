@@ -90,6 +90,7 @@ ExporterFactory::ExporterFactory()
     bool mmdIsAvailable = isCommandAvailable("multimarkdown --version");
     bool cmarkIsAvailable = isCommandAvailable("cmark --version");
     bool md2htmlIsAvailable = isCommandAvailable("md2html --version");
+    bool scidownIsAvailable = isCommandAvailable("scidown --version");
 
     CmarkGfmExporter* cmarkGfmExporter = new CmarkGfmExporter();
     fileExporters.append(cmarkGfmExporter);
@@ -260,15 +261,29 @@ ExporterFactory::ExporterFactory()
     if (md2htmlIsAvailable)
     {
         exporter = new CommandLineExporter("md2html");
-        exporter->setHtmlRenderCommand(QString("md2html --github"));
+        exporter->setHtmlRenderCommand(QString("md2html --github --flatex-math --fstrikethrough --fpermissive-autolinks"));
         exporter->addFileExportCommand
         (
             ExportFormat::HTML,
-            QString("md2html --github")
+            QString("md2html --github --flatex-math --fstrikethrough --fpermissive-autolinks")
         );
         fileExporters.append(exporter);
         htmlExporters.append(exporter);
     }
+
+    if (scidownIsAvailable)
+    {
+        exporter = new CommandLineExporter("scidown");
+        exporter->setHtmlRenderCommand(QString("scidown --all-block --all-span --mermaid"));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            QString("scidown --all-block --all-span --mermaid")
+        );
+        fileExporters.append(exporter);
+        htmlExporters.append(exporter);
+    }
+
 }
 
 QList<int> ExporterFactory::extractVersionNumber(const QString& command) const
