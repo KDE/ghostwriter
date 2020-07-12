@@ -91,6 +91,7 @@ ExporterFactory::ExporterFactory()
     bool cmarkIsAvailable = isCommandAvailable("cmark --version");
     bool md2htmlIsAvailable = isCommandAvailable("md2html --version");
     bool scidownIsAvailable = isCommandAvailable("scidown --version");
+    bool comrakIsAvailable = isCommandAvailable("comrak --version");
 
     CmarkGfmExporter* cmarkGfmExporter = new CmarkGfmExporter();
     fileExporters.append(cmarkGfmExporter);
@@ -279,6 +280,19 @@ ExporterFactory::ExporterFactory()
         (
             ExportFormat::HTML,
             QString("scidown --all-block --all-span --mermaid")
+        );
+        fileExporters.append(exporter);
+        htmlExporters.append(exporter);
+    }
+
+    if (comrakIsAvailable)
+    {
+        exporter = new CommandLineExporter("comrak");
+        exporter->setHtmlRenderCommand(QString("comrak --gfm -e description-lists -e description-lists -e footnotes"));
+        exporter->addFileExportCommand
+        (
+            ExportFormat::HTML,
+            QString("comrak --gfm -e description-lists -e description-lists -e footnotes")
         );
         fileExporters.append(exporter);
         htmlExporters.append(exporter);
