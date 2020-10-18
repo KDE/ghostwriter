@@ -25,42 +25,42 @@
 
 //-----------------------------------------------------------------------------
 
-ColorButton::ColorButton(QWidget* parent)
-	: QPushButton(parent)
+ColorButton::ColorButton(QWidget *parent)
+    : QPushButton(parent)
 {
-	setAutoDefault(false);
-	connect(this, SIGNAL(clicked()), this, SLOT(onClicked()));
+    setAutoDefault(false);
+    connect(this, SIGNAL(clicked()), this, SLOT(onClicked()));
 }
 
 //-----------------------------------------------------------------------------
 
 QString ColorButton::toString() const
 {
-	return m_color.name();
+    return m_color.name();
 }
 
 //-----------------------------------------------------------------------------
 
-void ColorButton::setColor(const QColor& color)
+void ColorButton::setColor(const QColor &color)
 {
-	if (m_color == color) {
-		return;
-	}
-	m_color = color;
+    if (m_color == color) {
+        return;
+    }
+    m_color = color;
 
-	QPixmap swatch(75, fontMetrics().height());
-	swatch.fill(m_color);
-	{
-		QPainter painter(&swatch);
-		painter.setPen(m_color.darker());
-		painter.drawRect(0, 0, swatch.width() - 1, swatch.height() - 1);
-		painter.setPen(m_color.lighter());
-		painter.drawRect(1, 1, swatch.width() - 3, swatch.height() - 3);
-	}
-	setIconSize(swatch.size());
-	setIcon(swatch);
+    QPixmap swatch(75, fontMetrics().height());
+    swatch.fill(m_color);
+    {
+        QPainter painter(&swatch);
+        painter.setPen(m_color.darker());
+        painter.drawRect(0, 0, swatch.width() - 1, swatch.height() - 1);
+        painter.setPen(m_color.lighter());
+        painter.drawRect(1, 1, swatch.width() - 3, swatch.height() - 3);
+    }
+    setIconSize(swatch.size());
+    setIcon(swatch);
 
-	emit changed(m_color);
+    emit changed(m_color);
 }
 
 //-----------------------------------------------------------------------------
@@ -68,9 +68,9 @@ void ColorButton::setColor(const QColor& color)
 void ColorButton::onClicked()
 {
     QColor color = QColorDialog::getColor(m_color, this);
-	if (color.isValid()) {
-		setColor(color);
-	}
+    if (color.isValid()) {
+        setColor(color);
+    }
 }
 
 //-----------------------------------------------------------------------------

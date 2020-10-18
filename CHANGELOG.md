@@ -6,6 +6,33 @@ New Features
 
 * cmark-gfm now replaces Sundown as the default Markdown processor for live previews an export.
 * Syntax highlighting now utilizes cmark-gfm for better accuracy, especially with nested blocks.
+* HUDs have been replaced with a side bar.
+* Theming has been revamped to include more color options, but to exclude background images.
+* CSS for HTML Preview now adaptively changes colors based on the current theme.
+* Themes are now composed of two color schemes: a light mode and a dark mode.
+* A new dark mode button in the status bar allows users to switch to the current theme's dark mode.
+* Find and replace dialog has been revamped into a panel at the bottom of the application.
+* Find and replace now supports highlighting all matches.
+* Export dialog now uses native file selector dialog.
+* Any two spaces at the end of a line are marked with dots by default.
+* Selected text now reveals tabs and spaces.
+* Source code has been refactored to follow KDE Frameworks and Qt coding style guides.
+
+Fixes
+-----
+
+* Issue #281: Removal of HUD windows will facilitate Alt+Tab switching.
+* Issue #382, #539: IME selection window/IBUS candidate window should no longer be displaced.
+* Issue #401: Single column tables are now highlighted.
+* Issue #439: README file was updated to remove the installation of qt5-default on Debian-based systems.
+* Issue #480: Menu bar is now accessible on relaunching ghostwriter in full screen mode.
+* Issue #494: MathJax JavaScript syntax error that was being printed to the terminal and which prevented inline math from being displayed with the `$` sign has been fixed.
+* Issue #500: Preview Options dialog will now only open once.
+* Issue #507: Multilevel lists are highlighted correctly in the editor with the switch to cmark-gfm handling the syntax highlighting.
+* Issue #508: HUD windows have been replaced with a side bar for compatibility with Wayland.
+* Issue #517: README.md has been updated with correct instructions location for building on MacOS.
+* Issue #532: Insert spaces for tabs now works on startup.
+
 
 1.8.1
 =====

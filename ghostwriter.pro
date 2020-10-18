@@ -28,9 +28,9 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 8) {
 
 TEMPLATE = app
 
-QT += widgets concurrent svg webenginewidgets webengine webchannel
+QT += widgets concurrent svg webenginewidgets webengine webchannel gui
 
-CONFIG -= debug
+#CONFIG += debug
 CONFIG += warn_on
 CONFIG += c++11
 
@@ -61,6 +61,9 @@ RCC_DIR = $${DESTDIR}
 UI_DIR = $${DESTDIR}
 
 TARGET = ghostwriter
+
+CONFIG+=fontAwesomeFree
+include(3rdparty/QtAwesome/QtAwesome.pri)
 
 # Input
 
@@ -127,53 +130,50 @@ macx {
 INCLUDEPATH += src src/spelling src/cmark-gfm/core src/cmark-gfm/extensions
 
 HEADERS += \
-    src/AbstractStatisticsWidget.h \
-    src/AppSettings.h \
-    src/CmarkGfmAPI.h \
-    src/CmarkGfmExporter.h \
-    src/ColorHelper.h \
-    src/CommandLineExporter.h \
-    src/DocumentHistory.h \
-    src/DocumentManager.h \
-    src/DocumentStatistics.h \
-    src/DocumentStatisticsWidget.h \
-    src/ExportDialog.h \
-    src/Exporter.h \
-    src/ExporterFactory.h \
-    src/ExportFormat.h \
-    src/HtmlPreview.h \
-    src/HudWindow.h \
-    src/HudWindowTypes.h \
-    src/LocaleDialog.h \
-    src/MainWindow.h \
-    src/MarkdownDocument.h \
-    src/MarkdownEditor.h \
-    src/MarkdownEditorTypes.h \
-    src/MarkdownHighlighter.h \
-    src/MarkdownAST.h \
-    src/MarkdownNode.h \
-    src/MarkdownStates.h \
-    src/MarkdownStyles.h \
-    src/MemoryArena.h \
-    src/MessageBoxHelper.h \
-    src/Outline.h \
-    src/PreferencesDialog.h \
-    src/PreviewOptionsDialog.h \
-    src/SandboxedWebPage.h \
-    src/SessionStatistics.h \
-    src/SessionStatisticsWidget.h \
-    src/SimpleFontDialog.h \
-    src/StringObserver.h \
-    src/StyleSheetManagerDialog.h \
-    src/TextBlockData.h \
-    src/Theme.h \
-    src/ThemeEditorDialog.h \
-    src/ThemeFactory.h \
-    src/ThemePreviewer.h \
-    src/ThemeSelectionDialog.h \
-    src/TimeLabel.h \
-    src/find_dialog.h \
-    src/image_button.h \
+    src/abstractstatisticswidget.h \
+    src/appsettings.h \
+    src/cmarkgfmapi.h \
+    src/cmarkgfmexporter.h \
+    src/colorscheme.h \
+    src/colorschemepreviewer.h \
+    src/commandlineexporter.h \
+    src/documenthistory.h \
+    src/documentmanager.h \
+    src/documentstatistics.h \
+    src/documentstatisticswidget.h \
+    src/exportdialog.h \
+    src/exporter.h \
+    src/exporterfactory.h \
+    src/exportformat.h \
+    src/htmlpreview.h \
+    src/localedialog.h \
+    src/mainwindow.h \
+    src/markdowndocument.h \
+    src/markdowneditor.h \
+    src/markdowneditortypes.h \
+    src/markdownhighlighter.h \
+    src/markdownast.h \
+    src/markdownnode.h \
+    src/markdownstates.h \
+    src/memoryarena.h \
+    src/messageboxhelper.h \
+    src/outlinewidget.h \
+    src/preferencesdialog.h \
+    src/previewoptionsdialog.h \
+    src/sandboxedwebpage.h \
+    src/sessionstatistics.h \
+    src/sessionstatisticswidget.h \
+    src/sidebar.h \
+    src/simplefontdialog.h \
+    src/stringobserver.h \
+    src/stylesheetbuilder.h \
+    src/textblockdata.h \
+    src/theme.h \
+    src/themeeditordialog.h \
+    src/themerepository.h \
+    src/themeselectiondialog.h \
+    src/timelabel.h \
+    src/findreplace.h \
     src/color_button.h \
     src/cmark-gfm/core/buffer.h \
     src/cmark-gfm/core/chunk.h \
@@ -213,50 +213,48 @@ HEADERS += \
     src/spelling/spell_checker.h
 
 SOURCES += \
-    src/AbstractStatisticsWidget.cpp \
-    src/AppMain.cpp \
-    src/AppSettings.cpp \
-    src/CmarkGfmAPI.cpp \
-    src/CmarkGfmExporter.cpp \
-    src/ColorHelper.cpp \
-    src/CommandLineExporter.cpp \
-    src/DocumentHistory.cpp \
-    src/DocumentManager.cpp \
-    src/DocumentStatistics.cpp \
-    src/DocumentStatisticsWidget.cpp \
-    src/ExportDialog.cpp \
-    src/Exporter.cpp \
-    src/ExporterFactory.cpp \
-    src/ExportFormat.cpp \
-    src/HtmlPreview.cpp \
-    src/HudWindow.cpp \
-    src/LocaleDialog.cpp \
-    src/MainWindow.cpp \
-    src/MarkdownDocument.cpp \
-    src/MarkdownEditor.cpp \
-    src/MarkdownHighlighter.cpp \
-    src/MarkdownAST.cpp \
-    src/MarkdownNode.cpp \
-    src/MemoryArena.cpp \
-    src/MessageBoxHelper.cpp \
-    src/Outline.cpp \
-    src/PreferencesDialog.cpp \
-    src/PreviewOptionsDialog.cpp \
-    src/SandboxedWebPage.cpp \
-    src/SessionStatistics.cpp \
-    src/SessionStatisticsWidget.cpp \
-    src/SimpleFontDialog.cpp \
-    src/StringObserver.cpp \
-    src/StyleSheetManagerDialog.cpp \
-    src/Theme.cpp \
-    src/ThemeEditorDialog.cpp \
-    src/ThemeFactory.cpp \
-    src/ThemePreviewer.cpp \
-    src/ThemeSelectionDialog.cpp \
-    src/TimeLabel.cpp \
+    src/abstractstatisticswidget.cpp \
+    src/appmain.cpp \
+    src/appsettings.cpp \
+    src/cmarkgfmapi.cpp \
+    src/cmarkgfmexporter.cpp \
+    src/colorschemepreviewer.cpp \
+    src/commandlineexporter.cpp \
+    src/documenthistory.cpp \
+    src/documentmanager.cpp \
+    src/documentstatistics.cpp \
+    src/documentstatisticswidget.cpp \
+    src/exportdialog.cpp \
+    src/exporter.cpp \
+    src/exporterfactory.cpp \
+    src/exportformat.cpp \
+    src/htmlpreview.cpp \
+    src/localedialog.cpp \
+    src/mainwindow.cpp \
+    src/markdowndocument.cpp \
+    src/markdowneditor.cpp \
+    src/markdownhighlighter.cpp \
+    src/markdownast.cpp \
+    src/markdownnode.cpp \
+    src/memoryarena.cpp \
+    src/messageboxhelper.cpp \
+    src/outlinewidget.cpp \
+    src/preferencesdialog.cpp \
+    src/previewoptionsdialog.cpp \
+    src/sandboxedwebpage.cpp \
+    src/sessionstatistics.cpp \
+    src/sessionstatisticswidget.cpp \
+    src/sidebar.cpp \
+    src/simplefontdialog.cpp \
+    src/stringobserver.cpp \
+    src/stylesheetbuilder.cpp \
+    src/theme.cpp \
+    src/themeeditordialog.cpp \
+    src/themerepository.cpp \
+    src/themeselectiondialog.cpp \
+    src/timelabel.cpp \
     src/color_button.cpp \
-    src/find_dialog.cpp \
-    src/image_button.cpp \
+    src/findreplace.cpp \
     src/cmark-gfm/core/arena.c \
     src/cmark-gfm/core/blocks.c \
     src/cmark-gfm/core/buffer.c \

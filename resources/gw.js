@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2018-2019 wereturtle
+ * Copyright (C) 2018-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,20 +49,18 @@ function insertAnchorsForHeadings() {
 /**
  * Dynamically loads a different style sheet.
  */
-var loadStyleSheet = function(styleSheetUrl) {
+var loadStyleSheet = function(css) {
     var cssElem = document.getElementById('ghostwriter_css');
 
     if (cssElem) {
-        cssElem.href = styleSheetUrl;
+        cssElem.textContent = css;
     }
     else {
-        cssElem  = document.createElement('link');
+        cssElem  = document.createElement('style');
         cssElem.id   = 'ghostwriter_css';
-        cssElem.rel  = 'stylesheet';
         cssElem.type = 'text/css';
-        cssElem.href = styleSheetUrl;
         cssElem.media = 'all';
-        document.head.appendChild(cssElem);
+        cssElem.textContent = css;
     }
 }
 

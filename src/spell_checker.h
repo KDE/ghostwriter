@@ -33,38 +33,38 @@ class QPlainTextEdit;
 
 class SpellChecker : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-    static void checkDocument(QPlainTextEdit* document, Dictionary& dictionary);
+    static void checkDocument(QPlainTextEdit *document, Dictionary &dictionary);
 
 public slots:
-	virtual void reject();
+    virtual void reject();
 
 private slots:
-	void suggestionChanged(QListWidgetItem* suggestion);
-	void add();
-	void ignore();
-	void ignoreAll();
-	void change();
-	void changeAll();
+    void suggestionChanged(QListWidgetItem *suggestion);
+    void add();
+    void ignore();
+    void ignoreAll();
+    void change();
+    void changeAll();
 
 private:
-    SpellChecker(QPlainTextEdit* document, Dictionary& dictionary);
-	void check();
+    SpellChecker(QPlainTextEdit *document, Dictionary &dictionary);
+    void check();
 
 private:
-	Dictionary& m_dictionary;
+    Dictionary &m_dictionary;
 
-    QPlainTextEdit* m_document;
-    QPlainTextEdit* m_context;
-	QLineEdit* m_suggestion;
-	QListWidget* m_suggestions;
-	QTextCursor m_cursor;
-	QTextCursor m_start_cursor;
+    QPlainTextEdit *m_document;
+    QPlainTextEdit *m_context;
+    QLineEdit *m_suggestion;
+    QListWidget *m_suggestions;
+    QTextCursor m_cursor;
+    QTextCursor m_start_cursor;
 
-	QString m_word;
-	QStringList m_ignored;
+    QString m_word;
+    QStringList m_ignored;
 };
 
 #endif

@@ -1,32 +1,12 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/images/close.svg</file>
-        <file>resources/images/close-hover.svg</file>
-        <file>resources/images/close-pressed.svg</file>
-        <file>resources/images/size-grip.svg</file>
-        <file>resources/images/unavailable.svg</file>
-        <file>resources/images/focus-dark.svg</file>
-        <file>resources/images/focus-light.svg</file>
-        <file>resources/images/fullscreen-dark.svg</file>
-        <file>resources/images/fullscreen-light.svg</file>
-        <file>resources/images/hemingway-dark.svg</file>
-        <file>resources/images/hemingway-light.svg</file>
-        <file>resources/images/hide-huds-dark.svg</file>
-        <file>resources/images/hide-huds-light.svg</file>
-        <file>resources/images/html-preview-dark.svg</file>
-        <file>resources/images/html-preview-light.svg</file>
-        <file>resources/images/copy-html-dark.svg</file>
-        <file>resources/images/copy-html-light.svg</file>
-        <file>resources/images/export-dark.svg</file>
-        <file>resources/images/export-light.svg</file>
-        <file>resources/images/configure-dark.svg</file>
-        <file>resources/images/configure-light.svg</file>
+        <file>resources/RobotoMono-VariableFont_wght.ttf</file>
+        <file>resources/RobotoMono-Italic-VariableFont_wght.ttf</file>
         <file>resources/images/ghostwriter.svg</file>
-        <file>resources/github.css</file>
-        <file>resources/github-dark.css</file>
         <file>resources/quickreferenceguide_en.html</file>
         <file>resources/quickreferenceguide_ja.html</file>
         <file>resources/quickreferenceguide_ru.html</file>
         <file>resources/gw.js</file>
+        <file>resources/preview.css</file>
     </qresource>
 </RCC>

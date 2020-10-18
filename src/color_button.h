@@ -25,30 +25,30 @@
 
 class ColorButton : public QPushButton
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	ColorButton(QWidget* parent = 0);
+    ColorButton(QWidget *parent = 0);
 
-	QColor color() const;
-	QString toString() const;
+    QColor color() const;
+    QString toString() const;
 
 signals:
-	void changed(const QColor& color);
+    void changed(const QColor &color);
 
 public slots:
-	void setColor(const QColor& color);
+    void setColor(const QColor &color);
 
 private slots:
-	void onClicked();
+    void onClicked();
 
 private:
-	QColor m_color;
+    QColor m_color;
 };
 
 inline QColor ColorButton::color() const
 {
-	return m_color;
+    return m_color;
 }
 
 #endif
