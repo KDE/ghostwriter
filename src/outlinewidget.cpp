@@ -21,6 +21,7 @@
 #include <QString>
 #include <QTextBlock>
 #include <QVariant>
+#include <QPointer>
 
 #include "outlinewidget.h"
 
@@ -32,10 +33,10 @@ class OutlineWidgetPrivate
     Q_DECLARE_PUBLIC(OutlineWidget)
 
 public:
-    OutlineWidgetPrivate(OutlineWidget *q_ptr)
+    OutlineWidgetPrivate(OutlineWidget *q_ptr, MarkdownEditor *editor)
         : q_ptr(q_ptr)
     {
-        ;
+        this->editor = editor;
     }
 
     ~OutlineWidgetPrivate()
@@ -46,7 +47,7 @@ public:
     static const int DOCUMENT_POSITION_ROLE;
 
     OutlineWidget *q_ptr;
-    MarkdownEditor *editor;
+    QPointer<MarkdownEditor> editor;
 
     /*
     * Invoked when the user selects one of the headings in the outline
@@ -77,9 +78,8 @@ const int OutlineWidgetPrivate::DOCUMENT_POSITION_ROLE = Qt::UserRole + 1;
 
 OutlineWidget::OutlineWidget(MarkdownEditor *editor, QWidget *parent)
     : QListWidget(parent),
-      d_ptr(new OutlineWidgetPrivate(this))
+      d_ptr(new OutlineWidgetPrivate(this, editor))
 {
-    d_func()->editor = editor;
     this->connect
     (
         this,
@@ -103,6 +103,7 @@ OutlineWidget::OutlineWidget(MarkdownEditor *editor, QWidget *parent)
         this,
         &OutlineWidget::updateCurrentNavigationHeading
     );
+
     this->connect
     (
         editor->document(),
@@ -128,6 +129,13 @@ OutlineWidget::~OutlineWidget()
 
 void OutlineWidget::updateCurrentNavigationHeading(int position)
 {
+    // Make sure editor and document haven't been deleted.
+    // Otherwise, application may crash on exit.
+    //
+    if (!d_func()->editor) {
+        return;
+    }
+
     if ((this->count() > 0) && (position >= 0)) {
         // Find out in which subsection of the document the cursor presently is
         // located.
@@ -171,17 +179,23 @@ void OutlineWidget::updateCurrentNavigationHeading(int position)
 
 void OutlineWidgetPrivate::onOutlineHeadingSelected(QListWidgetItem *item)
 {
+    // Make sure editor and document haven't been deleted.
+    // Otherwise, application may crash on exit.
+    //
+    if (!editor) {
+        return;
+    }
+
     editor->navigateDocument(documentPosition(item));
     emit q_func()->headingNumberNavigated(q_func()->row(item) + 1);
 }
 
 void OutlineWidgetPrivate::reloadOutline()
 {
-    // Since editor->document() is the sender, make sure it hasn't been deleted
-    // by checking that sender is not null before using the document.
+    // Make sure editor and document haven't been deleted.
     // Otherwise, application may crash on exit.
     //
-    if (nullptr == q_func()->sender()) {
+    if (!editor) {
         return;
     }
 
