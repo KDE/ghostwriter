@@ -177,6 +177,14 @@ void OutlineWidgetPrivate::onOutlineHeadingSelected(QListWidgetItem *item)
 
 void OutlineWidgetPrivate::reloadOutline()
 {
+    // Since editor->document() is the sender, make sure it hasn't been deleted
+    // by checking that sender is not null before using the document.
+    // Otherwise, application may crash on exit.
+    //
+    if (nullptr == q_func()->sender()) {
+        return;
+    }
+
     q_func()->clear();
 
     if ((NULL == editor) || (NULL == editor->document())) {
