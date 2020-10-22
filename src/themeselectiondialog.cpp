@@ -79,11 +79,11 @@ public:
     QStringList builtInThemes;
 
     void buildThemeList(const QString &currentThemeName = NULL);
-    void onThemeSelected();
-    void onNewTheme();
-    void onDeleteTheme();
-    void onEditTheme();
-    void onThemeUpdated(const Theme &theme);
+    void loadSelectedTheme();
+    void createNewTheme();
+    void deleteTheme();
+    void editTheme();
+    void updateTheme(const Theme &theme);
 };
 
 ThemeSelectionDialog::ThemeSelectionDialog
@@ -174,7 +174,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
         newThemeButton,
         &QPushButton::clicked,
         [this]() {
-            d_func()->onNewTheme();
+            d_func()->createNewTheme();
         }
     );
     this->connect
@@ -182,7 +182,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
         deleteThemeButton,
         &QPushButton::clicked,
         [this]() {
-            d_func()->onDeleteTheme();
+            d_func()->deleteTheme();
         }
     );
     d_func()->themeListWidget;
@@ -200,7 +200,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
         editThemeButton,
         &QPushButton::clicked,
         [this]() {
-            d_func()->onEditTheme();
+            d_func()->editTheme();
         }
     );
     this->connect
@@ -208,7 +208,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
         d_func()->themeListWidget,
         &QListWidget::itemSelectionChanged,
         [this]() {
-            d_func()->onThemeSelected();
+            d_func()->loadSelectedTheme();
         }
     );
 }
@@ -290,7 +290,7 @@ void ThemeSelectionDialogPrivate::buildThemeList(const QString &currentThemeName
     }
 }
 
-void ThemeSelectionDialogPrivate::onThemeSelected()
+void ThemeSelectionDialogPrivate::loadSelectedTheme()
 {
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
     QString themeName;
@@ -314,7 +314,7 @@ void ThemeSelectionDialogPrivate::onThemeSelected()
     }
 }
 
-void ThemeSelectionDialogPrivate::onNewTheme()
+void ThemeSelectionDialogPrivate::createNewTheme()
 {
     QString err = QString();
 
@@ -324,10 +324,10 @@ void ThemeSelectionDialogPrivate::onNewTheme()
 
     if (selectedThemes.size() > 0) {
         newTheme = ThemeRepository::instance()->loadTheme
-                   (
-                       selectedThemes[0]->text(),
-                       err
-                   );
+        (
+            selectedThemes[0]->text(),
+            err
+        );
     }
 
     // It doesn't matter if there was an error, since loadTheme will
@@ -337,27 +337,26 @@ void ThemeSelectionDialogPrivate::onNewTheme()
 
     QIcon themeIcon;
 
-    if (!err.isNull()) {
-        themeIcon = QIcon(":resources/images/unavailable.svg");
-    } else {
-        ColorScheme colors = newTheme.lightColorScheme();
+    ColorScheme colors = newTheme.lightColorScheme();
 
-        if (darkModeEnabled && newTheme.hasDarkColorScheme()) {
-            colors = newTheme.darkColorScheme();
-        }
-
-        ColorSchemePreviewer previewer
-        (
-            colors,
-            false,
-            false,
-            iconWidth,
-            iconHeight
-        );
-        themeIcon = previewer.icon();
+    if (darkModeEnabled && newTheme.hasDarkColorScheme()) {
+        colors = newTheme.darkColorScheme();
     }
 
+    ColorSchemePreviewer previewer
+    (
+        colors,
+        false,
+        false,
+        iconWidth,
+        iconHeight
+    );
+
+    themeIcon = previewer.icon();
+
     newTheme.setName(ThemeRepository::instance()->generateUntitledThemeName());
+    newTheme.setReadOnly(false);
+
     ThemeRepository::instance()->saveTheme(newTheme.name(), newTheme, err);
 
     QListWidgetItem *item =
@@ -376,18 +375,16 @@ void ThemeSelectionDialogPrivate::onNewTheme()
     (
         themeEditorDialog,
         &ThemeEditorDialog::finished,
-    [this, themeEditorDialog](int result) {
-        if (QDialog::Accepted == result) {
-            onThemeUpdated(themeEditorDialog->theme());
+        [this, themeEditorDialog](int result) {
+            updateTheme(themeEditorDialog->theme());
         }
-    }
     );
 
     themeEditorDialog->open();
 }
 
 
-void ThemeSelectionDialogPrivate::onDeleteTheme()
+void ThemeSelectionDialogPrivate::deleteTheme()
 {
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
 
@@ -445,7 +442,7 @@ void ThemeSelectionDialogPrivate::onDeleteTheme()
     }
 }
 
-void ThemeSelectionDialogPrivate::onEditTheme()
+void ThemeSelectionDialogPrivate::editTheme()
 {
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
 
@@ -477,18 +474,18 @@ void ThemeSelectionDialogPrivate::onEditTheme()
         (
             themeEditorDialog,
             &ThemeEditorDialog::finished,
-        [this, themeEditorDialog](int result) {
-            if (QDialog::Accepted == result) {
-                onThemeUpdated(themeEditorDialog->theme());
+            [this, themeEditorDialog](int result) {
+                if (QDialog::Accepted == result) {
+                    updateTheme(themeEditorDialog->theme());
+                }
             }
-        }
         );
 
         themeEditorDialog->open();
     }
 }
 
-void ThemeSelectionDialogPrivate::onThemeUpdated(const Theme &theme)
+void ThemeSelectionDialogPrivate::updateTheme(const Theme &theme)
 {
     // Update theme name and preview icon, as applicable.
     //
