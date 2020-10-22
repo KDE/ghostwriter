@@ -371,13 +371,8 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    if (NULL != htmlPreview) {
-        delete htmlPreview;
-    }
 
-    if (NULL != quickReferenceGuideViewer) {
-        delete quickReferenceGuideViewer;
-    }
+    ;
 }
 
 QSize MainWindow::sizeHint() const
@@ -469,6 +464,10 @@ void MainWindow::quitApplication()
 
         DictionaryManager::instance().addProviders();
         DictionaryManager::instance().setDefaultLanguage(language);
+
+        this->editor->document()->disconnect();
+        this->editor->disconnect();
+        this->htmlPreview->disconnect();
 
         qApp->quit();
     }
@@ -709,7 +708,7 @@ void MainWindow::showQuickReferenceGuide()
         // Note that the parent widget for this new window must be NULL, so that
         // it will hide beneath other windows when it is deactivated.
         //
-        quickReferenceGuideViewer = new QWebEngineView(NULL);
+        quickReferenceGuideViewer = new QWebEngineView(this);
         quickReferenceGuideViewer->setWindowTitle(tr("Quick Reference Guide"));
         quickReferenceGuideViewer->setWindowFlags(Qt::Window);
         quickReferenceGuideViewer->settings()->setDefaultTextEncoding("utf-8");
