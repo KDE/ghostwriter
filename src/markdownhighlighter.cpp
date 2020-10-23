@@ -603,8 +603,10 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 int backticks = 0;
 
                 for (int i = pos - 1; i >= 0; i--) {
-                    if (text[i] == '`') {
+                    if (text[i] == QChar('`')) {
                         backticks++;
+                    } else {
+                        break;
                     }
                 }
 
