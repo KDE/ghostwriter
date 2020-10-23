@@ -80,20 +80,22 @@ OutlineWidget::OutlineWidget(MarkdownEditor *editor, QWidget *parent)
     : QListWidget(parent),
       d_ptr(new OutlineWidgetPrivate(this, editor))
 {
+    Q_D(OutlineWidget);
+
     this->connect
     (
         this,
         &OutlineWidget::itemActivated,
-        [this](QListWidgetItem * item) {
-            d_func()->onOutlineHeadingSelected(item);
+        [d](QListWidgetItem * item) {
+            d->onOutlineHeadingSelected(item);
         }
     );
     this->connect
     (
         this,
         &OutlineWidget::itemClicked,
-        [this](QListWidgetItem * item) {
-            d_func()->onOutlineHeadingSelected(item);
+        [d](QListWidgetItem * item) {
+            d->onOutlineHeadingSelected(item);
         }
     );
     this->connect
@@ -108,16 +110,16 @@ OutlineWidget::OutlineWidget(MarkdownEditor *editor, QWidget *parent)
     (
         editor->document(),
         &MarkdownDocument::contentsChange,
-        [this](int, int, int) {
-            d_func()->reloadOutline();
+        [d](int, int, int) {
+            d->reloadOutline();
         }
     );
     this->connect
     (
         (MarkdownDocument *)editor->document(),
         static_cast<void (MarkdownDocument::*)(const QTextBlock &)>(&MarkdownDocument::textBlockRemoved),
-        [this]() {
-            d_func()->reloadOutline();
+        [d]() {
+            d->reloadOutline();
         }
     );
 }
@@ -129,10 +131,12 @@ OutlineWidget::~OutlineWidget()
 
 void OutlineWidget::updateCurrentNavigationHeading(int position)
 {
+    Q_D(OutlineWidget);
+
     // Make sure editor and document haven't been deleted.
     // Otherwise, application may crash on exit.
     //
-    if (!d_func()->editor) {
+    if (!d->editor) {
         return;
     }
 
@@ -140,7 +144,7 @@ void OutlineWidget::updateCurrentNavigationHeading(int position)
         // Find out in which subsection of the document the cursor presently is
         // located.
         //
-        int row = d_func()->findHeading(position, false);
+        int row = d->findHeading(position, false);
 
         // If findHeading call recommended an insertion point for a new
         // heading rather than a matching row, then back up one row
@@ -153,7 +157,7 @@ void OutlineWidget::updateCurrentNavigationHeading(int position)
             (
                 (row >= 0) &&
                 (row < this->count()) &&
-                (d_func()->documentPosition(this->item(row)) != position)
+                (d->documentPosition(this->item(row)) != position)
             )
         ) {
             row--;
@@ -179,6 +183,8 @@ void OutlineWidget::updateCurrentNavigationHeading(int position)
 
 void OutlineWidgetPrivate::onOutlineHeadingSelected(QListWidgetItem *item)
 {
+    Q_Q(OutlineWidget);
+
     // Make sure editor and document haven't been deleted.
     // Otherwise, application may crash on exit.
     //
@@ -187,11 +193,13 @@ void OutlineWidgetPrivate::onOutlineHeadingSelected(QListWidgetItem *item)
     }
 
     editor->navigateDocument(documentPosition(item));
-    emit q_func()->headingNumberNavigated(q_func()->row(item) + 1);
+    emit q->headingNumberNavigated(q->row(item) + 1);
 }
 
 void OutlineWidgetPrivate::reloadOutline()
 {
+    Q_Q(OutlineWidget);
+
     // Make sure editor and document haven't been deleted.
     // Otherwise, application may crash on exit.
     //
@@ -199,7 +207,7 @@ void OutlineWidgetPrivate::reloadOutline()
         return;
     }
 
-    q_func()->clear();
+    q->clear();
 
     if ((nullptr == editor) || (nullptr == editor->document())) {
         return;
@@ -228,11 +236,11 @@ void OutlineWidgetPrivate::reloadOutline()
             QListWidgetItem *item = new QListWidgetItem();
             item->setText(headingText);
             item->setData(DOCUMENT_POSITION_ROLE, QVariant::fromValue(block.position()));
-            q_func()->insertItem(q_func()->count(), item);
+            q->insertItem(q->count(), item);
         }
     }
 
-    q_func()->updateCurrentNavigationHeading(editor->textCursor().position());
+    q->updateCurrentNavigationHeading(editor->textCursor().position());
 }
 
 int OutlineWidgetPrivate::documentPosition(QListWidgetItem *item)
@@ -242,13 +250,15 @@ int OutlineWidgetPrivate::documentPosition(QListWidgetItem *item)
 
 int OutlineWidgetPrivate::findHeading(int position, bool exactMatch)
 {
+    Q_Q(OutlineWidget);
+
     int low = 0;
-    int high = q_func()->count() - 1;
+    int high = q->count() - 1;
     int mid = 0;
 
     while (low <= high) {
         mid = low + ((high - low) / 2);
-        int itemPos = documentPosition(q_func()->item(mid));
+        int itemPos = documentPosition(q->item(mid));
 
         // Check if desired heading at document position is at row "mid".
         if (itemPos == position) {

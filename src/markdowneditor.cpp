@@ -180,28 +180,30 @@ MarkdownEditor::MarkdownEditor
     : QPlainTextEdit(parent),
       d_ptr(new MarkdownEditorPrivate(this))
 {
-    d_func()->textDocument = textDocument;
-    d_func()->autoMatchEnabled = true;
-    d_func()->bulletPointCyclingEnabled = true;
-    d_func()->mouseButtonDown = false;
+    Q_D(MarkdownEditor);
+    
+    d->textDocument = textDocument;
+    d->autoMatchEnabled = true;
+    d->bulletPointCyclingEnabled = true;
+    d->mouseButtonDown = false;
 
     this->setDocument(textDocument);
     this->setAcceptDrops(true);
 
-    d_func()->preferredLayout = new QGridLayout();
-    d_func()->preferredLayout->setSpacing(0);
-    d_func()->preferredLayout->setMargin(0);
-    d_func()->preferredLayout->setContentsMargins(0, 0, 0, 0);
-    d_func()->preferredLayout->addWidget(this, 0, 0);
+    d->preferredLayout = new QGridLayout();
+    d->preferredLayout->setSpacing(0);
+    d->preferredLayout->setMargin(0);
+    d->preferredLayout->setContentsMargins(0, 0, 0, 0);
+    d->preferredLayout->addWidget(this, 0, 0);
 
-    d_func()->blockquoteRegex.setPattern("^ {0,3}(>\\s*)+");
-    d_func()->numberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+");
-    d_func()->bulletListRegex.setPattern("^\\s*[+*-]\\s+");
-    d_func()->taskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+");
-    d_func()->emptyBlockquoteRegex.setPattern("^ {0,3}(>\\s*)+$");
-    d_func()->emptyNumberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+$");
-    d_func()->emptyBulletListRegex.setPattern("^\\s*[+*-]\\s+$");
-    d_func()->emptyTaskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+$");
+    d->blockquoteRegex.setPattern("^ {0,3}(>\\s*)+");
+    d->numberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+");
+    d->bulletListRegex.setPattern("^\\s*[+*-]\\s+");
+    d->taskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+");
+    d->emptyBlockquoteRegex.setPattern("^ {0,3}(>\\s*)+$");
+    d->emptyNumberedListRegex.setPattern("^\\s*([0-9]+)[.)]\\s+$");
+    d->emptyBulletListRegex.setPattern("^\\s*[+*-]\\s+$");
+    d->emptyTaskListRegex.setPattern("^\\s*[-*+] \\[([x ])\\]\\s+$");
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -212,91 +214,91 @@ MarkdownEditor::MarkdownEditor
 
     this->setCenterOnScroll(true);
     this->ensureCursorVisible();
-    d_func()->spellCheckEnabled = false;
+    d->spellCheckEnabled = false;
     this->installEventFilter(this);
     this->viewport()->installEventFilter(this);
-    d_func()->hemingwayModeEnabled = false;
-    d_func()->focusMode = FocusModeDisabled;
-    d_func()->insertSpacesForTabs = false;
+    d->hemingwayModeEnabled = false;
+    d->focusMode = FocusModeDisabled;
+    d->insertSpacesForTabs = false;
     this->setTabulationWidth(4);
-    d_func()->editorWidth = EditorWidthMedium;
-    d_func()->editorCorners = InterfaceStyleRounded;
+    d->editorWidth = EditorWidthMedium;
+    d->editorCorners = InterfaceStyleRounded;
 
-    d_func()->markupPairs.insert('"', '"');
-    d_func()->markupPairs.insert('\'', '\'');
-    d_func()->markupPairs.insert('(', ')');
-    d_func()->markupPairs.insert('[', ']');
-    d_func()->markupPairs.insert('{', '}');
-    d_func()->markupPairs.insert('*', '*');
-    d_func()->markupPairs.insert('_', '_');
-    d_func()->markupPairs.insert('`', '`');
-    d_func()->markupPairs.insert('<', '>');
+    d->markupPairs.insert('"', '"');
+    d->markupPairs.insert('\'', '\'');
+    d->markupPairs.insert('(', ')');
+    d->markupPairs.insert('[', ']');
+    d->markupPairs.insert('{', '}');
+    d->markupPairs.insert('*', '*');
+    d->markupPairs.insert('_', '_');
+    d->markupPairs.insert('`', '`');
+    d->markupPairs.insert('<', '>');
 
     // Set automatching for the above markup pairs to be
     // enabled by default.
     //
-    d_func()->autoMatchFilter.insert('"', true);
-    d_func()->autoMatchFilter.insert('\'', true);
-    d_func()->autoMatchFilter.insert('(', true);
-    d_func()->autoMatchFilter.insert('[', true);
-    d_func()->autoMatchFilter.insert('{', true);
-    d_func()->autoMatchFilter.insert('*', true);
-    d_func()->autoMatchFilter.insert('_', true);
-    d_func()->autoMatchFilter.insert('`', true);
-    d_func()->autoMatchFilter.insert('<', true);
+    d->autoMatchFilter.insert('"', true);
+    d->autoMatchFilter.insert('\'', true);
+    d->autoMatchFilter.insert('(', true);
+    d->autoMatchFilter.insert('[', true);
+    d->autoMatchFilter.insert('{', true);
+    d->autoMatchFilter.insert('*', true);
+    d->autoMatchFilter.insert('_', true);
+    d->autoMatchFilter.insert('`', true);
+    d->autoMatchFilter.insert('<', true);
 
-    d_func()->nonEmptyMarkupPairs.insert('*', '*');
-    d_func()->nonEmptyMarkupPairs.insert('_', '_');
-    d_func()->nonEmptyMarkupPairs.insert('<', '>');
+    d->nonEmptyMarkupPairs.insert('*', '*');
+    d->nonEmptyMarkupPairs.insert('_', '_');
+    d->nonEmptyMarkupPairs.insert('<', '>');
 
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this->document(), SIGNAL(contentsChange(int, int, int)), this, SLOT(onContentsChanged(int, int, int)));
     connect(this->document(), SIGNAL(textBlockRemoved(const QTextBlock &)), this, SLOT(onTextBlockRemoved(const QTextBlock &)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
 
-    d_func()->highlighter = new MarkdownHighlighter(this, colors);
-    d_func()->addWordToDictionaryAction = new QAction(tr("Add word to dictionary"), this);
-    d_func()->checkSpellingAction = new QAction(tr("Check spelling..."), this);
+    d->highlighter = new MarkdownHighlighter(this, colors);
+    d->addWordToDictionaryAction = new QAction(tr("Add word to dictionary"), this);
+    d->checkSpellingAction = new QAction(tr("Check spelling..."), this);
 
-    d_func()->typingPausedSignalSent = true;
-    d_func()->typingHasPaused = true;
+    d->typingPausedSignalSent = true;
+    d->typingHasPaused = true;
 
-    d_func()->typingTimer = new QTimer(this);
+    d->typingTimer = new QTimer(this);
     connect
     (
-        d_func()->typingTimer,
+        d->typingTimer,
         SIGNAL(timeout()),
         this,
         SLOT(checkIfTypingPaused())
     );
-    d_func()->typingTimer->start(1000);
+    d->typingTimer->start(1000);
 
-    d_func()->typingPausedScaledSignalSent = true;
-    d_func()->scaledTypingHasPaused = true;
+    d->typingPausedScaledSignalSent = true;
+    d->scaledTypingHasPaused = true;
 
-    d_func()->scaledTypingTimer = new QTimer(this);
+    d->scaledTypingTimer = new QTimer(this);
     connect
     (
-        d_func()->scaledTypingTimer,
+        d->scaledTypingTimer,
         SIGNAL(timeout()),
         this,
         SLOT(checkIfTypingPausedScaled())
     );
-    d_func()->scaledTypingTimer->start(1000);
+    d->scaledTypingTimer->start(1000);
 
     this->setColorScheme(colors);
-    d_func()->textCursorVisible = true;
+    d->textCursorVisible = true;
 
-    d_func()->cursorBlinkTimer = new QTimer(this);
+    d->cursorBlinkTimer = new QTimer(this);
     this->connect
     (
-        d_func()->cursorBlinkTimer,
+        d->cursorBlinkTimer,
         &QTimer::timeout,
-    [this]() {
-        d_func()->toggleCursorBlink();
-    }
+        [d]() {
+            d->toggleCursorBlink();
+        }
     );
-    d_func()->cursorBlinkTimer->start(500);
+    d->cursorBlinkTimer->start(500);
 }
 
 MarkdownEditor::~MarkdownEditor()
@@ -306,6 +308,8 @@ MarkdownEditor::~MarkdownEditor()
 
 void MarkdownEditor::paintEvent(QPaintEvent *event)
 {
+    Q_D(MarkdownEditor);
+    
     QPainter painter(viewport());
     QRect viewportRect = viewport()->rect();
     painter.fillRect(viewportRect, Qt::transparent);
@@ -325,7 +329,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
 
     int cornerRadius = 5;
 
-    if (InterfaceStyleSquare == d_func()->editorCorners) {
+    if (InterfaceStyleSquare == d->editorCorners) {
         cornerRadius = 0;
     }
 
@@ -344,7 +348,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         QRectF r = this->blockBoundingRect(block).translated(offset);
 
         // If the block begins a new text block area...
-        if (!inBlockArea && d_func()->atBlockAreaStart(block, blockType)) {
+        if (!inBlockArea && d->atBlockAreaStart(block, blockType)) {
             blockAreaRect = r;
             dy = 0;
             inBlockArea = true;
@@ -360,14 +364,14 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
             if
             (
                 firstVisible
-                && d_func()->atBlockAreaStart(block.previous(), prevType)
+                && d->atBlockAreaStart(block.previous(), prevType)
                 && (blockType == prevType)
             ) {
                 clipTop = true;
             }
         }
         // Else if the block ends a text block area...
-        else if (inBlockArea && d_func()->atBlockAreaEnd(block, blockType)) {
+        else if (inBlockArea && d->atBlockAreaEnd(block, blockType)) {
             drawBlock = true;
             inBlockArea = false;
             blockAreaRect.setHeight(dy);
@@ -400,7 +404,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         if (drawBlock) {
             painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
             painter.setPen(Qt::NoPen);
-            painter.setBrush(QBrush(d_func()->blockColor));
+            painter.setBrush(QBrush(d->blockColor));
 
             // If the first visible block is "clipped" such that the previous block
             // is part of the text block area, then only draw a rectangle with the
@@ -448,7 +452,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
     QPlainTextEdit::paintEvent(event);
 
     // Draw the text cursor/caret.
-    if (d_func()->textCursorVisible && this->hasFocus()) {
+    if (d->textCursorVisible && this->hasFocus()) {
         // Get the cursor rect so that we have the ideal height for it,
         // and then set it to be 2 pixels wide.  (The width will be zero,
         // because we set it to be that in the constructor so that
@@ -458,25 +462,31 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         r.setWidth(2);
 
         QPainter painter(viewport());
-        painter.fillRect(r, QBrush(d_func()->cursorColor));
+        painter.fillRect(r, QBrush(d->cursorColor));
         painter.end();
     }
 }
 
 void MarkdownEditor::setDictionary(const QString &language)
 {
-    d_func()->dictionary = DictionaryManager::instance().requestDictionary(language);
-    d_func()->highlighter->setDictionary(d_func()->dictionary);
+    Q_D(MarkdownEditor);
+    
+    d->dictionary = DictionaryManager::instance().requestDictionary(language);
+    d->highlighter->setDictionary(d->dictionary);
 }
 
 QLayout *MarkdownEditor::preferredLayout()
 {
-    return d_func()->preferredLayout;
+    Q_D(MarkdownEditor);
+    
+    return d->preferredLayout;
 }
 
 bool MarkdownEditor::hemingwayModeEnabled() const
 {
-    return d_func()->hemingwayModeEnabled;
+    Q_D(const MarkdownEditor);
+    
+    return d->hemingwayModeEnabled;
 }
 
 /**
@@ -484,17 +494,23 @@ bool MarkdownEditor::hemingwayModeEnabled() const
  */
 void MarkdownEditor::setHemingWayModeEnabled(bool enabled)
 {
-    d_func()->hemingwayModeEnabled = enabled;
+    Q_D(MarkdownEditor);
+    
+    d->hemingwayModeEnabled = enabled;
 }
 
-FocusMode MarkdownEditor::focusMode()
+FocusMode MarkdownEditor::focusMode() const
 {
-    return d_func()->focusMode;
+    Q_D(const MarkdownEditor);
+    
+    return d->focusMode;
 }
 
 void MarkdownEditor::setFocusMode(FocusMode mode)
 {
-    d_func()->focusMode = mode;
+    Q_D(MarkdownEditor);
+    
+    d->focusMode = mode;
 
     if (FocusModeDisabled != mode) {
         connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(focusText()));
@@ -514,29 +530,35 @@ void MarkdownEditor::setColorScheme
     const ColorScheme &colors
 )
 {
-    d_func()->highlighter->setColorScheme(colors);
-    d_func()->cursorColor = colors.cursor;
-    d_func()->blockColor = colors.foreground;
-    d_func()->blockColor.setAlpha(10);
+    Q_D(MarkdownEditor);
+    
+    d->highlighter->setColorScheme(colors);
+    d->cursorColor = colors.cursor;
+    d->blockColor = colors.foreground;
+    d->blockColor.setAlpha(10);
 
     QColor fadedForegroundColor = colors.foreground;
     fadedForegroundColor.setAlpha(100);
 
-    d_func()->fadeColor = QBrush(fadedForegroundColor);
+    d->fadeColor = QBrush(fadedForegroundColor);
     this->focusText();
 }
 
 void MarkdownEditor::setFont(const QString &family, double pointSize)
 {
+    Q_D(MarkdownEditor);
+    
     QFont font(family, pointSize);
     QPlainTextEdit::setFont(font);
-    d_func()->highlighter->setFont(family, pointSize);
-    setTabulationWidth(d_func()->tabWidth);
+    d->highlighter->setFont(family, pointSize);
+    setTabulationWidth(d->tabWidth);
 }
 
 void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
 {
-    QTextOption option = d_func()->textDocument->defaultTextOption();
+    Q_D(MarkdownEditor);
+    
+    QTextOption option = d->textDocument->defaultTextOption();
 
     if (enabled) {
         option.setFlags(option.flags() | QTextOption::ShowTabsAndSpaces);
@@ -544,13 +566,15 @@ void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
         option.setFlags(option.flags() & ~QTextOption::ShowTabsAndSpaces);
     }
 
-    d_func()->textDocument->setDefaultTextOption(option);
+    d->textDocument->setDefaultTextOption(option);
 }
 
 void MarkdownEditor::setupPaperMargins(int width)
 {
-    if (EditorWidthFull == d_func()->editorWidth) {
-        d_func()->preferredLayout->setContentsMargins(0, 0, 0, 0);
+    Q_D(MarkdownEditor);
+    
+    if (EditorWidthFull == d->editorWidth) {
+        d->preferredLayout->setContentsMargins(0, 0, 0, 0);
         setViewportMargins(0, 0, 0, 0);
 
         return;
@@ -560,7 +584,7 @@ void MarkdownEditor::setupPaperMargins(int width)
     int proposedEditorWidth = width;
     int margin = 0;
 
-    switch (d_func()->editorWidth) {
+    switch (d->editorWidth) {
     case EditorWidthNarrow:
         proposedEditorWidth = screenWidth / 3;
         break;
@@ -578,7 +602,7 @@ void MarkdownEditor::setupPaperMargins(int width)
         margin = (width - proposedEditorWidth) / 2;
     }
 
-    d_func()->preferredLayout->setContentsMargins(0, 0, 0, 0);
+    d->preferredLayout->setContentsMargins(0, 0, 0, 0);
     this->setViewportMargins(margin, 20, margin, 0);
 }
 
@@ -603,6 +627,8 @@ void MarkdownEditor::dragLeaveEvent(QDragLeaveEvent *e)
 
 void MarkdownEditor::dropEvent(QDropEvent *e)
 {
+    Q_D(MarkdownEditor);
+    
     if (e->mimeData()->hasUrls() && (e->mimeData()->urls().size() == 1)) {
         e->acceptProposedAction();
 
@@ -628,8 +654,8 @@ void MarkdownEditor::dropEvent(QDropEvent *e)
             (fileExtension == "tiff") ||
             (fileExtension == "svg")
         ) {
-            if (!d_func()->textDocument->isNew()) {
-                QFileInfo docInfo(d_func()->textDocument->filePath());
+            if (!d->textDocument->isNew()) {
+                QFileInfo docInfo(d->textDocument->filePath());
 
                 if (docInfo.exists()) {
                     path = docInfo.dir().relativeFilePath(path);
@@ -678,6 +704,8 @@ void MarkdownEditor::dropEvent(QDropEvent *e)
 */
 void MarkdownEditor::keyPressEvent(QKeyEvent *e)
 {
+    Q_D(MarkdownEditor);
+    
     int key = e->key();
 
     QTextCursor cursor(this->textCursor());
@@ -688,32 +716,32 @@ void MarkdownEditor::keyPressEvent(QKeyEvent *e)
             if (e->modifiers() & Qt::ShiftModifier) {
                 // Insert Markdown-style line break
                 cursor.insertText("  ");
-                d_func()->highlighter->rehighlightBlock(cursor.block());
+                d->highlighter->rehighlightBlock(cursor.block());
             }
 
             if (e->modifiers() & Qt::ControlModifier) {
                 cursor.insertText("\n");
             } else {
-                d_func()->handleCarriageReturn();
+                d->handleCarriageReturn();
             }
         } else {
             QPlainTextEdit::keyPressEvent(e);
         }
         break;
     case Qt::Key_Delete:
-        if (!d_func()->hemingwayModeEnabled) {
+        if (!d->hemingwayModeEnabled) {
             QPlainTextEdit::keyPressEvent(e);
         }
         break;
     case Qt::Key_Backspace:
-        if (!d_func()->hemingwayModeEnabled) {
-            if (!d_func()->handleBackspaceKey()) {
+        if (!d->hemingwayModeEnabled) {
+            if (!d->handleBackspaceKey()) {
                 QPlainTextEdit::keyPressEvent(e);
             }
         }
         break;
     case Qt::Key_Tab:
-        if (!d_func()->handleWhitespaceInEmptyMatch('\t')) {
+        if (!d->handleWhitespaceInEmptyMatch('\t')) {
             indentText();
         }
         break;
@@ -721,7 +749,7 @@ void MarkdownEditor::keyPressEvent(QKeyEvent *e)
         unindentText();
         break;
     case Qt::Key_Space:
-        if (!d_func()->handleWhitespaceInEmptyMatch(' ')) {
+        if (!d->handleWhitespaceInEmptyMatch(' ')) {
             QPlainTextEdit::keyPressEvent(e);
         }
         break;
@@ -729,7 +757,7 @@ void MarkdownEditor::keyPressEvent(QKeyEvent *e)
         if (e->text().size() == 1) {
             QChar ch = e->text().at(0);
 
-            if (!d_func()->handleEndPairCharacterTyped(ch) && !d_func()->insertPairedCharacters(ch)) {
+            if (!d->handleEndPairCharacterTyped(ch) && !d->insertPairedCharacters(ch)) {
                 QPlainTextEdit::keyPressEvent(e);
             }
         } else {
@@ -741,15 +769,17 @@ void MarkdownEditor::keyPressEvent(QKeyEvent *e)
 
 bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
 {
+    Q_D(MarkdownEditor);
+    
     if (event->type() == QEvent::MouseButtonPress) {
-        d_func()->mouseButtonDown = true;
+        d->mouseButtonDown = true;
     } else if (event->type() == QEvent::MouseButtonRelease) {
-        d_func()->mouseButtonDown = false;
+        d->mouseButtonDown = false;
     } else if (event->type() == QEvent::MouseButtonDblClick) {
-        d_func()->mouseButtonDown = true;
+        d->mouseButtonDown = true;
     }
 
-    if (event->type() != QEvent::ContextMenu || !d_func()->spellCheckEnabled || this->isReadOnly()) {
+    if (event->type() != QEvent::ContextMenu || !d->spellCheckEnabled || this->isReadOnly()) {
         return QPlainTextEdit::eventFilter(watched, event);
     } else {
         // Check spelling of text block under mouse
@@ -761,12 +791,12 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
         // rather than the text cursor position.
         //
         if (QContextMenuEvent::Keyboard == contextEvent->reason()) {
-            d_func()->cursorForWord = this->textCursor();
+            d->cursorForWord = this->textCursor();
         }
         // Else process as mouse event.
         //
         else {
-            d_func()->cursorForWord = cursorForPosition(contextEvent->pos());
+            d->cursorForWord = cursorForPosition(contextEvent->pos());
         }
 
         QTextCharFormat::UnderlineStyle spellingErrorUnderlineStyle =
@@ -780,13 +810,13 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
         // and see if it has the spell check error underline style.
         //
         bool wordHasSpellingError = false;
-        int blockPosition = d_func()->cursorForWord.positionInBlock();
+        int blockPosition = d->cursorForWord.positionInBlock();
 #if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 6)
         QList<QTextLayout::FormatRange> formatList =
             cursorForWord.block().layout()->additionalFormats();
 #else
         QVector<QTextLayout::FormatRange> formatList =
-            d_func()->cursorForWord.block().layout()->formats();
+            d->cursorForWord.block().layout()->formats();
 #endif
         int mispelledWordStartPos = 0;
         int mispelledWordLength = 0;
@@ -815,25 +845,25 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
         }
 
         // Select the misspelled word.
-        d_func()->cursorForWord.movePosition
+        d->cursorForWord.movePosition
         (
             QTextCursor::PreviousCharacter,
             QTextCursor::MoveAnchor,
             blockPosition - mispelledWordStartPos
         );
-        d_func()->cursorForWord.movePosition
+        d->cursorForWord.movePosition
         (
             QTextCursor::NextCharacter,
             QTextCursor::KeepAnchor,
             mispelledWordLength
         );
 
-        d_func()->wordUnderMouse = d_func()->cursorForWord.selectedText();
-        QStringList suggestions = d_func()->dictionary.suggestions(d_func()->wordUnderMouse);
+        d->wordUnderMouse = d->cursorForWord.selectedText();
+        QStringList suggestions = d->dictionary.suggestions(d->wordUnderMouse);
         QMenu *popupMenu = createStandardContextMenu();
         QAction *firstAction = popupMenu->actions().first();
 
-        d_func()->spellingActions.clear();
+        d->spellingActions.clear();
 
         if (!suggestions.empty()) {
             for (int i = 0; i < suggestions.size(); i++) {
@@ -845,21 +875,21 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
                 //
                 suggestionAction->setData(suggestions[i]);
 
-                d_func()->spellingActions.append(suggestionAction);
+                d->spellingActions.append(suggestionAction);
                 popupMenu->insertAction(firstAction, suggestionAction);
             }
         } else {
             QAction *noSuggestionsAction =
                 new QAction(tr("No spelling suggestions found"), this);
             noSuggestionsAction->setEnabled(false);
-            d_func()->spellingActions.append(noSuggestionsAction);
+            d->spellingActions.append(noSuggestionsAction);
             popupMenu->insertAction(firstAction, noSuggestionsAction);
         }
 
         popupMenu->insertSeparator(firstAction);
-        popupMenu->insertAction(firstAction, d_func()->addWordToDictionaryAction);
+        popupMenu->insertAction(firstAction, d->addWordToDictionaryAction);
         popupMenu->insertSeparator(firstAction);
-        popupMenu->insertAction(firstAction, d_func()->checkSpellingAction);
+        popupMenu->insertAction(firstAction, d->checkSpellingAction);
         popupMenu->insertSeparator(firstAction);
 
         // Show menu
@@ -886,11 +916,11 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
 
         delete popupMenu;
 
-        for (int i = 0; i < d_func()->spellingActions.size(); i++) {
-            delete d_func()->spellingActions[i];
+        for (int i = 0; i < d->spellingActions.size(); i++) {
+            delete d->spellingActions[i];
         }
 
-        d_func()->spellingActions.clear();
+        d->spellingActions.clear();
 
         return true;
     }
@@ -898,9 +928,10 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
 
 void MarkdownEditor::wheelEvent(QWheelEvent *e)
 {
+    Q_D(MarkdownEditor);
+    
     Qt::KeyboardModifiers modifier = e->modifiers();
 
-#if QT_VERSION >= 0x050000
     int numDegrees = 0;
 
     QPoint angleDelta = e->angleDelta();
@@ -908,9 +939,6 @@ void MarkdownEditor::wheelEvent(QWheelEvent *e)
     if (!angleDelta.isNull()) {
         numDegrees = angleDelta.y();
     }
-#else
-    int numDegrees = e->delta();
-#endif
 
     if ((Qt::ControlModifier == modifier) && (0 != numDegrees)) {
         int fontSize = this->font().pointSize();
@@ -945,17 +973,23 @@ void MarkdownEditor::navigateDocument(const int position)
 
 void MarkdownEditor::bold()
 {
-    d_func()->insertFormattingMarkup("**");
+    Q_D(MarkdownEditor);
+    
+    d->insertFormattingMarkup("**");
 }
 
 void MarkdownEditor::italic()
 {
-    d_func()->insertFormattingMarkup("*");
+    Q_D(MarkdownEditor);
+    
+    d->insertFormattingMarkup("*");
 }
 
 void MarkdownEditor::strikethrough()
 {
-    d_func()->insertFormattingMarkup("~~");
+    Q_D(MarkdownEditor);
+    
+    d->insertFormattingMarkup("~~");
 }
 
 void MarkdownEditor::insertComment()
@@ -975,37 +1009,51 @@ void MarkdownEditor::insertComment()
 
 void MarkdownEditor::createBulletListWithAsteriskMarker()
 {
-    d_func()->insertPrefixForBlocks("* ");
+    Q_D(MarkdownEditor);
+    
+    d->insertPrefixForBlocks("* ");
 }
 
 void MarkdownEditor::createBulletListWithMinusMarker()
 {
-    d_func()->insertPrefixForBlocks("- ");
+    Q_D(MarkdownEditor);
+    
+    d->insertPrefixForBlocks("- ");
 }
 
 void MarkdownEditor::createBulletListWithPlusMarker()
 {
-    d_func()->insertPrefixForBlocks("+ ");
+    Q_D(MarkdownEditor);
+    
+    d->insertPrefixForBlocks("+ ");
 }
 
 void MarkdownEditor::createNumberedListWithPeriodMarker()
 {
-    d_func()->createNumberedList('.');
+    Q_D(MarkdownEditor);
+    
+    d->createNumberedList('.');
 }
 
 void MarkdownEditor::createNumberedListWithParenthesisMarker()
 {
-    d_func()->createNumberedList(')');
+    Q_D(MarkdownEditor);
+    
+    d->createNumberedList(')');
 }
 
 void MarkdownEditor::createTaskList()
 {
-    d_func()->insertPrefixForBlocks("- [ ] ");
+    Q_D(MarkdownEditor);
+    
+    d->insertPrefixForBlocks("- [ ] ");
 }
 
 void MarkdownEditor::createBlockquote()
 {
-    d_func()->insertPrefixForBlocks("> ");
+    Q_D(MarkdownEditor);
+    
+    d->insertPrefixForBlocks("> ");
 }
 
 // Algorithm lifted from ReText.
@@ -1048,6 +1096,8 @@ void MarkdownEditor::removeBlockquote()
 // Algorithm lifted from ReText.
 void MarkdownEditor::indentText()
 {
+    Q_D(MarkdownEditor);
+    
     QTextCursor cursor = this->textCursor();
 
     if (cursor.hasSelection()) {
@@ -1059,10 +1109,10 @@ void MarkdownEditor::indentText()
         while (block != end) {
             cursor.setPosition(block.position());
 
-            if (d_func()->insertSpacesForTabs) {
+            if (d->insertSpacesForTabs) {
                 QString indentText = "";
 
-                for (int i = 0; i < d_func()->tabWidth; i++) {
+                for (int i = 0; i < d->tabWidth; i++) {
                     indentText += QString(" ");
                 }
 
@@ -1076,7 +1126,7 @@ void MarkdownEditor::indentText()
 
         cursor.endEditBlock();
     } else {
-        int indent = d_func()->tabWidth;
+        int indent = d->tabWidth;
         QString indentText = "";
         QRegularExpressionMatch match;
 
@@ -1084,7 +1134,7 @@ void MarkdownEditor::indentText()
 
         switch (cursor.block().userState() & MarkdownStateMask) {
         case MarkdownStateNumberedList:
-            match = d_func()->emptyNumberedListRegex.match(cursor.block().text());
+            match = d->emptyNumberedListRegex.match(cursor.block().text());
 
             if (match.hasMatch()) {
                 QStringList capture = match.capturedTexts();
@@ -1114,13 +1164,13 @@ void MarkdownEditor::indentText()
             }
             break;
         case MarkdownStateTaskList:
-            if (d_func()->emptyTaskListRegex.match(cursor.block().text()).hasMatch()) {
+            if (d->emptyTaskListRegex.match(cursor.block().text()).hasMatch()) {
                 cursor.movePosition(QTextCursor::StartOfBlock);
             }
             break;
         case MarkdownStateBulletPointList: {
-            if (d_func()->emptyBulletListRegex.match(cursor.block().text()).hasMatch()) {
-                if (d_func()->bulletPointCyclingEnabled) {
+            if (d->emptyBulletListRegex.match(cursor.block().text()).hasMatch()) {
+                if (d->bulletPointCyclingEnabled) {
                     QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
                     QChar newBulletPoint = oldBulletPoint;
                     {
@@ -1156,11 +1206,11 @@ void MarkdownEditor::indentText()
             break;
         }
         default:
-            indent = d_func()->tabWidth - (cursor.positionInBlock() % d_func()->tabWidth);
+            indent = d->tabWidth - (cursor.positionInBlock() % d->tabWidth);
             break;
         }
 
-        if (d_func()->insertSpacesForTabs) {
+        if (d->insertSpacesForTabs) {
             for (int i = 0; i < indent; i++) {
                 indentText += QString(" ");
             }
@@ -1176,6 +1226,8 @@ void MarkdownEditor::indentText()
 // Algorithm lifted from ReText.
 void MarkdownEditor::unindentText()
 {
+    Q_D(MarkdownEditor);
+    
     QTextCursor cursor = this->textCursor();
     QTextBlock block;
     QTextBlock end;
@@ -1201,7 +1253,7 @@ void MarkdownEditor::unindentText()
             while
             (
                 (this->document()->characterAt(cursor.position()) == ' ')
-                && (pos < d_func()->tabWidth)
+                && (pos < d->tabWidth)
             ) {
                 pos += 1;
                 cursor.deleteChar();
@@ -1214,8 +1266,8 @@ void MarkdownEditor::unindentText()
     if
     (
         (MarkdownStateBulletPointList == (cursor.block().userState() & MarkdownStateMask))
-        && (d_func()->emptyBulletListRegex.match(cursor.block().text()).hasMatch())
-        && d_func()->bulletPointCyclingEnabled
+        && (d->emptyBulletListRegex.match(cursor.block().text()).hasMatch())
+        && d->bulletPointCyclingEnabled
     ) {
         QChar oldBulletPoint = cursor.block().text().trimmed().at(0);
         QChar newBulletPoint;
@@ -1251,6 +1303,8 @@ void MarkdownEditor::unindentText()
 
 bool MarkdownEditor::toggleTaskComplete()
 {
+    Q_D(MarkdownEditor);
+    
     QTextCursor cursor = textCursor();
     QTextBlock block;
     QTextBlock end;
@@ -1271,7 +1325,7 @@ bool MarkdownEditor::toggleTaskComplete()
         if
         (
             (MarkdownStateTaskList == (block.userState() & MarkdownStateMask))
-            && (block.text().indexOf(d_func()->taskListRegex, 0, &match) == 0)
+            && (block.text().indexOf(d->taskListRegex, 0, &match) == 0)
         ) {
             QStringList capture = match.capturedTexts();
 
@@ -1313,74 +1367,98 @@ bool MarkdownEditor::toggleTaskComplete()
 
 void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
 {
-    d_func()->highlighter->setEnableLargeHeadingSizes(enable);
+    Q_D(MarkdownEditor);
+    
+    d->highlighter->setEnableLargeHeadingSizes(enable);
 }
 
 void MarkdownEditor::setAutoMatchEnabled(bool enable)
 {
-    d_func()->autoMatchEnabled = enable;
+    Q_D(MarkdownEditor);
+    
+    d->autoMatchEnabled = enable;
 }
 
 void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enabled)
 {
-    d_func()->autoMatchFilter.insert(openingCharacter, enabled);
+    Q_D(MarkdownEditor);
+    
+    d->autoMatchFilter.insert(openingCharacter, enabled);
 }
 
 void MarkdownEditor::setBulletPointCyclingEnabled(bool enable)
 {
-    d_func()->bulletPointCyclingEnabled = enable;
+    Q_D(MarkdownEditor);
+    
+    d->bulletPointCyclingEnabled = enable;
 }
 
 void MarkdownEditor::setUseUnderlineForEmphasis(bool enable)
 {
-    d_func()->highlighter->setUseUnderlineForEmphasis(enable);
+    Q_D(MarkdownEditor);
+    
+    d->highlighter->setUseUnderlineForEmphasis(enable);
 }
 
 void MarkdownEditor::setItalicizeBlockquotes(bool enable)
 {
-    d_func()->highlighter->setItalicizeBlockquotes(enable);
+    Q_D(MarkdownEditor);
+    
+    d->highlighter->setItalicizeBlockquotes(enable);
 }
 
 void MarkdownEditor::setInsertSpacesForTabs(bool enable)
 {
-    d_func()->insertSpacesForTabs = enable;
+    Q_D(MarkdownEditor);
+    
+    d->insertSpacesForTabs = enable;
 }
 
 void MarkdownEditor::setTabulationWidth(int width)
 {
+    Q_D(MarkdownEditor);
+    
     QFontMetrics fontMetrics(font());
-    d_func()->tabWidth = width;
+    d->tabWidth = width;
 
 #if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 10)
-    this->setTabStopWidth(fontMetrics.width(' ') * d_func()->tabWidth);
+    this->setTabStopWidth(fontMetrics.width(' ') * d->tabWidth);
 #else
-    this->setTabStopDistance(fontMetrics.horizontalAdvance(' ') * d_func()->tabWidth);
+    this->setTabStopDistance(fontMetrics.horizontalAdvance(' ') * d->tabWidth);
 #endif
 }
 
 void MarkdownEditor::setEditorWidth(EditorWidth width)
 {
-    d_func()->editorWidth = width;
+    Q_D(MarkdownEditor);
+    
+    d->editorWidth = width;
 }
 
 void MarkdownEditor::setEditorCorners(InterfaceStyle corners)
 {
-    d_func()->editorCorners = corners;
+    Q_D(MarkdownEditor);
+    
+    d->editorCorners = corners;
 }
 
 void MarkdownEditor::runSpellChecker()
 {
-    if (d_func()->spellCheckEnabled) {
-        SpellChecker::checkDocument(this, d_func()->highlighter, d_func()->dictionary);
+    Q_D(MarkdownEditor);
+    
+    if (d->spellCheckEnabled) {
+        SpellChecker::checkDocument(this, d->highlighter, d->dictionary);
     } else {
-        SpellChecker::checkDocument(this, nullptr, d_func()->dictionary);
+        SpellChecker::checkDocument(this, nullptr, d->dictionary);
     }
 }
 
 void MarkdownEditor::setSpellCheckEnabled(const bool enabled)
 {
-    d_func()->spellCheckEnabled = enabled;
-    d_func()->highlighter->setSpellCheckEnabled(enabled);
+    Q_D(MarkdownEditor);
+    
+    d->spellCheckEnabled = enabled;
+    d->highlighter->setSpellCheckEnabled(enabled);
 }
 
 void MarkdownEditor::increaseFontSize()
@@ -1407,25 +1485,29 @@ void MarkdownEditor::decreaseFontSize()
 
 void MarkdownEditor::suggestSpelling(QAction *action)
 {
-    if (action == d_func()->addWordToDictionaryAction) {
-        this->setTextCursor(d_func()->cursorForWord);
-        d_func()->dictionary.addToPersonal(d_func()->wordUnderMouse);
-        d_func()->highlighter->rehighlight();
-    } else if (action == d_func()->checkSpellingAction) {
-        this->setTextCursor(d_func()->cursorForWord);
-        SpellChecker::checkDocument(this, d_func()->highlighter, d_func()->dictionary);
-    } else if (d_func()->spellingActions.contains(action)) {
-        d_func()->cursorForWord.insertText(action->data().toString());
+    Q_D(MarkdownEditor);
+    
+    if (action == d->addWordToDictionaryAction) {
+        this->setTextCursor(d->cursorForWord);
+        d->dictionary.addToPersonal(d->wordUnderMouse);
+        d->highlighter->rehighlight();
+    } else if (action == d->checkSpellingAction) {
+        this->setTextCursor(d->cursorForWord);
+        SpellChecker::checkDocument(this, d->highlighter, d->dictionary);
+    } else if (d->spellingActions.contains(action)) {
+        d->cursorForWord.insertText(action->data().toString());
     }
 }
 
 void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRemoved)
 {
+    Q_D(MarkdownEditor);
+    
     Q_UNUSED(position)
     Q_UNUSED(charsAdded)
     Q_UNUSED(charsRemoved)
 
-    d_func()->parseDocument();
+    d->parseDocument();
 
     // Don't use the textChanged() or contentsChanged() (no parameters) signals
     // for checking if the typingResumed() signal needs to be emitted.  These
@@ -1434,18 +1516,20 @@ void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRe
     // onContentsChanged(int, int, int) signal, which is only emitted when the
     // document text actually changes.
     //
-    if (d_func()->typingHasPaused || d_func()->scaledTypingHasPaused) {
-        d_func()->typingHasPaused = false;
-        d_func()->scaledTypingHasPaused = false;
-        d_func()->typingPausedSignalSent = false;
-        d_func()->typingPausedScaledSignalSent = false;
+    if (d->typingHasPaused || d->scaledTypingHasPaused) {
+        d->typingHasPaused = false;
+        d->scaledTypingHasPaused = false;
+        d->typingPausedSignalSent = false;
+        d->typingPausedScaledSignalSent = false;
         emit typingResumed();
     }
 }
 
 void MarkdownEditor::onTextBlockRemoved(const QTextBlock &)
 {
-    d_func()->parseDocument();
+    Q_D(MarkdownEditor);
+    
+    d->parseDocument();
 }
 
 void MarkdownEditor::onSelectionChanged()
@@ -1466,19 +1550,21 @@ void MarkdownEditor::onSelectionChanged()
 
 void MarkdownEditor::focusText()
 {
-    if (FocusModeDisabled != d_func()->focusMode) {
+    Q_D(MarkdownEditor);
+    
+    if (FocusModeDisabled != d->focusMode) {
         QTextEdit::ExtraSelection beforeFadedSelection;
         QTextEdit::ExtraSelection afterFadedSelection;
-        beforeFadedSelection.format.setForeground(d_func()->fadeColor);
+        beforeFadedSelection.format.setForeground(d->fadeColor);
         beforeFadedSelection.cursor = this->textCursor();
-        afterFadedSelection.format.setForeground(d_func()->fadeColor);
+        afterFadedSelection.format.setForeground(d->fadeColor);
         afterFadedSelection.cursor = this->textCursor();
 
         bool canFadePrevious = false;
 
         QList<QTextEdit::ExtraSelection> selections;
 
-        switch (d_func()->focusMode) {
+        switch (d->focusMode) {
         case FocusModeCurrentLine: // Current line
             beforeFadedSelection.cursor.movePosition(QTextCursor::StartOfLine);
             canFadePrevious = beforeFadedSelection.cursor.movePosition(QTextCursor::Up);
@@ -1561,21 +1647,25 @@ void MarkdownEditor::focusText()
 
 void MarkdownEditor::checkIfTypingPaused()
 {
-    if (d_func()->typingHasPaused && !d_func()->typingPausedSignalSent) {
-        d_func()->typingPausedSignalSent = true;
+    Q_D(MarkdownEditor);
+    
+    if (d->typingHasPaused && !d->typingPausedSignalSent) {
+        d->typingPausedSignalSent = true;
         emit typingPaused();
     }
 
-    d_func()->typingTimer->stop();
-    d_func()->typingTimer->start(1000);
+    d->typingTimer->stop();
+    d->typingTimer->start(1000);
 
-    d_func()->typingHasPaused = true;
+    d->typingHasPaused = true;
 }
 
 void MarkdownEditor::checkIfTypingPausedScaled()
 {
-    if (d_func()->scaledTypingHasPaused && !d_func()->typingPausedScaledSignalSent) {
-        d_func()->typingPausedScaledSignalSent = true;
+    Q_D(MarkdownEditor);
+    
+    if (d->scaledTypingHasPaused && !d->typingPausedScaledSignalSent) {
+        d->typingPausedScaledSignalSent = true;
         emit typingPausedScaled();
     }
 
@@ -1588,29 +1678,32 @@ void MarkdownEditor::checkIfTypingPausedScaled()
         interval = 20;
     }
 
-    d_func()->scaledTypingTimer->stop();
-    d_func()->scaledTypingTimer->start(interval);
+    d->scaledTypingTimer->stop();
+    d->scaledTypingTimer->start(interval);
 
-    d_func()->scaledTypingHasPaused = true;
+    d->scaledTypingHasPaused = true;
 }
 
 void MarkdownEditor::spellCheckFinished(int result)
 {
     Q_UNUSED(result)
-
-    d_func()->highlighter->rehighlight();
+    Q_D(MarkdownEditor);
+    
+    d->highlighter->rehighlight();
 }
 
 void MarkdownEditor::onCursorPositionChanged()
 {
-    if (!d_func()->mouseButtonDown) {
+    Q_D(MarkdownEditor);
+    
+    if (!d->mouseButtonDown) {
         QRect cursor = this->cursorRect();
         QRect viewport = this->viewport()->rect();
         int bottom = viewport.bottom() - this->fontMetrics().height();
 
         if
         (
-            (d_func()->focusMode != FocusModeDisabled) ||
+            (d->focusMode != FocusModeDisabled) ||
             (cursor.bottom() >= bottom) ||
             (cursor.top() <= viewport.top())
         ) {
@@ -1621,9 +1714,9 @@ void MarkdownEditor::onCursorPositionChanged()
     // Set the text cursor back to visible and reset the blink timer so that
     // the cursor is always visible whenever it moves to a new position.
     //
-    d_func()->textCursorVisible = true;
-    d_func()->cursorBlinkTimer->stop();
-    d_func()->cursorBlinkTimer->start();
+    d->textCursorVisible = true;
+    d->cursorBlinkTimer->stop();
+    d->cursorBlinkTimer->start();
 
     // Update widget to ensure cursor is drawn.
     update();
@@ -1633,29 +1726,35 @@ void MarkdownEditor::onCursorPositionChanged()
 
 void MarkdownEditorPrivate::toggleCursorBlink()
 {
+    Q_Q(MarkdownEditor);
+    
     this->textCursorVisible = !this->textCursorVisible;
-    q_func()->update();
+    q->update();
 }
 
 void MarkdownEditorPrivate::parseDocument()
 {
+    Q_Q(MarkdownEditor);
+    
     MarkdownAST *ast =
         CmarkGfmAPI::instance()->parse
         (
-            q_func()->document()->toPlainText(),
+            q->document()->toPlainText(),
             false
         );
 
     // Note:  MarkdownDocument is responsible for freeing memory
     // allocated for the AST.
     //
-    ((MarkdownDocument *) q_func()->document())->setMarkdownAST(ast);
+    ((MarkdownDocument *) q->document())->setMarkdownAST(ast);
 }
 
 void MarkdownEditorPrivate::handleCarriageReturn()
 {
+    Q_Q(MarkdownEditor);
+    
     QString autoInsertText = "";
-    QTextCursor cursor = q_func()->textCursor();
+    QTextCursor cursor = q->textCursor();
     bool endList = false;
 
     if (cursor.positionInBlock() < (cursor.block().length() - 1)) {
@@ -1738,12 +1837,14 @@ void MarkdownEditorPrivate::handleCarriageReturn()
     }
 
     cursor.insertText(QString("\n") + autoInsertText);
-    q_func()->ensureCursorVisible();
+    q->ensureCursorVisible();
 }
 
 bool MarkdownEditorPrivate::handleBackspaceKey()
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
 
     if (cursor.hasSelection()) {
         return false;
@@ -1753,7 +1854,7 @@ bool MarkdownEditorPrivate::handleBackspaceKey()
 
     switch (cursor.block().userState() & MarkdownStateMask) {
     case MarkdownStateNumberedList: {
-        if (emptyNumberedListRegex.match(q_func()->textCursor().block().text()).hasMatch()) {
+        if (emptyNumberedListRegex.match(q->textCursor().block().text()).hasMatch()) {
             backtrackIndex = cursor.block().text().indexOf(QRegularExpression("\\d"));
         }
         break;
@@ -1819,13 +1920,15 @@ bool MarkdownEditorPrivate::handleBackspaceKey()
 // Algorithm lifted from ReText.
 void MarkdownEditorPrivate::insertPrefixForBlocks(const QString &prefix)
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
     QTextBlock block;
     QTextBlock end;
 
     if (cursor.hasSelection()) {
-        block = q_func()->document()->findBlock(cursor.selectionStart());
-        end = q_func()->document()->findBlock(cursor.selectionEnd()).next();
+        block = q->document()->findBlock(cursor.selectionStart());
+        end = q->document()->findBlock(cursor.selectionEnd()).next();
     } else {
         block = cursor.block();
         end = block.next();
@@ -1844,13 +1947,15 @@ void MarkdownEditorPrivate::insertPrefixForBlocks(const QString &prefix)
 
 void MarkdownEditorPrivate::createNumberedList(const QChar marker)
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
     QTextBlock block;
     QTextBlock end;
 
     if (cursor.hasSelection()) {
-        block = q_func()->document()->findBlock(cursor.selectionStart());
-        end = q_func()->document()->findBlock(cursor.selectionEnd()).next();
+        block = q->document()->findBlock(cursor.selectionStart());
+        end = q->document()->findBlock(cursor.selectionEnd()).next();
     } else {
         block = cursor.block();
         end = block.next();
@@ -1872,6 +1977,8 @@ void MarkdownEditorPrivate::createNumberedList(const QChar marker)
 
 bool MarkdownEditorPrivate::insertPairedCharacters(const QChar firstChar)
 {
+    Q_Q(MarkdownEditor);
+    
     if
     (
         autoMatchEnabled
@@ -1879,13 +1986,13 @@ bool MarkdownEditorPrivate::insertPairedCharacters(const QChar firstChar)
         && autoMatchFilter.value(firstChar)
     ) {
         QChar lastChar = markupPairs.value(firstChar);
-        QTextCursor cursor = q_func()->textCursor();
+        QTextCursor cursor = q->textCursor();
         QTextBlock block;
         QTextBlock end;
 
         if (cursor.hasSelection()) {
-            block = q_func()->document()->findBlock(cursor.selectionStart());
-            end = q_func()->document()->findBlock(cursor.selectionEnd());
+            block = q->document()->findBlock(cursor.selectionStart());
+            end = q->document()->findBlock(cursor.selectionEnd());
 
             // Only surround selection with matched characters if the
             // selection belongs to the same block.
@@ -1894,18 +2001,18 @@ bool MarkdownEditorPrivate::insertPairedCharacters(const QChar firstChar)
                 cursor.beginEditBlock();
                 cursor.setPosition(cursor.selectionStart());
                 cursor.insertText(firstChar);
-                cursor.setPosition(q_func()->textCursor().selectionEnd());
+                cursor.setPosition(q->textCursor().selectionEnd());
                 cursor.insertText(lastChar);
                 cursor.endEditBlock();
 
-                cursor = q_func()->textCursor();
+                cursor = q->textCursor();
                 cursor.setPosition(cursor.selectionStart());
                 cursor.setPosition
                 (
-                    q_func()->textCursor().selectionEnd() - 1,
+                    q->textCursor().selectionEnd() - 1,
                     QTextCursor::KeepAnchor
                 );
-                q_func()->setTextCursor(cursor);
+                q->setTextCursor(cursor);
                 return true;
             }
         } else {
@@ -1951,7 +2058,7 @@ bool MarkdownEditorPrivate::insertPairedCharacters(const QChar firstChar)
                 cursor.insertText(firstChar);
                 cursor.insertText(lastChar);
                 cursor.movePosition(QTextCursor::PreviousCharacter);
-                q_func()->setTextCursor(cursor);
+                q->setTextCursor(cursor);
                 return true;
             }
         }
@@ -1962,7 +2069,9 @@ bool MarkdownEditorPrivate::insertPairedCharacters(const QChar firstChar)
 
 bool MarkdownEditorPrivate::handleEndPairCharacterTyped(const QChar ch)
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
 
     bool lookAhead = false;
 
@@ -1979,7 +2088,7 @@ bool MarkdownEditorPrivate::handleEndPairCharacterTyped(const QChar ch)
     }
 
     if (lookAhead) {
-        QTextCursor cursor = q_func()->textCursor();
+        QTextCursor cursor = q->textCursor();
         QString text = cursor.block().text();
         int pos = cursor.positionInBlock();
 
@@ -1990,7 +2099,7 @@ bool MarkdownEditorPrivate::handleEndPairCharacterTyped(const QChar ch)
             //
             if (text[pos] == ch) {
                 cursor.movePosition(QTextCursor::NextCharacter);
-                q_func()->setTextCursor(cursor);
+                q->setTextCursor(cursor);
                 return true;
             }
         }
@@ -2001,7 +2110,9 @@ bool MarkdownEditorPrivate::handleEndPairCharacterTyped(const QChar ch)
 
 bool MarkdownEditorPrivate::handleWhitespaceInEmptyMatch(const QChar whitespace)
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
     QTextBlock block = cursor.block();
     QString text = block.text();
     int pos = cursor.positionInBlock();
@@ -2024,7 +2135,9 @@ bool MarkdownEditorPrivate::handleWhitespaceInEmptyMatch(const QChar whitespace)
 
 void MarkdownEditorPrivate::insertFormattingMarkup(const QString &markup)
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
 
     if (cursor.hasSelection()) {
         int start = cursor.selectionStart();
@@ -2037,7 +2150,7 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const QString &markup)
         c.insertText(markup);
         c.endEditBlock();
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::QTextCursor::KeepAnchor, markup.length());
-        q_func()->setTextCursor(cursor);
+        q->setTextCursor(cursor);
     } else {
         // Insert markup twice (for opening and closing around the cursor),
         // and then move the cursor to be between the pair.
@@ -2047,14 +2160,16 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const QString &markup)
         cursor.insertText(markup);
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, markup.length());
         cursor.endEditBlock();
-        q_func()->setTextCursor(cursor);
+        q->setTextCursor(cursor);
     }
 }
 
 QString MarkdownEditorPrivate::priorIndentation()
 {
+    Q_Q(MarkdownEditor);
+    
     QString indent = "";
-    QTextCursor cursor = q_func()->textCursor();
+    QTextCursor cursor = q->textCursor();
     QTextBlock block = cursor.block();
 
     QString text = block.text();
@@ -2076,7 +2191,9 @@ QString MarkdownEditorPrivate::priorMarkdownBlockItemStart
     QRegularExpressionMatch &match
 )
 {
-    QTextCursor cursor = q_func()->textCursor();
+    Q_Q(MarkdownEditor);
+    
+    QTextCursor cursor = q->textCursor();
     QTextBlock block = cursor.block();
 
     QString text = block.text();

@@ -74,7 +74,9 @@ CommandLineExporter::~CommandLineExporter()
 
 void CommandLineExporter::setHtmlRenderCommand(const QString &command)
 {
-    d_func()->htmlRenderCommand = command;
+    Q_D(CommandLineExporter);
+    
+    d->htmlRenderCommand = command;
 }
 
 void CommandLineExporter::addFileExportCommand
@@ -83,44 +85,56 @@ void CommandLineExporter::addFileExportCommand
     const QString &command
 )
 {
-    d_func()->formatToCommandMap.insert(format, command);
+    Q_D(CommandLineExporter);
+    
+    d->formatToCommandMap.insert(format, command);
     this->m_supportedFormats.append(format);
 }
 
 QString CommandLineExporter::smartTypographyOnArgument() const
 {
-    return d_func()->smartTypographyOnArgument;
+    Q_D(const CommandLineExporter);
+    
+    return d->smartTypographyOnArgument;
 }
 
 void CommandLineExporter::setSmartTypographyOnArgument(const QString &argument)
 {
-    d_func()->smartTypographyOnArgument = argument;
+    Q_D(CommandLineExporter);
+    
+    d->smartTypographyOnArgument = argument;
 }
 
 QString CommandLineExporter::smartTypographyOffArgument() const
 {
-    return d_func()->smartTypographyOffArgument;
+    Q_D(const CommandLineExporter);
+    
+    return d->smartTypographyOffArgument;
 }
 
 void CommandLineExporter::setSmartTypographyOffArgument(const QString &argument)
 {
-    d_func()->smartTypographyOffArgument = argument;
+    Q_D(CommandLineExporter);
+    
+    d->smartTypographyOffArgument = argument;
 }
 
 void CommandLineExporter::exportToHtml(const QString &text, QString &html)
 {
+    Q_D(CommandLineExporter);
+    
     QString stderrOutput;
 
-    if (d_func()->htmlRenderCommand.isNull() || d_func()->htmlRenderCommand.isEmpty()) {
+    if (d->htmlRenderCommand.isNull() || d->htmlRenderCommand.isEmpty()) {
         html = "<center><b style='color: red'>HTML is not supported for this processor.</b></center>";
         return;
     }
 
     if
     (
-        ! d_func()->executeCommand
+        ! d->executeCommand
         (
-            d_func()->htmlRenderCommand,
+            d->htmlRenderCommand,
             QString(),
             text,
             QString(),
@@ -129,7 +143,7 @@ void CommandLineExporter::exportToHtml(const QString &text, QString &html)
             stderrOutput
         )
     ) {
-        QString errorMessage = d_func()->htmlRenderCommand;
+        QString errorMessage = d->htmlRenderCommand;
 
         if (!stderrOutput.isNull() && !stderrOutput.isEmpty()) {
             errorMessage = stderrOutput;
@@ -148,19 +162,21 @@ void CommandLineExporter::exportToFile
     QString &err
 )
 {
+    Q_D(CommandLineExporter);
+    
     QString stdoutOutput;
     QString stderrOutput;
 
-    if (!d_func()->formatToCommandMap.contains(format)) {
+    if (!d->formatToCommandMap.contains(format)) {
         err = QObject::tr("%1 format is not supported by this processor.").arg(format->name());
         return;
     }
 
-    QString command = d_func()->formatToCommandMap.value(format);
+    QString command = d->formatToCommandMap.value(format);
 
     if
     (
-        ! d_func()->executeCommand
+        ! d->executeCommand
         (
             command,
             inputFilePath,

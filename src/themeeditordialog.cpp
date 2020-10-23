@@ -48,10 +48,12 @@ public:
     )
         : q_ptr(q_ptr), theme(theme)
     {
+        Q_Q(ThemeEditorDialog);
+    
         this->lightColors = theme.lightColorScheme();
         this->darkColors = theme.darkColorScheme();
         this->oldThemeName = theme.name();
-        this->themeNameEdit = new QLineEdit(theme.name(), q_func());
+        this->themeNameEdit = new QLineEdit(theme.name(), q);
     }
 
     ~ThemeEditorDialogPrivate()
@@ -82,10 +84,12 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme &theme, QWidget *parent)
     : QDialog(parent),
       d_ptr(new ThemeEditorDialogPrivate(this, theme))
 {
+    Q_D(ThemeEditorDialog);
+
     this->setWindowTitle(tr("Edit Theme"));
 
     QFormLayout *nameLayout = new QFormLayout();
-    nameLayout->addRow(tr("Theme Name"), d_func()->themeNameEdit);
+    nameLayout->addRow(tr("Theme Name"), d->themeNameEdit);
 
     QWidget *nameSettingsWidget = new QWidget();
     nameSettingsWidget->setLayout(nameLayout);
@@ -96,7 +100,7 @@ ThemeEditorDialog::ThemeEditorDialog(const Theme &theme, QWidget *parent)
 
     QGridLayout *themeLayout = new QGridLayout();
 
-    d_func()->addColorsToLayout(themeLayout);
+    d->addColorsToLayout(themeLayout);
     layout->addLayout(themeLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
@@ -116,12 +120,16 @@ ThemeEditorDialog::~ThemeEditorDialog()
 
 const Theme &ThemeEditorDialog::theme() const
 {
-    return d_func()->theme;
+    Q_D(const ThemeEditorDialog);
+    
+    return d->theme;
 }
 
 void ThemeEditorDialog::accept()
 {
-    if (d_func()->saveTheme()) {
+    Q_D(ThemeEditorDialog);
+    
+    if (d->saveTheme()) {
         QDialog::accept();
     }
 }
@@ -139,6 +147,8 @@ void ThemeEditorDialogPrivate::addColorRowToLayout
     const QVector<QColor *> &colors
 )
 {
+    Q_Q(ThemeEditorDialog);
+    
     layout->addWidget(new QLabel(description), rowIndex, 0);
 
     for (int i = 0; i < colors.size(); i++) {
@@ -149,7 +159,7 @@ void ThemeEditorDialogPrivate::addColorRowToLayout
             button->setColor(*colorPtr);
             layout->addWidget(button, rowIndex, (i + 1));
 
-            q_func()->connect
+            q->connect
             (
                 button,
                 &ColorButton::changed,
@@ -184,6 +194,8 @@ void ThemeEditorDialogPrivate::addColorsToLayout(QGridLayout *layout)
 
 bool ThemeEditorDialogPrivate::saveTheme()
 {
+    Q_Q(ThemeEditorDialog);
+    
     lightColors.headingMarkup = lightColors.emphasisMarkup;
     lightColors.divider = lightColors.headingMarkup;
     lightColors.image = lightColors.link;
@@ -209,7 +221,7 @@ bool ThemeEditorDialogPrivate::saveTheme()
     if (!error.isNull()) {
         MessageBoxHelper::critical
         (
-            q_func(),
+            q,
             QObject::tr("Unable to save theme."),
             error
         );

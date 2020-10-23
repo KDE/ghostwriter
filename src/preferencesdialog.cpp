@@ -71,8 +71,10 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     : QDialog(parent),
       d_ptr(new PreferencesDialogPrivate(this))
 {
+    Q_D(PreferencesDialog);
+
     this->setWindowTitle(tr("Preferences"));
-    d_func()->appSettings = AppSettings::instance();
+    d->appSettings = AppSettings::instance();
 
     QTabWidget *tabWidget = new QTabWidget(this);
 
@@ -80,9 +82,9 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     layout->addWidget(tabWidget);
     this->setLayout(layout);
 
-    tabWidget->addTab(d_func()->initializeGeneralTab(), tr("General"));
-    tabWidget->addTab(d_func()->initializeEditorTab(), tr("Editor"));
-    tabWidget->addTab(d_func()->initializeSpellCheckTab(), tr("Spell Check"));
+    tabWidget->addTab(d->initializeGeneralTab(), tr("General"));
+    tabWidget->addTab(d->initializeEditorTab(), tr("Editor"));
+    tabWidget->addTab(d->initializeSpellCheckTab(), tr("Spell Check"));
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Close);
@@ -100,7 +102,9 @@ PreferencesDialog::~PreferencesDialog()
 
 void PreferencesDialogPrivate::showAutoMatchFilterDialog()
 {
-    QDialog autoMatchFilterDialog(q_func());
+    Q_Q(PreferencesDialog);
+
+    QDialog autoMatchFilterDialog(q);
     autoMatchFilterDialog.setWindowTitle(tr("Matched Characters"));
 
     QGridLayout *layout = new QGridLayout();
@@ -152,7 +156,7 @@ void PreferencesDialogPrivate::showAutoMatchFilterDialog()
 
     autoMatchFilterDialog.setLayout(layout);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, q_func());
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, q);
     buttonBox->addButton(QDialogButtonBox::Ok);
     buttonBox->addButton(QDialogButtonBox::Cancel);
     layout->addWidget(buttonBox, 3, 0, 1, 3);
@@ -177,6 +181,8 @@ void PreferencesDialogPrivate::showAutoMatchFilterDialog()
 
 QWidget *PreferencesDialogPrivate::initializeGeneralTab()
 {
+    Q_Q(PreferencesDialog);
+
     QWidget *tab = new QWidget();
 
     QVBoxLayout *tabLayout = new QVBoxLayout();
@@ -200,18 +206,18 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     connect(menuBarCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideMenuBarInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(menuBarCheckBox);
 
-    QComboBox *cornersComboBox = new QComboBox(q_func());
+    QComboBox *cornersComboBox = new QComboBox(q);
     cornersComboBox->addItem(tr("Rounded"), QVariant(InterfaceStyleRounded));
     cornersComboBox->addItem(tr("Square"), QVariant(InterfaceStyleSquare));
     cornersComboBox->setCurrentIndex((int) appSettings->interfaceStyle());
 
-    q_func()->connect
+    q->connect
     (
         cornersComboBox,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    [this, cornersComboBox](int index) {
-        appSettings->setInterfaceStyle((InterfaceStyle) cornersComboBox->itemData(index).toInt());
-    }
+        [this, cornersComboBox](int index) {
+            appSettings->setInterfaceStyle((InterfaceStyle) cornersComboBox->itemData(index).toInt());
+        }
     );
 
     displayGroupLayout->addRow(tr("Interface style"), cornersComboBox);
@@ -252,6 +258,8 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
 
 QWidget *PreferencesDialogPrivate::initializeEditorTab()
 {
+    Q_Q(PreferencesDialog);
+
     QWidget *tab = new QWidget();
 
     QVBoxLayout *tabLayout = new QVBoxLayout();
@@ -295,13 +303,13 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     focusModeCombo->addItem(tr("Typewriter"), FocusModeTypewriter);
     focusModeCombo->setCurrentIndex(appSettings->focusMode() - 1);
 
-    q_func()->connect
+    q->connect
     (
         focusModeCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    [this, focusModeCombo](int index) {
-        appSettings->setFocusMode((FocusMode) focusModeCombo->itemData(index).toInt());
-    }
+        [this, focusModeCombo](int index) {
+            appSettings->setFocusMode((FocusMode) focusModeCombo->itemData(index).toInt());
+        }
     );
 
     stylingGroupLayout->addRow(tr("Focus mode"), focusModeCombo);
@@ -313,13 +321,13 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     editorWidthCombo->addItem(tr("Full"), EditorWidthFull);
     editorWidthCombo->setCurrentIndex(appSettings->editorWidth());
 
-    q_func()->connect
+    q->connect
     (
         editorWidthCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    [this, editorWidthCombo](int index) {
-        appSettings->setEditorWidth((EditorWidth) editorWidthCombo->itemData(index).toInt());
-    }
+        [this, editorWidthCombo](int index) {
+            appSettings->setEditorWidth((EditorWidth) editorWidthCombo->itemData(index).toInt());
+        }
     );
 
     stylingGroupLayout->addRow(tr("Editor width"), editorWidthCombo);
@@ -329,7 +337,7 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     blockquoteStyleCombo->addItem(tr("Italic"), true);
     blockquoteStyleCombo->setCurrentIndex(appSettings->italicizeBlockquotes() ? 1 : 0);
 
-    q_func()->connect
+    q->connect
     (
         blockquoteStyleCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
@@ -345,7 +353,7 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     underlineCombo->addItem(tr("Underline"), true);
     underlineCombo->setCurrentIndex(appSettings->useUnderlineForEmphasis() ? 1 : 0);
 
-    q_func()->connect
+    q->connect
     (
         underlineCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
@@ -382,7 +390,7 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
 
     QPushButton *matchedCharsButton = new QPushButton(tr("Customize matched characters..."));
 
-    q_func()->connect
+    q->connect
     (
         matchedCharsButton,
         &QPushButton::pressed,
@@ -398,6 +406,8 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
 
 QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
 {
+    Q_Q(PreferencesDialog);
+
     QWidget *tab = new QWidget();
 
     QVBoxLayout *tabLayout = new QVBoxLayout();
@@ -433,7 +443,7 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
 
     dictionaryComboBox->setCurrentIndex(currentDictionaryIndex);
 
-    q_func()->connect
+    q->connect
     (
         dictionaryComboBox,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),

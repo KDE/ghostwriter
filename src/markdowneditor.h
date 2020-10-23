@@ -93,7 +93,7 @@ public:
     /**
      * Gets the current focus mode.
      */
-    FocusMode focusMode();
+    FocusMode focusMode() const;
 
     /**
      * Sets the focus mode.

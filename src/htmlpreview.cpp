@@ -93,15 +93,17 @@ HtmlPreview::HtmlPreview
 ) : QWebEngineView(parent),
     d_ptr(new HtmlPreviewPrivate(this))
 {
-    d_func()->document = document;
-    d_func()->updateInProgress = false;
-    d_func()->updateAgain = false;
-    d_func()->exporter = exporter;
+    Q_D(HtmlPreview);
+    
+    d->document = document;
+    d->updateInProgress = false;
+    d->updateAgain = false;
+    d->exporter = exporter;
 
-    d_func()->vanillaHtml = "";
-    d_func()->baseUrl = "";
-    d_func()->livePreviewHtml.setText("");
-    d_func()->styleSheet.setText("");
+    d->vanillaHtml = "";
+    d->baseUrl = "";
+    d->livePreviewHtml.setText("");
+    d->styleSheet.setText("");
 
     this->setPage(new SandboxedWebPage(this));
     this->settings()->setDefaultTextEncoding("utf-8");
@@ -121,20 +123,20 @@ HtmlPreview::HtmlPreview
     (
         this,
         &QWebEngineView::loadFinished,
-    [this](bool ok) {
-        d_func()->onLoadFinished(ok);
-    }
+        [d](bool ok) {
+            d->onLoadFinished(ok);
+        }
     );
 
-    d_func()->headingTagExp.setPattern("^[Hh][1-6]$");
+    d->headingTagExp.setPattern("^[Hh][1-6]$");
 
-    d_func()->futureWatcher = new QFutureWatcher<QString>(this);
+    d->futureWatcher = new QFutureWatcher<QString>(this);
     this->connect
     (
-        d_func()->futureWatcher,
+        d->futureWatcher,
         &QFutureWatcher<QString>::finished,
-        [this]() {
-            d_func()->onHtmlReady();
+        [d]() {
+            d->onHtmlReady();
         }
     );
 
@@ -142,8 +144,8 @@ HtmlPreview::HtmlPreview
     (
         document,
         &MarkdownDocument::filePathChanged,
-        [this]() {
-            d_func()->updateBaseDir();
+        [d]() {
+            d->updateBaseDir();
         }
     );
 
@@ -154,10 +156,10 @@ HtmlPreview::HtmlPreview
     this->setZoomFactor((horizontalDpi / 96.0));
 
     QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QStringLiteral("stylesheet"), &d_func()->styleSheet);
-    channel->registerObject(QStringLiteral("livepreviewcontent"), &d_func()->livePreviewHtml);
+    channel->registerObject(QStringLiteral("stylesheet"), &d->styleSheet);
+    channel->registerObject(QStringLiteral("livepreviewcontent"), &d->livePreviewHtml);
     this->page()->setWebChannel(channel);
-    d_func()->wrapperHtml =
+    d->wrapperHtml =
         "<!doctype html>"
         "<html lang=\"en\">"
         "<meta charset=\"utf-8\">"
@@ -193,13 +195,15 @@ HtmlPreview::HtmlPreview
         "</html>";
 
     // Set the base URL and load the preview using wrapperHtml above.
-    d_func()->updateBaseDir();
+    d->updateBaseDir();
 }
 
 HtmlPreview::~HtmlPreview()
 {
+    Q_D(HtmlPreview);
+    
     // Wait for thread to finish if in the middle of updating the preview.
-    d_func()->futureWatcher->waitForFinished();
+    d->futureWatcher->waitForFinished();
 }
 
 void HtmlPreview::contextMenuEvent(QContextMenuEvent *event)
@@ -210,8 +214,10 @@ void HtmlPreview::contextMenuEvent(QContextMenuEvent *event)
 
 void HtmlPreview::updatePreview()
 {
-    if (d_func()->updateInProgress) {
-        d_func()->updateAgain = true;
+    Q_D(HtmlPreview);
+    
+    if (d->updateInProgress) {
+        d->updateAgain = true;
         return;
     }
 
@@ -220,22 +226,22 @@ void HtmlPreview::updatePreview()
         // and will err.  Thus, only pass in text from the document
         // into the markdown processor if the text isn't empty or null.
         //
-        if (d_func()->document->isEmpty()) {
-            d_func()->setHtmlContent("");
-        } else if (nullptr != d_func()->exporter) {
-            QString text = d_func()->document->toPlainText();
+        if (d->document->isEmpty()) {
+            d->setHtmlContent("");
+        } else if (nullptr != d->exporter) {
+            QString text = d->document->toPlainText();
 
             if (!text.isNull() && !text.isEmpty()) {
-                d_func()->updateInProgress = true;
+                d->updateInProgress = true;
                 QFuture<QString> future =
                     QtConcurrent::run
                     (
-                        d_func(),
+                        d,
                         &HtmlPreviewPrivate::exportToHtml,
-                        d_func()->document->toPlainText(),
-                        d_func()->exporter
+                        d->document->toPlainText(),
+                        d->exporter
                     );
-                d_func()->futureWatcher->setFuture(future);
+                d->futureWatcher->setFuture(future);
             }
         }
     }
@@ -254,18 +260,24 @@ void HtmlPreview::navigateToHeading(int headingSequenceNumber)
 
 void HtmlPreview::setHtmlExporter(Exporter *exporter)
 {
-    d_func()->exporter = exporter;
-    d_func()->setHtmlContent("");
+    Q_D(HtmlPreview);
+    
+    d->exporter = exporter;
+    d->setHtmlContent("");
     updatePreview();
 }
 
 void HtmlPreview::setStyleSheet(const QString &css)
 {
-    d_func()->styleSheet.setText(css);
+    Q_D(HtmlPreview);
+    
+    d->styleSheet.setText(css);
 }
 
 void HtmlPreviewPrivate::onHtmlReady()
 {
+    Q_Q(HtmlPreview);
+    
     QString html = futureWatcher->result();
 
     // Find where the change occurred since last time, and slip an
@@ -325,20 +337,24 @@ void HtmlPreviewPrivate::onHtmlReady()
 
     if (updateAgain) {
         updateAgain = false;
-        q_func()->updatePreview();
+        q->updatePreview();
     }
 
 }
 
 void HtmlPreviewPrivate::onLoadFinished(bool ok)
 {
+    Q_Q(HtmlPreview);
+    
     if (ok) {
-        q_func()->page()->runJavaScript("document.documentElement.contentEditable = false;");
+        q->page()->runJavaScript("document.documentElement.contentEditable = false;");
     }
 }
 
 void HtmlPreviewPrivate::updateBaseDir()
 {
+    Q_Q(HtmlPreview);
+    
     if (!document->filePath().isNull() && !document->filePath().isEmpty()) {
         // Note that a forward slash ("/") is appended to the path to
         // ensure it works.  If the slash isn't there, then it won't
@@ -351,8 +367,8 @@ void HtmlPreviewPrivate::updateBaseDir()
         this->baseUrl = "";
     }
 
-    q_func()->setHtml(wrapperHtml, baseUrl);
-    q_func()->updatePreview();
+    q->setHtml(wrapperHtml, baseUrl);
+    q->updatePreview();
 }
 
 QSize HtmlPreview::sizeHint() const
@@ -363,10 +379,11 @@ QSize HtmlPreview::sizeHint() const
 void HtmlPreview::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
-
-    d_func()->setHtmlContent("");
-    d_func()->vanillaHtml = "";
-    d_func()->livePreviewHtml.setText("");
+    Q_D(HtmlPreview);
+    
+    d->setHtmlContent("");
+    d->vanillaHtml = "";
+    d->livePreviewHtml.setText("");
 }
 
 void HtmlPreviewPrivate::setHtmlContent(const QString &html)

@@ -127,148 +127,192 @@ AppSettings::~AppSettings()
 
 void AppSettings::store()
 {
+    Q_D(AppSettings);
+
     QSettings appSettings;
 
-    appSettings.setValue(GW_AUTO_MATCH_FILTER_KEY, QVariant(d_func()->autoMatchedCharFilter));
-    appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(d_func()->autoMatchEnabled));
-    appSettings.setValue(GW_AUTOSAVE_KEY, QVariant(d_func()->autoSaveEnabled));
-    appSettings.setValue(GW_BACKUP_FILE_KEY, QVariant(d_func()->backupFileEnabled));
-    appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(d_func()->bulletPointCyclingEnabled));
-    appSettings.setValue(GW_DICTIONARY_KEY, QVariant(d_func()->dictionaryLanguage));
-    appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d_func()->displayTimeInFullScreenEnabled));
-    appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(d_func()->editorWidth));
-    appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d_func()->focusMode));
-    appSettings.setValue(GW_FONT_KEY, QVariant(d_func()->font.toString()));
-    appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d_func()->hideMenuBarInFullScreenEnabled));
-    appSettings.setValue(GW_INTERFACE_STYLE_KEY, QVariant(d_func()->interfaceStyle));
-    appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(d_func()->italicizeBlockquotes));
-    appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(d_func()->largeHeadingSizesEnabled));
-    appSettings.setValue(GW_SIDEBAR_OPEN_KEY, QVariant(d_func()->sidebarVisible));
-    appSettings.setValue(GW_HTML_PREVIEW_OPEN_KEY, QVariant(d_func()->htmlPreviewVisible));
-    appSettings.setValue(GW_LAST_USED_EXPORTER_KEY, QVariant(d_func()->currentHtmlExporter->name()));
-    appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(d_func()->liveSpellCheckEnabled));
-    appSettings.setValue(GW_LOCALE_KEY, QVariant(d_func()->locale));
-    appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d_func()->fileHistoryEnabled));
-    appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(d_func()->insertSpacesForTabsEnabled));
-    appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(d_func()->tabWidth));
-    appSettings.setValue(GW_THEME_KEY, QVariant(d_func()->themeName));
-    appSettings.setValue(GW_DARK_MODE_KEY, QVariant(d_func()->darkModeEnabled));
-    appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(d_func()->useUnderlineForEmphasis));
+    appSettings.setValue(GW_AUTO_MATCH_FILTER_KEY, QVariant(d->autoMatchedCharFilter));
+    appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(d->autoMatchEnabled));
+    appSettings.setValue(GW_AUTOSAVE_KEY, QVariant(d->autoSaveEnabled));
+    appSettings.setValue(GW_BACKUP_FILE_KEY, QVariant(d->backupFileEnabled));
+    appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(d->bulletPointCyclingEnabled));
+    appSettings.setValue(GW_DICTIONARY_KEY, QVariant(d->dictionaryLanguage));
+    appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d->displayTimeInFullScreenEnabled));
+    appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(d->editorWidth));
+    appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
+    appSettings.setValue(GW_FONT_KEY, QVariant(d->font.toString()));
+    appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d->hideMenuBarInFullScreenEnabled));
+    appSettings.setValue(GW_INTERFACE_STYLE_KEY, QVariant(d->interfaceStyle));
+    appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(d->italicizeBlockquotes));
+    appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(d->largeHeadingSizesEnabled));
+    appSettings.setValue(GW_SIDEBAR_OPEN_KEY, QVariant(d->sidebarVisible));
+    appSettings.setValue(GW_HTML_PREVIEW_OPEN_KEY, QVariant(d->htmlPreviewVisible));
+    appSettings.setValue(GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
+    appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
+    appSettings.setValue(GW_LOCALE_KEY, QVariant(d->locale));
+    appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d->fileHistoryEnabled));
+    appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(d->insertSpacesForTabsEnabled));
+    appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(d->tabWidth));
+    appSettings.setValue(GW_THEME_KEY, QVariant(d->themeName));
+    appSettings.setValue(GW_DARK_MODE_KEY, QVariant(d->darkModeEnabled));
+    appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(d->useUnderlineForEmphasis));
 
     appSettings.sync();
 }
 
 QString AppSettings::themeDirectoryPath() const
 {
-    return d_func()->themeDirectoryPath;
+    Q_D(const AppSettings);
+    
+    return d->themeDirectoryPath;
 }
 
 QString AppSettings::dictionaryPath() const
 {
-    return d_func()->dictionaryPath;
+    Q_D(const AppSettings);
+    
+    return d->dictionaryPath;
 }
 
 QString AppSettings::translationsPath() const
 {
-    return d_func()->translationsPath;
+    Q_D(const AppSettings);
+    
+    return d->translationsPath;
 }
 
 bool AppSettings::autoSaveEnabled() const
 {
-    return d_func()->autoSaveEnabled;
+    Q_D(const AppSettings);
+    
+    return d->autoSaveEnabled;
 }
 
 void AppSettings::setAutoSaveEnabled(bool enabled)
 {
-    d_func()->autoSaveEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->autoSaveEnabled = enabled;
     emit autoSaveChanged(enabled);
 }
 
 bool AppSettings::backupFileEnabled() const
 {
-    return d_func()->backupFileEnabled;
+    Q_D(const AppSettings);
+    
+    return d->backupFileEnabled;
 }
 
 void AppSettings::setBackupFileEnabled(bool enabled)
 {
-    d_func()->backupFileEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->backupFileEnabled = enabled;
     emit backupFileChanged(enabled);
 }
 
 QFont AppSettings::font() const
 {
-    return d_func()->font;
+    Q_D(const AppSettings);
+    
+    return d->font;
 }
 
 void AppSettings::setFont(const QFont &font)
 {
-    d_func()->font = font;
+    Q_D(AppSettings);
+    
+    d->font = font;
 }
 
 int AppSettings::tabWidth() const
 {
-    return d_func()->tabWidth;
+    Q_D(const AppSettings);
+    
+    return d->tabWidth;
 }
 
 void AppSettings::setTabWidth(int width)
 {
-    if ((d_func()->tabWidth >= MIN_TAB_WIDTH) && (d_func()->tabWidth <= MAX_TAB_WIDTH)) {
-        d_func()->tabWidth = width;
+    Q_D(AppSettings);
+    
+    if ((d->tabWidth >= MIN_TAB_WIDTH) && (d->tabWidth <= MAX_TAB_WIDTH)) {
+        d->tabWidth = width;
         emit tabWidthChanged(width);
     }
 }
 
 bool AppSettings::insertSpacesForTabsEnabled() const
 {
-    return d_func()->insertSpacesForTabsEnabled;
+    Q_D(const AppSettings);
+    
+    return d->insertSpacesForTabsEnabled;
 }
 
 void AppSettings::setInsertSpacesForTabsEnabled(bool enabled)
 {
-    d_func()->insertSpacesForTabsEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->insertSpacesForTabsEnabled = enabled;
     emit insertSpacesForTabsChanged(enabled);
 }
 
 bool AppSettings::useUnderlineForEmphasis() const
 {
-    return d_func()->useUnderlineForEmphasis;
+    Q_D(const AppSettings);
+    
+    return d->useUnderlineForEmphasis;
 }
 
 void AppSettings::setUseUnderlineForEmphasis(bool enabled)
 {
-    d_func()->useUnderlineForEmphasis = enabled;
+    Q_D(AppSettings);
+    
+    d->useUnderlineForEmphasis = enabled;
     emit useUnderlineForEmphasisChanged(enabled);
 }
 
 bool AppSettings::largeHeadingSizesEnabled() const
 {
-    return d_func()->largeHeadingSizesEnabled;
+    Q_D(const AppSettings);
+    
+    return d->largeHeadingSizesEnabled;
 }
 
 void AppSettings::setLargeHeadingSizesEnabled(bool enabled)
 {
-    d_func()->largeHeadingSizesEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->largeHeadingSizesEnabled = enabled;
     emit largeHeadingSizesChanged(enabled);
 }
 
 bool AppSettings::autoMatchEnabled() const
 {
-    return d_func()->autoMatchEnabled;
+    Q_D(const AppSettings);
+    
+    return d->autoMatchEnabled;
 }
 
 void AppSettings::setAutoMatchEnabled(bool enabled)
 {
-    d_func()->autoMatchEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->autoMatchEnabled = enabled;
     emit autoMatchChanged(enabled);
 }
 
 bool AppSettings::autoMatchCharEnabled(const QChar openingCharacter) const
 {
-    return d_func()->autoMatchedCharFilter.contains(openingCharacter);
+    Q_D(const AppSettings);
+    
+    return d->autoMatchedCharFilter.contains(openingCharacter);
 }
 
 void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool enabled)
 {
+    Q_D(AppSettings);
+    
     switch (openingCharacter.toLatin1()) {
     case '\"':
     case '\'':
@@ -280,11 +324,11 @@ void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool ena
     case '`':
     case '<':
         if (enabled) {
-            if (!d_func()->autoMatchedCharFilter.contains(openingCharacter)) {
-                d_func()->autoMatchedCharFilter.append(openingCharacter);
+            if (!d->autoMatchedCharFilter.contains(openingCharacter)) {
+                d->autoMatchedCharFilter.append(openingCharacter);
             }
         } else {
-            d_func()->autoMatchedCharFilter.remove(openingCharacter);
+            d->autoMatchedCharFilter.remove(openingCharacter);
         }
 
         emit autoMatchCharChanged(openingCharacter, enabled);
@@ -297,182 +341,248 @@ void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool ena
 
 bool AppSettings::bulletPointCyclingEnabled() const
 {
-    return d_func()->bulletPointCyclingEnabled;
+    Q_D(const AppSettings);
+    
+    return d->bulletPointCyclingEnabled;
 }
 
 void AppSettings::setBulletPointCyclingEnabled(bool enabled)
 {
-    d_func()->bulletPointCyclingEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->bulletPointCyclingEnabled = enabled;
     emit bulletPointCyclingChanged(enabled);
 }
 
 FocusMode AppSettings::focusMode() const
 {
-    return d_func()->focusMode;
+    Q_D(const AppSettings);
+    
+    return d->focusMode;
 }
 
 void AppSettings::setFocusMode(FocusMode focusMode)
 {
+    Q_D(AppSettings);
+    
     if ((focusMode >= FocusModeFirst) && (focusMode <= FocusModeLast)) {
-        d_func()->focusMode = focusMode;
+        d->focusMode = focusMode;
         emit focusModeChanged(focusMode);
     }
 }
 
 bool AppSettings::hideMenuBarInFullScreenEnabled() const
 {
-    return d_func()->hideMenuBarInFullScreenEnabled;
+    Q_D(const AppSettings);
+    
+    return d->hideMenuBarInFullScreenEnabled;
 }
 
 void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
 {
-    d_func()->hideMenuBarInFullScreenEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->hideMenuBarInFullScreenEnabled = enabled;
     emit hideMenuBarInFullScreenChanged(enabled);
 }
 
 bool AppSettings::fileHistoryEnabled() const
 {
-    return d_func()->fileHistoryEnabled;
+    Q_D(const AppSettings);
+    
+    return d->fileHistoryEnabled;
 }
 
 void AppSettings::setFileHistoryEnabled(bool enabled)
 {
-    d_func()->fileHistoryEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->fileHistoryEnabled = enabled;
     emit fileHistoryChanged(enabled);
 }
 
 bool AppSettings::displayTimeInFullScreenEnabled()
 {
-    return d_func()->displayTimeInFullScreenEnabled;
+    Q_D(AppSettings);
+    
+    return d->displayTimeInFullScreenEnabled;
 }
 
 void AppSettings::setDisplayTimeInFullScreenEnabled(bool enabled)
 {
-    d_func()->displayTimeInFullScreenEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->displayTimeInFullScreenEnabled = enabled;
     emit displayTimeInFullScreenChanged(enabled);
 }
 
 QString AppSettings::themeName() const
 {
-    return d_func()->themeName;
+    Q_D(const AppSettings);
+    
+    return d->themeName;
 }
 
 void AppSettings::setThemeName(const QString &name)
 {
-    d_func()->themeName = name;
+    Q_D(AppSettings);
+    
+    d->themeName = name;
 }
 
 bool AppSettings::darkModeEnabled() const
 {
-    return d_func()->darkModeEnabled;
+    Q_D(const AppSettings);
+    
+    return d->darkModeEnabled;
 }
 
 void AppSettings::setDarkModeEnabled(bool enabled)
 {
-    d_func()->darkModeEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->darkModeEnabled = enabled;
 }
 
 QString AppSettings::dictionaryLanguage() const
 {
-    return d_func()->dictionaryLanguage;
+    Q_D(const AppSettings);
+    
+    return d->dictionaryLanguage;
 }
 
 void AppSettings::setDictionaryLanguage(const QString &language)
 {
-    d_func()->dictionaryLanguage = language;
+    Q_D(AppSettings);
+    
+    d->dictionaryLanguage = language;
     emit dictionaryLanguageChanged(language);
 }
 
 QString AppSettings::locale() const
 {
-    return d_func()->locale;
+    Q_D(const AppSettings);
+    
+    return d->locale;
 }
 
 void AppSettings::setLocale(const QString &locale)
 {
-    d_func()->locale = locale;
+    Q_D(AppSettings);
+    
+    d->locale = locale;
 }
 
 bool AppSettings::liveSpellCheckEnabled() const
 {
-    return d_func()->liveSpellCheckEnabled;
+    Q_D(const AppSettings);
+    
+    return d->liveSpellCheckEnabled;
 }
 
 void AppSettings::setLiveSpellCheckEnabled(bool enabled)
 {
-    d_func()->liveSpellCheckEnabled = enabled;
+    Q_D(AppSettings);
+    
+    d->liveSpellCheckEnabled = enabled;
     emit liveSpellCheckChanged(enabled);
 }
 
 EditorWidth AppSettings::editorWidth() const
 {
-    return d_func()->editorWidth;
+    Q_D(const AppSettings);
+    
+    return d->editorWidth;
 }
 
 void AppSettings::setEditorWidth(EditorWidth editorWidth)
 {
+    Q_D(AppSettings);
+    
     if ((editorWidth >= EditorWidthFirst) && (editorWidth <= EditorWidthLast)) {
-        d_func()->editorWidth = editorWidth;
+        d->editorWidth = editorWidth;
         emit editorWidthChanged(editorWidth);
     }
 }
 
 InterfaceStyle AppSettings::interfaceStyle() const
 {
-    return d_func()->interfaceStyle;
+    Q_D(const AppSettings);
+    
+    return d->interfaceStyle;
 }
 
 void AppSettings::setInterfaceStyle(InterfaceStyle style)
 {
-    d_func()->interfaceStyle = style;
+    Q_D(AppSettings);
+    
+    d->interfaceStyle = style;
     emit interfaceStyleChanged(style);
 }
 
 bool AppSettings::italicizeBlockquotes() const
 {
-    return d_func()->italicizeBlockquotes;
+    Q_D(const AppSettings);
+    
+    return d->italicizeBlockquotes;
 }
 
 void AppSettings::setItalicizeBlockquotes(bool enabled)
 {
-    d_func()->italicizeBlockquotes = enabled;
+    Q_D(AppSettings);
+    
+    d->italicizeBlockquotes = enabled;
     emit italicizeBlockquotesChanged(enabled);
 }
 
 bool AppSettings::htmlPreviewVisible() const
 {
-    return d_func()->htmlPreviewVisible;
+    Q_D(const AppSettings);
+    
+    return d->htmlPreviewVisible;
 }
 
 void AppSettings::setHtmlPreviewVisible(bool visible)
 {
-    d_func()->htmlPreviewVisible = visible;
+    Q_D(AppSettings);
+    
+    d->htmlPreviewVisible = visible;
 }
 
 bool AppSettings::sidebarVisible() const
 {
-    return d_func()->sidebarVisible;
+    Q_D(const AppSettings);
+    
+    return d->sidebarVisible;
 }
 
 void AppSettings::setSidebarVisible(bool visible)
 {
-    d_func()->sidebarVisible = visible;
+    Q_D(AppSettings);
+    
+    d->sidebarVisible = visible;
 }
 
 Exporter *AppSettings::currentHtmlExporter() const
 {
-    return d_func()->currentHtmlExporter;
+    Q_D(const AppSettings);
+    
+    return d->currentHtmlExporter;
 }
 
 void AppSettings::setCurrentHtmlExporter(Exporter *exporter)
 {
-    d_func()->currentHtmlExporter = exporter;
+    Q_D(AppSettings);
+    
+    d->currentHtmlExporter = exporter;
     emit currentHtmlExporterChanged(exporter);
 }
 
 AppSettings::AppSettings()
     : d_ptr(new AppSettingsPrivate())
 {
+    Q_D(AppSettings);
+    
     QCoreApplication::setOrganizationName("ghostwriter");
     QCoreApplication::setApplicationName("ghostwriter");
     QCoreApplication::setApplicationVersion(APPVERSION);
@@ -504,7 +614,7 @@ AppSettings::AppSettings()
             userDir + "/settings"
         );
 
-        d_func()->translationsPath = appDir + "/translations";
+        d->translationsPath = appDir + "/translations";
     } else {
 #ifdef Q_OS_WIN32
         // On Windows, don't ever use the registry to store settings, for the
@@ -525,7 +635,7 @@ AppSettings::AppSettings()
 
         foreach (const QString &path, translationPaths) {
             if (QFile::exists(path)) {
-                d_func()->translationsPath = path;
+                d->translationsPath = path;
                 break;
             }
         }
@@ -537,7 +647,7 @@ AppSettings::AppSettings()
         themeDir.mkpath(themeDir.path());
     }
 
-    d_func()->themeDirectoryPath = themeDir.absolutePath();
+    d->themeDirectoryPath = themeDir.absolutePath();
 
     QDir dictionaryDir(userDir + "/dictionaries");
 
@@ -545,8 +655,8 @@ AppSettings::AppSettings()
         dictionaryDir.mkpath(dictionaryDir.path());
     }
 
-    d_func()->dictionaryPath = dictionaryDir.absolutePath();
-    DictionaryManager::setPath(d_func()->dictionaryPath);
+    d->dictionaryPath = dictionaryDir.absolutePath();
+    DictionaryManager::setPath(d->dictionaryPath);
 
     QStringList dictdirs;
     dictdirs.append(DictionaryManager::path());
@@ -569,11 +679,11 @@ AppSettings::AppSettings()
         || (QFontDatabase::addApplicationFont(":/resources/RobotoMono-VariableFont_wght.ttf") < 0)
     ) {
         qWarning() << "Failed to load Roboto Mono font.";
-        d_func()->defaultFont = QFont("");
-        d_func()->defaultFont.setFixedPitch(true);
-        d_func()->defaultFont.setStyleHint(QFont::Monospace);
+        d->defaultFont = QFont("");
+        d->defaultFont.setFixedPitch(true);
+        d->defaultFont.setStyleHint(QFont::Monospace);
     } else {
-        d_func()->defaultFont = QFont("Roboto Mono");
+        d->defaultFont = QFont("Roboto Mono");
     }
 
     // Last but not least, load some basic settings from the configuration file,
@@ -582,67 +692,67 @@ AppSettings::AppSettings()
     //
     QSettings appSettings;
 
-    d_func()->autoSaveEnabled = appSettings.value(GW_AUTOSAVE_KEY, QVariant(true)).toBool();
-    d_func()->backupFileEnabled = appSettings.value(GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
+    d->autoSaveEnabled = appSettings.value(GW_AUTOSAVE_KEY, QVariant(true)).toBool();
+    d->backupFileEnabled = appSettings.value(GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
 
-    d_func()->font = d_func()->defaultFont;
-    d_func()->font.fromString(appSettings.value(GW_FONT_KEY, QVariant(d_func()->defaultFont.toString())).toString());
+    d->font = d->defaultFont;
+    d->font.fromString(appSettings.value(GW_FONT_KEY, QVariant(d->defaultFont.toString())).toString());
 
-    d_func()->tabWidth = appSettings.value(GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
+    d->tabWidth = appSettings.value(GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
 
-    if ((d_func()->tabWidth < MIN_TAB_WIDTH) || (d_func()->tabWidth > MAX_TAB_WIDTH)) {
-        d_func()->tabWidth = DEFAULT_TAB_WIDTH;
+    if ((d->tabWidth < MIN_TAB_WIDTH) || (d->tabWidth > MAX_TAB_WIDTH)) {
+        d->tabWidth = DEFAULT_TAB_WIDTH;
     }
 
-    d_func()->insertSpacesForTabsEnabled = appSettings.value(GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
-    d_func()->useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
-    d_func()->largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
-    d_func()->autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
-    d_func()->autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
-    d_func()->bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
-    d_func()->focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
+    d->insertSpacesForTabsEnabled = appSettings.value(GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
+    d->useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
+    d->largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
+    d->autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
+    d->autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
+    d->bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
+    d->focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
-    if ((d_func()->focusMode < FocusModeFirst) || (d_func()->focusMode > FocusModeLast)) {
-        d_func()->focusMode = FocusModeSentence;
+    if ((d->focusMode < FocusModeFirst) || (d->focusMode > FocusModeLast)) {
+        d->focusMode = FocusModeSentence;
     }
 
-    d_func()->hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
-    d_func()->fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
-    d_func()->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
-    d_func()->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
-    d_func()->darkModeEnabled = appSettings.value(GW_DARK_MODE_KEY, QVariant(true)).toBool();
-    d_func()->dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
+    d->hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
+    d->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
+    d->darkModeEnabled = appSettings.value(GW_DARK_MODE_KEY, QVariant(true)).toBool();
+    d->dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
 
     // Determine locale for dictionary language (for use in spell checking).
-    QString language = DictionaryManager::instance().availableDictionary(d_func()->dictionaryLanguage);
+    QString language = DictionaryManager::instance().availableDictionary(d->dictionaryLanguage);
 
     // If we have an available dictionary, then set the default dictionary language.
     if (!language.isNull() && !language.isEmpty()) {
         DictionaryManager::instance().setDefaultLanguage(language);
     }
 
-    d_func()->locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
-    d_func()->liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
-    d_func()->editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
-    d_func()->interfaceStyle = (InterfaceStyle) appSettings.value(GW_INTERFACE_STYLE_KEY, QVariant(InterfaceStyleRounded)).toInt();
-    d_func()->italicizeBlockquotes = appSettings.value(GW_BLOCKQUOTE_STYLE_KEY, QVariant(false)).toBool();
+    d->locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
+    d->liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
+    d->editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
+    d->interfaceStyle = (InterfaceStyle) appSettings.value(GW_INTERFACE_STYLE_KEY, QVariant(InterfaceStyleRounded)).toInt();
+    d->italicizeBlockquotes = appSettings.value(GW_BLOCKQUOTE_STYLE_KEY, QVariant(false)).toBool();
 
-    if ((d_func()->editorWidth < EditorWidthFirst) || (d_func()->editorWidth > EditorWidthLast)) {
-        d_func()->editorWidth = EditorWidthMedium;
+    if ((d->editorWidth < EditorWidthFirst) || (d->editorWidth > EditorWidthLast)) {
+        d->editorWidth = EditorWidthMedium;
     }
 
-    if ((d_func()->interfaceStyle < InterfaceStyleFirst) || (d_func()->interfaceStyle > InterfaceStyleLast)) {
-        d_func()->interfaceStyle = InterfaceStyleRounded;
+    if ((d->interfaceStyle < InterfaceStyleFirst) || (d->interfaceStyle > InterfaceStyleLast)) {
+        d->interfaceStyle = InterfaceStyleRounded;
     }
 
-    d_func()->sidebarVisible = appSettings.value(GW_SIDEBAR_OPEN_KEY, QVariant(true)).toBool();
-    d_func()->htmlPreviewVisible = appSettings.value(GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
+    d->sidebarVisible = appSettings.value(GW_SIDEBAR_OPEN_KEY, QVariant(true)).toBool();
+    d->htmlPreviewVisible = appSettings.value(GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
 
     QString exporterName = appSettings.value(GW_LAST_USED_EXPORTER_KEY).toString();
-    d_func()->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
+    d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
 
-    if (nullptr == d_func()->currentHtmlExporter) {
-        d_func()->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
+    if (nullptr == d->currentHtmlExporter) {
+        d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
     }
 }
 }

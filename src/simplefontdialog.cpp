@@ -61,9 +61,11 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     : QDialog(parent),
       d_ptr(new SimpleFontDialogPrivate())
 {
+    Q_D(SimpleFontDialog);
+
     QFontComboBox *fontComboBox = new QFontComboBox(this);
     fontComboBox->setCurrentFont(initial);
-    d_func()->font = initial;
+    d->font = initial;
 
     QVBoxLayout *familyLayout = new QVBoxLayout();
     familyLayout->addWidget(new QLabel(tr("Family")));
@@ -116,12 +118,12 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     sizeLayout->addWidget(new QLabel(tr("Size")));
     sizeLayout->addWidget(sizeComboBox);
 
-    d_func()->fontPreview = new QLineEdit(tr("AaBbCcXxYyZz"), this);
-    d_func()->fontPreview->setFont(initial);
+    d->fontPreview = new QLineEdit(tr("AaBbCcXxYyZz"), this);
+    d->fontPreview->setFont(initial);
 
     QVBoxLayout *previewLayout = new QVBoxLayout();
     previewLayout->addWidget(new QLabel(tr("Preview")));
-    previewLayout->addWidget(d_func()->fontPreview);
+    previewLayout->addWidget(d->fontPreview);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Ok);
@@ -142,25 +144,25 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     (
         fontComboBox,
         &QFontComboBox::currentFontChanged,
-    [this](const QFont & newFont) {
-        d_func()->onFontFamilyChanged(newFont);
-    }
+        [d](const QFont & newFont) {
+            d->onFontFamilyChanged(newFont);
+        }
     );
     this->connect
     (
         sizeComboBox,
         static_cast<void (QComboBox::*)(const QString &)>(&QComboBox::currentIndexChanged),
-    [this](const QString & sizeText) {
-        d_func()->onFontSizeChanged(sizeText);
-    }
+        [d](const QString & sizeText) {
+            d->onFontSizeChanged(sizeText);
+        }
     );
     this->connect
     (
         sizeComboBox,
         &QComboBox::editTextChanged,
-    [this](const QString & sizeText) {
-        d_func()->onFontSizeChanged(sizeText);
-    }
+        [d](const QString & sizeText) {
+            d->onFontSizeChanged(sizeText);
+        }
     );
 }
 
@@ -171,7 +173,9 @@ SimpleFontDialog::~SimpleFontDialog()
 
 QFont SimpleFontDialog::selectedFont() const
 {
-    return d_func()->font;
+    Q_D(const SimpleFontDialog);
+
+    return d->font;
 }
 
 QFont SimpleFontDialog::font

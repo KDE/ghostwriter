@@ -45,11 +45,13 @@ SessionStatisticsWidget::SessionStatisticsWidget(QWidget *parent) :
     AbstractStatisticsWidget(parent),
     d_ptr(new SessionStatisticsWidgetPrivate())
 {
-    d_func()->wordCountLabel = addStatisticLabel(tr("Words Written:"), "0");
-    d_func()->pageCountLabel = addStatisticLabel(tr("Pages Written:"), LESS_THAN_ONE_STR, PAGE_STATISTIC_INFO_TOOLTIP_STR);
-    d_func()->wpmLabel = addStatisticLabel(tr("Average WPM:"), "0");
-    d_func()->writingTimeLabel = addStatisticLabel(tr("Total Time:"), LESS_THAN_ONE_MINUTE_STR);
-    d_func()->idleTimePercentageLabel = addStatisticLabel(tr("Idle Time:"), "100%");
+    Q_D(SessionStatisticsWidget);
+
+    d->wordCountLabel = addStatisticLabel(tr("Words Written:"), "0");
+    d->pageCountLabel = addStatisticLabel(tr("Pages Written:"), LESS_THAN_ONE_STR, PAGE_STATISTIC_INFO_TOOLTIP_STR);
+    d->wpmLabel = addStatisticLabel(tr("Average WPM:"), "0");
+    d->writingTimeLabel = addStatisticLabel(tr("Total Time:"), LESS_THAN_ONE_MINUTE_STR);
+    d->idleTimePercentageLabel = addStatisticLabel(tr("Idle Time:"), "100%");
 }
 
 SessionStatisticsWidget::~SessionStatisticsWidget()
@@ -59,26 +61,36 @@ SessionStatisticsWidget::~SessionStatisticsWidget()
 
 void SessionStatisticsWidget::setWordCount(int value)
 {
-    setIntegerValueForLabel(d_func()->wordCountLabel, value);
+    Q_D(SessionStatisticsWidget);
+
+    setIntegerValueForLabel(d->wordCountLabel, value);
 }
 
 void SessionStatisticsWidget::setPageCount(int value)
 {
-    setPageValueForLabel(d_func()->pageCountLabel, value);
+    Q_D(SessionStatisticsWidget);
+
+    setPageValueForLabel(d->pageCountLabel, value);
 }
 
 void SessionStatisticsWidget::setWordsPerMinute(int value)
 {
-    setIntegerValueForLabel(d_func()->wpmLabel, value);
+    Q_D(SessionStatisticsWidget);
+
+    setIntegerValueForLabel(d->wpmLabel, value);
 }
 
 void SessionStatisticsWidget::setWritingTime(unsigned long minutes)
 {
-    setTimeValueForLabel(d_func()->writingTimeLabel, minutes);
+    Q_D(SessionStatisticsWidget);
+
+    setTimeValueForLabel(d->writingTimeLabel, minutes);
 }
 
 void SessionStatisticsWidget::setIdleTime(int percentage)
 {
-    setPercentageValueForLabel(d_func()->idleTimePercentageLabel, percentage);
+    Q_D(SessionStatisticsWidget);
+
+    setPercentageValueForLabel(d->idleTimePercentageLabel, percentage);
 }
 } // namespace ghostwriter

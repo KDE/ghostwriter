@@ -46,8 +46,10 @@ public:
 Theme::Theme()
     : d_ptr(new ThemePrivate())
 {
-    d_func()->readOnly = false;
-    d_func()->darkColorSchemeAvailable = false;
+    Q_D(Theme);
+
+    d->readOnly = false;
+    d->darkColorSchemeAvailable = false;
 }
 
 Theme::Theme
@@ -58,11 +60,13 @@ Theme::Theme
 )
     : d_ptr(new ThemePrivate())
 {
-    d_func()->name = name;
-    d_func()->readOnly = builtIn;
-    d_func()->lightColors = colors;
-    d_func()->darkColors = colors;
-    d_func()->darkColorSchemeAvailable = false;
+    Q_D(Theme);
+
+    d->name = name;
+    d->readOnly = builtIn;
+    d->lightColors = colors;
+    d->darkColors = colors;
+    d->darkColorSchemeAvailable = false;
 }
 
 Theme::Theme
@@ -74,21 +78,25 @@ Theme::Theme
 )
     : d_ptr(new ThemePrivate())
 {
-    d_func()->name = name;
-    d_func()->readOnly = builtIn;
-    d_func()->lightColors = lightColors;
-    d_func()->darkColors = darkColors;
-    d_func()->darkColorSchemeAvailable = true;
+    Q_D(Theme);
+
+    d->name = name;
+    d->readOnly = builtIn;
+    d->lightColors = lightColors;
+    d->darkColors = darkColors;
+    d->darkColorSchemeAvailable = true;
 }
 
 Theme::Theme(const Theme &other)
     : d_ptr(new ThemePrivate())
 {
-    d_func()->name = other.d_func()->name;
-    d_func()->readOnly = other.d_func()->readOnly;
-    d_func()->darkColors = other.d_func()->darkColors;
-    d_func()->lightColors = other.d_func()->lightColors;
-    d_func()->darkColorSchemeAvailable = other.d_func()->darkColorSchemeAvailable;
+    Q_D(Theme);
+
+    d->name = other.d_func()->name;
+    d->readOnly = other.d_func()->readOnly;
+    d->darkColors = other.d_func()->darkColors;
+    d->lightColors = other.d_func()->lightColors;
+    d->darkColorSchemeAvailable = other.d_func()->darkColorSchemeAvailable;
 }
 
 Theme::~Theme()
@@ -98,12 +106,14 @@ Theme::~Theme()
 
 Theme &Theme::operator=(const Theme &other)
 {
+    Q_D(Theme);
+
     if (this != &other) {
-        d_func()->name = other.d_func()->name;
-        d_func()->lightColors = other.d_func()->lightColors;
-        d_func()->darkColors = other.d_func()->darkColors;
-        d_func()->readOnly = other.d_func()->readOnly;
-        d_func()->darkColorSchemeAvailable = other.d_func()->darkColorSchemeAvailable;
+        d->name = other.d_func()->name;
+        d->lightColors = other.d_func()->lightColors;
+        d->darkColors = other.d_func()->darkColors;
+        d->readOnly = other.d_func()->readOnly;
+        d->darkColorSchemeAvailable = other.d_func()->darkColorSchemeAvailable;
     }
 
     return *this;
@@ -111,47 +121,65 @@ Theme &Theme::operator=(const Theme &other)
 
 QString Theme::name() const
 {
-    return d_func()->name;
+    Q_D(const Theme);
+
+    return d->name;
 }
 
 void Theme::Theme::setName(const QString &value)
 {
-    d_func()->name = value;
+    Q_D(Theme);
+
+    d->name = value;
 }
 
 bool Theme::isReadOnly() const
 {
-    return d_func()->readOnly;
+    Q_D(const Theme);
+
+    return d->readOnly;
 }
 
 void Theme::setReadOnly(const bool readOnly)
 {
-    d_func()->readOnly = readOnly;
+    Q_D(Theme);
+
+    d->readOnly = readOnly;
 }
 
 bool Theme::hasDarkColorScheme() const
 {
-    return d_func()->darkColorSchemeAvailable;
+    Q_D(const Theme);
+
+    return d->darkColorSchemeAvailable;
 }
 
 const ColorScheme &Theme::darkColorScheme() const
 {
-    return d_func()->darkColors;
+    Q_D(const Theme);
+
+    return d->darkColors;
 }
 
 void Theme::setDarkColorScheme(const ColorScheme &colors)
 {
-    d_func()->darkColors = colors;
-    d_func()->darkColorSchemeAvailable = true;
+    Q_D(Theme);
+
+    d->darkColors = colors;
+    d->darkColorSchemeAvailable = true;
 }
 
 const ColorScheme &Theme::lightColorScheme() const
 {
-    return d_func()->lightColors;
+    Q_D(const Theme);
+
+    return d->lightColors;
 }
 
 void Theme::setLightColorScheme(const ColorScheme &colors)
 {
-    d_func()->lightColors = colors;
+    Q_D(Theme);
+
+    d->lightColors = colors;
 }
 } // namespace ghostwriter

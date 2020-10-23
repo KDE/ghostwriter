@@ -102,18 +102,24 @@ ExporterFactory *ExporterFactory::instance()
 
 QList<Exporter *> ExporterFactory::fileExporters()
 {
-    return d_func()->fileExporters;
+    Q_D(ExporterFactory);
+    
+    return d->fileExporters;
 }
 
 QList<Exporter *> ExporterFactory::htmlExporters()
 {
-    return d_func()->htmlExporters;
+    Q_D(ExporterFactory);
+    
+    return d->htmlExporters;
 }
 
 Exporter *ExporterFactory::exporterByName(const QString &name)
 {
+    Q_D(ExporterFactory);
+    
     // Search in HTML exporter list first.
-    foreach (Exporter *exporter, d_func()->htmlExporters) {
+    foreach (Exporter *exporter, d->htmlExporters) {
         if (exporter->name() == name) {
             // Found a match!
             return exporter;
@@ -124,7 +130,7 @@ Exporter *ExporterFactory::exporterByName(const QString &name)
     // with the desired name, search in the file exporter
     // list next.
     //
-    foreach (Exporter *exporter, d_func()->fileExporters) {
+    foreach (Exporter *exporter, d->fileExporters) {
         if (exporter->name() == name) {
             // Found a match!
             return exporter;
@@ -138,21 +144,23 @@ Exporter *ExporterFactory::exporterByName(const QString &name)
 ExporterFactory::ExporterFactory()
     : d_ptr(new ExporterFactoryPrivate())
 {
+    Q_D(ExporterFactory);
+    
     CommandLineExporter *exporter = nullptr;
-    bool pandocIsAvailable = d_func()->isCommandAvailable("pandoc --version");
-    bool mmdIsAvailable = d_func()->isCommandAvailable("multimarkdown --version");
-    bool cmarkIsAvailable = d_func()->isCommandAvailable("cmark --version");
+    bool pandocIsAvailable = d->isCommandAvailable("pandoc --version");
+    bool mmdIsAvailable = d->isCommandAvailable("multimarkdown --version");
+    bool cmarkIsAvailable = d->isCommandAvailable("cmark --version");
 
     CmarkGfmExporter *cmarkGfmExporter = new CmarkGfmExporter();
-    d_func()->fileExporters.append(cmarkGfmExporter);
-    d_func()->htmlExporters.append(cmarkGfmExporter);
+    d->fileExporters.append(cmarkGfmExporter);
+    d->htmlExporters.append(cmarkGfmExporter);
 
     if (pandocIsAvailable) {
         int majorVersion = 0;
         int minorVersion = 0;
 
         // Check whether version of Pandoc can read CommonMark.
-        QList<int> versionNumber = d_func()->extractVersionNumber("pandoc --version");
+        QList<int> versionNumber = d->extractVersionNumber("pandoc --version");
 
         if (versionNumber.length() > 0) {
             majorVersion = versionNumber[0];
@@ -162,26 +170,26 @@ ExporterFactory::ExporterFactory()
             }
         }
 
-        d_func()->addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
+        d->addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
 
         if
         (
             (majorVersion > 1) ||
             ((1 == majorVersion) && (minorVersion >= 14))
         ) {
-            d_func()->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
         }
 
-        d_func()->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
-        d_func()->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
-        d_func()->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
-        d_func()->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
+        d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
+        d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
+        d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
+        d->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
     }
 
     if (mmdIsAvailable) {
         int majorVersion = 0;
 
-        QList<int> versionNumber = d_func()->extractVersionNumber("multimarkdown --version");
+        QList<int> versionNumber = d->extractVersionNumber("multimarkdown --version");
 
         if (versionNumber.length() > 0) {
             majorVersion = versionNumber[0];
@@ -266,8 +274,8 @@ ExporterFactory::ExporterFactory()
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
             .arg(CommandLineExporter::OUTPUT_FILE_PATH_VAR)
         );
-        d_func()->fileExporters.append(exporter);
-        d_func()->htmlExporters.append(exporter);
+        d->fileExporters.append(exporter);
+        d->htmlExporters.append(exporter);
     }
 
     if (cmarkIsAvailable) {
@@ -293,8 +301,8 @@ ExporterFactory::ExporterFactory()
             QString("cmark -t man %1")
             .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG)
         );
-        d_func()->fileExporters.append(exporter);
-        d_func()->htmlExporters.append(exporter);
+        d->fileExporters.append(exporter);
+        d->htmlExporters.append(exporter);
     }
 }
 

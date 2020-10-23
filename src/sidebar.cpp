@@ -55,40 +55,42 @@ Sidebar::Sidebar(QWidget *parent)
     : QFrame(parent),
       d_ptr(new SidebarPrivate())
 {
-    d_func()->stack = new QStackedWidget(this);
+    Q_D(Sidebar);
+
+    d->stack = new QStackedWidget(this);
 
     this->setObjectName("sidebar");
     this->setContentsMargins(0, 0, 0, 0);
 
-    d_func()->tabs = new QVBoxLayout();
-    d_func()->tabs->setObjectName("sidebarTabs");
-    d_func()->tabs->setAlignment(Qt::AlignTop | Qt::AlignCenter);
-    d_func()->tabs->setSpacing(0);
-    d_func()->tabs->setMargin(0);
-    d_func()->tabs->setContentsMargins(0, 0, 0, 0);
-    d_func()->tabs->setSizeConstraint(QLayout::SetMinimumSize);
+    d->tabs = new QVBoxLayout();
+    d->tabs->setObjectName("sidebarTabs");
+    d->tabs->setAlignment(Qt::AlignTop | Qt::AlignCenter);
+    d->tabs->setSpacing(0);
+    d->tabs->setMargin(0);
+    d->tabs->setContentsMargins(0, 0, 0, 0);
+    d->tabs->setSizeConstraint(QLayout::SetMinimumSize);
 
-    d_func()->tabGroup = new QButtonGroup(this);
-    d_func()->tabGroup->setExclusive(true);
+    d->tabGroup = new QButtonGroup(this);
+    d->tabGroup->setExclusive(true);
 
     this->connect
     (
-        d_func()->tabGroup,
+        d->tabGroup,
         static_cast<void (QButtonGroup::*)(QAbstractButton *)>(&QButtonGroup::buttonClicked),
-        [this](QAbstractButton *tab) {
-            int index = d_func()->tabs->indexOf(tab);
-            d_func()->stack->setCurrentIndex(index);
-            d_func()->stack->currentWidget()->setFocus();
+        [d](QAbstractButton *tab) {
+            int index = d->tabs->indexOf(tab);
+            d->stack->setCurrentIndex(index);
+            d->stack->currentWidget()->setFocus();
         }
     );
 
-    d_func()->buttons = new QVBoxLayout();
-    d_func()->buttons->setObjectName("sidebarButtons");
-    d_func()->buttons->setAlignment(Qt::AlignBottom | Qt::AlignCenter);
-    d_func()->buttons->setSpacing(0);
-    d_func()->buttons->setMargin(0);
-    d_func()->buttons->setContentsMargins(0, 0, 0, 0);
-    d_func()->buttons->setSizeConstraint(QLayout::SetMinimumSize);
+    d->buttons = new QVBoxLayout();
+    d->buttons->setObjectName("sidebarButtons");
+    d->buttons->setAlignment(Qt::AlignBottom | Qt::AlignCenter);
+    d->buttons->setSpacing(0);
+    d->buttons->setMargin(0);
+    d->buttons->setContentsMargins(0, 0, 0, 0);
+    d->buttons->setSizeConstraint(QLayout::SetMinimumSize);
 
     QVBoxLayout *leftBarLayout = new QVBoxLayout();
     leftBarLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
@@ -96,16 +98,16 @@ Sidebar::Sidebar(QWidget *parent)
     leftBarLayout->setMargin(0);
     leftBarLayout->setContentsMargins(0, 0, 0, 0);
     leftBarLayout->setSizeConstraint(QLayout::SetMinimumSize);
-    leftBarLayout->addLayout(d_func()->tabs);
+    leftBarLayout->addLayout(d->tabs);
     leftBarLayout->addStretch(1);
-    leftBarLayout->addLayout(d_func()->buttons);
+    leftBarLayout->addLayout(d->buttons);
 
     QHBoxLayout *layout = new QHBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->addLayout(leftBarLayout);
-    layout->addWidget(d_func()->stack);
+    layout->addWidget(d->stack);
     layout->setSizeConstraint(QLayout::SetNoConstraint);
     this->setLayout(layout);
 }
@@ -121,7 +123,9 @@ void Sidebar::addTab
     QWidget *widget
 )
 {
-    this->insertTab(d_func()->tabs->count(), button, widget);
+    Q_D(Sidebar);
+
+    this->insertTab(d->tabs->count(), button, widget);
 }
 
 void Sidebar::insertTab
@@ -131,39 +135,43 @@ void Sidebar::insertTab
     QWidget *widget
 )
 {
+    Q_D(Sidebar);
+
     if (index < 0) {
         index = 0;
-    } else if (index > d_func()->tabs->count()) {
-        index = d_func()->tabs->count();
+    } else if (index > d->tabs->count()) {
+        index = d->tabs->count();
     }
     
     button->setParent(this);
     button->setCheckable(true);
 
-    if (d_func()->tabs->count() < 1) {
+    if (d->tabs->count() < 1) {
         button->setChecked(true);
     }
 
-    d_func()->stack->insertWidget(index, widget);
-    d_func()->tabs->insertWidget(index, button);
-    d_func()->tabGroup->addButton(button);
+    d->stack->insertWidget(index, widget);
+    d->tabs->insertWidget(index, button);
+    d->tabGroup->addButton(button);
 }
 
 void Sidebar::removeTab(int index)
 {
-    if (d_func()->tabs->count() <= 0) {
+    Q_D(Sidebar);
+
+    if (d->tabs->count() <= 0) {
         return;
     }
 
     if (index < 0) {
         index = 0;
-    } else if (index > d_func()->tabs->count()) {
-        index = d_func()->tabs->count() - 1;
+    } else if (index > d->tabs->count()) {
+        index = d->tabs->count() - 1;
     }
 
     int activeTabIndex = 0;
 
-    if (d_func()->stack->currentIndex() == activeTabIndex) {        
+    if (d->stack->currentIndex() == activeTabIndex) {        
         if (activeTabIndex > 0) {
             activeTabIndex--;
         } else {
@@ -171,20 +179,20 @@ void Sidebar::removeTab(int index)
         }
     }
 
-    if (nullptr != d_func()->stack->widget(index)) {
-        d_func()->stack->removeWidget(d_func()->stack->widget(index));
+    if (nullptr != d->stack->widget(index)) {
+        d->stack->removeWidget(d->stack->widget(index));
     }
 
-    QLayoutItem *item = d_func()->tabs->takeAt(index);
+    QLayoutItem *item = d->tabs->takeAt(index);
 
     if ((nullptr != item) && (nullptr != item->widget())) {
-        d_func()->tabGroup->removeButton((QAbstractButton *) item->widget());
+        d->tabGroup->removeButton((QAbstractButton *) item->widget());
         item->widget()->deleteLater();
     }
 
-    if (d_func()->stack->count() > 0) {
-        d_func()->stack->setCurrentIndex(activeTabIndex);
-        QPushButton *tab = (QPushButton *) d_func()->tabs->itemAt(activeTabIndex);
+    if (d->stack->count() > 0) {
+        d->stack->setCurrentIndex(activeTabIndex);
+        QPushButton *tab = (QPushButton *) d->tabs->itemAt(activeTabIndex);
 
         if (nullptr != tab) {
             tab->setChecked(true);
@@ -194,54 +202,66 @@ void Sidebar::removeTab(int index)
 
 void Sidebar::setCurrentTabIndex(int index)
 {
+    Q_D(Sidebar);
+
     if (index < 0) {
         index = 0;
-    } else if (index > d_func()->tabs->count()) {
-        index = d_func()->tabs->count() - 1;
+    } else if (index > d->tabs->count()) {
+        index = d->tabs->count() - 1;
     }
 
-    QPushButton *tab = (QPushButton *) d_func()->tabs->itemAt(index)->widget();
+    QPushButton *tab = (QPushButton *) d->tabs->itemAt(index)->widget();
     tab->setChecked(true);
 
-    d_func()->stack->setCurrentIndex(index);
-    d_func()->stack->currentWidget()->setFocus();
+    d->stack->setCurrentIndex(index);
+    d->stack->currentWidget()->setFocus();
 }
 
 int Sidebar::tabCount() const
 {
-    return d_func()->tabs->count();
+    Q_D(const Sidebar);
+
+    return d->tabs->count();
 }
 
 int Sidebar::buttonCount() const
 {
-    return d_func()->buttons->count();
+    Q_D(const Sidebar);
+
+    return d->buttons->count();
 }
 
 void Sidebar::addButton(QPushButton *button)
 {
-    this->insertButton(d_func()->buttons->count(), button);
+    Q_D(Sidebar);
+
+    this->insertButton(d->buttons->count(), button);
 }
 
 void Sidebar::insertButton(int index, QPushButton *button)
 {
+    Q_D(Sidebar);
+
     if (index < 0) {
         index = 0;
-    } else if (index > d_func()->buttons->count()) {
-        index = d_func()->buttons->count();
+    } else if (index > d->buttons->count()) {
+        index = d->buttons->count();
     }
 
-    d_func()->buttons->insertWidget(index, button);
+    d->buttons->insertWidget(index, button);
 }
 
 void Sidebar::removeButton(int index)
 {
+    Q_D(Sidebar);
+
     if (index < 0) {
         index = 0;
-    } else if (index >= d_func()->buttons->count()) {
-        index = d_func()->buttons->count() - 1;
+    } else if (index >= d->buttons->count()) {
+        index = d->buttons->count() - 1;
     }
 
-    d_func()->buttons->takeAt(index);
+    d->buttons->takeAt(index);
 }
 
 void Sidebar::hideEvent(QHideEvent *event)

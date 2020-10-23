@@ -83,18 +83,20 @@ ThemeRepository *ThemeRepository::instance()
 ThemeRepository::ThemeRepository()
     : d_ptr(new ThemeRepositoryPrivate())
 {
-    d_func()->themeDirectoryPath = AppSettings::instance()->themeDirectoryPath();
-    d_func()->themeDirectory = QDir(d_func()->themeDirectoryPath);
+    Q_D(ThemeRepository);
+    
+    d->themeDirectoryPath = AppSettings::instance()->themeDirectoryPath();
+    d->themeDirectory = QDir(d->themeDirectoryPath);
 
-    if (!d_func()->themeDirectory.exists()) {
-        d_func()->themeDirectory.mkpath(d_func()->themeDirectory.path());
+    if (!d->themeDirectory.exists()) {
+        d->themeDirectory.mkpath(d->themeDirectory.path());
     }
 
-    d_func()->themeDirectory.setFilter(QDir::Files | QDir::Readable | QDir::Writable);
-    d_func()->themeDirectory.setSorting(QDir::Name);
-    d_func()->themeDirectory.setNameFilters(QStringList("*.json"));
+    d->themeDirectory.setFilter(QDir::Files | QDir::Readable | QDir::Writable);
+    d->themeDirectory.setSorting(QDir::Name);
+    d->themeDirectory.setNameFilters(QStringList("*.json"));
 
-    QFileInfoList themeFiles = d_func()->themeDirectory.entryInfoList();
+    QFileInfoList themeFiles = d->themeDirectory.entryInfoList();
     QMap<QString, QString> sortedThemes;
 
     for (int i = 0; i < themeFiles.size(); i++) {
@@ -102,11 +104,11 @@ ThemeRepository::ThemeRepository()
         sortedThemes.insertMulti(baseName.toLower(), baseName);
     }
 
-    d_func()->customThemeNames = sortedThemes.values();
+    d->customThemeNames = sortedThemes.values();
 
     // Set up built-in themes.
-    d_func()->loadClassicTheme();
-    d_func()->loadPlainstractionTheme();
+    d->loadClassicTheme();
+    d->loadPlainstractionTheme();
 }
 
 ThemeRepository::~ThemeRepository()
@@ -116,35 +118,41 @@ ThemeRepository::~ThemeRepository()
 
 QStringList ThemeRepository::availableThemes() const
 {
+    Q_D(const ThemeRepository);
+    
     QStringList themeNames;
 
-    foreach (Theme theme, d_func()->builtInThemes) {
+    foreach (Theme theme, d->builtInThemes) {
         themeNames.append(theme.name());
     }
 
-    themeNames << d_func()->customThemeNames;
+    themeNames << d->customThemeNames;
     return themeNames;
 }
 
 Theme ThemeRepository::defaultTheme() const
 {
+    Q_D(const ThemeRepository);
+    
     QString err;
-    return d_func()->builtInThemes[0];
+    return d->builtInThemes[0];
 }
 
 Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
 {
-    Theme theme = d_func()->builtInThemes[0];
+    Q_D(const ThemeRepository);
+    
+    Theme theme = d->builtInThemes[0];
     err = QString();
 
-    for (int i = 0; i < d_func()->builtInThemes.size(); i++) {
-        if (d_func()->builtInThemes[i].name() == name) {
-            return d_func()->builtInThemes[i];
+    for (int i = 0; i < d->builtInThemes.size(); i++) {
+        if (d->builtInThemes[i].name() == name) {
+            return d->builtInThemes[i];
         }
     }
 
-    if (d_func()->customThemeNames.contains(name)) {
-        QString themeFilePath = d_func()->themeDirectoryPath + QString("/") +
+    if (d->customThemeNames.contains(name)) {
+        QString themeFilePath = d->themeDirectoryPath + QString("/") +
                                 name + ".json";
 
         QFileInfo themeFileInfo(themeFilePath);
@@ -170,7 +178,7 @@ Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
         if (json.isNull() || !json.isObject() || json.isEmpty()) {
             err = tr("Invalid theme format: %1")
                   .arg(themeFilePath);
-            return d_func()->builtInThemes[0];
+            return d->builtInThemes[0];
         }
 
         QJsonObject themeObject = json.object();
@@ -178,13 +186,13 @@ Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
         QJsonValue darkColorsObj = themeObject.value("dark");
         Theme theme;
 
-        if (d_func()->isValidJsonObj(lightColorsObj) && d_func()->isValidJsonObj(darkColorsObj)) {
+        if (d->isValidJsonObj(lightColorsObj) && d->isValidJsonObj(darkColorsObj)) {
             ColorScheme lightColors;
             ColorScheme darkColors;
             bool valid = true;
 
-            valid &= d_func()->loadColorsFromJsonObject(lightColorsObj.toObject(), lightColors);
-            valid &= d_func()->loadColorsFromJsonObject(darkColorsObj.toObject(), darkColors);
+            valid &= d->loadColorsFromJsonObject(lightColorsObj.toObject(), lightColors);
+            valid &= d->loadColorsFromJsonObject(darkColorsObj.toObject(), darkColors);
 
             if (!valid) {
                 err = tr("Invalid or missing value(s) in %1").arg(themeFileInfo.completeBaseName());
@@ -193,7 +201,7 @@ Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
             theme = Theme(name, lightColors, darkColors, false);
         } else {
             ColorScheme colors;
-            bool valid = d_func()->loadColorsFromJsonObject(themeObject, colors);
+            bool valid = d->loadColorsFromJsonObject(themeObject, colors);
 
             if (!valid) {
                 err = tr("Invalid or missing value(s) in %1").arg(themeFileInfo.completeBaseName());
@@ -213,6 +221,8 @@ Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
 
 void ThemeRepository::deleteTheme(const QString &name, QString &err)
 {
+    Q_D(ThemeRepository);
+    
     err = QString();
 
     QFile themeFile(this->themeFilePath(name));
@@ -224,18 +234,20 @@ void ThemeRepository::deleteTheme(const QString &name, QString &err)
     }
 
     // Finally, remove the theme from the available themes list.
-    d_func()->customThemeNames.removeOne(name);
+    d->customThemeNames.removeOne(name);
 }
 
 void ThemeRepository::saveTheme(const QString &name, Theme &theme, QString &err)
 {
+    Q_D(ThemeRepository);
+    
     err = QString();
 
     // Check if theme was renamed.  If so, rename the theme's file.
     if (theme.name() != name) {
         // Check for rename to default name.
-        for (int i = 0; i < d_func()->builtInThemes.size(); i++) {
-            if (theme.name() == d_func()->builtInThemes[i].name()) {
+        for (int i = 0; i < d->builtInThemes.size(); i++) {
+            if (theme.name() == d->builtInThemes[i].name()) {
                 err = tr("'%1' already exists.  Please choose another name.").arg(theme.name());
                 return;
             }
@@ -257,10 +269,10 @@ void ThemeRepository::saveTheme(const QString &name, Theme &theme, QString &err)
             }
 
             // Now update the available themes list with the new theme name.
-            for (int i = 0; i < d_func()->customThemeNames.size(); i++) {
-                if (name == d_func()->customThemeNames[i]) {
-                    d_func()->customThemeNames[i] = theme.name();
-                    std::sort(d_func()->customThemeNames.begin(), d_func()->customThemeNames.end());
+            for (int i = 0; i < d->customThemeNames.size(); i++) {
+                if (name == d->customThemeNames[i]) {
+                    d->customThemeNames[i] = theme.name();
+                    std::sort(d->customThemeNames.begin(), d->customThemeNames.end());
                     break;
                 }
             }
@@ -271,13 +283,13 @@ void ThemeRepository::saveTheme(const QString &name, Theme &theme, QString &err)
 
     if (!theme.hasDarkColorScheme()) {
         QJsonObject colorsObj;
-        d_func()->insertColorsIntoJsonObject(colorsObj, theme.lightColorScheme());
+        d->insertColorsIntoJsonObject(colorsObj, theme.lightColorScheme());
         json.setObject(colorsObj);
     } else {
         QJsonObject lightColorsObj;
         QJsonObject darkColorsObj;
-        d_func()->insertColorsIntoJsonObject(lightColorsObj, theme.lightColorScheme());
-        d_func()->insertColorsIntoJsonObject(darkColorsObj, theme.darkColorScheme());
+        d->insertColorsIntoJsonObject(lightColorsObj, theme.lightColorScheme());
+        d->insertColorsIntoJsonObject(darkColorsObj, theme.darkColorScheme());
 
         QJsonObject colorsObj;
         colorsObj.insert("light", lightColorsObj);
@@ -297,23 +309,29 @@ void ThemeRepository::saveTheme(const QString &name, Theme &theme, QString &err)
     themeFile.close();
 
     if (isNewTheme) {
-        d_func()->customThemeNames.append(theme.name());
-        std::sort(d_func()->customThemeNames.begin(), d_func()->customThemeNames.end());
+        d->customThemeNames.append(theme.name());
+        std::sort(d->customThemeNames.begin(), d->customThemeNames.end());
     }
 }
 
 QDir ThemeRepository::themeDirectory() const
 {
-    return d_func()->themeDirectory;
+    Q_D(const ThemeRepository);
+    
+    return d->themeDirectory;
 }
 
 QString ThemeRepository::themeFilePath(const QString &themeName) const
 {
-    return d_func()->themeDirectoryPath + "/" + themeName + ".json";
+    Q_D(const ThemeRepository);
+    
+    return d->themeDirectoryPath + "/" + themeName + ".json";
 }
 
 QString ThemeRepository::generateUntitledThemeName() const
 {
+    Q_D(const ThemeRepository);
+    
     QString name = tr("Untitled 1");
     int count = 1;
     bool availableNameFound = false;
@@ -321,8 +339,8 @@ QString ThemeRepository::generateUntitledThemeName() const
     while (!availableNameFound) {
         bool tryAgain = false;
 
-        for (int i = 0; i < d_func()->customThemeNames.size(); i++) {
-            if (name == d_func()->customThemeNames[i]) {
+        for (int i = 0; i < d->customThemeNames.size(); i++) {
+            if (name == d->customThemeNames[i]) {
                 count++;
                 name = tr("Untitled %1").arg(count);
                 tryAgain = true;

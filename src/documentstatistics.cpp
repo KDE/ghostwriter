@@ -81,15 +81,17 @@ public:
 DocumentStatistics::DocumentStatistics(MarkdownDocument *document, QObject *parent)
     : QObject(parent), d_ptr(new DocumentStatisticsPrivate(this))
 {
-    d_func()->document = document;
-    d_func()->wordCount = 0;
-    d_func()->wordCharacterCount = 0;
-    d_func()->sentenceCount = 0;
-    d_func()->paragraphCount = 0;
-    d_func()->lixLongWordCount = 0;
+    Q_D(DocumentStatistics);
 
-    connect(d_func()->document, SIGNAL(contentsChange(int, int, int)), this, SLOT(onTextChanged(int, int, int)));
-    connect(d_func()->document, SIGNAL(textBlockRemoved(const QTextBlock &)), this, SLOT(onTextBlockRemoved(const QTextBlock &)));
+    d->document = document;
+    d->wordCount = 0;
+    d->wordCharacterCount = 0;
+    d->sentenceCount = 0;
+    d->paragraphCount = 0;
+    d->lixLongWordCount = 0;
+
+    connect(d->document, SIGNAL(contentsChange(int, int, int)), this, SLOT(onTextChanged(int, int, int)));
+    connect(d->document, SIGNAL(textBlockRemoved(const QTextBlock &)), this, SLOT(onTextBlockRemoved(const QTextBlock &)));
 }
 
 DocumentStatistics::~DocumentStatistics()
@@ -99,7 +101,9 @@ DocumentStatistics::~DocumentStatistics()
 
 int DocumentStatistics::wordCount() const
 {
-    return d_func()->wordCount;
+    Q_D(const DocumentStatistics);
+    
+    return d->wordCount;
 }
 
 void DocumentStatistics::onTextSelected
@@ -109,11 +113,13 @@ void DocumentStatistics::onTextSelected
     int selectionEnd
 )
 {
+    Q_D(DocumentStatistics);
+    
     int selectionWordCount;
     int selectionLixLongWordCount;
     int selectionWordCharacterCount;
 
-    d_func()->countWords
+    d->countWords
     (
         selectedText,
         selectionWordCount,
@@ -121,13 +127,13 @@ void DocumentStatistics::onTextSelected
         selectionWordCharacterCount
     );
 
-    int selectionSentenceCount = d_func()->countSentences(selectedText);
+    int selectionSentenceCount = d->countSentences(selectedText);
 
     // Count the number of selected paragraphs.
     int selectedParagraphCount = 0;
 
-    QTextBlock block = d_func()->document->findBlock(selectionStart);
-    QTextBlock end = d_func()->document->findBlock(selectionEnd).next();
+    QTextBlock block = d->document->findBlock(selectionStart);
+    QTextBlock end = d->document->findBlock(selectionEnd).next();
 
     while (block != end) {
         TextBlockData *blockData = (TextBlockData *) block.userData();
@@ -143,20 +149,24 @@ void DocumentStatistics::onTextSelected
     emit characterCountChanged(selectedText.length());
     emit sentenceCountChanged(selectionSentenceCount);
     emit paragraphCountChanged(selectedParagraphCount);
-    emit pageCountChanged(d_func()->calculatePageCount(selectionWordCount));
-    emit complexWordsChanged(d_func()->calculateComplexWords(selectionWordCount, selectionLixLongWordCount));
-    emit readingTimeChanged(d_func()->calculateReadingTime(selectionWordCount));
-    emit lixReadingEaseChanged(d_func()->calculateLIX(selectionWordCount, selectionLixLongWordCount, selectionSentenceCount));
-    emit readabilityIndexChanged(d_func()->calculateCLI(selectionWordCharacterCount, selectionWordCount, selectionSentenceCount));
+    emit pageCountChanged(d->calculatePageCount(selectionWordCount));
+    emit complexWordsChanged(d->calculateComplexWords(selectionWordCount, selectionLixLongWordCount));
+    emit readingTimeChanged(d->calculateReadingTime(selectionWordCount));
+    emit lixReadingEaseChanged(d->calculateLIX(selectionWordCount, selectionLixLongWordCount, selectionSentenceCount));
+    emit readabilityIndexChanged(d->calculateCLI(selectionWordCharacterCount, selectionWordCount, selectionSentenceCount));
 }
 
 void DocumentStatistics::onTextDeselected()
 {
-    d_func()->updateStatistics();
+    Q_D(DocumentStatistics);
+    
+    d->updateStatistics();
 }
 
 void DocumentStatistics::onTextChanged(int position, int charsRemoved, int charsAdded)
 {
+    Q_D(DocumentStatistics);
+    
     Q_UNUSED(charsRemoved)
 
     int startIndex = position - charsRemoved;
@@ -167,59 +177,63 @@ void DocumentStatistics::onTextChanged(int position, int charsRemoved, int chars
 
     int endIndex = position + charsAdded;
 
-    if ((endIndex < startIndex) || (endIndex >= d_func()->document->characterCount())) {
-        endIndex = d_func()->document->characterCount() - 1;
+    if ((endIndex < startIndex) || (endIndex >= d->document->characterCount())) {
+        endIndex = d->document->characterCount() - 1;
     }
 
     // Update the word counts of affected blocks.  Note that there is no need to
     // check for changes to section headings, since the Highlighter class will
     // take care of this for us.
     //
-    QTextBlock startBlock = d_func()->document->findBlock(startIndex);
-    QTextBlock endBlock = d_func()->document->findBlock(endIndex);
+    QTextBlock startBlock = d->document->findBlock(startIndex);
+    QTextBlock endBlock = d->document->findBlock(endIndex);
 
     QTextBlock block = startBlock;
 
-    d_func()->updateBlockStatistics(block);
+    d->updateBlockStatistics(block);
 
     while (block != endBlock) {
         block = block.next();
-        d_func()->updateBlockStatistics(block);
+        d->updateBlockStatistics(block);
     }
 
-    d_func()->updateStatistics();
+    d->updateStatistics();
 }
 
 void DocumentStatistics::onTextBlockRemoved(const QTextBlock &block)
 {
+    Q_D(DocumentStatistics);
+    
     TextBlockData *blockData = (TextBlockData *) block.userData();
 
     if (nullptr != blockData) {
-        d_func()->wordCount -= blockData->wordCount;
-        d_func()->lixLongWordCount -= blockData->lixLongWordCount;
-        d_func()->wordCharacterCount -= blockData->alphaNumericCharacterCount;
-        d_func()->sentenceCount -= blockData->sentenceCount;
+        d->wordCount -= blockData->wordCount;
+        d->lixLongWordCount -= blockData->lixLongWordCount;
+        d->wordCharacterCount -= blockData->alphaNumericCharacterCount;
+        d->sentenceCount -= blockData->sentenceCount;
 
         if (!blockData->blankLine) {
-            d_func()->paragraphCount--;
+            d->paragraphCount--;
         }
 
-        d_func()->updateStatistics();
+        d->updateStatistics();
     }
 }
 
 void DocumentStatisticsPrivate::updateStatistics()
 {
-    emit q_func()->wordCountChanged(wordCount);
-    emit q_func()->totalWordCountChanged(wordCount);
-    emit q_func()->characterCountChanged(document->characterCount() - 1);
-    emit q_func()->sentenceCountChanged(sentenceCount);
-    emit q_func()->paragraphCountChanged(paragraphCount);
-    emit q_func()->pageCountChanged(calculatePageCount(wordCount));
-    emit q_func()->complexWordsChanged(calculateComplexWords(wordCount, lixLongWordCount));
-    emit q_func()->readingTimeChanged(calculateReadingTime(wordCount));
-    emit q_func()->lixReadingEaseChanged(calculateLIX(wordCount, lixLongWordCount, sentenceCount));
-    emit q_func()->readabilityIndexChanged(calculateCLI(wordCharacterCount, wordCount, sentenceCount));
+    Q_Q(DocumentStatistics);
+    
+    emit q->wordCountChanged(wordCount);
+    emit q->totalWordCountChanged(wordCount);
+    emit q->characterCountChanged(document->characterCount() - 1);
+    emit q->sentenceCountChanged(sentenceCount);
+    emit q->paragraphCountChanged(paragraphCount);
+    emit q->pageCountChanged(calculatePageCount(wordCount));
+    emit q->complexWordsChanged(calculateComplexWords(wordCount, lixLongWordCount));
+    emit q->readingTimeChanged(calculateReadingTime(wordCount));
+    emit q->lixReadingEaseChanged(calculateLIX(wordCount, lixLongWordCount, sentenceCount));
+    emit q->readabilityIndexChanged(calculateCLI(wordCharacterCount, wordCount, sentenceCount));
 }
 
 void DocumentStatisticsPrivate::updateBlockStatistics(QTextBlock &block)

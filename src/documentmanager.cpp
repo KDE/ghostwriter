@@ -166,110 +166,128 @@ DocumentManager::DocumentManager
 ) : QObject(parent),
     d_ptr(new DocumentManagerPrivate(this))
 {
-    d_func()->editor = editor;
-    d_func()->fileHistoryEnabled = true;
-    d_func()->createBackupOnSave = true;
-    d_func()->saveInProgress = false;
-    d_func()->autoSaveEnabled = false;
-    d_func()->documentModifiedNotifVisible = false;
-    d_func()->saveFutureWatcher = new QFutureWatcher<QString>(this);
+    Q_D(DocumentManager);
+    
+    d->editor = editor;
+    d->fileHistoryEnabled = true;
+    d->createBackupOnSave = true;
+    d->saveInProgress = false;
+    d->autoSaveEnabled = false;
+    d->documentModifiedNotifVisible = false;
+    d->saveFutureWatcher = new QFutureWatcher<QString>(this);
 
-    d_func()->fileWatcher = new QFileSystemWatcher(this);
-    d_func()->document = (MarkdownDocument *) editor->document();
+    d->fileWatcher = new QFileSystemWatcher(this);
+    d->document = (MarkdownDocument *) editor->document();
 
     // Set up auto-save timer to save the file once every minute.
-    d_func()->autoSaveTimer = new QTimer(this);
-    d_func()->autoSaveTimer->start(60000);
+    d->autoSaveTimer = new QTimer(this);
+    d->autoSaveTimer->start(60000);
 
     this->connect
     (
-        d_func()->autoSaveTimer,
+        d->autoSaveTimer,
         &QTimer::timeout,
-    [this]() {
-        d_func()->autoSaveFile();
-    }
+        [d]() {
+            d->autoSaveFile();
+        }
     );
 
 
     connect
     (
-        d_func()->document,
+        d->document,
         &MarkdownDocument::modificationChanged,
-    [this](bool modified) {
-        if
-        (
-            d_func()->document->isNew()
-            || d_func()->document->isReadOnly()
-            || !d_func()->autoSaveEnabled
-        ) {
-            emit documentModifiedChanged(modified);
+        [this, d](bool modified) {
+            if
+            (
+                d->document->isNew()
+                || d->document->isReadOnly()
+                || !d->autoSaveEnabled
+            ) {
+                emit documentModifiedChanged(modified);
+            }
         }
-    }
     );
 
     this->connect
     (
-        d_func()->saveFutureWatcher,
+        d->saveFutureWatcher,
         &QFutureWatcher<QString>::finished,
-    [this]() {
-        d_func()->onSaveCompleted();
-    }
+        [d]() {
+            d->onSaveCompleted();
+        }
     );
 
     this->connect
     (
-        d_func()->fileWatcher,
+        d->fileWatcher,
         &QFileSystemWatcher::fileChanged,
-    [this](const QString & path) {
-        d_func()->onFileChangedExternally(path);
-    }
+        [d](const QString & path) {
+            d->onFileChangedExternally(path);
+        }
     );
 }
 
 DocumentManager::~DocumentManager()
 {
-    d_func()->saveFutureWatcher->waitForFinished();
+    Q_D(DocumentManager);
+    
+    d->saveFutureWatcher->waitForFinished();
 }
 
 MarkdownDocument *DocumentManager::document() const
 {
-    return d_func()->document;
+    Q_D(const DocumentManager);
+    
+    return d->document;
 }
 
 bool DocumentManager::autoSaveEnabled() const
 {
-    return d_func()->autoSaveEnabled;
+    Q_D(const DocumentManager);
+    
+    return d->autoSaveEnabled;
 }
 
 bool DocumentManager::fileBackupEnabled() const
 {
-    return d_func()->createBackupOnSave;
+    Q_D(const DocumentManager);
+    
+    return d->createBackupOnSave;
 }
 
 void DocumentManager::setFileHistoryEnabled(bool enabled)
 {
-    d_func()->fileHistoryEnabled = enabled;
+    Q_D(DocumentManager);
+    
+    d->fileHistoryEnabled = enabled;
 }
 
 void DocumentManager::setAutoSaveEnabled(bool enabled)
 {
-    d_func()->autoSaveEnabled = enabled;
+    Q_D(DocumentManager);
+    
+    d->autoSaveEnabled = enabled;
 
     if (enabled) {
         emit documentModifiedChanged(false);
-    } else if (d_func()->document->isModified()) {
-        d_func()->document->setModified(false);
+    } else if (d->document->isModified()) {
+        d->document->setModified(false);
     }
 }
 
 void DocumentManager::setFileBackupEnabled(bool enabled)
 {
-    d_func()->createBackupOnSave = enabled;
+    Q_D(DocumentManager);
+    
+    d->createBackupOnSave = enabled;
 }
 
 void DocumentManager::open(const QString &filePath)
 {
-    if (d_func()->checkSaveChanges()) {
+    Q_D(DocumentManager);
+    
+    if (d->checkSaveChanges()) {
         QString path;
 
         if (!filePath.isNull() && !filePath.isEmpty()) {
@@ -277,14 +295,14 @@ void DocumentManager::open(const QString &filePath)
         } else {
             QString startingDirectory = QString();
 
-            if (!d_func()->document->isNew()) {
-                startingDirectory = QFileInfo(d_func()->document->filePath()).dir().path();
+            if (!d->document->isNew()) {
+                startingDirectory = QFileInfo(d->document->filePath()).dir().path();
             }
 
             path =
                 QFileDialog::getOpenFileName
                 (
-                    d_func()->editor,
+                    d->editor,
                     tr("Open File"),
                     startingDirectory,
                     DocumentManagerPrivate::FILE_CHOOSER_FILTER
@@ -297,7 +315,7 @@ void DocumentManager::open(const QString &filePath)
             if (!fileInfo.isReadable()) {
                 MessageBoxHelper::critical
                 (
-                    d_func()->editor,
+                    d->editor,
                     tr("Could not open %1").arg(path),
                     tr("Permission denied.")
                 );
@@ -305,18 +323,18 @@ void DocumentManager::open(const QString &filePath)
                 return;
             }
 
-            QString oldFilePath = d_func()->document->filePath();
-            int oldCursorPosition = d_func()->editor->textCursor().position();
-            bool oldFileWasNew = d_func()-> document->isNew();
+            QString oldFilePath = d->document->filePath();
+            int oldCursorPosition = d->editor->textCursor().position();
+            bool oldFileWasNew = d-> document->isNew();
 
-            if (!d_func()->loadFile(path)) {
+            if (!d->loadFile(path)) {
                 // The error dialog should already have been displayed
                 // in loadFile().
                 //
                 return;
-            } else if (oldFilePath == d_func()->document->filePath()) {
-                d_func()->editor->navigateDocument(oldCursorPosition);
-            } else if (d_func()->fileHistoryEnabled) {
+            } else if (oldFilePath == d->document->filePath()) {
+                d->editor->navigateDocument(oldCursorPosition);
+            } else if (d->fileHistoryEnabled) {
                 if (!oldFileWasNew) {
                     DocumentHistory history;
                     history.add
@@ -340,12 +358,14 @@ void DocumentManager::open(const QString &filePath)
 
 void DocumentManager::reopenLastClosedFile()
 {
-    if (d_func()->fileHistoryEnabled) {
+    Q_D(DocumentManager);
+    
+    if (d->fileHistoryEnabled) {
         DocumentHistory history;
         QStringList recentFiles = history.recentFiles(2);
 
-        if (!d_func()->document->isNew()) {
-            recentFiles.removeAll(d_func()->document->filePath());
+        if (!d->document->isNew()) {
+            recentFiles.removeAll(d->document->filePath());
         }
 
         if (!recentFiles.isEmpty()) {
@@ -357,13 +377,15 @@ void DocumentManager::reopenLastClosedFile()
 
 void DocumentManager::reload()
 {
-    if (!d_func()->document->isNew()) {
-        if (d_func()->document->isModified()) {
+    Q_D(DocumentManager);
+    
+    if (!d->document->isNew()) {
+        if (d->document->isModified()) {
             // Prompt user if he wants to save changes.
             int response =
                 MessageBoxHelper::question
                 (
-                    d_func()->editor,
+                    d->editor,
                     tr("The document has been modified."),
                     tr("Discard changes?"),
                     QMessageBox::Yes | QMessageBox::No,
@@ -375,45 +397,47 @@ void DocumentManager::reload()
             }
         }
 
-        QTextCursor cursor = d_func()->editor->textCursor();
+        QTextCursor cursor = d->editor->textCursor();
         int pos = cursor.position();
 
-        if (d_func()->loadFile(d_func()->document->filePath())) {
+        if (d->loadFile(d->document->filePath())) {
             cursor.setPosition(pos);
-            d_func()->editor->setTextCursor(cursor);
+            d->editor->setTextCursor(cursor);
         }
     }
 }
 
 void DocumentManager::rename()
 {
-    if (d_func()->document->isNew()) {
+    Q_D(DocumentManager);
+    
+    if (d->document->isNew()) {
         saveAs();
     } else {
         QString filePath =
             QFileDialog::getSaveFileName
             (
-                d_func()->editor,
+                d->editor,
                 tr("Rename File"),
                 QString(),
                 DocumentManagerPrivate::FILE_CHOOSER_FILTER
             );
 
         if (!filePath.isNull() && !filePath.isEmpty()) {
-            QFile file(d_func()->document->filePath());
+            QFile file(d->document->filePath());
             bool success = file.rename(filePath);
 
             if (!success) {
                 MessageBoxHelper::critical
                 (
-                    d_func()->editor,
-                    tr("Failed to rename %1").arg(d_func()->document->filePath()),
+                    d->editor,
+                    tr("Failed to rename %1").arg(d->document->filePath()),
                     file.errorString()
                 );
                 return;
             }
 
-            d_func()->setFilePath(filePath);
+            d->setFilePath(filePath);
             save();
         }
     }
@@ -421,34 +445,38 @@ void DocumentManager::rename()
 
 bool DocumentManager::save()
 {
-    if (d_func()->document->isNew() || !d_func()->checkPermissionsBeforeSave()) {
+    Q_D(DocumentManager);
+    
+    if (d->document->isNew() || !d->checkPermissionsBeforeSave()) {
         return this->saveAs();
     } else {
-        d_func()->saveFile();
+        d->saveFile();
         return true;
     }
 }
 
 bool DocumentManager::saveAs()
 {
+    Q_D(DocumentManager);
+    
     QString startingDirectory = QString();
 
-    if (!d_func()->document->isNew()) {
-        startingDirectory = QFileInfo(d_func()->document->filePath()).dir().path();
+    if (!d->document->isNew()) {
+        startingDirectory = QFileInfo(d->document->filePath()).dir().path();
     }
 
     QString filePath =
         QFileDialog::getSaveFileName
         (
-            d_func()->editor,
+            d->editor,
             tr("Save File"),
             startingDirectory,
             DocumentManagerPrivate::FILE_CHOOSER_FILTER
         );
 
     if (!filePath.isNull() && !filePath.isEmpty()) {
-        d_func()->setFilePath(filePath);
-        d_func()->saveFile();
+        d->setFilePath(filePath);
+        d->saveFile();
         return true;
     }
 
@@ -457,17 +485,19 @@ bool DocumentManager::saveAs()
 
 bool DocumentManager::close()
 {
-    if (d_func()->checkSaveChanges()) {
-        if (d_func()->saveFutureWatcher->isRunning() || d_func()->saveFutureWatcher->isStarted()) {
-            d_func()->saveFutureWatcher->waitForFinished();
+    Q_D(DocumentManager);
+    
+    if (d->checkSaveChanges()) {
+        if (d->saveFutureWatcher->isRunning() || d->saveFutureWatcher->isStarted()) {
+            d->saveFutureWatcher->waitForFinished();
         }
 
         // Get the document's information before closing it out
         // so we can store history information about it.
         //
-        QString filePath = d_func()->document->filePath();
-        int cursorPosition = d_func()->editor->textCursor().position();
-        bool documentIsNew = d_func()->document->isNew();
+        QString filePath = d->document->filePath();
+        int cursorPosition = d->editor->textCursor().position();
+        bool documentIsNew = d->document->isNew();
 
         // Set up a new, untitled document.  Note that the document
         // needs to be wiped clean before emitting the documentClosed()
@@ -480,18 +510,18 @@ bool DocumentManager::close()
         // reloading a file if a file has already been previously
         // opened in the editor.
         //
-        QTextCursor cursor(d_func()->document);
+        QTextCursor cursor(d->document);
         cursor.setPosition(0);
-        d_func()->editor->setTextCursor(cursor);
+        d->editor->setTextCursor(cursor);
 
-        d_func()->document->setPlainText("");
-        d_func()->document->clearUndoRedoStacks();
-        d_func()->editor->setReadOnly(false);
-        d_func()->document->setReadOnly(false);
-        d_func()->setFilePath(QString());
-        d_func()->document->setModified(false);
+        d->document->setPlainText("");
+        d->document->clearUndoRedoStacks();
+        d->editor->setReadOnly(false);
+        d->document->setReadOnly(false);
+        d->setFilePath(QString());
+        d->document->setModified(false);
 
-        if (d_func()->fileHistoryEnabled && !documentIsNew) {
+        if (d->fileHistoryEnabled && !documentIsNew) {
             DocumentHistory history;
             history.add
             (
@@ -510,7 +540,9 @@ bool DocumentManager::close()
 
 void DocumentManager::exportFile()
 {
-    ExportDialog exportDialog(d_func()->document);
+    Q_D(DocumentManager);
+    
+    ExportDialog exportDialog(d->document);
 
     connect(&exportDialog, SIGNAL(exportStarted(QString)), this, SIGNAL(operationStarted(QString)));
     connect(&exportDialog, SIGNAL(exportComplete()), this, SIGNAL(operationFinished()));
@@ -539,10 +571,12 @@ void DocumentManagerPrivate::onSaveCompleted()
 
 void DocumentManagerPrivate::onFileChangedExternally(const QString &path)
 {
+    Q_Q(DocumentManager);
+
     QFileInfo fileInfo(path);
 
     if (!fileInfo.exists()) {
-        emit q_func()->documentModifiedChanged(true);
+        emit q->documentModifiedChanged(true);
 
         // Make sure autosave knows the document is modified so it can
         // save it.
@@ -553,13 +587,13 @@ void DocumentManagerPrivate::onFileChangedExternally(const QString &path)
             document->setReadOnly(false);
 
             if (autoSaveEnabled) {
-                emit q_func()->documentModifiedChanged(false);
+                emit q->documentModifiedChanged(false);
             }
         } else if (!fileInfo.isWritable() && !document->isReadOnly()) {
             document->setReadOnly(true);
 
             if (document->isModified()) {
-                emit q_func()->documentModifiedChanged(true);
+                emit q->documentModifiedChanged(true);
             }
         }
 
@@ -588,7 +622,7 @@ void DocumentManagerPrivate::onFileChangedExternally(const QString &path)
             documentModifiedNotifVisible = false;
 
             if (QMessageBox::Yes == response) {
-                q_func()->reload();
+                q->reload();
             }
         }
     }
@@ -596,6 +630,8 @@ void DocumentManagerPrivate::onFileChangedExternally(const QString &path)
 
 void DocumentManagerPrivate::autoSaveFile()
 {
+    Q_Q(DocumentManager);
+
     if
     (
         this->autoSaveEnabled &&
@@ -603,14 +639,16 @@ void DocumentManagerPrivate::autoSaveFile()
         !this->document->isReadOnly() &&
         this->document->isModified()
     ) {
-        q_func()->save();
+        q->save();
     }
 }
 
 void DocumentManagerPrivate::saveFile()
 {
+    Q_Q(DocumentManager);
+
     document->setModified(false);
-    emit q_func()->documentModifiedChanged(false);
+    emit q->documentModifiedChanged(false);
 
     if
     (
@@ -643,6 +681,8 @@ void DocumentManagerPrivate::saveFile()
 
 bool DocumentManagerPrivate::loadFile(const QString &filePath)
 {
+    Q_Q(DocumentManager);
+
     QFileInfo fileInfo(filePath);
     QFile inputFile(filePath);
 
@@ -671,7 +711,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     document->setPlainText("");
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    emit q_func()->operationStarted(QObject::tr("opening %1").arg(filePath));
+    emit q->operationStarted(QObject::tr("opening %1").arg(filePath));
     QTextStream inStream(&inputFile);
 
     // Markdown files need to be in UTF-8 format, so assume that is
@@ -685,7 +725,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
 
     editor->setPlainText(text);
     editor->navigateDocument(0);
-    emit q_func()->operationUpdate();
+    emit q->operationUpdate();
 
     document->setUndoRedoEnabled(true);
 
@@ -729,18 +769,20 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     }
 
     fileWatcher->addPath(filePath);
-    emit q_func()->operationFinished();
-    emit q_func()->documentModifiedChanged(false);
+    emit q->operationFinished();
+    emit q->documentModifiedChanged(false);
     QApplication::restoreOverrideCursor();
 
     editor->centerCursor();
-    emit q_func()->documentLoaded();
+    emit q->documentLoaded();
 
     return true;
 }
 
 void DocumentManagerPrivate::setFilePath(const QString &filePath)
 {
+    Q_Q(DocumentManager);
+
     if (!document->isNew()) {
         fileWatcher->removePath(document->filePath());
     }
@@ -759,14 +801,16 @@ void DocumentManagerPrivate::setFilePath(const QString &filePath)
         document->setReadOnly(false);
     }
 
-    emit q_func()->documentDisplayNameChanged(document->displayName());
+    emit q->documentDisplayNameChanged(document->displayName());
 }
 
 bool DocumentManagerPrivate::checkSaveChanges()
 {
+    Q_Q(DocumentManager);
+
     if (document->isModified()) {
         if (autoSaveEnabled && !document->isNew() && !document->isReadOnly()) {
-            return q_func()->save();
+            return q->save();
         } else {
             // Prompt user if he wants to save changes.
             QString text;
@@ -791,9 +835,9 @@ bool DocumentManagerPrivate::checkSaveChanges()
             switch (response) {
             case QMessageBox::Save:
                 if (document->isNew()) {
-                    return q_func()->saveAs();
+                    return q->saveAs();
                 } else {
-                    return q_func()->save();
+                    return q->save();
                 }
                 break;
             case QMessageBox::Cancel:

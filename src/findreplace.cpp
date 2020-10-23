@@ -95,134 +95,136 @@ public:
 FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     : QWidget(parent), d_ptr(new FindReplacePrivate(this))
 {
-    d_func()->editor = editor;
-    d_func()->highlightTimer = nullptr;
+    Q_D(FindReplace);
+    
+    d->editor = editor;
+    d->highlightTimer = nullptr;
 
     QSettings settings;
 
-    d_func()->matchCaseButton = new QPushButton("Aa");
-    QFont buttonFont = d_func()->matchCaseButton->font();
+    d->matchCaseButton = new QPushButton("Aa");
+    QFont buttonFont = d->matchCaseButton->font();
     buttonFont.setBold(true);
     int width = QFontMetrics(buttonFont).horizontalAdvance("@@@");
 
-    d_func()->matchCaseButton->setFixedWidth(width);
-    d_func()->matchCaseButton->setFont(buttonFont);
-    d_func()->matchCaseButton->setCheckable(true);
-    d_func()->matchCaseButton->setChecked(settings.value(GW_FIND_REPLACE_MATCH_CASE, false).toBool());
-    d_func()->matchCaseButton->setToolTip(tr("Match case"));
-    d_func()->wholeWordButton = new QPushButton("“ ”");
+    d->matchCaseButton->setFixedWidth(width);
+    d->matchCaseButton->setFont(buttonFont);
+    d->matchCaseButton->setCheckable(true);
+    d->matchCaseButton->setChecked(settings.value(GW_FIND_REPLACE_MATCH_CASE, false).toBool());
+    d->matchCaseButton->setToolTip(tr("Match case"));
+    d->wholeWordButton = new QPushButton("“ ”");
     
-    d_func()->wholeWordButton->setFont(buttonFont);
-    d_func()->wholeWordButton->setFixedWidth(width);
-    d_func()->wholeWordButton->setCheckable(true);
-    d_func()->wholeWordButton->setChecked(settings.value(GW_FIND_REPLACE_WHOLE_WORD, false).toBool());
-    d_func()->wholeWordButton->setToolTip(tr("Whole word"));
-    d_func()->regularExpressionButton = new QPushButton(".*");
-    d_func()->regularExpressionButton->setFixedWidth(width);
-    d_func()->regularExpressionButton->setFont(buttonFont);
-    d_func()->regularExpressionButton->setCheckable(true);
-    d_func()->regularExpressionButton->setChecked(settings.value(GW_FIND_REPLACE_REGEX, false).toBool());
-    d_func()->regularExpressionButton->setToolTip(tr("Regular expression"));
-    d_func()->highlightMatchesButton = new QPushButton(QChar(fa::highlighter));
-    d_func()->highlightMatchesButton->setFixedWidth(width);
-    d_func()->highlightMatchesButton->setFont(d_func()->awesome->font(style::stfas, buttonFont.pointSize()));
-    d_func()->highlightMatchesButton->setCheckable(true);
-    d_func()->highlightMatchesButton->setChecked(settings.value(GW_FIND_REPLACE_HIGHLIGHT_MATCHES, false).toBool());
-    d_func()->highlightMatchesButton->setToolTip(tr("Highlight matches"));
-    this->connect(d_func()->highlightMatchesButton,
+    d->wholeWordButton->setFont(buttonFont);
+    d->wholeWordButton->setFixedWidth(width);
+    d->wholeWordButton->setCheckable(true);
+    d->wholeWordButton->setChecked(settings.value(GW_FIND_REPLACE_WHOLE_WORD, false).toBool());
+    d->wholeWordButton->setToolTip(tr("Whole word"));
+    d->regularExpressionButton = new QPushButton(".*");
+    d->regularExpressionButton->setFixedWidth(width);
+    d->regularExpressionButton->setFont(buttonFont);
+    d->regularExpressionButton->setCheckable(true);
+    d->regularExpressionButton->setChecked(settings.value(GW_FIND_REPLACE_REGEX, false).toBool());
+    d->regularExpressionButton->setToolTip(tr("Regular expression"));
+    d->highlightMatchesButton = new QPushButton(QChar(fa::highlighter));
+    d->highlightMatchesButton->setFixedWidth(width);
+    d->highlightMatchesButton->setFont(d->awesome->font(style::stfas, buttonFont.pointSize()));
+    d->highlightMatchesButton->setCheckable(true);
+    d->highlightMatchesButton->setChecked(settings.value(GW_FIND_REPLACE_HIGHLIGHT_MATCHES, false).toBool());
+    d->highlightMatchesButton->setToolTip(tr("Highlight matches"));
+    this->connect(d->highlightMatchesButton,
         &QPushButton::clicked,
-        [this](bool checked) {
-            d_func()->highlightMatches(checked);
+        [d](bool checked) {
+            d->highlightMatches(checked);
         });
 
-    d_func()->findPrevButton = new QPushButton(QChar(fa::arrowup));
-    d_func()->findPrevButton->setFlat(true);
-    d_func()->findPrevButton->setFont(d_func()->awesome->font(style::stfas, buttonFont.pointSize()));
-    d_func()->findPrevButton->setToolTip(tr("Find previous"));
-    connect(d_func()->findPrevButton, SIGNAL(pressed()), this, SLOT(findPrevious()));
-    d_func()->findNextButton = new QPushButton(QChar(fa::arrowdown));
-    d_func()->findNextButton->setFlat(true);
-    d_func()->findNextButton->setFont(d_func()->awesome->font(style::stfas, buttonFont.pointSize()));
-    d_func()->findNextButton->setToolTip(tr("Find next"));
-    connect(d_func()->findNextButton, SIGNAL(pressed()), this, SLOT(findNext()));
-    d_func()->replaceButton = new QPushButton(tr("Replace"));
-    connect(d_func()->replaceButton, SIGNAL(pressed()), this, SLOT(replace()));
-    d_func()->replaceAllButton = new QPushButton(tr("Replace All"));
-    connect(d_func()->replaceAllButton, SIGNAL(pressed()), this, SLOT(replaceAll()));
-    d_func()->replaceRowVisible = false;
+    d->findPrevButton = new QPushButton(QChar(fa::arrowup));
+    d->findPrevButton->setFlat(true);
+    d->findPrevButton->setFont(d->awesome->font(style::stfas, buttonFont.pointSize()));
+    d->findPrevButton->setToolTip(tr("Find previous"));
+    connect(d->findPrevButton, SIGNAL(pressed()), this, SLOT(findPrevious()));
+    d->findNextButton = new QPushButton(QChar(fa::arrowdown));
+    d->findNextButton->setFlat(true);
+    d->findNextButton->setFont(d->awesome->font(style::stfas, buttonFont.pointSize()));
+    d->findNextButton->setToolTip(tr("Find next"));
+    connect(d->findNextButton, SIGNAL(pressed()), this, SLOT(findNext()));
+    d->replaceButton = new QPushButton(tr("Replace"));
+    connect(d->replaceButton, SIGNAL(pressed()), this, SLOT(replace()));
+    d->replaceAllButton = new QPushButton(tr("Replace All"));
+    connect(d->replaceAllButton, SIGNAL(pressed()), this, SLOT(replaceAll()));
+    d->replaceRowVisible = false;
 
-    d_func()->findField = new QLineEdit();
-    d_func()->findField->setProperty("valid", true);
-    d_func()->findField->setFocusPolicy(Qt::StrongFocus);
-    d_func()->replaceField = new QLineEdit();
+    d->findField = new QLineEdit();
+    d->findField->setProperty("valid", true);
+    d->findField->setFocusPolicy(Qt::StrongFocus);
+    d->replaceField = new QLineEdit();
 
-    d_func()->statusLabel = new QLabel();
+    d->statusLabel = new QLabel();
 
     QPushButton *closeButton = new QPushButton(QChar(fa::timescircle), this);
     closeButton->setFlat(true);
-    closeButton->setFont(d_func()->awesome->font(style::stfas, closeButton->font().pointSize()));
+    closeButton->setFont(d->awesome->font(style::stfas, closeButton->font().pointSize()));
     closeButton->setFixedWidth(closeButton->fontMetrics().horizontalAdvance("@@"));
     closeButton->setObjectName("findReplaceCloseButton");
         
     this->connect(closeButton,
         &QPushButton::clicked,
-        [this]() {
-            d_func()->closeFindReplace();
+        [d]() {
+            d->closeFindReplace();
         }
     );
 
-    d_func()->layout = new QGridLayout();
+    d->layout = new QGridLayout();
 
-    d_func()->layout->addWidget(closeButton, 0, 0, 1, 1, Qt::AlignLeft | Qt::AlignTop);
-    d_func()->layout->addWidget(d_func()->matchCaseButton, 0, 1, 1, 1, Qt::AlignLeft);
-    d_func()->layout->addWidget(d_func()->wholeWordButton, 0, 2, 1, 1, Qt::AlignLeft);
-    d_func()->layout->addWidget(d_func()->regularExpressionButton, 0, 3, 1, 1, Qt::AlignLeft);
-    d_func()->layout->addWidget(d_func()->highlightMatchesButton, 0, 4, 1, 1, Qt::AlignLeft);
-    d_func()->layout->addWidget(new QLabel(tr("Find:")), 0, 5, 1, 1, Qt::AlignRight);
-    d_func()->layout->addWidget(d_func()->findField, 0, 6, 1, 1);
-    d_func()->layout->addWidget(d_func()->statusLabel, 0, 7, 1, 1);
-    d_func()->layout->addWidget(d_func()->findPrevButton, 0, 8, 1, 1, Qt::AlignRight);
-    d_func()->layout->addWidget(d_func()->findNextButton, 0, 9, 1, 1, Qt::AlignRight);
+    d->layout->addWidget(closeButton, 0, 0, 1, 1, Qt::AlignLeft | Qt::AlignTop);
+    d->layout->addWidget(d->matchCaseButton, 0, 1, 1, 1, Qt::AlignLeft);
+    d->layout->addWidget(d->wholeWordButton, 0, 2, 1, 1, Qt::AlignLeft);
+    d->layout->addWidget(d->regularExpressionButton, 0, 3, 1, 1, Qt::AlignLeft);
+    d->layout->addWidget(d->highlightMatchesButton, 0, 4, 1, 1, Qt::AlignLeft);
+    d->layout->addWidget(new QLabel(tr("Find:")), 0, 5, 1, 1, Qt::AlignRight);
+    d->layout->addWidget(d->findField, 0, 6, 1, 1);
+    d->layout->addWidget(d->statusLabel, 0, 7, 1, 1);
+    d->layout->addWidget(d->findPrevButton, 0, 8, 1, 1, Qt::AlignRight);
+    d->layout->addWidget(d->findNextButton, 0, 9, 1, 1, Qt::AlignRight);
 
-    d_func()->layout->addWidget(new QLabel(tr("Replace with:")), 1, 1, 1, 5, Qt::AlignRight);
-    d_func()->layout->addWidget(d_func()->replaceField, 1, 6, 1, 1);
-    d_func()->layout->addWidget(d_func()->replaceButton, 1, 7, 1, 1);
-    d_func()->layout->addWidget(d_func()->replaceAllButton, 1, 8, 1, 2);
-    d_func()->layout->setSpacing(5);
+    d->layout->addWidget(new QLabel(tr("Replace with:")), 1, 1, 1, 5, Qt::AlignRight);
+    d->layout->addWidget(d->replaceField, 1, 6, 1, 1);
+    d->layout->addWidget(d->replaceButton, 1, 7, 1, 1);
+    d->layout->addWidget(d->replaceAllButton, 1, 8, 1, 2);
+    d->layout->setSpacing(5);
 
-    if (d_func()->replaceButton->text().length() > d_func()->replaceAllButton->text().length()) {
-        d_func()->layout->setColumnMinimumWidth(8, d_func()->replaceButton->width());
+    if (d->replaceButton->text().length() > d->replaceAllButton->text().length()) {
+        d->layout->setColumnMinimumWidth(8, d->replaceButton->width());
     }
     else {
-        d_func()->layout->setColumnMinimumWidth(7, d_func()->replaceAllButton->sizeHint().width());
+        d->layout->setColumnMinimumWidth(7, d->replaceAllButton->sizeHint().width());
     }
 
-    this->setLayout(d_func()->layout);
+    this->setLayout(d->layout);
 
-    d_func()->findNextButton->setEnabled(false);
-    d_func()->findPrevButton->setEnabled(false);
-    d_func()->replaceButton->setEnabled(false);
-    d_func()->replaceAllButton->setEnabled(false);
+    d->findNextButton->setEnabled(false);
+    d->findPrevButton->setEnabled(false);
+    d->replaceButton->setEnabled(false);
+    d->replaceAllButton->setEnabled(false);
 
-    this->connect(d_func()->findField,
+    this->connect(d->findField,
         &QLineEdit::textChanged,
-        [this](const QString &text) {
+        [d](const QString &text) {
             bool enable = !text.isEmpty();
-            d_func()->findNextButton->setEnabled(enable);
-            d_func()->findPrevButton->setEnabled(enable);
-            d_func()->replaceButton->setEnabled(enable);
-            d_func()->replaceAllButton->setEnabled(enable);
+            d->findNextButton->setEnabled(enable);
+            d->findPrevButton->setEnabled(enable);
+            d->replaceButton->setEnabled(enable);
+            d->replaceAllButton->setEnabled(enable);
 
-            if (d_func()->highlightMatchesButton->isChecked()) {
-                d_func()->startHighlightTimer();
+            if (d->highlightMatchesButton->isChecked()) {
+                d->startHighlightTimer();
             }
         });
 
-    this->connect(d_func()->editor->document(),
+    this->connect(d->editor->document(),
         &QTextDocument::contentsChanged,
-        [this]() {
-            if (this->isVisible() && d_func()->highlightMatchesButton->isChecked()) {
-                d_func()->highlightMatches(true);
+        [this, d]() {
+            if (this->isVisible() && d->highlightMatchesButton->isChecked()) {
+                d->highlightMatches(true);
             }
         });
 
@@ -231,26 +233,32 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
 
 FindReplace::~FindReplace()
 {
+    Q_D(FindReplace);
+    
     QSettings settings;
-    settings.setValue(GW_FIND_REPLACE_MATCH_CASE, d_func()->matchCaseButton->isChecked());
-    settings.setValue(GW_FIND_REPLACE_WHOLE_WORD, d_func()->wholeWordButton->isChecked());
-    settings.setValue(GW_FIND_REPLACE_REGEX, d_func()->regularExpressionButton->isChecked());
-    settings.setValue(GW_FIND_REPLACE_HIGHLIGHT_MATCHES, d_func()->highlightMatchesButton->isChecked());
+    settings.setValue(GW_FIND_REPLACE_MATCH_CASE, d->matchCaseButton->isChecked());
+    settings.setValue(GW_FIND_REPLACE_WHOLE_WORD, d->wholeWordButton->isChecked());
+    settings.setValue(GW_FIND_REPLACE_REGEX, d->regularExpressionButton->isChecked());
+    settings.setValue(GW_FIND_REPLACE_HIGHLIGHT_MATCHES, d->highlightMatchesButton->isChecked());
 }
 
 bool FindReplace::focusNextPrevChild(bool next)
 {
+    Q_D(FindReplace);
+    
     Q_UNUSED(next)
     return false;
 }
 
 void FindReplace::keyPressEvent(QKeyEvent *event) 
 {
+    Q_D(FindReplace);
+    
     int key = event->key();
 
     switch (key) {
     case Qt::Key_Return:
-        if (d_func()->findField->hasFocus() || d_func()->replaceField->hasFocus()) {
+        if (d->findField->hasFocus() || d->replaceField->hasFocus()) {
             findNext();
         }
         else {
@@ -258,18 +266,18 @@ void FindReplace::keyPressEvent(QKeyEvent *event)
         }
         break;
     case Qt::Key_Tab:
-        if (d_func()->findField->hasFocus() && d_func()->replaceRowVisible) {
-            d_func()->replaceField->setFocus();
+        if (d->findField->hasFocus() && d->replaceRowVisible) {
+            d->replaceField->setFocus();
         }
-        else if (d_func()->replaceField->hasFocus() && d_func()->replaceRowVisible) {
-            d_func()->findField->setFocus();
+        else if (d->replaceField->hasFocus() && d->replaceRowVisible) {
+            d->findField->setFocus();
         }
         else {
             QWidget::keyPressEvent(event);
         }
         break;
     case Qt::Key_Escape:
-        d_func()->closeFindReplace();
+        d->closeFindReplace();
         break;
     default:
         QWidget::keyPressEvent(event);
@@ -279,95 +287,107 @@ void FindReplace::keyPressEvent(QKeyEvent *event)
 
 void FindReplace::showFindView()
 {
+    Q_D(FindReplace);
+    
     if (!this->isVisible()) {
-        d_func()->prevFocusWidget = QApplication::focusWidget();
+        d->prevFocusWidget = QApplication::focusWidget();
     }
 
     this->setVisible(true);
-    d_func()->findField->setFocus();
-    d_func()->setQueryFromSelection();
-    d_func()->setReplaceRowVisible(false);
+    d->findField->setFocus();
+    d->setQueryFromSelection();
+    d->setReplaceRowVisible(false);
 
-    if (d_func()->highlightMatchesButton->isChecked()) {
-        d_func()->highlightMatches(true);
+    if (d->highlightMatchesButton->isChecked()) {
+        d->highlightMatches(true);
     }
 }
 
 void FindReplace::showReplaceView()
 {
+    Q_D(FindReplace);
+    
     if (!this->isVisible()) {
-        d_func()->prevFocusWidget = QApplication::focusWidget();
+        d->prevFocusWidget = QApplication::focusWidget();
     }
 
     this->setVisible(true);
-    d_func()->findField->setFocus();
-    d_func()->setQueryFromSelection();
-    d_func()->setReplaceRowVisible(true);
+    d->findField->setFocus();
+    d->setQueryFromSelection();
+    d->setReplaceRowVisible(true);
 
-    if (d_func()->highlightMatchesButton->isChecked()) {
-        d_func()->highlightMatches(true);
+    if (d->highlightMatchesButton->isChecked()) {
+        d->highlightMatches(true);
     }
 }
 
 void FindReplace::findNext()
 {
+    Q_D(FindReplace);
+    
     if (!this->isVisible()) {
         showFindView();
     }
 
-    QTextCursor cursor = d_func()->editor->textCursor();
+    QTextCursor cursor = d->editor->textCursor();
 
-    if (d_func()->findMatch(cursor)) {
-        d_func()->editor->setTextCursor(cursor);
+    if (d->findMatch(cursor)) {
+        d->editor->setTextCursor(cursor);
     }
 }
 
 void FindReplace::findPrevious()
 {
+    Q_D(FindReplace);
+    
     if (!this->isVisible()) {
         showFindView();
     }
 
-    QTextCursor cursor = d_func()->editor->textCursor();
+    QTextCursor cursor = d->editor->textCursor();
 
-    if (d_func()->findMatch(cursor, true, true)) {
-        d_func()->editor->setTextCursor(cursor);
+    if (d->findMatch(cursor, true, true)) {
+        d->editor->setTextCursor(cursor);
     }
 }
 
 void FindReplace::replace()
 {
-    if (!this->isVisible() || !d_func()->replaceRowVisible) {
+    Q_D(FindReplace);
+    
+    if (!this->isVisible() || !d->replaceRowVisible) {
         showReplaceView();
     }
 
-    if (!d_func()->editor->textCursor().hasSelection()) {
+    if (!d->editor->textCursor().hasSelection()) {
         findNext();
     }
 
-    if (d_func()->editor->textCursor().hasSelection()) {
-        d_func()->editor->textCursor().insertText(d_func()->replaceField->text());
+    if (d->editor->textCursor().hasSelection()) {
+        d->editor->textCursor().insertText(d->replaceField->text());
     }
 }
 
 void FindReplace::replaceAll()
 {
-    if (!this->isVisible() || !d_func()->replaceRowVisible) {
+    Q_D(FindReplace);
+    
+    if (!this->isVisible() || !d->replaceRowVisible) {
         showReplaceView();
     }
     
-    QTextCursor cursor = d_func()->editor->textCursor();
+    QTextCursor cursor = d->editor->textCursor();
     cursor.movePosition(QTextCursor::Start);
 
     int count = 0;
 
-    while (d_func()->findMatch(cursor, false)) {
-        cursor.insertText(d_func()->replaceField->text());
+    while (d->findMatch(cursor, false)) {
+        cursor.insertText(d->replaceField->text());
         count++;
     }
 
-    d_func()->statusLabel->setText(tr("%1 replacements").arg(count));
-    d_func()->editor->setFocus();
+    d->statusLabel->setText(tr("%1 replacements").arg(count));
+    d->editor->setFocus();
 }
 
 bool FindReplacePrivate::findMatch(QTextCursor& cursor, bool wrap, bool backwards)
@@ -493,16 +513,18 @@ void FindReplacePrivate::setReplaceRowVisible(bool visible)
 
 void FindReplacePrivate::startHighlightTimer() 
 {
+    Q_Q(FindReplace);
+
     if (nullptr == this->highlightTimer) {
-        this->highlightTimer = new QTimer(q_func());
+        this->highlightTimer = new QTimer(q);
         this->highlightTimer->setSingleShot(true);
         
-        q_func()->connect
+        q->connect
         (
             this->highlightTimer,
             &QTimer::timeout,
-            [this]() {
-                if (q_func()->isVisible() && this->highlightMatchesButton->isChecked()) {
+            [this, q]() {
+                if (q->isVisible() && this->highlightMatchesButton->isChecked()) {
                     this->highlightMatches(true);
                 }
             }
@@ -518,12 +540,14 @@ void FindReplacePrivate::startHighlightTimer()
 
 void FindReplacePrivate::closeFindReplace() 
 {
+    Q_Q(FindReplace);
+    
     if (this->highlightMatchesButton->isChecked()) {
         this->highlightMatches(false);
     }
 
-    q_func()->setVisible(false);
-    q_func()->focusWidget()->clearFocus();
+    q->setVisible(false);
+    q->focusWidget()->clearFocus();
 
     if (nullptr != this->prevFocusWidget) {
         this->prevFocusWidget->setFocus();

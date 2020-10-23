@@ -46,36 +46,46 @@ public:
 MarkdownAST::MarkdownAST()
     : d_ptr(new MarkdownASTPrivate())
 {
-    d_func()->root = nullptr;
+    Q_D(MarkdownAST);
+    
+    d->root = nullptr;
 }
 
 MarkdownAST::MarkdownAST(cmark_node *root)
     : d_ptr(new MarkdownASTPrivate())
 {
+    Q_D(MarkdownAST);
+    
     setRoot(root);
 }
 
 MarkdownAST::~MarkdownAST()
 {
-    d_func()->arena.freeAll();
-    d_func()->root = nullptr;
+    Q_D(MarkdownAST);
+    
+    d->arena.freeAll();
+    d->root = nullptr;
 }
 
 MarkdownNode *MarkdownAST::root()
 {
-    return d_func()->root;
+    Q_D(MarkdownAST);
+    
+    return d->root;
 }
 
 void MarkdownAST::setRoot(cmark_node *root)
 {
-    d_func()->arena.freeAll();
+    Q_D(MarkdownAST);
+    
+    d->arena.freeAll();
 
     if (nullptr == root) {
-        d_func()->root = nullptr;
+        d->root = nullptr;
         return;
     }
 
-    d_func()->root = d_func()->arena.allocate();
+    d->root = d->arena.allocate();
 
     // Clone the node into memory that isn't allocated to
     // cmark-gfm's arena memory.
@@ -83,7 +93,7 @@ void MarkdownAST::setRoot(cmark_node *root)
     QStack<MarkdownNode *> toNodes;
 
     fromNodes.push(root);
-    toNodes.push(d_func()->root);
+    toNodes.push(d->root);
 
     while (!fromNodes.isEmpty()) {
         cmark_node *source = fromNodes.pop();
@@ -97,7 +107,7 @@ void MarkdownAST::setRoot(cmark_node *root)
 
         while (NULL != source) {
             fromNodes.push(source);
-            dest = d_func()->arena.allocate();
+            dest = d->arena.allocate();
             destParent->appendChild(dest);
             toNodes.push(dest);
             source = cmark_node_next(source);
@@ -107,12 +117,14 @@ void MarkdownAST::setRoot(cmark_node *root)
 
 MarkdownNode *MarkdownAST::findBlockAtLine(int lineNumber) const
 {
-    if ((nullptr == d_func()->root) || (MarkdownNode::Invalid == d_func()->root->type())) {
+    Q_D(const MarkdownAST);
+    
+    if ((nullptr == d->root) || (MarkdownNode::Invalid == d->root->type())) {
         return nullptr;
     }
 
     MarkdownNode *candidate = nullptr;
-    MarkdownNode *current = d_func()->root->firstChild();
+    MarkdownNode *current = d->root->firstChild();
 
     while
     (
@@ -163,13 +175,15 @@ MarkdownNode *MarkdownAST::findBlockAtLine(int lineNumber) const
 
 QVector<MarkdownNode *> MarkdownAST::headings() const
 {
+    Q_D(const MarkdownAST);
+    
     QVector<MarkdownNode *> headings;
 
-    if ((nullptr == d_func()->root) || (MarkdownNode::Invalid == d_func()->root->type())) {
+    if ((nullptr == d->root) || (MarkdownNode::Invalid == d->root->type())) {
         return headings;
     }
 
-    MarkdownNode *node = d_func()->root->firstChild();
+    MarkdownNode *node = d->root->firstChild();
 
     while (nullptr != node) {
         if (MarkdownNode::Heading == node->type()) {
@@ -184,13 +198,17 @@ QVector<MarkdownNode *> MarkdownAST::headings() const
 
 void MarkdownAST::clear()
 {
-    d_func()->arena.freeAll();
-    d_func()->root = nullptr;
+    Q_D(MarkdownAST);
+    
+    d->arena.freeAll();
+    d->root = nullptr;
 }
 
 QString MarkdownAST::toString() const
 {
-    if (nullptr == d_func()->root) {
+    Q_D(const MarkdownAST);
+    
+    if (nullptr == d->root) {
         return "AST is empty";
     }
 
@@ -199,7 +217,7 @@ QString MarkdownAST::toString() const
     QStack<MarkdownNode *> nodes;
     QStack<QString> indentation;
 
-    nodes.push(d_func()->root);
+    nodes.push(d->root);
     indentation.push("");
 
     while (!nodes.empty()) {

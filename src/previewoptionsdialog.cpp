@@ -55,9 +55,11 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     : QDialog(parent),
       d_ptr(new PreviewOptionsDialogPrivate())
 {
+    Q_D(PreviewOptionsDialog);
+
     this->setWindowTitle(tr("Preview Options"));
 
-    d_func()->exporterFactory = ExporterFactory::instance();
+    d->exporterFactory = ExporterFactory::instance();
 
     QWidget *mainContents = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout();
@@ -67,34 +69,34 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     QFormLayout *optionsLayout = new QFormLayout();
     mainContents->setLayout(optionsLayout);
 
-    d_func()->previewerComboBox = new QComboBox(this);
+    d->previewerComboBox = new QComboBox(this);
 
-    QList<Exporter *> exporters = d_func()->exporterFactory->htmlExporters();
+    QList<Exporter *> exporters = d->exporterFactory->htmlExporters();
     Exporter *currentExporter = AppSettings::instance()->currentHtmlExporter();
 
     int currentExporterIndex = 0;
 
     for (int i = 0; i < exporters.length(); i++) {
         Exporter *exporter = exporters.at(i);
-        d_func()->previewerComboBox->addItem(exporter->name(), QVariant::fromValue((void *) exporter));
+        d->previewerComboBox->addItem(exporter->name(), QVariant::fromValue((void *) exporter));
 
         if (exporter == currentExporter) {
             currentExporterIndex = i;
         }
     }
 
-    d_func()->previewerComboBox->setCurrentIndex(currentExporterIndex);
+    d->previewerComboBox->setCurrentIndex(currentExporterIndex);
 
     this->connect
     (
-        d_func()->previewerComboBox,
+        d->previewerComboBox,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-        [this](int index) {
-            d_func()->onExporterChanged(index);
+        [d](int index) {
+            d->onExporterChanged(index);
         }
     );
 
-    optionsLayout->addRow(tr("Markdown Flavor"), d_func()->previewerComboBox);
+    optionsLayout->addRow(tr("Markdown Flavor"), d->previewerComboBox);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Close);

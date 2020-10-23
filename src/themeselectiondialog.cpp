@@ -95,16 +95,18 @@ ThemeSelectionDialog::ThemeSelectionDialog
     : QDialog(parent),
       d_ptr(new ThemeSelectionDialogPrivate(this))
 {
+    Q_D(ThemeSelectionDialog);
+    
     qreal dpr = 1.0;
 
 #if QT_VERSION >= 0x050600
     dpr = devicePixelRatioF();
 #endif
 
-    d_func()->iconWidth = GW_LIST_WIDGET_ICON_WIDTH * dpr;
-    d_func()->iconHeight = GW_LIST_WIDGET_ICON_HEIGHT * dpr;
+    d->iconWidth = GW_LIST_WIDGET_ICON_WIDTH * dpr;
+    d->iconHeight = GW_LIST_WIDGET_ICON_HEIGHT * dpr;
 
-    d_func()->darkModeEnabled = darkModeEnabled;
+    d->darkModeEnabled = darkModeEnabled;
 
     this->setWindowTitle(tr("Themes"));
     this->setAttribute(Qt::WA_DeleteOnClose);
@@ -122,39 +124,39 @@ ThemeSelectionDialog::ThemeSelectionDialog
     const int columnCount = 3;
     QSize viewSize
     (
-        ((d_func()->iconWidth + frame + focush + (spacing * 2)) * columnCount) + scrollbar,
-        (d_func()->iconHeight + fontMetrics().height() + frame + focusv + (spacing * 2)) * rowCount
+        ((d->iconWidth + frame + focush + (spacing * 2)) * columnCount) + scrollbar,
+        (d->iconHeight + fontMetrics().height() + frame + focusv + (spacing * 2)) * rowCount
     );
 
     // Set up theme list
-    d_func()->themeListWidget = new QListWidget(this);
-    d_func()->themeListWidget->setSortingEnabled(true);
-    d_func()->themeListWidget->setFlow(QListView::LeftToRight);
-    d_func()->themeListWidget->setViewMode(QListView::IconMode);
-    d_func()->themeListWidget->setIconSize(QSize(d_func()->iconWidth, d_func()->iconHeight));
-    d_func()->themeListWidget->setSpacing(spacing);
-    d_func()->themeListWidget->setMovement(QListView::Static);
-    d_func()->themeListWidget->setResizeMode(QListView::Adjust);
-    d_func()->themeListWidget->setSelectionMode(QAbstractItemView::SingleSelection);
-    d_func()->themeListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    d_func()->themeListWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-    d_func()->themeListWidget->setWordWrap(true);
-    d_func()->themeListWidget->setUniformItemSizes(true);
-    d_func()->themeListWidget->setMinimumSize(viewSize);
+    d->themeListWidget = new QListWidget(this);
+    d->themeListWidget->setSortingEnabled(true);
+    d->themeListWidget->setFlow(QListView::LeftToRight);
+    d->themeListWidget->setViewMode(QListView::IconMode);
+    d->themeListWidget->setIconSize(QSize(d->iconWidth, d->iconHeight));
+    d->themeListWidget->setSpacing(spacing);
+    d->themeListWidget->setMovement(QListView::Static);
+    d->themeListWidget->setResizeMode(QListView::Adjust);
+    d->themeListWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+    d->themeListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    d->themeListWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    d->themeListWidget->setWordWrap(true);
+    d->themeListWidget->setUniformItemSizes(true);
+    d->themeListWidget->setMinimumSize(viewSize);
 
-    d_func()->currentThemeIsValid = true;
-    d_func()->currentThemeIsNew = false;
+    d->currentThemeIsValid = true;
+    d->currentThemeIsNew = false;
 
-    d_func()->buildThemeList(currentThemeName);
+    d->buildThemeList(currentThemeName);
 
     QCheckBox *darkModeCheckbox = new QCheckBox("Preview in dark mode", this);
     darkModeCheckbox->setChecked(darkModeEnabled);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     QPushButton *newThemeButton = new QPushButton(QChar(fa::plus));
-    newThemeButton->setFont(d_func()->awesome->font(style::stfas, newThemeButton->font().pointSize()));
+    newThemeButton->setFont(d->awesome->font(style::stfas, newThemeButton->font().pointSize()));
     QPushButton *deleteThemeButton = new QPushButton(QChar(fa::minus));
-    deleteThemeButton->setFont(d_func()->awesome->font(style::stfas, deleteThemeButton->font().pointSize()));
+    deleteThemeButton->setFont(d->awesome->font(style::stfas, deleteThemeButton->font().pointSize()));
     QPushButton *editThemeButton = new QPushButton(tr("Edit..."));
 
     buttonBox->addButton(newThemeButton, QDialogButtonBox::ActionRole);
@@ -162,7 +164,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
     buttonBox->addButton(editThemeButton, QDialogButtonBox::ActionRole);
     buttonBox->addButton(QDialogButtonBox::Close);
 
-    layout->addWidget(d_func()->themeListWidget, 0, 0, 1, 2);
+    layout->addWidget(d->themeListWidget, 0, 0, 1, 2);
     layout->addWidget(darkModeCheckbox, 1, 0, 1, 1, Qt::AlignLeft);
     layout->addWidget(buttonBox, 1, 1, 1, 1, Qt::AlignRight);
 
@@ -173,42 +175,42 @@ ThemeSelectionDialog::ThemeSelectionDialog
     (
         newThemeButton,
         &QPushButton::clicked,
-        [this]() {
-            d_func()->createNewTheme();
+        [d]() {
+            d->createNewTheme();
         }
     );
     this->connect
     (
         deleteThemeButton,
         &QPushButton::clicked,
-        [this]() {
-            d_func()->deleteTheme();
+        [d]() {
+            d->deleteTheme();
         }
     );
-    d_func()->themeListWidget;
+    d->themeListWidget;
     this->connect
     (
         darkModeCheckbox,
         &QCheckBox::toggled,
-        [this](bool enabled) {
-            d_func()->darkModeEnabled = enabled;
-            d_func()->buildThemeList();
+        [d](bool enabled) {
+            d->darkModeEnabled = enabled;
+            d->buildThemeList();
         }
     );
     this->connect
     (
         editThemeButton,
         &QPushButton::clicked,
-        [this]() {
-            d_func()->editTheme();
+        [d]() {
+            d->editTheme();
         }
     );
     this->connect
     (
-        d_func()->themeListWidget,
+        d->themeListWidget,
         &QListWidget::itemSelectionChanged,
-        [this]() {
-            d_func()->loadSelectedTheme();
+        [d]() {
+            d->loadSelectedTheme();
         }
     );
 }
@@ -220,7 +222,9 @@ ThemeSelectionDialog::~ThemeSelectionDialog()
 
 const Theme &ThemeSelectionDialog::theme() const
 {
-    return d_func()->currentTheme;
+    Q_D(const ThemeSelectionDialog);
+    
+    return d->currentTheme;
 }
 
 void ThemeSelectionDialogPrivate::buildThemeList(const QString &currentThemeName)
@@ -316,6 +320,8 @@ void ThemeSelectionDialogPrivate::loadSelectedTheme()
 
 void ThemeSelectionDialogPrivate::createNewTheme()
 {
+    Q_Q(ThemeSelectionDialog);
+    
     QString err = QString();
 
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
@@ -368,10 +374,10 @@ void ThemeSelectionDialogPrivate::createNewTheme()
     currentThemeIsValid = true;
     this->themeListWidget->setCurrentItem(item);
 
-    ThemeEditorDialog *themeEditorDialog = new ThemeEditorDialog(newTheme, q_func());
+    ThemeEditorDialog *themeEditorDialog = new ThemeEditorDialog(newTheme, q);
     themeEditorDialog->setAttribute(Qt::WA_DeleteOnClose);
 
-    q_func()->connect
+    q->connect
     (
         themeEditorDialog,
         &ThemeEditorDialog::finished,
@@ -386,6 +392,8 @@ void ThemeSelectionDialogPrivate::createNewTheme()
 
 void ThemeSelectionDialogPrivate::deleteTheme()
 {
+    Q_Q(ThemeSelectionDialog);
+    
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
 
     if (selectedThemes.isEmpty()) {
@@ -398,7 +406,7 @@ void ThemeSelectionDialogPrivate::deleteTheme()
     if (currentTheme.isReadOnly()) {
         MessageBoxHelper::critical
         (
-            q_func(),
+            q,
             QObject::tr("Cannot delete theme."),
             QObject::tr("Sorry, this is a built-in theme that cannot be deleted.")
         );
@@ -410,7 +418,7 @@ void ThemeSelectionDialogPrivate::deleteTheme()
     int result =
         MessageBoxHelper::question
         (
-            q_func(),
+            q,
             QObject::tr("Are you sure you want to permanently delete the '%1' theme?")
             .arg(themeName),
             QString(),
@@ -426,7 +434,7 @@ void ThemeSelectionDialogPrivate::deleteTheme()
         if (!err.isNull()) {
             MessageBoxHelper::critical
             (
-                q_func(),
+                q,
                 QObject::tr("Failed to delete theme."),
                 err
             );
@@ -444,6 +452,8 @@ void ThemeSelectionDialogPrivate::deleteTheme()
 
 void ThemeSelectionDialogPrivate::editTheme()
 {
+    Q_Q(ThemeSelectionDialog);
+    
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
 
     if (!selectedThemes.isEmpty()) {
@@ -452,7 +462,7 @@ void ThemeSelectionDialogPrivate::editTheme()
         if (currentTheme.isReadOnly()) {
             MessageBoxHelper::critical
             (
-                q_func(),
+                q,
                 QObject::tr("Cannot edit theme."),
                 QObject::tr("Sorry, this is a built-in theme that cannot be edited.")
             );
@@ -467,10 +477,10 @@ void ThemeSelectionDialogPrivate::editTheme()
             themeToEdit.setName(currentTheme.name());
         }
 
-        ThemeEditorDialog *themeEditorDialog = new ThemeEditorDialog(themeToEdit, q_func());
+        ThemeEditorDialog *themeEditorDialog = new ThemeEditorDialog(themeToEdit, q);
         themeEditorDialog->setAttribute(Qt::WA_DeleteOnClose);
 
-        q_func()->connect
+        q->connect
         (
             themeEditorDialog,
             &ThemeEditorDialog::finished,
@@ -487,6 +497,8 @@ void ThemeSelectionDialogPrivate::editTheme()
 
 void ThemeSelectionDialogPrivate::updateTheme(const Theme &theme)
 {
+    Q_Q(ThemeSelectionDialog);
+    
     // Update theme name and preview icon, as applicable.
     //
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();

@@ -70,22 +70,24 @@ CmarkGfmAPI::~CmarkGfmAPI()
 
 MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyEnabled)
 {
+    Q_D(CmarkGfmAPI);
+
     int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES;
 
     if (smartTypographyEnabled) {
         opts |= CMARK_OPT_SMART;
     }
 
-    d_func()->apiMutex.lock();
+    d->apiMutex.lock();
 
     cmark_mem *mem = cmark_get_arena_mem_allocator();
     cmark_parser *parser = cmark_parser_new_with_mem(opts, mem);
 
-    cmark_parser_attach_syntax_extension(parser, d_func()->tableExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->strikethroughExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->autolinkExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->tagfilterExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->tasklistExt);
+    cmark_parser_attach_syntax_extension(parser, d->tableExt);
+    cmark_parser_attach_syntax_extension(parser, d->strikethroughExt);
+    cmark_parser_attach_syntax_extension(parser, d->autolinkExt);
+    cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
+    cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
     cmark_parser_feed(parser, text.toLatin1().data(), text.length());
 
@@ -95,29 +97,31 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
     cmark_node_free(root);
     cmark_arena_reset();
 
-    d_func()->apiMutex.unlock();
+    d->apiMutex.unlock();
 
     return ast;
 }
 
 QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypographyEnabled)
 {
+    Q_D(CmarkGfmAPI);
+    
     int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES;
 
     if (smartTypographyEnabled) {
         opts |= CMARK_OPT_SMART;
     }
 
-    d_func()->apiMutex.lock();
+    d->apiMutex.lock();
 
     cmark_mem *mem = cmark_get_arena_mem_allocator();
     cmark_parser *parser = cmark_parser_new_with_mem(opts, mem);
 
-    cmark_parser_attach_syntax_extension(parser, d_func()->tableExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->strikethroughExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->autolinkExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->tagfilterExt);
-    cmark_parser_attach_syntax_extension(parser, d_func()->tasklistExt);
+    cmark_parser_attach_syntax_extension(parser, d->tableExt);
+    cmark_parser_attach_syntax_extension(parser, d->strikethroughExt);
+    cmark_parser_attach_syntax_extension(parser, d->autolinkExt);
+    cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
+    cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
     cmark_parser_feed(parser, text.toLatin1().data(), text.length());
 
@@ -128,7 +132,7 @@ QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypograph
     cmark_parser_free(parser);
     cmark_arena_reset();
 
-    d_func()->apiMutex.unlock();
+    d->apiMutex.unlock();
 
     return html;
 }
@@ -136,11 +140,13 @@ QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypograph
 CmarkGfmAPI::CmarkGfmAPI()
     : d_ptr(new CmarkGfmAPIPrivate())
 {
+    Q_D(CmarkGfmAPI);
+    
     cmark_gfm_core_extensions_ensure_registered();
-    d_func()->tableExt = cmark_find_syntax_extension("table");
-    d_func()->strikethroughExt = cmark_find_syntax_extension("strikethrough");
-    d_func()->autolinkExt = cmark_find_syntax_extension("autolink");
-    d_func()->tagfilterExt = cmark_find_syntax_extension("tagfilter");
-    d_func()->tasklistExt = cmark_find_syntax_extension("tasklist");
+    d->tableExt = cmark_find_syntax_extension("table");
+    d->strikethroughExt = cmark_find_syntax_extension("strikethrough");
+    d->autolinkExt = cmark_find_syntax_extension("autolink");
+    d->tagfilterExt = cmark_find_syntax_extension("tagfilter");
+    d->tasklistExt = cmark_find_syntax_extension("tasklist");
 }
 }

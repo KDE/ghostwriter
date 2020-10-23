@@ -89,7 +89,9 @@ const ExportFormat *const ExportFormat::MANPAGE
 ExportFormat::ExportFormat()
     : d_ptr(new ExportFormatPrivate())
 {
-    d_func()->fileExtensionMandatoryFlag = false;
+    Q_D(ExportFormat);
+    
+    d->fileExtensionMandatoryFlag = false;
 }
 
 ExportFormat::ExportFormat
@@ -100,11 +102,13 @@ ExportFormat::ExportFormat
     bool fileExtensionMandatory
 ) : d_ptr(new ExportFormatPrivate())
 {
+    Q_D(ExportFormat);
+    
     setName(name);
     setFileFilter(fileFilter);
 
-    d_func()->defaultFileExtension = defaultFileExtension;
-    d_func()->fileExtensionMandatoryFlag = fileExtensionMandatory;
+    d->defaultFileExtension = defaultFileExtension;
+    d->fileExtensionMandatoryFlag = fileExtensionMandatory;
 }
 
 ExportFormat::~ExportFormat()
@@ -114,49 +118,67 @@ ExportFormat::~ExportFormat()
 
 QString ExportFormat::name() const
 {
-    return d_func()->name;
+    Q_D(const ExportFormat);
+    
+    return d->name;
 }
 
 void ExportFormat::setName(const QString &value)
 {
-    d_func()->name = value;
-    d_func()->createNamedFilter();
+    Q_D(ExportFormat);
+    
+    d->name = value;
+    d->createNamedFilter();
 }
 
 QString ExportFormat::fileFilter() const
 {
-    return d_func()->fileFilter;
+    Q_D(const ExportFormat);
+    
+    return d->fileFilter;
 }
 
 void ExportFormat::setFileFilter(const QString &value)
 {
-    d_func()->fileFilter = value;
-    d_func()->createNamedFilter();
+    Q_D(ExportFormat);
+    
+    d->fileFilter = value;
+    d->createNamedFilter();
 }
 
 QString ExportFormat::namedFilter() const
 {
-    return d_func()->namedFilter;
+    Q_D(const ExportFormat);
+    
+    return d->namedFilter;
 }
 
 QString ExportFormat::defaultFileExtension() const
 {
-    return d_func()->defaultFileExtension;
+    Q_D(const ExportFormat);
+    
+    return d->defaultFileExtension;
 }
 
 void ExportFormat::setDefaultFileExtension(const QString &value)
 {
-    d_func()->defaultFileExtension = value;
+    Q_D(ExportFormat);
+    
+    d->defaultFileExtension = value;
 }
 
 bool ExportFormat::isFileExtensionMandatory() const
 {
-    return d_func()->fileExtensionMandatoryFlag;
+    Q_D(const ExportFormat);
+    
+    return d->fileExtensionMandatoryFlag;
 }
 
 void ExportFormat::setFileExtenstionMandatory(bool mandatory)
 {
-    d_func()->fileExtensionMandatoryFlag = mandatory;
+    Q_D(ExportFormat);
+    
+    d->fileExtensionMandatoryFlag = mandatory;
 }
 
 void ExportFormatPrivate::createNamedFilter()

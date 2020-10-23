@@ -88,7 +88,9 @@ ColorSchemePreviewer::ColorSchemePreviewer
     qreal dpr
 ) : d_ptr(new ColorSchemePreviewerPrivate())
 {
-    QString text = d_func()->loremIpsum;
+    Q_D(ColorSchemePreviewer);
+    
+    QString text = d->loremIpsum;
 
     text.replace("@headingMarkup", colors.headingMarkup.name());
     text.replace("@headingText", colors.headingText.name());
@@ -131,7 +133,7 @@ ColorSchemePreviewer::ColorSchemePreviewer
             color = colors.error;
         }
 
-        QFont font(d_func()->awesome->font(style::stfas, 16));
+        QFont font(d->awesome->font(style::stfas, 16));
         font.setPixelSize(22);
 
         QFontMetricsF metrics(font);
@@ -145,7 +147,7 @@ ColorSchemePreviewer::ColorSchemePreviewer
     }
 
     painter.end();
-    d_func()->thumbnailPreviewIcon = thumbnailPixmap;
+    d->thumbnailPreviewIcon = thumbnailPixmap;
 }
 
 ColorSchemePreviewer::~ColorSchemePreviewer()
@@ -155,6 +157,8 @@ ColorSchemePreviewer::~ColorSchemePreviewer()
 
 QIcon ColorSchemePreviewer::icon()
 {
-    return d_func()->thumbnailPreviewIcon;
+    Q_D(ColorSchemePreviewer);
+    
+    return d->thumbnailPreviewIcon;
 }
 } // namespace ghostwriter

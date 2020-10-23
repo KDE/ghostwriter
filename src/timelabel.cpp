@@ -52,17 +52,19 @@ TimeLabel::TimeLabel(QWidget *parent) :
     QLabel(parent),
     d_ptr(new TimeLabelPrivate(this))
 {
-    d_func()->timer = new QTimer(this);
+    Q_D(TimeLabel);
+    
+    d->timer = new QTimer(this);
     this->connect
     (
-        d_func()->timer,
+        d->timer,
         &QTimer::timeout,
-    [this]() {
-        d_func()->updateTimeOfDay();
-    }
+        [d]() {
+            d->updateTimeOfDay();
+        }
     );
 
-    d_func()->updateTimeOfDay();
+    d->updateTimeOfDay();
 }
 
 TimeLabel::~TimeLabel()
@@ -72,8 +74,10 @@ TimeLabel::~TimeLabel()
 
 void TimeLabelPrivate::updateTimeOfDay()
 {
+    Q_Q(TimeLabel);
+    
     QTime currentTime = QTime::currentTime();
-    q_func()->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
+    q->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
 
     QTime nextTime = currentTime.addSecs(60);
     nextTime.setHMS(nextTime.hour(), nextTime.minute(), 0);
