@@ -43,9 +43,6 @@ isEmpty(VERSION) {
     }
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
-DEFINES += CMARK_GFM_STATIC_DEFINE
-DEFINES += CMARK_GFM_EXTENSIONS_STATIC_DEFINE
-DEFINES += CMARK_NO_SHORT_NAMES
 
 CONFIG(debug, debug|release) {
     DESTDIR = build/debug
@@ -64,6 +61,7 @@ TARGET = ghostwriter
 
 CONFIG+=fontAwesomeFree
 include(3rdparty/QtAwesome/QtAwesome.pri)
+include(3rdparty/cmark-gfm/cmark-gfm.pri)
 
 # Input
 
@@ -76,50 +74,18 @@ macx {
 
     OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
 } else:win32 {
-
-    DEFINES += HUNSPELL_STATIC
+    include(3rdparty/hunspell/hunspell.pri)
 
     HEADERS += src/spelling/dictionary_provider_hunspell.h \
-        src/spelling/dictionary_provider_voikko.h \
-        src/spelling/hunspell/affentry.hxx \
-        src/spelling/hunspell/affixmgr.hxx \
-        src/spelling/hunspell/atypes.hxx \
-        src/spelling/hunspell/baseaffix.hxx \
-        src/spelling/hunspell/config.h \
-        src/spelling/hunspell/csutil.hxx \
-        src/spelling/hunspell/dictmgr.hxx \
-        src/spelling/hunspell/filemgr.hxx \
-        src/spelling/hunspell/hashmgr.hxx \
-        src/spelling/hunspell/htypes.hxx \
-        src/spelling/hunspell/hunspell.h \
-        src/spelling/hunspell/hunspell.hxx \
-        src/spelling/hunspell/hunvisapi.h \
-        src/spelling/hunspell/hunvisapi.h.in \
-        src/spelling/hunspell/hunzip.hxx \
-        src/spelling/hunspell/langnum.hxx \
-        src/spelling/hunspell/license.hunspell \
-        src/spelling/hunspell/phonet.hxx \
-        src/spelling/hunspell/replist.hxx \
-        src/spelling/hunspell/suggestmgr.hxx \
-        src/spelling/hunspell/w_char.hxx
+        src/spelling/dictionary_provider_voikko.h
 
     SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
-        src/spelling/dictionary_provider_voikko.cpp \
-        src/spelling/hunspell/affentry.cxx \
-        src/spelling/hunspell/affixmgr.cxx \
-        src/spelling/hunspell/csutil.cxx \
-        src/spelling/hunspell/filemgr.cxx \
-        src/spelling/hunspell/hashmgr.cxx \
-        src/spelling/hunspell/hunspell.cxx \
-        src/spelling/hunspell/hunzip.cxx \
-        src/spelling/hunspell/phonet.cxx \
-        src/spelling/hunspell/replist.cxx \
-        src/spelling/hunspell/suggestmgr.cxx
+        src/spelling/dictionary_provider_voikko.cpp
 
 } else:unix {
     CONFIG += link_pkgconfig
     PKGCONFIG += hunspell
-
+    
     HEADERS += src/spelling/dictionary_provider_hunspell.h \
         src/spelling/dictionary_provider_voikko.h
 
@@ -127,7 +93,7 @@ macx {
         src/spelling/dictionary_provider_voikko.cpp
 }
 
-INCLUDEPATH += src src/spelling src/cmark-gfm/core src/cmark-gfm/extensions
+INCLUDEPATH += src src/spelling
 
 HEADERS += \
     src/abstractstatisticswidget.h \
@@ -175,37 +141,6 @@ HEADERS += \
     src/timelabel.h \
     src/findreplace.h \
     src/color_button.h \
-    src/cmark-gfm/core/buffer.h \
-    src/cmark-gfm/core/chunk.h \
-    src/cmark-gfm/core/cmark_ctype.h \
-    src/cmark-gfm/core/cmark-gfm_export.h \
-    src/cmark-gfm/core/cmark-gfm-extension_api.h \
-    src/cmark-gfm/core/cmark-gfm.h \
-    src/cmark-gfm/core/cmark-gfm_version.h \
-    src/cmark-gfm/core/config.h \
-    src/cmark-gfm/core/footnotes.h \
-    src/cmark-gfm/core/houdini.h \
-    src/cmark-gfm/core/html.h \
-    src/cmark-gfm/core/inlines.h \
-    src/cmark-gfm/core/iterator.h \
-    src/cmark-gfm/core/map.h \
-    src/cmark-gfm/core/node.h \
-    src/cmark-gfm/core/parser.h \
-    src/cmark-gfm/core/plugin.h \
-    src/cmark-gfm/core/references.h \
-    src/cmark-gfm/core/registry.h \
-    src/cmark-gfm/core/render.h \
-    src/cmark-gfm/core/scanners.h \
-    src/cmark-gfm/core/syntax_extension.h \
-    src/cmark-gfm/core/utf8.h \
-    src/cmark-gfm/extensions/autolink.h \
-    src/cmark-gfm/extensions/cmark-gfm-core-extensions.h \
-    src/cmark-gfm/extensions/cmark-gfm-extensions_export.h \
-    src/cmark-gfm/extensions/ext_scanners.h \
-    src/cmark-gfm/extensions/strikethrough.h \
-    src/cmark-gfm/extensions/table.h \
-    src/cmark-gfm/extensions/tagfilter.h \
-    src/cmark-gfm/extensions/tasklist.h \
     src/spelling/abstract_dictionary.h \
     src/spelling/abstract_dictionary_provider.h \
     src/spelling/dictionary_manager.h \
@@ -255,40 +190,6 @@ SOURCES += \
     src/timelabel.cpp \
     src/color_button.cpp \
     src/findreplace.cpp \
-    src/cmark-gfm/core/arena.c \
-    src/cmark-gfm/core/blocks.c \
-    src/cmark-gfm/core/buffer.c \
-    src/cmark-gfm/core/cmark.c \
-    src/cmark-gfm/core/cmark_ctype.c \
-    src/cmark-gfm/core/commonmark.c \
-    src/cmark-gfm/core/footnotes.c \
-    src/cmark-gfm/core/houdini_href_e.c \
-    src/cmark-gfm/core/houdini_html_e.c \
-    src/cmark-gfm/core/houdini_html_u.c \
-    src/cmark-gfm/core/html.c \
-    src/cmark-gfm/core/inlines.c \
-    src/cmark-gfm/core/iterator.c \
-    src/cmark-gfm/core/latex.c \
-    src/cmark-gfm/core/linked_list.c \
-    src/cmark-gfm/core/man.c \
-    src/cmark-gfm/core/map.c \
-    src/cmark-gfm/core/node.c \
-    src/cmark-gfm/core/plaintext.c \
-    src/cmark-gfm/core/plugin.c \
-    src/cmark-gfm/core/references.c \
-    src/cmark-gfm/core/registry.c \
-    src/cmark-gfm/core/render.c \
-    src/cmark-gfm/core/scanners.c \
-    src/cmark-gfm/core/syntax_extension.c \
-    src/cmark-gfm/core/utf8.c \
-    src/cmark-gfm/core/xml.c \
-    src/cmark-gfm/extensions/autolink.c \
-    src/cmark-gfm/extensions/core-extensions.c \
-    src/cmark-gfm/extensions/ext_scanners.c \
-    src/cmark-gfm/extensions/strikethrough.c \
-    src/cmark-gfm/extensions/table.c \
-    src/cmark-gfm/extensions/tagfilter.c \
-    src/cmark-gfm/extensions/tasklist.c \
     src/spelling/dictionary_manager.cpp \
     src/spelling/spell_checker.cpp
 

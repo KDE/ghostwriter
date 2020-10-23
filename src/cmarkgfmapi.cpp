@@ -17,15 +17,12 @@
  *
  ***********************************************************************/
 
-#include "cmark-gfm-core-extensions.h"
-#include "cmark-gfm-extension_api.h"
-
 #include <QMutex>
 
-#include "cmarkgfmapi.h"
+#include "3rdparty/cmark-gfm/core/cmark-gfm-extension_api.h"
+#include "3rdparty/cmark-gfm/extensions/cmark-gfm-core-extensions.h"
 
-#include "cmark-gfm-core-extensions.h"
-#include "cmark-gfm-extension_api.h"
+#include "cmarkgfmapi.h"
 
 namespace ghostwriter
 {

@@ -22,7 +22,8 @@
 
 #include <QChar>
 #include <QString>
-#include "cmark-gfm.h"
+
+class cmark_node;
 
 namespace ghostwriter
 {

@@ -23,9 +23,10 @@
 #include <QLinkedList>
 #include <QScopedPointer>
 
-#include "cmark-gfm.h"
 #include "markdownnode.h"
 #include "memoryarena.h"
+
+class cmark_node;
 
 namespace ghostwriter
 {

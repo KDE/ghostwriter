@@ -20,6 +20,8 @@
 #include <QStack>
 #include <QTextStream>
 
+#include "3rdparty/cmark-gfm/core/cmark-gfm.h"
+
 #include "markdownast.h"
 
 namespace ghostwriter
