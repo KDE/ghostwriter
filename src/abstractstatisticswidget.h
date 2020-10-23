@@ -35,7 +35,7 @@ class AbstractStatisticsWidget : public QListWidget
     Q_OBJECT
 
 public:
-    AbstractStatisticsWidget(QWidget *parent = NULL);
+    AbstractStatisticsWidget(QWidget *parent = nullptr);
     virtual ~AbstractStatisticsWidget();
 
 protected:

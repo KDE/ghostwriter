@@ -74,7 +74,7 @@ void SpellChecker::add()
 {
     m_dictionary.addToPersonal(m_word);
 
-    if (NULL != m_spelling_highlighter)
+    if (nullptr != m_spelling_highlighter)
     {
         m_spelling_highlighter->rehighlight();
     }

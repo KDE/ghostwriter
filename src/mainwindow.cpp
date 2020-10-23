@@ -335,7 +335,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     this->setCentralWidget(sidebarSplitter);
 
-    quickReferenceGuideViewer = NULL;
+    quickReferenceGuideViewer = nullptr;
 
     // Show the main window.
     show();
@@ -673,7 +673,7 @@ void MainWindow::insertImage()
 
 void MainWindow::showQuickReferenceGuide()
 {
-    if (NULL == quickReferenceGuideViewer) {
+    if (nullptr == quickReferenceGuideViewer) {
         QString filePath = QString(":/resources/quickreferenceguide_") + appSettings->locale() + ".html";
 
         if (!QFileInfo(filePath).exists()) {
@@ -789,7 +789,7 @@ void MainWindow::openRecentFile()
 {
     QAction *action = qobject_cast<QAction *>(this->sender());
 
-    if (NULL != action) {
+    if (nullptr != action) {
         // Use the action's data for access to the actual file path, since
         // KDE Plasma will add a keyboard accelerator to the action's text
         // by inserting an ampersand (&) into it.
@@ -913,7 +913,7 @@ void MainWindow::copyHtml()
 {
     Exporter *htmlExporter = appSettings->currentHtmlExporter();
 
-    if (NULL != htmlExporter) {
+    if (nullptr != htmlExporter) {
         QTextCursor c = editor->textCursor();
         QString markdownText;
         QString html;

@@ -485,7 +485,7 @@ void FindReplacePrivate::setReplaceRowVisible(bool visible)
     for (int i = 0; i < this->layout->columnCount(); i++) {
         QLayoutItem* item = this->layout->itemAtPosition(1, i);
 
-        if ((NULL != item) && (NULL != item->widget())) {
+        if ((nullptr != item) && (nullptr != item->widget())) {
             item->widget()->setVisible(visible);
         }
     }

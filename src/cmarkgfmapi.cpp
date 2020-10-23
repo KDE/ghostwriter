@@ -55,11 +55,11 @@ public:
     QMutex apiMutex;
 };
 
-CmarkGfmAPI *CmarkGfmAPIPrivate::instance = NULL;
+CmarkGfmAPI *CmarkGfmAPIPrivate::instance = nullptr;
 
 CmarkGfmAPI *CmarkGfmAPI::instance()
 {
-    if (NULL == CmarkGfmAPIPrivate::instance) {
+    if (nullptr == CmarkGfmAPIPrivate::instance) {
         CmarkGfmAPIPrivate::instance = new CmarkGfmAPI();
     }
 

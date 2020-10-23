@@ -160,13 +160,13 @@ void MarkdownHighlighter::highlightBlock(const QString &text)
     int oldState = currentBlock().userState();
 
     MarkdownAST *ast = ((MarkdownDocument *) this->document())->markdownAST();
-    MarkdownNode *node = NULL;
+    MarkdownNode *node = nullptr;
 
-    if (NULL != ast) {
+    if (nullptr != ast) {
         node = ast->findBlockAtLine(line);
     }
 
-    if ((NULL != node) && (MarkdownNode::Invalid != node->type())) {
+    if ((nullptr != node) && (MarkdownNode::Invalid != node->type())) {
         d_func()->applyFormattingForNode(node);
     } else {
         setFormat(0, currentBlock().length(), d_func()->colors.foreground);
@@ -439,7 +439,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
         QTextCharFormat contextFormat = nodeFormats.pop();
         MarkdownNode::NodeType parentType = MarkdownNode::Invalid;
 
-        if (NULL != current->parent()) {
+        if (nullptr != current->parent()) {
             parentType = current->parent()->type();
         }
 
@@ -661,7 +661,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
 
                 if
                 (
-                    (NULL != current->parent())
+                    (nullptr != current->parent())
                     && (MarkdownNode::TableHeading == current->parent()->type())
                 ) {
                     format.setFontWeight(QFont::Bold);
@@ -720,7 +720,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
 
         MarkdownNode *child = current->lastChild();
 
-        while ((NULL != child) && (!child->isInvalid())) {
+        while ((nullptr != child) && (!child->isInvalid())) {
             nodes.push(child);
             nodeFormats.push(contextFormat);
             child = child->previous();
@@ -742,7 +742,7 @@ int MarkdownHighlighterPrivate::columnInLine(const MarkdownNode *const node, con
 {
     MarkdownNode::NodeType prevType = MarkdownNode::Invalid;
 
-    if (NULL != node->previous()) {
+    if (nullptr != node->previous()) {
         prevType = node->previous()->type();
     }
 

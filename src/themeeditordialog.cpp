@@ -144,7 +144,7 @@ void ThemeEditorDialogPrivate::addColorRowToLayout
     for (int i = 0; i < colors.size(); i++) {
         QColor *colorPtr = colors.at(i);
 
-        if (NULL != colorPtr) {
+        if (nullptr != colorPtr) {
             ColorButton *button = new ColorButton();
             button->setColor(*colorPtr);
             layout->addWidget(button, rowIndex, (i + 1));

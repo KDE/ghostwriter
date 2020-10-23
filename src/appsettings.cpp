@@ -109,11 +109,11 @@ public:
     QString translationsPath;
 };
 
-AppSettings *AppSettingsPrivate::instance = NULL;
+AppSettings *AppSettingsPrivate::instance = nullptr;
 
 AppSettings *AppSettings::instance()
 {
-    if (NULL == AppSettingsPrivate::instance) {
+    if (nullptr == AppSettingsPrivate::instance) {
         AppSettingsPrivate::instance = new AppSettings();
     }
 
@@ -641,7 +641,7 @@ AppSettings::AppSettings()
     QString exporterName = appSettings.value(GW_LAST_USED_EXPORTER_KEY).toString();
     d_func()->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
 
-    if (NULL == d_func()->currentHtmlExporter) {
+    if (nullptr == d_func()->currentHtmlExporter) {
         d_func()->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
     }
 }

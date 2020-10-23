@@ -46,7 +46,7 @@ public:
     /**
      * Constructor.
      */
-    Sidebar(QWidget *parent = NULL);
+    Sidebar(QWidget *parent = nullptr);
 
     /**
      * Destructor

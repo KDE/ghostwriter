@@ -132,7 +132,7 @@ void DocumentStatistics::onTextSelected
     while (block != end) {
         TextBlockData *blockData = (TextBlockData *) block.userData();
 
-        if ((NULL != blockData) && !blockData->blankLine) {
+        if ((nullptr != blockData) && !blockData->blankLine) {
             selectedParagraphCount++;
         }
 
@@ -194,7 +194,7 @@ void DocumentStatistics::onTextBlockRemoved(const QTextBlock &block)
 {
     TextBlockData *blockData = (TextBlockData *) block.userData();
 
-    if (NULL != blockData) {
+    if (nullptr != blockData) {
         d_func()->wordCount -= blockData->wordCount;
         d_func()->lixLongWordCount -= blockData->lixLongWordCount;
         d_func()->wordCharacterCount -= blockData->alphaNumericCharacterCount;
@@ -226,7 +226,7 @@ void DocumentStatisticsPrivate::updateBlockStatistics(QTextBlock &block)
 {
     TextBlockData *blockData = (TextBlockData *) block.userData();
 
-    if (NULL == blockData) {
+    if (nullptr == blockData) {
         blockData = new TextBlockData(document, block);
         block.setUserData(blockData);
     }

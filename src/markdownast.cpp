@@ -44,7 +44,7 @@ public:
 MarkdownAST::MarkdownAST()
     : d_ptr(new MarkdownASTPrivate())
 {
-    d_func()->root = NULL;
+    d_func()->root = nullptr;
 }
 
 MarkdownAST::MarkdownAST(cmark_node *root)
@@ -56,7 +56,7 @@ MarkdownAST::MarkdownAST(cmark_node *root)
 MarkdownAST::~MarkdownAST()
 {
     d_func()->arena.freeAll();
-    d_func()->root = NULL;
+    d_func()->root = nullptr;
 }
 
 MarkdownNode *MarkdownAST::root()
@@ -68,8 +68,8 @@ void MarkdownAST::setRoot(cmark_node *root)
 {
     d_func()->arena.freeAll();
 
-    if (NULL == root) {
-        d_func()->root = NULL;
+    if (nullptr == root) {
+        d_func()->root = nullptr;
         return;
     }
 
@@ -105,16 +105,16 @@ void MarkdownAST::setRoot(cmark_node *root)
 
 MarkdownNode *MarkdownAST::findBlockAtLine(int lineNumber) const
 {
-    if ((NULL == d_func()->root) || (MarkdownNode::Invalid == d_func()->root->type())) {
-        return NULL;
+    if ((nullptr == d_func()->root) || (MarkdownNode::Invalid == d_func()->root->type())) {
+        return nullptr;
     }
 
-    MarkdownNode *candidate = NULL;
+    MarkdownNode *candidate = nullptr;
     MarkdownNode *current = d_func()->root->firstChild();
 
     while
     (
-        (NULL != current)
+        (nullptr != current)
         && (current->isBlockType())
         && (MarkdownNode::TableCell != current->type())
     ) {
@@ -163,13 +163,13 @@ QVector<MarkdownNode *> MarkdownAST::headings() const
 {
     QVector<MarkdownNode *> headings;
 
-    if ((NULL == d_func()->root) || (MarkdownNode::Invalid == d_func()->root->type())) {
+    if ((nullptr == d_func()->root) || (MarkdownNode::Invalid == d_func()->root->type())) {
         return headings;
     }
 
     MarkdownNode *node = d_func()->root->firstChild();
 
-    while (NULL != node) {
+    while (nullptr != node) {
         if (MarkdownNode::Heading == node->type()) {
             headings.append(node);
         }
@@ -183,12 +183,12 @@ QVector<MarkdownNode *> MarkdownAST::headings() const
 void MarkdownAST::clear()
 {
     d_func()->arena.freeAll();
-    d_func()->root = NULL;
+    d_func()->root = nullptr;
 }
 
 QString MarkdownAST::toString() const
 {
-    if (NULL == d_func()->root) {
+    if (nullptr == d_func()->root) {
         return "AST is empty";
     }
 
@@ -209,7 +209,7 @@ QString MarkdownAST::toString() const
         MarkdownNode *child = node->firstChild();
         indent += "   ";
 
-        while (NULL != child) {
+        while (nullptr != child) {
             nodes.push(child);
             indentation.push(indent);
             child = child->next();

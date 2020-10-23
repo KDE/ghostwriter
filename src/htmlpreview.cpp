@@ -222,7 +222,7 @@ void HtmlPreview::updatePreview()
         //
         if (d_func()->document->isEmpty()) {
             d_func()->setHtmlContent("");
-        } else if (NULL != d_func()->exporter) {
+        } else if (nullptr != d_func()->exporter) {
             QString text = d_func()->document->toPlainText();
 
             if (!text.isNull() && !text.isEmpty()) {

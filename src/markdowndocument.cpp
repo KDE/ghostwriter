@@ -27,13 +27,13 @@
 namespace ghostwriter
 {
 MarkdownDocument::MarkdownDocument(QObject *parent)
-    : QTextDocument(parent), ast(NULL)
+    : QTextDocument(parent), ast(nullptr)
 {
     initializeUntitledDocument();
 }
 
 MarkdownDocument::MarkdownDocument(const QString &text, QObject *parent)
-    : QTextDocument(text, parent), ast(NULL)
+    : QTextDocument(text, parent), ast(nullptr)
 {
     initializeUntitledDocument();
 }
@@ -49,9 +49,9 @@ MarkdownDocument::~MarkdownDocument()
     m_displayName = tr("untitled");
     m_timestamp = QDateTime::currentDateTime();
 
-    if (NULL != ast) {
+    if (nullptr != ast) {
         delete ast;
-        ast = NULL;
+        ast = nullptr;
     }
 }
 

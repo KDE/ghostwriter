@@ -39,7 +39,7 @@ public:
     /**
      * Constructor.
      */
-    DocumentStatisticsWidget(QWidget *parent = NULL);
+    DocumentStatisticsWidget(QWidget *parent = nullptr);
 
     /**
      * Destructor.

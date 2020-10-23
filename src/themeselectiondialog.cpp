@@ -78,7 +78,7 @@ public:
     //
     QStringList builtInThemes;
 
-    void buildThemeList(const QString &currentThemeName = NULL);
+    void buildThemeList(const QString &currentThemeName = nullptr);
     void loadSelectedTheme();
     void createNewTheme();
     void deleteTheme();
@@ -434,9 +434,9 @@ void ThemeSelectionDialogPrivate::deleteTheme()
             int row = themeListWidget->row(selectedThemes[0]);
             QListWidgetItem *item = themeListWidget->takeItem(row);
 
-            if (NULL != item) {
+            if (nullptr != item) {
                 delete item;
-                item = NULL;
+                item = nullptr;
             }
         }
     }
@@ -494,7 +494,7 @@ void ThemeSelectionDialogPrivate::updateTheme(const Theme &theme)
     if (!selectedThemes.isEmpty()) {
         QListWidgetItem *item = selectedThemes[0];
 
-        if (NULL != item) {
+        if (nullptr != item) {
             if (theme.name() != currentTheme.name()) {
                 item->setText(theme.name());
             }

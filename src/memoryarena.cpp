@@ -63,13 +63,13 @@ T *MemoryArena<T>::allocate()
 
     T *data = currentChunk.peekPrevious()->data();
 
-    if (NULL != data) {
+    if (nullptr != data) {
         int index = slotIndex;
         slotIndex++;
         return &(data[index]);
     }
 
-    return NULL;
+    return nullptr;
 }
 
 template<class T>
@@ -84,7 +84,7 @@ void MemoryArena<T>::freeAll()
     while (currentChunk.hasNext()) {
         Chunk *chunk = currentChunk.next();
 
-        if (NULL != chunk) {
+        if (nullptr != chunk) {
             delete chunk;
         }
 

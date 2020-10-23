@@ -41,7 +41,7 @@ public:
     /**
      * Constructor.
      */
-    FindReplace(QPlainTextEdit *editor, QWidget *parent = NULL);
+    FindReplace(QPlainTextEdit *editor, QWidget *parent = nullptr);
 
     /**
      * Destructor.

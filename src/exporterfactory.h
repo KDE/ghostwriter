@@ -57,7 +57,7 @@ public:
     QList<Exporter *> htmlExporters();
 
     /**
-     * Returns the exporter with the given name, or NULL if one
+     * Returns the exporter with the given name, or nullptr if one
      * with that name does not exist.
      */
     Exporter *exporterByName(const QString &name);

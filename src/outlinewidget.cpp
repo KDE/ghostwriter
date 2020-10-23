@@ -171,7 +171,7 @@ void OutlineWidget::updateCurrentNavigationHeading(int position)
             // Document position is before the first heading.  Deselect
             // any selected headings, and scroll to the top.
             //
-            setCurrentItem(NULL);
+            setCurrentItem(nullptr);
             this->scrollToTop();
         }
     }
@@ -201,13 +201,13 @@ void OutlineWidgetPrivate::reloadOutline()
 
     q_func()->clear();
 
-    if ((NULL == editor) || (NULL == editor->document())) {
+    if ((nullptr == editor) || (nullptr == editor->document())) {
         return;
     }
 
     MarkdownAST *ast = ((MarkdownDocument *) editor->document())->markdownAST();
 
-    if (NULL == ast) {
+    if (nullptr == ast) {
         return;
     }
 

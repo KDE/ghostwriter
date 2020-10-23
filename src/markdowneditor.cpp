@@ -1373,7 +1373,7 @@ void MarkdownEditor::runSpellChecker()
     if (d_func()->spellCheckEnabled) {
         SpellChecker::checkDocument(this, d_func()->highlighter, d_func()->dictionary);
     } else {
-        SpellChecker::checkDocument(this, NULL, d_func()->dictionary);
+        SpellChecker::checkDocument(this, nullptr, d_func()->dictionary);
     }
 }
 

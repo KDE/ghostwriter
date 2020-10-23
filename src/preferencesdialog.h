@@ -39,7 +39,7 @@ public:
     /**
      * Constructor.
      */
-    PreferencesDialog(QWidget *parent = NULL);
+    PreferencesDialog(QWidget *parent = nullptr);
 
     /**
      * Destructor.

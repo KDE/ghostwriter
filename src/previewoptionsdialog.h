@@ -38,7 +38,7 @@ public:
     /**
      * Constructor.
      */
-    PreviewOptionsDialog(QWidget *parent = NULL);
+    PreviewOptionsDialog(QWidget *parent = nullptr);
 
     /**
      * Destructor.

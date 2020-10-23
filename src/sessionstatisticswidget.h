@@ -39,7 +39,7 @@ public:
     /**
      * Constructor.
      */
-    SessionStatisticsWidget(QWidget *parent = NULL);
+    SessionStatisticsWidget(QWidget *parent = nullptr);
 
     /**
      * Destructor.

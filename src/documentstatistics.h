@@ -41,7 +41,7 @@ public:
     /**
      * Constructor.  Pass in the MarkdownDocument as parameter.
      */
-    DocumentStatistics(MarkdownDocument *document, QObject *parent = NULL);
+    DocumentStatistics(MarkdownDocument *document, QObject *parent = nullptr);
 
     /**
      * Destructor.

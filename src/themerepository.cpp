@@ -69,11 +69,11 @@ public:
     void insertColorsIntoJsonObject(QJsonObject &colorsObj, const ColorScheme &colors);
 };
 
-ThemeRepository *ThemeRepositoryPrivate::instance = NULL;
+ThemeRepository *ThemeRepositoryPrivate::instance = nullptr;
 
 ThemeRepository *ThemeRepository::instance()
 {
-    if (NULL == ThemeRepositoryPrivate::instance) {
+    if (nullptr == ThemeRepositoryPrivate::instance) {
         ThemeRepositoryPrivate::instance = new ThemeRepository();
     }
 

@@ -41,7 +41,7 @@ public:
     /**
      * Constructor.  Takes the theme to to be edited as a parameter.
      */
-    ThemeEditorDialog(const Theme &theme, QWidget *parent = NULL);
+    ThemeEditorDialog(const Theme &theme, QWidget *parent = nullptr);
 
     /**
      * Destructor.

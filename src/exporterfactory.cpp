@@ -82,7 +82,7 @@ public:
     );
 };
 
-ExporterFactory *ExporterFactoryPrivate::instance = NULL;
+ExporterFactory *ExporterFactoryPrivate::instance = nullptr;
 
 ExporterFactory::~ExporterFactory()
 {
@@ -93,7 +93,7 @@ ExporterFactory::~ExporterFactory()
 
 ExporterFactory *ExporterFactory::instance()
 {
-    if (NULL == ExporterFactoryPrivate::instance) {
+    if (nullptr == ExporterFactoryPrivate::instance) {
         ExporterFactoryPrivate::instance = new ExporterFactory();
     }
 
@@ -132,13 +132,13 @@ Exporter *ExporterFactory::exporterByName(const QString &name)
     }
 
     // No match found.
-    return NULL;
+    return nullptr;
 }
 
 ExporterFactory::ExporterFactory()
     : d_ptr(new ExporterFactoryPrivate())
 {
-    CommandLineExporter *exporter = NULL;
+    CommandLineExporter *exporter = nullptr;
     bool pandocIsAvailable = d_func()->isCommandAvailable("pandoc --version");
     bool mmdIsAvailable = d_func()->isCommandAvailable("multimarkdown --version");
     bool cmarkIsAvailable = d_func()->isCommandAvailable("cmark --version");

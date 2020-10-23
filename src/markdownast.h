@@ -62,7 +62,7 @@ public:
     ~MarkdownAST();
 
     /**
-     * Returns the root node of the AST or NULL if none is set.
+     * Returns the root node of the AST or nullptr if none is set.
      */
     MarkdownNode *root();
 
@@ -75,7 +75,7 @@ public:
 
     /**
      * Finds the deepest node of type block (vs. inline) at the given
-     * line number of the original Markdown text.  Returns NULL if
+     * line number of the original Markdown text.  Returns nullptr if
      * no node is found at that location.
      */
     MarkdownNode *findBlockAtLine(int lineNumber) const;
