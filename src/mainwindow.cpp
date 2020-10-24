@@ -285,6 +285,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         &DocumentManager::documentLoaded,
         [this]() {
             this->sessionStats->startNewSession(this->documentStats->wordCount());
+            refreshRecentFiles();
         }
     );
 
