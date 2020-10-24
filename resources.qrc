@@ -1,7 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/RobotoMono-VariableFont_wght.ttf</file>
-        <file>resources/RobotoMono-Italic-VariableFont_wght.ttf</file>
+        <file>resources/fonts/RobotoMono-VariableFont_wght.ttf</file>
+        <file>resources/fonts/RobotoMono-Italic-VariableFont_wght.ttf</file>
+        <file>resources/fonts/RobotoSlab-VariableFont_wght.ttf</file>
         <file>resources/images/ghostwriter.svg</file>
         <file>resources/quickreferenceguide_en.html</file>
         <file>resources/quickreferenceguide_ja.html</file>

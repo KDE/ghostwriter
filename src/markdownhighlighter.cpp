@@ -39,7 +39,6 @@
 
 #include "markdownhighlighter.h"
 #include "markdownstates.h"
-#include "textblockdata.h"
 #include "spelling/dictionary_ref.h"
 #include "spelling/dictionary_manager.h"
 

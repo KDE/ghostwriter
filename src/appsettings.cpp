@@ -675,8 +675,8 @@ AppSettings::AppSettings()
     // Set default font to be Roboto Mono (included in QRC resources)
     if
     (
-        (QFontDatabase::addApplicationFont(":/resources/RobotoMono-Italic-VariableFont_wght.ttf") < 0)
-        || (QFontDatabase::addApplicationFont(":/resources/RobotoMono-VariableFont_wght.ttf") < 0)
+        (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono-Italic-VariableFont_wght.ttf") < 0)
+        || (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono-VariableFont_wght.ttf") < 0)
     ) {
         qWarning() << "Failed to load Roboto Mono font.";
         d->defaultFont = QFont("");
@@ -684,6 +684,10 @@ AppSettings::AppSettings()
         d->defaultFont.setStyleHint(QFont::Monospace);
     } else {
         d->defaultFont = QFont("Roboto Mono");
+    }
+
+    if (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoSlab-VariableFont_wght.ttf") < 0) {
+        qWarning() << "Failed to load Roboto Slab font.";
     }
 
     // Last but not least, load some basic settings from the configuration file,
