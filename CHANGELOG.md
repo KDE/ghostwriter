@@ -31,7 +31,9 @@ Fixes
 * Issue #507: Multilevel lists are highlighted correctly in the editor with the switch to cmark-gfm handling the syntax highlighting.
 * Issue #508: HUD windows have been replaced with a side bar for compatibility with Wayland.
 * Issue #517: README.md has been updated with correct instructions location for building on MacOS.
+* Issue #503: MathJax has now been included inside the application rather than fetching it externally.
 * Issue #532: Insert spaces for tabs now works on startup.
+* Issue #536: Added missing Markdown file extensions to file dialog filter when opening and saving files.
 
 
 1.8.1
