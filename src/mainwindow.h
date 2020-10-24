@@ -85,7 +85,6 @@ private slots:
     void updateWordCount(int newWordCount);
     void changeFocusMode(FocusMode focusMode);
     void applyTheme();
-    void openRecentFile();
     void refreshRecentFiles();
     void clearRecentFileHistory();
     void changeDocumentDisplayName(const QString &displayName);

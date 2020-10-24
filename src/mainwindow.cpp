@@ -190,12 +190,22 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     for (int i = 0; i < MAX_RECENT_FILES; i++) {
         recentFilesActions[i] = new QAction(this);
-        connect
+
+        this->connect
         (
             recentFilesActions[i],
-            SIGNAL(triggered()),
-            this,
-            SLOT(openRecentFile())
+            &QAction::triggered,
+            [this, i]() {
+
+                if (nullptr != recentFilesActions[i]) {
+                    // Use the action's data for access to the actual file path, since
+                    // KDE Plasma will add a keyboard accelerator to the action's text
+                    // by inserting an ampersand (&) into it.
+                    //
+                    documentManager->open(recentFilesActions[i]->data().toString());
+                    refreshRecentFiles();
+                }
+            }
         );
 
         if (i < recentFiles.size()) {
@@ -782,19 +792,6 @@ void MainWindow::changeFocusMode(FocusMode focusMode)
 {
     if (FocusModeDisabled != editor->focusMode()) {
         editor->setFocusMode(focusMode);
-    }
-}
-
-void MainWindow::openRecentFile()
-{
-    QAction *action = qobject_cast<QAction *>(this->sender());
-
-    if (nullptr != action) {
-        // Use the action's data for access to the actual file path, since
-        // KDE Plasma will add a keyboard accelerator to the action's text
-        // by inserting an ampersand (&) into it.
-        //
-        documentManager->open(action->data().toString());
     }
 }
 

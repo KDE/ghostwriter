@@ -343,14 +343,6 @@ void DocumentManager::open(const QString &filePath)
                         oldCursorPosition
                     );
                 }
-
-                // Always emit a documentClosed() signal, even if the document
-                // was new and untitled.  This is so that if a file from the
-                // displayed history is being loaded, its path will be
-                // guaranteed to be removed from the "Open Recent" file list
-                // displayed to the user (because it's already opened).
-                //
-                emit documentClosed();
             }
         }
     }
