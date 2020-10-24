@@ -164,11 +164,13 @@ public:
         QRegularExpressionMatch &match
     );
 
+    bool insideBlockArea(const QTextBlock &block, BlockType &type) const;
     bool atBlockAreaStart(const QTextBlock &block, BlockType &type) const;
     bool atBlockAreaEnd(const QTextBlock &block, const BlockType type) const;
     bool atCodeBlockStart(const QTextBlock &block) const;
     bool atCodeBlockEnd(const QTextBlock &block) const;
     bool isBlockquote(const QTextBlock &block) const;
+    bool isCodeBlock(const QTextBlock &block) const;
 };
 
 MarkdownEditor::MarkdownEditor
@@ -345,15 +347,25 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
     //       LGPL v. 3 license for the original Qt code.
     //
     while (block.isValid() && !done) {
+        MarkdownEditorPrivate::BlockType prevType;
+        
         QRectF r = this->blockBoundingRect(block).translated(offset);
 
+        // If the first visible block is in the middle of a text block area...
+        if (firstVisible 
+                && d->insideBlockArea(block, blockType)
+                && d->insideBlockArea(block.previous(), prevType)
+                && (blockType == prevType)) {
+            clipTop = true;
+            inBlockArea = true;
+            blockAreaRect = r;
+            dy = 0;
+        }
         // If the block begins a new text block area...
-        if (!inBlockArea && d->atBlockAreaStart(block, blockType)) {
+        else if (!inBlockArea && d->atBlockAreaStart(block, blockType)) {
             blockAreaRect = r;
             dy = 0;
             inBlockArea = true;
-
-            MarkdownEditorPrivate::BlockType prevType;
 
             // If this is the first visible block within the viewport
             // and if the previous block is part of the text block area,
@@ -364,7 +376,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
             if
             (
                 firstVisible
-                && d->atBlockAreaStart(block.previous(), prevType)
+                && d->insideBlockArea(block.previous(), prevType)
                 && (blockType == prevType)
             ) {
                 clipTop = true;
@@ -811,13 +823,8 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
         //
         bool wordHasSpellingError = false;
         int blockPosition = d->cursorForWord.positionInBlock();
-#if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 6)
-        QList<QTextLayout::FormatRange> formatList =
-            cursorForWord.block().layout()->additionalFormats();
-#else
         QVector<QTextLayout::FormatRange> formatList =
             d->cursorForWord.block().layout()->formats();
-#endif
         int mispelledWordStartPos = 0;
         int mispelledWordLength = 0;
 
@@ -2205,6 +2212,27 @@ QString MarkdownEditorPrivate::priorMarkdownBlockItemStart
     return QString("");
 }
 
+bool MarkdownEditorPrivate::insideBlockArea(const QTextBlock &block, BlockType &type) const
+{
+    if (!block.isValid()) {
+        type = BlockTypeNone;
+        return false;
+    }
+
+    if (isBlockquote(block)) {
+        type = BlockTypeQuote;
+        return true;
+    }
+
+    if (isCodeBlock(block)) {
+        type = BlockTypeCode;
+        return true;
+    }
+
+    type = BlockTypeNone;
+    return false;
+}
+
 bool MarkdownEditorPrivate::atBlockAreaStart(const QTextBlock &block, BlockType &type) const
 {
     if (!block.isValid()) {
@@ -2255,5 +2283,10 @@ bool MarkdownEditorPrivate::atCodeBlockEnd(const QTextBlock &block) const
 bool MarkdownEditorPrivate::isBlockquote(const QTextBlock &block) const
 {
     return (MarkdownStateBlockquote == (MarkdownStateBlockquote & block.userState()));
+}
+
+bool MarkdownEditorPrivate::isCodeBlock(const QTextBlock &block) const
+{
+    return (MarkdownStateCodeBlock == (MarkdownStateCodeBlock & block.userState()));
 }
 } // namespace ghostwriter
