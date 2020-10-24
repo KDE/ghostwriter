@@ -154,7 +154,7 @@ public:
 };
 
 const QString DocumentManagerPrivate::FILE_CHOOSER_FILTER =
-    QString("%1 (*.md *.markdown *.txt);;%2 (*.txt);;%3 (*)")
+    QString("%1 (*.md *.markdown *.mdown *.mkdn *.mkd *.mdwn *.mdtxt *.mdtext *.text *.Rmd *.txt);;%2 (*.txt);;%3 (*)")
     .arg(QObject::tr("Markdown"))
     .arg(QObject::tr("Text"))
     .arg(QObject::tr("All"));
