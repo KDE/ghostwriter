@@ -75,7 +75,7 @@ var updateText = function(text) {
     insertAnchorsForHeadings();
 
     // Call MathJax to update document, if the library is available.
-    if (typeof window.MathJax.typeset !== 'undefined') {
+    if (typeof window.MathJax !== 'undefined') {
         window.MathJax.typeset();
     }
 

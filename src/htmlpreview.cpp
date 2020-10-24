@@ -159,40 +159,16 @@ HtmlPreview::HtmlPreview
     channel->registerObject(QStringLiteral("stylesheet"), &d->styleSheet);
     channel->registerObject(QStringLiteral("livepreviewcontent"), &d->livePreviewHtml);
     this->page()->setWebChannel(channel);
-    d->wrapperHtml =
-        "<!doctype html>"
-        "<html lang=\"en\">"
-        "<meta charset=\"utf-8\">"
-        "<head>"
-        "    <script>"
-        "         MathJax = {"
-        "            tex: {"
-        "                inlineMath: [['$', '$']]"
-        "             }"
-        "         };"
-        "    </script>"
-        "    <script type=\"text/javascript\" id=\"MathJax-script\" src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>"
-        "    <style id='ghostwriter_css' type='text/css' media='all'></style>"
-        "    <script src=\"qrc:/qtwebchannel/qwebchannel.js\"></script>"
-        "</head>"
-        "<body>"
-        "    <div id=\"livepreviewplaceholder\"></div>"
-        "    <script src=\"qrc:/resources/gw.js\"></script>"
-        "    <script>"
-        "        new QWebChannel(qt.webChannelTransport,"
-        "            function(channel) {"
-        "                var styleSheet = channel.objects.stylesheet;"
-        "                loadStyleSheet(styleSheet.text);"
-        "                styleSheet.textChanged.connect(loadStyleSheet);"
-        ""
-        "                var content = channel.objects.livepreviewcontent;"
-        "                updateText(content.text);"
-        "                content.textChanged.connect(updateText);"
-        "            }"
-        "        );"
-        "    </script>"
-        "</body>"
-        "</html>";
+
+    QFile wrapperHtmlFile(":/resources/preview.html");
+
+    if (!wrapperHtmlFile.open(QFile::ReadOnly | QFile::Text)) {
+        d->wrapperHtml = tr("Error loading resources/preview.html");
+    } else {
+        QTextStream stream(&wrapperHtmlFile);
+        d->wrapperHtml = stream.readAll();
+        wrapperHtmlFile.close();
+    }
 
     // Set the base URL and load the preview using wrapperHtml above.
     d->updateBaseDir();

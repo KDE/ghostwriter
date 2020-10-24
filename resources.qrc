@@ -9,5 +9,66 @@
         <file>resources/quickreferenceguide_ru.html</file>
         <file>resources/gw.js</file>
         <file>resources/preview.css</file>
+        <file>resources/preview.html</file>
+    </qresource>
+    <qresource>
+        <file>3rdparty/mathjax/mml-svg.js</file>
+        <file>3rdparty/mathjax/tex-mml-svg.js</file>
+        <file>3rdparty/mathjax/output/svg.js</file>
+        <file>3rdparty/mathjax/output/svg/fonts/tex.js</file>
+        <file>3rdparty/mathjax/tex-svg-full.js</file>
+        <file>3rdparty/mathjax/adaptors/liteDOM.js</file>
+        <file>3rdparty/mathjax/sre/mathmaps/en.js</file>
+        <file>3rdparty/mathjax/sre/mathmaps/es.js</file>
+        <file>3rdparty/mathjax/sre/mathmaps/de.js</file>
+        <file>3rdparty/mathjax/sre/mathmaps/mathmaps_ie.js</file>
+        <file>3rdparty/mathjax/sre/mathmaps/fr.js</file>
+        <file>3rdparty/mathjax/sre/mathmaps/nemeth.js</file>
+        <file>3rdparty/mathjax/sre/sre-node.js</file>
+        <file>3rdparty/mathjax/sre/sre_browser.js</file>
+        <file>3rdparty/mathjax/ui/menu.js</file>
+        <file>3rdparty/mathjax/ui/safe.js</file>
+        <file>3rdparty/mathjax/a11y/complexity.js</file>
+        <file>3rdparty/mathjax/a11y/assistive-mml.js</file>
+        <file>3rdparty/mathjax/a11y/semantic-enrich.js</file>
+        <file>3rdparty/mathjax/a11y/explorer.js</file>
+        <file>3rdparty/mathjax/input/mml/entities.js</file>
+        <file>3rdparty/mathjax/input/tex-base.js</file>
+        <file>3rdparty/mathjax/input/tex.js</file>
+        <file>3rdparty/mathjax/input/tex-full.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/tagformat.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/configmacros.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/noundefined.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/verb.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/textmacros.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/unicode.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/require.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/amscd.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/newcommand.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/autoload.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/enclose.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/color.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/noerrors.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/ams.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/physics.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/mhchem.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/colorv2.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/cancel.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/html.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/bbox.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/boldsymbol.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/all-packages.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/extpfeil.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/action.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/braket.js</file>
+        <file>3rdparty/mathjax/input/tex/extensions/bussproofs.js</file>
+        <file>3rdparty/mathjax/input/asciimath.js</file>
+        <file>3rdparty/mathjax/input/mml.js</file>
+        <file>3rdparty/mathjax/latest.js</file>
+        <file>3rdparty/mathjax/node-main.js</file>
+        <file>3rdparty/mathjax/tex-svg.js</file>
+        <file>3rdparty/mathjax/startup.js</file>
+        <file>3rdparty/mathjax/loader.js</file>
+        <file>3rdparty/mathjax/core.js</file>
     </qresource>
 </RCC>

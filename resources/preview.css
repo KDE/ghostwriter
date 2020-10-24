@@ -52,11 +52,14 @@
 }
 
 #livepreviewplaceholder {
+    display: inline-block;
     position: fixed;
     overflow-x: scroll;
     overflow-y: scroll;
+    width: -webkit-calc(100% - 16px);
+    height: inherit;
+    left: 0px;
     top: 8px;
-    right: 8px;
     bottom: 0px;
     background: $backgroundColor;
     margin: 0;
