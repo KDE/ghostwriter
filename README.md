@@ -35,12 +35,12 @@ There is also now a staging PPA for release candidate builds for advanced users 
     $ sudo apt-get update
     $ sudo apt install ghostwriter
 
-Fedora users can install ghostwriter from (Copr)[https://copr.fedorainfracloud.org/] by opening a terminal and entering the following commands:
+Fedora users can install ghostwriter from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
 
     $ sudo dnf copr enable wereturtle/stable
     $ sudo dnf install ghostwriter
 
-There is likewise a staging repository for (Copr)[https://copr.fedorainfracloud.org/], where the latest release candidate can be installed with the following commands:
+There is likewise a staging repository for [Copr](https://copr.fedorainfracloud.org/), where the latest release candidate can be installed with the following commands:
 
     $ sudo dnf copr enable wereturtle/staging
     $ sudo dnf install ghostwriter
