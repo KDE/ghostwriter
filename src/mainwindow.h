@@ -101,7 +101,6 @@ private slots:
 private:
     QtAwesome *awesome;
     MarkdownEditor *editor;
-    QWidget *statusBar;
     FindReplace* findReplace;
     QSplitter *previewSplitter;
     QSplitter *sidebarSplitter;
@@ -139,7 +138,7 @@ private:
 
     AppSettings *appSettings;
 
-    QAction* createWidgetAction
+    QAction* createWindowAction
     (
         const QString &text,
         QObject *receiver,
@@ -147,8 +146,16 @@ private:
         const QKeySequence &shortcut = QKeySequence()
     );
 
+    QAction* createWidgetAction
+    (
+        const QString &text,
+        QWidget *receiver,
+        const char *member,
+        const QKeySequence &shortcut = QKeySequence()
+    );
+
     void buildMenuBar();
-    QWidget *buildStatusBar();
+    void buildStatusBar();
     void buildSidebar();
 
     void adjustEditorWidth(int width);

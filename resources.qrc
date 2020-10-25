@@ -10,6 +10,7 @@
         <file>resources/gw.js</file>
         <file>resources/preview.css</file>
         <file>resources/preview.html</file>
+        <file>qt/etc/qt.conf</file>
     </qresource>
     <qresource>
         <file>3rdparty/mathjax/mml-svg.js</file>

@@ -328,13 +328,12 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     this->findReplace->setVisible(false);
 
     buildMenuBar();
-    this->statusBar = buildStatusBar();
+    buildStatusBar();
     
     QVBoxLayout *mainLayout = new QVBoxLayout();
     QWidget *mainPane = new QWidget(this);
     mainPane->setLayout(mainLayout);
     mainLayout->addWidget(previewSplitter, 500);
-    mainLayout->addWidget(this->statusBar, 1);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
@@ -964,7 +963,7 @@ void MainWindow::onAboutToShowMenuBarMenu()
     }
 }
 
-QAction* MainWindow::createWidgetAction
+QAction* MainWindow::createWindowAction
 (
     const QString &text,
     QObject *receiver,
@@ -972,25 +971,30 @@ QAction* MainWindow::createWidgetAction
     const QKeySequence &shortcut
 )
 {
-    Qt::ShortcutContext context = Qt::WindowShortcut;
-
-    QWidget* widgetReceiver = qobject_cast<QWidget *>(receiver);
-
-    if ((receiver != this) && (widgetReceiver != nullptr)) {
-        context = Qt::WidgetWithChildrenShortcut;
-    }
-
-    QAction* action = new QAction(text, receiver);
+    QAction* action = new QAction(text, this);
     action->setShortcut(shortcut);
-    action->setShortcutContext(context);
+    action->setShortcutContext(Qt::WindowShortcut);
     
     connect(action, SIGNAL(triggered(bool)), receiver, member);
+    this->addAction(action);
 
-    if (nullptr != widgetReceiver) {
-        widgetReceiver->addAction(action);
-    } else {
-        this->addAction(action);
-    }
+    return action;
+}
+
+QAction* MainWindow::createWidgetAction
+(
+    const QString &text,
+    QWidget *receiver,
+    const char *member,
+    const QKeySequence &shortcut
+)
+{
+    QAction* action = new QAction(text, receiver);
+    action->setShortcut(shortcut);
+    action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+    
+    connect(action, SIGNAL(triggered(bool)), receiver, member);
+    receiver->addAction(action);
 
     return action;
 }
@@ -1000,11 +1004,11 @@ void MainWindow::buildMenuBar()
 
     QMenu *fileMenu = this->menuBar()->addMenu(tr("&File"));
 
-    fileMenu->addAction(createWidgetAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New));
-    fileMenu->addAction(createWidgetAction(tr("&Open"), documentManager, SLOT(open()), QKeySequence::Open));
+    fileMenu->addAction(createWindowAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New));
+    fileMenu->addAction(createWindowAction(tr("&Open"), documentManager, SLOT(open()), QKeySequence::Open));
 
     QMenu *recentFilesMenu = new QMenu(tr("Open &Recent..."));
-    recentFilesMenu->addAction(createWidgetAction(tr("Reopen Closed File"), documentManager, SLOT(reopenLastClosedFile()), QKeySequence("SHIFT+CTRL+T")));
+    recentFilesMenu->addAction(createWindowAction(tr("Reopen Closed File"), documentManager, SLOT(reopenLastClosedFile()), QKeySequence("SHIFT+CTRL+T")));
     recentFilesMenu->addSeparator();
 
     for (int i = 0; i < MAX_RECENT_FILES; i++) {
@@ -1012,19 +1016,19 @@ void MainWindow::buildMenuBar()
     }
 
     recentFilesMenu->addSeparator();
-    recentFilesMenu->addAction(createWidgetAction(tr("Clear Menu"), this, SLOT(clearRecentFileHistory())));
+    recentFilesMenu->addAction(createWindowAction(tr("Clear Menu"), this, SLOT(clearRecentFileHistory())));
 
     fileMenu->addMenu(recentFilesMenu);
 
     fileMenu->addSeparator();
-    fileMenu->addAction(createWidgetAction(tr("&Save"), documentManager, SLOT(save()), QKeySequence::Save));
-    fileMenu->addAction(createWidgetAction(tr("Save &As..."), documentManager, SLOT(saveAs()), QKeySequence::SaveAs));
-    fileMenu->addAction(createWidgetAction(tr("R&ename..."), documentManager, SLOT(rename())));
-    fileMenu->addAction(createWidgetAction(tr("Re&load from Disk..."), documentManager, SLOT(reload())));
+    fileMenu->addAction(createWindowAction(tr("&Save"), documentManager, SLOT(save()), QKeySequence::Save));
+    fileMenu->addAction(createWindowAction(tr("Save &As..."), documentManager, SLOT(saveAs()), QKeySequence::SaveAs));
+    fileMenu->addAction(createWindowAction(tr("R&ename..."), documentManager, SLOT(rename())));
+    fileMenu->addAction(createWindowAction(tr("Re&load from Disk..."), documentManager, SLOT(reload())));
     fileMenu->addSeparator();
-    fileMenu->addAction(createWidgetAction(tr("&Export"), documentManager, SLOT(exportFile()), QKeySequence("CTRL+E")));
+    fileMenu->addAction(createWindowAction(tr("&Export"), documentManager, SLOT(exportFile()), QKeySequence("CTRL+E")));
     fileMenu->addSeparator();
-    QAction *quitAction = createWidgetAction(tr("&Quit"), this, SLOT(quitApplication()), QKeySequence::Quit);
+    QAction *quitAction = createWindowAction(tr("&Quit"), this, SLOT(quitApplication()), QKeySequence::Quit);
     quitAction->setMenuRole(QAction::QuitRole);
     fileMenu->addAction(quitAction);
 
@@ -1039,12 +1043,13 @@ void MainWindow::buildMenuBar()
     editMenu->addSeparator();
     editMenu->addAction(createWidgetAction(tr("&Insert Image..."), this, SLOT(insertImage())));
     editMenu->addSeparator();
-    editMenu->addAction(createWidgetAction(tr("&Find"), findReplace, SLOT(showFindView()), QKeySequence::Find));
-    editMenu->addAction(createWidgetAction(tr("Rep&lace"), findReplace, SLOT(showReplaceView()), QKeySequence::Replace));
-    editMenu->addAction(createWidgetAction(tr("Find &Next"), findReplace, SLOT(findNext()), QKeySequence::FindNext));
-    editMenu->addAction(createWidgetAction(tr("Find &Previous"), findReplace, SLOT(findPrevious()), QKeySequence::FindPrevious));
+
+    editMenu->addAction(createWindowAction(tr("&Find"), findReplace, SLOT(showFindView()), QKeySequence::Find));
+    editMenu->addAction(createWindowAction(tr("Rep&lace"), findReplace, SLOT(showReplaceView()), QKeySequence::Replace));
+    editMenu->addAction(createWindowAction(tr("Find &Next"), findReplace, SLOT(findNext()), QKeySequence::FindNext));
+    editMenu->addAction(createWindowAction(tr("Find &Previous"), findReplace, SLOT(findPrevious()), QKeySequence::FindPrevious));
     editMenu->addSeparator();
-    editMenu->addAction(createWidgetAction(tr("&Spell check"), editor, SLOT(runSpellChecker())));
+    editMenu->addAction(createWindowAction(tr("&Spell check"), editor, SLOT(runSpellChecker())));
 
     QMenu *formatMenu = this->menuBar()->addMenu(tr("For&mat"));
     formatMenu->addAction(createWidgetAction(tr("&Bold"), editor, SLOT(bold()), QKeySequence::Bold));
@@ -1080,11 +1085,9 @@ void MainWindow::buildMenuBar()
     connect(fullScreenMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
     viewMenu->addAction(fullScreenMenuAction);
     
-    htmlPreviewMenuAction = new QAction(tr("&Preview in HTML"), this);
+    htmlPreviewMenuAction = createWindowAction(tr("&Preview in HTML"), this, SLOT(toggleHtmlPreview(bool)), QKeySequence("CTRL+P"));
     htmlPreviewMenuAction->setCheckable(true);
     htmlPreviewMenuAction->setChecked(appSettings->htmlPreviewVisible());
-    htmlPreviewMenuAction->setShortcut(QKeySequence("CTRL+P"));
-    connect(htmlPreviewMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleHtmlPreview(bool)));
     viewMenu->addAction(htmlPreviewMenuAction);
 
     QAction *showSidebarAction = new QAction(tr("Show Sidebar"), this);
@@ -1148,23 +1151,23 @@ void MainWindow::buildMenuBar()
     viewMenu->addAction(createWidgetAction(tr("Decrease Font Size"), editor, SLOT(decreaseFontSize()), QKeySequence("CTRL+-")));
 
     QMenu *settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
-    settingsMenu->addAction(createWidgetAction(tr("Themes..."), this, SLOT(changeTheme())));
-    settingsMenu->addAction(createWidgetAction(tr("Font..."), this, SLOT(changeFont())));
-    settingsMenu->addAction(createWidgetAction(tr("Application Language..."), this, SLOT(onSetLocale())));
-    settingsMenu->addAction(createWidgetAction(tr("Preview Options..."), this, SLOT(showPreviewOptions())));
-    QAction *preferencesAction = createWidgetAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
+    settingsMenu->addAction(createWindowAction(tr("Themes..."), this, SLOT(changeTheme())));
+    settingsMenu->addAction(createWindowAction(tr("Font..."), this, SLOT(changeFont())));
+    settingsMenu->addAction(createWindowAction(tr("Application Language..."), this, SLOT(onSetLocale())));
+    settingsMenu->addAction(createWindowAction(tr("Preview Options..."), this, SLOT(showPreviewOptions())));
+    QAction *preferencesAction = createWindowAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
     preferencesAction->setMenuRole(QAction::PreferencesRole);
     settingsMenu->addAction(preferencesAction);
 
     QMenu *helpMenu = this->menuBar()->addMenu(tr("&Help"));
-    QAction *helpAction = createWidgetAction(tr("&About"), this, SLOT(showAbout()));
+    QAction *helpAction = createWindowAction(tr("&About"), this, SLOT(showAbout()));
     helpAction->setMenuRole(QAction::AboutRole);
     helpMenu->addAction(helpAction);
-    helpAction = createWidgetAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
+    helpAction = createWindowAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
     helpAction->setMenuRole(QAction::AboutQtRole);
     helpMenu->addAction(helpAction);
-    helpMenu->addAction(createWidgetAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide())));
-    helpMenu->addAction(createWidgetAction(tr("Wiki"), this, SLOT(showWikiPage())));
+    helpMenu->addAction(createWindowAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide())));
+    helpMenu->addAction(createWindowAction(tr("Wiki"), this, SLOT(showWikiPage())));
 
     connect(fileMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
     connect(fileMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
@@ -1180,22 +1183,22 @@ void MainWindow::buildMenuBar()
     connect(helpMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
 }
 
-QWidget *MainWindow::buildStatusBar()
+void MainWindow::buildStatusBar()
 {
-    QWidget *statusBarWidget = new QWidget(this);
-    statusBarWidget->setObjectName("statusBar");
     QGridLayout *statusBarLayout = new QGridLayout();
+    statusBarLayout->setSpacing(0);
+    statusBarLayout->setContentsMargins(0, 0, 0, 0);
 
     statusBarLayout->addWidget(this->findReplace, 0, 0, 1, 3);
 
     // Divide the status bar into thirds for placing widgets.
-    QFrame *leftWidget = new QFrame(statusBarWidget);
+    QFrame *leftWidget = new QFrame(this->statusBar());
     leftWidget->setObjectName("leftStatusBarWidget");
     leftWidget->setStyleSheet("#leftStatusBarWidget { border: 0; margin: 0; padding: 0 }");
-    QFrame *midWidget = new QFrame(statusBarWidget);
+    QFrame *midWidget = new QFrame(this->statusBar());
     midWidget->setObjectName("midStatusBarWidget");
     midWidget->setStyleSheet("#midStatusBarWidget { border: 0; margin: 0; padding: 0 }");
-    QFrame *rightWidget = new QFrame(statusBarWidget);
+    QFrame *rightWidget = new QFrame(this->statusBar());
     rightWidget->setObjectName("rightStatusBarWidget");
     rightWidget->setStyleSheet("#rightStatusBarWidget { border: 0; margin: 0; padding: 0 }");
 
@@ -1219,43 +1222,35 @@ QWidget *MainWindow::buildStatusBar()
     button->setToolTip(tr("Toggle sidebar"));
     button->setCheckable(false);
     button->setChecked(false);
-    button->setVisible(!appSettings->sidebarVisible());
 
     leftLayout->addWidget(button, 0, Qt::AlignLeft);
     statusBarWidgets.append(button);
 
+    if (appSettings->sidebarVisible()) {
+        button->setText(QChar(fa::chevronleft));
+    }
+
     this->connect
     (
         button,
-        &QPushButton::pressed,
-        [this]() {
-            appSettings->setSidebarVisible(true);
-            this->sidebar->setVisible(true);
-            this->adjustEditorWidth(this->width());
-        }
-    );
+        &QPushButton::clicked,
+        [this, button]() {
+            appSettings->setSidebarVisible(!this->sidebar->isVisible());
+            this->sidebar->setVisible(!this->sidebar->isVisible());
 
-    this->connect
-    (
-        this->sidebar,
-        &Sidebar::visibilityChanged,
-        [this, button](bool visible) {
-            button->setVisible(!visible);
-
-            // The button may get stuck as pressed when it is hidden and
-            // then shown again.  Ensure that when it is visible, it is not
-            // stuck in the pressed position.
-            //
-            if (button->isVisible()) {
-                button->blockSignals(true);
-                button->setDown(false);
-                button->blockSignals(false);
+            if (this->sidebar->isVisible()) {
+                button->setText(QChar(fa::chevronleft));
+            } else {
+                button->setText(QChar(fa::chevronright));
             }
+
+            this->adjustEditorWidth(this->width());
         }
     );
     
     timeLabel = new TimeLabel(this);
     leftLayout->addWidget(timeLabel, 0, Qt::AlignLeft);
+    leftWidget->setContentsMargins(0, 0, 0, 0);
     statusBarWidgets.append(timeLabel);
 
     if (!this->isFullScreen() || appSettings->displayTimeInFullScreenEnabled()) {
@@ -1275,6 +1270,7 @@ QWidget *MainWindow::buildStatusBar()
     wordCountLabel->setLineWidth(0);
     updateWordCount(0);
     midLayout->addWidget(wordCountLabel, 0, Qt::AlignCenter);
+    midWidget->setContentsMargins(0, 0, 0, 0);
     statusBarLayout->addWidget(midWidget, 1, 1, 1, 1, Qt::AlignCenter);
     statusBarWidgets.append(wordCountLabel);
 
@@ -1350,13 +1346,17 @@ QWidget *MainWindow::buildStatusBar()
     statusBarWidgets.append(button);
     this->fullScreenButton = button;
 
+    rightWidget->setContentsMargins(0, 0, 0, 0);
     statusBarLayout->addWidget(rightWidget, 1, 2, 1, 1, Qt::AlignRight);
+    
+    QWidget *container = new QWidget(this);
+    container->setObjectName("statusBarWidgetContainer");
+    container->setLayout(statusBarLayout);
+    container->setContentsMargins(0, 0, 2, 0);
+    container->setStyleSheet("#statusBarWidgetContainer { border: 0; margin: 0; padding: 0 }");
 
-    statusBarWidget->setLayout(statusBarLayout);
-    statusBarLayout->setSpacing(0);
-    statusBarLayout->setContentsMargins(2, 2, 2, 2);
-
-    return statusBarWidget;
+    this->statusBar()->addWidget(container, 1);
+    this->statusBar()->setSizeGripEnabled(false);
 }
 
 void MainWindow::buildSidebar()
@@ -1492,24 +1492,6 @@ void MainWindow::buildSidebar()
         }
     );
     
-    button = new QPushButton(QChar(fa::chevronleft));
-    button->setFont(this->awesome->font(style::stfas, 16));
-    button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Toggle sidebar"));
-    button->setCheckable(false);
-    sidebar->addButton(button);
-
-    this->connect
-    (
-        button,
-        &QPushButton::clicked,
-        [this]() {
-            appSettings->setSidebarVisible(false);
-            this->sidebar->setVisible(false);
-            this->adjustEditorWidth(this->width());
-        }
-    );
-
     sidebar->setVisible(appSettings->sidebarVisible());
 }
 
@@ -1574,7 +1556,7 @@ void MainWindow::applyTheme()
 
     previewSplitter->setStyleSheet(styler.splitterStyleSheet());
     sidebarSplitter->setStyleSheet(styler.splitterStyleSheet());
-    statusBar->setStyleSheet(styler.statusBarStyleSheet());
+    this->statusBar()->setStyleSheet(styler.statusBarStyleSheet());
 
     foreach (QWidget *w, statusBarWidgets) {
         w->setStyleSheet(styler.statusBarWidgetsStyleSheet());

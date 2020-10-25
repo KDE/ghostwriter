@@ -271,7 +271,7 @@ void StyleSheetBuilder::buildStatusBarStyleSheet()
     QTextStream stream(&m_statusBarStyleSheet);
 
     stream
-            << "#statusBar { margin: 0; padding: 0; border-top: 1px solid "
+            << "QStatusBar { margin: 0; padding: 0; border-top: 1px solid "
             << this->m_faintColor.name()
             << "; border-left: 0; border-right: 0; border-bottom: 0; background: "
             << this->m_backgroundColor.name()
