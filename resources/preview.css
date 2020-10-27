@@ -66,6 +66,16 @@
     padding: 5px;
 }
 
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url("qrc:/resources/fonts/RobotoSlab-VariableFont_wght.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url("qrc:/resources/fonts/RobotoMono-VariableFont_wght.ttf") format('truetype');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -128,10 +138,13 @@ pre {
     padding: 10px;
     border-radius: 3px;
     line-height: normal;
+    font-size: 100%;
 }
 
 code {
     color: $codeColor;
+    font-family: $monospaceFont, monospace;
+    font-size: 100%;
 }
 
 a {

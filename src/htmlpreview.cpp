@@ -108,6 +108,7 @@ HtmlPreview::HtmlPreview
     this->setPage(new SandboxedWebPage(this));
     this->settings()->setDefaultTextEncoding("utf-8");
     this->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
+    this->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     this->page()->action(QWebEnginePage::Reload)->setVisible(false);
     this->page()->action(QWebEnginePage::ReloadAndBypassCache)->setVisible(false);
