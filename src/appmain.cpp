@@ -30,6 +30,14 @@
 
 int main(int argc, char *argv[])
 {
+#if defined(Q_OS_WIN)
+    // Use ANGLE instead of OpenGL to bypass bug where full screen windows
+    // under Windows 10 and OpenGL will not show menus from the menu bar
+    // (or any other popup menus).  Thank you, Microsoft, you made my day.
+    //
+    QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
+#endif
+
     QtWebEngine::initialize();
 
 #if QT_VERSION >= 0x050600

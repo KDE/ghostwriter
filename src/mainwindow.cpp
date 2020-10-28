@@ -1554,6 +1554,13 @@ void MainWindow::applyTheme()
     //
     qApp->setStyleSheet(styler.layoutStyleSheet());
 
+#if defined(Q_OS_WIN)
+    // Unfortunately, the default Windows 10 font that was tailored
+    // for ClearType doesn't look so well with the FreeType font
+    // engine.  Use a different font for the application instead.
+    QApplication::setFont(QFont("Roboto", 10));
+#endif
+
     previewSplitter->setStyleSheet(styler.splitterStyleSheet());
     sidebarSplitter->setStyleSheet(styler.splitterStyleSheet());
     this->statusBar()->setStyleSheet(styler.statusBarStyleSheet());
