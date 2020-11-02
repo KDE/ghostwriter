@@ -673,11 +673,20 @@ AppSettings::AppSettings()
     // End FocusWriter lift/mod
 
     // Set default font to be Roboto Mono (included in QRC resources)
-    if
-    (
-        (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono-Italic-VariableFont_wght.ttf") < 0)
-        || (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono-VariableFont_wght.ttf") < 0)
-    ) {
+    if ((QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-ThinItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Thin.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-SemiBoldItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-SemiBold.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Regular.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-MediumItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Medium.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-LightItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Light.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Italic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-ExtraLightItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-ExtraLight.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-BoldItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Bold.ttf") < 0)) {
         qWarning() << "Failed to load Roboto Mono font.";
         d->defaultFont = QFont("");
         d->defaultFont.setFixedPitch(true);
@@ -686,8 +695,23 @@ AppSettings::AppSettings()
         d->defaultFont = QFont("Roboto Mono");
     }
 
-    if (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoSlab-VariableFont_wght.ttf") < 0) {
+    if (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoSlab/RobotoSlab-VariableFont_wght.ttf") < 0) {
         qWarning() << "Failed to load Roboto Slab font.";
+    }
+
+    if ((QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-ThinItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Thin.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Regular.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-MediumItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Medium.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-LightItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Light.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Italic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-BoldItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Bold.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-BlackItalic.ttf") < 0) ||
+            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Black.ttf") < 0)) {
+        qWarning() << "Failed to load Roboto font.";
     }
 
     // Last but not least, load some basic settings from the configuration file,

@@ -68,12 +68,12 @@
 
 @font-face {
     font-family: 'Roboto Slab';
-    src: url("qrc:/resources/fonts/RobotoSlab-VariableFont_wght.ttf") format('truetype');
+    src: url("qrc:/resources/fonts/RobotoSlab/RobotoSlab-VariableFont_wght.ttf") format('truetype');
 }
 
 @font-face {
     font-family: 'Roboto Mono';
-    src: url("qrc:/resources/fonts/RobotoMono-VariableFont_wght.ttf") format('truetype');
+    src: url("qrc:/resources/fonts/RobotoMono/RobotoMono-Regular.ttf") format('truetype');
 }
 
 body {

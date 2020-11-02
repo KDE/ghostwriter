@@ -1,8 +1,32 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/fonts/RobotoMono-VariableFont_wght.ttf</file>
-        <file>resources/fonts/RobotoMono-Italic-VariableFont_wght.ttf</file>
-        <file>resources/fonts/RobotoSlab-VariableFont_wght.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-ThinItalic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-Thin.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-SemiBoldItalic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-SemiBold.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-Regular.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-MediumItalic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-Medium.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-LightItalic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-Light.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-Italic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-ExtraLightItalic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-ExtraLight.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-BoldItalic.ttf</file>
+        <file>resources/fonts/RobotoMono/RobotoMono-Bold.ttf</file>
+        <file>resources/fonts/RobotoSlab/RobotoSlab-VariableFont_wght.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-ThinItalic.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Thin.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Regular.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-MediumItalic.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Medium.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-LightItalic.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Light.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Italic.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-BoldItalic.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Bold.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-BlackItalic.ttf</file>
+        <file>resources/fonts/Roboto/Roboto-Black.ttf</file>
         <file>resources/images/ghostwriter.svg</file>
         <file>resources/quickreferenceguide_en.html</file>
         <file>resources/quickreferenceguide_ja.html</file>
