@@ -4,352 +4,283 @@
 <context>
     <name>AbstractStatisticsWidget</name>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="27"/>
         <source>&amp;lt; 1m</source>
-        <translation>&amp;lt; 1m</translation>
+        <translation type="vanished">&amp;lt; 1m</translation>
     </message>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="28"/>
         <source>&amp;lt; 1</source>
-        <translation>&amp;lt; 1</translation>
+        <translation type="vanished">&amp;lt; 1</translation>
     </message>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="29"/>
         <source>250 words per page</source>
-        <translation>250 palabras por página</translation>
+        <translation type="vanished">250 palabras por página</translation>
     </message>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="66"/>
         <source>%1h %2m</source>
-        <translation>%1h %2m</translation>
+        <translation type="vanished">%1h %2m</translation>
     </message>
     <message>
-        <location filename="../src/AbstractStatisticsWidget.cpp" line="70"/>
         <source>%1m</source>
-        <translation>%1m</translation>
+        <translation type="vanished">%1m</translation>
     </message>
 </context>
 <context>
     <name>DocumentManager</name>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="157"/>
         <source>Open File</source>
-        <translation>Abrir archivo</translation>
+        <translation type="vanished">Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="172"/>
         <source>Could not open %1</source>
-        <translation>No se pudo abrir %1</translation>
+        <translation type="vanished">No se pudo abrir %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="173"/>
         <source>Permission denied.</source>
-        <translation>Permiso denegado.</translation>
+        <translation type="vanished">Permiso denegado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="249"/>
         <source>The document has been modified.</source>
-        <translation>El documento ha sido modificado.</translation>
+        <translation type="vanished">El documento ha sido modificado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="250"/>
         <source>Discard changes?</source>
-        <translation>¿Descartar los cambios?</translation>
+        <translation type="vanished">¿Descartar los cambios?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="284"/>
         <source>Rename File</source>
-        <translation>Renombrar archivo</translation>
+        <translation type="vanished">Renombrar archivo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="299"/>
         <source>Failed to rename %1</source>
-        <translation>Error al renombrar %1</translation>
+        <translation type="vanished">Error al renombrar %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="337"/>
         <source>Save File</source>
-        <translation>Guardar archivo</translation>
+        <translation type="vanished">Guardar archivo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="436"/>
         <source>Error saving %1</source>
-        <translation>Error al guardar %1</translation>
+        <translation type="vanished">Error al guardar %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="500"/>
         <source>The document has been modified by another program.</source>
-        <translation>El documento ha sido modificado por otro programa.</translation>
+        <translation type="vanished">El documento ha sido modificado por otro programa.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="501"/>
         <source>Would you like to reload the document?</source>
-        <translation>¿Le gustaría recargar el documento?</translation>
+        <translation type="vanished">¿Le gustaría recargar el documento?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="576"/>
-        <location filename="../src/DocumentManager.cpp" line="641"/>
         <source>Could not read %1</source>
-        <translation>No se pudo leer %1</translation>
+        <translation type="vanished">No se pudo leer %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="599"/>
         <source>opening %1</source>
-        <translation>abriendo %1</translation>
+        <translation type="vanished">abriendo %1</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="739"/>
         <source>File has been modified.</source>
-        <translation>El archivo ha sido modificado.</translation>
+        <translation type="vanished">El archivo ha sido modificado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="743"/>
         <source>%1 has been modified.</source>
-        <translation>%1 ha sido modificado.</translation>
+        <translation type="vanished">%1 ha sido modificado.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="752"/>
         <source>Would you like to save your changes?</source>
-        <translation>¿Le gustaría guardar los cambios?</translation>
+        <translation type="vanished">¿Le gustaría guardar los cambios?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="788"/>
         <source>%1 is read only.</source>
-        <translation>%1 es de solo lectura.</translation>
+        <translation type="vanished">%1 es de solo lectura.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="789"/>
         <source>Overwrite protected file?</source>
-        <translation>¿Sobrescribir archivo protegido?</translation>
+        <translation type="vanished">¿Sobrescribir archivo protegido?</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="815"/>
         <source>Overwrite failed.</source>
-        <translation>Error de sobrescritura.</translation>
+        <translation type="vanished">Error de sobrescritura.</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="816"/>
         <source>Please save file to another location.</source>
-        <translation>Guarde el archivo en otra ubicación.</translation>
+        <translation type="vanished">Guarde el archivo en otra ubicación.</translation>
     </message>
 </context>
 <context>
     <name>DocumentStatisticsWidget</name>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="27"/>
         <source>Very Easy</source>
-        <translation>Muy fácil</translation>
+        <translation type="vanished">Muy fácil</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="28"/>
         <source>Easy</source>
-        <translation>Fácil</translation>
+        <translation type="vanished">Fácil</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="29"/>
         <source>Standard</source>
-        <translation>Estándar</translation>
+        <translation type="vanished">Estándar</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="30"/>
         <source>Difficult</source>
-        <translation>Difícil</translation>
+        <translation type="vanished">Difícil</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="31"/>
         <source>Very Difficult</source>
-        <translation>Muy difícil</translation>
+        <translation type="vanished">Muy difícil</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="34"/>
         <source>Words:</source>
-        <translation>Palabras:</translation>
+        <translation type="vanished">Palabras:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="35"/>
         <source>Characters:</source>
-        <translation>Caracteres:</translation>
+        <translation type="vanished">Caracteres:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="36"/>
         <source>Sentences:</source>
-        <translation>Oraciones:</translation>
+        <translation type="vanished">Oraciones:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="37"/>
         <source>Paragraphs:</source>
-        <translation>Párrafos:</translation>
+        <translation type="vanished">Párrafos:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="38"/>
         <source>Pages:</source>
-        <translation>Páginas:</translation>
+        <translation type="vanished">Páginas:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="39"/>
         <source>Complex Words:</source>
-        <translation>Palabras complejas:</translation>
+        <translation type="vanished">Palabras complejas:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="40"/>
         <source>Reading Time:</source>
-        <translation>Tiempo estimado de lectura:</translation>
+        <translation type="vanished">Tiempo estimado de lectura:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>Reading Ease:</source>
-        <translation>Facilidad de lectura:</translation>
+        <translation type="vanished">Facilidad de lectura:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="41"/>
         <source>LIX Reading Ease</source>
-        <translation>Índice LIX de facilidad de lectura</translation>
+        <translation type="vanished">Índice LIX de facilidad de lectura</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Grade Level:</source>
-        <translation>Nivel de lectura:</translation>
+        <translation type="vanished">Nivel de lectura:</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="42"/>
         <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation>Índice de legibilidad lingüsitica de Coleman-Liau (CLI)</translation>
+        <translation type="vanished">Índice de legibilidad lingüsitica de Coleman-Liau (CLI)</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="112"/>
         <source>Kindergarten</source>
-        <translation>Jardín de niños</translation>
+        <translation type="vanished">Jardín de niños</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="116"/>
         <source>Rocket Science</source>
-        <translation>Ciencia espacial</translation>
+        <translation type="vanished">Ciencia espacial</translation>
     </message>
     <message>
-        <location filename="../src/DocumentStatisticsWidget.cpp" line="120"/>
         <source>College</source>
-        <translation>Universitario</translation>
+        <translation type="vanished">Universitario</translation>
     </message>
 </context>
 <context>
     <name>ExportDialog</name>
     <message>
-        <location filename="../src/ExportDialog.cpp" line="49"/>
         <source>Export</source>
-        <translation>Exportar</translation>
+        <translation type="vanished">Exportar</translation>
     </message>
     <message>
-        <location filename="../src/ExportDialog.cpp" line="190"/>
         <source>Smart Typography</source>
-        <translation>Tipografía inteligente</translation>
+        <translation type="vanished">Tipografía inteligente</translation>
     </message>
     <message>
-        <location filename="../src/ExportDialog.cpp" line="193"/>
         <source>Export Options</source>
-        <translation>Opciones de exportación</translation>
+        <translation type="vanished">Opciones de exportación</translation>
     </message>
     <message>
-        <location filename="../src/ExportDialog.cpp" line="195"/>
         <source>Markdown Converter:</source>
-        <translation>Convertidor de Markdown:</translation>
+        <translation type="vanished">Convertidor de Markdown:</translation>
     </message>
     <message>
-        <location filename="../src/ExportDialog.cpp" line="238"/>
         <source>exporting to %1</source>
-        <translation>exportando a %1</translation>
+        <translation type="vanished">exportando a %1</translation>
     </message>
     <message>
-        <location filename="../src/ExportDialog.cpp" line="255"/>
         <source>Export failed.</source>
-        <translation>Error al exportar.</translation>
+        <translation type="vanished">Error al exportar.</translation>
     </message>
 </context>
 <context>
     <name>FindDialog</name>
     <message>
-        <location filename="../src/find_dialog.cpp" line="45"/>
         <source>Search for:</source>
-        <translation>Buscar:</translation>
+        <translation type="vanished">Buscar:</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="47"/>
         <source>Replace with:</source>
-        <translation>Reemplazar con:</translation>
+        <translation type="vanished">Reemplazar con:</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="51"/>
         <source>Ignore case</source>
-        <translation>No distinguir mayúsculas de minúsculas</translation>
+        <translation type="vanished">No distinguir mayúsculas de minúsculas</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="52"/>
         <source>Whole words only</source>
-        <translation>Solo palabras completas</translation>
+        <translation type="vanished">Solo palabras completas</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="53"/>
         <source>Regular expressions</source>
-        <translation>Expresiones regulares</translation>
+        <translation type="vanished">Expresiones regulares</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="56"/>
         <source>Search up</source>
-        <translation>Buscar arriba</translation>
+        <translation type="vanished">Buscar arriba</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="57"/>
         <source>Search down</source>
-        <translation>Buscar abajo</translation>
+        <translation type="vanished">Buscar abajo</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="64"/>
         <source>&amp;Find</source>
-        <translation>&amp;Buscar</translation>
+        <translation type="vanished">&amp;Buscar</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="68"/>
         <source>&amp;Replace</source>
-        <translation>&amp;Reemplazar</translation>
+        <translation type="vanished">&amp;Reemplazar</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="72"/>
         <source>Replace &amp;All</source>
-        <translation>Reemplazar &amp;todo</translation>
+        <translation type="vanished">Reemplazar &amp;todo</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="134"/>
         <source>Find</source>
-        <translation>Buscar</translation>
+        <translation type="vanished">Buscar</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="142"/>
         <source>Replace</source>
-        <translation>Reemplazar</translation>
+        <translation type="vanished">Reemplazar</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="277"/>
         <source>Question</source>
-        <translation>Pregunta</translation>
+        <translation type="vanished">Pregunta</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/find_dialog.cpp" line="277"/>
         <source>Replace %n instance(s)?</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>¿Reemplazar %n coincidencia?</numerusform>
             <numerusform>¿Reemplazar %n coincidencias?</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="281"/>
-        <location filename="../src/find_dialog.cpp" line="355"/>
         <source>Sorry</source>
-        <translation>Lo sentimos</translation>
+        <translation type="vanished">Lo sentimos</translation>
     </message>
     <message>
-        <location filename="../src/find_dialog.cpp" line="281"/>
-        <location filename="../src/find_dialog.cpp" line="355"/>
         <source>Phrase not found.</source>
-        <translation>Frase no encontrada.</translation>
+        <translation type="vanished">Frase no encontrada.</translation>
     </message>
 </context>
 <context>
@@ -386,262 +317,213 @@
 <context>
     <name>ImageButton</name>
     <message>
-        <location filename="../src/image_button.cpp" line="89"/>
         <source>Open Image</source>
-        <translation>Abrir imagen</translation>
+        <translation type="vanished">Abrir imagen</translation>
     </message>
     <message>
-        <location filename="../src/image_button.cpp" line="89"/>
         <source>Images(%1)</source>
-        <translation>Imágenes(%1)</translation>
+        <translation type="vanished">Imágenes(%1)</translation>
     </message>
 </context>
 <context>
     <name>LocaleDialog</name>
     <message>
-        <location filename="../src/LocaleDialog.cpp" line="37"/>
         <source>Set Application Language</source>
-        <translation>Establecer idioma de la aplicación</translation>
+        <translation type="vanished">Establecer idioma de la aplicación</translation>
     </message>
     <message>
-        <location filename="../src/LocaleDialog.cpp" line="48"/>
         <source>The translations folder is missing.</source>
-        <translation>Falta la carpeta de traducciones.</translation>
+        <translation type="vanished">Falta la carpeta de traducciones.</translation>
     </message>
     <message>
-        <location filename="../src/LocaleDialog.cpp" line="49"/>
         <source>Please reinstall this application for more language options.</source>
-        <translation>Reinstale esta aplicación para obtener más opciones de idioma.</translation>
+        <translation type="vanished">Reinstale esta aplicación para obtener más opciones de idioma.</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="120"/>
         <source>Outline</source>
-        <translation>Esquema</translation>
+        <translation type="vanished">Esquema</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="136"/>
         <source># Heading 1</source>
-        <translation># Encabezado 1</translation>
+        <translation type="vanished"># Encabezado 1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="137"/>
         <source>## Heading 2</source>
-        <translation>## Encabezado 2</translation>
+        <translation type="vanished">## Encabezado 2</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="138"/>
         <source>### Heading 3</source>
-        <translation>### Encabezado 3</translation>
+        <translation type="vanished">### Encabezado 3</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="139"/>
         <source>#### Heading 4</source>
-        <translation>#### Encabezado 4</translation>
+        <translation type="vanished">#### Encabezado 4</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="140"/>
         <source>##### Heading 5</source>
-        <translation>##### Encabezado 5</translation>
+        <translation type="vanished">##### Encabezado 5</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="141"/>
         <source>###### Heading 6</source>
-        <translation>###### Encabezado 6</translation>
+        <translation type="vanished">###### Encabezado 6</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="142"/>
         <source>*Emphasis* _Emphasis_</source>
-        <translation>*Énfasis* _Énfasis_</translation>
+        <translation type="vanished">*Énfasis* _Énfasis_</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="143"/>
         <source>**Strong** __Strong__</source>
-        <translation>**Negritas** __Negritas__</translation>
+        <translation type="vanished">**Negritas** __Negritas__</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="144"/>
         <source>1. Numbered List</source>
-        <translation>1. Lista numerada</translation>
+        <translation type="vanished">1. Lista numerada</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="145"/>
         <source>* Bullet List</source>
-        <translation>* Viñeta</translation>
+        <translation type="vanished">* Viñeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="146"/>
         <source>+ Bullet List</source>
-        <translation>+ Viñeta</translation>
+        <translation type="vanished">+ Viñeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="147"/>
         <source>- Bullet List</source>
-        <translation>- Viñeta</translation>
+        <translation type="vanished">- Viñeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="148"/>
         <source>&gt; Block Quote</source>
-        <translation>&gt; Cita de bloque</translation>
+        <translation type="vanished">&gt; Cita de bloque</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="149"/>
         <source>`Code Span`</source>
-        <translation>`Línea de código`</translation>
+        <translation type="vanished">`Línea de código`</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="150"/>
         <source>``` Code Block</source>
-        <translation>``` Bloque de código</translation>
+        <translation type="vanished">``` Bloque de código</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="152"/>
         <source>[Reference Link][ID]</source>
-        <translation>[Referenciar enlace][ID]</translation>
+        <translation type="vanished">[Referenciar enlace][ID]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="154"/>
         <source>![Image][./image.jpg &quot;Title&quot;]</source>
-        <translation>![Imagen][./imagen.jpg &quot;Título&quot;]</translation>
+        <translation type="vanished">![Imagen][./imagen.jpg &quot;Título&quot;]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="155"/>
         <source>--- *** ___ Horizontal Rule</source>
-        <translation>--- *** ___ Regla horizontal</translation>
+        <translation type="vanished">--- *** ___ Regla horizontal</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="160"/>
         <source>Cheat Sheet</source>
-        <translation>Hoja de referencia</translation>
+        <translation type="vanished">Hoja de referencia</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="531"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation>No se pudo crear el archivo %1. Compruebe los permisos.</translation>
+        <translation type="vanished">No se pudo crear el archivo %1. Compruebe los permisos.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1036"/>
         <source>Insert Image</source>
-        <translation>Insertar imagen</translation>
+        <translation type="vanished">Insertar imagen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1039"/>
         <source>Images</source>
-        <translation>Imágenes</translation>
+        <translation type="vanished">Imágenes</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1040"/>
         <source>All Files</source>
-        <translation>Todos los archivos</translation>
+        <translation type="vanished">Todos los archivos</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1113"/>
         <source>Failed to open Quick Reference Guide.</source>
-        <translation>Error al abrir la guía de referencia rápida.</translation>
+        <translation type="vanished">Error al abrir la guía de referencia rápida.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1132"/>
         <source>Quick Reference Guide</source>
-        <translation>Guía de referencia rápida</translation>
+        <translation type="vanished">Guía de referencia rápida</translation>
     </message>
     <message>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translation type="vanished">&lt;p&gt;Derechos reservados &amp;copy; 2014-2017 wereturtle&lt;/b&gt;&lt;p&gt;Usted puede usar y distribuir este software bajo los términos de la &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;licencia GNU General Public versión 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visite el sitio web oficial en &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Agradecimientos especiales y crédito por el código reutilizado a&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graemovi Gottovi&lt;/a&gt;, autor de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitryovi Shachnevovi, autor de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrieli M. Beddingfieldovi&lt;/a&gt;, autor de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;También estoy en deuda con &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfu Vollprechtovi&lt;/a&gt;, autor de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, por la inspiración que me proporcionó al haber creado dicho editor de Markdown.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1250"/>
         <source>About %1</source>
-        <translation>Acerca de %1</translation>
+        <translation type="vanished">Acerca de %1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1403"/>
         <source>Please restart the application for changes to take effect.</source>
-        <translation>Reinicie la aplicación para que los cambios surtan efecto.</translation>
+        <translation type="vanished">Reinicie la aplicación para que los cambios surtan efecto.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1556"/>
         <source>&amp;File</source>
-        <translation>&amp;Archivo</translation>
+        <translation type="vanished">&amp;Archivo</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1558"/>
         <source>&amp;New</source>
-        <translation>&amp;Nuevo</translation>
+        <translation type="vanished">&amp;Nuevo</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1559"/>
         <source>&amp;Open</source>
-        <translation>&amp;Abrir</translation>
+        <translation type="vanished">&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1562"/>
         <source>Reopen Closed File</source>
-        <translation>Volver a abrir archivo cerrado</translation>
+        <translation type="vanished">Volver a abrir archivo cerrado</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1571"/>
         <source>Clear Menu</source>
-        <translation>Limpiar menú</translation>
+        <translation type="vanished">Limpiar menú</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1576"/>
         <source>&amp;Save</source>
-        <translation>&amp;Guardar</translation>
+        <translation type="vanished">&amp;Guardar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1577"/>
         <source>Save &amp;As...</source>
-        <translation>Guardar &amp;como...</translation>
+        <translation type="vanished">Guardar &amp;como...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1561"/>
         <source>Open &amp;Recent...</source>
-        <translation>Abrir &amp;reciente...</translation>
+        <translation type="vanished">Abrir &amp;reciente...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="151"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
-        <translation>[Enlace](http://url.com &quot;Título&quot;)</translation>
+        <translation type="vanished">[Enlace](http://url.com &quot;Título&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="153"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation>[ID]: http://url.com &quot;Definición de la referencia&quot;</translation>
+        <translation type="vanished">[ID]: http://url.com &quot;Definición de la referencia&quot;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="175"/>
         <source>Document Statistics</source>
-        <translation>Estadísticas del documento</translation>
+        <translation type="vanished">Estadísticas del documento</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="190"/>
         <source>Session Statistics</source>
-        <translation>Estadísticas de la sesión</translation>
+        <translation type="vanished">Estadísticas de la sesión</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1227"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Derechos reservados &amp;copy; 2014-2017 wereturtle&lt;/b&gt;&lt;p&gt;Usted puede usar y distribuir este software bajo los términos de la &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;licencia GNU General Public versión 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visite el sitio web oficial en &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Agradecimientos especiales y crédito por el código reutilizado a&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graemovi Gottovi&lt;/a&gt;, autor de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitryovi Shachnevovi, autor de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrieli M. Beddingfieldovi&lt;/a&gt;, autor de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;También estoy en deuda con &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfu Vollprechtovi&lt;/a&gt;, autor de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, por la inspiración que me proporcionó al haber creado dicho editor de Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?}</translation>
+        <translation type="obsolete">&lt;p&gt;Derechos reservados &amp;copy; 2014-2017 wereturtle&lt;/b&gt;&lt;p&gt;Usted puede usar y distribuir este software bajo los términos de la &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;licencia GNU General Public versión 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visite el sitio web oficial en &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Agradecimientos especiales y crédito por el código reutilizado a&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graemovi Gottovi&lt;/a&gt;, autor de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitryovi Shachnevovi, autor de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrieli M. Beddingfieldovi&lt;/a&gt;, autor de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;También estoy en deuda con &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfu Vollprechtovi&lt;/a&gt;, autor de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, por la inspiración que me proporcionó al haber creado dicho editor de Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?}</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/MainWindow.cpp" line="1255"/>
         <source>%Ln word(s)</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>%Ln palabra</numerusform>
             <numerusform>%Ln palabras</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1578"/>
         <source>R&amp;ename...</source>
-        <translation>R&amp;enombrar archivo...</translation>
+        <translation type="vanished">R&amp;enombrar archivo...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1579"/>
         <source>Re&amp;load from Disk...</source>
-        <translation>Re&amp;cargar archivo...</translation>
+        <translation type="vanished">Re&amp;cargar archivo...</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
@@ -652,820 +534,814 @@
         <translation type="vanished">&amp;Imprimir</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1581"/>
         <source>&amp;Export</source>
-        <translation>&amp;Exportar</translation>
+        <translation type="vanished">&amp;Exportar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1583"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Salir</translation>
+        <translation type="vanished">&amp;Salir</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1585"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Editar</translation>
+        <translation type="vanished">&amp;Editar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1586"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Deshacer</translation>
+        <translation type="vanished">&amp;Deshacer</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1587"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Rehacer</translation>
+        <translation type="vanished">&amp;Rehacer</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1589"/>
         <source>Cu&amp;t</source>
-        <translation>Cor&amp;tar</translation>
+        <translation type="vanished">Cor&amp;tar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1590"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Copiar</translation>
+        <translation type="vanished">&amp;Copiar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1591"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Pegar</translation>
+        <translation type="vanished">&amp;Pegar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1592"/>
-        <source>Copy &amp;HTML</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1594"/>
         <source>&amp;Insert Image...</source>
-        <translation>&amp;Insertar imagen...</translation>
+        <translation type="vanished">&amp;Insertar imagen...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1596"/>
         <source>&amp;Find</source>
-        <translation>&amp;Buscar</translation>
+        <translation type="vanished">&amp;Buscar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1597"/>
         <source>Rep&amp;lace</source>
-        <translation>R&amp;eemplazar</translation>
+        <translation type="vanished">R&amp;eemplazar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1599"/>
         <source>&amp;Spell check</source>
-        <translation>&amp;Corrector ortográfico</translation>
+        <translation type="vanished">&amp;Corrector ortográfico</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1601"/>
         <source>For&amp;mat</source>
-        <translation>For&amp;mato</translation>
+        <translation type="vanished">For&amp;mato</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1602"/>
         <source>&amp;Bold</source>
-        <translation>&amp;Negrita</translation>
+        <translation type="vanished">&amp;Negrita</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1603"/>
         <source>&amp;Italic</source>
-        <translation>&amp;Cursiva</translation>
+        <translation type="vanished">&amp;Cursiva</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1605"/>
         <source>&amp;HTML Comment</source>
-        <translation>&amp;Comentar</translation>
+        <translation type="vanished">&amp;Comentar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1607"/>
         <source>I&amp;ndent</source>
-        <translation>&amp;Aumentar sangría</translation>
+        <translation type="vanished">&amp;Aumentar sangría</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1608"/>
         <source>&amp;Unindent</source>
-        <translation>&amp;Quitar sangría</translation>
+        <translation type="vanished">&amp;Quitar sangría</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1610"/>
         <source>Block &amp;Quote</source>
-        <translation>Cita de &amp;bloque</translation>
+        <translation type="vanished">Cita de &amp;bloque</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1611"/>
         <source>&amp;Strip Block Quote</source>
-        <translation>&amp;Quitar cita de bloque</translation>
+        <translation type="vanished">&amp;Quitar cita de bloque</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1613"/>
         <source>&amp;* Bullet List</source>
-        <translation>&amp;* Viñeta</translation>
+        <translation type="vanished">&amp;* Viñeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1614"/>
         <source>&amp;- Bullet List</source>
-        <translation>&amp;- Viñeta</translation>
+        <translation type="vanished">&amp;- Viñeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1615"/>
         <source>&amp;+ Bullet List</source>
-        <translation>&amp;+ Viñeta</translation>
+        <translation type="vanished">&amp;+ Viñeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1617"/>
         <source>1&amp;. Numbered List</source>
-        <translation>1&amp;. Lista numerada</translation>
+        <translation type="vanished">1&amp;. Lista numerada</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1618"/>
         <source>1&amp;) Numbered List</source>
-        <translation>1&amp;) Lista numerada</translation>
+        <translation type="vanished">1&amp;) Lista numerada</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1620"/>
         <source>&amp;Task List</source>
-        <translation>&amp;Insertar lista de tareas</translation>
+        <translation type="vanished">&amp;Insertar lista de tareas</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1621"/>
         <source>Toggle Task(s) &amp;Complete</source>
-        <translation>Marcar/Desmarcar tarea(s) &amp;como completada(s)</translation>
+        <translation type="vanished">Marcar/Desmarcar tarea(s) &amp;como completada(s)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1623"/>
         <source>&amp;View</source>
-        <translation>&amp;Ver</translation>
+        <translation type="vanished">&amp;Ver</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1625"/>
         <source>&amp;Full Screen</source>
-        <translation>&amp;Pantalla completa</translation>
+        <translation type="vanished">&amp;Pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1632"/>
         <source>&amp;Preview in HTML</source>
-        <translation>&amp;Vista preliminar en HTML</translation>
+        <translation type="vanished">&amp;Vista preliminar en HTML</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1639"/>
         <source>&amp;Outline HUD</source>
-        <translation>&amp;Esquema HUD</translation>
+        <translation type="vanished">&amp;Esquema HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1640"/>
         <source>&amp;Cheat Sheet HUD</source>
-        <translation>&amp;Hoja de referencia HUD</translation>
+        <translation type="vanished">&amp;Hoja de referencia HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1641"/>
         <source>&amp;Document Statistics HUD</source>
-        <translation>&amp;Estadísticas del documento HUD</translation>
+        <translation type="vanished">&amp;Estadísticas del documento HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1642"/>
         <source>&amp;Session Statistics HUD</source>
-        <translation>&amp;Estadísticas de la sesión HUD</translation>
+        <translation type="vanished">&amp;Estadísticas de la sesión HUD</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1645"/>
-        <location filename="../src/MainWindow.cpp" line="2527"/>
-        <source>Hide Open &amp;HUD Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1647"/>
         <source>Increase Font Size</source>
-        <translation>Aumentar el tamaño de la fuente</translation>
+        <translation type="vanished">Aumentar el tamaño de la fuente</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1648"/>
         <source>Decrease Font Size</source>
-        <translation>Disminuir tamaño de la fuente</translation>
+        <translation type="vanished">Disminuir tamaño de la fuente</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1650"/>
         <source>&amp;Settings</source>
-        <translation>&amp;Ajustes</translation>
+        <translation type="vanished">&amp;Ajustes</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1651"/>
         <source>Themes...</source>
-        <translation>Temas...</translation>
+        <translation type="vanished">Temas...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1652"/>
         <source>Font...</source>
-        <translation>Fuente...</translation>
+        <translation type="vanished">Fuente...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1654"/>
-        <source>Style Sheets...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1655"/>
-        <source>Preview Options...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1656"/>
         <source>Preferences...</source>
-        <translation>Preferencias...</translation>
+        <translation type="vanished">Preferencias...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1715"/>
-        <source>Preview Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1721"/>
         <source>Export</source>
-        <translation type="unfinished">Exportar</translation>
+        <translation type="obsolete">Exportar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1727"/>
         <source>Copy HTML</source>
-        <translation type="unfinished">Copiar HTML</translation>
+        <translation type="obsolete">Copiar HTML</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1749"/>
-        <location filename="../src/MainWindow.cpp" line="2531"/>
-        <source>Hide Open HUD Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1757"/>
-        <source>Toggle Live HTML Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2539"/>
-        <source>Show Open &amp;HUD Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2542"/>
-        <source>Show Open HUD Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1653"/>
         <source>Application Language...</source>
-        <translation>Idioma de la aplicación...</translation>
+        <translation type="vanished">Idioma de la aplicación...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1604"/>
         <source>Stri&amp;kethrough</source>
-        <translation>&amp;Tachado</translation>
+        <translation type="vanished">&amp;Tachado</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1658"/>
         <source>&amp;Help</source>
-        <translation>&amp;Ayuda</translation>
+        <translation type="vanished">&amp;Ayuda</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1659"/>
         <source>&amp;About</source>
-        <translation>&amp;Acerca de</translation>
+        <translation type="vanished">&amp;Acerca de</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1660"/>
         <source>About &amp;Qt</source>
-        <translation>Acerca de &amp;Qt</translation>
+        <translation type="vanished">Acerca de &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1661"/>
         <source>Quick &amp;Reference Guide</source>
-        <translation>Guía de &amp;referencia rápida</translation>
+        <translation type="vanished">Guía de &amp;referencia rápida</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1662"/>
         <source>Wiki</source>
-        <translation>Wiki</translation>
+        <translation type="vanished">Wiki</translation>
     </message>
     <message>
         <source>Hemingway</source>
         <translation type="vanished">Hemingway</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1765"/>
         <source>Toggle Hemingway mode</source>
-        <translation>Cambiar a modo Hemingway</translation>
+        <translation type="vanished">Cambiar a modo Hemingway</translation>
     </message>
     <message>
         <source>Focus</source>
         <translation type="vanished">Enfoque</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1772"/>
         <source>Toggle distraction free mode</source>
-        <translation>Cambiar a modo libre de distracción</translation>
+        <translation type="vanished">Cambiar a modo libre de distracción</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1780"/>
         <source>Toggle full screen mode</source>
-        <translation>Cambiar a modo de pantalla completa</translation>
+        <translation type="vanished">Cambiar a modo de pantalla completa</translation>
     </message>
 </context>
 <context>
     <name>MarkdownEditor</name>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="133"/>
         <source>Add word to dictionary</source>
-        <translation>Agregar palabra al diccionario</translation>
+        <translation type="vanished">Agregar palabra al diccionario</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="134"/>
         <source>Check spelling...</source>
-        <translation>Revisar ortografía...</translation>
+        <translation type="vanished">Revisar ortografía...</translation>
     </message>
     <message>
-        <location filename="../src/MarkdownEditor.cpp" line="827"/>
         <source>No spelling suggestions found</source>
-        <translation>No se encontraron sugerencias ortográficas</translation>
+        <translation type="vanished">No se encontraron sugerencias ortográficas</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="41"/>
         <source>Preferences</source>
-        <translation>Preferencias</translation>
+        <translation type="vanished">Preferencias</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="50"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="vanished">General</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="51"/>
         <source>Editor</source>
-        <translation>Editor</translation>
+        <translation type="vanished">Editor</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="52"/>
         <source>Spell Check</source>
-        <translation>Corrector ortográfico</translation>
+        <translation type="vanished">Corrector ortográfico</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="53"/>
         <source>HUD</source>
-        <translation>HuD</translation>
+        <translation type="vanished">HuD</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="117"/>
         <source>Matched Characters</source>
-        <translation>Caracteres delimitadores</translation>
+        <translation type="vanished">Caracteres delimitadores</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="199"/>
         <source>Display</source>
-        <translation>Mostrar</translation>
+        <translation type="vanished">Mostrar</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="205"/>
         <source>Show current time in full screen mode</source>
-        <translation>Mostrar la hora actual en el modo de pantalla completa</translation>
+        <translation type="vanished">Mostrar la hora actual en el modo de pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="211"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation>Ocultar la barra de menú en el modo de pantalla completa</translation>
+        <translation type="vanished">Ocultar la barra de menú en el modo de pantalla completa</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="218"/>
         <source>Rounded</source>
-        <translation type="unfinished">Redondeado</translation>
+        <translation type="obsolete">Redondeado</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="219"/>
         <source>Square</source>
-        <translation type="unfinished">Cuadrado</translation>
+        <translation type="obsolete">Cuadrado</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="223"/>
-        <source>Interface style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreferencesDialog.cpp" line="225"/>
         <source>File Saving</source>
-        <translation>Opciones de guardado</translation>
+        <translation type="vanished">Opciones de guardado</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="231"/>
         <source>Auto save</source>
-        <translation>Guardar automáticamente</translation>
+        <translation type="vanished">Guardar automáticamente</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="237"/>
         <source>Backup file on save</source>
-        <translation>Respaldar el archivo al guardar los cambios</translation>
+        <translation type="vanished">Respaldar el archivo al guardar los cambios</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="243"/>
         <source>History</source>
-        <translation>Historial</translation>
+        <translation type="vanished">Historial</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="249"/>
         <source>Remember file history</source>
-        <translation>Recordar el historia de archivos recientes</translation>
+        <translation type="vanished">Recordar el historia de archivos recientes</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="265"/>
         <source>Tabulation</source>
-        <translation>Tabulación</translation>
+        <translation type="vanished">Tabulación</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="271"/>
         <source>Insert spaces for tabs</source>
-        <translation>Insertar espacios en vez de tabuladores</translation>
+        <translation type="vanished">Insertar espacios en vez de tabuladores</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="287"/>
         <source>Tabulation width</source>
-        <translation>Ancho de tabulación</translation>
+        <translation type="vanished">Ancho de tabulación</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="289"/>
         <source>Styling</source>
-        <translation>Estilo</translation>
+        <translation type="vanished">Estilo</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="296"/>
         <source>Sentence</source>
-        <translation>Oración</translation>
+        <translation type="vanished">Oración</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="297"/>
         <source>Current Line</source>
-        <translation>Línea actual</translation>
+        <translation type="vanished">Línea actual</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="298"/>
         <source>Three Lines</source>
-        <translation>Tres líneas</translation>
+        <translation type="vanished">Tres líneas</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="299"/>
         <source>Paragraph</source>
-        <translation>Párrafo</translation>
+        <translation type="vanished">Párrafo</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="300"/>
-        <source>Typewriter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreferencesDialog.cpp" line="304"/>
         <source>Focus mode</source>
-        <translation>Modo de enfoque</translation>
+        <translation type="vanished">Modo de enfoque</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="307"/>
         <source>Narrow</source>
-        <translation>Estrecho</translation>
+        <translation type="vanished">Estrecho</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="308"/>
         <source>Medium</source>
-        <translation>Mediano</translation>
+        <translation type="vanished">Mediano</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="309"/>
         <source>Wide</source>
-        <translation>Amplio</translation>
+        <translation type="vanished">Amplio</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="310"/>
         <source>Full</source>
-        <translation>Completo</translation>
+        <translation type="vanished">Completo</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="314"/>
         <source>Editor width</source>
-        <translation>Anchura del editor</translation>
+        <translation type="vanished">Anchura del editor</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="317"/>
         <source>Plain</source>
-        <translation>Plano</translation>
+        <translation type="vanished">Plano</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="318"/>
-        <location filename="../src/PreferencesDialog.cpp" line="326"/>
         <source>Italic</source>
-        <translation>Cursiva</translation>
+        <translation type="vanished">Cursiva</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="319"/>
         <source>Fancy</source>
-        <translation>Elegante</translation>
+        <translation type="vanished">Elegante</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="323"/>
         <source>Blockquote style</source>
-        <translation>Estilo de la cita de bloque</translation>
+        <translation type="vanished">Estilo de la cita de bloque</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="327"/>
         <source>Underline</source>
-        <translation>Subrayado</translation>
+        <translation type="vanished">Subrayado</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="331"/>
         <source>Emphasis style</source>
-        <translation>Estilo de énfasis</translation>
+        <translation type="vanished">Estilo de énfasis</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="333"/>
         <source>Use large headings</source>
-        <translation>Usar títulos grandes</translation>
+        <translation type="vanished">Usar títulos grandes</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="339"/>
         <source>Highlight line breaks</source>
-        <translation>Resaltar saltos de línea</translation>
+        <translation type="vanished">Resaltar saltos de línea</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="345"/>
         <source>Typing</source>
-        <translation>Escritura</translation>
+        <translation type="vanished">Escritura</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="351"/>
         <source>Cycle bullet point markers</source>
-        <translation>Alternar los indicadores de viñeta</translation>
+        <translation type="vanished">Alternar los indicadores de viñeta</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="357"/>
         <source>Automatically match characters</source>
-        <translation>Cerrar automáticamente los caracteres delimitadores</translation>
+        <translation type="vanished">Cerrar automáticamente los caracteres delimitadores</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="363"/>
         <source>Customize matched characters...</source>
-        <translation>Personalizar caracteres delimitadores...</translation>
+        <translation type="vanished">Personalizar caracteres delimitadores...</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="377"/>
         <source>Live spellcheck enabled</source>
-        <translation>Habilitar automáticamente el corrector ortográfico</translation>
+        <translation type="vanished">Habilitar automáticamente el corrector ortográfico</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="383"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation type="vanished">Idioma</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="409"/>
         <source>Dictionary</source>
-        <translation>Diccionario</translation>
+        <translation type="vanished">Diccionario</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="422"/>
         <source>Right</source>
-        <translation>Derecha</translation>
+        <translation type="vanished">Derecha</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="423"/>
         <source>Left</source>
-        <translation>Izquierda</translation>
+        <translation type="vanished">Izquierda</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="427"/>
         <source>Window button layout</source>
-        <translation>Disposición del botón de la ventana</translation>
+        <translation type="vanished">Disposición del botón de la ventana</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="429"/>
         <source>Alternate row colors</source>
-        <translation>Alternar el color de las filas</translation>
+        <translation type="vanished">Alternar el color de las filas</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="435"/>
         <source>Enable desktop compositing effects</source>
-        <translation>Habilitar efectos de escritorio</translation>
+        <translation type="vanished">Habilitar efectos de escritorio</translation>
     </message>
     <message>
-        <location filename="../src/PreferencesDialog.cpp" line="441"/>
-        <source>Auto-hide HUD windows when typing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreferencesDialog.cpp" line="447"/>
-        <source>Auto-hide HUD windows when previewing HTML</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreferencesDialog.cpp" line="458"/>
         <source>Opacity</source>
-        <translation>Opacidad</translation>
+        <translation type="vanished">Opacidad</translation>
     </message>
 </context>
 <context>
     <name>PreviewOptionsDialog</name>
     <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="33"/>
-        <source>Preview Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="69"/>
-        <source>Markdown Flavor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="73"/>
-        <source>Style Sheet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="114"/>
         <source>Github (Default)</source>
-        <translation type="unfinished">Github (Predeterminado)</translation>
-    </message>
-    <message>
-        <location filename="../src/PreviewOptionsDialog.cpp" line="116"/>
-        <source>Github Dark</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Github (Predeterminado)</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/CommandLineExporter.cpp" line="99"/>
+        <location filename="../src/commandlineexporter.cpp" line="152"/>
         <source>Export failed: </source>
         <translation>Error al exportar: </translation>
     </message>
     <message>
-        <location filename="../src/CommandLineExporter.cpp" line="117"/>
+        <location filename="../src/commandlineexporter.cpp" line="171"/>
         <source>%1 format is not supported by this processor.</source>
         <translation>El formato %1 no es compatible con este procesador.</translation>
     </message>
     <message>
-        <location filename="../src/CommandLineExporter.cpp" line="131"/>
+        <location filename="../src/commandlineexporter.cpp" line="193"/>
         <source>Failed to execute command: </source>
         <translation>Error al ejecutar el comando: </translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="49"/>
+        <location filename="../src/documentmanager.cpp" line="158"/>
         <source>Markdown</source>
         <translation>Markdown</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="50"/>
+        <location filename="../src/documentmanager.cpp" line="159"/>
         <source>Text</source>
         <translation>Texto</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="51"/>
+        <location filename="../src/documentmanager.cpp" line="160"/>
         <source>All</source>
         <translation>Todo</translation>
     </message>
     <message>
-        <location filename="../src/DocumentManager.cpp" line="844"/>
+        <location filename="../src/documentmanager.cpp" line="553"/>
+        <source>Error saving %1</source>
+        <translation type="unfinished">Error al guardar %1</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="608"/>
+        <source>The document has been modified by another program.</source>
+        <translation type="unfinished">El documento ha sido modificado por otro programa.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="609"/>
+        <source>Would you like to reload the document?</source>
+        <translation type="unfinished">¿Le gustaría recargar el documento?</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="685"/>
+        <location filename="../src/documentmanager.cpp" line="728"/>
+        <source>Could not read %1</source>
+        <translation type="unfinished">No se pudo leer %1</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="706"/>
+        <source>opening %1</source>
+        <translation type="unfinished">abriendo %1</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="811"/>
+        <source>File has been modified.</source>
+        <translation type="unfinished">El archivo ha sido modificado.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="813"/>
+        <source>%1 has been modified.</source>
+        <translation type="unfinished">%1 ha sido modificado.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="822"/>
+        <source>Would you like to save your changes?</source>
+        <translation type="unfinished">¿Le gustaría guardar los cambios?</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="853"/>
+        <source>%1 is read only.</source>
+        <translation type="unfinished">%1 es de solo lectura.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="854"/>
+        <source>Overwrite protected file?</source>
+        <translation type="unfinished">¿Sobrescribir archivo protegido?</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="873"/>
+        <source>Overwrite failed.</source>
+        <translation type="unfinished">Error de sobrescritura.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="874"/>
+        <source>Please save file to another location.</source>
+        <translation type="unfinished">Guarde el archivo en otra ubicación.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="899"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>La ruta del archivo proporcionada para escritura es invalida o se encuentra vacía.</translation>
     </message>
     <message>
-        <location filename="../src/Exporter.cpp" line="66"/>
+        <location filename="../src/exporter.cpp" line="68"/>
         <source>Export to HTML is not supported with this processor.</source>
         <translation>La exportación a HTML no es compatible con este procesador.</translation>
     </message>
     <message>
-        <location filename="../src/SundownExporter.cpp" line="127"/>
         <source>%1 format is unsupported by the Sundown processor.</source>
-        <translation>El formato %1 no es compatible con el procesador Sundown.</translation>
+        <translation type="vanished">El formato %1 no es compatible con el procesador Sundown.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="204"/>
         <source>The specified theme does not exist in the file system: </source>
-        <translation>El tema especificado no existe en el sistema de archivos: </translation>
+        <translation type="vanished">El tema especificado no existe en el sistema de archivos: </translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="321"/>
         <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
-        <translation>El tema especificado no está disponible. Intente reiniciar la aplicación. Si el problema persiste, envíe un informe de error.</translation>
+        <translation type="vanished">El tema especificado no está disponible. Intente reiniciar la aplicación. Si el problema persiste, envíe un informe de error.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="391"/>
         <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
-        <translation>No se pudo eliminar %1 del tema. Compruebe los permisos del archivo para que pueda ser modificado.</translation>
+        <translation type="vanished">No se pudo eliminar %1 del tema. Compruebe los permisos del archivo para que pueda ser modificado.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="414"/>
         <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; ya existe. Elija otro nombre.</translation>
+        <translation type="vanished">&apos;%1&apos; ya existe. Elija otro nombre.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="424"/>
         <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation>&apos;%1&apos; el tema ya existe. Elija otro nombre.</translation>
+        <translation type="vanished">&apos;%1&apos; el tema ya existe. Elija otro nombre.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="459"/>
         <source>Failed to rename theme.  Please check file permissions.</source>
-        <translation>Error al cambiar el nombre del tema. Compruebe los permisos del archivo.</translation>
+        <translation type="vanished">Error al cambiar el nombre del tema. Compruebe los permisos del archivo.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="504"/>
         <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
-        <translation>El tema es de solo lectura. Intente cambiar el nombre del tema o compruebe los permisos del archivo para que pueda modificarse.</translation>
+        <translation type="vanished">El tema es de solo lectura. Intente cambiar el nombre del tema o compruebe los permisos del archivo para que pueda modificarse.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="544"/>
         <source>Failed to remove old theme image.  Please check file permissions.</source>
-        <translation>Error al eliminar la imagen previa del tema. Compruebe los permisos del archivo.</translation>
+        <translation type="vanished">Error al eliminar la imagen previa del tema. Compruebe los permisos del archivo.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="576"/>
         <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
-        <translation>Error al eliminar el archivo de imagen previa ubicado en el directorio de temas. Compruebe los permisos del archivo.</translation>
+        <translation type="vanished">Error al eliminar el archivo de imagen previa ubicado en el directorio de temas. Compruebe los permisos del archivo.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="588"/>
         <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
-        <translation>El archivo de imagen del tema no pudo ser copiado dentro del directorio de temas. Compruebe los permisos del archivo.</translation>
+        <translation type="vanished">El archivo de imagen del tema no pudo ser copiado dentro del directorio de temas. Compruebe los permisos del archivo.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="607"/>
         <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation>El tema no pudo ser guardado en disco. Compruebe los permisos del archivo o intente cambiar el nombre del tema.</translation>
+        <translation type="vanished">El tema no pudo ser guardado en disco. Compruebe los permisos del archivo o intente cambiar el nombre del tema.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="632"/>
         <source>Untitled 1</source>
-        <translation>Sin título 1</translation>
+        <translation type="vanished">Sin título 1</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="645"/>
         <source>Untitled %1</source>
-        <translation>Sin título %1</translation>
+        <translation type="vanished">Sin título %1</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="703"/>
-        <location filename="../src/ThemeFactory.cpp" line="725"/>
-        <location filename="../src/ThemeFactory.cpp" line="753"/>
         <source>Invalid or missing value for %1 provided.</source>
-        <translation>El valor proporcionado para %1 es inválido o inexistente.</translation>
+        <translation type="vanished">El valor proporcionado para %1 es inválido o inexistente.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeFactory.cpp" line="733"/>
         <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
-        <translation>El valor para %1 está fuera de rango. Los valores válidos están entre %2 y %3, inclusive.</translation>
+        <translation type="vanished">El valor para %1 está fuera de rango. Los valores válidos están entre %2 y %3, inclusive.</translation>
+    </message>
+    <message>
+        <location filename="../src/cmarkgfmexporter.cpp" line="63"/>
+        <source>%1 format is unsupported by the cmark-gfm processor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmarkgfmexporter.cpp" line="71"/>
+        <source>Export failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="32"/>
+        <source>Very Easy</source>
+        <translation type="unfinished">Muy fácil</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="33"/>
+        <source>Easy</source>
+        <translation type="unfinished">Fácil</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="34"/>
+        <source>Standard</source>
+        <translation type="unfinished">Estándar</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="35"/>
+        <source>Difficult</source>
+        <translation type="unfinished">Difícil</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="36"/>
+        <source>Very Difficult</source>
+        <translation type="unfinished">Muy difícil</translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="439"/>
+        <source>Search wrapped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="446"/>
+        <source>No results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="488"/>
+        <source>%1 matches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="178"/>
+        <source>Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="179"/>
+        <source>Light Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="180"/>
+        <source>Dark Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="182"/>
+        <source>Foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="183"/>
+        <source>Background</source>
+        <translation type="unfinished">Fondo</translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="184"/>
+        <source>Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="185"/>
+        <source>Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="186"/>
+        <source>Markup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="187"/>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="188"/>
+        <source>Heading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="189"/>
+        <source>Emphasis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="190"/>
+        <source>Block Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="191"/>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="192"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="225"/>
+        <source>Unable to save theme.</source>
+        <translation type="unfinished">No se puede guardar el tema.</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="410"/>
+        <source>Cannot delete theme.</source>
+        <translation type="unfinished">No se puede eliminar el tema.</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="411"/>
+        <source>Sorry, this is a built-in theme that cannot be deleted.</source>
+        <translation type="unfinished">Lo sentimos, este es un tema incorporado que no se puede eliminar.</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="422"/>
+        <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
+        <translation type="unfinished">¿Está seguro que desea eliminar de forma permanente el tema&apos;%1&apos;?</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="438"/>
+        <source>Failed to delete theme.</source>
+        <translation type="unfinished">Error al eliminar el tema.</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="466"/>
+        <source>Cannot edit theme.</source>
+        <translation type="unfinished">No se puede editar el tema.</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="467"/>
+        <source>Sorry, this is a built-in theme that cannot be edited.</source>
+        <translation type="unfinished">Lo sentimos, este es un tema incorporado que no se puede editar.</translation>
     </message>
 </context>
 <context>
     <name>SessionStatisticsWidget</name>
     <message>
-        <location filename="../src/SessionStatisticsWidget.cpp" line="25"/>
         <source>Words Written:</source>
-        <translation>Palabras escritas:</translation>
+        <translation type="vanished">Palabras escritas:</translation>
     </message>
     <message>
-        <location filename="../src/SessionStatisticsWidget.cpp" line="26"/>
         <source>Pages Written:</source>
-        <translation>Páginas escritas:</translation>
+        <translation type="vanished">Páginas escritas:</translation>
     </message>
     <message>
-        <location filename="../src/SessionStatisticsWidget.cpp" line="27"/>
         <source>Average WPM:</source>
-        <translation>Promedio de palabras por minuto:</translation>
+        <translation type="vanished">Promedio de palabras por minuto:</translation>
     </message>
     <message>
-        <location filename="../src/SessionStatisticsWidget.cpp" line="28"/>
         <source>Total Time:</source>
-        <translation>Tiempo total:</translation>
+        <translation type="vanished">Tiempo total:</translation>
     </message>
     <message>
-        <location filename="../src/SessionStatisticsWidget.cpp" line="29"/>
         <source>Idle Time:</source>
-        <translation>Tiempo inactivo:</translation>
+        <translation type="vanished">Tiempo inactivo:</translation>
     </message>
 </context>
 <context>
     <name>SimpleFontDialog</name>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="44"/>
         <source>Family</source>
-        <translation>Familia</translation>
+        <translation type="vanished">Familia</translation>
     </message>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="96"/>
         <source>Size</source>
-        <translation>Tamaño</translation>
+        <translation type="vanished">Tamaño</translation>
     </message>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="99"/>
         <source>AaBbCcXxYyZz</source>
-        <translation>AaBbCcXxYyZz</translation>
+        <translation type="vanished">AaBbCcXxYyZz</translation>
     </message>
     <message>
-        <location filename="../src/SimpleFontDialog.cpp" line="103"/>
         <source>Preview</source>
-        <translation>Vista preliminar</translation>
+        <translation type="vanished">Vista preliminar</translation>
     </message>
 </context>
 <context>
@@ -1476,62 +1352,62 @@
         <translation>Revisar ortografía</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="147"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="151"/>
         <source>&amp;Add</source>
         <translation>&amp;Agregar</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="150"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="154"/>
         <source>&amp;Ignore</source>
         <translation>&amp;Ignorar</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="153"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="157"/>
         <source>I&amp;gnore All</source>
         <translation>I&amp;gnorar todo</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="158"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="162"/>
         <source>&amp;Change</source>
         <translation>&amp;Cambiar</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="161"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="165"/>
         <source>C&amp;hange All</source>
         <translation>C&amp;ambiar todo</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="176"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="180"/>
         <source>Not in dictionary:</source>
         <translation>No se encuentra en el diccionario:</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="184"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="188"/>
         <source>Change to:</source>
         <translation>Sustituir por:</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="200"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Checking spelling...</source>
         <translation>Revisando ortografía...</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="200"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="201"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="205"/>
         <source>Please wait</source>
         <translation>Por favor, espere</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="228"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="232"/>
         <source>Continue checking at beginning of file?</source>
         <translation>¿Continuar la revisión del documento desde el principio?</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="287"/>
+        <location filename="../src/spelling/spell_checker.cpp" line="291"/>
         <source>Spell check complete.</source>
         <translation>Revisión ortográfica completada.</translation>
     </message>
@@ -1539,57 +1415,46 @@
 <context>
     <name>StyleSheetManagerDialog</name>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="38"/>
         <source>Custom Style Sheets</source>
-        <translation>Hojas de estilo personalizadas</translation>
+        <translation type="vanished">Hojas de estilo personalizadas</translation>
     </message>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="65"/>
         <source>Add new style sheet</source>
-        <translation>Agregar una nueva hoja de estilo</translation>
+        <translation type="vanished">Agregar una nueva hoja de estilo</translation>
     </message>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="67"/>
         <source>Remove selected style sheet(s) from list. (No files will be deleted from the hard disk.)</source>
-        <translation>Quitar de la lista la(s) hoja(s) de estilo seleccionada(s). (No se eliminará ningún archivo del disco duro.)</translation>
+        <translation type="vanished">Quitar de la lista la(s) hoja(s) de estilo seleccionada(s). (No se eliminará ningún archivo del disco duro.)</translation>
     </message>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="113"/>
         <source>Select CSS File</source>
-        <translation>Seleccionar archivo CSS</translation>
+        <translation type="vanished">Seleccionar archivo CSS</translation>
     </message>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="115"/>
         <source>CSS</source>
-        <translation>CSS</translation>
+        <translation type="vanished">CSS</translation>
     </message>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="115"/>
         <source>All</source>
-        <translation>Todo</translation>
+        <translation type="vanished">Todo</translation>
     </message>
     <message>
-        <location filename="../src/StyleSheetManagerDialog.cpp" line="144"/>
         <source>Don&apos;t worry! No files will be deleted from the hard disk. But are you sure you wish to remove the selected style sheet(s) from the list?</source>
-        <translation>¡No se preocupe! No se eliminará ningún archivo del disco duro. ¿Está seguro que desea quitar de la lista la(s) hoja(s) de estilos seleccionada(s)?</translation>
+        <translation type="vanished">¡No se preocupe! No se eliminará ningún archivo del disco duro. ¿Está seguro que desea quitar de la lista la(s) hoja(s) de estilos seleccionada(s)?</translation>
     </message>
 </context>
 <context>
     <name>TextDocument</name>
     <message>
-        <location filename="../src/TextDocument.cpp" line="47"/>
-        <location filename="../src/TextDocument.cpp" line="74"/>
-        <location filename="../src/TextDocument.cpp" line="119"/>
         <source>untitled</source>
-        <translation>Sin título</translation>
+        <translation type="vanished">Sin título</translation>
     </message>
 </context>
 <context>
     <name>ThemeEditorDialog</name>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="47"/>
         <source>Edit Theme</source>
-        <translation>Editar tema</translation>
+        <translation type="vanished">Editar tema</translation>
     </message>
     <message>
         <source>Rounded</source>
@@ -1600,183 +1465,1341 @@
         <translation type="vanished">Cuadrado</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="111"/>
-        <location filename="../src/ThemeEditorDialog.cpp" line="119"/>
         <source>Stretch</source>
-        <translation>Ajustado</translation>
+        <translation type="vanished">Ajustado</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="112"/>
-        <location filename="../src/ThemeEditorDialog.cpp" line="118"/>
         <source>Center</source>
-        <translation>Centrado</translation>
+        <translation type="vanished">Centrado</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="116"/>
         <source>None</source>
-        <translation>Ninguno</translation>
+        <translation type="vanished">Ninguno</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="117"/>
         <source>Tile</source>
-        <translation>Mosaico</translation>
+        <translation type="vanished">Mosaico</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="120"/>
         <source>Scale</source>
-        <translation>Escala</translation>
+        <translation type="vanished">Escala</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="121"/>
         <source>Zoom</source>
-        <translation>Zoom</translation>
+        <translation type="vanished">Zoom</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="132"/>
         <source>Theme Name</source>
-        <translation>Nombre del tema</translation>
+        <translation type="vanished">Nombre del tema</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="145"/>
         <source>Text Color</source>
-        <translation>Color del texto</translation>
+        <translation type="vanished">Color del texto</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="146"/>
         <source>Markup Color</source>
-        <translation>Color del resaltado</translation>
+        <translation type="vanished">Color del resaltado</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="147"/>
         <source>Link Color</source>
-        <translation>Color de los enlaces</translation>
+        <translation type="vanished">Color de los enlaces</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="148"/>
-        <source>Emphasis Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="149"/>
-        <source>Block Text Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="150"/>
         <source>Spelling Error Color</source>
-        <translation>Color de las marcas de error ortográfico</translation>
+        <translation type="vanished">Color de las marcas de error ortográfico</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="151"/>
         <source>Text Area Background Color</source>
-        <translation>Color de fondo del área de texto</translation>
+        <translation type="vanished">Color de fondo del área de texto</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="154"/>
         <source>Text Editor</source>
-        <translation>Editor de texto</translation>
+        <translation type="vanished">Editor de texto</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="160"/>
         <source>Background Image</source>
-        <translation>Imagen de fondo</translation>
+        <translation type="vanished">Imagen de fondo</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="161"/>
         <source>Background Color</source>
-        <translation>Color de fondo</translation>
+        <translation type="vanished">Color de fondo</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="163"/>
         <source>Editor Aspect</source>
-        <translation>Aspecto del editor</translation>
+        <translation type="vanished">Aspecto del editor</translation>
     </message>
     <message>
         <source>Editor Corners</source>
         <translation type="vanished">Esquinas del editor</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="164"/>
         <source>Editor Opacity</source>
-        <translation>Opacidad del editor</translation>
+        <translation type="vanished">Opacidad del editor</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="167"/>
         <source>Background</source>
-        <translation>Fondo</translation>
+        <translation type="vanished">Fondo</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="173"/>
         <source>HUD Foreground Color</source>
-        <translation>Color de primer plano del HUD</translation>
+        <translation type="vanished">Color de primer plano del HUD</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="174"/>
         <source>HUD Background Color</source>
-        <translation>Color de fondo del HUD</translation>
+        <translation type="vanished">Color de fondo del HUD</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="177"/>
         <source>HUD</source>
-        <translation>HUD</translation>
+        <translation type="vanished">HUD</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="259"/>
         <source>Unable to save theme.</source>
-        <translation>No se puede guardar el tema.</translation>
+        <translation type="vanished">No se puede guardar el tema.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeEditorDialog.cpp" line="277"/>
         <source>Failed to rename theme.</source>
-        <translation>Error al cambiar el nombre del tema.</translation>
+        <translation type="vanished">Error al cambiar el nombre del tema.</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectionDialog</name>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="62"/>
         <source>Themes</source>
-        <translation>Temas</translation>
+        <translation type="vanished">Temas</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="137"/>
         <source>Edit...</source>
-        <translation>Editar...</translation>
+        <translation type="vanished">Editar...</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="198"/>
         <source>Unable to load theme.</source>
-        <translation>No se puede cargar el tema.</translation>
+        <translation type="vanished">No se puede cargar el tema.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="287"/>
         <source>Cannot delete theme.</source>
-        <translation>No se puede eliminar el tema.</translation>
+        <translation type="vanished">No se puede eliminar el tema.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="288"/>
         <source>Sorry, this is a built-in theme that cannot be deleted.</source>
-        <translation>Lo sentimos, este es un tema incorporado que no se puede eliminar.</translation>
+        <translation type="vanished">Lo sentimos, este es un tema incorporado que no se puede eliminar.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="299"/>
         <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
-        <translation>¿Está seguro que desea eliminar de forma permanente el tema&apos;%1&apos;?</translation>
+        <translation type="vanished">¿Está seguro que desea eliminar de forma permanente el tema&apos;%1&apos;?</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="317"/>
         <source>Failed to delete theme.</source>
-        <translation>Error al eliminar el tema.</translation>
+        <translation type="vanished">Error al eliminar el tema.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="348"/>
         <source>Cannot edit theme.</source>
-        <translation>No se puede editar el tema.</translation>
+        <translation type="vanished">No se puede editar el tema.</translation>
     </message>
     <message>
-        <location filename="../src/ThemeSelectionDialog.cpp" line="349"/>
         <source>Sorry, this is a built-in theme that cannot be edited.</source>
-        <translation>Lo sentimos, este es un tema incorporado que no se puede editar.</translation>
+        <translation type="vanished">Lo sentimos, este es un tema incorporado que no se puede editar.</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::AbstractStatisticsWidget</name>
+    <message>
+        <location filename="../src/abstractstatisticswidget.cpp" line="29"/>
+        <source>&amp;lt; 1m</source>
+        <translation type="unfinished">&amp;lt; 1m</translation>
+    </message>
+    <message>
+        <location filename="../src/abstractstatisticswidget.cpp" line="30"/>
+        <source>&amp;lt; 1</source>
+        <translation type="unfinished">&amp;lt; 1</translation>
+    </message>
+    <message>
+        <location filename="../src/abstractstatisticswidget.cpp" line="31"/>
+        <source>250 words per page</source>
+        <translation type="unfinished">250 palabras por página</translation>
+    </message>
+    <message>
+        <location filename="../src/abstractstatisticswidget.cpp" line="65"/>
+        <source>%1h %2m</source>
+        <translation type="unfinished">%1h %2m</translation>
+    </message>
+    <message>
+        <location filename="../src/abstractstatisticswidget.cpp" line="67"/>
+        <source>%1m</source>
+        <translation type="unfinished">%1m</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::DocumentManager</name>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="306"/>
+        <source>Open File</source>
+        <translation type="unfinished">Abrir archivo</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="319"/>
+        <source>Could not open %1</source>
+        <translation type="unfinished">No se pudo abrir %1</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="320"/>
+        <source>Permission denied.</source>
+        <translation type="unfinished">Permiso denegado.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="381"/>
+        <source>The document has been modified.</source>
+        <translation type="unfinished">El documento ha sido modificado.</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="382"/>
+        <source>Discard changes?</source>
+        <translation type="unfinished">¿Descartar los cambios?</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="413"/>
+        <source>Rename File</source>
+        <translation type="unfinished">Renombrar archivo</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="426"/>
+        <source>Failed to rename %1</source>
+        <translation type="unfinished">Error al renombrar %1</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="464"/>
+        <source>Save File</source>
+        <translation type="unfinished">Guardar archivo</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::DocumentStatisticsWidget</name>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="73"/>
+        <source>Words:</source>
+        <translation type="unfinished">Palabras:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="74"/>
+        <source>Characters:</source>
+        <translation type="unfinished">Caracteres:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="75"/>
+        <source>Sentences:</source>
+        <translation type="unfinished">Oraciones:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="76"/>
+        <source>Paragraphs:</source>
+        <translation type="unfinished">Párrafos:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="77"/>
+        <source>Pages:</source>
+        <translation type="unfinished">Páginas:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="78"/>
+        <source>Complex Words:</source>
+        <translation type="unfinished">Palabras complejas:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="79"/>
+        <source>Reading Time:</source>
+        <translation type="unfinished">Tiempo estimado de lectura:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="80"/>
+        <source>Reading Ease:</source>
+        <translation type="unfinished">Facilidad de lectura:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="80"/>
+        <source>LIX Reading Ease</source>
+        <translation type="unfinished">Índice LIX de facilidad de lectura</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="81"/>
+        <source>Grade Level:</source>
+        <translation type="unfinished">Nivel de lectura:</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="81"/>
+        <source>Coleman-Liau Readability Index (CLI)</source>
+        <translation type="unfinished">Índice de legibilidad lingüsitica de Coleman-Liau (CLI)</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="162"/>
+        <source>Kindergarten</source>
+        <translation type="unfinished">Jardín de niños</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="165"/>
+        <source>Rocket Science</source>
+        <translation type="unfinished">Ciencia espacial</translation>
+    </message>
+    <message>
+        <location filename="../src/documentstatisticswidget.cpp" line="167"/>
+        <source>College</source>
+        <translation type="unfinished">Universitario</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::ExportDialog</name>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="53"/>
+        <location filename="../src/exportdialog.cpp" line="100"/>
+        <source>Export</source>
+        <translation type="unfinished">Exportar</translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="85"/>
+        <source>Smart Typography</source>
+        <translation type="unfinished">Tipografía inteligente</translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="88"/>
+        <source>Export Options</source>
+        <translation type="unfinished">Opciones de exportación</translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="90"/>
+        <source>Markdown Converter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="91"/>
+        <source>File Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="171"/>
+        <source>exporting to %1</source>
+        <translation type="unfinished">exportando a %1</translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="187"/>
+        <source>Export failed.</source>
+        <translation type="unfinished">Error al exportar.</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::FindReplace</name>
+    <message>
+        <location filename="../src/findreplace.cpp" line="114"/>
+        <source>Match case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="121"/>
+        <source>Whole word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="127"/>
+        <source>Regular expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="133"/>
+        <source>Highlight matches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="143"/>
+        <source>Find previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="148"/>
+        <source>Find next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="150"/>
+        <source>Replace</source>
+        <translation type="unfinished">Reemplazar</translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="152"/>
+        <source>Replace All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="183"/>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="189"/>
+        <source>Replace with:</source>
+        <translation type="unfinished">Reemplazar con:</translation>
+    </message>
+    <message>
+        <location filename="../src/findreplace.cpp" line="389"/>
+        <source>%1 replacements</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::HtmlPreview</name>
+    <message>
+        <location filename="../src/htmlpreview.cpp" line="165"/>
+        <source>Error loading resources/preview.html</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::LocaleDialog</name>
+    <message>
+        <location filename="../src/localedialog.cpp" line="39"/>
+        <source>Set Application Language</source>
+        <translation type="unfinished">Establecer idioma de la aplicación</translation>
+    </message>
+    <message>
+        <location filename="../src/localedialog.cpp" line="49"/>
+        <source>The translations folder is missing.</source>
+        <translation type="unfinished">Falta la carpeta de traducciones.</translation>
+    </message>
+    <message>
+        <location filename="../src/localedialog.cpp" line="50"/>
+        <source>Please reinstall this application for more language options.</source>
+        <translation type="unfinished">Reinstale esta aplicación para obtener más opciones de idioma.</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::MainWindow</name>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="372"/>
+        <source>Could not create file %1. Check permissions.</source>
+        <translation type="unfinished">No se pudo crear el archivo %1. Compruebe los permisos.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="653"/>
+        <source>Insert Image</source>
+        <translation type="unfinished">Insertar imagen</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="656"/>
+        <source>Images</source>
+        <translation type="unfinished">Imágenes</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="657"/>
+        <source>All Files</source>
+        <translation type="unfinished">Todos los archivos</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="703"/>
+        <source>Failed to open Quick Reference Guide.</source>
+        <translation type="unfinished">Error al abrir la guía de referencia rápida.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="722"/>
+        <source>Quick Reference Guide</source>
+        <translation type="unfinished">Guía de referencia rápida</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="760"/>
+        <source>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Derechos reservados &amp;copy; 2014-2017 wereturtle&lt;/b&gt;&lt;p&gt;Usted puede usar y distribuir este software bajo los términos de la &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;licencia GNU General Public versión 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visite el sitio web oficial en &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Agradecimientos especiales y crédito por el código reutilizado a&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graemovi Gottovi&lt;/a&gt;, autor de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitryovi Shachnevovi, autor de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrieli M. Beddingfieldovi&lt;/a&gt;, autor de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;También estoy en deuda con &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfu Vollprechtovi&lt;/a&gt;, autor de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, por la inspiración que me proporcionó al haber creado dicho editor de Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?} {2014-2020 ?} {3&lt;?}</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="783"/>
+        <source>About %1</source>
+        <translation type="unfinished">Acerca de %1</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/mainwindow.cpp" line="788"/>
+        <source>%Ln word(s)</source>
+        <translation type="unfinished">
+            <numerusform>%Ln palabra</numerusform>
+            <numerusform>%Ln palabras</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="904"/>
+        <source>Please restart the application for changes to take effect.</source>
+        <translation type="unfinished">Reinicie la aplicación para que los cambios surtan efecto.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1005"/>
+        <source>&amp;File</source>
+        <translation type="unfinished">&amp;Archivo</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1007"/>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;Nuevo</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1008"/>
+        <source>&amp;Open</source>
+        <translation type="unfinished">&amp;Abrir</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1010"/>
+        <source>Open &amp;Recent...</source>
+        <translation type="unfinished">Abrir &amp;reciente...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1011"/>
+        <source>Reopen Closed File</source>
+        <translation type="unfinished">Volver a abrir archivo cerrado</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1019"/>
+        <source>Clear Menu</source>
+        <translation type="unfinished">Limpiar menú</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1024"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished">&amp;Guardar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1025"/>
+        <source>Save &amp;As...</source>
+        <translation type="unfinished">Guardar &amp;como...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1026"/>
+        <source>R&amp;ename...</source>
+        <translation type="unfinished">R&amp;enombrar archivo...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1027"/>
+        <source>Re&amp;load from Disk...</source>
+        <translation type="unfinished">Re&amp;cargar archivo...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1029"/>
+        <source>&amp;Export</source>
+        <translation type="unfinished">&amp;Exportar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1031"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">&amp;Salir</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1035"/>
+        <source>&amp;Edit</source>
+        <translation type="unfinished">&amp;Editar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1036"/>
+        <source>&amp;Undo</source>
+        <translation type="unfinished">&amp;Deshacer</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1037"/>
+        <source>&amp;Redo</source>
+        <translation type="unfinished">&amp;Rehacer</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1039"/>
+        <source>Cu&amp;t</source>
+        <translation type="unfinished">Cor&amp;tar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1040"/>
+        <source>&amp;Copy</source>
+        <translation type="unfinished">&amp;Copiar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1041"/>
+        <source>&amp;Paste</source>
+        <translation type="unfinished">&amp;Pegar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1042"/>
+        <source>Copy &amp;HTML</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1044"/>
+        <source>&amp;Insert Image...</source>
+        <translation type="unfinished">&amp;Insertar imagen...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1047"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;Buscar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1048"/>
+        <source>Rep&amp;lace</source>
+        <translation type="unfinished">R&amp;eemplazar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1049"/>
+        <source>Find &amp;Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1050"/>
+        <source>Find &amp;Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1052"/>
+        <source>&amp;Spell check</source>
+        <translation type="unfinished">&amp;Corrector ortográfico</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1054"/>
+        <source>For&amp;mat</source>
+        <translation type="unfinished">For&amp;mato</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1055"/>
+        <source>&amp;Bold</source>
+        <translation type="unfinished">&amp;Negrita</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1056"/>
+        <source>&amp;Italic</source>
+        <translation type="unfinished">&amp;Cursiva</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1057"/>
+        <source>Stri&amp;kethrough</source>
+        <translation type="unfinished">&amp;Tachado</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1058"/>
+        <source>&amp;HTML Comment</source>
+        <translation type="unfinished">&amp;Comentar</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1061"/>
+        <source>I&amp;ndent</source>
+        <translation type="unfinished">&amp;Aumentar sangría</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1062"/>
+        <source>&amp;Unindent</source>
+        <translation type="unfinished">&amp;Quitar sangría</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1064"/>
+        <source>Block &amp;Quote</source>
+        <translation type="unfinished">Cita de &amp;bloque</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1065"/>
+        <source>&amp;Strip Block Quote</source>
+        <translation type="unfinished">&amp;Quitar cita de bloque</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1067"/>
+        <source>&amp;* Bullet List</source>
+        <translation type="unfinished">&amp;* Viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1068"/>
+        <source>&amp;- Bullet List</source>
+        <translation type="unfinished">&amp;- Viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1069"/>
+        <source>&amp;+ Bullet List</source>
+        <translation type="unfinished">&amp;+ Viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1071"/>
+        <source>1&amp;. Numbered List</source>
+        <translation type="unfinished">1&amp;. Lista numerada</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1072"/>
+        <source>1&amp;) Numbered List</source>
+        <translation type="unfinished">1&amp;) Lista numerada</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1074"/>
+        <source>&amp;Task List</source>
+        <translation type="unfinished">&amp;Insertar lista de tareas</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1075"/>
+        <source>Toggle Task(s) &amp;Complete</source>
+        <translation type="unfinished">Marcar/Desmarcar tarea(s) &amp;como completada(s)</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1078"/>
+        <source>&amp;View</source>
+        <translation type="unfinished">&amp;Ver</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1080"/>
+        <source>&amp;Full Screen</source>
+        <translation type="unfinished">&amp;Pantalla completa</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1088"/>
+        <source>&amp;Preview in HTML</source>
+        <translation type="unfinished">&amp;Vista preliminar en HTML</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1093"/>
+        <source>Show Sidebar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1111"/>
+        <source>&amp;Outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1121"/>
+        <source>&amp;Session Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1130"/>
+        <source>&amp;Document Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1139"/>
+        <source>&amp;Cheat Sheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1150"/>
+        <source>Increase Font Size</source>
+        <translation type="unfinished">Aumentar el tamaño de la fuente</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1151"/>
+        <source>Decrease Font Size</source>
+        <translation type="unfinished">Disminuir tamaño de la fuente</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1153"/>
+        <source>&amp;Settings</source>
+        <translation type="unfinished">&amp;Ajustes</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1154"/>
+        <location filename="../src/mainwindow.cpp" line="1486"/>
+        <source>Themes...</source>
+        <translation type="unfinished">Temas...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1155"/>
+        <location filename="../src/mainwindow.cpp" line="1487"/>
+        <source>Font...</source>
+        <translation type="unfinished">Fuente...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1156"/>
+        <location filename="../src/mainwindow.cpp" line="1488"/>
+        <source>Application Language...</source>
+        <translation type="unfinished">Idioma de la aplicación...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1157"/>
+        <location filename="../src/mainwindow.cpp" line="1489"/>
+        <source>Preview Options...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1158"/>
+        <location filename="../src/mainwindow.cpp" line="1490"/>
+        <source>Preferences...</source>
+        <translation type="unfinished">Preferencias...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1162"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished">&amp;Ayuda</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1163"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;Acerca de</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1166"/>
+        <source>About &amp;Qt</source>
+        <translation type="unfinished">Acerca de &amp;Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1169"/>
+        <source>Quick &amp;Reference Guide</source>
+        <translation type="unfinished">Guía de &amp;referencia rápida</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1170"/>
+        <source>Wiki</source>
+        <translation type="unfinished">Wiki</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1222"/>
+        <source>Toggle sidebar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1281"/>
+        <source>Toggle dark mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1301"/>
+        <source>Toggle Live HTML Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1322"/>
+        <source>Toggle Hemingway mode</source>
+        <translation type="unfinished">Cambiar a modo Hemingway</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1331"/>
+        <source>Toggle distraction free mode</source>
+        <translation type="unfinished">Cambiar a modo libre de distracción</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1341"/>
+        <source>Toggle full screen mode</source>
+        <translation type="unfinished">Cambiar a modo de pantalla completa</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1369"/>
+        <source># Heading 1</source>
+        <translation type="unfinished"># Encabezado 1</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1370"/>
+        <source>## Heading 2</source>
+        <translation type="unfinished">## Encabezado 2</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1371"/>
+        <source>### Heading 3</source>
+        <translation type="unfinished">### Encabezado 3</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1372"/>
+        <source>#### Heading 4</source>
+        <translation type="unfinished">#### Encabezado 4</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1373"/>
+        <source>##### Heading 5</source>
+        <translation type="unfinished">##### Encabezado 5</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1374"/>
+        <source>###### Heading 6</source>
+        <translation type="unfinished">###### Encabezado 6</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1375"/>
+        <source>*Emphasis* _Emphasis_</source>
+        <translation type="unfinished">*Énfasis* _Énfasis_</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1376"/>
+        <source>**Strong** __Strong__</source>
+        <translation type="unfinished">**Negritas** __Negritas__</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1377"/>
+        <source>1. Numbered List</source>
+        <translation type="unfinished">1. Lista numerada</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1378"/>
+        <source>* Bullet List</source>
+        <translation type="unfinished">* Viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1379"/>
+        <source>+ Bullet List</source>
+        <translation type="unfinished">+ Viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1380"/>
+        <source>- Bullet List</source>
+        <translation type="unfinished">- Viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1381"/>
+        <source>&gt; Block Quote</source>
+        <translation type="unfinished">&gt; Cita de bloque</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1382"/>
+        <source>`Code Span`</source>
+        <translation type="unfinished">`Línea de código`</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1383"/>
+        <source>``` Code Block</source>
+        <translation type="unfinished">``` Bloque de código</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1384"/>
+        <source>[Link](http://url.com &quot;Title&quot;)</source>
+        <translation type="unfinished">[Enlace](http://url.com &quot;Título&quot;)</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1385"/>
+        <source>[Reference Link][ID]</source>
+        <translation type="unfinished">[Referenciar enlace][ID]</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1386"/>
+        <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
+        <translation type="unfinished">[ID]: http://url.com &quot;Definición de la referencia&quot;</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1387"/>
+        <source>![Image](./image.jpg &quot;Title&quot;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1388"/>
+        <source>--- *** ___ Horizontal Rule</source>
+        <translation type="unfinished">--- *** ___ Regla horizontal</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1431"/>
+        <source>Outline</source>
+        <translation type="unfinished">Esquema</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1437"/>
+        <source>Session Statistics</source>
+        <translation type="unfinished">Estadísticas de la sesión</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1443"/>
+        <source>Document Statistics</source>
+        <translation type="unfinished">Estadísticas del documento</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1449"/>
+        <source>Cheat Sheet</source>
+        <translation type="unfinished">Hoja de referencia</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1477"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::MarkdownDocument</name>
+    <message>
+        <location filename="../src/markdowndocument.cpp" line="49"/>
+        <location filename="../src/markdowndocument.cpp" line="78"/>
+        <location filename="../src/markdowndocument.cpp" line="134"/>
+        <source>untitled</source>
+        <translation type="unfinished">Sin título</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::MarkdownEditor</name>
+    <message>
+        <location filename="../src/markdowneditor.cpp" line="262"/>
+        <source>Add word to dictionary</source>
+        <translation type="unfinished">Agregar palabra al diccionario</translation>
+    </message>
+    <message>
+        <location filename="../src/markdowneditor.cpp" line="263"/>
+        <source>Check spelling...</source>
+        <translation type="unfinished">Revisar ortografía...</translation>
+    </message>
+    <message>
+        <location filename="../src/markdowneditor.cpp" line="890"/>
+        <source>No spelling suggestions found</source>
+        <translation type="unfinished">No se encontraron sugerencias ortográficas</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::PreferencesDialog</name>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="76"/>
+        <source>Preferences</source>
+        <translation type="unfinished">Preferencias</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="85"/>
+        <source>General</source>
+        <translation type="unfinished">General</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="86"/>
+        <source>Editor</source>
+        <translation type="unfinished">Editor</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="87"/>
+        <source>Spell Check</source>
+        <translation type="unfinished">Corrector ortográfico</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::PreferencesDialogPrivate</name>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="108"/>
+        <source>Matched Characters</source>
+        <translation type="unfinished">Caracteres delimitadores</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="191"/>
+        <source>Display</source>
+        <translation type="unfinished">Mostrar</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="197"/>
+        <source>Show current time in full screen mode</source>
+        <translation type="unfinished">Mostrar la hora actual en el modo de pantalla completa</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="203"/>
+        <source>Hide menu bar in full screen mode</source>
+        <translation type="unfinished">Ocultar la barra de menú en el modo de pantalla completa</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="210"/>
+        <source>Rounded</source>
+        <translation type="unfinished">Redondeado</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="211"/>
+        <source>Square</source>
+        <translation type="unfinished">Cuadrado</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="223"/>
+        <source>Interface style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="225"/>
+        <source>File Saving</source>
+        <translation type="unfinished">Opciones de guardado</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="231"/>
+        <source>Auto save</source>
+        <translation type="unfinished">Guardar automáticamente</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="238"/>
+        <source>Backup file on save</source>
+        <translation type="unfinished">Respaldar el archivo al guardar los cambios</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="244"/>
+        <source>History</source>
+        <translation type="unfinished">Historial</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="250"/>
+        <source>Remember file history</source>
+        <translation type="unfinished">Recordar el historia de archivos recientes</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="268"/>
+        <source>Tabulation</source>
+        <translation type="unfinished">Tabulación</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="274"/>
+        <source>Insert spaces for tabs</source>
+        <translation type="unfinished">Insertar espacios en vez de tabuladores</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="290"/>
+        <source>Tabulation width</source>
+        <translation type="unfinished">Ancho de tabulación</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="292"/>
+        <source>Styling</source>
+        <translation type="unfinished">Estilo</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="299"/>
+        <source>Sentence</source>
+        <translation type="unfinished">Oración</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="300"/>
+        <source>Current Line</source>
+        <translation type="unfinished">Línea actual</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="301"/>
+        <source>Three Lines</source>
+        <translation type="unfinished">Tres líneas</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="302"/>
+        <source>Paragraph</source>
+        <translation type="unfinished">Párrafo</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="303"/>
+        <source>Typewriter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="315"/>
+        <source>Focus mode</source>
+        <translation type="unfinished">Modo de enfoque</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="318"/>
+        <source>Narrow</source>
+        <translation type="unfinished">Estrecho</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="319"/>
+        <source>Medium</source>
+        <translation type="unfinished">Mediano</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="320"/>
+        <source>Wide</source>
+        <translation type="unfinished">Amplio</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="321"/>
+        <source>Full</source>
+        <translation type="unfinished">Completo</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="333"/>
+        <source>Editor width</source>
+        <translation type="unfinished">Anchura del editor</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="336"/>
+        <source>Plain</source>
+        <translation type="unfinished">Plano</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="337"/>
+        <location filename="../src/preferencesdialog.cpp" line="352"/>
+        <source>Italic</source>
+        <translation type="unfinished">Cursiva</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="349"/>
+        <source>Blockquote style</source>
+        <translation type="unfinished">Estilo de la cita de bloque</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="353"/>
+        <source>Underline</source>
+        <translation type="unfinished">Subrayado</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="365"/>
+        <source>Emphasis style</source>
+        <translation type="unfinished">Estilo de énfasis</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="367"/>
+        <source>Use large headings</source>
+        <translation type="unfinished">Usar títulos grandes</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="373"/>
+        <source>Typing</source>
+        <translation type="unfinished">Escritura</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="379"/>
+        <source>Cycle bullet point markers</source>
+        <translation type="unfinished">Alternar los indicadores de viñeta</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="385"/>
+        <source>Automatically match characters</source>
+        <translation type="unfinished">Cerrar automáticamente los caracteres delimitadores</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="391"/>
+        <source>Customize matched characters...</source>
+        <translation type="unfinished">Personalizar caracteres delimitadores...</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="416"/>
+        <source>Live spellcheck enabled</source>
+        <translation type="unfinished">Habilitar automáticamente el corrector ortográfico</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="422"/>
+        <source>Language</source>
+        <translation type="unfinished">Idioma</translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="457"/>
+        <source>Dictionary</source>
+        <translation type="unfinished">Diccionario</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::PreviewOptionsDialog</name>
+    <message>
+        <location filename="../src/previewoptionsdialog.cpp" line="60"/>
+        <source>Preview Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/previewoptionsdialog.cpp" line="99"/>
+        <source>Markdown Flavor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::SessionStatisticsWidget</name>
+    <message>
+        <location filename="../src/sessionstatisticswidget.cpp" line="50"/>
+        <source>Words Written:</source>
+        <translation type="unfinished">Palabras escritas:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessionstatisticswidget.cpp" line="51"/>
+        <source>Pages Written:</source>
+        <translation type="unfinished">Páginas escritas:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessionstatisticswidget.cpp" line="52"/>
+        <source>Average WPM:</source>
+        <translation type="unfinished">Promedio de palabras por minuto:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessionstatisticswidget.cpp" line="53"/>
+        <source>Total Time:</source>
+        <translation type="unfinished">Tiempo total:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessionstatisticswidget.cpp" line="54"/>
+        <source>Idle Time:</source>
+        <translation type="unfinished">Tiempo inactivo:</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::SimpleFontDialog</name>
+    <message>
+        <location filename="../src/simplefontdialog.cpp" line="71"/>
+        <source>Family</source>
+        <translation type="unfinished">Familia</translation>
+    </message>
+    <message>
+        <location filename="../src/simplefontdialog.cpp" line="118"/>
+        <source>Size</source>
+        <translation type="unfinished">Tamaño</translation>
+    </message>
+    <message>
+        <location filename="../src/simplefontdialog.cpp" line="121"/>
+        <source>AaBbCcXxYyZz</source>
+        <translation type="unfinished">AaBbCcXxYyZz</translation>
+    </message>
+    <message>
+        <location filename="../src/simplefontdialog.cpp" line="125"/>
+        <source>Preview</source>
+        <translation type="unfinished">Vista preliminar</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::ThemeEditorDialog</name>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="89"/>
+        <source>Edit Theme</source>
+        <translation type="unfinished">Editar tema</translation>
+    </message>
+    <message>
+        <location filename="../src/themeeditordialog.cpp" line="92"/>
+        <source>Theme Name</source>
+        <translation type="unfinished">Nombre del tema</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::ThemeRepository</name>
+    <message>
+        <location filename="../src/themerepository.cpp" line="161"/>
+        <source>The specified theme does not exist in the file system: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="169"/>
+        <source>Could not open theme file for reading: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="179"/>
+        <source>Invalid theme format: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="198"/>
+        <location filename="../src/themerepository.cpp" line="207"/>
+        <source>Invalid or missing value(s) in %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="215"/>
+        <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
+        <translation type="unfinished">El tema especificado no está disponible. Intente reiniciar la aplicación. Si el problema persiste, envíe un informe de error.</translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="231"/>
+        <source>Could not delete theme at %1. Please try setting the file permissions to be writeable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="251"/>
+        <source>&apos;%1&apos; already exists.  Please choose another name.</source>
+        <translation type="unfinished">&apos;%1&apos; ya existe. Elija otro nombre.</translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="260"/>
+        <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
+        <translation type="unfinished">&apos;%1&apos; el tema ya existe. Elija otro nombre.</translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="267"/>
+        <source>Failed to rename theme.  Please check file permissions.</source>
+        <translation type="unfinished">Error al cambiar el nombre del tema. Compruebe los permisos del archivo.</translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="305"/>
+        <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
+        <translation type="unfinished">El tema no pudo ser guardado en disco. Compruebe los permisos del archivo o intente cambiar el nombre del tema.</translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="335"/>
+        <source>Untitled 1</source>
+        <translation type="unfinished">Sin título 1</translation>
+    </message>
+    <message>
+        <location filename="../src/themerepository.cpp" line="345"/>
+        <source>Untitled %1</source>
+        <translation type="unfinished">Sin título %1</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::ThemeSelectionDialog</name>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="111"/>
+        <source>Themes</source>
+        <translation type="unfinished">Temas</translation>
+    </message>
+    <message>
+        <location filename="../src/themeselectiondialog.cpp" line="160"/>
+        <source>Edit...</source>
+        <translation type="unfinished">Editar...</translation>
     </message>
 </context>
 </TS>
