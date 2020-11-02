@@ -18,6 +18,7 @@ New Features
 * Selected text now reveals tabs and spaces.
 * Source code has been refactored to follow KDE Frameworks and Qt coding style guides.
 * ghostwriter now uses React to update only what changed in the live preview since the last keystroke, significantly reducing the live preview rendering time for large documents.
+* Roboto Mono is included as the default editor font.
 
 Fixes
 -----
