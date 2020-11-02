@@ -88,7 +88,6 @@ public slots:
     void setStyleSheet(const QString &css);
 
 protected:
-    QSize sizeHint() const;
     void closeEvent(QCloseEvent *event);
 
 private:

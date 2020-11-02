@@ -57,7 +57,6 @@ public:
     MarkdownDocument *document;
     bool updateInProgress;
     bool updateAgain;
-    QString vanillaHtml;
     StringObserver livePreviewHtml;
     StringObserver styleSheet;
     QString baseUrl;
@@ -100,7 +99,6 @@ HtmlPreview::HtmlPreview
     d->updateAgain = false;
     d->exporter = exporter;
 
-    d->vanillaHtml = "";
     d->baseUrl = "";
     d->livePreviewHtml.setText("");
     d->styleSheet.setText("");
@@ -230,7 +228,7 @@ void HtmlPreview::navigateToHeading(int headingSequenceNumber)
     (
         QString
         (
-            "document.getElementById('livepreviewhnbr%1').scrollIntoView()"
+            "scrollToHeading(%1);"
         ).arg(headingSequenceNumber)
     );
 }
@@ -255,61 +253,7 @@ void HtmlPreviewPrivate::onHtmlReady()
 {
     Q_Q(HtmlPreview);
     
-    QString html = futureWatcher->result();
-
-    // Find where the change occurred since last time, and slip an
-    // anchor in the location so that we can scroll there.
-    //
-    QString anchoredHtml = "";
-
-    QTextStream newHtmlDoc((QString *) &html, QIODevice::ReadOnly);
-    QTextStream oldHtmlDoc((QString *) & (this->vanillaHtml), QIODevice::ReadOnly);
-    QTextStream anchoredHtmlDoc(&anchoredHtml, QIODevice::WriteOnly);
-
-    bool differenceFound = false;
-    QString oldLine = oldHtmlDoc.readLine();
-    QString newLine = newHtmlDoc.readLine();
-
-    while (!oldLine.isNull() && !newLine.isNull() && !differenceFound) {
-        if (oldLine != newLine) {
-            // Found the difference, so insert an anchor point at the
-            // beginning of the line.
-            //
-            differenceFound = true;
-            anchoredHtmlDoc << "<a id=\"livepreviewmodifypoint\"></a>";
-        } else {
-            anchoredHtmlDoc << newLine << "\n";
-            oldLine = oldHtmlDoc.readLine();
-            newLine = newHtmlDoc.readLine();
-        }
-    }
-
-    // If lines were removed at the end of the new document,
-    // ensure anchor point is inserted.
-    //
-    if (!differenceFound && !oldLine.isNull() && newLine.isNull()) {
-        differenceFound = true;
-        anchoredHtmlDoc << "<a id=\"livepreviewmodifypoint\"></a>";
-    }
-
-    // Put any remaining new HTML data into the
-    // anchored HTML string.
-    //
-    while (!newLine.isNull()) {
-        if (!differenceFound) {
-            anchoredHtmlDoc << "<a id=\"livepreviewmodifypoint\"></a>";
-        }
-
-        differenceFound = true;
-        anchoredHtmlDoc << newLine << "\n";
-        newLine = newHtmlDoc.readLine();
-    }
-
-    if (differenceFound) {
-        setHtmlContent(anchoredHtml);
-        this->vanillaHtml = html;
-    }
-
+    setHtmlContent(futureWatcher->result());
     updateInProgress = false;
 
     if (updateAgain) {
@@ -348,26 +292,16 @@ void HtmlPreviewPrivate::updateBaseDir()
     q->updatePreview();
 }
 
-QSize HtmlPreview::sizeHint() const
-{
-    return QSize(500, 600);
-}
-
 void HtmlPreview::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
     Q_D(HtmlPreview);
     
     d->setHtmlContent("");
-    d->vanillaHtml = "";
-    d->livePreviewHtml.setText("");
 }
 
 void HtmlPreviewPrivate::setHtmlContent(const QString &html)
 {
-    static int count = 0;
-    count++;
-    this->vanillaHtml = html;
     this->livePreviewHtml.setText(html);
 }
 

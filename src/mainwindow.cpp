@@ -308,7 +308,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         this
     );
 
-    connect(editor, SIGNAL(typingPausedScaled()), htmlPreview, SLOT(updatePreview()));
+    connect(editor, SIGNAL(textChanged()), htmlPreview, SLOT(updatePreview()));
     connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
     connect(appSettings, SIGNAL(currentHtmlExporterChanged(Exporter *)), htmlPreview, SLOT(setHtmlExporter(Exporter *)));
 

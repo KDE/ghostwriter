@@ -7,10 +7,15 @@
         <file>resources/quickreferenceguide_en.html</file>
         <file>resources/quickreferenceguide_ja.html</file>
         <file>resources/quickreferenceguide_ru.html</file>
-        <file>resources/gw.js</file>
         <file>resources/preview.css</file>
         <file>resources/preview.html</file>
         <file>qt/etc/qt.conf</file>
+    </qresource>
+    <qresource>
+        <file>3rdparty/react/react-dom.production.min.js</file>
+        <file>3rdparty/react/react.production.min.js</file>
+        <file>3rdparty/react/html-react-parser.min.js</file>
+        <file>3rdparty/babel-standalone/babel.min.js</file>
     </qresource>
     <qresource>
         <file>3rdparty/mathjax/mml-svg.js</file>
