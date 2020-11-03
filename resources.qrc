@@ -39,7 +39,6 @@
         <file>3rdparty/react/react-dom.production.min.js</file>
         <file>3rdparty/react/react.production.min.js</file>
         <file>3rdparty/react/html-react-parser.min.js</file>
-        <file>3rdparty/babel-standalone/babel.min.js</file>
     </qresource>
     <qresource>
         <file>3rdparty/mathjax/mml-svg.js</file>

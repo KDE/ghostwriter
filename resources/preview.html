@@ -41,12 +41,11 @@
         <script language='Javascript'  type='text/javascript' src="qrc:3rdparty/react/react.production.min.js"></script>
         <script language='Javascript'  type='text/javascript' src="qrc:3rdparty/react/react-dom.production.min.js"></script>
         <script language='Javascript'  type='text/javascript' src="qrc:3rdparty/react/html-react-parser.min.js"></script>
-        <script language='Javascript'  type='text/javascript' src="qrc:3rdparty/babel-standalone/babel.min.js"></script>
         <script language='Javascript'  type='text/javascript' src="qrc:/qtwebchannel/qwebchannel.js"></script>
     </head>
     <body>
         <div id="livepreviewplaceholder"><p></p></div>
-        <script language='Javascript' type='text/babel'>
+        <script language='Javascript' type='text/javascript'>
 
             class LivePreview extends React.Component {
                 constructor(props) {
@@ -55,10 +54,10 @@
                     this.initializeWebChannel = this.initializeWebChannel.bind(this);
                     this.loadStyleSheet = this.loadStyleSheet.bind(this);
                     this.updateLivePreview = this.updateLivePreview.bind(this);
-                    this.onDOMChanged = this.onDOMChanged.bind(this);
+                    this.scrollToChange = this.scrollToChange.bind(this);
 
                     this.mutationObserver = new MutationObserver(
-                        this.onDOMChanged
+                        this.scrollToChange
                     );
 
                     this.scrollElement = null;
@@ -123,7 +122,7 @@
                     return this.state.livePreviewHTML;
                 }
 
-                onDOMChanged(mutations) {
+                scrollToChange(mutations) {
                     var scrollToNode = null;
 
                     for (var i = 0; i < mutations.length; i++) {
@@ -170,9 +169,8 @@
                 }
 
                 render() {
-                    return(
-                        <div>{HTMLReactParser(this.getLivePreviewContent())}</div>
-                    )
+                    return React.createElement('div', null,
+                        HTMLReactParser(this.getLivePreviewContent()));
                 }
             }
 
@@ -189,14 +187,18 @@
                 render() {
                     if (this.state.hasError) {
                         this.setState({ hasError: false });
-                        return <p>Game over!  Insert coin.</p>;
+                        return "<p>Game over!  Insert coin.</p>";
                     }
                     
                     return this.props.children;
                 }
             }
 
-            ReactDOM.render(<ErrorBoundary><LivePreview /></ErrorBoundary>, document.querySelector('#livepreviewplaceholder'));
+            ReactDOM.render(
+                React.createElement(ErrorBoundary,
+                    null,
+                    React.createElement(LivePreview, null)),
+                document.getElementById('livepreviewplaceholder'));
 
         </script>
     </body>
