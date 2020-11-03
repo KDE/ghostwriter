@@ -72,7 +72,7 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
 {
     Q_D(CmarkGfmAPI);
 
-    int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES;
+    int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES | CMARK_OPT_UNSAFE;
 
     if (smartTypographyEnabled) {
         opts |= CMARK_OPT_SMART;
@@ -106,7 +106,7 @@ QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypograph
 {
     Q_D(CmarkGfmAPI);
     
-    int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES;
+    int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES | CMARK_OPT_UNSAFE;
 
     if (smartTypographyEnabled) {
         opts |= CMARK_OPT_SMART;

@@ -176,7 +176,27 @@
                 }
             }
 
-            ReactDOM.render(<LivePreview />, document.querySelector('#livepreviewplaceholder'));
+            class ErrorBoundary extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { hasError: false };
+                }
+
+                componentDidCatch(error, info) {
+                    this.setState({ hasError: true });
+                }
+                
+                render() {
+                    if (this.state.hasError) {
+                        this.setState({ hasError: false });
+                        return <p>Game over!  Insert coin.</p>;
+                    }
+                    
+                    return this.props.children;
+                }
+            }
+
+            ReactDOM.render(<ErrorBoundary><LivePreview /></ErrorBoundary>, document.querySelector('#livepreviewplaceholder'));
 
         </script>
     </body>
