@@ -147,7 +147,7 @@
                                 }
                             }
                             else if (mutation.removedNodes.length > 0) {
-                                scrollToNode = mutation.previousSibling;
+                                scrollToNode = mutation.removedNodes[0].previousSibling;
 
                                 // If there is no previous sibling to the deleted nodes, then
                                 // go to the parent node.
