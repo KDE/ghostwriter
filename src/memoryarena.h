@@ -20,7 +20,7 @@
 #ifndef MEMORY_ARENA_H
 #define MEMORY_ARENA_H
 
-#include <QLinkedList>
+#include <QStack>
 #include <QVector>
 
 namespace ghostwriter
@@ -64,8 +64,7 @@ public:
 
 private:
     typedef QVector<T> Chunk;
-    QLinkedList<Chunk *> arena;
-    QMutableLinkedListIterator<Chunk *> currentChunk;
+    QStack<Chunk *> arena;
     int slotIndex;
     size_t chunkSize;
 };

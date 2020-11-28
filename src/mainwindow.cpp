@@ -1422,8 +1422,8 @@ void MainWindow::buildSidebar()
     connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
 
     sidebar = new Sidebar(this);
-    sidebar->setMinimumWidth(0.10 * this->screen()->size().width());
-    sidebar->setMaximumWidth(0.33 * this->screen()->size().width());
+    sidebar->setMinimumWidth(0.10 * QGuiApplication::primaryScreen()->availableSize().width());
+    sidebar->setMaximumWidth(0.33 * QGuiApplication::primaryScreen()->availableSize().width());
 
     QPushButton *tabButton = new QPushButton();
     tabButton->setFont(this->awesome->font(style::stfas, 16));

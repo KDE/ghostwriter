@@ -934,9 +934,7 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
 }
 
 void MarkdownEditor::wheelEvent(QWheelEvent *e)
-{
-    Q_D(MarkdownEditor);
-    
+{    
     Qt::KeyboardModifiers modifier = e->modifiers();
 
     int numDegrees = 0;

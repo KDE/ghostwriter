@@ -53,9 +53,7 @@ MarkdownAST::MarkdownAST()
 
 MarkdownAST::MarkdownAST(cmark_node *root)
     : d_ptr(new MarkdownASTPrivate())
-{
-    Q_D(MarkdownAST);
-    
+{    
     setRoot(root);
 }
 
@@ -224,7 +222,7 @@ QString MarkdownAST::toString() const
         MarkdownNode *node = nodes.pop();
         QString indent = indentation.pop();
 
-        stream << indent << "->" << node->toString() << endl;
+        stream << indent << "->" << node->toString() << Qt::endl;
 
         MarkdownNode *child = node->firstChild();
         indent += "   ";

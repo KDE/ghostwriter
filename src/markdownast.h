@@ -20,7 +20,6 @@
 #ifndef MARKDOWN_AST_H
 #define MARKDOWN_AST_H
 
-#include <QLinkedList>
 #include <QScopedPointer>
 
 #include "markdownnode.h"

@@ -25,14 +25,14 @@ namespace ghostwriter
 {
 template<class T>
 MemoryArena<T>::MemoryArena() :
-    currentChunk(arena), slotIndex(0), chunkSize(256)
+    slotIndex(0), chunkSize(256)
 {
     ;
 }
 
 template<class T>
 MemoryArena<T>::MemoryArena(const size_t chunkSize) :
-    currentChunk(arena), slotIndex(0), chunkSize(chunkSize)
+    slotIndex(0), chunkSize(chunkSize)
 {
     ;
 }
@@ -46,49 +46,25 @@ MemoryArena<T>::~MemoryArena()
 template<class T>
 T *MemoryArena<T>::allocate()
 {
-    if
-    (
-        arena.isEmpty() || (slotIndex >= (int)chunkSize)
-    ) {
-        if (!currentChunk.hasNext()) {
-            currentChunk.insert(new Chunk(chunkSize));
-        } else {
-            currentChunk.next();
-        }
-
+    if (arena.empty() || (slotIndex >= (int)chunkSize)) {
+        arena.push(new Chunk(chunkSize));
         slotIndex = 0;
-    } else if (0 == slotIndex && currentChunk.hasNext()) {
-        currentChunk.next();
     }
 
-    T *data = currentChunk.peekPrevious()->data();
-
-    if (nullptr != data) {
-        int index = slotIndex;
-        slotIndex++;
-        return &(data[index]);
-    }
-
-    return nullptr;
+    int index = slotIndex;
+    slotIndex++;
+    return &(arena.top()->data()[index]);
 }
 
 template<class T>
 void MemoryArena<T>::freeAll()
 {
-    if (arena.isEmpty()) {
-        return;
-    }
-
-    currentChunk.toFront();
-
-    while (currentChunk.hasNext()) {
-        Chunk *chunk = currentChunk.next();
+    while (!arena.isEmpty()) {
+        Chunk *chunk = arena.pop();
 
         if (nullptr != chunk) {
             delete chunk;
         }
-
-        currentChunk.remove();
     }
 
     slotIndex = 0;
