@@ -1,0 +1,19 @@
+language: cpp
+git:
+  depth: 1
+sudo: required
+dist: bionic
+branches:
+  only:
+    - master
+matrix:
+  include:
+  - os: linux
+compiler: gcc
+env:
+  matrix:
+    - CONFIG=release
+install:
+  - sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
+script:
+  - qmake && make -s -j 2
