@@ -14,6 +14,7 @@ env:
   matrix:
     - CONFIG=release
 install:
-  - sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
+  - sudo apt-get update -y
+  - sudo apt install -y g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
 script:
   - qmake && make -s -j 2
