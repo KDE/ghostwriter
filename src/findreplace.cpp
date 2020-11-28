@@ -105,7 +105,12 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     d->matchCaseButton = new QPushButton("Aa");
     QFont buttonFont = d->matchCaseButton->font();
     buttonFont.setBold(true);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0))
     int width = QFontMetrics(buttonFont).horizontalAdvance("@@@");
+#else
+    int width = QFontMetrics(buttonFont).boundingRect("@@@");
+#endif
 
     d->matchCaseButton->setFixedWidth(width);
     d->matchCaseButton->setFont(buttonFont);
