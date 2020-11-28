@@ -109,7 +109,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0))
     int width = QFontMetrics(buttonFont).horizontalAdvance("@@@");
 #else
-    int width = QFontMetrics(buttonFont).boundingRect("@@@");
+    int width = QFontMetrics(buttonFont).boundingRect("@@@").width();
 #endif
 
     d->matchCaseButton->setFixedWidth(width);
@@ -168,7 +168,13 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     QPushButton *closeButton = new QPushButton(QChar(fa::timescircle), this);
     closeButton->setFlat(true);
     closeButton->setFont(d->awesome->font(style::stfas, closeButton->font().pointSize()));
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0))
     closeButton->setFixedWidth(closeButton->fontMetrics().horizontalAdvance("@@"));
+#else
+    closeButton->setFixedWidth(closeButton->fontMetrics().boundingRect("@@").width());
+#endif
+
     closeButton->setObjectName("findReplaceCloseButton");
         
     this->connect(closeButton,
