@@ -234,9 +234,6 @@ else:unix {
 
     target.path = $$BINDIR
 
-    pixmap.files = resources/linux/icons/ghostwriter.xpm
-    pixmap.path = $$DATADIR/pixmaps
-
     icon.files = resources/linux/icons/hicolor/*
     icon.path = $$DATADIR/icons/hicolor
 
@@ -253,5 +250,5 @@ else:unix {
     qm.path = $$DATADIR/ghostwriter
     qm.CONFIG += no_check_exist
 
-    INSTALLS += target icon pixmap desktop appdata man qm
+    INSTALLS += target icon desktop appdata man qm
 }
