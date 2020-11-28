@@ -19,6 +19,7 @@
 
 #include <QStack>
 #include <QTextStream>
+#include <QtGlobal>
 
 #include "3rdparty/cmark-gfm/core/cmark-gfm.h"
 
@@ -222,7 +223,12 @@ QString MarkdownAST::toString() const
         MarkdownNode *node = nodes.pop();
         QString indent = indentation.pop();
 
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
         stream << indent << "->" << node->toString() << Qt::endl;
+#else
+        stream << indent << "->" << node->toString() << endl;
+#endif
 
         MarkdownNode *child = node->firstChild();
         indent += "   ";
