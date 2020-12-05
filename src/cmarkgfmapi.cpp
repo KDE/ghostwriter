@@ -89,7 +89,7 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
     cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
     cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
-    cmark_parser_feed(parser, text.toLatin1().data(), text.length());
+    cmark_parser_feed(parser, text.toUtf8().data(), text.length());
 
     cmark_node *root = cmark_parser_finish(parser);
     MarkdownAST *ast = new MarkdownAST(root);
@@ -123,7 +123,7 @@ QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypograph
     cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
     cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
-    cmark_parser_feed(parser, text.toLatin1().data(), text.length());
+    cmark_parser_feed(parser, text.toUtf8().data(), text.length());
 
     cmark_node *root = cmark_parser_finish(parser);
     char *output = cmark_render_html(root, opts, cmark_parser_get_syntax_extensions(parser));

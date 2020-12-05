@@ -76,7 +76,7 @@ void MarkdownNode::setDataFrom(cmark_node *node)
     m_endLine = cmark_node_get_end_line(node);
 
     if (!isBlockType()) {
-        m_text = cmark_node_get_literal(node);
+        m_text = QString::fromUtf8(cmark_node_get_literal(node));
     }
 
     if (CodeBlock == m_type) {
@@ -91,7 +91,7 @@ void MarkdownNode::setDataFrom(cmark_node *node)
         }
     } else if (Heading == m_type) {
         m_headingLevel = cmark_node_get_heading_level(node);
-        m_text = cmark_node_get_string_content(node);
+        m_text = QString::fromUtf8(cmark_node_get_string_content(node));
         m_text = this->m_text.simplified();
     }
 }
