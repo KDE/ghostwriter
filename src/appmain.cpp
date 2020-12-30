@@ -19,7 +19,6 @@
 
 #include <QApplication>
 #include <QCoreApplication>
-#include <QtWebEngine/qtwebengineglobal.h>
 #include <QTranslator>
 #include <QLocale>
 
@@ -35,7 +34,6 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
-    QtWebEngine::initialize();
     QApplication app(argc, argv);
     
 #if defined(Q_OS_WIN)
