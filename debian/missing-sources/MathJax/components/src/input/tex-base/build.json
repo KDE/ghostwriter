@@ -1,0 +1,13 @@
+{
+  "component": "input/tex-base",
+  "targets": [
+    "input/tex.ts",
+    "input/tex",
+    "input/tex/base",
+    "util/entities/n.ts",
+    "util/entities/p.ts",
+    "util/entities/r.ts"
+  ],
+  "exclude": ["input/tex/AllPackages.ts"],
+  "excludeSubdirs": "true"
+}

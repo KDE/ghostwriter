@@ -1,0 +1,8 @@
+{
+  "to": "../../../es5/sre",
+  "from": "[node]/speech-rule-engine/lib",
+  "copy": [
+    "sre_browser.js",
+    "mathmaps"
+  ]
+}
