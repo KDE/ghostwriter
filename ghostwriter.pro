@@ -37,9 +37,9 @@ CONFIG += c++11
 # Set program version
 isEmpty(VERSION) {
     win32 {
-        VERSION = 2.0.0-rc
+        VERSION = 2.0.0-rc1
     } else {
-        VERSION = v2.0.0-rc
+        VERSION = v2.0.0-rc1
     }
 }
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
