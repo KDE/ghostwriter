@@ -36,7 +36,7 @@ CONFIG += c++11
 
 VERSION = 2.0.0-rc1
 
-GITVERSION = $$system(git describe)
+GITVERSION = $$system(git describe --tags)
 
 !isEmpty(GITVERSION) {
 	VERSION = $$GITVERSION
