@@ -34,14 +34,14 @@ QT += widgets concurrent svg webenginewidgets webengine webchannel gui
 CONFIG += warn_on
 CONFIG += c++11
 
-# Set program version
-isEmpty(VERSION) {
-    win32 {
-        VERSION = 2.0.0-rc1
-    } else {
-        VERSION = v2.0.0-rc1
-    }
+VERSION = 2.0.0-rc1
+
+GITVERSION = $$system(git describe)
+
+!isEmpty(GITVERSION) {
+	VERSION = $$GITVERSION
 }
+
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
 CONFIG(debug, debug|release) {
@@ -51,7 +51,7 @@ else {
     DESTDIR = build/release
 }
 
-#DEFINES += QT_NO_DEBUG_OUTPUT=1
+DEFINES += QT_NO_DEBUG_OUTPUT=1
 OBJECTS_DIR = $${DESTDIR}
 MOC_DIR = $${DESTDIR}
 RCC_DIR = $${DESTDIR}
