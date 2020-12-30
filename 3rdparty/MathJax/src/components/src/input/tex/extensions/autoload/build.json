@@ -1,0 +1,4 @@
+{
+  "component": "input/tex/extensions/autoload",
+  "targets": ["input/tex/autoload"]
+}

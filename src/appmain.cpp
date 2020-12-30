@@ -30,6 +30,12 @@
 
 int main(int argc, char *argv[])
 {
+#if QT_VERSION >= 0x050600
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
+
+    QtWebEngine::initialize();
     QApplication app(argc, argv);
     
 #if defined(Q_OS_WIN)
@@ -38,13 +44,6 @@ int main(int argc, char *argv[])
     // (or any other popup menus).  Thank you, Microsoft, you made my day.
     //
     QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
-#endif
-
-    QtWebEngine::initialize();
-
-#if QT_VERSION >= 0x050600
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
 #if QT_VERSION >= 0x050700 && defined(Q_OS_LINUX)

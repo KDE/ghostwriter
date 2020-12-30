@@ -1,0 +1,4 @@
+{
+  "component": "input/tex/extensions/noerrors",
+  "targets": ["input/tex/noerrors"]
+}
