@@ -1,7 +1,0 @@
-{
-  "component": "loader",
-  "targets": [
-    "components/loader.ts",
-    "components/package.ts"
-  ]
-}

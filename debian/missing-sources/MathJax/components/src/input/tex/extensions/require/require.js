@@ -1,1 +1,0 @@
-import './lib/require.js';

@@ -1,4 +1,0 @@
-{
-  "component": "inpu/mml",
-  "targets": ["input/mathml.ts", "input/mathml"]
-}
