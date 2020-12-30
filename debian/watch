@@ -1,0 +1,2 @@
+version=3
+https://github.com/wereturtle/ghostwriter/releases /wereturtle/ghostwriter/archive/v(.+)\.tar\.gz

@@ -1,0 +1,6 @@
+#!/usr/bin/make -f
+
+export QT_SELECT=qt5
+
+%:
+	dh $@ --parallel
