@@ -16,7 +16,7 @@ License: GPLv3+
 Group: Development/Tools
 URL: http://wereturtle.github.io/ghostwriter/
 Source0: https://github.com/wereturtle/ghostwriter/archive/master.tar.gz
-BuildRequires: gcc gcc-c++ make
+BuildRequires: gcc gcc-c++ make git
 BuildRequires: qt5-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtwebengine-devel
 BuildRequires: qt5-qtmultimedia-devel hunspell-devel pkgconfig
 Requires: qt5-qtbase qt5-qtwebengine qt5-qtsvg qt5-qtmultimedia hunspell
@@ -51,6 +51,6 @@ make install
 %doc COPYING CREDITS.md CHANGELOG.md
 
 %changelog
-* %{changelogdate} wereturtle <wereturtledev@gmail.com> - %{version}
+* %{changelogdate} wereturtle <wereturtledev@gmail.com> - %{app_version}
 - New upstream release.
 
