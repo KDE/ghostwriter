@@ -34,12 +34,14 @@ QT += widgets concurrent svg webenginewidgets webengine webchannel gui
 CONFIG += warn_on
 CONFIG += c++11
 
-VERSION = 2.0.0-rc1
+isEmpty(VERSION) {
+    VERSION = 2.0.0-rc1
+    
+    GITVERSION = $$system(git describe)
 
-GITVERSION = $$system(git describe)
-
-!isEmpty(GITVERSION) {
-	VERSION = $$GITVERSION
+    !isEmpty(GITVERSION) {
+        VERSION = $$GITVERSION
+    }
 }
 
 DEFINES += APPVERSION='\\"$${VERSION}\\"'

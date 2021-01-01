@@ -2,6 +2,7 @@
 %define debug_package %{nil}
 %define gitcommit %(git rev-parse --short HEAD)
 %define latest_tag %(git describe --abbrev=0)
+%define app_version %(git describe)
 %define delta_from_tag %(git rev-list %{latest_tag}.. --count)
 %define version %(echo %{latest_tag} | tr '-' '~')
 %define timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
@@ -33,7 +34,7 @@ novel.
 %autosetup -n %{name}-master
 
 %build
-qmake-qt5 PREFIX=%{_prefix}
+qmake-qt5 PREFIX=%{_prefix} VERSION=%{app_version}
 make %{?_smp_mflags}
 
 %install
