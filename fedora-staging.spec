@@ -5,6 +5,7 @@
 %global shortcommit
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
 %global changelog_date %(date "+%%a %%h %%d %%Y")
+%global appver %{gittag}-%{revno}-g%{shortcommit}
 
 Summary: ghostwriter: A cross-platform, aesthetic, distraction-free Markdown editor
 Name: ghostwriter
@@ -49,7 +50,7 @@ novel.
 
 
 %build
-qmake-qt5 PREFIX=%{_prefix} VERSION=%{gittag}-%{revno}-g%{shortcommit}
+qmake-qt5 PREFIX=%{_prefix} VERSION=%{appver}
 make %{?_smp_mflags}
 
 
@@ -69,6 +70,6 @@ make install
 
 
 %changelog
-* %{changelogdate} wereturtle <wereturtledev@gmail.com> - %{version}
+* %{changelog_date} wereturtle <wereturtledev@gmail.com> - %{appver}
 - New upstream release.
 
