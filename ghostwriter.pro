@@ -18,6 +18,8 @@
 #
 ################################################################################
 
+VERSION = 2.0.0-rc1
+    
 lessThan(QT_MAJOR_VERSION, 5) {
     error("ghostwriter requires Qt 5.8 or greater")
 }
@@ -33,16 +35,6 @@ QT += widgets concurrent svg webenginewidgets webengine webchannel gui
 #CONFIG += debug
 CONFIG += warn_on
 CONFIG += c++11
-
-isEmpty(VERSION) {
-    VERSION = 2.0.0-rc1
-    
-    GITVERSION = $$system(git describe)
-
-    !isEmpty(GITVERSION) {
-        VERSION = $$GITVERSION
-    }
-}
 
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 

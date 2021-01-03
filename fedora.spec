@@ -1,19 +1,18 @@
 %undefine _hardened_build
 %define debug_package %{nil}
-%global gittag
-%global revno
-%global shortcommit
-%global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
-%global changelog_date %(date "+%%a %%h %%d %%Y")
-%global appver %{gittag}-%{revno}-g%{shortcommit}
+%global appver 2.0.0-rc1
+%global build_timestamp 20210102
+%global changelog_date Sat Jan 02 2021
+%global tarball %([[ %{appver} == *"-"* ]] && echo master || echo %{appver})
+
 
 Summary: ghostwriter: A cross-platform, aesthetic, distraction-free Markdown editor
 Name: ghostwriter
-Version: %(echo %{gittag} | tr '-' '~')
-Release: 0.%{revno}.%{build_timestamp}git%{shortcommit}%{?dist}
+Version: %(echo %{appver} | tr '-' '~')
+Release: 0.%{build_timestamp}%{?dist}
 License: GPLv3+
 URL: http://wereturtle.github.io/ghostwriter/
-Source0: https://github.com/wereturtle/ghostwriter/archive/master.tar.gz
+Source0: https://github.com/wereturtle/ghostwriter/archive/%{tarball}.tar.gz
 BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: make
@@ -46,11 +45,11 @@ novel.
 
 
 %prep
-%autosetup -n %{name}-master
+%autosetup -n %{name}-%{tarball}
 
 
 %build
-qmake-qt5 PREFIX=%{_prefix} VERSION=%{appver}
+qmake-qt5 PREFIX=%{_prefix}
 make %{?_smp_mflags}
 
 

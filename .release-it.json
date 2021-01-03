@@ -1,0 +1,74 @@
+{
+    "hooks": {},
+    "git": {
+        "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
+        "requireCleanWorkingDir": true,
+        "requireBranch": false,
+        "requireUpstream": true,
+        "requireCommits": false,
+        "addUntrackedFiles": false,
+        "commit": false,
+        "commitMessage": "Release ${version}",
+        "commitArgs": [],
+        "tag": false,
+        "tagName": null,
+        "tagAnnotation": "Release ${version}",
+        "tagArgs": [],
+        "push": false,
+        "pushArgs": ["--follow-tags"],
+        "pushRepo": ""
+    },
+    "github": {
+        "release": false,
+        "releaseName": "Release ${version}",
+        "releaseNotes": null,
+        "preRelease": false,
+        "draft": false,
+        "tokenRef": "GITHUB_TOKEN",
+        "assets": null,
+        "host": null,
+        "timeout": 0,
+        "proxy": null,
+        "skipChecks": false
+    },
+    "plugins": {
+        "@j-ulrich/release-it-regex-bumper": {
+            "out": [
+                "ghostwriter.pro",
+                {
+                    "file": "ghostwriter.pro",
+                    "search": "VERSION = .*",
+                    "replace": "VERSION = {{version}}"
+                },
+                {
+                    "file": "./resources/linux/ghostwriter.appdata.xml",
+                    "search": "<release .*/>",
+                    "replace": "<release version=\"{{version}}\" date=\"{{now:YYYYMMDD}}\" type=\"release\"/>"
+                },
+                "./resources/linux/ghostwriter.1",
+                {
+                    "file": "./resources/linux/ghostwriter.1",
+                    "search": "(\\.TH man \\d+) \".*?\" (.*)",
+                    "replace": "$1 \"{{now:D MMM YYYY}}\" $2"
+                },
+                "fedora.spec",
+                {
+                    "file": "fedora.spec",
+                    "search": "%build_timestamp .*",
+                    "replace": "%build_timestamp {{now:YYYYMMDD}}"
+                },
+                {
+                    "file": "fedora.spec",
+                    "search": "%changelog_date .*",
+                    "replace": "%changelog_date {{now:ddd MMM DD YYYY}}"
+                },
+                "./debian/changelog",
+                {
+                    "file": "./debian/changelog",
+                    "search": "(\\s+--\\s+.*?>).*",
+                    "replace": "$1  {{now:ddd, D MMM YYYY HH:mm:ss ZZ}}"
+                }
+            ]
+        }
+    }
+}
