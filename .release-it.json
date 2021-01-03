@@ -2,7 +2,7 @@
     "hooks": {},
     "git": {
         "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
-        "requireCleanWorkingDir": false,
+        "requireCleanWorkingDir": true,
         "requireBranch": false,
         "requireUpstream": true,
         "requireCommits": false,
@@ -34,7 +34,6 @@
     "plugins": {
         "@j-ulrich/release-it-regex-bumper": {
             "out": [
-                "ghostwriter.pro",
                 {
                     "file": "ghostwriter.pro",
                     "search": "VERSION = .*",
