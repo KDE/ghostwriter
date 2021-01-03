@@ -1,6 +1,6 @@
 %undefine _hardened_build
 %define debug_package %{nil}
-%global appver 2.0.0-rc1
+%global appver 2.0.0-rc2
 %global build_timestamp 20210102
 %global changelog_date Sat Jan 02 2021
 %global tarball %([[ %{appver} == *"-"* ]] && echo master || echo %{appver})
