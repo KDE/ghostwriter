@@ -55,7 +55,7 @@
                 {
                     "file": "fedora.spec",
                     "search": "%build_timestamp .*",
-                    "replace": "%build_timestamp {{now:YYYYMMDD}}"
+                    "replace": "%build_timestamp {{now:YYYYMMDDHHmmss}}"
                 },
                 {
                     "file": "fedora.spec",
