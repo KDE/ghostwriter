@@ -45,7 +45,7 @@ novel.
 
 
 %prep
-%autosetup -n %{name}-%{tarball}
+%autosetup -n %{name}-%{version}
 
 
 %build
