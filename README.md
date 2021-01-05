@@ -35,7 +35,7 @@ There is also now a staging PPA for release candidate builds for advanced users 
     $ sudo apt-get update
     $ sudo apt install ghostwriter
 
-Fedora users can install ghostwriter from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
+Fedora users can install *ghostwriter* from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
 
     $ sudo dnf copr enable wereturtle/stable
     $ sudo dnf install ghostwriter
@@ -57,7 +57,7 @@ You can download an application bundle for MacOS and copy it under /Applications
 FreeBSD
 -------
 
-To install ghostwriter on FreeBSD, open a terminal, and enter the following command:
+To install *ghostwriter* on FreeBSD, open a terminal, and enter the following command:
 
     $ sudo pkg install ghostwriter
 
@@ -114,7 +114,7 @@ For example, to install under `/opt`, you would enter:
 MacOS
 -----
 
-1. You need either *XCode* or *XCode command line tools* to install and run brew and to build ghostwriter and other Qt applications.
+1. You need either *XCode* or *XCode command line tools* to install and run brew and to build *ghostwriter* and other Qt applications.
 
 - You can install XCode from Mac App Store
 - You can install XCode command line tools from your terminal typing `xcode-select --install`
@@ -140,7 +140,7 @@ brew link qt5 --force
 ```
 *Note:* This command allows you to use `qmake` from the CLI. You'll need it for the final step.
 
-5. Clone this repository and build ghostwriter:
+5. Clone this repository and build *ghostwriter*:
 
 ``` shell
 git clone https://github.com/wereturtle/ghostwriter
@@ -209,9 +209,10 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 
 **Note:**  The MacOS settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist MacOS developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
 
-Themes
-======
-José Geraldo Gouvêa has generously provided a GitHub theme repository for *ghostwriter* [here](https://github.com/jggouvea/ghostwriter-themes). You may download new themes here, or create your own and put in a pull request to add a new theme to the repository.
+Third-Party Markdown Processors
+===============================
+
+*ghostwriter* has built-in support for the cmark-gfm processor.  However, it also can auto-detect Pandoc, MultiMarkdown, or cmark processors.  To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system's `PATH` environment variable.  *ghostwriter* will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.
 
 Wiki
 ====
@@ -225,14 +226,13 @@ Please submit any bugs you find through [GitHub](http://github.com/wereturtle/gh
 Roadmap
 ========
 
-- Replace HUDs with popup menus or sidebar.
-- Add session and document goals.
-- Update only the changed HTML in live preview to improve rendering speed.
+- Add session goals.
 - Implement synchronized scrolling.
 - Add quick preview popup of equations and images.
 - Go to corresponding line in editor on `Ctrl+left click` over text in live preview.
 - Provide a fully-tested MacOS port with installer. **Help wanted!**
 - Translate *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
+- Use Travis-CI to produce automated Windows build. **Help wanted!**
 - Port from qmake to cmake in preparation for Qt 6.
 
 Licensing
