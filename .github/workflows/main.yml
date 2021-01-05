@@ -35,6 +35,7 @@ jobs:
           cached: true
           # Whether or not to automatically run setup-python to find a valid python version.
           setup-python: false
+          tools: qmake
           
       # Runs a single command using the runners shell
       - name: Compile
