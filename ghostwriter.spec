@@ -51,7 +51,6 @@ or your novel.
 %autosetup -n %{name}-%{tarball}
 
 %build
-sed -i 's@appdata/@metainfo/@g' %{name}.pro
 qmake-qt5 PREFIX=%{_prefix}
 %make_build
 
