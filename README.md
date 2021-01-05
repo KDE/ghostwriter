@@ -1,7 +1,11 @@
-![ghostwriter](http://wereturtle.github.io/ghostwriter/images/logo.png)
+<img src="./resources/images/ghostwriter.svg" align="right" width="64">
 
-About *ghostwriter*
-===================
+Travis-CI / Ubuntu | Fedora COPR
+-------------------|------------
+![Travis (.org)](https://img.shields.io/travis/wereturtle/ghostwriter) | ![Fedora COPR](https://copr.fedorainfracloud.org/coprs/wereturtle/staging/package/ghostwriter/status_image/last_build.png)
+
+ghostwriter
+===========
 
 *ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  For a tour of its features, please visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter/).
 
