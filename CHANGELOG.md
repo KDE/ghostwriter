@@ -41,6 +41,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Issue #532: Insert spaces for tabs now works on startup.
 * Issue #536: Added missing Markdown file extensions to file dialog filter when opening and saving files.
 
+### Removed
+
+* Discount support was removed due to its conflicting executable name with MultiMarkdown.
 
 ## [1.8.1] - 2020-02-22
 
