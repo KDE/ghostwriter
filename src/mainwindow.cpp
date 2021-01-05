@@ -345,8 +345,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     this->setCentralWidget(sidebarSplitter);
 
-    quickReferenceGuideViewer = nullptr;
-
     // Show the main window.
     show();
 
@@ -683,68 +681,7 @@ void MainWindow::insertImage()
 
 void MainWindow::showQuickReferenceGuide()
 {
-    if (nullptr == quickReferenceGuideViewer) {
-        QString filePath = QString(":/resources/quickreferenceguide_") + appSettings->locale() + ".html";
-
-        if (!QFileInfo(filePath).exists()) {
-            filePath = QString(":/resources/quickreferenceguide_") + appSettings->locale().left(2) + ".html";
-
-            if (!QFileInfo(filePath).exists()) {
-                filePath = ":/resources/quickreferenceguide_en.html";
-            }
-        }
-
-        QFile inputFile(filePath);
-
-        if (!inputFile.open(QIODevice::ReadOnly)) {
-            MessageBoxHelper::critical
-            (
-                this,
-                tr("Failed to open Quick Reference Guide."),
-                inputFile.errorString()
-            );
-            inputFile.close();
-            return;
-        }
-
-        QTextStream inStream(&inputFile);
-        inStream.setCodec("UTF-8");
-        QString html = inStream.readAll();
-        inputFile.close();
-
-        // Add style sheet to contents.
-        html += "<link href='qrc:/resources/github.css' rel='stylesheet' />";
-
-        // Note that the parent widget for this new window must be NULL, so that
-        // it will hide beneath other windows when it is deactivated.
-        //
-        quickReferenceGuideViewer = new QWebEngineView(this);
-        quickReferenceGuideViewer->setWindowTitle(tr("Quick Reference Guide"));
-        quickReferenceGuideViewer->setWindowFlags(Qt::Window);
-        quickReferenceGuideViewer->settings()->setDefaultTextEncoding("utf-8");
-        quickReferenceGuideViewer->setPage(new SandboxedWebPage(quickReferenceGuideViewer));
-        quickReferenceGuideViewer->page()->action(QWebEnginePage::Reload)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebEnginePage::ReloadAndBypassCache)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebEnginePage::OpenLinkInThisWindow)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebEnginePage::OpenLinkInNewWindow)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebEnginePage::ViewSource)->setVisible(false);
-        quickReferenceGuideViewer->page()->action(QWebEnginePage::SavePage)->setVisible(false);
-        quickReferenceGuideViewer->page()->runJavaScript("document.documentElement.contentEditable = false;");
-        quickReferenceGuideViewer->setHtml(html);
-
-        // Set zoom factor for QtWebEngine browser to account for system DPI settings,
-        // since WebKit assumes 96 DPI as a fixed resolution.
-        //
-        qreal horizontalDpi = QGuiApplication::primaryScreen()->logicalDotsPerInchX();
-        quickReferenceGuideViewer->setZoomFactor((horizontalDpi / 96.0));
-
-        quickReferenceGuideViewer->resize(500, 600);
-        quickReferenceGuideViewer->adjustSize();
-    }
-
-    quickReferenceGuideViewer->show();
-    quickReferenceGuideViewer->raise();
-    quickReferenceGuideViewer->activateWindow();
+    QDesktopServices::openUrl(QUrl("https://wereturtle.github.io/ghostwriter/quickrefguide.html"));
 }
 
 void MainWindow::showWikiPage()
@@ -757,7 +694,7 @@ void MainWindow::showAbout()
     QString aboutText =
         QString("<p><b>") +  qAppName() + QString(" ")
         + qApp->applicationVersion() + QString("</b></p>")
-        + tr("<p>Copyright &copy; 2014-2020 wereturtle</b>"
+        + tr("<p>Copyright &copy; 2014-2021 wereturtle</b>"
              "<p>You may use and redistribute this software under the terms of the "
              "<a href=\"http://www.gnu.org/licenses/gpl.html\">"
              "GNU General Public License Version 3</a>.</p>"
