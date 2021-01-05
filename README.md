@@ -10,6 +10,10 @@
 
 You can view screenshots of the application at [*ghostwriter's* project page](http://wereturtle.github.io/ghostwriter).
 
+## Documentation
+
+A quick reference guide is available [here](http://wereturtle.github.io/ghostwriter/quickrefguide.html).
+
 ## Installation
 
 ### Windows
