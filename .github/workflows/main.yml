@@ -26,16 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install Qt
-        # You may pin to the exact commit or the version.
-        # uses: jurplel/install-qt-action@a962fb91949c8e846a3e4a944d50e7ef5cc3a28a
-        uses: jurplel/install-qt-action@v2.11.1
-        with:
-          # Additional Qt modules to install
-          modules: QtWebEngine
-          cached: true
-          # Whether or not to automatically run setup-python to find a valid python version.
-          setup-python: false
-          tools: qmake
+        run: sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
           
       # Runs a single command using the runners shell
       - name: Compile
