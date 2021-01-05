@@ -1,6 +1,6 @@
-<img src="./resources/images/ghostwriter.svg" align="left" width="32" style="padding-right:5px">
 <img src="https://img.shields.io/travis/wereturtle/ghostwriter?label=build&logo=Ubuntu&style=flat-square" align="right" style="padding:2px"> <img src="https://copr.fedorainfracloud.org/coprs/wereturtle/staging/package/ghostwriter/status_image/last_build.png" align="right" style="padding:2px">
 
+<img src="./resources/images/ghostwriter.svg" align="left" width="32" style="padding-right:5px">
 ghostwriter
 ===
 
