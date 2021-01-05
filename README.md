@@ -1,6 +1,6 @@
 # <img src="./resources/images/ghostwriter.svg" align="left" width="32" style="padding-right:5px"> ghostwriter
 
- ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/wereturtle/ghostwriter?style=flat-square&label=upstream%20release) ![Debian package](https://img.shields.io/debian/v/ghostwriter?style=flat-square&labelColor=blue&color=gray&logo=debian) ![Ubuntu package](https://img.shields.io/ubuntu/v/ghostwriter?color=purple&logo=ubuntu&style=flat-square&labelColor=purple&color=gray) ![Fedora package](https://img.shields.io/fedora/v/ghostwriter?color=blue&logo=fedora&style=flat-square)
+ ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/wereturtle/ghostwriter?style=flat-square&label=upstream&labelColor=red&color=gray&logo=github) ![Debian package](https://img.shields.io/debian/v/ghostwriter?style=flat-square&labelColor=blue&color=gray&logo=debian) ![Ubuntu package](https://img.shields.io/ubuntu/v/ghostwriter?logo=ubuntu&style=flat-square&labelColor=purple&color=gray) ![Fedora package](https://img.shields.io/fedora/v/ghostwriter?labelColor=blue&&color=gray&logo=fedora&style=flat-square)
 
 ![Travis CI](https://img.shields.io/travis/wereturtle/ghostwriter?label=build&logo=Ubuntu&labelColor=purple&style=flat-square) ![Fedora COPR](https://copr.fedorainfracloud.org/coprs/wereturtle/staging/package/ghostwriter/status_image/last_build.png)
 
@@ -201,7 +201,7 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 
 **Note:**  The MacOS settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist MacOS developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
 
-## Third-Party Markdown Processors
+## Additional Markdown Processors
 
 *ghostwriter* has built-in support for the cmark-gfm processor.  However, it also can auto-detect Pandoc, MultiMarkdown, or cmark processors.  To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system's `PATH` environment variable.  *ghostwriter* will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.
 
