@@ -1,8 +1,13 @@
-2.0.0-rc
-========
+# Changelog
 
-New Features
-------------
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+#### Added
 
 * cmark-gfm now replaces Sundown as the default Markdown processor for live previews an export.
 * Syntax highlighting now utilizes cmark-gfm for better accuracy, especially with nested blocks.
@@ -20,8 +25,7 @@ New Features
 * ghostwriter now uses React to update only what changed in the live preview since the last keystroke, significantly reducing the live preview rendering time for large documents.
 * Roboto Mono is included as the default editor font.
 
-Fixes
------
+### Fixed
 
 * Issue #281: Removal of HUD windows will facilitate Alt+Tab switching.
 * Issue #382, #539: IME selection window/IBUS candidate window should no longer be displaced.
@@ -38,11 +42,9 @@ Fixes
 * Issue #536: Added missing Markdown file extensions to file dialog filter when opening and saving files.
 
 
-1.8.1
-=====
+## [1.8.1] - 2020-02-22
 
-Fixes
------
+### Fixed
 
 * Issue #443: MathJax 3.0 is now built into the HTML preview.  Note that this feature works best with Pandoc and requires an Internet connection.  Other Markdown processors are not currently supported.
 * Issue #447: Cursor is no longer shown when editor is not in focus.
@@ -54,16 +56,13 @@ Fixes
     - Arabic
     - Dutch
 
-1.8.0
-=====
+## [1.8.0] - 2019-04-28
 
-New Features
-------------
+### Added
 
 * HTML preview has been ported from QtWebKit to QtWebEngine (Chromium).
 
-Fixes
------
+### Fixed
 
 * Issue #206: ghostwriter now has right-to-left language support.
 * Issue #391: mathml option for pandoc is now used to render math equations for preview and export.
@@ -73,11 +72,9 @@ Fixes
 * Removed print support, since it has some odd bugs on some platforms, and most users would want to print their exported content anyway.
 * Removed graphics fade effect for the bottom of the editor, as it is a risky feature that has caused bugs in the past and does not work on HiDPI screens.
 
-1.7.4
-=====
+## [1.7.4] - 2018-11-11
 
-Fixes
------
+### Fixed
 
 * Issue #178: Only use --quiet option for Pandoc version 2 or greater.
 * Fixed words-per-minute calculations to not be jumpy or overly high.
@@ -86,28 +83,22 @@ Fixes
 * Fixed screenshots in appdata.
 * Issue #385: Updated resource files license to CC BY-SA 4.0.
 
-1.7.3
-=====
+## [1.7.3] - 2018-08-11
 
-Fixes
------
+### Fixed
 
 * Issue #369: Fixed segfault that occurred when changing the theme or interface style after opening the Preview Options dialog.
 
-1.7.2
-=====
+## [1.7.2] - 2018-07-28
 
-Fixes
------
+### Fixed
 
 * Fixed issue where the `--quiet` option was mistakenly used with older Pandoc versions that did not support its use.
 * Worked around Qt 5.11 qinstall bug where running qmake and make would fail when installing the translation files
 
-1.7.1
-======
+## [1.7.1] - 2018-07-21
 
-Fixes
------
+### Fixed
 
 * Fixed regression in full screen mode where menu bar was not showing on mouse-over.
 * Fixed regression where wrong theme was shown as selected on opening the Theme Selection dialog.
@@ -115,47 +106,38 @@ Fixes
 * Fixed issue #292 where saving a document under Windows resulted in end-of-line characters being written as `\n` instead of `\r\n`.
 * Fixed issue #360 where a graphical glitch under MacOS disabled the Theme Selection dialog's remove theme button.
 
-1.7.0
-=====
+## [1.7.0] - 2018-07-08
 
-New Features
-------------
+### Added
 
 * Added light and dark built-in themes based on the community Ulysses III theme Plainstraction.
 * Live preview has been optimized to show the preview for typed characters immediately on smaller documents.
 * Added ODT and EPUB 3 as export options for MultiMarkdown 6.
 * Theme selection dialog now displays a grid instead of a list.
 
-Fixes
------
+### Fixed
 
 * The menu bar is now hidden again in full screen mode when the user presses `Alt+Tab` to switch to a different application.
 * Fixed issue #354 to disable hard line breaks for Pandoc's Github-flavored Markdown.
 * Worked around issue in Qt 5.11 where changing the theme causes the app to crash.
 * Worked around issue in Qt 5.10 where opening a new document with a document already loaded can cause the app to crash.
 
-1.6.2
-=====
+## [1.6.2] - 2018-04-15
 
-Fixes
------
+### Fixed
 
 * Issue #315: Worked around slow load of QPrinter constructor in Fedora 27 by lazy loading the printer settings only when needed for printing or print preview rather than during application startup.
 * Fixed line break tokenizing to not include paragraph breaks.
 
-1.6.1
-=====
+## [1.6.1] - 2018-04-08
 
-Fixes
------
+### Fixed
 
 * Worked around an issue with Qt version 5.10 that causes the application to occasionally crash when reloading the currently opened document or when opening a new document due to the text cursor not being set to the beginning of the document before clearing the editor and loading the new document.
 
-1.6.0
-=====
+## [1.6.0] - 2018-04-07
 
-New Features
-------------
+### Added
 
 * HTML live preview is now in a split pane view rather than in a separate window.
 * New options were added to hide HUD windows while typing, in full screen mode, or in live preview mode.
@@ -170,8 +152,7 @@ New Features
 * The "Copy HTML" button / menu bar option can copy just the selected Markdown text as HTML (using the currently selected Markdown processor). It will still copy the entire Markdown text document and convert it to HTML in the system clipboard if no text is selected.
 * Themes now support options for emphasis color and block text color. Note that emphasis color will also affect the color of headings, and block text color will affect the color of block quotes and code blocks.
 
-Fixes
------
+### Fixed
 
 * Issue #302: ghostwriter will now look for default Qt translations on the standard Qt translations path (for standard buttons/text). These default Qt translations have been included in the Windows installer translations folder and portable Windows Zip, and will be loaded automatically based on the currently selected application language.
 * Some tweaks have been made to the parsing/highlighting of emphasized text to handle nested emphasis cases better. As part of this effort, ghostwriter uses a Qt 5-specific regular expression class that is not available in Qt 4. As such, ghostwriter can no longer be built with Qt and must be built with Qt 5.
@@ -187,11 +168,9 @@ Fixes
 * Fixed copy HTML issue to ensure Markdown text has proper formatting (i.e., greater than signs aren't converted to `&gt;`).
 * ghostwriter will now search in the mozilla-dicts installation location for dictionaries on OpenBSD.
 
-1.5.0
-=====
+## [1.5.0] - 2017-05-13
 
-New Features
-------------
+### Added
 
 * HUD windows can now be closed using the Esc key when they have focus.
 * A new option has been added to highlight double spaces at the end of a line.
@@ -208,8 +187,7 @@ New Features
 * Rudimentary support for HiDPI has been added. See notes below.
 * Various performance enhancements and tweaks have been made under the hood.
 
-Fixes
------
+### Fixed
 
 * Issue #128: Hyphenated words are now considered one word for spell checking.
 * Issue #131: ghostwriter can now be built from its source tarball without needing git to be installed.
@@ -218,11 +196,9 @@ Fixes
 * Issue #219: Copy and paste no longer makes the word count jump.
 * Sundry minor fixes have been added.
 
-1.4.2
-=====
+## [1.4.2] - 2016-08-24
 
-Fixes
------
+### Fixed
 
 * Issue #113: Full screen clock now displays time based on locale.
 * Issue #119: Null characters, which had been breaking the HTML preview, are no longer inserted when typing over selecting text.
@@ -231,21 +207,17 @@ Fixes
 * Issue #125: The translations folder has been moved up one folder for the portable distribution of ghostwriter.
 * Sundry minor fixes have been added.
 
-1.4.1
-=====
+## [1.4.1] - 2016-08-14
 
-Fixes
------
+### Fixed
 
 * Issue #115: Pressing backspace at the end of a line no longer deletes adjacent line breaks.
 * Issue #116: Renaming a theme no longer removes its background image.
 * Issue #107: Main window is now rendered correctly when transitioning between full screen mode and maximized. Main window also remembers its normal size upon being restored from maximized after having been in full screen mode previously.
 
-1.4.0
-=====
+## [1.4.0] - 2016-07-23
 
-New Features
-------------
+### Added
 
 * The time of day optionally displays in full screen mode.
 * The recent file history size has been increased to 10.
@@ -263,94 +235,75 @@ New Features
     - Portuguese (Brazil)
     - Russian
 
-Fixes
------
+### Fixed
 
 * Pandoc PDF export now has better defaults for margins and hyperlinks.
 * Shortcut keys using `Alt` now use `Ctrl` to avoid conflicts with OS shortcut keys and to better accommodate non-USA keyboards.
 * Dragging and dropping an image into the editor will now insert the image link at the mouse location.
 * Sundry other fixes have been added.
 
-1.3.1
-=====
+## [1.3.1] - 2016-02-27
 
-New Features
-------------
+### Added
 
 * Added a new Markdown cheat sheet HUD window.
 * Added proper English translation ts and qm files to support plurals.
 * Updated ghostwriter to select application translation to use based on OS locale.
 
-Fixes
------
+### Fixed
 
 * Fixed DPI scaling for HTML Preview and Quick Reference Guide.
 * Fixed Qt 5 API call that was causing ghostwriter to fail compilation under Qt 4.
 
-1.2.5
-=====
+## [1.2.5] - 2015-12-13
 
-Fixes
------
+### Fixed
 
 * Fixed an issue where export of Markdown document using Pandoc or other command line tools failed when spaces were in the output file path.
 * Fixed an issue where numbered lists that were sublists to a bullet point list were not highlighted properly.
 
-1.2.4
-=====
+## [1.2.4] - 2015-11-28
 
-Fixes
------
+### Fixed
 
 * Fixed an issue where anchor tags for headings inserted for HTML Preview were conflicting with Pandoc's heading anchor tags.
 
-1.2.3
-=====
+## [1.2.3] - 2015-10-31
 
-Fixes
------
+### Fixed
 
 * Fixed an issue on Windows where UTF-8 encoding was not being detected on opening a file unless there was a BOM present. The application now defaults to UTF-8 when opening a file.
 
-1.2.2
-=====
+## [1.2.2] - 2015-10-10
 
-Fixes
------
+### Fixed
 
 * Fixed an issue where spelling suggestions were not always displayed in the context menu if the menu key was pressed on the keyboard.
 
-1.2.1
-=====
+## [1.2.1] - 2015-10-02
 
-Fixes
------
+### Fixed
 
 * Corrected a regression where the application stopped going to the last known cursor position upon opening a file.
 * Fixed an issue where the context menu was showing up in the wrong position on the screen when the user pressed the keyboard's menu key for a misspelled word.
 * Fixed an issue where spelling suggestions were not always being displayed in the context menu depending on which line in the text block the mouse was clicked.
 
-1.2.0
-=====
+## [1.2.0] - 2015-09-27
 
-New Features
-------------
+### Added
 
 * More intelligent list handling
 * New Format menu
 * Pipe table highlighting
 * GitHub mentions highlighting
 
-Fixes
------
+### Fixed
 
 * Sundry fixes have been added
 
-1.1.0
-=====
+## [1.1.0] - 2015-09-06
 
-New Features
-------------
+### Added
 
 * Export dialog now categorizes export options by Markdown processor.
 * Export dialog displays a checkbox option for smart typography.
@@ -358,21 +311,17 @@ New Features
 * Support for cmark has been added to the export dialog and HTML preview window. ghostwriter will automatically detect if cmark is installed (i.e., if its location is in the system's PATH environment variable).
 * Font dialog's combo box now shows fonts WYSIWYG-style.
 
-Fixes
---------
+### Fixed
 
 * Word counting is more accurate and does not regard markup text as separate words.
 
-1.0.1
-=====
+## [1.0.1] - 2015-08-29
 
-Fixes
------
+### Fixed
 
 * Internal enhancements to Markdown parsing class names, with comments added to the code.
 * Updated the .pro file to be able to get the software version number through git even if there are only unannotated tags.
 
-1.0.0
-=====
+## [1.0.0] - 2015-08-22
 
 Initial release.  Happy birthday, ghostwriter!
