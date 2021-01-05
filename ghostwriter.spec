@@ -73,4 +73,4 @@ qmake-qt5 PREFIX=%{_prefix}
 
 %changelog
 * Sun Jan 3 2021 wereturtle <wereturtledev@gmail.com> - %{appver}
-- If at first you don't succeed...
+- Upstream release.
