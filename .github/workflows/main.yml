@@ -2,23 +2,6 @@
 
 name: CI
 
-uses: jurplel/install-qt-action@v2.11.1
-with:
-    # Host platform
-    host: Ubuntu
-    # Target platform for build
-    target: desktop
-    # Architecture for Windows/Android
-    arch: x86-64
-    # Whether or not to install Qt dependencies on Linux
-    install-deps: # optional, default is true
-    # Additional Qt modules to install
-    modules: QtWebEngine
-    # Whether or not to actually download Qt
-    cached: true
-    # Whether or not to automatically run setup-python to find a valid python version.
-    setup-python: false
-
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
