@@ -26,7 +26,9 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install Qt
-        run: sudo apt-get update && apt-get install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
+        run: |
+          sudo apt-get update 
+          sudo apt-get install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
           
       # Runs a single command using the runners shell
       - name: Compile
