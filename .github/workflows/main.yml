@@ -33,6 +33,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Compile
         run: |
+          cd $GITHUB_WORKSPACE
           qmake
           make
-          make install
+          sudo make install
