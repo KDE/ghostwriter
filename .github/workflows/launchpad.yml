@@ -1,0 +1,23 @@
+name: launchpad-ppa
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 */3 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Prerequisites
+      run: sudo apt-get update && sudo apt-get install w3m
+    - name: Fetch build page
+      run: w3m -dump "https://launchpad.net/~wereturtle/+archive/ubuntu/staging/+builds?build_text=&build_state=all" > builds.txt
+    - name: Get build status
+      run: |
+        export BUILD_STATUS=$(grep -E "^\[\w+\]" builds.txt | head -1 | awk -F ' ' '{ print $1 }')
+        echo "Build status = $BUILD_STATUS"
+    - name: Verify build status
+      run: if [[ "$BUILD_STATUS" == \[FAIL*\] ]]; then exit 1; fi
