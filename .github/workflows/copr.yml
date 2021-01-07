@@ -18,5 +18,6 @@ jobs:
       run: |
         copr-cli -h
         export BUILD_STATUS=$(copr-cli list-builds wereturtle/staging | head -1 | awk -F ' '  '{ print $(NF)}')
+        echo "Copr builds status = $BUILD_STATUS"
     - name: Verify build status
       run: if [[ "$BUILD_STATUS" == "failed" ]]; then exit 1; fi
