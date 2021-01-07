@@ -16,7 +16,7 @@ jobs:
       run: sudo pip install copr-cli configparser
     - name: Fetch build status
       run: |
-        copr-cli # verify correct installation
+        copr-cli -h
         export BUILD_STATUS=$(copr-cli list-builds wereturtle/staging | head -1 | awk -F ' '  '{ print $(NF)}')
-    - name: Verify build statusa
+    - name: Verify build status
       run: if [[ "$BUILD_STATUS" == "failed" ]]; then exit 1; fi
