@@ -1,10 +1,9 @@
 name: launchpad-ppa-build
 
 on:
-  push:    
-#   schedule:
-#     # * is a special character in YAML so you have to quote this string
-#     - cron:  '0 */3 * * *'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 */3 * * *'
 
 jobs:
   build:
