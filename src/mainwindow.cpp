@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -399,6 +399,7 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
 
     switch (key) {
     case Qt::Key_Escape:
+    case Qt::Key_F11:
         if (this->isFullScreen()) {
             toggleFullScreen(false);
         }
