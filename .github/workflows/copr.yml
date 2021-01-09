@@ -24,4 +24,4 @@ jobs:
           [[ "$BUILD_STATUS" == "pending" ]] || [[ "$BUILD_STATUS" == "running" ]] || [[ "$BUILD_STATUS" == "waiting" ]] || [[ "$BUILD_STATUS" == "starting" ]] || break
         done
         echo "Copr build status = $BUILD_STATUS"
-        [[ "$BUILD_STATUS" == "failed" ]] && exit 1
+        if [[ "$BUILD_STATUS" == "failed" ]]; then exit 1; fi
