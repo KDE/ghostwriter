@@ -3,7 +3,7 @@
 %define debug_package %{nil}
 
 %global appver 2.0.0-rc3
-%global build_timestamp %(date "+%Y%m%d%H%M%S")
+%global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
 %global changelog_date Sun Jan 03 2021
 %global tarball %([[ %{appver} == *"-"* ]] && echo master || echo %{appver})
 
