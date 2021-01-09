@@ -17,7 +17,7 @@ jobs:
         sudo pip install copr-cli configparser
         copr-cli --version
     - name: Wait for Copr build
-      run: sleep 3600
+      run: sleep 1200
     - name: Fetch build status
       run: |
         export BUILD_STATUS=$(copr-cli list-builds wereturtle/staging | head -1 | awk -F ' '  '{ print $(NF)}')
