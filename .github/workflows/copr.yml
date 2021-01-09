@@ -16,11 +16,12 @@ jobs:
       run: | 
         sudo pip install copr-cli configparser
         copr-cli --version
-    - name: Wait for Copr build
-      run: sleep 1200
-    - name: Fetch build status
-      run: |
-        export BUILD_STATUS=$(copr-cli list-builds wereturtle/staging | head -1 | awk -F ' '  '{ print $(NF)}')
-        echo "Copr build status = $BUILD_STATUS"
     - name: Verify build status
-      run: if [[ "$BUILD_STATUS" == "failed" ]]; then exit 1; fi
+      run: |
+        while : ; do
+          sleep 300
+          BUILD_STATUS=$(copr-cli list-builds wereturtle/staging | head -1 | awk -F ' '  '{ print $(NF)}')
+          [[ "$BUILD_STATUS" == "pending" ]] || [[ "$BUILD_STATUS" == "running" ]] || [[ "$BUILD_STATUS" == "waiting" ]] || [[ "$BUILD_STATUS" == "starting" ]] || break
+        done
+        echo "Copr build status = $BUILD_STATUS"
+        [[ "$BUILD_STATUS" == "failed" ]] && exit 1
