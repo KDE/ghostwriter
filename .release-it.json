@@ -50,12 +50,6 @@
                     "search": "(\\.TH man \\d+) \".*?\" (.*)",
                     "replace": "$1 \"{{now:D MMM YYYY}}\" $2"
                 },
-                "ghostwriter.spec",
-                {
-                    "file": "ghostwriter.spec",
-                    "search": "%build_timestamp .*",
-                    "replace": "%build_timestamp {{now:YYYYMMDDHHmmss}}"
-                },
                 {
                     "file": "ghostwriter.spec",
                     "search": "%changelog_date .*",

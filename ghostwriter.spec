@@ -1,4 +1,4 @@
-# RPM spec file for Fedora and OpenSUSE
+# RPM spec file for Fedora and openSUSE
 %undefine _hardened_build
 %define debug_package %{nil}
 
