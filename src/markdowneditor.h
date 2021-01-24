@@ -119,8 +119,6 @@ public:
      * Sets up the margins on the sides of the editor, so that the text
      * area is centered in the window.
      *
-     * Parameter is the parent window's width.
-     *
      * This method should be called in the parent's resizeEvent(). Note
      * that this theoretically could have been done in the editor's own
      * resizeEvent() method, but unfortunately it is not reliable and can
@@ -129,7 +127,7 @@ public:
      * The parent window should also call this method after
      * calls to setEditorWidth().
      */
-    void setupPaperMargins(int width);
+    void setupPaperMargins();
 
 protected:
     void dragEnterEvent(QDragEnterEvent *e);

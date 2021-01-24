@@ -1462,7 +1462,7 @@ void MainWindow::adjustEditorWidth(int width)
     sidebarSplitter->setSizes(sidebarSplitterSizes);
 
     // Resize the editor's margins based on the size of the window.
-    editor->setupPaperMargins(editorWidth);
+    editor->setupPaperMargins();
 
     // Scroll to cursor position.
     editor->centerCursor();

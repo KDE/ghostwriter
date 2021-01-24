@@ -581,7 +581,7 @@ void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
     d->textDocument->setDefaultTextOption(option);
 }
 
-void MarkdownEditor::setupPaperMargins(int width)
+void MarkdownEditor::setupPaperMargins()
 {
     Q_D(MarkdownEditor);
     
@@ -592,26 +592,25 @@ void MarkdownEditor::setupPaperMargins(int width)
         return;
     }
 
-    int screenWidth = QGuiApplication::primaryScreen()->size().width();
-    int proposedEditorWidth = width;
+    int proposedEditorWidth = this->width();
     int margin = 0;
 
     switch (d->editorWidth) {
     case EditorWidthNarrow:
-        proposedEditorWidth = screenWidth / 3;
+        proposedEditorWidth = QFontMetrics(this->font()).averageCharWidth() * 60;
         break;
     case EditorWidthMedium:
-        proposedEditorWidth = screenWidth / 2;
+        proposedEditorWidth = QFontMetrics(this->font()).averageCharWidth() * 80;
         break;
     case EditorWidthWide:
-        proposedEditorWidth = 2 * (screenWidth / 3);
+        proposedEditorWidth = QFontMetrics(this->font()).averageCharWidth() * 100;
         break;
     default:
         break;
     }
 
-    if (proposedEditorWidth <= width) {
-        margin = (width - proposedEditorWidth) / 2;
+    if (proposedEditorWidth <= this->width()) {
+        margin = (this->width() - proposedEditorWidth) / 2;
     }
 
     d->preferredLayout->setContentsMargins(0, 0, 0, 0);
