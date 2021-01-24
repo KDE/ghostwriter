@@ -18,7 +18,7 @@
 #
 ################################################################################
 
-VERSION = 2.0.0-rc3
+VERSION = 2.0.0-rc4
     
 lessThan(QT_MAJOR_VERSION, 5) {
     error("ghostwriter requires Qt 5.8 or greater")
