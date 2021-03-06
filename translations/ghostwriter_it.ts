@@ -317,7 +317,7 @@ NOTA: Meglio non tradurre dato che  è il nome proprio di un filtro, ed è il no
     <message>
         <source>HTML Preview</source>
         <translatorcomment>Titolo della finestra &quot;HTML Preview&quot; [ View-&gt;Preview in HTML ]</translatorcomment>
-        <translation type="vanished">Antemprima HTML</translation>
+        <translation type="vanished">Anteprima HTML</translation>
     </message>
     <message>
         <source>Copy HTML</source>
@@ -614,7 +614,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation type="vanished">&amp;Antemprima di stampa</translation>
+        <translation type="vanished">&amp;Anteprima di stampa</translation>
     </message>
     <message>
         <source>&amp;Print</source>
@@ -791,7 +791,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Preview Options...</source>
-        <translation type="vanished">Opzioni di antemprima...</translation>
+        <translation type="vanished">Opzioni di anteprima...</translation>
     </message>
     <message>
         <source>Preferences...</source>
@@ -799,7 +799,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Preview Options</source>
-        <translation type="vanished">Opzioni di antemprima</translation>
+        <translation type="vanished">Opzioni di anteprima</translation>
     </message>
     <message>
         <source>Export</source>
@@ -815,7 +815,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     </message>
     <message>
         <source>Toggle Live HTML Preview</source>
-        <translation type="vanished">Attiva/disattiva antemprima HTML</translation>
+        <translation type="vanished">Attiva/disattiva anteprima HTML</translation>
     </message>
     <message>
         <source>Show Open &amp;HUD Windows</source>
@@ -1118,7 +1118,7 @@ NOTA: Testo breve altrimenti, in caso di ridimensionamento della finistra Antepr
     <name>PreviewOptionsDialog</name>
     <message>
         <source>Preview Options</source>
-        <translation type="vanished">Opzioni antemprima</translation>
+        <translation type="vanished">Opzioni anteprima</translation>
     </message>
     <message>
         <source>Markdown Flavor</source>
@@ -2419,7 +2419,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
         <location filename="../src/mainwindow.cpp" line="1157"/>
         <location filename="../src/mainwindow.cpp" line="1489"/>
         <source>Preview Options...</source>
-        <translation type="unfinished">Opzioni di antemprima...</translation>
+        <translation type="unfinished">Opzioni di anteprima...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1158"/>
@@ -2465,7 +2465,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1301"/>
         <source>Toggle Live HTML Preview</source>
-        <translation type="unfinished">Attiva/disattiva antemprima HTML</translation>
+        <translation type="unfinished">Attiva/disattiva anteprima HTML</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1322"/>
