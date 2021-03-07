@@ -52,8 +52,13 @@
                 },
                 {
                     "file": "ghostwriter.spec",
-                    "search": "%changelog_date .*",
-                    "replace": "%changelog_date {{now:ddd MMM DD YYYY}}"
+                    "search": "%global changelog_date .*",
+                    "replace": "%global changelog_date {{now:ddd MMM DD YYYY}}"
+                },
+                {
+                    "file": "ghostwriter.spec",
+                    "search": "%global appver .*",
+                    "replace": "%global appver {{version}}"
                 },
                 "./debian/changelog",
                 {
