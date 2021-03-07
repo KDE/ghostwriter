@@ -97,6 +97,7 @@ private slots:
     void showPreviewOptions();
     void onAboutToHideMenuBarMenu();
     void onAboutToShowMenuBarMenu();
+    void toggleSidebarVisible(bool visible);
 
 private:
     QtAwesome *awesome;
@@ -113,6 +114,7 @@ private:
     QLabel *wordCountLabel;
     QLabel *statusLabel;
     TimeLabel *timeLabel;
+    QPushButton *toggleSidebarButton;
     QPushButton *previewOptionsButton;
     QPushButton *exportButton;
     QPushButton *copyHtmlButton;

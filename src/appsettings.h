@@ -103,6 +103,10 @@ public:
     Q_SLOT void setHideMenuBarInFullScreenEnabled(bool enabled);
     Q_SIGNAL void hideMenuBarInFullScreenChanged(bool enabled);
 
+    bool hideSidebarWhileTypingEnabled() const;
+    Q_SLOT void setHideSidebarWhileTypingEnabled(bool enabled);
+    Q_SIGNAL void hideSidebarWhileTypingChanged(bool enabled);
+
     bool fileHistoryEnabled() const;
     Q_SLOT void setFileHistoryEnabled(bool enabled);
     Q_SIGNAL void fileHistoryChanged(bool enabled);

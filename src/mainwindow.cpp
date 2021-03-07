@@ -343,6 +343,24 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     sidebarSplitter->setCollapsible(0, false);
     sidebarSplitter->setCollapsible(1, true);
 
+    this->connect(this->editor,
+        &MarkdownEditor::typingPaused,
+        [this]() {
+            if (appSettings->hideSidebarWhileTypingEnabled()) {
+                this->toggleSidebarVisible(true);
+            }
+        }
+    );
+
+    this->connect(this->editor,
+        &MarkdownEditor::typingResumed,
+        [this]() {
+            if (appSettings->hideSidebarWhileTypingEnabled()) {
+                this->toggleSidebarVisible(false);
+            }
+        }
+    );
+
     this->setCentralWidget(sidebarSplitter);
 
     // Show the main window.
@@ -901,6 +919,20 @@ void MainWindow::onAboutToShowMenuBarMenu()
     }
 }
 
+void MainWindow::toggleSidebarVisible(bool visible)
+{
+    appSettings->setSidebarVisible(visible);
+    this->sidebar->setVisible(visible);
+
+    if (visible) {
+        toggleSidebarButton->setText(QChar(fa::chevronleft));
+    } else {
+        toggleSidebarButton->setText(QChar(fa::chevronright));
+    }
+
+    this->adjustEditorWidth(this->width());
+}
+
 QAction* MainWindow::createWindowAction
 (
     const QString &text,
@@ -1037,7 +1069,7 @@ void MainWindow::buildMenuBar()
         &QAction::toggled,
         this,
         [this](bool enabled) {
-            sidebar->setVisible(enabled);
+            toggleSidebarVisible(enabled);
 
             if (!enabled) {
                 editor->setFocus();
@@ -1049,7 +1081,7 @@ void MainWindow::buildMenuBar()
     showSidebarAction = viewMenu->addAction(tr("&Outline"),
         this,
         [this]() {
-            sidebar->setVisible(true);
+            toggleSidebarVisible(true);
             sidebar->setCurrentTabIndex(OutlineSidebarTab);
         },
         QKeySequence("CTRL+J"));
@@ -1059,7 +1091,7 @@ void MainWindow::buildMenuBar()
     showSidebarAction = viewMenu->addAction(tr("&Session Statistics"),
         this,
         [this]() {
-            sidebar->setVisible(true);
+            toggleSidebarVisible(true);
             sidebar->setCurrentTabIndex(SessionStatsSidebarTab);
         });
     showSidebarAction->setShortcutContext(Qt::WindowShortcut);
@@ -1068,7 +1100,7 @@ void MainWindow::buildMenuBar()
     showSidebarAction = viewMenu->addAction(tr("&Document Statistics"),
         this,
         [this]() {
-            sidebar->setVisible(true);
+            toggleSidebarVisible(true);
             sidebar->setCurrentTabIndex(DocumentStatsSidebarTab);
         });
     showSidebarAction->setShortcutContext(Qt::WindowShortcut);
@@ -1077,7 +1109,7 @@ void MainWindow::buildMenuBar()
     showSidebarAction = viewMenu->addAction(tr("&Cheat Sheet"),
         this,
         [this]() {
-            sidebar->setVisible(true);
+            toggleSidebarVisible(true);
             sidebar->setCurrentTabIndex(CheatSheetSidebarTab);
         },
         QKeySequence::HelpContents);
@@ -1153,36 +1185,27 @@ void MainWindow::buildStatusBar()
     // Add left-most widgets to status bar.
     QFont buttonFont(this->awesome->font(style::stfas, 16));
 
-    QPushButton *button = new QPushButton(QChar(fa::chevronright));
-    button->setObjectName("showSidebarButton");
-    button->setFont(buttonFont);
-    button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Toggle sidebar"));
-    button->setCheckable(false);
-    button->setChecked(false);
+    toggleSidebarButton = new QPushButton(QChar(fa::chevronright));
+    toggleSidebarButton->setObjectName("showSidebarButton");
+    toggleSidebarButton->setFont(buttonFont);
+    toggleSidebarButton->setFocusPolicy(Qt::NoFocus);
+    toggleSidebarButton->setToolTip(tr("Toggle sidebar"));
+    toggleSidebarButton->setCheckable(false);
+    toggleSidebarButton->setChecked(false);
 
-    leftLayout->addWidget(button, 0, Qt::AlignLeft);
-    statusBarWidgets.append(button);
+    leftLayout->addWidget(toggleSidebarButton, 0, Qt::AlignLeft);
+    statusBarWidgets.append(toggleSidebarButton);
 
     if (appSettings->sidebarVisible()) {
-        button->setText(QChar(fa::chevronleft));
+        toggleSidebarButton->setText(QChar(fa::chevronleft));
     }
 
     this->connect
     (
-        button,
+        toggleSidebarButton,
         &QPushButton::clicked,
-        [this, button]() {
-            appSettings->setSidebarVisible(!this->sidebar->isVisible());
-            this->sidebar->setVisible(!this->sidebar->isVisible());
-
-            if (this->sidebar->isVisible()) {
-                button->setText(QChar(fa::chevronleft));
-            } else {
-                button->setText(QChar(fa::chevronright));
-            }
-
-            this->adjustEditorWidth(this->width());
+        [this]() {
+            toggleSidebarVisible(!this->sidebar->isVisible());
         }
     );
     
@@ -1213,7 +1236,7 @@ void MainWindow::buildStatusBar()
     statusBarWidgets.append(wordCountLabel);
 
     // Add right-most widgets to status bar.
-    button = new QPushButton(QChar(fa::moon));
+    QPushButton *button = new QPushButton(QChar(fa::moon));
     button->setFont(buttonFont);
     button->setFocusPolicy(Qt::NoFocus);
     button->setToolTip(tr("Toggle dark mode"));

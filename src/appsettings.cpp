@@ -46,6 +46,7 @@
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
 #define GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY "Style/hideMenuBarInFullScreenEnabled"
+#define GW_HIDE_SIDEBAR_WHILE_TYPING_KEY "Typing/hideSidebarWhileTypingEnabled"
 #define GW_THEME_KEY "Style/theme"
 #define GW_DARK_MODE_KEY "Style/darkModeEnabled"
 #define GW_EDITOR_WIDTH_KEY "Style/editorWidth"
@@ -85,6 +86,7 @@ public:
     bool displayTimeInFullScreenEnabled;
     bool fileHistoryEnabled;
     bool hideMenuBarInFullScreenEnabled;
+    bool hideSidebarWhileTypingEnabled;
     bool htmlPreviewVisible;
     bool sidebarVisible;
     bool insertSpacesForTabsEnabled;
@@ -142,6 +144,7 @@ void AppSettings::store()
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
     appSettings.setValue(GW_FONT_KEY, QVariant(d->font.toString()));
     appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d->hideMenuBarInFullScreenEnabled));
+    appSettings.setValue(GW_HIDE_SIDEBAR_WHILE_TYPING_KEY, QVariant(d->hideSidebarWhileTypingEnabled));
     appSettings.setValue(GW_INTERFACE_STYLE_KEY, QVariant(d->interfaceStyle));
     appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(d->italicizeBlockquotes));
     appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(d->largeHeadingSizesEnabled));
@@ -384,6 +387,21 @@ void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
     
     d->hideMenuBarInFullScreenEnabled = enabled;
     emit hideMenuBarInFullScreenChanged(enabled);
+}
+
+bool AppSettings::hideSidebarWhileTypingEnabled() const
+{
+    Q_D(const AppSettings);
+
+    return d->hideSidebarWhileTypingEnabled;
+}
+
+void AppSettings::setHideSidebarWhileTypingEnabled(bool enabled)
+{
+    Q_D(AppSettings);
+
+    d->hideSidebarWhileTypingEnabled = enabled;
+    emit hideSidebarWhileTypingChanged(enabled);
 }
 
 bool AppSettings::fileHistoryEnabled() const
@@ -745,6 +763,7 @@ AppSettings::AppSettings()
     }
 
     d->hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->hideSidebarWhileTypingEnabled = appSettings.value(GW_HIDE_SIDEBAR_WHILE_TYPING_KEY, QVariant(true)).toBool();
     d->fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
     d->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     d->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
