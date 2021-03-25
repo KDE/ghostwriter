@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,6 +54,19 @@ public:
     ~SimpleFontDialog();
 
     /**
+     * Sets whether only monospace are shown (true), or whether all fonts are
+     * shown (false).  The option to toggle the setting with a checkbox can
+     * be hidden from the user by setting hideCheckbox to true.
+     */
+    void setMonospaceOnly(bool available, bool hideCheckbox = false);
+
+    /**
+     * Returns whether only monospace are shown (true), or whether all fonts
+     * are shown (false).
+     */
+    bool monospaceOnly() const;
+
+    /**
      * Gets the currently selected font.  Call this method after exec()
      * returns.
      */
@@ -67,14 +80,32 @@ public:
     (
         bool *ok,
         const QFont &initial,
-        QWidget *parent = 0
+        QWidget *parent = nullptr
     );
 
     /**
      * Convenience method to create the dialog and extract the font in
      * one easy call.
      */
-    static QFont font(bool *ok, QWidget *parent = 0);
+    static QFont font(bool *ok, QWidget *parent = nullptr);
+
+    /**
+     * Convenience method to create the dialog and extract the font in
+     * one easy call.  Takes intial font to display as a parameter.
+     * Only shows monospace fonts as available choices.
+     */
+    static QFont monospaceFont
+    (
+        bool *ok,
+        const QFont &initial,
+        QWidget *parent = nullptr
+    );
+
+    /**
+     * Convenience method to create the dialog and extract the font in
+     * one easy call.  Only shows monospace fonts as available choices.
+     */
+    static QFont monospaceFont(bool *ok, QWidget *parent = nullptr);
 
 private:
     QScopedPointer<SimpleFontDialogPrivate> d_ptr;

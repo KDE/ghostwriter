@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2017-2020 wereturtle
+ * Copyright (C) 2017-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,10 +23,12 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QFileInfo>
+#include <QLineEdit>
 
 #include "previewoptionsdialog.h"
 #include "appsettings.h"
 #include "exporterfactory.h"
+#include "simplefontdialog.h"
 
 namespace ghostwriter
 {
@@ -44,11 +46,11 @@ public:
     }
 
     void onExporterChanged(int index);
+    QString fontToString(const QFont &font) const;
 
+    AppSettings *appSettings;
     ExporterFactory *exporterFactory;
     QComboBox *previewerComboBox;
-
-    void buildStyleSheetComboBox();
 };
 
 PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
@@ -58,7 +60,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     Q_D(PreviewOptionsDialog);
 
     this->setWindowTitle(tr("Preview Options"));
-
+    d->appSettings = AppSettings::instance();
     d->exporterFactory = ExporterFactory::instance();
 
     QWidget *mainContents = new QWidget(this);
@@ -72,7 +74,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     d->previewerComboBox = new QComboBox(this);
 
     QList<Exporter *> exporters = d->exporterFactory->htmlExporters();
-    Exporter *currentExporter = AppSettings::instance()->currentHtmlExporter();
+    Exporter *currentExporter = d->appSettings->currentHtmlExporter();
 
     int currentExporterIndex = 0;
 
@@ -98,6 +100,58 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
 
     optionsLayout->addRow(tr("Markdown Flavor"), d->previewerComboBox);
 
+    QHBoxLayout *fontLayout = new QHBoxLayout();
+
+    QLineEdit *currentTextFont = new QLineEdit(d->fontToString(d->appSettings->previewTextFont()));
+    currentTextFont->setReadOnly(true);
+    fontLayout->addWidget(currentTextFont);
+
+    QPushButton *chooseButton = new QPushButton(tr("Choose..."));
+    fontLayout->addWidget(chooseButton);
+
+    chooseButton->connect(chooseButton,
+        &QPushButton::clicked,
+        [this, d, currentTextFont]() {
+            bool success = false;
+
+            QFont font = SimpleFontDialog::font(&success,
+                d->appSettings->previewTextFont(),
+                this);
+
+            if (success) {
+                currentTextFont->setText(d->fontToString(font));
+                d->appSettings->setPreviewTextFont(font);
+            }
+        });
+
+    optionsLayout->addRow(tr("Text Font:"), fontLayout);
+
+    fontLayout = new QHBoxLayout();
+
+    QLineEdit *currentCodeFont = new QLineEdit(d->fontToString(d->appSettings->previewCodeFont()));
+    currentCodeFont->setReadOnly(true);
+    fontLayout->addWidget(currentCodeFont);
+
+    chooseButton = new QPushButton(tr("Choose..."));
+    fontLayout->addWidget(chooseButton);
+
+    chooseButton->connect(chooseButton,
+        &QPushButton::clicked,
+        [this, d, currentCodeFont]() {
+            bool success = false;
+
+            QFont font = SimpleFontDialog::monospaceFont(&success,
+                d->appSettings->previewTextFont(),
+                this);
+
+            if (success) {
+                currentCodeFont->setText(d->fontToString(font));
+                d->appSettings->setPreviewCodeFont(font);
+            }
+        });
+
+    optionsLayout->addRow(tr("Code Font:"), fontLayout);
+
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Close);
     layout->addWidget(buttonBox);
@@ -114,6 +168,14 @@ void PreviewOptionsDialogPrivate::onExporterChanged(int index)
 {
     QVariant exporterVariant = this->previewerComboBox->itemData(index);
     Exporter *exporter = (Exporter *) exporterVariant.value<void *>();
-    AppSettings::instance()->setCurrentHtmlExporter(exporter);
+    appSettings->setCurrentHtmlExporter(exporter);
 }
+
+QString PreviewOptionsDialogPrivate::fontToString(const QFont &font) const
+{
+    return QObject::tr("%1 %2pt")
+        .arg(font.family())
+        .arg(font.pointSize());
+}
+
 } // namespace ghostwriter

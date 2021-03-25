@@ -92,7 +92,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     MarkdownDocument *document = new MarkdownDocument();
 
     editor = new MarkdownEditor(document, theme.lightColorScheme(), this);
-    editor->setFont(appSettings->font().family(), appSettings->font().pointSize());
+    editor->setFont(appSettings->editorFont().family(), appSettings->editorFont().pointSize());
     editor->setUseUnderlineForEmphasis(appSettings->useUnderlineForEmphasis());
     editor->setEnableLargeHeadingSizes(appSettings->largeHeadingSizesEnabled());
     editor->setAutoMatchEnabled(appSettings->autoMatchEnabled());
@@ -255,6 +255,8 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), editor, SLOT(setSpellCheckEnabled(bool)));
     connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
+    connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
+    connect(appSettings, SIGNAL(previewCodeFontChanged(QFont)), this, SLOT(applyTheme()));
 
     if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
         this->menuBar()->hide();
@@ -827,7 +829,7 @@ void MainWindow::changeFont()
 
     if (success) {
         editor->setFont(font.family(), font.pointSize());
-        appSettings->setFont(font);
+        appSettings->setEditorFont(font);
     }
 }
 
@@ -835,7 +837,7 @@ void MainWindow::onFontSizeChanged(int size)
 {
     QFont font = editor->font();
     font.setPointSize(size);
-    appSettings->setFont(font);
+    appSettings->setEditorFont(font);
 }
 
 void MainWindow::onSetLocale()
@@ -1503,8 +1505,10 @@ void MainWindow::applyTheme()
         colorScheme = theme.darkColorScheme();
     }
 
-
-    StyleSheetBuilder styler(colorScheme, (InterfaceStyleRounded == appSettings->interfaceStyle()));
+    StyleSheetBuilder styler(colorScheme,
+        (InterfaceStyleRounded == appSettings->interfaceStyle()),
+        appSettings->previewTextFont(),
+        appSettings->previewCodeFont());
 
     editor->setColorScheme(colorScheme);
     editor->setStyleSheet(styler.editorStyleSheet());
@@ -1515,13 +1519,6 @@ void MainWindow::applyTheme()
     //
     qApp->setStyleSheet(styler.layoutStyleSheet());
 
-#if defined(Q_OS_WIN)
-    // Unfortunately, the default Windows 10 font that was tailored
-    // for ClearType doesn't look so well with the FreeType font
-    // engine.  Use a different font for the application instead.
-    QApplication::setFont(QFont("Roboto", 10));
-#endif
-
     previewSplitter->setStyleSheet(styler.splitterStyleSheet());
     sidebarSplitter->setStyleSheet(styler.splitterStyleSheet());
     this->statusBar()->setStyleSheet(styler.statusBarStyleSheet());
@@ -1531,7 +1528,6 @@ void MainWindow::applyTheme()
     }
 
     findReplace->setStyleSheet(styler.findReplaceStyleSheet());
-
     sidebar->setStyleSheet(styler.sidebarStyleSheet());
 
     // Clear style sheet cache by setting to empty string before

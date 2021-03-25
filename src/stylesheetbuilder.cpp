@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2020 wereturtle
+ * Copyright (C) 2020-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #include <QApplication>
 #include <QFile>
 #include <QPalette>
+#include <QRegularExpression>
 #include <QTextStream>
 #include <QDebug>
 
@@ -30,10 +31,17 @@ namespace ghostwriter
 {
 QString StyleSheetBuilder::m_htmlPreviewSass;
 
-StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors, const bool roundedCorners)
+StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
+        const bool roundedCorners,
+        const QFont& previewTextFont,
+        const QFont& previewCodeFont)
 {
     QString styleSheet;
     QTextStream stream(&styleSheet);
+
+
+    this->m_htmlPreviewTextFont = previewTextFont;
+    this->m_htmlPreviewCodeFont = previewCodeFont;
 
     this->m_backgroundColor = colors.background;
     this->m_foregroundColor = colors.foreground;
@@ -503,8 +511,8 @@ void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners)
     m_htmlPreviewCss = m_htmlPreviewSass;    
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$textColor", m_foregroundColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$backgroundColor", m_backgroundColor.name());
-    m_htmlPreviewCss = m_htmlPreviewCss.replace("$serifFont", "Roboto Slab");
-    m_htmlPreviewCss = m_htmlPreviewCss.replace("$fontSize", "100%");
+    m_htmlPreviewCss = m_htmlPreviewCss.replace("$textFont", m_htmlPreviewTextFont.family().remove(QRegularExpression("\\[.*\\]")).trimmed());
+    m_htmlPreviewCss = m_htmlPreviewCss.replace("$fontSize", QString("%1pt").arg(m_htmlPreviewTextFont.pointSize()));
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$headingColor", m_headingColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$faintColor", m_faintColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$blockBackground", m_faintColor.name());
@@ -522,7 +530,8 @@ void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners)
         .arg(baseScrollColor.red()).arg(baseScrollColor.green()).arg(baseScrollColor.blue())
         .arg(baseScrollColor.alphaF()));
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$scrollBarBorderRadius", scrollBarBorderRadius);
-    m_htmlPreviewCss = m_htmlPreviewCss.replace("$monospaceFont", "Roboto Mono");
+    m_htmlPreviewCss = m_htmlPreviewCss.replace("$monospaceFont", m_htmlPreviewCodeFont.family().remove(QRegularExpression("\\[.*\\]")).trimmed());
+    m_htmlPreviewCss = m_htmlPreviewCss.replace("$codeFontSize", QString("%1pt").arg(m_htmlPreviewCodeFont.pointSize()));
 }
 
 // Algorithm taken from *Grokking the GIMP* by Carey Bunks,

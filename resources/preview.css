@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2020 wereturtle
+ * Copyright (C) 2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,23 +66,13 @@
     padding: 5px;
 }
 
-@font-face {
-    font-family: 'Roboto Slab';
-    src: url(":/resources/fonts/RobotoSlab/RobotoSlab-VariableFont_wght.ttf") format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto Mono';
-    src: url(":/resources/fonts/RobotoMono/RobotoMono-Regular.ttf") format('truetype');
-}
-
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
     color: $textColor;
     background-color: $backgroundColor;
-    font-family: $serifFont, serif;
+    font-family: "$textFont", ui-serif, serif;
     font-size: $fontSize;
     line-height: 1.5;
 }
@@ -133,18 +123,18 @@ td {
 pre {
     color: $codeColor;
     background-color: transparent;
-    font-family: $monospaceFont, monospace;
+    font-family: "$monospaceFont", monospace;
     border: 1px solid $faintColor;
     padding: 10px;
     border-radius: 3px;
     line-height: normal;
-    font-size: 100%;
+    font-size: $codeFontSize;
 }
 
 code {
     color: $codeColor;
-    font-family: $monospaceFont, monospace;
-    font-size: 100%;
+    font-family: "$monospaceFont", monospace;
+    font-size: $codeFontSize;
 }
 
 a {
@@ -181,7 +171,7 @@ ul, ol {
 kbd {
     color: $codeColor;
     background-color: transparent;
-    font-family: $monospaceFont, monospace;
+    font-family: "$monospaceFont", monospace;
     border: 1px solid $thickBorderColor;
     border-radius: 3px;
     box-shadow: inset 0 -1px 0 $thickBorderColor;

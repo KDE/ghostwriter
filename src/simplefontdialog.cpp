@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@
 #include <QComboBox>
 #include <QFontComboBox>
 #include <QFontInfo>
+#include <QCheckBox>
 
 #include "simplefontdialog.h"
 
@@ -45,10 +46,12 @@ public:
     }
 
     QFont font;
+    QFontComboBox *fontComboBox;
     QLineEdit *fontPreview;
+    QCheckBox *monospaceOnlyCheckbox;
 
     void onFontFamilyChanged(const QFont &font);
-    void onFontSizeChanged(const QString &sizeText);
+    void onFontSizeChanged(int size);
 };
 
 SimpleFontDialog::SimpleFontDialog(QWidget *parent)
@@ -63,13 +66,13 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
 {
     Q_D(SimpleFontDialog);
 
-    QFontComboBox *fontComboBox = new QFontComboBox(this);
-    fontComboBox->setCurrentFont(initial);
+    d->fontComboBox = new QFontComboBox(this);
+    d->fontComboBox->setCurrentFont(initial);
     d->font = initial;
 
     QVBoxLayout *familyLayout = new QVBoxLayout();
     familyLayout->addWidget(new QLabel(tr("Family")));
-    familyLayout->addWidget(fontComboBox);
+    familyLayout->addWidget(d->fontComboBox);
 
     QList<int> sizes = QFontDatabase::standardSizes();
 
@@ -125,6 +128,15 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     previewLayout->addWidget(new QLabel(tr("Preview")));
     previewLayout->addWidget(d->fontPreview);
 
+    d->monospaceOnlyCheckbox = new QCheckBox(tr("Show only monospaced fonts"));
+    d->monospaceOnlyCheckbox->setChecked(false);
+
+    this->connect(d->monospaceOnlyCheckbox,
+        &QCheckBox::toggled,
+        [this](bool checked) {
+            this->setMonospaceOnly(checked);
+        });
+
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Ok);
     buttonBox->addButton(QDialogButtonBox::Cancel);
@@ -133,7 +145,8 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     layout->addItem(familyLayout, 0, 0);
     layout->addItem(sizeLayout, 0, 1);
     layout->addItem(previewLayout, 1, 0, 1, 2, Qt::AlignCenter);
-    layout->addWidget(buttonBox, 2, 0, 1, 2);
+    layout->addWidget(d->monospaceOnlyCheckbox, 2, 0, 1, 2, Qt::AlignLeft);
+    layout->addWidget(buttonBox, 3, 0, 1, 2);
 
     setLayout(layout);
 
@@ -142,7 +155,7 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
 
     this->connect
     (
-        fontComboBox,
+        d->fontComboBox,
         &QFontComboBox::currentFontChanged,
         [d](const QFont & newFont) {
             d->onFontFamilyChanged(newFont);
@@ -151,17 +164,27 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     this->connect
     (
         sizeComboBox,
-        static_cast<void (QComboBox::*)(const QString &)>(&QComboBox::currentIndexChanged),
-        [d](const QString & sizeText) {
-            d->onFontSizeChanged(sizeText);
+        static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+        [d, sizeComboBox](int index) {
+            bool ok;
+            int size = sizeComboBox->itemText(index).toInt(&ok);
+
+            if (ok) {
+                d->onFontSizeChanged(size);
+            }
         }
     );
     this->connect
     (
         sizeComboBox,
         &QComboBox::editTextChanged,
-        [d](const QString & sizeText) {
-            d->onFontSizeChanged(sizeText);
+        [d](const QString& text) {
+            bool ok;
+            int size = text.toInt(&ok);
+
+            if (ok) {
+                d->onFontSizeChanged(size);
+            }
         }
     );
 }
@@ -169,6 +192,27 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
 SimpleFontDialog::~SimpleFontDialog()
 {
     ;
+}
+
+void SimpleFontDialog::setMonospaceOnly(bool enabled, bool hideCheckbox) 
+{
+    Q_D(SimpleFontDialog);
+
+    d->monospaceOnlyCheckbox->setVisible(!hideCheckbox);
+
+    if (enabled) {
+        d->fontComboBox->setFontFilters(QFontComboBox::MonospacedFonts);
+    }
+    else {
+        d->fontComboBox->setFontFilters(QFontComboBox::AllFonts);
+    }
+}
+
+bool SimpleFontDialog::monospaceOnly() const
+{
+    Q_D(const SimpleFontDialog);
+
+    return d->fontComboBox->fontFilters().testFlag(QFontComboBox::MonospacedFonts);
 }
 
 QFont SimpleFontDialog::selectedFont() const
@@ -202,6 +246,29 @@ QFont SimpleFontDialog::font(bool *ok, QWidget *parent)
     return font(ok, QFont(), parent);
 }
 
+QFont SimpleFontDialog::monospaceFont(bool *ok,
+        const QFont &initial,
+        QWidget *parent) 
+{
+    *ok = false;
+
+    SimpleFontDialog *dlg = new SimpleFontDialog(initial, parent);
+    dlg->setMonospaceOnly(true, true);
+
+    int result = dlg->exec();
+
+    if (QDialog::Accepted == result) {
+        *ok = true;
+    }
+
+    return dlg->selectedFont();    
+}
+
+QFont SimpleFontDialog::monospaceFont(bool *ok, QWidget *parent) 
+{
+    return monospaceFont(ok, QFont(), parent);
+}
+
 void SimpleFontDialogPrivate::onFontFamilyChanged(const QFont &font)
 {
     int size = this->font.pointSize();
@@ -210,14 +277,9 @@ void SimpleFontDialogPrivate::onFontFamilyChanged(const QFont &font)
     fontPreview->setFont(this->font);
 }
 
-void SimpleFontDialogPrivate::onFontSizeChanged(const QString &sizeText)
+void SimpleFontDialogPrivate::onFontSizeChanged(int size)
 {
-    bool ok = false;
-    int size = sizeText.toInt(&ok);
-
-    if (ok) {
-        font.setPointSize(size);
-        fontPreview->setFont(font);
-    }
+    font.setPointSize(size);
+    fontPreview->setFont(font);
 }
 } // namespace ghostwriter

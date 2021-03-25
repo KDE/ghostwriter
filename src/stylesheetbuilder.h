@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2020 wereturtle
+ * Copyright (C) 2020-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #ifndef STYLESHEETBUILDER_H
 #define STYLESHEETBUILDER_H
 
+#include <QFont>
 #include <QString>
 
 #include "colorscheme.h"
@@ -36,7 +37,10 @@ public:
     /**
      * Constructor.
      */
-    StyleSheetBuilder(const ColorScheme &colors, const bool roundedCorners);
+    StyleSheetBuilder(const ColorScheme &colors,
+        const bool roundedCorners,
+        const QFont& previewTextFont,
+        const QFont& previewCodeFont);
 
     /**
      * Destructor.
@@ -135,6 +139,8 @@ private:
     QString m_sidebarWidgetStyleSheet;
     static QString m_htmlPreviewSass;
     QString m_htmlPreviewCss;
+    QFont m_htmlPreviewTextFont;
+    QFont m_htmlPreviewCodeFont;
 
     void buildScrollBarStyleSheet(const bool roundedCorners);
     void buildLayoutStyleSheet();

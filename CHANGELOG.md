@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * HUDs have been replaced with a side bar.
 * Theming has been revamped to include more color options, but to exclude background images.
 * CSS for HTML Preview now adaptively changes colors based on the current theme.
+* Fonts can be customized for the HTML preview in the Preview Options dialog.
 * Themes are now composed of two color schemes: a light mode and a dark mode.
 * A new dark mode button in the status bar allows users to switch to the current theme's dark mode.
 * Find and replace dialog has been revamped into a panel at the bottom of the application.
@@ -23,7 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Selected text now reveals tabs and spaces.
 * Source code has been refactored to follow KDE Frameworks and Qt coding style guides.
 * ghostwriter now uses React to update only what changed in the live preview since the last keystroke, significantly reducing the live preview rendering time for large documents.
-* Roboto Mono is included as the default editor font.
 
 ### Fixed
 

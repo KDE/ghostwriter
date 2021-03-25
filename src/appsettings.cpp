@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  * Copyright (C) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,14 +31,10 @@
 #include "dictionary_manager.h"
 #include "exporterfactory.h"
 
-#ifndef APPVERSION
-#define APPVERSION "v2.0.0-rc"
-#endif
-
 #define GW_AUTOSAVE_KEY "Save/autoSave"
 #define GW_BACKUP_FILE_KEY "Save/backupFile"
 #define GW_REMEMBER_FILE_HISTORY_KEY "Save/rememberFileHistory"
-#define GW_FONT_KEY "Style/font"
+#define GW_EDITOR_FONT_KEY "Style/editorFont"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
 #define GW_AUTO_MATCH_FILTER_KEY "Typing/autoMatchFilter"
@@ -61,6 +57,8 @@
 #define GW_SIDEBAR_OPEN_KEY "Window/sidebarOpen"
 #define GW_HTML_PREVIEW_OPEN_KEY "Preview/htmlPreviewOpen"
 #define GW_LAST_USED_EXPORTER_KEY "Preview/lastUsedExporter"
+#define GW_PREVIEW_TEXT_FONT_KEY "Preview/textFont"
+#define GW_PREVIEW_CODE_FONT_KEY "Preview/codeFont"
 
 namespace ghostwriter
 {
@@ -78,6 +76,8 @@ public:
     {
         ;
     }
+
+    QString firstAvailableFont(const QStringList& fontList) const;
 
     bool autoMatchEnabled;
     bool autoSaveEnabled;
@@ -99,8 +99,9 @@ public:
     int tabWidth;
     InterfaceStyle interfaceStyle;
     bool italicizeBlockquotes;
-    QFont defaultFont;
-    QFont font;
+    QFont editorFont;
+    QFont previewTextFont;
+    QFont previewCodeFont;
     QString autoMatchedCharFilter;
     QString dictionaryLanguage;
     QString dictionaryPath;
@@ -142,7 +143,9 @@ void AppSettings::store()
     appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d->displayTimeInFullScreenEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(d->editorWidth));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
-    appSettings.setValue(GW_FONT_KEY, QVariant(d->font.toString()));
+    appSettings.setValue(GW_EDITOR_FONT_KEY, QVariant(d->editorFont.toString()));
+    appSettings.setValue(GW_PREVIEW_TEXT_FONT_KEY,     QVariant(d->previewTextFont.toString()));
+    appSettings.setValue(GW_PREVIEW_CODE_FONT_KEY, QVariant(d->previewCodeFont.toString()));
     appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d->hideMenuBarInFullScreenEnabled));
     appSettings.setValue(GW_HIDE_SIDEBAR_WHILE_TYPING_KEY, QVariant(d->hideSidebarWhileTypingEnabled));
     appSettings.setValue(GW_INTERFACE_STYLE_KEY, QVariant(d->interfaceStyle));
@@ -214,18 +217,48 @@ void AppSettings::setBackupFileEnabled(bool enabled)
     emit backupFileChanged(enabled);
 }
 
-QFont AppSettings::font() const
+QFont AppSettings::editorFont() const
 {
     Q_D(const AppSettings);
     
-    return d->font;
+    return d->editorFont;
 }
 
-void AppSettings::setFont(const QFont &font)
+void AppSettings::setEditorFont(const QFont &font)
 {
     Q_D(AppSettings);
     
-    d->font = font;
+    d->editorFont = font;
+}
+
+QFont AppSettings::previewTextFont() const
+{
+    Q_D(const AppSettings);
+    
+    return d->previewTextFont;
+}
+
+void AppSettings::setPreviewTextFont(const QFont &font)
+{
+    Q_D(AppSettings);
+    
+    d->previewTextFont = font;
+    emit previewTextFontChanged(font);
+}
+
+QFont AppSettings::previewCodeFont() const
+{
+    Q_D(const AppSettings);
+    
+    return d->previewCodeFont;
+}
+
+void AppSettings::setPreviewCodeFont(const QFont &font)
+{
+    Q_D(AppSettings);
+    
+    d->previewCodeFont = font;
+    emit previewCodeFontChanged(font);
 }
 
 int AppSettings::tabWidth() const
@@ -690,47 +723,37 @@ AppSettings::AppSettings()
 
     // End FocusWriter lift/mod
 
-    // Set default font to be Roboto Mono (included in QRC resources)
-    if ((QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-ThinItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Thin.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-SemiBoldItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-SemiBold.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Regular.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-MediumItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Medium.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-LightItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Light.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Italic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-ExtraLightItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-ExtraLight.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-BoldItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoMono/RobotoMono-Bold.ttf") < 0)) {
-        qWarning() << "Failed to load Roboto Mono font.";
-        d->defaultFont = QFont("");
-        d->defaultFont.setFixedPitch(true);
-        d->defaultFont.setStyleHint(QFont::Monospace);
-    } else {
-        d->defaultFont = QFont("Roboto Mono");
-    }
+    // Depending on the OS and Qt version, the default monospaced font returned
+    // by the Monospace style hint and/or font family tends to something not
+    // even monospaced, or, at best "Courier".  QTBUG-34082 seems to be what is
+    // causing the issue.  Regardless, we want the prettiest monospaced font
+    // available, so see which preferred fonts are available on the system
+    // before before resorting to style hints.
+    //
+    QStringList preferredMonospaceFonts;
 
-    if (QFontDatabase::addApplicationFont(":/resources/fonts/RobotoSlab/RobotoSlab-VariableFont_wght.ttf") < 0) {
-        qWarning() << "Failed to load Roboto Slab font.";
-    }
+#ifdef Q_OS_MAC
+    preferredMonospaceFonts 
+        << "Menlo"
+        << "DejaVu Sans Mono"
+        << "Monaco";
+#elif defined(Q_OS_LINUX)
+    preferredMonospaceFonts
+        << "Noto Sans Mono"
+        << "DejaVu Sans Mono"
+        << "monospace";
+#elif defined(Q_OS_WIN32)
+    preferredMonospaceFonts
+        << "DejaVu Sans Mono"
+        << "Consolas"
+        << "Lucida Console";
+#endif
+    preferredMonospaceFonts
+        << "Courier New"
+        << "Courier";
 
-    if ((QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-ThinItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Thin.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Regular.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-MediumItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Medium.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-LightItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Light.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Italic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-BoldItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Bold.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-BlackItalic.ttf") < 0) ||
-            (QFontDatabase::addApplicationFont(":/resources/fonts/Roboto/Roboto-Black.ttf") < 0)) {
-        qWarning() << "Failed to load Roboto font.";
-    }
+    QString monospaceFont = d->firstAvailableFont(preferredMonospaceFonts);
+    QString variableFont = "Noto Serif";
 
     // Last but not least, load some basic settings from the configuration file,
     // but only those that need special validation.  Things like window
@@ -740,10 +763,9 @@ AppSettings::AppSettings()
 
     d->autoSaveEnabled = appSettings.value(GW_AUTOSAVE_KEY, QVariant(true)).toBool();
     d->backupFileEnabled = appSettings.value(GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
-
-    d->font = d->defaultFont;
-    d->font.fromString(appSettings.value(GW_FONT_KEY, QVariant(d->defaultFont.toString())).toString());
-
+    d->editorFont.fromString(appSettings.value(GW_EDITOR_FONT_KEY, QVariant(monospaceFont)).toString());
+    d->previewTextFont.fromString(appSettings.value(GW_PREVIEW_TEXT_FONT_KEY, QVariant(variableFont)).toString());
+    d->previewCodeFont.fromString(appSettings.value(GW_PREVIEW_CODE_FONT_KEY, QVariant(monospaceFont)).toString());
     d->tabWidth = appSettings.value(GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
 
     if ((d->tabWidth < MIN_TAB_WIDTH) || (d->tabWidth > MAX_TAB_WIDTH)) {
@@ -801,5 +823,43 @@ AppSettings::AppSettings()
     if (nullptr == d->currentHtmlExporter) {
         d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
     }
+}
+
+QString AppSettingsPrivate::firstAvailableFont(const QStringList& fontList) const
+{
+    QFontDatabase fontDb;
+    QStringList fontFamilies = fontDb.families();
+
+    // Pick the first font in the list of preferredFonts that is installed
+    // (i.e., in the font database) to use as the default font on the very
+    // first start up of this program.
+    //
+    bool fontMatchFound = false;
+
+    for (int i = 0; i < fontList.size(); i++)
+    {
+        fontMatchFound =
+            std::binary_search
+            (
+                fontFamilies.begin(),
+                fontFamilies.end(),
+                fontList[i]
+            );
+
+        if (fontMatchFound)
+        {
+            return fontList[i];
+        }
+    }
+
+    // This case should not really happen, since the Courier family is
+    // cross-platform.  This is just a precaution.
+    //
+    qWarning() <<
+        "No preferred fonts were found. Using system default...";
+    QFont systemFont = QFont("");
+    systemFont.setFixedPitch(true);
+    systemFont.setStyleHint(QFont::Monospace);
+    return systemFont.family();
 }
 }

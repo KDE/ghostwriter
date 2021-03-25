@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -64,8 +64,16 @@ public:
     Q_SLOT void setBackupFileEnabled(bool enabled);
     Q_SIGNAL void backupFileChanged(bool enabled);
 
-    QFont font() const;
-    void setFont(const QFont &font);
+    QFont editorFont() const;
+    void setEditorFont(const QFont &font);
+
+    QFont previewTextFont() const;
+    void setPreviewTextFont(const QFont &font);
+    Q_SIGNAL void previewTextFontChanged(const QFont &font);
+
+    QFont previewCodeFont() const;
+    void setPreviewCodeFont(const QFont &font);
+    Q_SIGNAL void previewCodeFontChanged(const QFont &font);
 
     int tabWidth() const;
     Q_SLOT void setTabWidth(int width);
