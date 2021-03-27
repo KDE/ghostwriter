@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,9 +17,11 @@
  *
  ***********************************************************************/
 
+#include <QDebug>
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QVersionNumber> 
 
 #include "exporterfactory.h"
 #include "cmarkgfmexporter.h"
@@ -50,19 +52,12 @@ public:
     * installed and available.  An example of a test command would be:
     *
     *      <process_name> --version
-    */
-    bool isCommandAvailable(const QString &testCommand) const;
-
-    /*
-    * Executes the given terminal command to get a version number for the
-    * application.  An example of a command would be:
     *
-    *      <process_name> --version
-    *
-    * This method will return a list of integers representing the major,
-    * minor, etc., version numbers, in the order printed to stdout.
+    * Returns the version number if the command is available, or else
+    * a null version number.
     */
-    QList<int> extractVersionNumber(const QString &command) const;
+    QVersionNumber isCommandAvailable(const QString &command,
+        const QStringList &args) const;
 
     /*
     * Convenience method to create a Pandoc exporter with the given name
@@ -147,53 +142,39 @@ ExporterFactory::ExporterFactory()
     Q_D(ExporterFactory);
     
     CommandLineExporter *exporter = nullptr;
-    bool pandocIsAvailable = d->isCommandAvailable("pandoc --version");
-    bool mmdIsAvailable = d->isCommandAvailable("multimarkdown --version");
-    bool cmarkIsAvailable = d->isCommandAvailable("cmark --version");
+    QVersionNumber pandocVersion = d->isCommandAvailable("pandoc", QStringList("--version"));
+    QVersionNumber mmdVersion = d->isCommandAvailable("multimarkdown", QStringList("--version"));
+    QVersionNumber cmarkVersion = d->isCommandAvailable("cmark", QStringList("--version"));
 
     CmarkGfmExporter *cmarkGfmExporter = new CmarkGfmExporter();
     d->fileExporters.append(cmarkGfmExporter);
     d->htmlExporters.append(cmarkGfmExporter);
 
-    if (pandocIsAvailable) {
-        int majorVersion = 0;
-        int minorVersion = 0;
+    if (!pandocVersion.isNull()) {
+        int majorVersion = pandocVersion.majorVersion();
+        int minorVersion = pandocVersion.minorVersion();
 
-        // Check whether version of Pandoc can read CommonMark.
-        QList<int> versionNumber = d->extractVersionNumber("pandoc --version");
+        // Check version of Pandoc. Drop support for version 1.
+        if (majorVersion >= 2) {
+            d->addPandocExporter("Pandoc", "markdown+tex_math_dollars", majorVersion, minorVersion);
 
-        if (versionNumber.length() > 0) {
-            majorVersion = versionNumber[0];
-
-            if (versionNumber.length() > 1) {
-                minorVersion = versionNumber[1];
+            if ((majorVersion > 1) ||
+                ((1 == majorVersion) && (minorVersion >= 14))) {
+                d->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
             }
+
+            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks+tex_math_dollars", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra+tex_math_dollars", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd+tex_math_dollars", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
         }
-
-        d->addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
-
-        if
-        (
-            (majorVersion > 1) ||
-            ((1 == majorVersion) && (minorVersion >= 14))
-        ) {
-            d->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
+        else {
+            qWarning() << "Version" << pandocVersion << "of pandoc is unsupported.";
         }
-
-        d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
-        d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
-        d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
-        d->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
     }
 
-    if (mmdIsAvailable) {
-        int majorVersion = 0;
-
-        QList<int> versionNumber = d->extractVersionNumber("multimarkdown --version");
-
-        if (versionNumber.length() > 0) {
-            majorVersion = versionNumber[0];
-        }
+    if (!mmdVersion.isNull()) {
+        int majorVersion = mmdVersion.majorVersion();
 
         exporter = new CommandLineExporter("MultiMarkdown");
 
@@ -278,7 +259,7 @@ ExporterFactory::ExporterFactory()
         d->htmlExporters.append(exporter);
     }
 
-    if (cmarkIsAvailable) {
+    if (!cmarkVersion.isNull()) {
         exporter = new CommandLineExporter("cmark");
         exporter->setSmartTypographyOnArgument("--smart");
         exporter->setHtmlRenderCommand(QString("cmark -t html --smart %1")
@@ -306,22 +287,25 @@ ExporterFactory::ExporterFactory()
     }
 }
 
-QList<int> ExporterFactoryPrivate::extractVersionNumber(const QString &command) const
+QVersionNumber ExporterFactoryPrivate::isCommandAvailable(const QString &command,
+    const QStringList &args) const
 {
-    QList<int> versionNumber;
     QProcess process;
-    process.start(command);
+    process.start(command, args);
 
     if (!process.waitForStarted(500)) {
-        return versionNumber;
+        qWarning() << "Command" << command << "is not available.";
+        return QVersionNumber();
     } else if (!process.waitForFinished(500)) {
+        qCritical() << command << "process timed out and cannot be used.";
         process.kill();
-        return versionNumber;
+        return QVersionNumber();
     }
 
+    // Extract the version number
     QString versionStr = QString::fromUtf8(process.readAllStandardOutput().data());
-    QRegularExpression versionRegex1("v(\\d+(\\.\\d+)*)");
-    QRegularExpression versionRegex2("(\\d+(\\.\\d+)*)");
+    const QRegularExpression versionRegex1("v(\\d+(\\.\\d+)*)");
+    const QRegularExpression versionRegex2("(\\d+(\\.\\d+)*)");
     QRegularExpressionMatch match;
 
     // Prefer searching for "v1.6.3" version format over "1.6.3" format
@@ -339,27 +323,10 @@ QList<int> ExporterFactoryPrivate::extractVersionNumber(const QString &command) 
         }
     }
 
-    QStringList numbers = versionStr.split('.', QString::SkipEmptyParts);
+    QVersionNumber version = QVersionNumber::fromString(versionStr);
+    qInfo().noquote() << "Using" << command << "version" << version;
 
-    foreach (QString num, numbers) {
-        versionNumber.append(num.toInt());
-    }
-
-    return versionNumber;
-}
-
-bool ExporterFactoryPrivate::isCommandAvailable(const QString &testCommand) const
-{
-    QProcess process;
-    process.start(testCommand);
-
-    if (!process.waitForStarted(500)) {
-        return false;
-    } else if (!process.waitForFinished(500)) {
-        process.kill();
-    }
-
-    return true;
+    return version;
 }
 
 void ExporterFactoryPrivate::addPandocExporter
@@ -383,39 +350,29 @@ void ExporterFactoryPrivate::addPandocExporter
 
     exporter->setHtmlRenderCommand
     (
-        QString("pandoc --mathml -f ") +
+        QString("pandoc -f ") +
         inputFormat +
         CommandLineExporter::SMART_TYPOGRAPHY_ARG +
         " -t html"
     );
 
-    QString standardExportStr;
-    if (majorVersion >= 2) {
-        standardExportStr =
-            QString("pandoc -f ") +
-            inputFormat +
-            CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-            " -t %1 --standalone --mathml --quiet -o " +
-            CommandLineExporter::OUTPUT_FILE_PATH_VAR;
-    } else {
-        // older Pandoc releases don't know the option '--quiet'
-        standardExportStr =
-            QString("pandoc -f ") +
-            inputFormat +
-            CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-            " -t %1 --standalone --mathml -o " +
-            CommandLineExporter::OUTPUT_FILE_PATH_VAR;
-    }
+    QString standardExportStr =
+        QString("pandoc -f ") +
+        inputFormat +
+        CommandLineExporter::SMART_TYPOGRAPHY_ARG +
+        " -t %1 --standalone --quiet -o " +
+        CommandLineExporter::OUTPUT_FILE_PATH_VAR;
+    
 
     exporter->addFileExportCommand
     (
         ExportFormat::HTML,
-        standardExportStr.arg("html")
+        standardExportStr.arg("html") + " --mathjax"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::HTML5,
-        standardExportStr.arg("html5")
+        standardExportStr.arg("html5") + " --mathjax"
     );
     exporter->addFileExportCommand
     (
@@ -441,7 +398,7 @@ void ExporterFactoryPrivate::addPandocExporter
     (
         ExportFormat::PDF_LATEX,
         standardExportStr.arg("latex") +
-        " -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in"
+        " -Vlinkcolor=blue -Vcitecolor=blue -Vurlcolor=blue -Vtoccolor=blue -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in "
     );
     exporter->addFileExportCommand
     (
@@ -451,32 +408,32 @@ void ExporterFactoryPrivate::addPandocExporter
     );
 
     // Note: Do not use --mathjax option with WKHTMLTOPDF export, as this will
-    // cause pandoc to hang.
+    // cause pandoc to hang.  KaTex is a good substitute.
     //
     exporter->addFileExportCommand
     (
         ExportFormat::PDF_WKHTML,
         standardExportStr.arg("html5") +
-        " -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in"
+        " --katex -Vmargin-left=1in -Vmargin-right=1in -Vmargin-top=1in -Vmargin-bottom=1in"
     );
 
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV2,
         standardExportStr.arg("epub") +
-        " --toc --toc-depth 6"
+        " --mathml --toc --toc-depth 6"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::EPUBV3,
         standardExportStr.arg("epub3") +
-        " --toc --toc-depth 6"
+        " --mathml --toc --toc-depth 6"
     );
     exporter->addFileExportCommand
     (
         ExportFormat::FICTIONBOOK2,
         standardExportStr.arg("fb2") +
-        " --toc --toc-depth 6"
+        " --mathml --toc --toc-depth 6"
     );
     exporter->addFileExportCommand
     (
@@ -491,4 +448,5 @@ void ExporterFactoryPrivate::addPandocExporter
     fileExporters.append(exporter);
     htmlExporters.append(exporter);
 }
+
 } // namespace ghostwriter
