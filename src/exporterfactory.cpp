@@ -156,16 +156,16 @@ ExporterFactory::ExporterFactory()
 
         // Check version of Pandoc. Drop support for version 1.
         if (majorVersion >= 2) {
-            d->addPandocExporter("Pandoc", "markdown+tex_math_dollars", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
 
             if ((majorVersion > 1) ||
                 ((1 == majorVersion) && (minorVersion >= 14))) {
                 d->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
             }
 
-            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks+tex_math_dollars", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra+tex_math_dollars", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd+tex_math_dollars", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
             d->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
         }
         else {
@@ -341,19 +341,15 @@ void ExporterFactoryPrivate::addPandocExporter
 
     CommandLineExporter *exporter = new CommandLineExporter(name);
 
-    if (majorVersion >= 2) {
-        exporter->setSmartTypographyOnArgument("+smart");
-        exporter->setSmartTypographyOffArgument("-smart");
-    } else {
-        exporter->setSmartTypographyOnArgument(" --smart");
-    }
+    exporter->setSmartTypographyOnArgument("+smart");
+    exporter->setSmartTypographyOffArgument("-smart");
 
     exporter->setHtmlRenderCommand
     (
         QString("pandoc -f ") +
         inputFormat +
         CommandLineExporter::SMART_TYPOGRAPHY_ARG +
-        " -t html"
+        " -t html --mathjax"
     );
 
     QString standardExportStr =
