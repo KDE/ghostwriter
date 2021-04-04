@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2020 wereturtle
+ * Copyright (C) 2020-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
  *
  ***********************************************************************/
 
+#include <QApplication>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QMenu>
@@ -47,6 +48,7 @@ public:
     QVBoxLayout *tabs;
     QVBoxLayout *buttons;
     QButtonGroup *tabGroup;
+    bool autoHideEnabled;
 
     void changeTab(QPushButton *tab);
 };
@@ -58,9 +60,14 @@ Sidebar::Sidebar(QWidget *parent)
     Q_D(Sidebar);
 
     d->stack = new QStackedWidget(this);
+    d->autoHideEnabled = false;
 
     this->setObjectName("sidebar");
     this->setContentsMargins(0, 0, 0, 0);
+    this->connect(qApp,
+        &QApplication::focusChanged,
+        this,
+        &Sidebar::onFocusChanged);
 
     d->tabs = new QVBoxLayout();
     d->tabs->setObjectName("sidebarTabs");
@@ -231,6 +238,24 @@ int Sidebar::buttonCount() const
     return d->buttons->count();
 }
 
+void Sidebar::setAutoHideEnabled(bool enabled)
+{
+    Q_D(Sidebar);
+
+    d->autoHideEnabled = enabled;
+
+    if (enabled && !this->hasFocus() && this->isVisible()) {
+        this->setVisible(false);
+    }
+}
+
+bool Sidebar::autoHideEnabled() const
+{
+    Q_D(const Sidebar);
+
+    return d->autoHideEnabled;
+}
+
 void Sidebar::addButton(QPushButton *button)
 {
     Q_D(Sidebar);
@@ -275,4 +300,15 @@ void Sidebar::showEvent(QShowEvent *event)
     Q_UNUSED(event)
     emit visibilityChanged(true);
 }
+
+void Sidebar::onFocusChanged(QWidget *old, QWidget *now) {
+    bool focusLost = ((old != nullptr)
+        && this->isAncestorOf(old)
+        && ((now == nullptr) || !this->isAncestorOf(now)));
+
+    if (this->autoHideEnabled() && focusLost && this->isVisible()) {
+        this->setVisible(false);
+    }
+}
+
 } // namespace ghostwriter

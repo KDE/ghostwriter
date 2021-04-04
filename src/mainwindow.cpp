@@ -115,7 +115,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     //
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
-
+    
     buildSidebar();
 
     documentManager = new DocumentManager(editor, this);
@@ -345,24 +345,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     sidebarSplitter->setCollapsible(0, false);
     sidebarSplitter->setCollapsible(1, true);
 
-    this->connect(this->editor,
-        &MarkdownEditor::typingPaused,
-        [this]() {
-            if (appSettings->hideSidebarWhileTypingEnabled()) {
-                this->toggleSidebarVisible(true);
-            }
-        }
-    );
-
-    this->connect(this->editor,
-        &MarkdownEditor::typingResumed,
-        [this]() {
-            if (appSettings->hideSidebarWhileTypingEnabled()) {
-                this->toggleSidebarVisible(false);
-            }
-        }
-    );
-
     this->setCentralWidget(sidebarSplitter);
 
     // Show the main window.
@@ -399,7 +381,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-
     ;
 }
 
@@ -554,10 +535,12 @@ void MainWindow::toggleHemingwayMode(bool checked)
 void MainWindow::toggleFocusMode(bool checked)
 {
     if (checked) {
-        editor->setFocusMode(appSettings->focusMode());
+        editor->setFocusMode(appSettings->focusMode());        
     } else {
         editor->setFocusMode(FocusModeDisabled);
     }
+
+    sidebar->setAutoHideEnabled(checked);
 }
 
 void MainWindow::toggleFullScreen(bool checked)
@@ -921,10 +904,9 @@ void MainWindow::onAboutToShowMenuBarMenu()
     }
 }
 
-void MainWindow::toggleSidebarVisible(bool visible)
+void MainWindow::onSidebarVisibilityChanged(bool visible)
 {
-    appSettings->setSidebarVisible(visible);
-    this->sidebar->setVisible(visible);
+    this->adjustEditorWidth(this->width());
 
     if (visible) {
         toggleSidebarButton->setText(QChar(fa::chevronleft));
@@ -932,7 +914,20 @@ void MainWindow::toggleSidebarVisible(bool visible)
         toggleSidebarButton->setText(QChar(fa::chevronright));
     }
 
-    this->adjustEditorWidth(this->width());
+    if (!visible) {
+        editor->setFocus();
+    }
+}
+
+void MainWindow::toggleSidebarVisible(bool visible)
+{
+    this->appSettings->setSidebarVisible(visible);
+    this->sidebar->setAutoHideEnabled(!visible);
+    this->sidebar->setVisible(visible);
+
+    this->showSidebarAction->blockSignals(true);
+    this->showSidebarAction->setChecked(visible);
+    this->showSidebarAction->blockSignals(false);
 }
 
 QAction* MainWindow::createWindowAction
@@ -1062,61 +1057,57 @@ void MainWindow::buildMenuBar()
     htmlPreviewMenuAction->setChecked(appSettings->htmlPreviewVisible());
     viewMenu->addAction(htmlPreviewMenuAction);
 
-    QAction *showSidebarAction = new QAction(tr("Show Sidebar"), this);
+    this->showSidebarAction = new QAction(tr("Show Sidebar"), this);
     showSidebarAction->setCheckable(true);
     showSidebarAction->setChecked(appSettings->sidebarVisible());
     showSidebarAction->setShortcut(QKeySequence("CTRL+SPACE"));
     showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    connect(showSidebarAction,
+    
+    connect(this->showSidebarAction,
         &QAction::toggled,
         this,
-        [this](bool enabled) {
-            toggleSidebarVisible(enabled);
+        &MainWindow::toggleSidebarVisible);
 
-            if (!enabled) {
-                editor->setFocus();
-            }
-        });
     this->addAction(showSidebarAction);
     viewMenu->addAction(showSidebarAction);
 
-    showSidebarAction = viewMenu->addAction(tr("&Outline"),
+    QAction *showSidebarTabAction = viewMenu->addAction(tr("&Outline"),
         this,
         [this]() {
-            toggleSidebarVisible(true);
+            sidebar->setVisible(true);
             sidebar->setCurrentTabIndex(OutlineSidebarTab);
         },
         QKeySequence("CTRL+J"));
-    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarAction);
+    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
+    this->addAction(showSidebarTabAction);
     
-    showSidebarAction = viewMenu->addAction(tr("&Session Statistics"),
+    showSidebarTabAction = viewMenu->addAction(tr("&Session Statistics"),
         this,
         [this]() {
-            toggleSidebarVisible(true);
+            sidebar->setVisible(true);
             sidebar->setCurrentTabIndex(SessionStatsSidebarTab);
         });
-    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarAction);
+    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
+    this->addAction(showSidebarTabAction);
 
-    showSidebarAction = viewMenu->addAction(tr("&Document Statistics"),
+    showSidebarTabAction = viewMenu->addAction(tr("&Document Statistics"),
         this,
         [this]() {
-            toggleSidebarVisible(true);
+            sidebar->setVisible(true);
             sidebar->setCurrentTabIndex(DocumentStatsSidebarTab);
         });
-    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarAction);
+    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
+    this->addAction(showSidebarTabAction);
 
-    showSidebarAction = viewMenu->addAction(tr("&Cheat Sheet"),
+    showSidebarTabAction = viewMenu->addAction(tr("&Cheat Sheet"),
         this,
         [this]() {
-            toggleSidebarVisible(true);
+            sidebar->setVisible(true);
             sidebar->setCurrentTabIndex(CheatSheetSidebarTab);
         },
         QKeySequence::HelpContents);
-    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarAction);
+    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
+    this->addAction(showSidebarTabAction);
     
     viewMenu->addSeparator();
     viewMenu->addAction(createWidgetAction(tr("Increase Font Size"), editor, SLOT(increaseFontSize()), QKeySequence("CTRL+=")));
@@ -1202,12 +1193,10 @@ void MainWindow::buildStatusBar()
         toggleSidebarButton->setText(QChar(fa::chevronleft));
     }
 
-    this->connect
-    (
-        toggleSidebarButton,
+    this->connect(toggleSidebarButton,
         &QPushButton::clicked,
         [this]() {
-            toggleSidebarVisible(!this->sidebar->isVisible());
+            toggleSidebarVisible(!sidebar->isVisible());
         }
     );
     
@@ -1454,6 +1443,11 @@ void MainWindow::buildSidebar()
             popupMenu->popup(button->mapToGlobal(QPoint(button->width() / 2, -(button->height() / 2) - 10)));
         }
     );
+
+    this->connect(this->sidebar,
+        &Sidebar::visibilityChanged,
+        this,
+        &MainWindow::onSidebarVisibilityChanged);
     
     sidebar->setVisible(appSettings->sidebarVisible());
 }

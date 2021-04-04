@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2020 wereturtle
+ * Copyright (C) 2020-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -120,12 +120,24 @@ public:
      */
     int buttonCount() const;
 
+    /**
+     * Sets whether this sidebar should hide itself when it loses focus.
+     */
+    void setAutoHideEnabled(bool enabled);
+
+    /**
+     * Returns whether this sidebar will hide itself when it loses focus.
+     */
+    bool autoHideEnabled() const;
 
 signals:
     /**
      * Emitted when the sidebar's visibility has changed.
      */
     void visibilityChanged(bool visible);
+
+protected slots:
+    void onFocusChanged(QWidget *old, QWidget *now);
 
 protected:
     void hideEvent(QHideEvent *event);

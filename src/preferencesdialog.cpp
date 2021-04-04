@@ -206,12 +206,6 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     connect(menuBarCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideMenuBarInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(menuBarCheckBox);
 
-    QCheckBox *hideSidebarWhileTypingCheckBox = new QCheckBox(tr("Hide sidebar while typing"));
-    hideSidebarWhileTypingCheckBox->setCheckable(true);
-    hideSidebarWhileTypingCheckBox->setChecked(appSettings->hideSidebarWhileTypingEnabled());
-    connect(hideSidebarWhileTypingCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideSidebarWhileTypingEnabled(bool)));
-    displayGroupLayout->addRow(hideSidebarWhileTypingCheckBox);
-
     QComboBox *cornersComboBox = new QComboBox(q);
     cornersComboBox->addItem(tr("Rounded"), QVariant(InterfaceStyleRounded));
     cornersComboBox->addItem(tr("Square"), QVariant(InterfaceStyleSquare));

@@ -97,6 +97,7 @@ private slots:
     void showPreviewOptions();
     void onAboutToHideMenuBarMenu();
     void onAboutToShowMenuBarMenu();
+    void onSidebarVisibilityChanged(bool visible);
     void toggleSidebarVisible(bool visible);
 
 private:
@@ -133,6 +134,7 @@ private:
     QListWidget *cheatSheetWidget;
     QAction *recentFilesActions[MAX_RECENT_FILES];
     bool menuBarMenuActivated;
+    QAction *showSidebarAction;
 
     QList<QWidget *> statusBarButtons;
     QList<QWidget *> statusBarWidgets;
