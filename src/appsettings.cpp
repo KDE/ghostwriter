@@ -734,8 +734,8 @@ AppSettings::AppSettings()
         << "Courier New"
         << "Courier";
 
-    QString monospaceFont = d->firstAvailableFont(preferredMonospaceFonts);
-    QString variableFont = "Noto Serif";
+    QString monospaceFont = QFont(d->firstAvailableFont(preferredMonospaceFonts), 12).toString();
+    QString variableFont = QFont("Noto Serif", 12).toString();
 
     // Last but not least, load some basic settings from the configuration file,
     // but only those that need special validation.  Things like window
