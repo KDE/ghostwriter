@@ -115,7 +115,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     //
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
-    
+
     buildSidebar();
 
     documentManager = new DocumentManager(editor, this);
@@ -258,7 +258,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
     connect(appSettings, SIGNAL(previewCodeFontChanged(QFont)), this, SLOT(applyTheme()));
 
-    if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
+    if (appSettings->hideMenuBarInFullScreenEnabled()) {
         this->menuBar()->hide();
     }
 
@@ -331,7 +331,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     buildMenuBar();
     buildStatusBar();
-    
+
     QVBoxLayout *mainLayout = new QVBoxLayout();
     QWidget *mainPane = new QWidget(this);
     mainPane->setLayout(mainLayout);
@@ -406,7 +406,7 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
         }
         break;
     case Qt::Key_Alt:
-        if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
+        if (appSettings->hideMenuBarInFullScreenEnabled()) {
             if (!this->menuBar()->isVisible()) {
                 this->menuBar()->show();
             } else {
@@ -432,9 +432,9 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
-        if ((this->menuBar() == obj) 
-                && (QEvent::Leave == event->type()) 
+    if (appSettings->hideMenuBarInFullScreenEnabled()) {
+        if ((this->menuBar() == obj)
+                && (QEvent::Leave == event->type())
                 && !menuBarMenuActivated) {
             this->menuBar()->hide();
         } else if (QEvent::MouseMove == event->type()) {
@@ -442,8 +442,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             if ((mouseEvent->globalY()) <= 0 && !this->menuBar()->isVisible()) {
                 this->menuBar()->show();
             }
-        } else if ((this == obj) 
-                && (((QEvent::Leave == event->type()) && !menuBarMenuActivated) 
+        } else if ((this == obj)
+                && (((QEvent::Leave == event->type()) && !menuBarMenuActivated)
                     || (QEvent::WindowDeactivate == event->type()))) {
             this->menuBar()->hide();
         }
@@ -535,7 +535,7 @@ void MainWindow::toggleHemingwayMode(bool checked)
 void MainWindow::toggleFocusMode(bool checked)
 {
     if (checked) {
-        editor->setFocusMode(appSettings->focusMode());        
+        editor->setFocusMode(appSettings->focusMode());
     } else {
         editor->setFocusMode(FocusModeDisabled);
     }
@@ -597,13 +597,11 @@ void MainWindow::toggleFullScreen(bool checked)
 
 void MainWindow::toggleHideMenuBarInFullScreen(bool checked)
 {
-    if (this->isFullScreen()) {
         if (checked) {
             this->menuBar()->hide();
         } else {
             this->menuBar()->show();
         }
-    }
 }
 
 void MainWindow::toggleFileHistoryEnabled(bool checked)
@@ -876,7 +874,7 @@ void MainWindow::copyHtml()
 void MainWindow::showPreviewOptions()
 {
     static PreviewOptionsDialog *dialog = new PreviewOptionsDialog(this);
-    
+
     dialog->setModal(false);
     dialog->show();
 }
@@ -886,7 +884,6 @@ void MainWindow::onAboutToHideMenuBarMenu()
     menuBarMenuActivated = false;
 
     if (!this->menuBar()->underMouse()
-            && this->isFullScreen()
             && appSettings->hideMenuBarInFullScreenEnabled()
             && this->menuBar()->isVisible()) {
         this->menuBar()->hide();
@@ -941,7 +938,7 @@ QAction* MainWindow::createWindowAction
     QAction* action = new QAction(text, this);
     action->setShortcut(shortcut);
     action->setShortcutContext(Qt::WindowShortcut);
-    
+
     connect(action, SIGNAL(triggered(bool)), receiver, member);
     this->addAction(action);
 
@@ -959,7 +956,7 @@ QAction* MainWindow::createWidgetAction
     QAction* action = new QAction(text, receiver);
     action->setShortcut(shortcut);
     action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
-    
+
     connect(action, SIGNAL(triggered(bool)), receiver, member);
     receiver->addAction(action);
 
@@ -1051,7 +1048,7 @@ void MainWindow::buildMenuBar()
     fullScreenMenuAction->setShortcutContext(Qt::WindowShortcut);
     connect(fullScreenMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
     viewMenu->addAction(fullScreenMenuAction);
-    
+
     htmlPreviewMenuAction = createWindowAction(tr("&Preview in HTML"), this, SLOT(toggleHtmlPreview(bool)), QKeySequence("CTRL+P"));
     htmlPreviewMenuAction->setCheckable(true);
     htmlPreviewMenuAction->setChecked(appSettings->htmlPreviewVisible());
@@ -1062,7 +1059,7 @@ void MainWindow::buildMenuBar()
     showSidebarAction->setChecked(appSettings->sidebarVisible());
     showSidebarAction->setShortcut(QKeySequence("CTRL+SPACE"));
     showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    
+
     connect(this->showSidebarAction,
         &QAction::toggled,
         this,
@@ -1080,7 +1077,7 @@ void MainWindow::buildMenuBar()
         QKeySequence("CTRL+J"));
     showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
     this->addAction(showSidebarTabAction);
-    
+
     showSidebarTabAction = viewMenu->addAction(tr("&Session Statistics"),
         this,
         [this]() {
@@ -1108,7 +1105,7 @@ void MainWindow::buildMenuBar()
         QKeySequence::HelpContents);
     showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
     this->addAction(showSidebarTabAction);
-    
+
     viewMenu->addSeparator();
     viewMenu->addAction(createWidgetAction(tr("Increase Font Size"), editor, SLOT(increaseFontSize()), QKeySequence("CTRL+=")));
     viewMenu->addAction(createWidgetAction(tr("Decrease Font Size"), editor, SLOT(decreaseFontSize()), QKeySequence("CTRL+-")));
@@ -1199,7 +1196,7 @@ void MainWindow::buildStatusBar()
             toggleSidebarVisible(!sidebar->isVisible());
         }
     );
-    
+
     timeLabel = new TimeLabel(this);
     leftLayout->addWidget(timeLabel, 0, Qt::AlignLeft);
     leftWidget->setContentsMargins(0, 0, 0, 0);
@@ -1300,7 +1297,7 @@ void MainWindow::buildStatusBar()
 
     rightWidget->setContentsMargins(0, 0, 0, 0);
     statusBarLayout->addWidget(rightWidget, 1, 2, 1, 1, Qt::AlignRight);
-    
+
     QWidget *container = new QWidget(this);
     container->setObjectName("statusBarWidgetContainer");
     container->setLayout(statusBarLayout);
@@ -1448,7 +1445,7 @@ void MainWindow::buildSidebar()
         &Sidebar::visibilityChanged,
         this,
         &MainWindow::onSidebarVisibilityChanged);
-    
+
     sidebar->setVisible(appSettings->sidebarVisible());
 }
 
