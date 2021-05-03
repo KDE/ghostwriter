@@ -1,9 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>resources/images/ghostwriter.svg</file>
-        <file>resources/quickreferenceguide_en.html</file>
-        <file>resources/quickreferenceguide_ja.html</file>
-        <file>resources/quickreferenceguide_ru.html</file>
         <file>resources/preview.css</file>
         <file>resources/preview.html</file>
     </qresource>
