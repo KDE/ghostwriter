@@ -12,7 +12,7 @@ You can view screenshots of the application at [*ghostwriter's* project page](ht
 
 ## Documentation
 
-A quick reference guide is available [here](http://wereturtle.github.io/ghostwriter/quickrefguide.html).
+A quick reference guide is available [here](http://wereturtle.github.io/ghostwriter/documentation.html).
 
 ## Installation
 
@@ -46,19 +46,12 @@ There is likewise a staging repository for [Copr](https://copr.fedorainfracloud.
     $ sudo dnf copr enable wereturtle/staging
     $ sudo dnf install ghostwriter
     
-openSUSE users can visit https://software.opensuse.org/package/ghostwriter to install the latest stable version.  Note that the openSUSE version is maintained by volunteers.
 
 Finally, you may follow the build instructions below to install on Linux with the latest source code.
 
 ### MacOS
 
 You can download an application bundle for MacOS and copy it under /Applications (for all the users) or $HOME/Applications (for the current user). That application should work on osx 10.10+, but was tested only on macOS 10.13. Please remember that this build is experimental and you'll find some bugs. Please report those on the issue tracker.
-
-### FreeBSD
-
-To install *ghostwriter* on FreeBSD, open a terminal, and enter the following command:
-
-    $ sudo pkg install ghostwriter
 
 ## Build
 
@@ -74,7 +67,7 @@ Building on Windows requires Visual Studio.  Open a terminal window, and enter t
     > qmake
     > nmake release
 
-Unless you have built *ghostwriter* as a standalone executable statically linked to your own build of Qt's source code, you will need to copy the necessary Qt and Windows .dll files to the same location as `ghostwriter.exe` so that the executable can find the required libraries.
+Unless you have built *ghostwriter* as a standalone executable statically linked to your own build of Qt's source code, you will need to copy the necessary Qt and Windows .dll files to the same location as `ghostwriter.exe` so that the executable can find the required libraries.  This can be accomplished by running the [windeployqt tool](https://doc.qt.io/qt-5/windows-deployment.html).
 
 ### Linux
 
@@ -126,7 +119,7 @@ For example, to install under `/opt`, you would enter:
 $ brew install qt5
 ```
 
-*Note:* if you installed XCode command line tools qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](BUILD_MAC.md)
+*Note:* If you installed XCode command line tools, Qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](BUILD_MAC.md)
 
 4. run `brew link` 
 
@@ -142,7 +135,6 @@ git clone https://github.com/wereturtle/ghostwriter
 cd ghostwriter
 qmake
 make
-
 ```
 
 Make sure you're cloned the repo, not just downloaded the src tarball.
@@ -193,7 +185,7 @@ where `myfile.md` is the path to your Markdown text file.
 
 ## Portable Mode
 
-You can download the Windows Portable version of *ghostwriter*, or make your own on any OS.  Just as with FocusWriter, simply create a folder named `data` in the same folder as the `ghostwriter.exe` or `ghostwriter` executable file (depending on the OS).  The application will now use settings and themes in this folder.  If you need to migrate existing themes you created while running in non-portable mode, simply copy them from the relevant folder below:
+You can download the Windows Portable version of *ghostwriter*, or make your own on any OS.  Simply create a folder named `data` in the same folder as the `ghostwriter.exe` or `ghostwriter` executable file (depending on the OS).  The application will now use settings and themes in this folder.  If you need to migrate existing themes you created while running in non-portable mode, simply copy them from the relevant folder below:
 
 - Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Roaming\\ghostwriter\\themes
 - Linux:  /home/\<your_user_name\>/.config/ghostwriter/themes
@@ -216,12 +208,13 @@ Please submit any bugs you find through [GitHub](http://github.com/wereturtle/gh
 ## Roadmap
 
 - Add session goals.
+- Add bookmarks tab to sidebar for favorite files.
 - Implement synchronized scrolling.
 - Add quick preview popup of equations and images.
 - Go to corresponding line in editor on `Ctrl+left click` over text in live preview.
 - Provide a fully-tested MacOS port with installer. **Help wanted!**
 - Translate *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
-- Use Travis-CI to produce automated Windows build. **Help wanted!**
+- Use GitHub Actions or Travis-CI to produce automated Windows build. **Help wanted!**
 - Port from qmake to cmake in preparation for Qt 6.
 
 ## Licensing
