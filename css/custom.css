@@ -1,38 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&family=Lobster+Two&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Shrikhand&display=swap');
+
+html, body {
+    height: 100%;
+}
+
 body {
-  padding-top: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: #F7F7F7
+    padding: 0;
+    margin: 0;
+    color: #3a3434;
+    background-color: rgb(255, 246, 234);
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.bottom-buttons {
-  padding-top: 10px;
+main {
+    flex: 1 0 auto;
 }
 
-.carousel-indicators {
-  bottom: 0px;  
+footer {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    flex-shrink: 0;
 }
 
-.carousel-caption {
-  bottom: 30px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  left: 10%;
-  right: 10%;
-  padding: 0;
+hr {
+    color: #736269;
 }
 
-.carousel-control {
-    width: 5%;
+a {
+    /* color: #00779b; */
+    color: #2B99A7;
 }
 
-/* The following disables the backdrop shadow for the
- * carousel left/right arrow controls.
- */
-/*.carousel-control.left {
-    background-image: none
+a:hover {
+    color: #519ea8;
 }
 
-.carousel-control.right {
+pre {
+    border: 0px solid;
+    background-color: #AE353610;
+    border-radius: 5px;
+    min-width: 90%;
+    max-width: 100%;
+    padding: .5em;
+}
+
+:not(dt) > code {
+    font-family: "Ubuntu Mono", monospace;
+    font-size: 12pt;
+    /* color: #C1436D */
+    color: #AE3536
+}
+
+kbd {
+    background-color: #AE353610;
+    border: 0px solid;
+    border-radius: 5px;
+    padding-left: .25em;
+    padding-right: .25em;
+    font-weight: bold;
+}
+
+kbd {
+    color: rgb(255, 246, 234);
+    background: #AE3536;
+    font-family: "Ubuntu Mono", monospace;
+    font-size: small;
+    font-variant: small-caps;
+    border-radius: 3px;
+    padding: 1px 5px;
+    box-shadow: 1px 1px 1px #3a3434;
+    margin: 3px;
+}
+
+pre code {
+    font-size: 12pt;
+}
+
+dt, dt code {
+    font-family: "Shrikhand", sans-serif;
+    color: #3a3434;
+}
+
+dd {
+    padding-left: 2em;
+}
+
+th {
+    font-family: "Shrikhand", sans-serif;
+    border-bottom: 1px solid #3a3434;
+    border-top: 2px solid #3a3434;
+    text-align: left;
+    padding-right: 2em;
+}
+
+tr.even {
+    background-color: #AE353610;
+}
+
+td {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    border-bottom: 1px solid #3a3434;
+}
+
+.hero {
+    text-align: center;
+    background-image: url("../images/halftone.png"), linear-gradient(#2B99A7, #b62f2f);
+    background-size: cover;
+}
+
+.hero h1 {
+    color: rgb(255, 246, 234);
+    font-family: "Lobster";
+    text-shadow: 2px 2px 10px black;
+}
+
+.hero p {
+    text-shadow: 2px 2px 10px black;
+    color: rgb(255, 246, 234);
+    font-family: "Shrikhand", sans-serif;
+}
+
+.est {
+    color: rgb(255, 246, 234);
+    text-align: center;
+    font-size: medium;
+    font-family: "Lobster";
+    text-shadow: 2px 2px 10px black;
+}
+
+div#download span {
+    display:none
+}
+
+a.other-platforms {
+    display: block;
+    color: rgb(255, 246, 234);
+}
+
+a.other-platforms:hover {
+    color: white;
+}
+
+html.plat-windows div#download span.win {
+    display: block
+}
+
+html.plat-linux div#download span.linux {
+    display: block
+}
+
+html.plat-osx div#download span.mac {
+    display: block
+}
+
+html.plat-linux span.mac,
+html.plat-linux span.windows,
+html.plat-windows span.linux,
+html.plat-windows span.mac,
+html.plat-osx span.windows,
+html.plat-osx span.linux {
+    display:none
+}
+
+.navbar {
+    color: #3a3434;
+    background-color: rgb(255, 246, 234);
+    font-family: "Open Sans", sans-serif;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.nav-link,
+.navbar-brand {
+    cursor: pointer;
+    color: #3a3434;
+    font-family: "Lobster", sans-serif;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+    font-family: "Open Sans", sans-serif;
+    color: #3a3434;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #2B99A7;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2858, 52, 52, 1.0%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+
+button.navbar-toggler {
+    border: 0;
+    transition: none;
+    -webkit-appearance:inherit;
+}
+
+.navbar-toggler:focus {
+    border: 0;
+    text-decoration: none;
+    transition: none;
     background-image: none;
-}*/
+    outline: 0;
+
+}
+.navbar-toggler-icon:focus {
+    border: 0;
+    text-decoration: none;
+    transition: none;
+    background-image: none;
+    outline: 0;
+
+}
+
+h1, h2, h3, h4 {
+    color: #3a3434;
+    font-family: "Lobster";
+}
+
+#download a.btn-primary {
+    border: 0;
+    color: rgb(255, 246, 234);
+    background-color: #2B99A7;
+    font-family: "Shrikhand";
+    box-shadow: 2px 2px 10px black;
+}
+
+#download a.btn-primary:hover {
+    background-color: #36c5d8
+}
+  
+/* @media (prefers-color-scheme: dark) {
+    body {
+        color: #d0d0d0;
+        background: #1a1a1a;
+    }
+
+    .navbar {
+        color: #d0d0d0;
+        background: #1a1a1a;
+    }
+
+    .nav-link,
+    .navbar-brand {
+        color: #d0d0d0;
+        background: #1a1a1a;
+    }
+} */
