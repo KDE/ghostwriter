@@ -230,13 +230,13 @@ QString MarkdownAST::toString() const
         stream << indent << "->" << node->toString() << endl;
 #endif
 
-        MarkdownNode *child = node->firstChild();
+        MarkdownNode *child = node->lastChild();
         indent += "   ";
 
         while (nullptr != child) {
             nodes.push(child);
             indentation.push(indent);
-            child = child->next();
+            child = child->previous();
         }
     }
 
