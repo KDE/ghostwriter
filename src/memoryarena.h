@@ -71,7 +71,6 @@ private:
 } // namespace ghostwriter
 
 #ifndef MEMORY_ARENA_CPP
-#define MEMORY_ARENA_CPP
 #include "memoryarena.cpp"
 #endif
 

@@ -17,6 +17,9 @@
  *
  ***********************************************************************/
 
+#ifndef MEMORY_ARENA_CPP
+#define MEMORY_ARENA_CPP
+
 #include <QLinkedListIterator>
 
 #include "memoryarena.h"
@@ -70,3 +73,5 @@ void MemoryArena<T>::freeAll()
     slotIndex = 0;
 }
 } // namespace ghostwriter
+
+#endif  // MEMORY_ARENA_CPP
