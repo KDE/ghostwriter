@@ -262,7 +262,7 @@
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="176"/>
         <source>%1 %2pt</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2pt</translation>
     </message>
 </context>
 <context>
@@ -842,7 +842,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="701"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;Du kan använda och återdistribuera denna programvara enligt villkoren i &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Besök den officiella webbplatsen på &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Särskilt tack och erkännande för återanvänd kod, går till&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, utvecklare av &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jag står också i djupt skuld till &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, utvecklare av &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, för inspirationen han gav, till att skapa ett så vackert Markdown-redigeringsverktyg.&lt;/p&gt; {2014-2021 ?} {3&lt;?}</translation>
+        <translation>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;Du kan använda och återdistribuera denna programvara enligt villkoren i &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Besök den officiella webbplatsen på &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Särskilt tack och erkännande för återanvänd kod, går till&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, utvecklare av &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jag står också i djupt skuld till &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, utvecklare av &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, för inspirationen han gav, till att skapa ett så vackert Markdown-redigeringsverktyg.&lt;/p&gt; {2014-2021 ?} {3&lt;?}</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/mainwindow.cpp" line="729"/>
@@ -1399,17 +1399,17 @@
         <location filename="../src/previewoptionsdialog.cpp" line="109"/>
         <location filename="../src/previewoptionsdialog.cpp" line="135"/>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj...</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="127"/>
         <source>Text Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Textteckensnitt:</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="153"/>
         <source>Code Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodteckensnitt:</translation>
     </message>
 </context>
 <context>
@@ -1465,7 +1465,7 @@
     <message>
         <location filename="../src/simplefontdialog.cpp" line="131"/>
         <source>Show only monospaced fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa endast teckensnitt med fast bredd</translation>
     </message>
 </context>
 <context>
