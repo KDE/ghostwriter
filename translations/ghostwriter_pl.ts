@@ -1007,6 +1007,10 @@
         <source>Sorry, this is a built-in theme that cannot be edited.</source>
         <translation type="unfinished">Przepraszamy. To jest motyw domyślny, którego nie można modyfikować.</translation>
     </message>
+    <message>
+        <source>%1 %2pt</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SessionStatisticsWidget</name>
@@ -1530,15 +1534,15 @@
     </message>
     <message>
         <source>Failed to open Quick Reference Guide.</source>
-        <translation type="unfinished">Nie udało się otworzyć poradnika.</translation>
+        <translation type="obsolete">Nie udało się otworzyć poradnika.</translation>
     </message>
     <message>
         <source>Quick Reference Guide</source>
-        <translation type="unfinished">Poradnik formatowania tekstu</translation>
+        <translation type="obsolete">Poradnik formatowania tekstu</translation>
     </message>
     <message>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Prawa autorskie &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Masz prawo używać i rozprowadzać te oprogramowanie na zasadach&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt; GNU General Public License w Wersji 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Odwiedź oficjalną stronę projektu na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Specjalne podziękowania należą się: &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gottowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitrowi Shachnevowi, autorowi &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrielowi M. Beddingfieldowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jestem również bardzo wdzięczny &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfowi Vollprechtowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za inspirację pod postacią tak pięknego edytora Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?} {2014-2020 ?} {3&lt;?}</translation>
+        <translation type="obsolete">&lt;p&gt;Prawa autorskie &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Masz prawo używać i rozprowadzać te oprogramowanie na zasadach&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt; GNU General Public License w Wersji 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Odwiedź oficjalną stronę projektu na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Specjalne podziękowania należą się: &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gottowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitrowi Shachnevowi, autorowi &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrielowi M. Beddingfieldowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jestem również bardzo wdzięczny &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfowi Vollprechtowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za inspirację pod postacią tak pięknego edytora Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?} {2014-2020 ?} {3&lt;?}</translation>
     </message>
     <message>
         <source>About %1</source>
@@ -1928,6 +1932,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Prawa autorskie &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Masz prawo używać i rozprowadzać te oprogramowanie na zasadach&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt; GNU General Public License w Wersji 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Odwiedź oficjalną stronę projektu na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Specjalne podziękowania należą się: &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gottowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitrowi Shachnevowi, autorowi &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrielowi M. Beddingfieldowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jestem również bardzo wdzięczny &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfowi Vollprechtowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za inspirację pod postacią tak pięknego edytora Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?} {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
+    </message>
 </context>
 <context>
     <name>ghostwriter::MarkdownDocument</name>
@@ -2143,6 +2151,18 @@
         <source>Markdown Flavor</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Font:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code Font:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ghostwriter::SessionStatisticsWidget</name>
@@ -2184,6 +2204,10 @@
     <message>
         <source>Preview</source>
         <translation type="unfinished">Podgląd</translation>
+    </message>
+    <message>
+        <source>Show only monospaced fonts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
