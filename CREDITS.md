@@ -6,18 +6,20 @@ Developers
 Translations
 ============
 
-* Russian - suhr, Dmitriy Belyaev (dbelyaev)
-* Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
-* Italian - Tristano Ajmone (tajmone)
-* Japanese - piyo-gh
-* German - dhbwmawhd
-* Czech - Pavel Fric (pafri)
-* Polish - mleko69
-* French - pygoliae
-* Spanish - cemetary, Icaro Perseo (icaroperseo)
-* Chinese - gledos
-* Dutch - Heimen Stoffels (Vistaus)
 * Arabic - Abdurrahman Aborazmeh (aborazmeh)
+* Catalan - Joan Montané (jmontane)
+* Chinese - gledos, Tong Hui (tonghuix)
+* Czech - Pavel Fric (pafri)
+* Dutch - Heimen Stoffels (Vistaus)
+* French - pygoliae
+* German - dhbwmawhd
+* Italian - Tristano Ajmone (tajmone), Pietro Battiston (toobaz)
+* Japanese - piyo-gh
+* Polish - mleko69
+* Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
+* Russian - suhr, Dmitriy Belyaev (dbelyaev)
+* Spanish - cemetary, Icaro Perseo (icaroperseo)
+* Swedish - Åke Engelbrektson (eson57)
 
 Libraries
 =========
@@ -33,8 +35,6 @@ Reused Code
   <http://gottcode.org/focuswriter/>
 * Dmitry Shachnev, author of Retext,
   <http://sourceforge.net/p/retext/home/ReText/>
-* Gabriel M. Beddingfield, author of StretchPlayer,
-  <http://www.teuton.org/~gabriel/stretchplayer/>
 
 Special Thanks
 ==============

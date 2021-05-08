@@ -12,7 +12,7 @@ You can view screenshots of the application at [*ghostwriter's* project page](ht
 
 ## Documentation
 
-A quick reference guide is available [here](http://wereturtle.github.io/ghostwriter/documentation.html).
+A quick reference guide is available [here](http://wereturtle.github.io/ghostwriter/documentation.html).  *ghostwriter* also has a community wiki [here](https://github.com/wereturtle/ghostwriter/wiki).  You can read up on help topics or contribute your own.
 
 ## Installation
 
@@ -197,25 +197,9 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 
 *ghostwriter* has built-in support for the cmark-gfm processor.  However, it also can auto-detect Pandoc, MultiMarkdown, or cmark processors.  To use any or all of the latter three, simply install them and ensure that their installation locations are added to your system's `PATH` environment variable.  *ghostwriter* will auto-detect their installation on startup, and give you live HTML preview and export options accordingly.
 
-## Wiki
-
-*ghostwriter* has a community wiki [here](https://github.com/wereturtle/ghostwriter/wiki).  You can read up on help topics or contribute your own.
-
 ## Contribute
 
-Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  New translations are also welcome. However, please note that new feature requests are no longer being accepted.  Please read the [contributing guide](https://github.com/wereturtle/ghostwriter/blob/master/CONTRIBUTING.md) for further details on how you can contribute to the project.
-
-## Roadmap
-
-- Add session goals.
-- Add bookmarks tab to sidebar for favorite files.
-- Implement synchronized scrolling.
-- Add quick preview popup of equations and images.
-- Go to corresponding line in editor on `Ctrl+left click` over text in live preview.
-- Provide a fully-tested MacOS port with installer. **Help wanted!**
-- Translate *ghostwriter* into other languages via *Qt Linguist*.  **Help wanted!**
-- Use GitHub Actions or Travis-CI to produce automated Windows build. **Help wanted!**
-- Port from qmake to cmake in preparation for Qt 6.
+Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  New translations are also welcome. However, please note that new feature requests are no longer being accepted.  Please read the [contributing guide](https://github.com/wereturtle/ghostwriter/blob/master/CONTRIBUTING.md) for further details before reporting an issue or submitting a pull request.  Please also consider volunteering for one of the tasks listed on the website [here](https://wereturtle.github.io/ghostwriter/contribute.html).
 
 ## Licensing
 
