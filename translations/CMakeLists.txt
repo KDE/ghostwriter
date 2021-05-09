@@ -9,6 +9,7 @@ set(ghostwriter_TRANSLATIONS
   ghostwriter_fr.ts
   ghostwriter_it.ts
   ghostwriter_ja.ts
+  ghostwriter_nb_NO.ts
   ghostwriter_nl.ts
   ghostwriter_pl.ts
   ghostwriter_pt_BR.ts
