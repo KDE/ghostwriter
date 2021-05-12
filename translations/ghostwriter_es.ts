@@ -1154,7 +1154,7 @@
     <message>
         <location filename="../src/cmarkgfmexporter.cpp" line="71"/>
         <source>Export failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Falló la exportación</translation>
     </message>
     <message>
         <location filename="../src/documentstatisticswidget.cpp" line="32"/>
@@ -1189,27 +1189,27 @@
     <message>
         <location filename="../src/findreplace.cpp" line="457"/>
         <source>No results</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sin resultados</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="499"/>
         <source>%1 matches</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 coincidencia(s)</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="178"/>
         <source>Element</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Elemento</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="179"/>
         <source>Light Mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modo Light</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="180"/>
         <source>Dark Mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modo Dark</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="182"/>
@@ -1224,17 +1224,17 @@
     <message>
         <location filename="../src/themeeditordialog.cpp" line="184"/>
         <source>Selection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selección</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="185"/>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cursor</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="186"/>
         <source>Markup</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Marcado</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="187"/>
