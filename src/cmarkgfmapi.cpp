@@ -89,7 +89,11 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
     cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
     cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
-    cmark_parser_feed(parser, text.toUtf8().data(), text.length());
+    // Use Latin1 instead of UTF-8 since the column numbers and even
+    // the nodes returned in the AST are shifted or missing when
+    // UTF-8 characters longer than 1 byte are encountered.
+    //
+    cmark_parser_feed(parser, text.toLatin1().data(), text.length());
 
     cmark_node *root = cmark_parser_finish(parser);
     MarkdownAST *ast = new MarkdownAST(root);
