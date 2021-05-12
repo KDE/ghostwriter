@@ -1,5 +1,5 @@
-ghostwriter (2.0.0) unstable; urgency=low
+ghostwriter (2.0.1-snapshot) unstable; urgency=low
 
   * New upstream release.
 
- -- wereturtle <wereturtledev@gmail.com>  Sat, 08 May 2021 14:16:24 -0700
+ -- wereturtle <wereturtledev@gmail.com>  Wed, 12 May 2021 00:40:56 -0700
