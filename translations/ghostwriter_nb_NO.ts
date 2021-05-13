@@ -6,27 +6,27 @@
     <message>
         <location filename="../src/cmarkgfmexporter.cpp" line="63"/>
         <source>%1 format is unsupported by the cmark-gfm processor.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1-formatet støttes ikke av cmark-gfm-prosessoren.</translation>
     </message>
     <message>
         <location filename="../src/cmarkgfmexporter.cpp" line="71"/>
         <source>Export failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksport mislykdes</translation>
     </message>
     <message>
         <location filename="../src/commandlineexporter.cpp" line="152"/>
         <source>Export failed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Eksport mislykdes: </translation>
     </message>
     <message>
         <location filename="../src/commandlineexporter.cpp" line="171"/>
         <source>%1 format is not supported by this processor.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1-formatet støttes ikke av denne prosessoren.</translation>
     </message>
     <message>
         <location filename="../src/commandlineexporter.cpp" line="193"/>
         <source>Failed to execute command: </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke eksekvere kommandoen: </translation>
     </message>
     <message>
         <location filename="../src/documentmanager.cpp" line="158"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../src/documentmanager.cpp" line="822"/>
         <source>Would you like to save your changes?</source>
-        <translation>Vill du lagre endringene dine?</translation>
+        <translation>Vil du lagre endringene dine?</translation>
     </message>
     <message>
         <location filename="../src/documentmanager.cpp" line="853"/>
@@ -142,127 +142,127 @@
     <message>
         <location filename="../src/findreplace.cpp" line="450"/>
         <source>Search wrapped</source>
-        <translation type="unfinished"></translation>
+        <translation>Søker fra start</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="457"/>
         <source>No results</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen resultat</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="499"/>
         <source>%1 matches</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 treff</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="176"/>
         <source>%1 %2pt</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 %2pt</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="178"/>
         <source>Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Element</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="179"/>
         <source>Light Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys modus</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="180"/>
         <source>Dark Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk modus</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="182"/>
         <source>Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Forgrunn</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="183"/>
         <source>Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Bakgrunn</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="184"/>
         <source>Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Merket område</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="185"/>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Markør</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="186"/>
         <source>Markup</source>
-        <translation type="unfinished"></translation>
+        <translation>Markering</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="187"/>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Aksent</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="188"/>
         <source>Heading</source>
-        <translation type="unfinished"></translation>
+        <translation>Overskrift</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="189"/>
         <source>Emphasis</source>
-        <translation type="unfinished"></translation>
+        <translation>Utheving</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="190"/>
         <source>Block Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokktekst</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="191"/>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Lenke</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="192"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Feil</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="225"/>
         <source>Unable to save theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke lagre temaet.</translation>
     </message>
     <message>
         <location filename="../src/themeselectiondialog.cpp" line="410"/>
         <source>Cannot delete theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan ikke slette temaet.</translation>
     </message>
     <message>
         <location filename="../src/themeselectiondialog.cpp" line="411"/>
         <source>Sorry, this is a built-in theme that cannot be deleted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dette er et innebygget tema, og kan ikke slettes.</translation>
     </message>
     <message>
         <location filename="../src/themeselectiondialog.cpp" line="422"/>
         <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
-        <translation type="unfinished"></translation>
+        <translation>Er du sikker på at du vil slette temaet &apos;%1&apos; permanent?</translation>
     </message>
     <message>
         <location filename="../src/themeselectiondialog.cpp" line="438"/>
         <source>Failed to delete theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke slette temaet.</translation>
     </message>
     <message>
         <location filename="../src/themeselectiondialog.cpp" line="466"/>
         <source>Cannot edit theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan ikke endre temaet.</translation>
     </message>
     <message>
         <location filename="../src/themeselectiondialog.cpp" line="467"/>
         <source>Sorry, this is a built-in theme that cannot be edited.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dette er et innebygget tema, og kan ikke endres.</translation>
     </message>
 </context>
 <context>
@@ -271,78 +271,78 @@
         <location filename="../src/spell_checker.cpp" line="125"/>
         <location filename="../src/spelling/spell_checker.cpp" line="139"/>
         <source>Check Spelling</source>
-        <translation type="unfinished"></translation>
+        <translation>Kjør stavekontroll</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="137"/>
         <location filename="../src/spelling/spell_checker.cpp" line="151"/>
         <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Legg til</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="140"/>
         <location filename="../src/spelling/spell_checker.cpp" line="154"/>
         <source>&amp;Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ignorer</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="143"/>
         <location filename="../src/spelling/spell_checker.cpp" line="157"/>
         <source>I&amp;gnore All</source>
-        <translation type="unfinished"></translation>
+        <translation>I&amp;gnorer alle</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="148"/>
         <location filename="../src/spelling/spell_checker.cpp" line="162"/>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Endre</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="151"/>
         <location filename="../src/spelling/spell_checker.cpp" line="165"/>
         <source>C&amp;hange All</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;ndre alle</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="166"/>
         <location filename="../src/spelling/spell_checker.cpp" line="180"/>
         <source>Not in dictionary:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke i ordboken:</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="174"/>
         <location filename="../src/spelling/spell_checker.cpp" line="188"/>
         <source>Change to:</source>
-        <translation type="unfinished"></translation>
+        <translation>Endre til:</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="189"/>
         <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Checking spelling...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kjør stavekontroll...</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="189"/>
         <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="190"/>
         <location filename="../src/spelling/spell_checker.cpp" line="205"/>
         <source>Please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Venligst vent</translation>
     </message>
     <message>
         <location filename="../src/spell_checker.cpp" line="257"/>
         <location filename="../src/spelling/spell_checker.cpp" line="291"/>
         <source>Spell check complete.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stavekontrollen er ferdig.</translation>
     </message>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="232"/>
         <source>Continue checking at beginning of file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Fortsett å sjekke fra starten av filen?</translation>
     </message>
 </context>
 <context>
@@ -398,7 +398,7 @@
     <message>
         <location filename="../src/documentmanager.cpp" line="382"/>
         <source>Discard changes?</source>
-        <translation>Forkaste endringer?</translation>
+        <translation>Forkast endringer?</translation>
     </message>
     <message>
         <location filename="../src/documentmanager.cpp" line="413"/>
@@ -525,7 +525,7 @@
     <message>
         <location filename="../src/exportdialog.cpp" line="187"/>
         <source>Export failed.</source>
-        <translation>Eksporteringen mislykdes.</translation>
+        <translation>Eksport mislykdes.</translation>
     </message>
 </context>
 <context>
@@ -591,7 +591,7 @@
     <message>
         <location filename="../src/htmlpreview.cpp" line="165"/>
         <source>Error loading resources/preview.html</source>
-        <translation>Lasting av resources/preview.html feilet</translation>
+        <translation>Lasting av &apos;resources/preview.html&apos; feilet</translation>
     </message>
 </context>
 <context>
@@ -617,27 +617,27 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="372"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke opprette filen %1. Sjekk rettigheter.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="655"/>
         <source>Insert Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Sett inn bilde</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="658"/>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="659"/>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle filer</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="701"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;Du kan benytte og redistribuere denne programvaren i henhold til vilkårene i &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Besøk den offisielle websiden på &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Spesielt takk og anerkjennelse for gjenbrukt kode går til&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, utvikler av &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, utvikler av &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, utvikler av &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jeg er også dypt takknemlig til &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, utvikler av &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for inspirasjonen han gav meg da han utviklet slikt et vakkert Markdown-redigeringsverktøy.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="724"/>
@@ -647,15 +647,15 @@
     <message numerus="yes">
         <location filename="../src/mainwindow.cpp" line="729"/>
         <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%Ln ord</numerusform>
+            <numerusform>%Ln ord</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="845"/>
         <source>Please restart the application for changes to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Start programmet på nytt for at endrinegen skal vises.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="972"/>
@@ -675,17 +675,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="977"/>
         <source>Open &amp;Recent...</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne &amp;tidligere...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="978"/>
         <source>Reopen Closed File</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjenåpne lukket fil</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="986"/>
         <source>Clear Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Tøm menyen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="991"/>
@@ -700,22 +700,22 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="993"/>
         <source>R&amp;ename...</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;ndre navn...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="994"/>
         <source>Re&amp;load from Disk...</source>
-        <translation type="unfinished"></translation>
+        <translation>Last &amp;på nytt fra disk...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="996"/>
         <source>&amp;Export</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Eksporter</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="998"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Avslutt</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1002"/>
@@ -780,7 +780,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1019"/>
         <source>&amp;Spell check</source>
-        <translation>&amp;Stavekontroll</translation>
+        <translation>S&amp;tavekontroll</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1021"/>
@@ -790,7 +790,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1022"/>
         <source>&amp;Bold</source>
-        <translation>&amp;Uthevet</translation>
+        <translation>&amp;Fet</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1023"/>
@@ -845,12 +845,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1038"/>
         <source>1&amp;. Numbered List</source>
-        <translation>1&amp;. Numrert liste</translation>
+        <translation>1&amp;. Nummerert liste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1039"/>
         <source>1&amp;) Numbered List</source>
-        <translation>1&amp;) Numrert liste</translation>
+        <translation>1&amp;) Nummerert liste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1041"/>
@@ -860,7 +860,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1042"/>
         <source>Toggle Task(s) &amp;Complete</source>
-        <translation>Kryss av oppgave(r) &amp;ferdige(e)</translation>
+        <translation>Kr&amp;yss av oppgave(r) som ferdig(e)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1045"/>
@@ -875,7 +875,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1055"/>
         <source>&amp;Preview in HTML</source>
-        <translation>Fårhandsvis i &amp;HTML</translation>
+        <translation>Forhåndsvis i &amp;HTML</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1060"/>
@@ -890,117 +890,117 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1084"/>
         <source>&amp;Session Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sessjonstatistikk</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1093"/>
         <source>&amp;Document Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dokumentstatistikk</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1102"/>
         <source>&amp;Cheat Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Jukselapp</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1113"/>
         <source>Increase Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Øk tekststørrelsen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1114"/>
         <source>Decrease Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Minsk tekststørrelsen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1116"/>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Innstillinger</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1117"/>
         <location filename="../src/mainwindow.cpp" line="1438"/>
         <source>Themes...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1118"/>
         <location filename="../src/mainwindow.cpp" line="1439"/>
         <source>Font...</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrift...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1119"/>
         <location filename="../src/mainwindow.cpp" line="1440"/>
         <source>Application Language...</source>
-        <translation type="unfinished"></translation>
+        <translation>Programspråk...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1120"/>
         <location filename="../src/mainwindow.cpp" line="1441"/>
         <source>Preview Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>Forhåndsvisningsalternativer...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1121"/>
         <location filename="../src/mainwindow.cpp" line="1442"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Innstillinger...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1125"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hjelp</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1126"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Om</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1129"/>
         <source>About &amp;Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Om &amp;Qt</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1132"/>
         <source>Quick &amp;Reference Guide</source>
-        <translation type="unfinished"></translation>
+        <translation>H&amp;urtigveiledning</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1133"/>
         <source>Wiki</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1185"/>
         <source>Toggle sidebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Sidefelt av/på</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1233"/>
         <source>Toggle dark mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk modus av/på</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1253"/>
         <source>Toggle Live HTML Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML-visning av/på</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1274"/>
         <source>Toggle Hemingway mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Hemmingway-modus av/på</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1283"/>
         <source>Toggle distraction free mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Distraksjonsfri modus av/på</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1293"/>
         <source>Toggle full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Fullskjermmodus av/på</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1321"/>
@@ -1035,47 +1035,47 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1327"/>
         <source>*Emphasis* _Emphasis_</source>
-        <translation type="unfinished"></translation>
+        <translation>*Fremheving* _Fremheving_</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1328"/>
         <source>**Strong** __Strong__</source>
-        <translation type="unfinished"></translation>
+        <translation>**Fet** __Fet__</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1329"/>
         <source>1. Numbered List</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Nummerert liste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1330"/>
         <source>* Bullet List</source>
-        <translation type="unfinished"></translation>
+        <translation>* Punktliste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1331"/>
         <source>+ Bullet List</source>
-        <translation type="unfinished"></translation>
+        <translation>+ Punktliste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1332"/>
         <source>- Bullet List</source>
-        <translation type="unfinished"></translation>
+        <translation>- Punktliste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1333"/>
         <source>&gt; Block Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt; Sitat</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1334"/>
         <source>`Code Span`</source>
-        <translation type="unfinished"></translation>
+        <translation>`Kodeblokk`</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1335"/>
         <source>``` Code Block</source>
-        <translation type="unfinished"></translation>
+        <translation>``` Kodeblokk</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1336"/>
@@ -1085,12 +1085,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1337"/>
         <source>[Reference Link][ID]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Referanselenke][ID]</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1338"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>[ID]: http://url.com &quot;Referansedefinisjon&quot;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1339"/>
@@ -1100,27 +1100,27 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1340"/>
         <source>--- *** ___ Horizontal Rule</source>
-        <translation type="unfinished"></translation>
+        <translation>--- *** ___ Horisontal linje</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1383"/>
         <source>Outline</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposisjon</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1389"/>
         <source>Session Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Sessjonstatistikk</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1395"/>
         <source>Document Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentstatistikk</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1401"/>
         <source>Cheat Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Jukselapp</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1429"/>
@@ -1143,17 +1143,17 @@
     <message>
         <location filename="../src/markdowneditor.cpp" line="262"/>
         <source>Add word to dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til ord i ordbok</translation>
     </message>
     <message>
         <location filename="../src/markdowneditor.cpp" line="263"/>
         <source>Check spelling...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kjør stavekontroll...</translation>
     </message>
     <message>
         <location filename="../src/markdowneditor.cpp" line="889"/>
         <source>No spelling suggestions found</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen forslag funnet i ordbok</translation>
     </message>
 </context>
 <context>
@@ -1161,22 +1161,22 @@
     <message>
         <location filename="../src/preferencesdialog.cpp" line="76"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="85"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Generelt</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="86"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="87"/>
         <source>Spell Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Stavekontroll</translation>
     </message>
 </context>
 <context>
@@ -1184,203 +1184,203 @@
     <message>
         <location filename="../src/preferencesdialog.cpp" line="108"/>
         <source>Matched Characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Matchede tegn</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="191"/>
         <source>Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Visning</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="197"/>
         <source>Show current time in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis tid i fullskjermmodus</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="203"/>
         <source>Hide menu bar in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul menylinje i fullskjermmodus</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="210"/>
         <source>Rounded</source>
-        <translation type="unfinished"></translation>
+        <translation>Rundet</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="211"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Firkantet</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="223"/>
         <source>Interface style</source>
-        <translation type="unfinished"></translation>
+        <translation>Grensesnittstil</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="225"/>
         <source>File Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagring av filer</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="231"/>
         <source>Auto save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre automatisk</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="238"/>
         <source>Backup file on save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lag sikkerhetskopi ved lagring</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="244"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historikk</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="250"/>
         <source>Remember file history</source>
-        <translation type="unfinished"></translation>
+        <translation>Husk filhistorikk</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="268"/>
         <source>Tabulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabulator</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="274"/>
         <source>Insert spaces for tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Sett inn mellomrom for tabulator</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="290"/>
         <source>Tabulation width</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabulatorbredde</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="292"/>
         <source>Styling</source>
-        <translation type="unfinished"></translation>
+        <translation>Stil</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="299"/>
         <source>Sentence</source>
-        <translation type="unfinished"></translation>
+        <translation>Setning</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="300"/>
         <source>Current Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjeldende linje</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="301"/>
         <source>Three Lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Tre linjer</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="302"/>
         <source>Paragraph</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsnitt</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="303"/>
         <source>Typewriter</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrivemaskin</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="315"/>
         <source>Focus mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Fokusmodus</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="318"/>
         <source>Narrow</source>
-        <translation type="unfinished"></translation>
+        <translation>Smal</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="319"/>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Medium</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="320"/>
         <source>Wide</source>
-        <translation type="unfinished"></translation>
+        <translation>Bred</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="321"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Full</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="333"/>
         <source>Editor width</source>
-        <translation type="unfinished"></translation>
+        <translation>Editorbredde</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="336"/>
         <source>Plain</source>
-        <translation type="unfinished"></translation>
+        <translation>Enkel</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="337"/>
         <location filename="../src/preferencesdialog.cpp" line="352"/>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="349"/>
         <source>Blockquote style</source>
-        <translation type="unfinished"></translation>
+        <translation>Sitatstil</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="353"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Underlinjet</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="365"/>
         <source>Emphasis style</source>
-        <translation type="unfinished"></translation>
+        <translation>Uthevingstil</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="367"/>
         <source>Use large headings</source>
-        <translation type="unfinished"></translation>
+        <translation>Bruk store overskrifter</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="373"/>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ved skriving</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="379"/>
         <source>Cycle bullet point markers</source>
-        <translation type="unfinished"></translation>
+        <translation>Skift kulepunktmarkør automatisk</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="385"/>
         <source>Automatically match characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Matche tegn automatisk</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="391"/>
         <source>Customize matched characters...</source>
-        <translation type="unfinished"></translation>
+        <translation>Endre tegn som matches automatisk...</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="416"/>
         <source>Live spellcheck enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Stavekontroll i sanntid</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="422"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Språk</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="457"/>
         <source>Dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordbok</translation>
     </message>
 </context>
 <context>
@@ -1388,28 +1388,28 @@
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="62"/>
         <source>Preview Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Forhåndsvisningsalternativer</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="101"/>
         <source>Markdown Flavor</source>
-        <translation type="unfinished"></translation>
+        <translation>Makrdown-stil</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="109"/>
         <location filename="../src/previewoptionsdialog.cpp" line="135"/>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation>Velg...</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="127"/>
         <source>Text Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrift for tekst:</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="153"/>
         <source>Code Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrift for kode:</translation>
     </message>
 </context>
 <context>
@@ -1417,27 +1417,27 @@
     <message>
         <location filename="../src/sessionstatisticswidget.cpp" line="50"/>
         <source>Words Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ord skrevet:</translation>
     </message>
     <message>
         <location filename="../src/sessionstatisticswidget.cpp" line="51"/>
         <source>Pages Written:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sider skrevet:</translation>
     </message>
     <message>
         <location filename="../src/sessionstatisticswidget.cpp" line="52"/>
         <source>Average WPM:</source>
-        <translation type="unfinished"></translation>
+        <translation>Snitt ord pr. min.:</translation>
     </message>
     <message>
         <location filename="../src/sessionstatisticswidget.cpp" line="53"/>
         <source>Total Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Total tid:</translation>
     </message>
     <message>
         <location filename="../src/sessionstatisticswidget.cpp" line="54"/>
         <source>Idle Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Inaktiv tid:</translation>
     </message>
 </context>
 <context>
@@ -1445,27 +1445,27 @@
     <message>
         <location filename="../src/simplefontdialog.cpp" line="74"/>
         <source>Family</source>
-        <translation type="unfinished"></translation>
+        <translation>Familie</translation>
     </message>
     <message>
         <location filename="../src/simplefontdialog.cpp" line="121"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Størrelse</translation>
     </message>
     <message>
         <location filename="../src/simplefontdialog.cpp" line="124"/>
         <source>AaBbCcXxYyZz</source>
-        <translation type="unfinished"></translation>
+        <translation>AaBbCcXxYyZz</translation>
     </message>
     <message>
         <location filename="../src/simplefontdialog.cpp" line="128"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Forhåndsvis</translation>
     </message>
     <message>
         <location filename="../src/simplefontdialog.cpp" line="131"/>
         <source>Show only monospaced fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis kun skrifttyper med fast bredde</translation>
     </message>
 </context>
 <context>
@@ -1478,7 +1478,7 @@
     <message>
         <location filename="../src/themeeditordialog.cpp" line="92"/>
         <source>Theme Name</source>
-        <translation>Temaets navn</translation>
+        <translation>Temanavn</translation>
     </message>
 </context>
 <context>
@@ -1486,63 +1486,63 @@
     <message>
         <location filename="../src/themerepository.cpp" line="161"/>
         <source>The specified theme does not exist in the file system: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Det valgte temaet finnes ikke på filsystemet: %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="169"/>
         <source>Could not open theme file for reading: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke lese temaets fil: %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="179"/>
         <source>Invalid theme format: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke gyldig temaformat: %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="198"/>
         <location filename="../src/themerepository.cpp" line="207"/>
         <source>Invalid or missing value(s) in %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugyldige eller manglende innstillinger i %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="215"/>
         <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det valgte temaet er ikke tigjengelig. Prøv å starte programmet på nytt. Hvis problemet vedvarer, send en feilrapport.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="231"/>
         <source>Could not delete theme at %1. Please try setting the file permissions to be writeable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke slette tema %1. Forsøk å sette skriverettigheter på filen.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="251"/>
         <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; finnes allerede. Velg et annet navn.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="260"/>
         <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temaet &apos;%1&apos; finnes allerede. Velg et annet navn.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="267"/>
         <source>Failed to rename theme.  Please check file permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke endre navn på temaet. Sjekk skriverettigeter på filen.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="305"/>
         <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke lagre temaet til disk. Sjekk skriverettigheter på filen, eller prøv et annet navn på temaet.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="335"/>
         <source>Untitled 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Uten navn 1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="345"/>
         <source>Untitled %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Uten navn %1</translation>
     </message>
 </context>
 <context>
