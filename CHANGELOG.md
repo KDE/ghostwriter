@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 * Issue #598: Unicode characters no longer shifts syntax highlighting.
+* Sidebar now properly hides itself after the `Ctrl+J` Outline command if it was
+  previously hidden on initial launch.
 
 ## [2.0.0] - 2021-05-08
 
