@@ -1463,7 +1463,7 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="176"/>
         <source>%1 %2pt</source>
-        <translation type="unfinished"><%1 %2pt/translation>
+        <translation type="unfinished">%1 %2pt</translation>
     </message>
 </context>
 <context>

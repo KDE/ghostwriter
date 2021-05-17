@@ -13,12 +13,13 @@ Translations
 * Dutch - Heimen Stoffels (Vistaus)
 * French - pygoliae
 * German - dhbwmawhd
-* Italian - Tristano Ajmone (tajmone), Pietro Battiston (toobaz)
+* Italian - Tristano Ajmone (tajmone), Pietro Battiston (toobaz), Giuseppe Pignataro (Fastbyte01)
 * Japanese - piyo-gh
+* Norwegian - Veronica Berglyd Olsen (vkbo)
 * Polish - mleko69
 * Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
 * Russian - suhr, Dmitriy Belyaev (dbelyaev)
-* Spanish - cemetary, Icaro Perseo (icaroperseo)
+* Spanish - cemetary, Icaro Perseo (icaroperseo), Alexis Olivo (alexisolivo)
 * Swedish - Åke Engelbrektson (eson57)
 
 Libraries

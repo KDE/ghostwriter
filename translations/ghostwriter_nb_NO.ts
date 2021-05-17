@@ -268,73 +268,61 @@
 <context>
     <name>SpellChecker</name>
     <message>
-        <location filename="../src/spell_checker.cpp" line="125"/>
         <location filename="../src/spelling/spell_checker.cpp" line="139"/>
         <source>Check Spelling</source>
         <translation>Kjør stavekontroll</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="137"/>
         <location filename="../src/spelling/spell_checker.cpp" line="151"/>
         <source>&amp;Add</source>
         <translation>&amp;Legg til</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="140"/>
         <location filename="../src/spelling/spell_checker.cpp" line="154"/>
         <source>&amp;Ignore</source>
         <translation>&amp;Ignorer</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="143"/>
         <location filename="../src/spelling/spell_checker.cpp" line="157"/>
         <source>I&amp;gnore All</source>
         <translation>I&amp;gnorer alle</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="148"/>
         <location filename="../src/spelling/spell_checker.cpp" line="162"/>
         <source>&amp;Change</source>
         <translation>&amp;Endre</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="151"/>
         <location filename="../src/spelling/spell_checker.cpp" line="165"/>
         <source>C&amp;hange All</source>
         <translation>E&amp;ndre alle</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="166"/>
         <location filename="../src/spelling/spell_checker.cpp" line="180"/>
         <source>Not in dictionary:</source>
         <translation>Ikke i ordboken:</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="174"/>
         <location filename="../src/spelling/spell_checker.cpp" line="188"/>
         <source>Change to:</source>
         <translation>Endre til:</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="189"/>
         <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Checking spelling...</source>
         <translation>Kjør stavekontroll...</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="189"/>
         <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="190"/>
         <location filename="../src/spelling/spell_checker.cpp" line="205"/>
         <source>Please wait</source>
         <translation>Venligst vent</translation>
     </message>
     <message>
-        <location filename="../src/spell_checker.cpp" line="257"/>
         <location filename="../src/spelling/spell_checker.cpp" line="291"/>
         <source>Spell check complete.</source>
         <translation>Stavekontrollen er ferdig.</translation>
