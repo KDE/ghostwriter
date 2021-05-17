@@ -115,7 +115,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     //
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
-    
+
     buildSidebar();
 
     documentManager = new DocumentManager(editor, this);
@@ -1057,17 +1057,6 @@ void MainWindow::buildMenuBar()
     htmlPreviewMenuAction->setChecked(appSettings->htmlPreviewVisible());
     viewMenu->addAction(htmlPreviewMenuAction);
 
-    this->showSidebarAction = new QAction(tr("Show Sidebar"), this);
-    showSidebarAction->setCheckable(true);
-    showSidebarAction->setChecked(appSettings->sidebarVisible());
-    showSidebarAction->setShortcut(QKeySequence("CTRL+SPACE"));
-    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    
-    connect(this->showSidebarAction,
-        &QAction::toggled,
-        this,
-        &MainWindow::toggleSidebarVisible);
-
     this->addAction(showSidebarAction);
     viewMenu->addAction(showSidebarAction);
 
@@ -1313,6 +1302,17 @@ void MainWindow::buildStatusBar()
 
 void MainWindow::buildSidebar()
 {
+    this->showSidebarAction = new QAction(tr("Show Sidebar"), this);
+    showSidebarAction->setCheckable(true);
+    showSidebarAction->setChecked(appSettings->sidebarVisible());
+    showSidebarAction->setShortcut(QKeySequence("CTRL+SPACE"));
+    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
+    
+    connect(this->showSidebarAction,
+        &QAction::toggled,
+        this,
+        &MainWindow::toggleSidebarVisible);
+
     cheatSheetWidget = new QListWidget(this);
 
     cheatSheetWidget->setSelectionMode(QAbstractItemView::NoSelection);
