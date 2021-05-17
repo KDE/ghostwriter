@@ -1449,7 +1449,7 @@ void MainWindow::buildSidebar()
         this,
         &MainWindow::onSidebarVisibilityChanged);
     
-    sidebar->setVisible(appSettings->sidebarVisible());
+    this->toggleSidebarVisible(appSettings->sidebarVisible());
 }
 
 void MainWindow::adjustEditorWidth(int width)

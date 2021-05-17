@@ -1308,12 +1308,12 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/cmarkgfmexporter.cpp" line="63"/>
         <source>%1 format is unsupported by the cmark-gfm processor.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Il formato %1 non è supportato dal processore cmark-gfm.</translation>
     </message>
     <message>
         <location filename="../src/cmarkgfmexporter.cpp" line="71"/>
         <source>Export failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Esportazione fallita</translation>
     </message>
     <message>
         <location filename="../src/documentstatisticswidget.cpp" line="32"/>
@@ -1343,37 +1343,37 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/findreplace.cpp" line="450"/>
         <source>Search wrapped</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ricerca da capo</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="457"/>
         <source>No results</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nessun risultato</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="499"/>
         <source>%1 matches</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 corrispondenze</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="178"/>
         <source>Element</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Elemento</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="179"/>
         <source>Light Mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modalità chiara</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="180"/>
         <source>Dark Mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modalità scura</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="182"/>
         <source>Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Primo piano</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="183"/>
@@ -1383,47 +1383,47 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/themeeditordialog.cpp" line="184"/>
         <source>Selection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selezione</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="185"/>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cursore</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="186"/>
         <source>Markup</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Markup</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="187"/>
         <source>Accent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Accento</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="188"/>
         <source>Heading</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Intestazione</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="189"/>
         <source>Emphasis</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Enfasi</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="190"/>
         <source>Block Text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Blocco di testo</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="191"/>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Collegamento</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="192"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Errore</translation>
     </message>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="225"/>
@@ -1463,7 +1463,7 @@ NOTA: La consuetudine in Windows è di usare il plurale nei filtri, quindi l&apo
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="176"/>
         <source>%1 %2pt</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"><%1 %2pt/translation>
     </message>
 </context>
 <context>
@@ -1975,7 +1975,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/exportdialog.cpp" line="85"/>
         <source>Smart Typography</source>
-        <translation type="unfinished">Smart typography</translation>
+        <translation type="unfinished">Tipografia smart</translation>
     </message>
     <message>
         <location filename="../src/exportdialog.cpp" line="88"/>
@@ -1985,7 +1985,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/exportdialog.cpp" line="90"/>
         <source>Markdown Converter</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Convertitore markdown</translation>
     </message>
     <message>
         <location filename="../src/exportdialog.cpp" line="91"/>
@@ -2008,32 +2008,32 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/findreplace.cpp" line="119"/>
         <source>Match case</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Caso di corrispondenze</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="126"/>
         <source>Whole word</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parola intera</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="132"/>
         <source>Regular expression</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Espressione regolare</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="138"/>
         <source>Highlight matches</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Evidenzia corrispondenze</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="148"/>
         <source>Find previous</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trova precedente</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="153"/>
         <source>Find next</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trova successivo</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="155"/>
@@ -2043,12 +2043,12 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/findreplace.cpp" line="157"/>
         <source>Replace All</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sostituisci tutti</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="194"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trova:</translation>
     </message>
     <message>
         <location filename="../src/findreplace.cpp" line="200"/>
@@ -2058,7 +2058,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/findreplace.cpp" line="400"/>
         <source>%1 replacements</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 sostituzioni</translation>
     </message>
 </context>
 <context>
@@ -2066,7 +2066,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/htmlpreview.cpp" line="165"/>
         <source>Error loading resources/preview.html</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Errore caricamento resources/preview.html</translation>
     </message>
 </context>
 <context>
@@ -2247,7 +2247,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1014"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Trova</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1015"/>
@@ -2257,12 +2257,12 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1016"/>
         <source>Find &amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trova &amp;successivo</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1017"/>
         <source>Find &amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trova &amp;precedente</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1019"/>
@@ -2367,27 +2367,27 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1060"/>
         <source>Show Sidebar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mostra barra laterale</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1074"/>
         <source>&amp;Outline</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Contorno</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1084"/>
         <source>&amp;Session Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Statistiche sessione</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1093"/>
         <source>&amp;Document Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Statistiche documentazione</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1102"/>
         <source>&amp;Cheat Sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Cheat Sheet</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1113"/>
@@ -2462,12 +2462,12 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1185"/>
         <source>Toggle sidebar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Attiva / disattiva la barra laterale</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1233"/>
         <source>Toggle dark mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Attiva / disattiva modalità scura</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1253"/>
@@ -2582,7 +2582,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1339"/>
         <source>![Image](./image.jpg &quot;Title&quot;)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">![Image](./image.jpg &quot;Title&quot;)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1340"/>
@@ -2612,7 +2612,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/mainwindow.cpp" line="1429"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Impostazioni</translation>
     </message>
 </context>
 <context>
@@ -2875,7 +2875,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="62"/>
         <source>Preview Options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opzioni anteprima</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="101"/>
@@ -2886,17 +2886,17 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
         <location filename="../src/previewoptionsdialog.cpp" line="109"/>
         <location filename="../src/previewoptionsdialog.cpp" line="135"/>
         <source>Choose...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Scegli...</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="127"/>
         <source>Text Font:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Carattere testo:</translation>
     </message>
     <message>
         <location filename="../src/previewoptionsdialog.cpp" line="153"/>
         <source>Code Font:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Caratttere codice:</translation>
     </message>
 </context>
 <context>
@@ -2952,7 +2952,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/simplefontdialog.cpp" line="131"/>
         <source>Show only monospaced fonts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mostra solo caratteri monospace</translation>
     </message>
 </context>
 <context>
@@ -2973,23 +2973,23 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/themerepository.cpp" line="161"/>
         <source>The specified theme does not exist in the file system: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Il tema specificato non esiste nel file system: %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="169"/>
         <source>Could not open theme file for reading: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Impossibile aprire in lettura il file: %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="179"/>
         <source>Invalid theme format: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formato tema non valido: %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="198"/>
         <location filename="../src/themerepository.cpp" line="207"/>
         <source>Invalid or missing value(s) in %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Valori non validi o mancanti in %1</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="215"/>
@@ -2999,7 +2999,7 @@ NOTA: Questa opzione concerne l&apos;aspetto dell&apos;area di editing (se centr
     <message>
         <location filename="../src/themerepository.cpp" line="231"/>
         <source>Could not delete theme at %1. Please try setting the file permissions to be writeable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Impossibile eliminare il tema in %1. Prova a impostare come scrivibile i permessi del file.</translation>
     </message>
     <message>
         <location filename="../src/themerepository.cpp" line="251"/>
