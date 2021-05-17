@@ -1,6 +1,11 @@
 #!/usr/bin/make -f
-
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export QT_SELECT=qt5
 
 %:
-	dh $@ --parallel
+	dh $@
+
+override_dh_auto_clean:
+	rm -f ./Makefile ./.qmake.stash
+	rm -f ./debian/substvars
+	rm -rf ./build/

@@ -3,7 +3,7 @@ Section: editors
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Uploaders: wereturtle <wereturtledev@gmail.com>
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 11),
 		qtbase5-dev,
 		libqt5svg5-dev,
 		qtmultimedia5-dev,
@@ -11,10 +11,10 @@ Build-Depends: debhelper (>= 9),
 		libhunspell-dev,
 		pkg-config,
 		qttools5-dev-tools
-Standards-Version: 3.9.7
+Standards-Version: 4.5.0
 Homepage: http://wereturtle.github.io/ghostwriter/
-#Vcs-Git: git://git.debian.org/collab-maint/ghostwriter.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/ghostwriter.git;a=summary
+Vcs-Git: https://salsa.debian.org/seb95-guest/ghostwriter.git
+Vcs-Browser: https://salsa.debian.org/seb95-guest/ghostwriter
 
 Package: ghostwriter
 Architecture: any
@@ -22,14 +22,14 @@ Depends: libqt5concurrent5,
          libqt5svg5,
          ${misc:Depends},
          ${shlibs:Depends},
-Suggests: hunspell-dictionary, myspell-dictionary
+Suggests: hunspell-dictionary, myspell-dictionary, cmark, pandoc, wkhtmltopdf
 Description: Distraction-free, themeable Markdown editor
  ghostwriter is a Markdown editor that provides a themable,
  distraction-free writing environment, along with a live HTML
- preview as you type, easy document navigation with an outline HUD,
- and export to popular document formats with Sundown, Pandoc,
- MultiMarkdown, Discount, cmark, or cmark-gfm processors.  It also
- features a live word count and auto-save. Eliminate distractions in
- fullscreen mode, or concentrate on the current text you are writing
- in focus mode.  It even remembers your last opened file and position
- within the file, so you can pick up where you last left off.
+ preview as you type, easy document navigation with a sidebar,
+ and export to popular document formats with cmark-gfm, Pandoc,
+ MultiMarkdown, or cmark processors.  It also features a live word count and
+ auto-save. Eliminate distractions in fullscreen mode, or concentrate
+ on the current text you are writing in focus mode.  It even
+ remembers your last opened file and position within the file, so you
+ can pick up where you last left off.
