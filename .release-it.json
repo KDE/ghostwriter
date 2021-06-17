@@ -42,7 +42,7 @@
                 {
                     "file": "./resources/linux/ghostwriter.appdata.xml",
                     "search": "<release .*/>",
-                    "replace": "<release version=\"{{version}}\" date=\"{{now:YYYYMMDD}}\" type=\"release\"/>"
+                    "replace": "<release version=\"{{version}}\" date=\"{{now:YYYY-MM-DD}}\" type=\"stable\"/>"
                 },
                 "./resources/linux/ghostwriter.1",
                 {
