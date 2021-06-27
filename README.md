@@ -79,14 +79,14 @@ For Debian or Ubuntu distributions:
 
 For Fedora:
 
-    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel hunspell-devel
+    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel hunspell-devel qt5-linguist
 
 For other Linux flavors, the list will be similar; `qmake` will tell you if you are missing anything.
 
 Next, open a terminal window, and enter the following commands:
 
     $ cd <your_ghostwriter_folder_location>
-    $ qmake
+    $ qmake-qt5
     $ make
     # make install
 
