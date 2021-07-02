@@ -17,7 +17,7 @@ Translations
 * Japanese - piyo-gh
 * Norwegian - Veronica Berglyd Olsen (vkbo)
 * Polish - mleko69
-* Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea)
+* Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea), Gustavo Costa (xfgusta)
 * Russian - suhr, Dmitriy Belyaev (dbelyaev)
 * Spanish - cemetary, Icaro Perseo (icaroperseo), Alexis Olivo (alexisolivo)
 * Swedish - Åke Engelbrektson (eson57)
