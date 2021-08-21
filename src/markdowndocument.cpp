@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,56 +26,86 @@
 
 namespace ghostwriter
 {
-MarkdownDocument::MarkdownDocument(QObject *parent)
-    : QTextDocument(parent), ast(nullptr)
+class MarkdownDocumentPrivate
 {
-    initializeUntitledDocument();
+    Q_DECLARE_PUBLIC(MarkdownDocument)
+
+public:
+    MarkdownDocumentPrivate(MarkdownDocument *q_ptr) 
+        : q_ptr(q_ptr){ }
+    ~MarkdownDocumentPrivate() { }
+
+    QString displayName;
+    QString filePath;
+    bool readOnlyFlag;
+    QDateTime timestamp;
+    MarkdownAST *ast;
+
+    MarkdownDocument *q_ptr;
+
+    /*
+    * Initializes the class for an untitled document.
+    */
+    void initializeUntitledDocument();
+};
+
+MarkdownDocument::MarkdownDocument(QObject *parent)
+    : QTextDocument(parent), d_ptr(new MarkdownDocumentPrivate(this))
+{
+    Q_D(MarkdownDocument);
+
+    d->initializeUntitledDocument();
 }
 
 MarkdownDocument::MarkdownDocument(const QString &text, QObject *parent)
-    : QTextDocument(text, parent), ast(nullptr)
+    : QTextDocument(text, parent), d_ptr(new MarkdownDocumentPrivate(this))
 {
-    initializeUntitledDocument();
+    Q_D(MarkdownDocument);
+
+    d->initializeUntitledDocument();
 }
 
 MarkdownDocument::~MarkdownDocument()
 {
+    Q_D(MarkdownDocument);
+
     QPlainTextDocumentLayout *documentLayout =
         new QPlainTextDocumentLayout(this);
     this->setDocumentLayout(documentLayout);
 
-    m_filePath = QString();
-    readOnlyFlag = false;
-    m_displayName = tr("untitled");
-    m_timestamp = QDateTime::currentDateTime();
-
-    if (nullptr != ast) {
-        delete ast;
-        ast = nullptr;
+    if (nullptr != d->ast) {
+        delete d->ast;
+        d->ast = nullptr;
     }
 }
 
 QString MarkdownDocument::displayName() const
 {
-    return m_displayName;
+    Q_D(const MarkdownDocument);
+
+    return d->displayName;
 }
 
 QString MarkdownDocument::filePath() const
 {
-    return m_filePath;
+    Q_D(const MarkdownDocument);
+
+    return d->filePath;
 }
 
 void MarkdownDocument::setFilePath(const QString &path)
 {
+    Q_D(MarkdownDocument);
+
     if (!path.isNull() && !path.isEmpty()) {
         QFileInfo fileInfo(path);
-        m_filePath = fileInfo.absoluteFilePath();
-        m_displayName = fileInfo.fileName();
+        d->filePath = fileInfo.absoluteFilePath();
+        d->displayName = fileInfo.fileName();
     } else {
-        m_filePath = QString();
+        d->filePath = QString();
         this->setReadOnly(false);
         this->setModified(false);
-        m_displayName = tr("untitled");
+        d->displayName = tr("untitled");
     }
 
     emit filePathChanged();
@@ -83,38 +113,52 @@ void MarkdownDocument::setFilePath(const QString &path)
 
 bool MarkdownDocument::isNew() const
 {
-    return m_filePath.isNull() || m_filePath.isEmpty();
+    Q_D(const MarkdownDocument);
+
+    return d->filePath.isNull() || d->filePath.isEmpty();
 }
 
 bool MarkdownDocument::isReadOnly() const
 {
-    return readOnlyFlag;
+    Q_D(const MarkdownDocument);
+
+    return d->readOnlyFlag;
 }
 
 void MarkdownDocument::setReadOnly(bool readOnly)
 {
-    readOnlyFlag = readOnly;
+    Q_D(MarkdownDocument);
+
+    d->readOnlyFlag = readOnly;
 }
 
 QDateTime MarkdownDocument::timestamp() const
 {
-    return m_timestamp;
+    Q_D(const MarkdownDocument);
+
+    return d->timestamp;
 }
 
 void MarkdownDocument::setTimestamp(const QDateTime &timestamp)
 {
-    this->m_timestamp = timestamp;
+    Q_D(MarkdownDocument);
+
+    d->timestamp = timestamp;
 }
 
 
 MarkdownAST *MarkdownDocument::markdownAST() const
 {
-    return ast;
+    Q_D(const MarkdownDocument);
+
+    return d->ast;
 }
 
 void MarkdownDocument::setMarkdownAST(MarkdownAST *ast)
 {
-    this->ast = ast;
+    Q_D(MarkdownDocument);
+
+    d->ast = ast;
 }
 
 void MarkdownDocument::notifyTextBlockRemoved(const QTextBlock &block)
@@ -123,15 +167,18 @@ void MarkdownDocument::notifyTextBlockRemoved(const QTextBlock &block)
     emit textBlockRemoved(block);
 }
 
-void MarkdownDocument::initializeUntitledDocument()
+void MarkdownDocumentPrivate::initializeUntitledDocument()
 {
+    Q_Q(MarkdownDocument);
+    
     QPlainTextDocumentLayout *documentLayout =
-        new QPlainTextDocumentLayout(this);
-    this->setDocumentLayout(documentLayout);
+        new QPlainTextDocumentLayout(q);
+    q->setDocumentLayout(documentLayout);
 
-    m_filePath = QString();
-    readOnlyFlag = false;
-    m_displayName = tr("untitled");
-    m_timestamp = QDateTime::currentDateTime();
+    this->filePath = QString();
+    this->readOnlyFlag = false;
+    this->displayName = QObject::tr("untitled");
+    this->timestamp = QDateTime::currentDateTime();
+    this->ast = nullptr;
 }
 } // namespace ghostwriter

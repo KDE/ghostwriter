@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,10 +20,12 @@
 #ifndef MARKUPDOCUMENT_H
 #define MARKUPDOCUMENT_H
 
-#include <QTextDocument>
-#include <QString>
 #include <QDateTime>
+#include <QScopedPointer>
+#include <QString>
 #include <QTextBlock>
+#include <QTextDocument>
+
 #include "markdownast.h"
 
 namespace ghostwriter
@@ -32,9 +34,11 @@ namespace ghostwriter
  * Text document that maintains timestamp, read-only state, and new vs.
  * saved status.
  */
+class MarkdownDocumentPrivate;
 class MarkdownDocument : public QTextDocument
 {
     Q_OBJECT
+    Q_DECLARE_PRIVATE(MarkdownDocument)
 
 public:
     /**
@@ -124,16 +128,7 @@ signals:
     void textBlockRemoved(const QTextBlock &block);
 
 private:
-    QString m_displayName;
-    QString m_filePath;
-    bool readOnlyFlag;
-    QDateTime m_timestamp;
-    MarkdownAST *ast;
-
-    /*
-    * Initializes the class for an untitled document.
-    */
-    void initializeUntitledDocument();
+    QScopedPointer<MarkdownDocumentPrivate> d_ptr;
 };
 } // namespace ghostwriter
 
