@@ -48,7 +48,7 @@ signals:
      * This signal informs connected slots which heading in the document
      * was selected by the user.  For example, if headingSequenceNumber
      * is 1, then the very first heading that appears in the document
-     * was selected.  If it is 2, then the second heading tha appears
+     * was selected.  If it is 2, then the second heading that appears
      * in the document was selected, and so on.
      */
     void headingNumberNavigated(int headingSequenceNumber);

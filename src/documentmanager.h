@@ -177,7 +177,7 @@ public slots:
     void rename();
 
     /**
-     * Savse document contents to disk.  This method does nothing if the
+     * Saves document contents to disk.  This method does nothing if the
      * document is new and is not associated with a file on disk.
      */
     bool save();

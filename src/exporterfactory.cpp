@@ -178,7 +178,7 @@ ExporterFactory::ExporterFactory()
 
         exporter = new CommandLineExporter("MultiMarkdown");
 
-        // Smart typography option (--smart) is only availabe in version 5 and below.
+        // Smart typography option (--smart) is only available in version 5 and below.
         // The option is was removed and enabled by default in version 6 and above.
         //
         if (majorVersion < 6) {

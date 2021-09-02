@@ -41,7 +41,7 @@ class ThemeSelectionDialog : public QDialog
 public:
     /**
      * Constructor.  Takes as a parameter the name of the theme that is
-     * currently styling the applicaton.
+     * currently styling the application.
      */
     ThemeSelectionDialog
     (

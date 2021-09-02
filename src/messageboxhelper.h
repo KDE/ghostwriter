@@ -25,7 +25,7 @@
 namespace ghostwriter
 {
 /**
- * This class provides static convenience methods for dipslaying a QMessageBox
+ * This class provides static convenience methods for displaying a QMessageBox
  * using text and informative text rather than title and text as the original
  * QMessageBox static methods do.  The window title in all cases is set
  * to the application name.

@@ -79,7 +79,7 @@ public:
 
     /**
      * Sets the file filter (extensions only) for use with QFileDialog. Note
-     * that the filter must be enclosed with paretheses, since a named
+     * that the filter must be enclosed with parentheses, since a named
      * filter will be built in conjunction with the ExportFormat's name.
      * Below is an example for an HTML format:
      *

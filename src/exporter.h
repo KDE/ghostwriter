@@ -81,7 +81,7 @@ public:
     /**
      * Override this method to transform the given text into HTML for
      * use in the Live HTML Preview.  By default, this method will set the
-     * html paramter to have HTML-formatted error text indicating that HTML
+     * html parameter to have HTML-formatted error text indicating that HTML
      * is not supported by the export processor.
      */
     virtual void exportToHtml(const QString &text, QString &html);
