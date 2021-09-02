@@ -30,7 +30,7 @@ class cmark_node;
 namespace ghostwriter
 {
 /**
- * This class encapsulates an abstact syntax tree of Markdown nodes.
+ * This class encapsulates an abstract syntax tree of Markdown nodes.
  * Use this class to clone a cmark_node AST and perform searches
  * on the tree.
  *
@@ -81,7 +81,7 @@ public:
     MarkdownNode *findBlockAtLine(int lineNumber) const;
 
     /**
-     * Returns a list of all nodes that are of type heading, exluding
+     * Returns a list of all nodes that are of type heading, excluding
      * those that are nested within block quotes or lists.
      */
     QVector<MarkdownNode *> headings() const;

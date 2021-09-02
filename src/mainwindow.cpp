@@ -262,7 +262,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         this->menuBar()->hide();
     }
 
-    // Default language for dictionary is set from AppSettings intialization.
+    // Default language for dictionary is set from AppSettings initialization.
     QString language = appSettings->dictionaryLanguage();
 
     // If we have an available dictionary, then set up spell checking.

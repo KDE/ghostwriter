@@ -74,7 +74,7 @@ public:
 
     /**
      * Convenience method to create the dialog and extract the font in
-     * one easy call.  Takes intial font to display as a parameter.
+     * one easy call.  Takes initial font to display as a parameter.
      */
     static QFont font
     (
@@ -91,7 +91,7 @@ public:
 
     /**
      * Convenience method to create the dialog and extract the font in
-     * one easy call.  Takes intial font to display as a parameter.
+     * one easy call.  Takes initial font to display as a parameter.
      * Only shows monospace fonts as available choices.
      */
     static QFont monospaceFont
