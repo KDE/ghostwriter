@@ -194,7 +194,7 @@ SimpleFontDialog::~SimpleFontDialog()
     ;
 }
 
-void SimpleFontDialog::setMonospaceOnly(bool enabled, bool hideCheckbox) 
+void SimpleFontDialog::setMonospaceOnly(bool enabled, bool hideCheckbox)
 {
     Q_D(SimpleFontDialog);
 
@@ -248,7 +248,7 @@ QFont SimpleFontDialog::font(bool *ok, QWidget *parent)
 
 QFont SimpleFontDialog::monospaceFont(bool *ok,
         const QFont &initial,
-        QWidget *parent) 
+        QWidget *parent)
 {
     *ok = false;
 
@@ -261,10 +261,10 @@ QFont SimpleFontDialog::monospaceFont(bool *ok,
         *ok = true;
     }
 
-    return dlg->selectedFont();    
+    return dlg->selectedFont();
 }
 
-QFont SimpleFontDialog::monospaceFont(bool *ok, QWidget *parent) 
+QFont SimpleFontDialog::monospaceFont(bool *ok, QWidget *parent)
 {
     return monospaceFont(ok, QFont(), parent);
 }

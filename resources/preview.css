@@ -106,7 +106,7 @@ tr {
 
 tr:nth-child(even) {
     background-color: $blockBackground;
-} 
+}
 
 th {
     font-weight: bold;

@@ -274,7 +274,7 @@ void MarkdownHighlighter::increaseFontSize()
 void MarkdownHighlighter::decreaseFontSize()
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->defaultFormat.setFontPointSize(d->defaultFormat.fontPointSize() - 1.0);
     rehighlight();
 }
@@ -282,7 +282,7 @@ void MarkdownHighlighter::decreaseFontSize()
 void MarkdownHighlighter::setColorScheme(const ColorScheme &colors)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->colors = colors;
     d->defaultFormat.setForeground(QBrush(colors.foreground));
     rehighlight();
@@ -291,7 +291,7 @@ void MarkdownHighlighter::setColorScheme(const ColorScheme &colors)
 void MarkdownHighlighter::setEnableLargeHeadingSizes(const bool enable)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->useLargeHeadings = enable;
     rehighlight();
 }
@@ -299,7 +299,7 @@ void MarkdownHighlighter::setEnableLargeHeadingSizes(const bool enable)
 void MarkdownHighlighter::setUseUnderlineForEmphasis(const bool enable)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->useUndlerlineForEmphasis = enable;
     rehighlight();
 }
@@ -307,7 +307,7 @@ void MarkdownHighlighter::setUseUnderlineForEmphasis(const bool enable)
 void MarkdownHighlighter::setItalicizeBlockquotes(const bool enable)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->italicizeBlockquotes = enable;
     rehighlight();
 }
@@ -315,7 +315,7 @@ void MarkdownHighlighter::setItalicizeBlockquotes(const bool enable)
 void MarkdownHighlighter::setFont(const QString &fontFamily, const double fontSize)
 {
     Q_D(MarkdownHighlighter);
-    
+
     QFont font;
     font.setFamily(fontFamily);
     font.setWeight(QFont::Normal);
@@ -329,7 +329,7 @@ void MarkdownHighlighter::setFont(const QString &fontFamily, const double fontSi
 void MarkdownHighlighter::setSpellCheckEnabled(const bool enabled)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->spellCheckEnabled = enabled;
     rehighlight();
 }
@@ -337,14 +337,14 @@ void MarkdownHighlighter::setSpellCheckEnabled(const bool enabled)
 void MarkdownHighlighter::onTypingResumed()
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->typingPaused = false;
 }
 
 void MarkdownHighlighter::onTypingPaused()
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->typingPaused = true;
 
     if (d->spellCheckEnabled) {
@@ -356,7 +356,7 @@ void MarkdownHighlighter::onTypingPaused()
 void MarkdownHighlighter::onCursorPositionChanged()
 {
     Q_D(MarkdownHighlighter);
-    
+
     if
     (
         d->spellCheckEnabled &&
@@ -369,7 +369,7 @@ void MarkdownHighlighter::onCursorPositionChanged()
 }
 
 void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
-{    
+{
     QTextBlock block = document()->findBlock(position);
     rehighlightBlock(block);
 }
@@ -377,7 +377,7 @@ void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 void MarkdownHighlighterPrivate::spellCheck(const QString &text)
 {
     Q_Q(MarkdownHighlighter);
-    
+
     int cursorPosition = editor->textCursor().position();
     QTextBlock cursorPosBlock = q->document()->findBlock(cursorPosition);
     int cursorPosInBlock = -1;
@@ -415,7 +415,7 @@ void MarkdownHighlighterPrivate::spellCheck(const QString &text)
 void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *const node)
 {
     Q_Q(MarkdownHighlighter);
-    
+
     MarkdownNode::NodeType type = node->type();
     int pos = node->position();
     int length = node->length();

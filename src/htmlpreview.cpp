@@ -93,7 +93,7 @@ HtmlPreview::HtmlPreview
     d_ptr(new HtmlPreviewPrivate(this))
 {
     Q_D(HtmlPreview);
-    
+
     d->document = document;
     d->updateInProgress = false;
     d->updateAgain = false;
@@ -176,7 +176,7 @@ HtmlPreview::HtmlPreview
 HtmlPreview::~HtmlPreview()
 {
     Q_D(HtmlPreview);
-    
+
     // Wait for thread to finish if in the middle of updating the preview.
     d->futureWatcher->waitForFinished();
 }
@@ -190,7 +190,7 @@ void HtmlPreview::contextMenuEvent(QContextMenuEvent *event)
 void HtmlPreview::updatePreview()
 {
     Q_D(HtmlPreview);
-    
+
     if (d->updateInProgress) {
         d->updateAgain = true;
         return;
@@ -236,7 +236,7 @@ void HtmlPreview::navigateToHeading(int headingSequenceNumber)
 void HtmlPreview::setHtmlExporter(Exporter *exporter)
 {
     Q_D(HtmlPreview);
-    
+
     d->exporter = exporter;
     d->setHtmlContent("");
     updatePreview();
@@ -245,14 +245,14 @@ void HtmlPreview::setHtmlExporter(Exporter *exporter)
 void HtmlPreview::setStyleSheet(const QString &css)
 {
     Q_D(HtmlPreview);
-    
+
     d->styleSheet.setText(css);
 }
 
 void HtmlPreviewPrivate::onHtmlReady()
 {
     Q_Q(HtmlPreview);
-    
+
     setHtmlContent(futureWatcher->result());
     updateInProgress = false;
 
@@ -266,7 +266,7 @@ void HtmlPreviewPrivate::onHtmlReady()
 void HtmlPreviewPrivate::onLoadFinished(bool ok)
 {
     Q_Q(HtmlPreview);
-    
+
     if (ok) {
         q->page()->runJavaScript("document.documentElement.contentEditable = false;");
     }
@@ -275,7 +275,7 @@ void HtmlPreviewPrivate::onLoadFinished(bool ok)
 void HtmlPreviewPrivate::updateBaseDir()
 {
     Q_Q(HtmlPreview);
-    
+
     if (!document->filePath().isNull() && !document->filePath().isEmpty()) {
         // Note that a forward slash ("/") is appended to the path to
         // ensure it works.  If the slash isn't there, then it won't
@@ -296,7 +296,7 @@ void HtmlPreview::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
     Q_D(HtmlPreview);
-    
+
     d->setHtmlContent("");
 }
 

@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Install copr-cli
-      run: | 
+      run: |
         sudo pip install copr-cli configparser
         copr-cli --version
     - name: Verify build status

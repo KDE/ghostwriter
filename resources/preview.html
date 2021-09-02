@@ -50,7 +50,7 @@
             class LivePreview extends React.Component {
                 constructor(props) {
                     super(props);
-                    
+
                     this.initializeWebChannel = this.initializeWebChannel.bind(this);
                     this.loadStyleSheet = this.loadStyleSheet.bind(this);
                     this.updateLivePreview = this.updateLivePreview.bind(this);
@@ -183,13 +183,13 @@
                 componentDidCatch(error, info) {
                     this.setState({ hasError: true });
                 }
-                
+
                 render() {
                     if (this.state.hasError) {
                         this.setState({ hasError: false });
                         return "<p>Game over!  Insert coin.</p>";
                     }
-                    
+
                     return this.props.children;
                 }
             }

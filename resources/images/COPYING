@@ -9,12 +9,12 @@ Files: configure-dark.svg, configure-light.svg,
 Author: wereturtle
 License: GNU GPL v3
   GNU General Public License, version 3
-  
+
   These are derived from the "Papirus Icon Theme", Copyright 2016 Sergei
   Eremenko.  The "Papirus Icon Theme" is distributed under the terms of
   the GNU GPL v3.  The original version can be found at
   <http://github.com/PapirusDevelopmentTeam/papirus-icon-theme>.
-  
+
   To view a copy of this licence, visit <http://www.gnu.org/licenses/>.
 
   When attributing the artwork, using "wereturtle" is enough. Please link to
@@ -26,7 +26,7 @@ Files: ghostwriter.svg, close-delete.svg, size-grip.svg, unavailable.svg,
 Author: wereturtle
 License: CC BY-SA 4.0
   Creative Commons Attribution 4.0 Share-Alike License
-    
+
   This work is licenced under the Creative Commons Attribution-Share Alike 4.0
   International License. To view a copy of this licence, visit
   <http://creativecommons.org/licenses/by-sa/4.0/> or send a letter to Creative

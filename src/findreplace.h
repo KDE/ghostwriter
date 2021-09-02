@@ -50,7 +50,7 @@ public:
 
     /**
      * PRIVATE USE ONLY.
-     * 
+     *
      * This method is overridden to allow this widget to control
      * the change of focus between child widgets when the tab
      * key is pressed.
@@ -59,7 +59,7 @@ public:
 
     /**
      * PRIVATE USE ONLY.
-     * 
+     *
      * This method is overridden to respond to common shortcut
      * keys used in a find/replace widget.
      */
@@ -69,7 +69,7 @@ public slots:
     // NOTE:  The following slots should be triggered by shortcut keys.
     //        For example, you can connect the CTRL+F shortcut to the
     //        showFindView() slot.
-    
+
     /**
      * Shows the find view of the widget without the replace view.
      */

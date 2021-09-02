@@ -102,7 +102,7 @@ DocumentStatistics::~DocumentStatistics()
 int DocumentStatistics::wordCount() const
 {
     Q_D(const DocumentStatistics);
-    
+
     return d->wordCount;
 }
 
@@ -114,7 +114,7 @@ void DocumentStatistics::onTextSelected
 )
 {
     Q_D(DocumentStatistics);
-    
+
     int selectionWordCount;
     int selectionLixLongWordCount;
     int selectionWordCharacterCount;
@@ -159,14 +159,14 @@ void DocumentStatistics::onTextSelected
 void DocumentStatistics::onTextDeselected()
 {
     Q_D(DocumentStatistics);
-    
+
     d->updateStatistics();
 }
 
 void DocumentStatistics::onTextChanged(int position, int charsRemoved, int charsAdded)
 {
     Q_D(DocumentStatistics);
-    
+
     Q_UNUSED(charsRemoved)
 
     int startIndex = position - charsRemoved;
@@ -203,7 +203,7 @@ void DocumentStatistics::onTextChanged(int position, int charsRemoved, int chars
 void DocumentStatistics::onTextBlockRemoved(const QTextBlock &block)
 {
     Q_D(DocumentStatistics);
-    
+
     TextBlockData *blockData = (TextBlockData *) block.userData();
 
     if (nullptr != blockData) {
@@ -223,7 +223,7 @@ void DocumentStatistics::onTextBlockRemoved(const QTextBlock &block)
 void DocumentStatisticsPrivate::updateStatistics()
 {
     Q_Q(DocumentStatistics);
-    
+
     emit q->wordCountChanged(wordCount);
     emit q->totalWordCountChanged(wordCount);
     emit q->characterCountChanged(document->characterCount() - 1);

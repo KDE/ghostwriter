@@ -213,4 +213,3 @@ private:
 }
 
 #endif // DOCUMENTMANAGER_H
-

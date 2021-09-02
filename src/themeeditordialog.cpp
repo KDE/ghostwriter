@@ -49,7 +49,7 @@ public:
         : q_ptr(q_ptr), theme(theme)
     {
         Q_Q(ThemeEditorDialog);
-    
+
         this->lightColors = theme.lightColorScheme();
         this->darkColors = theme.darkColorScheme();
         this->oldThemeName = theme.name();
@@ -121,14 +121,14 @@ ThemeEditorDialog::~ThemeEditorDialog()
 const Theme &ThemeEditorDialog::theme() const
 {
     Q_D(const ThemeEditorDialog);
-    
+
     return d->theme;
 }
 
 void ThemeEditorDialog::accept()
 {
     Q_D(ThemeEditorDialog);
-    
+
     if (d->saveTheme()) {
         QDialog::accept();
     }
@@ -148,7 +148,7 @@ void ThemeEditorDialogPrivate::addColorRowToLayout
 )
 {
     Q_Q(ThemeEditorDialog);
-    
+
     layout->addWidget(new QLabel(description), rowIndex, 0);
 
     for (int i = 0; i < colors.size(); i++) {
@@ -195,7 +195,7 @@ void ThemeEditorDialogPrivate::addColorsToLayout(QGridLayout *layout)
 bool ThemeEditorDialogPrivate::saveTheme()
 {
     Q_Q(ThemeEditorDialog);
-    
+
     lightColors.headingMarkup = lightColors.emphasisMarkup;
     lightColors.divider = lightColors.headingMarkup;
     lightColors.image = lightColors.link;

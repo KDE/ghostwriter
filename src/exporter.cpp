@@ -69,4 +69,3 @@ void Exporter::exportToHtml(const QString &text, QString &html)
            QString("</b></center>)");
 }
 } // namespace ghostwriter
-

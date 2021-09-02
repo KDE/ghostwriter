@@ -109,7 +109,7 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
 QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypographyEnabled)
 {
     Q_D(CmarkGfmAPI);
-    
+
     int opts = CMARK_OPT_DEFAULT | CMARK_OPT_FOOTNOTES | CMARK_OPT_UNSAFE;
 
     if (smartTypographyEnabled) {
@@ -145,7 +145,7 @@ CmarkGfmAPI::CmarkGfmAPI()
     : d_ptr(new CmarkGfmAPIPrivate())
 {
     Q_D(CmarkGfmAPI);
-    
+
     cmark_gfm_core_extensions_ensure_registered();
     d->tableExt = cmark_find_syntax_extension("table");
     d->strikethroughExt = cmark_find_syntax_extension("strikethrough");

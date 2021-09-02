@@ -21,7 +21,7 @@
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
-#include <QVersionNumber> 
+#include <QVersionNumber>
 
 #include "exporterfactory.h"
 #include "cmarkgfmexporter.h"
@@ -98,21 +98,21 @@ ExporterFactory *ExporterFactory::instance()
 QList<Exporter *> ExporterFactory::fileExporters()
 {
     Q_D(ExporterFactory);
-    
+
     return d->fileExporters;
 }
 
 QList<Exporter *> ExporterFactory::htmlExporters()
 {
     Q_D(ExporterFactory);
-    
+
     return d->htmlExporters;
 }
 
 Exporter *ExporterFactory::exporterByName(const QString &name)
 {
     Q_D(ExporterFactory);
-    
+
     // Search in HTML exporter list first.
     foreach (Exporter *exporter, d->htmlExporters) {
         if (exporter->name() == name) {
@@ -140,7 +140,7 @@ ExporterFactory::ExporterFactory()
     : d_ptr(new ExporterFactoryPrivate())
 {
     Q_D(ExporterFactory);
-    
+
     CommandLineExporter *exporter = nullptr;
     QVersionNumber pandocVersion = d->isCommandAvailable("pandoc", QStringList("--version"));
     QVersionNumber mmdVersion = d->isCommandAvailable("multimarkdown", QStringList("--version"));
@@ -358,7 +358,6 @@ void ExporterFactoryPrivate::addPandocExporter
         CommandLineExporter::SMART_TYPOGRAPHY_ARG +
         " -t %1 --standalone --quiet -o " +
         CommandLineExporter::OUTPUT_FILE_PATH_VAR;
-    
 
     exporter->addFileExportCommand
     (

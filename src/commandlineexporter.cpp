@@ -75,7 +75,7 @@ CommandLineExporter::~CommandLineExporter()
 void CommandLineExporter::setHtmlRenderCommand(const QString &command)
 {
     Q_D(CommandLineExporter);
-    
+
     d->htmlRenderCommand = command;
 }
 
@@ -86,7 +86,7 @@ void CommandLineExporter::addFileExportCommand
 )
 {
     Q_D(CommandLineExporter);
-    
+
     d->formatToCommandMap.insert(format, command);
     this->m_supportedFormats.append(format);
 }
@@ -94,35 +94,35 @@ void CommandLineExporter::addFileExportCommand
 QString CommandLineExporter::smartTypographyOnArgument() const
 {
     Q_D(const CommandLineExporter);
-    
+
     return d->smartTypographyOnArgument;
 }
 
 void CommandLineExporter::setSmartTypographyOnArgument(const QString &argument)
 {
     Q_D(CommandLineExporter);
-    
+
     d->smartTypographyOnArgument = argument;
 }
 
 QString CommandLineExporter::smartTypographyOffArgument() const
 {
     Q_D(const CommandLineExporter);
-    
+
     return d->smartTypographyOffArgument;
 }
 
 void CommandLineExporter::setSmartTypographyOffArgument(const QString &argument)
 {
     Q_D(CommandLineExporter);
-    
+
     d->smartTypographyOffArgument = argument;
 }
 
 void CommandLineExporter::exportToHtml(const QString &text, QString &html)
 {
     Q_D(CommandLineExporter);
-    
+
     QString stderrOutput;
 
     if (d->htmlRenderCommand.isNull() || d->htmlRenderCommand.isEmpty()) {
@@ -163,7 +163,7 @@ void CommandLineExporter::exportToFile
 )
 {
     Q_D(CommandLineExporter);
-    
+
     QString stdoutOutput;
     QString stderrOutput;
 

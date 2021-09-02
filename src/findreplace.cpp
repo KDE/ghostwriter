@@ -63,7 +63,7 @@ public:
     void setReplaceRowVisible(bool visible);
     void startHighlightTimer();
     void closeFindReplace();
-    
+
     FindReplace *q_ptr;
 
     QtAwesome *awesome;
@@ -96,7 +96,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     : QWidget(parent), d_ptr(new FindReplacePrivate(this))
 {
     Q_D(FindReplace);
-    
+
     d->editor = editor;
     d->highlightTimer = nullptr;
 
@@ -118,7 +118,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     d->matchCaseButton->setChecked(settings.value(GW_FIND_REPLACE_MATCH_CASE, false).toBool());
     d->matchCaseButton->setToolTip(tr("Match case"));
     d->wholeWordButton = new QPushButton("“ ”");
-    
+
     d->wholeWordButton->setFont(buttonFont);
     d->wholeWordButton->setFixedWidth(width);
     d->wholeWordButton->setCheckable(true);
@@ -176,7 +176,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
 #endif
 
     closeButton->setObjectName("findReplaceCloseButton");
-        
+
     this->connect(closeButton,
         &QPushButton::clicked,
         [d]() {
@@ -245,7 +245,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
 FindReplace::~FindReplace()
 {
     Q_D(FindReplace);
-    
+
     QSettings settings;
     settings.setValue(GW_FIND_REPLACE_MATCH_CASE, d->matchCaseButton->isChecked());
     settings.setValue(GW_FIND_REPLACE_WHOLE_WORD, d->wholeWordButton->isChecked());
@@ -256,15 +256,15 @@ FindReplace::~FindReplace()
 bool FindReplace::focusNextPrevChild(bool next)
 {
     Q_D(FindReplace);
-    
+
     Q_UNUSED(next)
     return false;
 }
 
-void FindReplace::keyPressEvent(QKeyEvent *event) 
+void FindReplace::keyPressEvent(QKeyEvent *event)
 {
     Q_D(FindReplace);
-    
+
     int key = event->key();
 
     switch (key) {
@@ -299,7 +299,7 @@ void FindReplace::keyPressEvent(QKeyEvent *event)
 void FindReplace::showFindView()
 {
     Q_D(FindReplace);
-    
+
     if (!this->isVisible()) {
         d->prevFocusWidget = QApplication::focusWidget();
     }
@@ -317,7 +317,7 @@ void FindReplace::showFindView()
 void FindReplace::showReplaceView()
 {
     Q_D(FindReplace);
-    
+
     if (!this->isVisible()) {
         d->prevFocusWidget = QApplication::focusWidget();
     }
@@ -335,7 +335,7 @@ void FindReplace::showReplaceView()
 void FindReplace::findNext()
 {
     Q_D(FindReplace);
-    
+
     if (!this->isVisible()) {
         showFindView();
     }
@@ -350,7 +350,7 @@ void FindReplace::findNext()
 void FindReplace::findPrevious()
 {
     Q_D(FindReplace);
-    
+
     if (!this->isVisible()) {
         showFindView();
     }
@@ -365,7 +365,7 @@ void FindReplace::findPrevious()
 void FindReplace::replace()
 {
     Q_D(FindReplace);
-    
+
     if (!this->isVisible() || !d->replaceRowVisible) {
         showReplaceView();
     }
@@ -382,11 +382,11 @@ void FindReplace::replace()
 void FindReplace::replaceAll()
 {
     Q_D(FindReplace);
-    
+
     if (!this->isVisible() || !d->replaceRowVisible) {
         showReplaceView();
     }
-    
+
     QTextCursor cursor = d->editor->textCursor();
     cursor.movePosition(QTextCursor::Start);
 
@@ -440,7 +440,7 @@ bool FindReplacePrivate::findMatch(QTextCursor& cursor, bool wrap, bool backward
         }
         else {
             QTextCursor::MoveOperation location = QTextCursor::Start;
-            
+
             if (backwards) {
                 location = QTextCursor::End;
             }
@@ -482,7 +482,7 @@ void FindReplacePrivate::highlightMatches(bool enabled)
     match.format.setBackground(highlightColor);
 
     bool movedToMatch = false;
-    
+
     while (findMatch(cursor, false)) {
         match.cursor = cursor;
         selections.append(match);
@@ -497,7 +497,7 @@ void FindReplacePrivate::highlightMatches(bool enabled)
 
     if (!selections.isEmpty()) {
         this->statusLabel->setText(QObject::tr("%1 matches").arg(selections.count()));
-    }    
+    }
 }
 
 void FindReplacePrivate::setQueryFromSelection()
@@ -522,14 +522,14 @@ void FindReplacePrivate::setReplaceRowVisible(bool visible)
     }
 }
 
-void FindReplacePrivate::startHighlightTimer() 
+void FindReplacePrivate::startHighlightTimer()
 {
     Q_Q(FindReplace);
 
     if (nullptr == this->highlightTimer) {
         this->highlightTimer = new QTimer(q);
         this->highlightTimer->setSingleShot(true);
-        
+
         q->connect
         (
             this->highlightTimer,
@@ -546,13 +546,13 @@ void FindReplacePrivate::startHighlightTimer()
         this->highlightTimer->stop();
     }
 
-    this->highlightTimer->start(500);    
+    this->highlightTimer->start(500);
 }
 
-void FindReplacePrivate::closeFindReplace() 
+void FindReplacePrivate::closeFindReplace()
 {
     Q_Q(FindReplace);
-    
+
     if (this->highlightMatchesButton->isChecked()) {
         this->highlightMatches(false);
     }

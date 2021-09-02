@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 #endif
 
     QApplication app(argc, argv);
-    
+
 #if defined(Q_OS_WIN)
     // Use ANGLE instead of OpenGL to bypass bug where full screen windows
     // under Windows 10 and OpenGL will not show menus from the menu bar

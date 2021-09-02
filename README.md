@@ -45,7 +45,7 @@ There is likewise a staging repository for [Copr](https://copr.fedorainfracloud.
 
     $ sudo dnf copr enable wereturtle/staging
     $ sudo dnf install ghostwriter
-    
+
 
 Finally, you may follow the build instructions below to install on Linux with the latest source code.
 
@@ -121,7 +121,7 @@ $ brew install qt5
 
 *Note:* If you installed XCode command line tools, Qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](BUILD_MAC.md)
 
-4. run `brew link` 
+4. run `brew link`
 
 ``` shell
 brew link qt5 --force

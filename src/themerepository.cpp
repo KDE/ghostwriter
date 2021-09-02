@@ -84,7 +84,7 @@ ThemeRepository::ThemeRepository()
     : d_ptr(new ThemeRepositoryPrivate())
 {
     Q_D(ThemeRepository);
-    
+
     d->themeDirectoryPath = AppSettings::instance()->themeDirectoryPath();
     d->themeDirectory = QDir(d->themeDirectoryPath);
 
@@ -119,7 +119,7 @@ ThemeRepository::~ThemeRepository()
 QStringList ThemeRepository::availableThemes() const
 {
     Q_D(const ThemeRepository);
-    
+
     QStringList themeNames;
 
     foreach (Theme theme, d->builtInThemes) {
@@ -133,7 +133,7 @@ QStringList ThemeRepository::availableThemes() const
 Theme ThemeRepository::defaultTheme() const
 {
     Q_D(const ThemeRepository);
-    
+
     QString err;
     return d->builtInThemes[0];
 }
@@ -141,7 +141,7 @@ Theme ThemeRepository::defaultTheme() const
 Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
 {
     Q_D(const ThemeRepository);
-    
+
     Theme theme = d->builtInThemes[0];
     err = QString();
 
@@ -222,7 +222,7 @@ Theme ThemeRepository::loadTheme(const QString &name, QString &err) const
 void ThemeRepository::deleteTheme(const QString &name, QString &err)
 {
     Q_D(ThemeRepository);
-    
+
     err = QString();
 
     QFile themeFile(this->themeFilePath(name));
@@ -240,7 +240,7 @@ void ThemeRepository::deleteTheme(const QString &name, QString &err)
 void ThemeRepository::saveTheme(const QString &name, Theme &theme, QString &err)
 {
     Q_D(ThemeRepository);
-    
+
     err = QString();
 
     // Check if theme was renamed.  If so, rename the theme's file.
@@ -317,21 +317,21 @@ void ThemeRepository::saveTheme(const QString &name, Theme &theme, QString &err)
 QDir ThemeRepository::themeDirectory() const
 {
     Q_D(const ThemeRepository);
-    
+
     return d->themeDirectory;
 }
 
 QString ThemeRepository::themeFilePath(const QString &themeName) const
 {
     Q_D(const ThemeRepository);
-    
+
     return d->themeDirectoryPath + "/" + themeName + ".json";
 }
 
 QString ThemeRepository::generateUntitledThemeName() const
 {
     Q_D(const ThemeRepository);
-    
+
     QString name = tr("Untitled 1");
     int count = 1;
     bool availableNameFound = false;

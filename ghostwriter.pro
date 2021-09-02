@@ -19,7 +19,7 @@
 ################################################################################
 
 VERSION = 2.0.2
-    
+
 lessThan(QT_MAJOR_VERSION, 5) {
     error("ghostwriter requires Qt 5.8 or greater")
 }
@@ -79,7 +79,7 @@ macx {
 } else:unix {
     CONFIG += link_pkgconfig
     PKGCONFIG += hunspell
-    
+
     HEADERS += src/spelling/dictionary_provider_hunspell.h \
         src/spelling/dictionary_provider_voikko.h
 

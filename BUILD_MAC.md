@@ -34,7 +34,6 @@ Open a Terminal and change directory to where brew installed target mkspecs file
 
   ```bash
   cd /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac
-
   ```
 
 Now copy and paste these new commands **into the same Terminal window**

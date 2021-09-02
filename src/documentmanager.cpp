@@ -167,7 +167,7 @@ DocumentManager::DocumentManager
     d_ptr(new DocumentManagerPrivate(this))
 {
     Q_D(DocumentManager);
-    
+
     d->editor = editor;
     d->fileHistoryEnabled = true;
     d->createBackupOnSave = true;
@@ -231,42 +231,42 @@ DocumentManager::DocumentManager
 DocumentManager::~DocumentManager()
 {
     Q_D(DocumentManager);
-    
+
     d->saveFutureWatcher->waitForFinished();
 }
 
 MarkdownDocument *DocumentManager::document() const
 {
     Q_D(const DocumentManager);
-    
+
     return d->document;
 }
 
 bool DocumentManager::autoSaveEnabled() const
 {
     Q_D(const DocumentManager);
-    
+
     return d->autoSaveEnabled;
 }
 
 bool DocumentManager::fileBackupEnabled() const
 {
     Q_D(const DocumentManager);
-    
+
     return d->createBackupOnSave;
 }
 
 void DocumentManager::setFileHistoryEnabled(bool enabled)
 {
     Q_D(DocumentManager);
-    
+
     d->fileHistoryEnabled = enabled;
 }
 
 void DocumentManager::setAutoSaveEnabled(bool enabled)
 {
     Q_D(DocumentManager);
-    
+
     d->autoSaveEnabled = enabled;
 
     if (enabled) {
@@ -279,14 +279,14 @@ void DocumentManager::setAutoSaveEnabled(bool enabled)
 void DocumentManager::setFileBackupEnabled(bool enabled)
 {
     Q_D(DocumentManager);
-    
+
     d->createBackupOnSave = enabled;
 }
 
 void DocumentManager::open(const QString &filePath)
 {
     Q_D(DocumentManager);
-    
+
     if (d->checkSaveChanges()) {
         QString path;
 
@@ -351,7 +351,7 @@ void DocumentManager::open(const QString &filePath)
 void DocumentManager::reopenLastClosedFile()
 {
     Q_D(DocumentManager);
-    
+
     if (d->fileHistoryEnabled) {
         DocumentHistory history;
         QStringList recentFiles = history.recentFiles(2);
@@ -370,7 +370,7 @@ void DocumentManager::reopenLastClosedFile()
 void DocumentManager::reload()
 {
     Q_D(DocumentManager);
-    
+
     if (!d->document->isNew()) {
         if (d->document->isModified()) {
             // Prompt user if he wants to save changes.
@@ -402,7 +402,7 @@ void DocumentManager::reload()
 void DocumentManager::rename()
 {
     Q_D(DocumentManager);
-    
+
     if (d->document->isNew()) {
         saveAs();
     } else {
@@ -438,7 +438,7 @@ void DocumentManager::rename()
 bool DocumentManager::save()
 {
     Q_D(DocumentManager);
-    
+
     if (d->document->isNew() || !d->checkPermissionsBeforeSave()) {
         return this->saveAs();
     } else {
@@ -450,7 +450,7 @@ bool DocumentManager::save()
 bool DocumentManager::saveAs()
 {
     Q_D(DocumentManager);
-    
+
     QString startingDirectory = QString();
 
     if (!d->document->isNew()) {
@@ -478,7 +478,7 @@ bool DocumentManager::saveAs()
 bool DocumentManager::close()
 {
     Q_D(DocumentManager);
-    
+
     if (d->checkSaveChanges()) {
         if (d->saveFutureWatcher->isRunning() || d->saveFutureWatcher->isStarted()) {
             d->saveFutureWatcher->waitForFinished();
@@ -533,7 +533,7 @@ bool DocumentManager::close()
 void DocumentManager::exportFile()
 {
     Q_D(DocumentManager);
-    
+
     ExportDialog exportDialog(d->document);
 
     connect(&exportDialog, SIGNAL(exportStarted(QString)), this, SIGNAL(operationStarted(QString)));

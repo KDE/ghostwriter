@@ -69,7 +69,7 @@ DocumentStatisticsWidget::DocumentStatisticsWidget(QWidget *parent)
       d_ptr(new DocumentStatisticsWidgetPrivate())
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     d->wordCountLabel = addStatisticLabel(tr("Words:"), "0");
     d->characterCountLabel = addStatisticLabel(tr("Characters:"), "0");
     d->sentenceCountLabel = addStatisticLabel(tr("Sentences:"), "0");
@@ -90,56 +90,56 @@ DocumentStatisticsWidget::~DocumentStatisticsWidget()
 void DocumentStatisticsWidget::setWordCount(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setIntegerValueForLabel(d->wordCountLabel, value);
 }
 
 void DocumentStatisticsWidget::setCharacterCount(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setIntegerValueForLabel(d->characterCountLabel, value);
 }
 
 void DocumentStatisticsWidget::setParagraphCount(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setIntegerValueForLabel(d->paragraphCountLabel, value);
 }
 
 void DocumentStatisticsWidget::setSentenceCount(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setIntegerValueForLabel(d->sentenceCountLabel, value);
 }
 
 void DocumentStatisticsWidget::setPageCount(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setPageValueForLabel(d->pageCountLabel, value);
 }
 
 void DocumentStatisticsWidget::setComplexWords(int percentage)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setPercentageValueForLabel(d->complexWordsLabel, percentage);
 }
 
 void DocumentStatisticsWidget::setReadingTime(int minutes)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     setTimeValueForLabel(d->readingTimeLabel, minutes);
 }
 
 void DocumentStatisticsWidget::setLixReadingEase(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     QString readingEaseStr = d->VERY_DIFFICULT_READING_EASE_STR;
 
     if (value <= 25) {
@@ -158,7 +158,7 @@ void DocumentStatisticsWidget::setLixReadingEase(int value)
 void DocumentStatisticsWidget::setReadabilityIndex(int value)
 {
     Q_D(DocumentStatisticsWidget);
-    
+
     QString cliStr = tr("Kindergarten");
 
     if (value > 16) {

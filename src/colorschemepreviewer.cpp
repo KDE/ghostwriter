@@ -89,7 +89,7 @@ ColorSchemePreviewer::ColorSchemePreviewer
 ) : d_ptr(new ColorSchemePreviewerPrivate())
 {
     Q_D(ColorSchemePreviewer);
-    
+
     QString text = d->loremIpsum;
 
     text.replace("@headingMarkup", colors.headingMarkup.name());
@@ -158,7 +158,7 @@ ColorSchemePreviewer::~ColorSchemePreviewer()
 QIcon ColorSchemePreviewer::icon()
 {
     Q_D(ColorSchemePreviewer);
-    
+
     return d->thumbnailPreviewIcon;
 }
 } // namespace ghostwriter

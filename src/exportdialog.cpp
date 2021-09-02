@@ -51,7 +51,7 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
         ExporterFactory::instance()->fileExporters();
 
     this->setWindowTitle(tr("Export"));
-    
+
     exporterComboBox = new QComboBox();
 
     QSettings settings;
@@ -75,11 +75,11 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     QVariant exporterVariant = exporterComboBox->currentData();
     Exporter *exporter = (Exporter *) exporterVariant.value<void *>();
     fileFormatComboBox = new QComboBox();
-    
+
     foreach (const ExportFormat *format, exporter->supportedFormats()) {
         fileFormatComboBox->addItem(format->name(), QVariant::fromValue((void *) format));
     }
-    
+
     bool smartTypographyEnabled =
         settings.value(GW_SMART_TYPOGRAPHY_KEY, true).toBool();
     smartTypographyCheckBox = new QCheckBox(tr("Smart Typography"));
@@ -101,7 +101,7 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     buttonBox->addButton(exportButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(QDialogButtonBox::Cancel);
     layout->addWidget(buttonBox);
-    
+
     connect(exporterComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onExporterChanged(int)));
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
@@ -178,8 +178,8 @@ void ExportDialog::accept()
         document->toPlainText(),
         fileName,
         err
-    );    
-    
+    );
+
     emit exportComplete();
     QApplication::restoreOverrideCursor();
 
@@ -202,7 +202,7 @@ void ExportDialog::onExporterChanged(int index)
     QVariant exporterVariant = exporterComboBox->itemData(index);
     Exporter *exporter = (Exporter *) exporterVariant.value<void *>();
     fileFormatComboBox->clear();
-    
+
     foreach (const ExportFormat *format, exporter->supportedFormats()) {
         fileFormatComboBox->addItem(format->name(), QVariant::fromValue((void *) format));
     }

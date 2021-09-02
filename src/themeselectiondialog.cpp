@@ -96,7 +96,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
       d_ptr(new ThemeSelectionDialogPrivate(this))
 {
     Q_D(ThemeSelectionDialog);
-    
+
     qreal dpr = 1.0;
 
 #if QT_VERSION >= 0x050600
@@ -223,7 +223,7 @@ ThemeSelectionDialog::~ThemeSelectionDialog()
 const Theme &ThemeSelectionDialog::theme() const
 {
     Q_D(const ThemeSelectionDialog);
-    
+
     return d->currentTheme;
 }
 
@@ -321,7 +321,7 @@ void ThemeSelectionDialogPrivate::loadSelectedTheme()
 void ThemeSelectionDialogPrivate::createNewTheme()
 {
     Q_Q(ThemeSelectionDialog);
-    
+
     QString err = QString();
 
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
@@ -393,7 +393,7 @@ void ThemeSelectionDialogPrivate::createNewTheme()
 void ThemeSelectionDialogPrivate::deleteTheme()
 {
     Q_Q(ThemeSelectionDialog);
-    
+
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
 
     if (selectedThemes.isEmpty()) {
@@ -453,7 +453,7 @@ void ThemeSelectionDialogPrivate::deleteTheme()
 void ThemeSelectionDialogPrivate::editTheme()
 {
     Q_Q(ThemeSelectionDialog);
-    
+
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
 
     if (!selectedThemes.isEmpty()) {
@@ -498,7 +498,7 @@ void ThemeSelectionDialogPrivate::editTheme()
 void ThemeSelectionDialogPrivate::updateTheme(const Theme &theme)
 {
     Q_Q(ThemeSelectionDialog);
-    
+
     // Update theme name and preview icon, as applicable.
     //
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();

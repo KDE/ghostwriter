@@ -85,7 +85,7 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
     this->m_hoverColor = this->m_pressedColor;
 
     this->m_faintColor = applyAlpha(colors.foreground, colors.background, 30);
-    
+
     this->m_headingColor = colors.headingText.name();
     this->m_codeColor = colors.codeText.name();
     this->m_linkColor = colors.link.name();
@@ -141,7 +141,7 @@ QString StyleSheetBuilder::statusLabelStyleSheet()
     return m_statusLabelStyleSheet;
 }
 
-QString StyleSheetBuilder::findReplaceStyleSheet() 
+QString StyleSheetBuilder::findReplaceStyleSheet()
 {
     return m_findReplaceStyleSheet;
 }
@@ -156,17 +156,17 @@ QString StyleSheetBuilder::sidebarWidgetStyleSheet()
     return m_sidebarWidgetStyleSheet;
 }
 
-QString StyleSheetBuilder::htmlPreviewCss() 
+QString StyleSheetBuilder::htmlPreviewCss()
 {
     return m_htmlPreviewCss;
 }
 
-QColor StyleSheetBuilder::interfaceTextColor() 
+QColor StyleSheetBuilder::interfaceTextColor()
 {
     return m_interfaceTextColor;
 }
 
-QColor StyleSheetBuilder::faintColor() 
+QColor StyleSheetBuilder::faintColor()
 {
     return m_faintColor;
 }
@@ -341,7 +341,7 @@ void StyleSheetBuilder::buildStatusLabelStyleSheet()
             ;
 }
 
-void StyleSheetBuilder::buildFindReplaceStyleSheet() 
+void StyleSheetBuilder::buildFindReplaceStyleSheet()
 {
     m_findReplaceStyleSheet = "";
 
@@ -480,7 +480,7 @@ void StyleSheetBuilder::buildSidebarWidgetStyleSheet()
             ;
 }
 
-void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners) 
+void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners)
 {
     if (m_htmlPreviewSass.isNull() || m_htmlPreviewSass.isEmpty())
     {
@@ -508,7 +508,7 @@ void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners)
         scrollBarBorderRadius = "3px";
     }
 
-    m_htmlPreviewCss = m_htmlPreviewSass;    
+    m_htmlPreviewCss = m_htmlPreviewSass;
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$textColor", m_foregroundColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$backgroundColor", m_backgroundColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$textFont", m_htmlPreviewTextFont.family().remove(QRegularExpression("\\[.*\\]")).trimmed());
@@ -520,7 +520,7 @@ void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners)
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$linkColor", m_linkColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$blockquoteColor", m_blockquoteColor.name());
     m_htmlPreviewCss = m_htmlPreviewCss.replace("$thickBorderColor", m_thickBorderColor.name());
-    m_htmlPreviewCss = m_htmlPreviewCss.replace("$scrollBarThumbColor", 
+    m_htmlPreviewCss = m_htmlPreviewCss.replace("$scrollBarThumbColor",
         QString("rgba(%1, %2, %3, %4)")
         .arg(baseScrollColor.red()).arg(baseScrollColor.green()).arg(baseScrollColor.blue())
         .arg(baseScrollColor.alphaF()));

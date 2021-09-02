@@ -2,7 +2,7 @@
 
 name: ubuntu-build
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -19,17 +19,17 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Install Qt
         run: |
-          sudo apt-get update 
+          sudo apt-get update
           sudo apt-get install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
-          
+
       # Runs a single command using the runners shell
       - name: Compile
         run: |

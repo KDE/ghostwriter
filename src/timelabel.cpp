@@ -53,7 +53,7 @@ TimeLabel::TimeLabel(QWidget *parent) :
     d_ptr(new TimeLabelPrivate(this))
 {
     Q_D(TimeLabel);
-    
+
     d->timer = new QTimer(this);
     this->connect
     (
@@ -75,7 +75,7 @@ TimeLabel::~TimeLabel()
 void TimeLabelPrivate::updateTimeOfDay()
 {
     Q_Q(TimeLabel);
-    
+
     QTime currentTime = QTime::currentTime();
     q->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
 

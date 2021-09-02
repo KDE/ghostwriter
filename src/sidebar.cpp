@@ -149,7 +149,7 @@ void Sidebar::insertTab
     } else if (index > d->tabs->count()) {
         index = d->tabs->count();
     }
-    
+
     button->setParent(this);
     button->setCheckable(true);
 
@@ -178,7 +178,7 @@ void Sidebar::removeTab(int index)
 
     int activeTabIndex = 0;
 
-    if (d->stack->currentIndex() == activeTabIndex) {        
+    if (d->stack->currentIndex() == activeTabIndex) {
         if (activeTabIndex > 0) {
             activeTabIndex--;
         } else {
