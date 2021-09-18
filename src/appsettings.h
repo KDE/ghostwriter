@@ -55,6 +55,7 @@ public:
     QString themeDirectoryPath() const;
     QString dictionaryPath() const;
     QString translationsPath() const;
+    QString draftLocation() const;
 
     bool autoSaveEnabled() const;
     Q_SLOT void setAutoSaveEnabled(bool enabled);

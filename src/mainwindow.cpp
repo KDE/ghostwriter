@@ -121,6 +121,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     documentManager = new DocumentManager(editor, this);
     documentManager->setAutoSaveEnabled(appSettings->autoSaveEnabled());
     documentManager->setFileBackupEnabled(appSettings->backupFileEnabled());
+    documentManager->setDraftLocation(appSettings->draftLocation());
     documentManager->setFileHistoryEnabled(appSettings->fileHistoryEnabled());
     setWindowTitle(documentManager->document()->displayName() + "[*] - " + qAppName());
     connect(documentManager, SIGNAL(documentDisplayNameChanged(QString)), this, SLOT(changeDocumentDisplayName(QString)));

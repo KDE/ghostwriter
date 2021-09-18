@@ -150,6 +150,12 @@ public slots:
     void setFileBackupEnabled(bool enabled);
 
     /**
+     * Sets draft directory location where draft files (i.e., autosaved
+     * untitled documents) will be saved.
+     */
+    void setDraftLocation(const QString &directory);
+
+    /**
      * Prompts the user for a file path, and loads the document with the
      * file contents at the selected path.
      */
@@ -207,9 +213,6 @@ public slots:
 
 private:
     QScopedPointer<DocumentManagerPrivate> d_ptr;
-
-    friend class DocumentManagerPrivate;
-
 };
 }
 

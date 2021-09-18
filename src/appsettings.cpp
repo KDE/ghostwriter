@@ -25,6 +25,8 @@
 #include <QFontInfo>
 #include <QLocale>
 #include <QSettings>
+#include <QStandardPaths>
+#include <QString>
 #include <QStringList>
 
 #include "appsettings.h"
@@ -81,6 +83,7 @@ public:
     bool autoMatchEnabled;
     bool autoSaveEnabled;
     bool backupFileEnabled;
+    QString draftLocation;
     bool bulletPointCyclingEnabled;
     bool displayTimeInFullScreenEnabled;
     bool fileHistoryEnabled;
@@ -212,6 +215,13 @@ void AppSettings::setBackupFileEnabled(bool enabled)
     
     d->backupFileEnabled = enabled;
     emit backupFileChanged(enabled);
+}
+
+QString AppSettings::draftLocation() const
+{
+    Q_D(const AppSettings);
+
+    return d->draftLocation;
 }
 
 QFont AppSettings::editorFont() const
@@ -637,6 +647,9 @@ AppSettings::AppSettings()
     // Handle portability
     QString userDir;
 
+    d->draftLocation =
+        QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+
     if (portable.exists() && portable.isWritable()) {
         userDir = portable.absoluteFilePath();
         QSettings::setDefaultFormat(QSettings::IniFormat);
@@ -648,6 +661,14 @@ AppSettings::AppSettings()
         );
 
         d->translationsPath = appDir + "/translations";
+
+        d->draftLocation = appDir + "/drafts";
+
+        QDir draftDir(d->draftLocation);
+
+        if (!draftDir.exists()) {
+            draftDir.mkpath(draftDir.path());
+        }
     } else {
 #ifdef Q_OS_WIN32
         // On Windows, don't ever use the registry to store settings, for the
@@ -674,21 +695,22 @@ AppSettings::AppSettings()
         }
     }
 
-    QDir themeDir(userDir + "/themes");
+    d->themeDirectoryPath = userDir + "/themes";
+
+    QDir themeDir(d->themeDirectoryPath);
 
     if (!themeDir.exists()) {
         themeDir.mkpath(themeDir.path());
     }
 
-    d->themeDirectoryPath = themeDir.absolutePath();
+    d->dictionaryPath = userDir + "/dictionaries";
 
-    QDir dictionaryDir(userDir + "/dictionaries");
+    QDir dictionaryDir(d->dictionaryPath);
 
     if (!dictionaryDir.exists()) {
         dictionaryDir.mkpath(dictionaryDir.path());
     }
 
-    d->dictionaryPath = dictionaryDir.absolutePath();
     DictionaryManager::setPath(d->dictionaryPath);
 
     QStringList dictdirs;
@@ -701,7 +723,6 @@ AppSettings::AppSettings()
     }
 
     QDir::setSearchPaths("dict", dictdirs);
-
 
     // End FocusWriter lift/mod
 
