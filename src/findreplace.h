@@ -51,7 +51,7 @@ public:
     /**
      * PRIVATE USE ONLY.
      * 
-     * This method is overriden to allow this widget to control
+     * This method is overridden to allow this widget to control
      * the change of focus between child widgets when the tab
      * key is pressed.
      */

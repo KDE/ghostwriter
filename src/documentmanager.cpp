@@ -738,7 +738,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     QTextStream inStream(&inputFile);
 
     // Markdown files need to be in UTF-8 format, so assume that is
-    // what the user is opening by default.  Enable autodection
+    // what the user is opening by default.  Enable autodetection
     // of of UTF-16 or UTF-32 BOM in case the file isn't UTF-8 encoded.
     //
     inStream.setCodec("UTF-8");

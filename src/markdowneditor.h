@@ -164,7 +164,7 @@ signals:
 
     /**
      * Emitted when the user has stopped typing text.
-     * Time emited is scaled per document size up to 1000ms
+     * Time emitted is scaled per document size up to 1000ms
      * since last document update.
      */
     void typingPausedScaled();
@@ -304,7 +304,7 @@ public slots:
 
     /**
      * Sets whether bullet points should be automatically cycled with
-     * a differet bullet point mark (*, -, +) each time a sublist is
+     * a different bullet point mark (*, -, +) each time a sublist is
      * created.
      */
     void setBulletPointCyclingEnabled(bool enable);

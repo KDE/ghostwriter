@@ -565,4 +565,4 @@ void FindReplacePrivate::closeFindReplace()
     }
 }
 
-} // namepsace ghostwriter
+} // namespace ghostwriter

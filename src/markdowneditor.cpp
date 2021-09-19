@@ -1640,7 +1640,7 @@ void MarkdownEditor::focusText()
 
             break;
         }
-        // `FocusModeTypewriter` implicitly handeled here as we don't highlight anything but center the current line.
+        // `FocusModeTypewriter` implicitly handled here as we don't highlight anything but center the current line.
         default:
             break;
         }
@@ -2031,7 +2031,7 @@ bool MarkdownEditorPrivate::insertPairedCharacters(const QChar firstChar)
                 if (!cursor.block().text()[blockPos].isSpace()) {
                     // If the previous character is not whitespace, allow
                     // character matching only for parentheses and similar
-                    // characters that need matching even if preceeded by
+                    // characters that need matching even if preceded by
                     // non-whitespace (i.e., for mathematical or computer
                     // science expressions).  Otherwise, do not match the
                     // opening character.

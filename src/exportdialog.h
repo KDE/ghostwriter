@@ -58,7 +58,7 @@ signals:
     void exportStarted(const QString &description);
 
     /**
-     * Emitted when an exprot operation has completed, so that some sort of
+     * Emitted when an export operation has completed, so that some sort of
      * notification can be provided to the user by the calling program,
      * such as removing a progress bar previously shown when the export
      * operation began.
