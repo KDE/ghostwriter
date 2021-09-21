@@ -112,6 +112,9 @@ public:
     Q_SLOT void setHideMenuBarInFullScreenEnabled(bool enabled);
     Q_SIGNAL void hideMenuBarInFullScreenChanged(bool enabled);
 
+    bool restoreSessionEnabled() const;
+    Q_SLOT void setRestoreSessionEnabled(bool enabled);
+
     bool fileHistoryEnabled() const;
     Q_SLOT void setFileHistoryEnabled(bool enabled);
     Q_SIGNAL void fileHistoryChanged(bool enabled);

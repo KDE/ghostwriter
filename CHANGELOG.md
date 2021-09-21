@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Untitled documents are now autosaved to a draft folder when autosave is enabled.
 * Added preferences button to open the draft folder location where untitled documents are autosaved.
+* Added check box option to load last opened file on startup.  If left unchecked, a new file will be opened on startup.
 * Updated Brazilian Portuguese translation.
 
 ## [2.0.2] - 2021-06-27

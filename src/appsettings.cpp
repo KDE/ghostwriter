@@ -33,9 +33,10 @@
 #include "dictionary_manager.h"
 #include "exporterfactory.h"
 
+#define GW_RESTORE_SESSION_KEY "Session/restoreSession"
+#define GW_REMEMBER_FILE_HISTORY_KEY "Session/rememberFileHistory"
 #define GW_AUTOSAVE_KEY "Save/autoSave"
 #define GW_BACKUP_FILE_KEY "Save/backupFile"
-#define GW_REMEMBER_FILE_HISTORY_KEY "Save/rememberFileHistory"
 #define GW_EDITOR_FONT_KEY "Style/editorFont"
 #define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
 #define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
@@ -86,6 +87,7 @@ public:
     QString draftLocation;
     bool bulletPointCyclingEnabled;
     bool displayTimeInFullScreenEnabled;
+    bool restoreSessionEnabled;
     bool fileHistoryEnabled;
     bool hideMenuBarInFullScreenEnabled;
     bool htmlPreviewVisible;
@@ -156,6 +158,7 @@ void AppSettings::store()
     appSettings.setValue(GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
     appSettings.setValue(GW_LOCALE_KEY, QVariant(d->locale));
+    appSettings.setValue(GW_RESTORE_SESSION_KEY, QVariant(d->restoreSessionEnabled));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d->fileHistoryEnabled));
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(d->insertSpacesForTabsEnabled));
     appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(d->tabWidth));
@@ -427,6 +430,20 @@ void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
     
     d->hideMenuBarInFullScreenEnabled = enabled;
     emit hideMenuBarInFullScreenChanged(enabled);
+}
+
+bool AppSettings::restoreSessionEnabled() const
+{
+    Q_D(const AppSettings);
+
+    return d->restoreSessionEnabled;
+}
+
+void AppSettings::setRestoreSessionEnabled(bool enabled)
+{
+    Q_D(AppSettings);
+
+    d->restoreSessionEnabled = enabled;
 }
 
 bool AppSettings::fileHistoryEnabled() const
@@ -788,6 +805,7 @@ AppSettings::AppSettings()
     }
 
     d->hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->restoreSessionEnabled = appSettings.value(GW_RESTORE_SESSION_KEY, QVariant(true)).toBool();
     d->fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
     d->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     d->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();

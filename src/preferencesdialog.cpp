@@ -243,7 +243,7 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     connect(backupCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setBackupFileEnabled(bool)));
     savingGroupLayout->addRow(backupCheckBox);
 
-    QPushButton *openDraftDirButton = new QPushButton(tr("View saved drafts..."));
+    QPushButton *openDraftDirButton = new QPushButton(tr("View untitled drafts..."));
     q->connect(
         openDraftDirButton,
         &QPushButton::clicked,
@@ -253,17 +253,28 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     );
     savingGroupLayout->addRow(openDraftDirButton);
 
-    QGroupBox *historyGroupBox = new QGroupBox(tr("History"));
-    tabLayout->addWidget(historyGroupBox);
+    QGroupBox *sessionGroupBox = new QGroupBox(tr("Session"));
+    tabLayout->addWidget(sessionGroupBox);
 
-    QFormLayout *historyGroupLayout = new QFormLayout();
-    historyGroupBox->setLayout(historyGroupLayout);
+    QFormLayout *sessionGroupLayout = new QFormLayout();
+    sessionGroupBox->setLayout(sessionGroupLayout);
 
-    QCheckBox *rememberHistoryCheckBox = new QCheckBox(tr("Remember file history"));
+    QCheckBox *rememberHistoryCheckBox = new QCheckBox(tr("Remember recent files"));
     rememberHistoryCheckBox->setCheckable(true);
     rememberHistoryCheckBox->setChecked(appSettings->fileHistoryEnabled());
     connect(rememberHistoryCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setFileHistoryEnabled(bool)));
-    historyGroupLayout->addRow(rememberHistoryCheckBox);
+    sessionGroupLayout->addRow(rememberHistoryCheckBox);
+
+    QCheckBox *restoreSessionCheckBox = new QCheckBox(tr("Open last file on startup"));
+    restoreSessionCheckBox->setCheckable(true);
+    restoreSessionCheckBox->setChecked(appSettings->restoreSessionEnabled());
+    q->connect(
+        restoreSessionCheckBox,
+        &QPushButton::toggled,
+        appSettings,
+        &AppSettings::setRestoreSessionEnabled
+    );
+    sessionGroupLayout->addRow(restoreSessionCheckBox);
 
     return tab;
 }

@@ -176,7 +176,9 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         }
     }
 
-    if (fileToOpen.isNull() && appSettings->fileHistoryEnabled()) {
+    if (fileToOpen.isNull()
+            && appSettings->fileHistoryEnabled()
+            && appSettings->restoreSessionEnabled()) {
         QString lastFile;
 
         if (!recentFiles.isEmpty()) {
