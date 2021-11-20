@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
@@ -39,7 +39,7 @@
 #include <QScrollBar>
 #include <QSettings>
 #include <QStatusBar>
-#include <QTextStream>
+#include <QTemporaryFile>
 
 #include "3rdparty/QtAwesome/QtAwesome.h"
 
@@ -276,14 +276,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         editor->setSpellCheckEnabled(false);
     }
 
-    connect
-    (
-        documentStats,
-        SIGNAL(wordCountChanged(int)),
-        this,
-        SLOT(updateWordCount(int))
-    );
-
     this->connect
     (
         documentManager,
@@ -481,6 +473,7 @@ void MainWindow::quitApplication()
         this->editor->document()->disconnect();
         this->editor->disconnect();
         this->htmlPreview->disconnect();
+        StyleSheetBuilder::clearCache();
 
         qApp->quit();
     }
@@ -560,7 +553,7 @@ void MainWindow::toggleFullScreen(bool checked)
 
     if (this->isFullScreen() || !checked) {
         if (appSettings->displayTimeInFullScreenEnabled()) {
-            timeLabel->hide();
+            timeIndicator->hide();
         }
 
         // If the window had been maximized prior to entering
@@ -581,7 +574,7 @@ void MainWindow::toggleFullScreen(bool checked)
         }
     } else {
         if (appSettings->displayTimeInFullScreenEnabled()) {
-            timeLabel->show();
+            timeIndicator->show();
         }
 
         if (this->isMaximized()) {
@@ -622,9 +615,9 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
 {
     if (this->isFullScreen()) {
         if (checked) {
-            this->timeLabel->show();
+            this->timeIndicator->show();
         } else {
-            this->timeLabel->hide();
+            this->timeIndicator->hide();
         }
     }
 }
@@ -727,11 +720,6 @@ void MainWindow::showAbout()
     QMessageBox::about(this, tr("About %1").arg(qAppName()), aboutText);
 }
 
-void MainWindow::updateWordCount(int newWordCount)
-{
-    wordCountLabel->setText(tr("%Ln word(s)", "", newWordCount));
-}
-
 void MainWindow::changeFocusMode(FocusMode focusMode)
 {
     if (FocusModeDisabled != editor->focusMode()) {
@@ -788,20 +776,20 @@ void MainWindow::changeDocumentDisplayName(const QString &displayName)
 void MainWindow::onOperationStarted(const QString &description)
 {
     if (!description.isNull()) {
-        statusLabel->setText(description);
+        statusIndicator->setText(description);
     }
 
-    wordCountLabel->hide();
-    statusLabel->show();
+    statisticsIndicator->hide();
+    statusIndicator->show();
     this->update();
     qApp->processEvents();
 }
 
 void MainWindow::onOperationFinished()
 {
-    statusLabel->setText(QString());
-    wordCountLabel->show();
-    statusLabel->hide();
+    statusIndicator->setText(QString());
+    statisticsIndicator->show();
+    statusIndicator->hide();
     this->update();
     qApp->processEvents();
 }
@@ -1192,31 +1180,41 @@ void MainWindow::buildStatusBar()
         }
     );
     
-    timeLabel = new TimeLabel(this);
-    leftLayout->addWidget(timeLabel, 0, Qt::AlignLeft);
+    timeIndicator = new TimeLabel(this);
+    leftLayout->addWidget(timeIndicator, 0, Qt::AlignLeft);
     leftWidget->setContentsMargins(0, 0, 0, 0);
-    statusBarWidgets.append(timeLabel);
+    statusBarWidgets.append(timeIndicator);
 
     if (!this->isFullScreen() || appSettings->displayTimeInFullScreenEnabled()) {
-        timeLabel->hide();
+        timeIndicator->hide();
     }
 
     statusBarLayout->addWidget(leftWidget, 1, 0, 1, 1, Qt::AlignLeft);
 
     // Add middle widgets to status bar.
-    statusLabel = new QLabel();
-    midLayout->addWidget(statusLabel, 0, Qt::AlignCenter);
-    statusLabel->hide();
+    statusIndicator = new QLabel();
+    midLayout->addWidget(statusIndicator, 0, Qt::AlignCenter);
+    statusIndicator->hide();
 
-    wordCountLabel = new QLabel();
-    wordCountLabel->setAlignment(Qt::AlignCenter);
-    wordCountLabel->setFrameShape(QFrame::NoFrame);
-    wordCountLabel->setLineWidth(0);
-    updateWordCount(0);
-    midLayout->addWidget(wordCountLabel, 0, Qt::AlignCenter);
+    statisticsIndicator = new StatisticsIndicator(this->documentStats, this->sessionStats, this);
+
+    if ((appSettings->favoriteStatistic() >= 0)
+            && (appSettings->favoriteStatistic() < statisticsIndicator->count())) {
+        statisticsIndicator->setCurrentIndex(appSettings->favoriteStatistic());
+    }
+    else {
+        statisticsIndicator->setCurrentIndex(0);
+    }
+
+    this->connect(statisticsIndicator,
+        QOverload<int>::of(&QComboBox::currentIndexChanged),
+        appSettings,
+        &AppSettings::setFavoriteStatistic);
+
+    midLayout->addWidget(statisticsIndicator, 0, Qt::AlignCenter);
     midWidget->setContentsMargins(0, 0, 0, 0);
     statusBarLayout->addWidget(midWidget, 1, 1, 1, 1, Qt::AlignCenter);
-    statusBarWidgets.append(wordCountLabel);
+    statusBarWidgets.append(statisticsIndicator);
 
     // Add right-most widgets to status bar.
     QPushButton *button = new QPushButton(QChar(fa::moon));
@@ -1354,15 +1352,24 @@ void MainWindow::buildSidebar()
     outlineWidget->setAlternatingRowColors(false);
 
     documentStats = new DocumentStatistics((MarkdownDocument *) editor->document(), this);
-    connect(documentStats, SIGNAL(wordCountChanged(int)), documentStatsWidget, SLOT(setWordCount(int)));
-    connect(documentStats, SIGNAL(characterCountChanged(int)), documentStatsWidget, SLOT(setCharacterCount(int)));
-    connect(documentStats, SIGNAL(sentenceCountChanged(int)), documentStatsWidget, SLOT(setSentenceCount(int)));
-    connect(documentStats, SIGNAL(paragraphCountChanged(int)), documentStatsWidget, SLOT(setParagraphCount(int)));
-    connect(documentStats, SIGNAL(pageCountChanged(int)), documentStatsWidget, SLOT(setPageCount(int)));
-    connect(documentStats, SIGNAL(complexWordsChanged(int)), documentStatsWidget, SLOT(setComplexWords(int)));
-    connect(documentStats, SIGNAL(readingTimeChanged(int)), documentStatsWidget, SLOT(setReadingTime(int)));
-    connect(documentStats, SIGNAL(lixReadingEaseChanged(int)), documentStatsWidget, SLOT(setLixReadingEase(int)));
-    connect(documentStats, SIGNAL(readabilityIndexChanged(int)), documentStatsWidget, SLOT(setReadabilityIndex(int)));
+    connect(documentStats, &DocumentStatistics::wordCountChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setWordCount);
+    connect(documentStats, &DocumentStatistics::characterCountChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setCharacterCount);
+    connect(documentStats, &DocumentStatistics::sentenceCountChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setSentenceCount);
+    connect(documentStats, &DocumentStatistics::paragraphCountChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setParagraphCount);
+    connect(documentStats, &DocumentStatistics::pageCountChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setPageCount);
+    connect(documentStats, &DocumentStatistics::complexWordsChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setComplexWords);
+    connect(documentStats, &DocumentStatistics::readingTimeChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setReadingTime);
+    connect(documentStats, &DocumentStatistics::lixReadingEaseChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setLixReadingEase);
+    connect(documentStats, &DocumentStatistics::readabilityIndexChanged,
+            documentStatsWidget, &DocumentStatisticsWidget::setReadabilityIndex);
     connect(editor, SIGNAL(textSelected(QString, int, int)), documentStats, SLOT(onTextSelected(QString, int, int)));
     connect(editor, SIGNAL(textDeselected()), documentStats, SLOT(onTextDeselected()));
 
@@ -1371,7 +1378,7 @@ void MainWindow::buildSidebar()
     connect(sessionStats, SIGNAL(wordCountChanged(int)), sessionStatsWidget, SLOT(setWordCount(int)));
     connect(sessionStats, SIGNAL(pageCountChanged(int)), sessionStatsWidget, SLOT(setPageCount(int)));
     connect(sessionStats, SIGNAL(wordsPerMinuteChanged(int)), sessionStatsWidget, SLOT(setWordsPerMinute(int)));
-    connect(sessionStats, SIGNAL(writingTimeChanged(unsigned long)), sessionStatsWidget, SLOT(setWritingTime(unsigned long)));
+    connect(sessionStats, SIGNAL(writingTimeChanged(int)), sessionStatsWidget, SLOT(setWritingTime(int)));
     connect(sessionStats, SIGNAL(idleTimePercentageChanged(int)), sessionStatsWidget, SLOT(setIdleTime(int)));
     connect(editor, SIGNAL(typingPaused()), sessionStats, SLOT(onTypingPaused()));
     connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));

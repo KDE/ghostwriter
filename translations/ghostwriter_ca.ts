@@ -211,6 +211,10 @@
         <source>%1 %2pt</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>untitled</source>
+        <translation type="unfinished">sense títol</translation>
+    </message>
 </context>
 <context>
     <name>SpellChecker</name>
@@ -416,13 +420,6 @@
     </message>
 </context>
 <context>
-    <name>ghostwriter::FindDialog</name>
-    <message>
-        <source>Replace %n instance(s)?</source>
-        <translation type="vanished">Voleu reemplaçar %n aparacions?</translation>
-    </message>
-</context>
-<context>
     <name>ghostwriter::FindReplace</name>
     <message>
         <source>Match case</source>
@@ -464,9 +461,12 @@
         <source>Replace with:</source>
         <translation>Reemplaça per:</translation>
     </message>
-    <message>
-        <source>%1 replacements</source>
-        <translation>%1 reemplaçaments</translation>
+    <message numerus="yes">
+        <source>%Ln replacement(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -500,10 +500,6 @@
     <message>
         <source># Heading 1</source>
         <translation># Encapçalament 1</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="vanished">&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;Podeu utilitzar i redistribuir aquest programari sota els termes de la &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;Llicència Pública General GNU versió 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiteu lloc web oficial a &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Agraïments i crèdits especials per reutilitzar el codi&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, autor de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, autor de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, autor de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;També estic profundament en deute amb &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, autor de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Show Sidebar</source>
@@ -618,14 +614,6 @@
         <translation>Tots els fitxers</translation>
     </message>
     <message>
-        <source>Failed to open Quick Reference Guide.</source>
-        <translation type="vanished">No s&apos;ha pogut obrir la guia de referència ràpida.</translation>
-    </message>
-    <message>
-        <source>Quick Reference Guide</source>
-        <translation type="vanished">Guia de referència ràpida</translation>
-    </message>
-    <message>
         <source>About %1</source>
         <translation>Quant a %1</translation>
     </message>
@@ -684,13 +672,6 @@
     <message>
         <source>Session Statistics</source>
         <translation>Estadístiques de la sessió</translation>
-    </message>
-    <message numerus="yes">
-        <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform>%Ln paraules</numerusform>
-            <numerusform></numerusform>
-        </translation>
     </message>
     <message>
         <source>R&amp;ename...</source>
@@ -997,14 +978,6 @@
         <translation>Còpia de seguretat del fitxer en desar</translation>
     </message>
     <message>
-        <source>History</source>
-        <translation>Historial</translation>
-    </message>
-    <message>
-        <source>Remember file history</source>
-        <translation>Recorda l&apos;historial de fitxers</translation>
-    </message>
-    <message>
         <source>Tabulation</source>
         <translation>Tabulació</translation>
     </message>
@@ -1116,6 +1089,22 @@
         <source>Dictionary</source>
         <translation>Diccionari</translation>
     </message>
+    <message>
+        <source>View untitled drafts...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember recent files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open last file on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ghostwriter::PreviewOptionsDialog</name>
@@ -1184,6 +1173,66 @@
     <message>
         <source>Show only monospaced fonts</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::StatisticsIndicator</name>
+    <message numerus="yes">
+        <source>%Ln word(s)</source>
+        <translation type="unfinished">
+            <numerusform>%Ln paraules</numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1:%2 read time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1:%2 write time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln character(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln sentence(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln paragraph(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln page(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln wpm</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln word(s) added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>

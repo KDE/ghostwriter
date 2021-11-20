@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2016-2020 wereturtle
  *
@@ -80,7 +80,7 @@ void SessionStatisticsWidget::setWordsPerMinute(int value)
     setIntegerValueForLabel(d->wpmLabel, value);
 }
 
-void SessionStatisticsWidget::setWritingTime(unsigned long minutes)
+void SessionStatisticsWidget::setWritingTime(int minutes)
 {
     Q_D(SessionStatisticsWidget);
 

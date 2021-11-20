@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2016-2020 wereturtle
  *
@@ -59,7 +59,9 @@ public:
 
     int sentenceCount;
     int paragraphCount;
+    int pageCount;
     int lixLongWordCount;
+    int readTimeMinutes;
 
     void updateStatistics();
     void updateBlockStatistics(QTextBlock &block);
@@ -88,6 +90,7 @@ DocumentStatistics::DocumentStatistics(MarkdownDocument *document, QObject *pare
     d->wordCharacterCount = 0;
     d->sentenceCount = 0;
     d->paragraphCount = 0;
+    d->pageCount = 0;
     d->lixLongWordCount = 0;
 
     connect(d->document, SIGNAL(contentsChange(int, int, int)), this, SLOT(onTextChanged(int, int, int)));
@@ -104,6 +107,41 @@ int DocumentStatistics::wordCount() const
     Q_D(const DocumentStatistics);
     
     return d->wordCount;
+}
+
+int DocumentStatistics::characterCount() const
+{
+    Q_D(const DocumentStatistics);
+
+    return d->document->characterCount() - 1;
+}
+
+int DocumentStatistics::paragraphCount() const
+{
+    Q_D(const DocumentStatistics);
+
+    return d->paragraphCount;
+}
+
+int DocumentStatistics::sentenceCount() const
+{
+    Q_D(const DocumentStatistics);
+
+    return d->sentenceCount;
+}
+
+int DocumentStatistics::pageCount() const
+{
+    Q_D(const DocumentStatistics);
+
+    return d->pageCount;
+}
+
+int DocumentStatistics::readingTime() const
+{
+    Q_D(const DocumentStatistics);
+
+    return d->readTimeMinutes;
 }
 
 void DocumentStatistics::onTextSelected
@@ -223,15 +261,18 @@ void DocumentStatistics::onTextBlockRemoved(const QTextBlock &block)
 void DocumentStatisticsPrivate::updateStatistics()
 {
     Q_Q(DocumentStatistics);
+
+    this->pageCount = calculatePageCount(wordCount);
+    this->readTimeMinutes = calculateReadingTime(wordCount);
     
     emit q->wordCountChanged(wordCount);
     emit q->totalWordCountChanged(wordCount);
     emit q->characterCountChanged(document->characterCount() - 1);
     emit q->sentenceCountChanged(sentenceCount);
     emit q->paragraphCountChanged(paragraphCount);
-    emit q->pageCountChanged(calculatePageCount(wordCount));
+    emit q->pageCountChanged(pageCount);
     emit q->complexWordsChanged(calculateComplexWords(wordCount, lixLongWordCount));
-    emit q->readingTimeChanged(calculateReadingTime(wordCount));
+    emit q->readingTimeChanged(this->readTimeMinutes);
     emit q->lixReadingEaseChanged(calculateLIX(wordCount, lixLongWordCount, sentenceCount));
     emit q->readabilityIndexChanged(calculateCLI(wordCharacterCount, wordCount, sentenceCount));
 }

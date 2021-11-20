@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2020-2021 wereturtle
  *
@@ -18,17 +18,23 @@
  ***********************************************************************/
 
 #include <QApplication>
+#include <QDir>
 #include <QFile>
 #include <QPalette>
 #include <QRegularExpression>
 #include <QTextStream>
 #include <QDebug>
+#include <QTemporaryFile>
 
+#include "3rdparty/QtAwesome/QtAwesome.h"
 #include "stylesheetbuilder.h"
 
 
 namespace ghostwriter
 {
+
+QString StyleSheetBuilder::m_statIndicatorArrowIconPath = QString();
+
 QString StyleSheetBuilder::m_htmlPreviewSass;
 
 StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
@@ -38,7 +44,6 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
 {
     QString styleSheet;
     QTextStream stream(&styleSheet);
-
 
     this->m_htmlPreviewTextFont = previewTextFont;
     this->m_htmlPreviewCodeFont = previewCodeFont;
@@ -92,6 +97,26 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
     this->m_blockquoteColor = colors.blockquoteText.name();
     this->m_thickBorderColor = colors.emphasisMarkup.name();
 
+    // Remove previous cache/temporary files.
+    clearCache();
+
+    // Refresh statistics indicator drop-down arrow icon.
+    this->m_awesome = new QtAwesome();
+    this->m_awesome->initFontAwesome();
+    QVariantMap options;
+    options.insert("color", this->m_interfaceTextColor);
+    QIcon statIndicatorIcon = this->m_awesome->icon(style::stfas, fa::chevroncircleup, options);
+
+    QTemporaryFile tempIconFile(QDir::tempPath() + "/XXXXXX.png");
+    tempIconFile.setAutoRemove(false);
+
+    if (tempIconFile.open()) {
+        m_statIndicatorArrowIconPath = tempIconFile.fileName();
+        statIndicatorIcon.pixmap(16, 16).save(&tempIconFile, "PNG");
+        tempIconFile.close();
+    }
+
+    // Create the style sheets.
     buildScrollBarStyleSheet(roundedCorners);
     buildEditorStyleSheet();
     buildSplitterStyleSheet();
@@ -109,6 +134,18 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
 StyleSheetBuilder::~StyleSheetBuilder()
 {
     ;
+}
+
+void StyleSheetBuilder::clearCache()
+{
+    // Remove previous cache/temporary file of statistics indicator drop-down arrow icon.
+    if (!m_statIndicatorArrowIconPath.isNull() && !m_statIndicatorArrowIconPath.isEmpty()) {
+        QFile iconFile(m_statIndicatorArrowIconPath);
+
+        if (iconFile.exists()) {
+            iconFile.remove();
+        }
+    }
 }
 
 QString StyleSheetBuilder::layoutStyleSheet()
@@ -323,6 +360,47 @@ void StyleSheetBuilder::buildStatusBarWidgetStyleSheet()
             << "QPushButton#showSidebarButton:hover { color: "
             << this->m_foregroundColor.name()
             << "; background-color: transparent }"
+            << "QComboBox {"
+            << "    height: 22px;"
+            << "    border: 0px;"
+            << "    margin: 0;"
+            << "    padding: 0;"
+            << "    color: " << this->m_interfaceTextColor.name() << "; "
+            << "    background-color: " << this->m_backgroundColor.name() << "; "
+            << "} "
+            << "QComboBox:hover {"
+            << "    border-bottom: 2px solid " << this->m_accentColor.name() << ";"
+            << "} "
+            << "QListView {"
+            << "    padding: 0px; "
+            << "    margin: 0px; "
+            << "    color: " << this->m_foregroundColor.name() << ";"
+            << "    background-color: " << this->m_backgroundColor.name() << "; "
+            << "} "
+            << "QListView::item { background-color: transparent; } "
+            << "QListView::item:selected {"
+            << "    background-color: " << this->m_selectedBgColor.name() << ";"
+            << "    color: " << this->m_selectedFgColor.name() << ";"
+            << " } "
+            << "QComboBox::drop-down {"
+            << "    border: 0px;"
+            << "    margin: 0;"
+            << "    padding: 0;"
+            << "    height: 20px; "
+            << "    width: 20px; "
+            << "} "
+            << "QComboBox::down-arrow { "
+            << "    border: 0px;"
+            << "    margin: 0;"
+            << "    padding: 0px;"
+            << "    height: 14px; "
+            << "    width: 14px; "
+            << "    image: url(" << this->m_statIndicatorArrowIconPath << ");"
+            << "} "
+            << "QComboBox::drop-down:hover { "
+            << "    border-radius: 10px;"
+            << "    background-color: " << this->m_pressedColor.name() << "; "
+            << "} "
             ;
 }
 

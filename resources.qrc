@@ -3,13 +3,9 @@
         <file>resources/images/ghostwriter.svg</file>
         <file>resources/preview.css</file>
         <file>resources/preview.html</file>
-    </qresource>
-    <qresource>
         <file>3rdparty/react/react-dom.production.min.js</file>
         <file>3rdparty/react/react.production.min.js</file>
         <file>3rdparty/react/html-react-parser.js</file>
-    </qresource>
-    <qresource>
         <file>3rdparty/MathJax/bin/mml-svg.js</file>
         <file>3rdparty/MathJax/bin/tex-mml-svg.js</file>
         <file>3rdparty/MathJax/bin/output/svg.js</file>

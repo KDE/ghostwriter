@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  * Copyright (C) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
@@ -33,6 +33,7 @@
 #include "dictionary_manager.h"
 #include "exporterfactory.h"
 
+#define GW_FAVORITE_STATISTIC_KEY "Session/favoriteStatistic"
 #define GW_RESTORE_SESSION_KEY "Session/restoreSession"
 #define GW_REMEMBER_FILE_HISTORY_KEY "Session/rememberFileHistory"
 #define GW_AUTOSAVE_KEY "Save/autoSave"
@@ -87,6 +88,7 @@ public:
     QString draftLocation;
     bool bulletPointCyclingEnabled;
     bool displayTimeInFullScreenEnabled;
+    int favoriteStatistic;
     bool restoreSessionEnabled;
     bool fileHistoryEnabled;
     bool hideMenuBarInFullScreenEnabled;
@@ -159,6 +161,7 @@ void AppSettings::store()
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
     appSettings.setValue(GW_LOCALE_KEY, QVariant(d->locale));
     appSettings.setValue(GW_RESTORE_SESSION_KEY, QVariant(d->restoreSessionEnabled));
+    appSettings.setValue(GW_FAVORITE_STATISTIC_KEY, QVariant(d->favoriteStatistic));
     appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d->fileHistoryEnabled));
     appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(d->insertSpacesForTabsEnabled));
     appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(d->tabWidth));
@@ -430,6 +433,22 @@ void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
     
     d->hideMenuBarInFullScreenEnabled = enabled;
     emit hideMenuBarInFullScreenChanged(enabled);
+}
+
+int AppSettings::favoriteStatistic() const
+{
+    Q_D(const AppSettings);
+
+    return d->favoriteStatistic;
+}
+
+void AppSettings::setFavoriteStatistic(int value)
+{
+    Q_D(AppSettings);
+
+    if (value >= 0) {
+        d->favoriteStatistic = value;
+    }
 }
 
 bool AppSettings::restoreSessionEnabled() const
@@ -805,6 +824,7 @@ AppSettings::AppSettings()
     }
 
     d->hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->favoriteStatistic = appSettings.value(GW_FAVORITE_STATISTIC_KEY, QVariant(0)).toInt();
     d->restoreSessionEnabled = appSettings.value(GW_RESTORE_SESSION_KEY, QVariant(true)).toBool();
     d->fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
     d->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();

@@ -2,994 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ar_EG">
 <context>
-    <name>AbstractStatisticsWidget</name>
-    <message>
-        <source>&amp;lt; 1m</source>
-        <translation type="vanished">&amp;lt; 1د</translation>
-    </message>
-    <message>
-        <source>&amp;lt; 1</source>
-        <translation type="vanished">&amp;lt; 1</translation>
-    </message>
-    <message>
-        <source>250 words per page</source>
-        <translation type="vanished">250 كلمة بالصفحة</translation>
-    </message>
-    <message>
-        <source>%1h %2m</source>
-        <translation type="vanished">%1س %2د</translation>
-    </message>
-    <message>
-        <source>%1m</source>
-        <translation type="vanished">%1د</translation>
-    </message>
-</context>
-<context>
-    <name>DocumentManager</name>
-    <message>
-        <source>Open File</source>
-        <translation type="vanished">فتح ملف</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <translation type="vanished">لا يمكن فتح %1</translation>
-    </message>
-    <message>
-        <source>Permission denied.</source>
-        <translation type="vanished">لا يوجد صلاحيات.</translation>
-    </message>
-    <message>
-        <source>The document has been modified.</source>
-        <translation type="vanished">تم تعديل المستند.</translation>
-    </message>
-    <message>
-        <source>Discard changes?</source>
-        <translation type="vanished">تجاهل التعديلات؟</translation>
-    </message>
-    <message>
-        <source>Rename File</source>
-        <translation type="vanished">تسمية الملف</translation>
-    </message>
-    <message>
-        <source>Failed to rename %1</source>
-        <translation type="vanished">تعذّرت تسمية الملف %1</translation>
-    </message>
-    <message>
-        <source>Save File</source>
-        <translation type="vanished">حفظ الملف</translation>
-    </message>
-    <message>
-        <source>Error saving %1</source>
-        <translation type="vanished">خطأ في حفظ %1</translation>
-    </message>
-    <message>
-        <source>The document has been modified by another program.</source>
-        <translation type="vanished">تم تعديل الملف بواسطة برنامج آخر.</translation>
-    </message>
-    <message>
-        <source>Would you like to reload the document?</source>
-        <translation type="vanished">هل تريد إعادة فتح المستند؟</translation>
-    </message>
-    <message>
-        <source>Could not read %1</source>
-        <translation type="vanished">لا يمكن قراءة %1</translation>
-    </message>
-    <message>
-        <source>opening %1</source>
-        <translation type="vanished">يفتح %1</translation>
-    </message>
-    <message>
-        <source>File has been modified.</source>
-        <translation type="vanished">تم تعديل الملف.</translation>
-    </message>
-    <message>
-        <source>%1 has been modified.</source>
-        <translation type="vanished">تم تعديل %1.</translation>
-    </message>
-    <message>
-        <source>Would you like to save your changes?</source>
-        <translation type="vanished">هل تريد حفظ تعديلاتك؟</translation>
-    </message>
-    <message>
-        <source>%1 is read only.</source>
-        <translation type="vanished">%1 مفتوح للقراءة فقط.</translation>
-    </message>
-    <message>
-        <source>Overwrite protected file?</source>
-        <translation type="vanished">الكتابة فوق ملف محمي؟</translation>
-    </message>
-    <message>
-        <source>Overwrite failed.</source>
-        <translation type="vanished">تعذرت إعادة الكتابة.</translation>
-    </message>
-    <message>
-        <source>Please save file to another location.</source>
-        <translation type="vanished">فضلاً، احفظ الملف في مكانٍ مختلف.</translation>
-    </message>
-</context>
-<context>
-    <name>DocumentStatisticsWidget</name>
-    <message>
-        <source>Very Easy</source>
-        <translation type="vanished">سهل جداً</translation>
-    </message>
-    <message>
-        <source>Easy</source>
-        <translation type="vanished">سهل</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation type="vanished">قياسي</translation>
-    </message>
-    <message>
-        <source>Difficult</source>
-        <translation type="vanished">صعب</translation>
-    </message>
-    <message>
-        <source>Very Difficult</source>
-        <translation type="vanished">صعب جداً</translation>
-    </message>
-    <message>
-        <source>Words:</source>
-        <translation type="vanished">الكلمات:</translation>
-    </message>
-    <message>
-        <source>Characters:</source>
-        <translation type="vanished">المحارف:</translation>
-    </message>
-    <message>
-        <source>Sentences:</source>
-        <translation type="vanished">الجمل:</translation>
-    </message>
-    <message>
-        <source>Paragraphs:</source>
-        <translation type="vanished">الفقرات:</translation>
-    </message>
-    <message>
-        <source>Pages:</source>
-        <translation type="vanished">الصفحات:</translation>
-    </message>
-    <message>
-        <source>Complex Words:</source>
-        <translation type="vanished">الكلمات المعقدة:</translation>
-    </message>
-    <message>
-        <source>Reading Time:</source>
-        <translation type="vanished">وقت القراءة:</translation>
-    </message>
-    <message>
-        <source>Reading Ease:</source>
-        <translation type="vanished">سهولة القراءة:</translation>
-    </message>
-    <message>
-        <source>LIX Reading Ease</source>
-        <translation type="vanished">سهولة القراءة بمعيار LIX</translation>
-    </message>
-    <message>
-        <source>Grade Level:</source>
-        <translation type="vanished">المرحلة الدراسية:</translation>
-    </message>
-    <message>
-        <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation type="vanished">سهولة القراءة بمعيار Coleman–Liau (CLI)</translation>
-    </message>
-    <message>
-        <source>Kindergarten</source>
-        <translation type="vanished">رياض أطفال</translation>
-    </message>
-    <message>
-        <source>Rocket Science</source>
-        <translation type="vanished">فيزياء الصواريخ</translation>
-    </message>
-    <message>
-        <source>College</source>
-        <translation type="vanished">جامعة</translation>
-    </message>
-</context>
-<context>
-    <name>ExportDialog</name>
-    <message>
-        <source>Export</source>
-        <translation type="vanished">تصدير</translation>
-    </message>
-    <message>
-        <source>Smart Typography</source>
-        <translation type="vanished">التنسيق الذكي</translation>
-    </message>
-    <message>
-        <source>Export Options</source>
-        <translation type="vanished">خيارات التصدير</translation>
-    </message>
-    <message>
-        <source>Markdown Converter:</source>
-        <translation type="vanished">محوّل ماركداون:</translation>
-    </message>
-    <message>
-        <source>exporting to %1</source>
-        <translation type="vanished">يصدر إلى %1</translation>
-    </message>
-    <message>
-        <source>Export failed.</source>
-        <translation type="vanished">فشل التصدير.</translation>
-    </message>
-</context>
-<context>
-    <name>FindDialog</name>
-    <message>
-        <source>Search for:</source>
-        <translation type="vanished">بحث عن:</translation>
-    </message>
-    <message>
-        <source>Replace with:</source>
-        <translation type="vanished">استبدال بـ:</translation>
-    </message>
-    <message>
-        <source>Ignore case</source>
-        <translation type="vanished">تجاهل حالة الأحرف</translation>
-    </message>
-    <message>
-        <source>Whole words only</source>
-        <translation type="vanished">كلمات بكاملها فقط</translation>
-    </message>
-    <message>
-        <source>Regular expressions</source>
-        <translation type="vanished">التعبيرات النمطية</translation>
-    </message>
-    <message>
-        <source>Search up</source>
-        <translation type="vanished">بحث للأعلى</translation>
-    </message>
-    <message>
-        <source>Search down</source>
-        <translation type="vanished">بحث للأسفل</translation>
-    </message>
-    <message>
-        <source>&amp;Find</source>
-        <translation type="vanished">&amp;بحث</translation>
-    </message>
-    <message>
-        <source>&amp;Replace</source>
-        <translation type="vanished">ا&amp;ستبدال</translation>
-    </message>
-    <message>
-        <source>Replace &amp;All</source>
-        <translation type="vanished">استبدال ال&amp;كل</translation>
-    </message>
-    <message>
-        <source>Find</source>
-        <translation type="vanished">بحث</translation>
-    </message>
-    <message>
-        <source>Replace</source>
-        <translation type="vanished">استبدال</translation>
-    </message>
-    <message>
-        <source>Question</source>
-        <translation type="vanished">سؤال</translation>
-    </message>
-    <message numerus="yes">
-        <source>Replace %n instance(s)?</source>
-        <translation type="vanished">
-            <numerusform>استبدال %n نسخة؟</numerusform>
-            <numerusform>استبدال نسخة وحيدة؟</numerusform>
-            <numerusform>استبدال نسختين؟</numerusform>
-            <numerusform>استبدال %n نسخات؟</numerusform>
-            <numerusform>استبدال %n نسخة؟</numerusform>
-            <numerusform>استبدال %n نسخة؟</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Sorry</source>
-        <translation type="vanished">عذراً</translation>
-    </message>
-    <message>
-        <source>Phrase not found.</source>
-        <translation type="vanished">العبارة غير موجودة.</translation>
-    </message>
-</context>
-<context>
-    <name>ImageButton</name>
-    <message>
-        <source>Open Image</source>
-        <translation type="vanished">فتح صورة</translation>
-    </message>
-    <message>
-        <source>Images(%1)</source>
-        <translation type="vanished">صور(%1)</translation>
-    </message>
-</context>
-<context>
-    <name>LocaleDialog</name>
-    <message>
-        <source>Set Application Language</source>
-        <translation type="vanished">تعيين لغة التطبيق</translation>
-    </message>
-    <message>
-        <source>The translations folder is missing.</source>
-        <translation type="vanished">مجلد الترجمات مفقود.</translation>
-    </message>
-    <message>
-        <source>Please reinstall this application for more language options.</source>
-        <translation type="vanished">فضلاً، أعد تثبيت البرنامج للمزيد من خيارات اللغة.</translation>
-    </message>
-</context>
-<context>
-    <name>MainWindow</name>
-    <message>
-        <source>Outline</source>
-        <translation type="vanished">التخطيط</translation>
-    </message>
-    <message>
-        <source># Heading 1</source>
-        <translation type="vanished"># عنوان 1</translation>
-    </message>
-    <message>
-        <source>## Heading 2</source>
-        <translation type="vanished">## عنوان 2</translation>
-    </message>
-    <message>
-        <source>### Heading 3</source>
-        <translation type="vanished">### عنوان 3</translation>
-    </message>
-    <message>
-        <source>#### Heading 4</source>
-        <translation type="vanished">#### عنوان 4</translation>
-    </message>
-    <message>
-        <source>##### Heading 5</source>
-        <translation type="vanished">##### عنوان 5</translation>
-    </message>
-    <message>
-        <source>###### Heading 6</source>
-        <translation type="vanished">###### عنوان 6</translation>
-    </message>
-    <message>
-        <source>*Emphasis* _Emphasis_</source>
-        <translation type="vanished">*توكيد* _توكيد_</translation>
-    </message>
-    <message>
-        <source>**Strong** __Strong__</source>
-        <translation type="vanished">**غامق** __غامق__</translation>
-    </message>
-    <message>
-        <source>1. Numbered List</source>
-        <translation type="vanished">1. قائمة مرتبة</translation>
-    </message>
-    <message>
-        <source>* Bullet List</source>
-        <translation type="vanished">* قائمة نقطية</translation>
-    </message>
-    <message>
-        <source>+ Bullet List</source>
-        <translation type="vanished">+ قائمة نقطية</translation>
-    </message>
-    <message>
-        <source>- Bullet List</source>
-        <translation type="vanished">- قائمة نقطية</translation>
-    </message>
-    <message>
-        <source>&gt; Block Quote</source>
-        <translation type="vanished">&gt; اقتباس</translation>
-    </message>
-    <message>
-        <source>`Code Span`</source>
-        <translation type="vanished">`رمز برمجي`</translation>
-    </message>
-    <message>
-        <source>``` Code Block</source>
-        <translation type="vanished">``` برنامج حاسبي</translation>
-    </message>
-    <message>
-        <source>[Link](http://url.com &quot;Title&quot;)</source>
-        <translation type="vanished">[رابط](http://url.com &quot;عنوان&quot;)</translation>
-    </message>
-    <message>
-        <source>[Reference Link][ID]</source>
-        <translation type="vanished">[إشارة مرجعية][المعرف]</translation>
-    </message>
-    <message>
-        <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation type="vanished">[المعرف]: http://url.com &quot;تعريف مرجعي&quot;</translation>
-    </message>
-    <message>
-        <source>![Image](./image.jpg &quot;Title&quot;)</source>
-        <translation type="vanished">![صورة](./image.jpg &quot;عنوان&quot;)</translation>
-    </message>
-    <message>
-        <source>--- *** ___ Horizontal Rule</source>
-        <translation type="vanished">--- *** ___ خط أفقي</translation>
-    </message>
-    <message>
-        <source>Cheat Sheet</source>
-        <translation type="vanished">نموذج تذكير</translation>
-    </message>
-    <message>
-        <source>Document Statistics</source>
-        <translation type="vanished">إحصائيات المستند</translation>
-    </message>
-    <message>
-        <source>Session Statistics</source>
-        <translation type="vanished">إحصائيات الجلسة</translation>
-    </message>
-    <message>
-        <source>Could not create file %1. Check permissions.</source>
-        <translation type="vanished">لا يمكن إنشاء الملف %1. تحقق من الصلاحيات.</translation>
-    </message>
-    <message>
-        <source>Insert Image</source>
-        <translation type="vanished">إدراج صورة</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation type="vanished">الصور</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation type="vanished">جميع الملفات</translation>
-    </message>
-    <message>
-        <source>Failed to open Quick Reference Guide.</source>
-        <translation type="vanished">فشل في فتح المرجع السريع.</translation>
-    </message>
-    <message>
-        <source>Quick Reference Guide</source>
-        <translation type="vanished">المرجع السريع</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Copyright &amp;copy; 2014-2019 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="vanished">&lt;p&gt;Copyright &amp;copy; 2014-2019 wereturtle&lt;/b&gt;&lt;p&gt;يمكنك استعمال وتوزيع هذا البرنامج بشروط &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.ar.html&quot;&gt;رخصة جنو العمومية الإصدار 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;زر الموقع الرسمي على الرابط &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;شكر خاص وذكر لإعادة استعمال برامجهم لـ &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;، منشأ برنامج &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev، منشأ &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;، منشأ &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;وأدين بالكثير لـ &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;، منشأ &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;، للإلهام الذي أثره بواسطة الأداة الرائعة لتحرير ماركداون التي برمجها.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation type="vanished">حول %1</translation>
-    </message>
-    <message>
-        <source>Please restart the application for changes to take effect.</source>
-        <translation type="vanished">فضلاًـ أعد تشغيل التطبيق لتأخذ التغييرات فعاليتها.</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="vanished">&amp;ملف</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="vanished">&amp;جديد</translation>
-    </message>
-    <message>
-        <source>&amp;Open</source>
-        <translation type="vanished">&amp;فتح</translation>
-    </message>
-    <message>
-        <source>Open &amp;Recent...</source>
-        <translation type="vanished">فتح ال&amp;سابق...</translation>
-    </message>
-    <message>
-        <source>Reopen Closed File</source>
-        <translation type="vanished">إعادة فتح الملف المغلق</translation>
-    </message>
-    <message>
-        <source>Clear Menu</source>
-        <translation type="vanished">مسح القائمة</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="vanished">&amp;حفظ</translation>
-    </message>
-    <message>
-        <source>Save &amp;As...</source>
-        <translation type="vanished">حفظ &amp;باسم...</translation>
-    </message>
-    <message>
-        <source>R&amp;ename...</source>
-        <translation type="vanished">&amp;تسمية...</translation>
-    </message>
-    <message>
-        <source>Re&amp;load from Disk...</source>
-        <translation type="vanished">است&amp;عادة من القرص...</translation>
-    </message>
-    <message>
-        <source>&amp;Export</source>
-        <translation type="vanished">ت&amp;صدير</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="vanished">&amp;خروج</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="vanished">&amp;تحرير</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="vanished">&amp;تراجع</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="vanished">إ&amp;عادة</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="vanished">&amp;قص</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="vanished">&amp;نسخ</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="vanished">&amp;لصق</translation>
-    </message>
-    <message>
-        <source>Copy &amp;HTML</source>
-        <translation type="vanished">ن&amp;سخ HTML</translation>
-    </message>
-    <message>
-        <source>&amp;Insert Image...</source>
-        <translation type="vanished">إ&amp;دراج صورة...</translation>
-    </message>
-    <message>
-        <source>&amp;Find</source>
-        <translation type="vanished">&amp;بحث</translation>
-    </message>
-    <message>
-        <source>Rep&amp;lace</source>
-        <translation type="vanished">است&amp;بدال</translation>
-    </message>
-    <message>
-        <source>&amp;Spell check</source>
-        <translation type="vanished">تن&amp;قيح إملائي</translation>
-    </message>
-    <message>
-        <source>For&amp;mat</source>
-        <translation type="vanished">تن&amp;سيق</translation>
-    </message>
-    <message>
-        <source>&amp;Bold</source>
-        <translation type="vanished">&amp;غامق</translation>
-    </message>
-    <message>
-        <source>&amp;Italic</source>
-        <translation type="vanished">&amp;مائل</translation>
-    </message>
-    <message>
-        <source>Stri&amp;kethrough</source>
-        <translation type="vanished">&amp;وسطه خط</translation>
-    </message>
-    <message>
-        <source>&amp;HTML Comment</source>
-        <translation type="vanished">ت&amp;عليقات HTML</translation>
-    </message>
-    <message>
-        <source>I&amp;ndent</source>
-        <translation type="vanished">م&amp;باعدة</translation>
-    </message>
-    <message>
-        <source>&amp;Unindent</source>
-        <translation type="vanished">م&amp;قاربة</translation>
-    </message>
-    <message>
-        <source>Block &amp;Quote</source>
-        <translation type="vanished">ا&amp;قتباس</translation>
-    </message>
-    <message>
-        <source>&amp;Strip Block Quote</source>
-        <translation type="vanished">إل&amp;غاء الاقتباس</translation>
-    </message>
-    <message>
-        <source>&amp;* Bullet List</source>
-        <translation type="vanished">&amp;* قائمة نقطية</translation>
-    </message>
-    <message>
-        <source>&amp;- Bullet List</source>
-        <translation type="vanished">&amp;- قائمة نقطية</translation>
-    </message>
-    <message>
-        <source>&amp;+ Bullet List</source>
-        <translation type="vanished">&amp;+ قائمة نقطية</translation>
-    </message>
-    <message>
-        <source>1&amp;. Numbered List</source>
-        <translation type="vanished">1&amp;. قائمة مرتبة</translation>
-    </message>
-    <message>
-        <source>1&amp;) Numbered List</source>
-        <translation type="vanished">1&amp;) قائمة مرتبة</translation>
-    </message>
-    <message>
-        <source>&amp;Task List</source>
-        <translation type="vanished">قائمة م&amp;هات</translation>
-    </message>
-    <message>
-        <source>Toggle Task(s) &amp;Complete</source>
-        <translation type="vanished">مبا&amp;دلة تشغيل إنجاز المهمة</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="vanished">&amp;عرض</translation>
-    </message>
-    <message>
-        <source>&amp;Full Screen</source>
-        <translation type="vanished">&amp;ملئ الشاشة</translation>
-    </message>
-    <message>
-        <source>&amp;Preview in HTML</source>
-        <translation type="vanished">م&amp;عاينة HTML</translation>
-    </message>
-    <message>
-        <source>&amp;Outline HUD</source>
-        <translation type="vanished">شاشة خلاصة ال&amp;تخطيط</translation>
-    </message>
-    <message>
-        <source>&amp;Cheat Sheet HUD</source>
-        <translation type="vanished">شاشة خلاصة &amp;نموذج التذكير</translation>
-    </message>
-    <message>
-        <source>&amp;Document Statistics HUD</source>
-        <translation type="vanished">شاشة خلاصة إحصائيات ال&amp;مستند</translation>
-    </message>
-    <message>
-        <source>&amp;Session Statistics HUD</source>
-        <translation type="vanished">شاشة خلاصة إحصائيات ال&amp;جلسة</translation>
-    </message>
-    <message>
-        <source>Hide Open &amp;HUD Windows</source>
-        <translation type="vanished">إ&amp;خفاء شاشات الخلاصة المفتوحة</translation>
-    </message>
-    <message>
-        <source>Increase Font Size</source>
-        <translation type="vanished">تكبير حجم الخط</translation>
-    </message>
-    <message>
-        <source>Decrease Font Size</source>
-        <translation type="vanished">تصغير حجم الخط</translation>
-    </message>
-    <message>
-        <source>&amp;Settings</source>
-        <translation type="vanished">إ&amp;عدادات</translation>
-    </message>
-    <message>
-        <source>Themes...</source>
-        <translation type="vanished">الثمات...</translation>
-    </message>
-    <message>
-        <source>Font...</source>
-        <translation type="vanished">الخط...</translation>
-    </message>
-    <message>
-        <source>Application Language...</source>
-        <translation type="vanished">لغة التطبيق...</translation>
-    </message>
-    <message>
-        <source>Style Sheets...</source>
-        <translation type="vanished">أوراق النمط...</translation>
-    </message>
-    <message>
-        <source>Preview Options...</source>
-        <translation type="vanished">إعدادات المعاينة...</translation>
-    </message>
-    <message>
-        <source>Preferences...</source>
-        <translation type="vanished">التفضيلات...</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="vanished">&amp;مساعدة</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="vanished">&amp;حول</translation>
-    </message>
-    <message>
-        <source>Quick &amp;Reference Guide</source>
-        <translation type="vanished">ال&amp;مرجع السريع</translation>
-    </message>
-    <message>
-        <source>Wiki</source>
-        <translation type="vanished">الويكي</translation>
-    </message>
-    <message>
-        <source>Preview Options</source>
-        <translation type="vanished">إعدادات المعاينة</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="vanished">التصدير</translation>
-    </message>
-    <message>
-        <source>Copy HTML</source>
-        <translation type="vanished">نسخ HTML</translation>
-    </message>
-    <message>
-        <source>Hide Open HUD Windows</source>
-        <translation type="vanished">إخفاء شاشات الخلاصة المفتوحة</translation>
-    </message>
-    <message>
-        <source>Toggle Live HTML Preview</source>
-        <translation type="vanished">مبادلة تشغيل معاينة HTML المباشرة</translation>
-    </message>
-    <message>
-        <source>Toggle Hemingway mode</source>
-        <translation type="vanished">مبادة تشغيل نمط هامينغوي</translation>
-    </message>
-    <message>
-        <source>Toggle distraction free mode</source>
-        <translation type="vanished">مبادلة تشغيل نمط عدم الإزعاج</translation>
-    </message>
-    <message>
-        <source>Toggle full screen mode</source>
-        <translation type="vanished">مبادلة تشغيل نمط ملئ الشاشة</translation>
-    </message>
-    <message>
-        <source>Show Open &amp;HUD Windows</source>
-        <translation type="vanished">إظهار فتح نوافد &amp;شاشة الخلاصة</translation>
-    </message>
-    <message>
-        <source>Show Open HUD Windows</source>
-        <translation type="vanished">إظهار فتح نوافد شاشة الخلاصة</translation>
-    </message>
-</context>
-<context>
-    <name>MarkdownEditor</name>
-    <message>
-        <source>Add word to dictionary</source>
-        <translation type="vanished">إضافة كلمة للمعجم</translation>
-    </message>
-    <message>
-        <source>Check spelling...</source>
-        <translation type="vanished">ينقح إملائياً...</translation>
-    </message>
-    <message>
-        <source>No spelling suggestions found</source>
-        <translation type="vanished">لا يوجد اقتراحات إملائية</translation>
-    </message>
-</context>
-<context>
-    <name>PreferencesDialog</name>
-    <message>
-        <source>Preferences</source>
-        <translation type="vanished">التفضيلات</translation>
-    </message>
-    <message>
-        <source>General</source>
-        <translation type="vanished">العام</translation>
-    </message>
-    <message>
-        <source>Editor</source>
-        <translation type="vanished">المحرر</translation>
-    </message>
-    <message>
-        <source>Spell Check</source>
-        <translation type="vanished">المنقح الإملائي</translation>
-    </message>
-    <message>
-        <source>HUD</source>
-        <translation type="vanished">شاشة الخلاصة</translation>
-    </message>
-    <message>
-        <source>Matched Characters</source>
-        <translation type="vanished">المحارف المطابقة</translation>
-    </message>
-    <message>
-        <source>Display</source>
-        <translation type="vanished">العرض</translation>
-    </message>
-    <message>
-        <source>Show current time in full screen mode</source>
-        <translation type="vanished">عرض الوقت الحالي في نمط ملئ الشاشة</translation>
-    </message>
-    <message>
-        <source>Hide menu bar in full screen mode</source>
-        <translation type="vanished">إخفاء شريط القوائم في نمط ملئ الشاشة</translation>
-    </message>
-    <message>
-        <source>Rounded</source>
-        <translation type="vanished">دائري</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="vanished">مربع</translation>
-    </message>
-    <message>
-        <source>Interface style</source>
-        <translation type="vanished">تصميم الشاشة</translation>
-    </message>
-    <message>
-        <source>File Saving</source>
-        <translation type="vanished">حفظ الملف</translation>
-    </message>
-    <message>
-        <source>Auto save</source>
-        <translation type="vanished">حفظ آلي</translation>
-    </message>
-    <message>
-        <source>Backup file on save</source>
-        <translation type="vanished">إنشاء نسخة احتياطية عند الحفظ</translation>
-    </message>
-    <message>
-        <source>History</source>
-        <translation type="vanished">البيانات</translation>
-    </message>
-    <message>
-        <source>Remember file history</source>
-        <translation type="vanished">تذكر بيانات الملف</translation>
-    </message>
-    <message>
-        <source>Tabulation</source>
-        <translation type="vanished">الجدولة</translation>
-    </message>
-    <message>
-        <source>Insert spaces for tabs</source>
-        <translation type="vanished">إدراج مسافات عوضاً عن الجدولة</translation>
-    </message>
-    <message>
-        <source>Tabulation width</source>
-        <translation type="vanished">عرض الجدولة</translation>
-    </message>
-    <message>
-        <source>Styling</source>
-        <translation type="vanished">التصميم</translation>
-    </message>
-    <message>
-        <source>Sentence</source>
-        <translation type="vanished">الجملة</translation>
-    </message>
-    <message>
-        <source>Current Line</source>
-        <translation type="vanished">السطر الحالي</translation>
-    </message>
-    <message>
-        <source>Three Lines</source>
-        <translation type="vanished">ثلاثة أسطر</translation>
-    </message>
-    <message>
-        <source>Paragraph</source>
-        <translation type="vanished">الفقرة</translation>
-    </message>
-    <message>
-        <source>Typewriter</source>
-        <translation type="vanished">الآلة الكاتبة</translation>
-    </message>
-    <message>
-        <source>Focus mode</source>
-        <translation type="vanished">نمط التركيز</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation type="vanished">ضيق</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="vanished">وسط</translation>
-    </message>
-    <message>
-        <source>Wide</source>
-        <translation type="vanished">عريض</translation>
-    </message>
-    <message>
-        <source>Full</source>
-        <translation type="vanished">كامل</translation>
-    </message>
-    <message>
-        <source>Editor width</source>
-        <translation type="vanished">عرض المحرر</translation>
-    </message>
-    <message>
-        <source>Plain</source>
-        <translation type="vanished">عادي</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="vanished">مائل</translation>
-    </message>
-    <message>
-        <source>Fancy</source>
-        <translation type="vanished">مزخرف</translation>
-    </message>
-    <message>
-        <source>Blockquote style</source>
-        <translation type="vanished">تصميم الاقتباس المنفرد</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation type="vanished">تحته خط</translation>
-    </message>
-    <message>
-        <source>Emphasis style</source>
-        <translation type="vanished">تصميم التوكيد</translation>
-    </message>
-    <message>
-        <source>Use large headings</source>
-        <translation type="vanished">استعمال عناوين كبيرة</translation>
-    </message>
-    <message>
-        <source>Highlight line breaks</source>
-        <translation type="vanished">تعليم فواصل الأسطر</translation>
-    </message>
-    <message>
-        <source>Typing</source>
-        <translation type="vanished">الكتابة</translation>
-    </message>
-    <message>
-        <source>Cycle bullet point markers</source>
-        <translation type="vanished">مغايرة رمز القوائم المتداخلة</translation>
-    </message>
-    <message>
-        <source>Automatically match characters</source>
-        <translation type="vanished">مطابقة الأقواس تلقائياً</translation>
-    </message>
-    <message>
-        <source>Customize matched characters...</source>
-        <translation type="vanished">تخصيص محارف المتطابقة...</translation>
-    </message>
-    <message>
-        <source>Live spellcheck enabled</source>
-        <translation type="vanished">التنقيح الإملائي المباشر فعال</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="vanished">اللغة</translation>
-    </message>
-    <message>
-        <source>Dictionary</source>
-        <translation type="vanished">المعجم</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">اليمين</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">اليسار</translation>
-    </message>
-    <message>
-        <source>Window button layout</source>
-        <translation type="vanished">عرض زر الشاشة</translation>
-    </message>
-    <message>
-        <source>Alternate row colors</source>
-        <translation type="vanished">مبادلة لون الأسطر</translation>
-    </message>
-    <message>
-        <source>Enable desktop compositing effects</source>
-        <translation type="vanished">تفعيل تأثيرات سطح المكتب</translation>
-    </message>
-    <message>
-        <source>Auto-hide HUD windows when typing</source>
-        <translation type="vanished">إخفاء شاشة الخلاصة تلقائياً عند الكتابة</translation>
-    </message>
-    <message>
-        <source>Auto-hide HUD windows when previewing HTML</source>
-        <translation type="vanished">إخفاء شاشة الخلاصة تلقائياً عند عرض HTML</translation>
-    </message>
-    <message>
-        <source>Opacity</source>
-        <translation type="vanished">الشفافية</translation>
-    </message>
-</context>
-<context>
-    <name>PreviewOptionsDialog</name>
-    <message>
-        <source>Preview Options</source>
-        <translation type="vanished">خيارات المعاينة</translation>
-    </message>
-    <message>
-        <source>Markdown Flavor</source>
-        <translation type="vanished">نمط ماركداون</translation>
-    </message>
-    <message>
-        <source>Style Sheet</source>
-        <translation type="vanished">ورقة النمط</translation>
-    </message>
-    <message>
-        <source>Github (Default)</source>
-        <translation type="vanished">Github (الافتراضي)</translation>
-    </message>
-    <message>
-        <source>Github Dark</source>
-        <translation type="vanished">Github الغامق</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <location filename="../src/commandlineexporter.cpp" line="152"/>
@@ -1007,83 +19,89 @@
         <translation>فشل تنفيذ الأمر: </translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="158"/>
+        <location filename="../src/documentmanager.cpp" line="70"/>
+        <location filename="../src/markdowndocument.cpp" line="180"/>
+        <source>untitled</source>
+        <translation type="unfinished">بدون عنوان</translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="185"/>
         <source>Markdown</source>
         <translation>ماركداون</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="159"/>
+        <location filename="../src/documentmanager.cpp" line="186"/>
         <source>Text</source>
         <translation>النص</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="160"/>
+        <location filename="../src/documentmanager.cpp" line="187"/>
         <source>All</source>
         <translation>الكل</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="553"/>
+        <location filename="../src/documentmanager.cpp" line="599"/>
         <source>Error saving %1</source>
         <translation type="unfinished">خطأ في حفظ %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="608"/>
+        <location filename="../src/documentmanager.cpp" line="654"/>
         <source>The document has been modified by another program.</source>
         <translation type="unfinished">تم تعديل الملف بواسطة برنامج آخر.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="609"/>
+        <location filename="../src/documentmanager.cpp" line="655"/>
         <source>Would you like to reload the document?</source>
         <translation type="unfinished">هل تريد إعادة فتح المستند؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="685"/>
-        <location filename="../src/documentmanager.cpp" line="728"/>
+        <location filename="../src/documentmanager.cpp" line="714"/>
+        <location filename="../src/documentmanager.cpp" line="751"/>
         <source>Could not read %1</source>
         <translation type="unfinished">لا يمكن قراءة %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="706"/>
+        <location filename="../src/documentmanager.cpp" line="737"/>
         <source>opening %1</source>
         <translation type="unfinished">يفتح %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="811"/>
+        <location filename="../src/documentmanager.cpp" line="840"/>
         <source>File has been modified.</source>
         <translation type="unfinished">تم تعديل الملف.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="813"/>
+        <location filename="../src/documentmanager.cpp" line="842"/>
         <source>%1 has been modified.</source>
         <translation type="unfinished">تم تعديل %1.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="822"/>
+        <location filename="../src/documentmanager.cpp" line="851"/>
         <source>Would you like to save your changes?</source>
         <translation type="unfinished">هل تريد حفظ تعديلاتك؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="853"/>
+        <location filename="../src/documentmanager.cpp" line="882"/>
         <source>%1 is read only.</source>
         <translation type="unfinished">%1 مفتوح للقراءة فقط.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="854"/>
+        <location filename="../src/documentmanager.cpp" line="883"/>
         <source>Overwrite protected file?</source>
         <translation type="unfinished">الكتابة فوق ملف محمي؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="873"/>
+        <location filename="../src/documentmanager.cpp" line="902"/>
         <source>Overwrite failed.</source>
         <translation type="unfinished">تعذرت إعادة الكتابة.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="874"/>
+        <location filename="../src/documentmanager.cpp" line="903"/>
         <source>Please save file to another location.</source>
         <translation type="unfinished">فضلاً، احفظ الملف في مكانٍ مختلف.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="899"/>
+        <location filename="../src/documentmanager.cpp" line="928"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>مسار ملف الكتابة فارغ أو ملغى.</translation>
     </message>
@@ -1091,70 +109,6 @@
         <location filename="../src/exporter.cpp" line="68"/>
         <source>Export to HTML is not supported with this processor.</source>
         <translation>لا يدعم هذا المعالج التصدير إلى HTML.</translation>
-    </message>
-    <message>
-        <source>%1 format is unsupported by the Sundown processor.</source>
-        <translation type="vanished">لا يدعم معالج Sundown التنسيق %1.</translation>
-    </message>
-    <message>
-        <source>The specified theme does not exist in the file system: </source>
-        <translation type="vanished">الثمة المعينة غير موجودة في نظام الملفات: </translation>
-    </message>
-    <message>
-        <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
-        <translation type="vanished">الثمة المعينة غير متاحة. حاول إعادة تشغيل التطبيق. أو قم بإرسال نموذج خطأ إذا استمرت المشكلة.</translation>
-    </message>
-    <message>
-        <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
-        <translation type="vanished">لا يمكن حذف %1 من الثمة. فضلاً، حاول تغيير صلاحيات الملف إلى قابل للكتابة.</translation>
-    </message>
-    <message>
-        <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation type="vanished">&apos;%1&apos; موجود سابقاً. فضلاً، اختر اسماً مختلفاً.</translation>
-    </message>
-    <message>
-        <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation type="vanished">الثمة &apos;%1&apos; موجودة سابقاً. فضلاً، اختر اسماً مختلفاً.</translation>
-    </message>
-    <message>
-        <source>Failed to rename theme.  Please check file permissions.</source>
-        <translation type="vanished">فشل في تسمية الثمة. فضلاً، تحقق من صلاحيات الملف.</translation>
-    </message>
-    <message>
-        <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
-        <translation type="vanished">الثمة للقراءة فقط. فضلاً، حاول تسمية الثمة، أو تغيير صلاحيات ملف الثمة إلى قابل للكتابة.</translation>
-    </message>
-    <message>
-        <source>Failed to remove old theme image.  Please check file permissions.</source>
-        <translation type="vanished">فشل حذف صورة الثمة القديمة. فضلاً، تحقق من صلاحيات الملف.</translation>
-    </message>
-    <message>
-        <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
-        <translation type="vanished">لا يمكن حذف صورة الثمة من مجلد الثمات. فضلاً، تحقق من صلاحيات الملف.</translation>
-    </message>
-    <message>
-        <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
-        <translation type="vanished">لا يمكن نسخ صورة الثمة إلى مجلد الثمات. فضلاً، تحقق من صلاحيات الملف.</translation>
-    </message>
-    <message>
-        <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation type="vanished">لا يمكن حفظ الثمة إلى القرص. فضلاً، تحقق من صلاحيات الملف أو حاول تسمية الثمة.</translation>
-    </message>
-    <message>
-        <source>Untitled 1</source>
-        <translation type="vanished">بدون عنوان 1</translation>
-    </message>
-    <message>
-        <source>Untitled %1</source>
-        <translation type="vanished">بدون عنوان %1</translation>
-    </message>
-    <message>
-        <source>Invalid or missing value for %1 provided.</source>
-        <translation type="vanished">القيمة المعطاة لـ %1 ناقصة أو غير صحيحة.</translation>
-    </message>
-    <message>
-        <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
-        <translation type="vanished">قيمة %1 خارج النطاق. القيم المتاحة بين %2 و %3.</translation>
     </message>
     <message>
         <location filename="../src/cmarkgfmexporter.cpp" line="63"/>
@@ -1318,48 +272,6 @@
     </message>
 </context>
 <context>
-    <name>SessionStatisticsWidget</name>
-    <message>
-        <source>Words Written:</source>
-        <translation type="vanished">الكلمات المكتوبة:</translation>
-    </message>
-    <message>
-        <source>Pages Written:</source>
-        <translation type="vanished">الصفحات المكتوبة:</translation>
-    </message>
-    <message>
-        <source>Average WPM:</source>
-        <translation type="vanished">متوسط الكلمات بالدقيقة:</translation>
-    </message>
-    <message>
-        <source>Total Time:</source>
-        <translation type="vanished">الوقت الإجمالي:</translation>
-    </message>
-    <message>
-        <source>Idle Time:</source>
-        <translation type="vanished">الوقت الضائع:</translation>
-    </message>
-</context>
-<context>
-    <name>SimpleFontDialog</name>
-    <message>
-        <source>Family</source>
-        <translation type="vanished">الاسم</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">الحجم</translation>
-    </message>
-    <message>
-        <source>AaBbCcXxYyZz</source>
-        <translation type="vanished">AaBbCcXxYyZz اب‌ج‌د‌ه‌وز</translation>
-    </message>
-    <message>
-        <source>Preview</source>
-        <translation type="vanished">معاينة</translation>
-    </message>
-</context>
-<context>
     <name>SpellChecker</name>
     <message>
         <location filename="../src/spelling/spell_checker.cpp" line="139"/>
@@ -1428,186 +340,6 @@
     </message>
 </context>
 <context>
-    <name>StyleSheetManagerDialog</name>
-    <message>
-        <source>Custom Style Sheets</source>
-        <translation type="vanished">أوراق نمط مخصصة</translation>
-    </message>
-    <message>
-        <source>Add new style sheet</source>
-        <translation type="vanished">إضافة ورقة نمط خاصة</translation>
-    </message>
-    <message>
-        <source>Select CSS File</source>
-        <translation type="vanished">اختيار ملف CSS</translation>
-    </message>
-    <message>
-        <source>CSS</source>
-        <translation type="vanished">CSS</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="vanished">الكل</translation>
-    </message>
-    <message>
-        <source>Don&apos;t worry! No files will be deleted from the hard disk. But are you sure you wish to remove the selected style sheet(s) from the list?</source>
-        <translation type="vanished">لا تقلق! لن يُحذف أي ملف من القرص. ولكن هل أنت متأكد أنك تريد حذف أوراق النمط المحددة من القائمة؟</translation>
-    </message>
-</context>
-<context>
-    <name>TextDocument</name>
-    <message>
-        <source>untitled</source>
-        <translation type="vanished">بدون عنوان</translation>
-    </message>
-</context>
-<context>
-    <name>ThemeEditorDialog</name>
-    <message>
-        <source>Edit Theme</source>
-        <translation type="vanished">تحرر الثمة</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="vanished">تمديد</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="vanished">الوسط</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">بدون</translation>
-    </message>
-    <message>
-        <source>Tile</source>
-        <translation type="vanished">تكرير</translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation type="vanished">تحجيم</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation type="vanished">تكبير</translation>
-    </message>
-    <message>
-        <source>Theme Name</source>
-        <translation type="vanished">اسم الثمة</translation>
-    </message>
-    <message>
-        <source>Text Color</source>
-        <translation type="vanished">لون النص</translation>
-    </message>
-    <message>
-        <source>Markup Color</source>
-        <translation type="vanished">لون الترميز</translation>
-    </message>
-    <message>
-        <source>Link Color</source>
-        <translation type="vanished">لون الروابط</translation>
-    </message>
-    <message>
-        <source>Emphasis Color</source>
-        <translation type="vanished">لون التوكيد</translation>
-    </message>
-    <message>
-        <source>Block Text Color</source>
-        <translation type="vanished">لون نص الاقتباس</translation>
-    </message>
-    <message>
-        <source>Spelling Error Color</source>
-        <translation type="vanished">لون أخطاء الإملائية</translation>
-    </message>
-    <message>
-        <source>Text Area Background Color</source>
-        <translation type="vanished">لون خلفية مساحة الكتابة</translation>
-    </message>
-    <message>
-        <source>Text Editor</source>
-        <translation type="vanished">محرر النصوص</translation>
-    </message>
-    <message>
-        <source>Background Image</source>
-        <translation type="vanished">صورة الخلفية</translation>
-    </message>
-    <message>
-        <source>Background Color</source>
-        <translation type="vanished">لون الخلفية</translation>
-    </message>
-    <message>
-        <source>Editor Aspect</source>
-        <translation type="vanished">مظهر المحرر</translation>
-    </message>
-    <message>
-        <source>Editor Opacity</source>
-        <translation type="vanished">شفافية المحرر</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation type="vanished">الخلفية</translation>
-    </message>
-    <message>
-        <source>HUD Foreground Color</source>
-        <translation type="vanished">لون شاشة الخلاصة</translation>
-    </message>
-    <message>
-        <source>HUD Background Color</source>
-        <translation type="vanished">لون خلفية شاشة الخلاصة</translation>
-    </message>
-    <message>
-        <source>HUD</source>
-        <translation type="vanished">شاشة الخلاصة</translation>
-    </message>
-    <message>
-        <source>Unable to save theme.</source>
-        <translation type="vanished">غير قادر على حفظ ملف الثمة.</translation>
-    </message>
-    <message>
-        <source>Failed to rename theme.</source>
-        <translation type="vanished">فشل في تسمية الثمة.</translation>
-    </message>
-</context>
-<context>
-    <name>ThemeSelectionDialog</name>
-    <message>
-        <source>Themes</source>
-        <translation type="vanished">الثمات</translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="vanished">تحرير...</translation>
-    </message>
-    <message>
-        <source>Unable to load theme.</source>
-        <translation type="vanished">تعذر فتح الثمة.</translation>
-    </message>
-    <message>
-        <source>Cannot delete theme.</source>
-        <translation type="vanished">لا يمكن حذف الثمة.</translation>
-    </message>
-    <message>
-        <source>Sorry, this is a built-in theme that cannot be deleted.</source>
-        <translation type="vanished">عذراً، هذه الثمة أصليّة ولا يمكن حذفها.</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
-        <translation type="vanished">هل ترغب حقاً في حذف الثمة %1 نهائياً؟</translation>
-    </message>
-    <message>
-        <source>Failed to delete theme.</source>
-        <translation type="vanished">تعذر حذف الثمة.</translation>
-    </message>
-    <message>
-        <source>Cannot edit theme.</source>
-        <translation type="vanished">لا يمكن تحرير الثمة.</translation>
-    </message>
-    <message>
-        <source>Sorry, this is a built-in theme that cannot be edited.</source>
-        <translation type="vanished">عذراً، هذه الثمة أصليّة ولا يمكن حذفها.</translation>
-    </message>
-</context>
-<context>
     <name>ghostwriter::AbstractStatisticsWidget</name>
     <message>
         <location filename="../src/abstractstatisticswidget.cpp" line="29"/>
@@ -1638,42 +370,42 @@
 <context>
     <name>ghostwriter::DocumentManager</name>
     <message>
-        <location filename="../src/documentmanager.cpp" line="306"/>
+        <location filename="../src/documentmanager.cpp" line="349"/>
         <source>Open File</source>
         <translation type="unfinished">فتح ملف</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="319"/>
+        <location filename="../src/documentmanager.cpp" line="362"/>
         <source>Could not open %1</source>
         <translation type="unfinished">لا يمكن فتح %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="320"/>
+        <location filename="../src/documentmanager.cpp" line="363"/>
         <source>Permission denied.</source>
         <translation type="unfinished">لا يوجد صلاحيات.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="381"/>
+        <location filename="../src/documentmanager.cpp" line="424"/>
         <source>The document has been modified.</source>
         <translation type="unfinished">تم تعديل المستند.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="382"/>
+        <location filename="../src/documentmanager.cpp" line="425"/>
         <source>Discard changes?</source>
         <translation type="unfinished">تجاهل التعديلات؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="413"/>
+        <location filename="../src/documentmanager.cpp" line="456"/>
         <source>Rename File</source>
         <translation type="unfinished">تسمية الملف</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="426"/>
+        <location filename="../src/documentmanager.cpp" line="469"/>
         <source>Failed to rename %1</source>
         <translation type="unfinished">تعذّرت تسمية الملف %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="464"/>
+        <location filename="../src/documentmanager.cpp" line="507"/>
         <source>Save File</source>
         <translation type="unfinished">حفظ الملف</translation>
     </message>
@@ -1842,10 +574,17 @@
         <source>Replace with:</source>
         <translation type="unfinished">استبدال بـ:</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/findreplace.cpp" line="400"/>
-        <source>%1 replacements</source>
-        <translation type="unfinished"></translation>
+        <source>%Ln replacement(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1877,531 +616,507 @@
 <context>
     <name>ghostwriter::MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="372"/>
+        <location filename="../src/mainwindow.cpp" line="367"/>
         <source>Could not create file %1. Check permissions.</source>
         <translation type="unfinished">لا يمكن إنشاء الملف %1. تحقق من الصلاحيات.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="651"/>
         <source>Insert Image</source>
         <translation type="unfinished">إدراج صورة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="658"/>
+        <location filename="../src/mainwindow.cpp" line="654"/>
         <source>Images</source>
         <translation type="unfinished">الصور</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="659"/>
+        <location filename="../src/mainwindow.cpp" line="655"/>
         <source>All Files</source>
         <translation type="unfinished">جميع الملفات</translation>
     </message>
     <message>
-        <source>Failed to open Quick Reference Guide.</source>
-        <translation type="obsolete">فشل في فتح المرجع السريع.</translation>
-    </message>
-    <message>
-        <source>Quick Reference Guide</source>
-        <translation type="obsolete">المرجع السريع</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Copyright &amp;copy; 2014-2019 wereturtle&lt;/b&gt;&lt;p&gt;يمكنك استعمال وتوزيع هذا البرنامج بشروط &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.ar.html&quot;&gt;رخصة جنو العمومية الإصدار 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;زر الموقع الرسمي على الرابط &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;شكر خاص وذكر لإعادة استعمال برامجهم لـ &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;، منشأ برنامج &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev، منشأ &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;، منشأ &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;وأدين بالكثير لـ &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;، منشأ &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;، للإلهام الذي أثره بواسطة الأداة الرائعة لتحرير ماركداون التي برمجها.&lt;/p&gt; {2014-2020 ?} {3&lt;?}</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="701"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2019 wereturtle&lt;/b&gt;&lt;p&gt;يمكنك استعمال وتوزيع هذا البرنامج بشروط &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.ar.html&quot;&gt;رخصة جنو العمومية الإصدار 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;زر الموقع الرسمي على الرابط &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;شكر خاص وذكر لإعادة استعمال برامجهم لـ &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;، منشأ برنامج &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev، منشأ &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;، منشأ &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;وأدين بالكثير لـ &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;، منشأ &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;، للإلهام الذي أثره بواسطة الأداة الرائعة لتحرير ماركداون التي برمجها.&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="724"/>
+        <location filename="../src/mainwindow.cpp" line="720"/>
         <source>About %1</source>
         <translation type="unfinished">حول %1</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/mainwindow.cpp" line="729"/>
-        <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="845"/>
+        <location filename="../src/mainwindow.cpp" line="836"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation type="unfinished">فضلاًـ أعد تشغيل التطبيق لتأخذ التغييرات فعاليتها.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="972"/>
+        <location filename="../src/mainwindow.cpp" line="963"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;ملف</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="974"/>
+        <location filename="../src/mainwindow.cpp" line="965"/>
         <source>&amp;New</source>
         <translation type="unfinished">&amp;جديد</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="975"/>
+        <location filename="../src/mainwindow.cpp" line="966"/>
         <source>&amp;Open</source>
         <translation type="unfinished">&amp;فتح</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="977"/>
+        <location filename="../src/mainwindow.cpp" line="968"/>
         <source>Open &amp;Recent...</source>
         <translation type="unfinished">فتح ال&amp;سابق...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="978"/>
+        <location filename="../src/mainwindow.cpp" line="969"/>
         <source>Reopen Closed File</source>
         <translation type="unfinished">إعادة فتح الملف المغلق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="986"/>
+        <location filename="../src/mainwindow.cpp" line="977"/>
         <source>Clear Menu</source>
         <translation type="unfinished">مسح القائمة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="991"/>
+        <location filename="../src/mainwindow.cpp" line="982"/>
         <source>&amp;Save</source>
         <translation type="unfinished">&amp;حفظ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="992"/>
+        <location filename="../src/mainwindow.cpp" line="983"/>
         <source>Save &amp;As...</source>
         <translation type="unfinished">حفظ &amp;باسم...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="993"/>
+        <location filename="../src/mainwindow.cpp" line="984"/>
         <source>R&amp;ename...</source>
         <translation type="unfinished">&amp;تسمية...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="994"/>
+        <location filename="../src/mainwindow.cpp" line="985"/>
         <source>Re&amp;load from Disk...</source>
         <translation type="unfinished">است&amp;عادة من القرص...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="996"/>
+        <location filename="../src/mainwindow.cpp" line="987"/>
         <source>&amp;Export</source>
         <translation type="unfinished">ت&amp;صدير</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="998"/>
+        <location filename="../src/mainwindow.cpp" line="989"/>
         <source>&amp;Quit</source>
         <translation type="unfinished">&amp;خروج</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1002"/>
+        <location filename="../src/mainwindow.cpp" line="993"/>
         <source>&amp;Edit</source>
         <translation type="unfinished">&amp;تحرير</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1003"/>
+        <location filename="../src/mainwindow.cpp" line="994"/>
         <source>&amp;Undo</source>
         <translation type="unfinished">&amp;تراجع</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1004"/>
+        <location filename="../src/mainwindow.cpp" line="995"/>
         <source>&amp;Redo</source>
         <translation type="unfinished">إ&amp;عادة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1006"/>
+        <location filename="../src/mainwindow.cpp" line="997"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished">&amp;قص</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1007"/>
+        <location filename="../src/mainwindow.cpp" line="998"/>
         <source>&amp;Copy</source>
         <translation type="unfinished">&amp;نسخ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1008"/>
+        <location filename="../src/mainwindow.cpp" line="999"/>
         <source>&amp;Paste</source>
         <translation type="unfinished">&amp;لصق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1009"/>
+        <location filename="../src/mainwindow.cpp" line="1000"/>
         <source>Copy &amp;HTML</source>
         <translation type="unfinished">ن&amp;سخ HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1011"/>
+        <location filename="../src/mainwindow.cpp" line="1002"/>
         <source>&amp;Insert Image...</source>
         <translation type="unfinished">إ&amp;دراج صورة...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1014"/>
+        <location filename="../src/mainwindow.cpp" line="1005"/>
         <source>&amp;Find</source>
         <translation type="unfinished">&amp;بحث</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1015"/>
+        <location filename="../src/mainwindow.cpp" line="1006"/>
         <source>Rep&amp;lace</source>
         <translation type="unfinished">است&amp;بدال</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1016"/>
+        <location filename="../src/mainwindow.cpp" line="1007"/>
         <source>Find &amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1017"/>
+        <location filename="../src/mainwindow.cpp" line="1008"/>
         <source>Find &amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1019"/>
+        <location filename="../src/mainwindow.cpp" line="1010"/>
         <source>&amp;Spell check</source>
         <translation type="unfinished">تن&amp;قيح إملائي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1021"/>
+        <location filename="../src/mainwindow.cpp" line="1012"/>
         <source>For&amp;mat</source>
         <translation type="unfinished">تن&amp;سيق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1022"/>
+        <location filename="../src/mainwindow.cpp" line="1013"/>
         <source>&amp;Bold</source>
         <translation type="unfinished">&amp;غامق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1023"/>
+        <location filename="../src/mainwindow.cpp" line="1014"/>
         <source>&amp;Italic</source>
         <translation type="unfinished">&amp;مائل</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1024"/>
+        <location filename="../src/mainwindow.cpp" line="1015"/>
         <source>Stri&amp;kethrough</source>
         <translation type="unfinished">&amp;وسطه خط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1025"/>
+        <location filename="../src/mainwindow.cpp" line="1016"/>
         <source>&amp;HTML Comment</source>
         <translation type="unfinished">ت&amp;عليقات HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1028"/>
+        <location filename="../src/mainwindow.cpp" line="1019"/>
         <source>I&amp;ndent</source>
         <translation type="unfinished">م&amp;باعدة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1029"/>
+        <location filename="../src/mainwindow.cpp" line="1020"/>
         <source>&amp;Unindent</source>
         <translation type="unfinished">م&amp;قاربة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1031"/>
+        <location filename="../src/mainwindow.cpp" line="1022"/>
         <source>Block &amp;Quote</source>
         <translation type="unfinished">ا&amp;قتباس</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1032"/>
+        <location filename="../src/mainwindow.cpp" line="1023"/>
         <source>&amp;Strip Block Quote</source>
         <translation type="unfinished">إل&amp;غاء الاقتباس</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1034"/>
+        <location filename="../src/mainwindow.cpp" line="1025"/>
         <source>&amp;* Bullet List</source>
         <translation type="unfinished">&amp;* قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1035"/>
+        <location filename="../src/mainwindow.cpp" line="1026"/>
         <source>&amp;- Bullet List</source>
         <translation type="unfinished">&amp;- قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1036"/>
+        <location filename="../src/mainwindow.cpp" line="1027"/>
         <source>&amp;+ Bullet List</source>
         <translation type="unfinished">&amp;+ قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1038"/>
+        <location filename="../src/mainwindow.cpp" line="1029"/>
         <source>1&amp;. Numbered List</source>
         <translation type="unfinished">1&amp;. قائمة مرتبة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1039"/>
+        <location filename="../src/mainwindow.cpp" line="1030"/>
         <source>1&amp;) Numbered List</source>
         <translation type="unfinished">1&amp;) قائمة مرتبة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1041"/>
+        <location filename="../src/mainwindow.cpp" line="1032"/>
         <source>&amp;Task List</source>
         <translation type="unfinished">قائمة م&amp;هات</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1042"/>
+        <location filename="../src/mainwindow.cpp" line="1033"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation type="unfinished">مبا&amp;دلة تشغيل إنجاز المهمة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1045"/>
+        <location filename="../src/mainwindow.cpp" line="1036"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;عرض</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1047"/>
+        <location filename="../src/mainwindow.cpp" line="1038"/>
         <source>&amp;Full Screen</source>
         <translation type="unfinished">&amp;ملئ الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1055"/>
+        <location filename="../src/mainwindow.cpp" line="1046"/>
         <source>&amp;Preview in HTML</source>
         <translation type="unfinished">م&amp;عاينة HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1060"/>
+        <location filename="../src/mainwindow.cpp" line="1306"/>
         <source>Show Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1074"/>
+        <location filename="../src/mainwindow.cpp" line="1054"/>
         <source>&amp;Outline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1084"/>
+        <location filename="../src/mainwindow.cpp" line="1064"/>
         <source>&amp;Session Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1093"/>
+        <location filename="../src/mainwindow.cpp" line="1073"/>
         <source>&amp;Document Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1102"/>
+        <location filename="../src/mainwindow.cpp" line="1082"/>
         <source>&amp;Cheat Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1113"/>
+        <location filename="../src/mainwindow.cpp" line="1093"/>
         <source>Increase Font Size</source>
         <translation type="unfinished">تكبير حجم الخط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1114"/>
+        <location filename="../src/mainwindow.cpp" line="1094"/>
         <source>Decrease Font Size</source>
         <translation type="unfinished">تصغير حجم الخط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1116"/>
+        <location filename="../src/mainwindow.cpp" line="1096"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">إ&amp;عدادات</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1117"/>
-        <location filename="../src/mainwindow.cpp" line="1438"/>
+        <location filename="../src/mainwindow.cpp" line="1097"/>
+        <location filename="../src/mainwindow.cpp" line="1448"/>
         <source>Themes...</source>
         <translation type="unfinished">الثمات...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1118"/>
-        <location filename="../src/mainwindow.cpp" line="1439"/>
+        <location filename="../src/mainwindow.cpp" line="1098"/>
+        <location filename="../src/mainwindow.cpp" line="1449"/>
         <source>Font...</source>
         <translation type="unfinished">الخط...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1119"/>
-        <location filename="../src/mainwindow.cpp" line="1440"/>
+        <location filename="../src/mainwindow.cpp" line="1099"/>
+        <location filename="../src/mainwindow.cpp" line="1450"/>
         <source>Application Language...</source>
         <translation type="unfinished">لغة التطبيق...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1120"/>
-        <location filename="../src/mainwindow.cpp" line="1441"/>
+        <location filename="../src/mainwindow.cpp" line="1100"/>
+        <location filename="../src/mainwindow.cpp" line="1451"/>
         <source>Preview Options...</source>
         <translation type="unfinished">إعدادات المعاينة...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1121"/>
-        <location filename="../src/mainwindow.cpp" line="1442"/>
+        <location filename="../src/mainwindow.cpp" line="1101"/>
+        <location filename="../src/mainwindow.cpp" line="1452"/>
         <source>Preferences...</source>
         <translation type="unfinished">التفضيلات...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1125"/>
+        <location filename="../src/mainwindow.cpp" line="1105"/>
         <source>&amp;Help</source>
         <translation type="unfinished">&amp;مساعدة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1126"/>
+        <location filename="../src/mainwindow.cpp" line="1106"/>
         <source>&amp;About</source>
         <translation type="unfinished">&amp;حول</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1129"/>
+        <location filename="../src/mainwindow.cpp" line="1109"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1132"/>
+        <location filename="../src/mainwindow.cpp" line="1112"/>
         <source>Quick &amp;Reference Guide</source>
         <translation type="unfinished">ال&amp;مرجع السريع</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1133"/>
+        <location filename="../src/mainwindow.cpp" line="1113"/>
         <source>Wiki</source>
         <translation type="unfinished">الويكي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1185"/>
+        <location filename="../src/mainwindow.cpp" line="1165"/>
         <source>Toggle sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1233"/>
+        <location filename="../src/mainwindow.cpp" line="1223"/>
         <source>Toggle dark mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1253"/>
+        <location filename="../src/mainwindow.cpp" line="1243"/>
         <source>Toggle Live HTML Preview</source>
         <translation type="unfinished">مبادلة تشغيل معاينة HTML المباشرة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1274"/>
+        <location filename="../src/mainwindow.cpp" line="1264"/>
         <source>Toggle Hemingway mode</source>
         <translation type="unfinished">مبادة تشغيل نمط هامينغوي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1283"/>
+        <location filename="../src/mainwindow.cpp" line="1273"/>
         <source>Toggle distraction free mode</source>
         <translation type="unfinished">مبادلة تشغيل نمط عدم الإزعاج</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1293"/>
+        <location filename="../src/mainwindow.cpp" line="1283"/>
         <source>Toggle full screen mode</source>
         <translation type="unfinished">مبادلة تشغيل نمط ملئ الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1321"/>
+        <location filename="../src/mainwindow.cpp" line="1322"/>
         <source># Heading 1</source>
         <translation type="unfinished"># عنوان 1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1322"/>
+        <location filename="../src/mainwindow.cpp" line="1323"/>
         <source>## Heading 2</source>
         <translation type="unfinished">## عنوان 2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1323"/>
+        <location filename="../src/mainwindow.cpp" line="1324"/>
         <source>### Heading 3</source>
         <translation type="unfinished">### عنوان 3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1324"/>
+        <location filename="../src/mainwindow.cpp" line="1325"/>
         <source>#### Heading 4</source>
         <translation type="unfinished">#### عنوان 4</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1325"/>
+        <location filename="../src/mainwindow.cpp" line="1326"/>
         <source>##### Heading 5</source>
         <translation type="unfinished">##### عنوان 5</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1326"/>
+        <location filename="../src/mainwindow.cpp" line="1327"/>
         <source>###### Heading 6</source>
         <translation type="unfinished">###### عنوان 6</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1327"/>
+        <location filename="../src/mainwindow.cpp" line="1328"/>
         <source>*Emphasis* _Emphasis_</source>
         <translation type="unfinished">*توكيد* _توكيد_</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1328"/>
+        <location filename="../src/mainwindow.cpp" line="1329"/>
         <source>**Strong** __Strong__</source>
         <translation type="unfinished">**غامق** __غامق__</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1329"/>
+        <location filename="../src/mainwindow.cpp" line="1330"/>
         <source>1. Numbered List</source>
         <translation type="unfinished">1. قائمة مرتبة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1330"/>
+        <location filename="../src/mainwindow.cpp" line="1331"/>
         <source>* Bullet List</source>
         <translation type="unfinished">* قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1331"/>
+        <location filename="../src/mainwindow.cpp" line="1332"/>
         <source>+ Bullet List</source>
         <translation type="unfinished">+ قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1332"/>
+        <location filename="../src/mainwindow.cpp" line="1333"/>
         <source>- Bullet List</source>
         <translation type="unfinished">- قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1333"/>
+        <location filename="../src/mainwindow.cpp" line="1334"/>
         <source>&gt; Block Quote</source>
         <translation type="unfinished">&gt; اقتباس</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1334"/>
+        <location filename="../src/mainwindow.cpp" line="1335"/>
         <source>`Code Span`</source>
         <translation type="unfinished">`رمز برمجي`</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1335"/>
+        <location filename="../src/mainwindow.cpp" line="1336"/>
         <source>``` Code Block</source>
         <translation type="unfinished">``` برنامج حاسبي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1336"/>
+        <location filename="../src/mainwindow.cpp" line="1337"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
         <translation type="unfinished">[رابط](http://url.com &quot;عنوان&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1337"/>
+        <location filename="../src/mainwindow.cpp" line="1338"/>
         <source>[Reference Link][ID]</source>
         <translation type="unfinished">[إشارة مرجعية][المعرف]</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1338"/>
+        <location filename="../src/mainwindow.cpp" line="1339"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
         <translation type="unfinished">[المعرف]: http://url.com &quot;تعريف مرجعي&quot;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1339"/>
+        <location filename="../src/mainwindow.cpp" line="1340"/>
         <source>![Image](./image.jpg &quot;Title&quot;)</source>
         <translation type="unfinished">![صورة](./image.jpg &quot;عنوان&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1340"/>
+        <location filename="../src/mainwindow.cpp" line="1341"/>
         <source>--- *** ___ Horizontal Rule</source>
         <translation type="unfinished">--- *** ___ خط أفقي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1383"/>
+        <location filename="../src/mainwindow.cpp" line="1393"/>
         <source>Outline</source>
         <translation type="unfinished">التخطيط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1389"/>
+        <location filename="../src/mainwindow.cpp" line="1399"/>
         <source>Session Statistics</source>
         <translation type="unfinished">إحصائيات الجلسة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1395"/>
+        <location filename="../src/mainwindow.cpp" line="1405"/>
         <source>Document Statistics</source>
         <translation type="unfinished">إحصائيات المستند</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1401"/>
+        <location filename="../src/mainwindow.cpp" line="1411"/>
         <source>Cheat Sheet</source>
         <translation type="unfinished">نموذج تذكير</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1429"/>
+        <location filename="../src/mainwindow.cpp" line="1439"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2409,9 +1124,7 @@
 <context>
     <name>ghostwriter::MarkdownDocument</name>
     <message>
-        <location filename="../src/markdowndocument.cpp" line="49"/>
-        <location filename="../src/markdowndocument.cpp" line="78"/>
-        <location filename="../src/markdowndocument.cpp" line="134"/>
+        <location filename="../src/markdowndocument.cpp" line="108"/>
         <source>untitled</source>
         <translation type="unfinished">بدون عنوان</translation>
     </message>
@@ -2437,22 +1150,22 @@
 <context>
     <name>ghostwriter::PreferencesDialog</name>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="76"/>
+        <location filename="../src/preferencesdialog.cpp" line="78"/>
         <source>Preferences</source>
         <translation type="unfinished">التفضيلات</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="85"/>
+        <location filename="../src/preferencesdialog.cpp" line="87"/>
         <source>General</source>
         <translation type="unfinished">العام</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="86"/>
+        <location filename="../src/preferencesdialog.cpp" line="88"/>
         <source>Editor</source>
         <translation type="unfinished">المحرر</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="87"/>
+        <location filename="../src/preferencesdialog.cpp" line="89"/>
         <source>Spell Check</source>
         <translation type="unfinished">المنقح الإملائي</translation>
     </message>
@@ -2460,203 +1173,213 @@
 <context>
     <name>ghostwriter::PreferencesDialogPrivate</name>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="108"/>
+        <location filename="../src/preferencesdialog.cpp" line="110"/>
         <source>Matched Characters</source>
         <translation type="unfinished">المحارف المطابقة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="191"/>
+        <location filename="../src/preferencesdialog.cpp" line="193"/>
         <source>Display</source>
         <translation type="unfinished">العرض</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="197"/>
+        <location filename="../src/preferencesdialog.cpp" line="199"/>
         <source>Show current time in full screen mode</source>
         <translation type="unfinished">عرض الوقت الحالي في نمط ملئ الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="203"/>
+        <location filename="../src/preferencesdialog.cpp" line="205"/>
         <source>Hide menu bar in full screen mode</source>
         <translation type="unfinished">إخفاء شريط القوائم في نمط ملئ الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="210"/>
+        <location filename="../src/preferencesdialog.cpp" line="212"/>
         <source>Rounded</source>
         <translation type="unfinished">دائري</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="211"/>
+        <location filename="../src/preferencesdialog.cpp" line="213"/>
         <source>Square</source>
         <translation type="unfinished">مربع</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="223"/>
+        <location filename="../src/preferencesdialog.cpp" line="225"/>
         <source>Interface style</source>
         <translation type="unfinished">تصميم الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="225"/>
+        <location filename="../src/preferencesdialog.cpp" line="227"/>
         <source>File Saving</source>
         <translation type="unfinished">حفظ الملف</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="231"/>
+        <location filename="../src/preferencesdialog.cpp" line="233"/>
         <source>Auto save</source>
         <translation type="unfinished">حفظ آلي</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="238"/>
+        <location filename="../src/preferencesdialog.cpp" line="240"/>
         <source>Backup file on save</source>
         <translation type="unfinished">إنشاء نسخة احتياطية عند الحفظ</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="244"/>
-        <source>History</source>
-        <translation type="unfinished">البيانات</translation>
+        <location filename="../src/preferencesdialog.cpp" line="246"/>
+        <source>View untitled drafts...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="250"/>
-        <source>Remember file history</source>
-        <translation type="unfinished">تذكر بيانات الملف</translation>
+        <location filename="../src/preferencesdialog.cpp" line="256"/>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="262"/>
+        <source>Remember recent files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="268"/>
+        <source>Open last file on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferencesdialog.cpp" line="291"/>
         <source>Tabulation</source>
         <translation type="unfinished">الجدولة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="274"/>
+        <location filename="../src/preferencesdialog.cpp" line="297"/>
         <source>Insert spaces for tabs</source>
         <translation type="unfinished">إدراج مسافات عوضاً عن الجدولة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="290"/>
+        <location filename="../src/preferencesdialog.cpp" line="313"/>
         <source>Tabulation width</source>
         <translation type="unfinished">عرض الجدولة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="292"/>
+        <location filename="../src/preferencesdialog.cpp" line="315"/>
         <source>Styling</source>
         <translation type="unfinished">التصميم</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="299"/>
+        <location filename="../src/preferencesdialog.cpp" line="322"/>
         <source>Sentence</source>
         <translation type="unfinished">الجملة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="300"/>
+        <location filename="../src/preferencesdialog.cpp" line="323"/>
         <source>Current Line</source>
         <translation type="unfinished">السطر الحالي</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="301"/>
+        <location filename="../src/preferencesdialog.cpp" line="324"/>
         <source>Three Lines</source>
         <translation type="unfinished">ثلاثة أسطر</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="302"/>
+        <location filename="../src/preferencesdialog.cpp" line="325"/>
         <source>Paragraph</source>
         <translation type="unfinished">الفقرة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="303"/>
+        <location filename="../src/preferencesdialog.cpp" line="326"/>
         <source>Typewriter</source>
         <translation type="unfinished">الآلة الكاتبة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="315"/>
+        <location filename="../src/preferencesdialog.cpp" line="338"/>
         <source>Focus mode</source>
         <translation type="unfinished">نمط التركيز</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="318"/>
+        <location filename="../src/preferencesdialog.cpp" line="341"/>
         <source>Narrow</source>
         <translation type="unfinished">ضيق</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="319"/>
+        <location filename="../src/preferencesdialog.cpp" line="342"/>
         <source>Medium</source>
         <translation type="unfinished">وسط</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="320"/>
+        <location filename="../src/preferencesdialog.cpp" line="343"/>
         <source>Wide</source>
         <translation type="unfinished">عريض</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="321"/>
+        <location filename="../src/preferencesdialog.cpp" line="344"/>
         <source>Full</source>
         <translation type="unfinished">كامل</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="333"/>
+        <location filename="../src/preferencesdialog.cpp" line="356"/>
         <source>Editor width</source>
         <translation type="unfinished">عرض المحرر</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="336"/>
+        <location filename="../src/preferencesdialog.cpp" line="359"/>
         <source>Plain</source>
         <translation type="unfinished">عادي</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="337"/>
-        <location filename="../src/preferencesdialog.cpp" line="352"/>
+        <location filename="../src/preferencesdialog.cpp" line="360"/>
+        <location filename="../src/preferencesdialog.cpp" line="375"/>
         <source>Italic</source>
         <translation type="unfinished">مائل</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="349"/>
+        <location filename="../src/preferencesdialog.cpp" line="372"/>
         <source>Blockquote style</source>
         <translation type="unfinished">تصميم الاقتباس المنفرد</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="353"/>
+        <location filename="../src/preferencesdialog.cpp" line="376"/>
         <source>Underline</source>
         <translation type="unfinished">تحته خط</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="365"/>
+        <location filename="../src/preferencesdialog.cpp" line="388"/>
         <source>Emphasis style</source>
         <translation type="unfinished">تصميم التوكيد</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="367"/>
+        <location filename="../src/preferencesdialog.cpp" line="390"/>
         <source>Use large headings</source>
         <translation type="unfinished">استعمال عناوين كبيرة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="373"/>
+        <location filename="../src/preferencesdialog.cpp" line="396"/>
         <source>Typing</source>
         <translation type="unfinished">الكتابة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="379"/>
+        <location filename="../src/preferencesdialog.cpp" line="402"/>
         <source>Cycle bullet point markers</source>
         <translation type="unfinished">مغايرة رمز القوائم المتداخلة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="385"/>
+        <location filename="../src/preferencesdialog.cpp" line="408"/>
         <source>Automatically match characters</source>
         <translation type="unfinished">مطابقة الأقواس تلقائياً</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="391"/>
+        <location filename="../src/preferencesdialog.cpp" line="414"/>
         <source>Customize matched characters...</source>
         <translation type="unfinished">تخصيص محارف المتطابقة...</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="416"/>
+        <location filename="../src/preferencesdialog.cpp" line="439"/>
         <source>Live spellcheck enabled</source>
         <translation type="unfinished">التنقيح الإملائي المباشر فعال</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="422"/>
+        <location filename="../src/preferencesdialog.cpp" line="445"/>
         <source>Language</source>
         <translation type="unfinished">اللغة</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="457"/>
+        <location filename="../src/preferencesdialog.cpp" line="480"/>
         <source>Dictionary</source>
         <translation type="unfinished">المعجم</translation>
     </message>
@@ -2747,6 +1470,103 @@
     </message>
 </context>
 <context>
+    <name>ghostwriter::StatisticsIndicator</name>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="26"/>
+        <source>%Ln word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="27"/>
+        <source>%Ln character(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="28"/>
+        <source>%Ln sentence(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="29"/>
+        <source>%Ln paragraph(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="30"/>
+        <source>%Ln page(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="31"/>
+        <source>%Ln word(s) added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/statisticsindicator.cpp" line="32"/>
+        <source>%Ln wpm</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/statisticsindicator.cpp" line="33"/>
+        <source>%1:%2 read time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/statisticsindicator.cpp" line="36"/>
+        <source>%1:%2 write time</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ghostwriter::ThemeEditorDialog</name>
     <message>
         <location filename="../src/themeeditordialog.cpp" line="89"/>
@@ -2762,63 +1582,63 @@
 <context>
     <name>ghostwriter::ThemeRepository</name>
     <message>
-        <location filename="../src/themerepository.cpp" line="161"/>
+        <location filename="../src/themerepository.cpp" line="162"/>
         <source>The specified theme does not exist in the file system: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="169"/>
+        <location filename="../src/themerepository.cpp" line="170"/>
         <source>Could not open theme file for reading: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="179"/>
+        <location filename="../src/themerepository.cpp" line="180"/>
         <source>Invalid theme format: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="198"/>
-        <location filename="../src/themerepository.cpp" line="207"/>
+        <location filename="../src/themerepository.cpp" line="199"/>
+        <location filename="../src/themerepository.cpp" line="208"/>
         <source>Invalid or missing value(s) in %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="215"/>
+        <location filename="../src/themerepository.cpp" line="216"/>
         <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
         <translation type="unfinished">الثمة المعينة غير متاحة. حاول إعادة تشغيل التطبيق. أو قم بإرسال نموذج خطأ إذا استمرت المشكلة.</translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="231"/>
+        <location filename="../src/themerepository.cpp" line="232"/>
         <source>Could not delete theme at %1. Please try setting the file permissions to be writeable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="251"/>
+        <location filename="../src/themerepository.cpp" line="252"/>
         <source>&apos;%1&apos; already exists.  Please choose another name.</source>
         <translation type="unfinished">&apos;%1&apos; موجود سابقاً. فضلاً، اختر اسماً مختلفاً.</translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="260"/>
+        <location filename="../src/themerepository.cpp" line="261"/>
         <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
         <translation type="unfinished">الثمة &apos;%1&apos; موجودة سابقاً. فضلاً، اختر اسماً مختلفاً.</translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="267"/>
+        <location filename="../src/themerepository.cpp" line="268"/>
         <source>Failed to rename theme.  Please check file permissions.</source>
         <translation type="unfinished">فشل في تسمية الثمة. فضلاً، تحقق من صلاحيات الملف.</translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="305"/>
+        <location filename="../src/themerepository.cpp" line="306"/>
         <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
         <translation type="unfinished">لا يمكن حفظ الثمة إلى القرص. فضلاً، تحقق من صلاحيات الملف أو حاول تسمية الثمة.</translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="335"/>
+        <location filename="../src/themerepository.cpp" line="336"/>
         <source>Untitled 1</source>
         <translation type="unfinished">بدون عنوان 1</translation>
     </message>
     <message>
-        <location filename="../src/themerepository.cpp" line="345"/>
+        <location filename="../src/themerepository.cpp" line="346"/>
         <source>Untitled %1</source>
         <translation type="unfinished">بدون عنوان %1</translation>
     </message>

@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2016-2020 wereturtle
  *
@@ -52,6 +52,16 @@ public:
      * Gets the word count of the document.
      */
     int wordCount() const;
+
+    int characterCount() const;
+
+    int paragraphCount() const;
+
+    int sentenceCount() const;
+
+    int pageCount() const;
+
+    int readingTime() const;
 
 signals:
     /**

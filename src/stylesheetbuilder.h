@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2020-2021 wereturtle
  *
@@ -23,6 +23,7 @@
 #include <QFont>
 #include <QString>
 
+#include "3rdparty/QtAwesome/QtAwesome.h"
 #include "colorscheme.h"
 
 namespace ghostwriter
@@ -46,6 +47,12 @@ public:
      * Destructor.
      */
     ~StyleSheetBuilder();
+
+    /**
+     * Removes temporary files created by the style sheet builder.
+     * Call on application exit.
+     */
+    static void clearCache();
 
     /**
      * Gets the general layout style sheet.
@@ -110,6 +117,9 @@ public:
     QColor faintColor();
 
 private:
+    static QString m_statIndicatorArrowIconPath;
+
+    QtAwesome *m_awesome;
     QColor m_backgroundColor;
     QColor m_foregroundColor;
     QColor m_faintColor;

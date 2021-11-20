@@ -2,742 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pl_PL">
 <context>
-    <name>AbstractStatisticsWidget</name>
-    <message>
-        <source>250 words per page</source>
-        <translation type="obsolete">250 słów na stronę</translation>
-    </message>
-</context>
-<context>
-    <name>DocumentManager</name>
-    <message>
-        <source>Could not open %1</source>
-        <translation type="obsolete">Nie udało się otworzyć %1</translation>
-    </message>
-    <message>
-        <source>The document has been modified by another program.</source>
-        <translation type="obsolete">Dokument został zmodyfikowany przez inny program.</translation>
-    </message>
-    <message>
-        <source>Overwrite failed.</source>
-        <translation type="obsolete">Nadpisanie się nie powiodło.</translation>
-    </message>
-    <message>
-        <source>Rename File</source>
-        <translation type="obsolete">Zmień nazwę pliku</translation>
-    </message>
-    <message>
-        <source>opening %1</source>
-        <translation type="obsolete">otwieranie %1</translation>
-    </message>
-    <message>
-        <source>Permission denied.</source>
-        <translation type="obsolete">Brak dostępu.</translation>
-    </message>
-    <message>
-        <source>Error saving %1</source>
-        <translation type="obsolete">Błąd podczas zapisywania %1</translation>
-    </message>
-    <message>
-        <source>%1 is read only.</source>
-        <translation type="obsolete">%1 jest plikiem tylko do odczytu.</translation>
-    </message>
-    <message>
-        <source>Overwrite protected file?</source>
-        <translation type="obsolete">Nadpisać chroniony plik?</translation>
-    </message>
-    <message>
-        <source>%1 has been modified.</source>
-        <translation type="obsolete">%1 został zmodyfikowany.</translation>
-    </message>
-    <message>
-        <source>The document has been modified.</source>
-        <translation type="obsolete">Dokument został zmodyfikowany.</translation>
-    </message>
-    <message>
-        <source>File has been modified.</source>
-        <translation type="obsolete">Plik został zmodyfikowany.</translation>
-    </message>
-    <message>
-        <source>Discard changes?</source>
-        <translation type="obsolete">Odrzucić zmiany?</translation>
-    </message>
-    <message>
-        <source>Would you like to save your changes?</source>
-        <translation type="obsolete">Chciałbyś zapisać zmiany?</translation>
-    </message>
-    <message>
-        <source>Please save file to another location.</source>
-        <translation type="obsolete">Proszę zapisać plik w innym katalogu.</translation>
-    </message>
-    <message>
-        <source>Open File</source>
-        <translation type="obsolete">Otwórz plik</translation>
-    </message>
-    <message>
-        <source>Save File</source>
-        <translation type="obsolete">Zapisz plik</translation>
-    </message>
-    <message>
-        <source>Would you like to reload the document?</source>
-        <translation type="obsolete">Chcesz wczytać dokument ponownie?</translation>
-    </message>
-    <message>
-        <source>Could not read %1</source>
-        <translation type="obsolete">Nie można odczytać %1</translation>
-    </message>
-    <message>
-        <source>Failed to rename %1</source>
-        <translation type="obsolete">Nie udało się zmienić nazwy %1</translation>
-    </message>
-</context>
-<context>
-    <name>DocumentStatisticsWidget</name>
-    <message>
-        <source>Easy</source>
-        <translation type="obsolete">Łatwy</translation>
-    </message>
-    <message>
-        <source>Very Difficult</source>
-        <translation type="obsolete">Bardzo trudny</translation>
-    </message>
-    <message>
-        <source>LIX Reading Ease</source>
-        <translation type="obsolete">Czytelność LIX</translation>
-    </message>
-    <message>
-        <source>Grade Level:</source>
-        <translation type="obsolete">Poziom:</translation>
-    </message>
-    <message>
-        <source>Reading Time:</source>
-        <translation type="obsolete">Czas czytania:</translation>
-    </message>
-    <message>
-        <source>Reading Ease:</source>
-        <translation type="obsolete">Prosota czytania:</translation>
-    </message>
-    <message>
-        <source>Complex Words:</source>
-        <translation type="obsolete">Wyrazy złożone:</translation>
-    </message>
-    <message>
-        <source>Pages:</source>
-        <translation type="obsolete">Strony:</translation>
-    </message>
-    <message>
-        <source>Coleman-Liau Readability Index (CLI)</source>
-        <translation type="obsolete">Indeks czytalności Colemana-Liaua</translation>
-    </message>
-    <message>
-        <source>Words:</source>
-        <translation type="obsolete">Słowa:</translation>
-    </message>
-    <message>
-        <source>Characters:</source>
-        <translation type="obsolete">Znaki:</translation>
-    </message>
-    <message>
-        <source>Very Easy</source>
-        <translation type="obsolete">Bardzo łatwy</translation>
-    </message>
-    <message>
-        <source>College</source>
-        <translation type="obsolete">Studia</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation type="obsolete">Standardowy</translation>
-    </message>
-    <message>
-        <source>Sentences:</source>
-        <translation type="obsolete">Zdania:</translation>
-    </message>
-    <message>
-        <source>Rocket Science</source>
-        <translation type="obsolete">Nauka rakietowa</translation>
-    </message>
-    <message>
-        <source>Difficult</source>
-        <translation type="obsolete">Trudny</translation>
-    </message>
-    <message>
-        <source>Kindergarten</source>
-        <translation type="obsolete">Przedszkole</translation>
-    </message>
-    <message>
-        <source>Paragraphs:</source>
-        <translation type="obsolete">Akapity:</translation>
-    </message>
-</context>
-<context>
-    <name>ExportDialog</name>
-    <message>
-        <source>Export failed.</source>
-        <translation type="obsolete">Niepowodzenie eksportu.</translation>
-    </message>
-    <message>
-        <source>Markdown Converter:</source>
-        <translation type="obsolete">Konwerter formatowania:</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="obsolete">Eksport</translation>
-    </message>
-    <message>
-        <source>Export Options</source>
-        <translation type="obsolete">Ustawienia eksportu</translation>
-    </message>
-    <message>
-        <source>Smart Typography</source>
-        <translation type="obsolete">Inteligentna pisownia</translation>
-    </message>
-    <message>
-        <source>exporting to %1</source>
-        <translation type="obsolete">exportowanie do %1</translation>
-    </message>
-</context>
-<context>
-    <name>FindDialog</name>
-    <message>
-        <source>Find</source>
-        <translation type="obsolete">Znajdź</translation>
-    </message>
-    <message>
-        <source>&amp;Find</source>
-        <translation type="obsolete">&amp;Znajdź</translation>
-    </message>
-    <message>
-        <source>Sorry</source>
-        <translation type="obsolete">Niestety</translation>
-    </message>
-    <message>
-        <source>Regular expressions</source>
-        <translation type="obsolete">Wyrażenia proste</translation>
-    </message>
-    <message numerus="yes">
-        <source>Replace %n instance(s)?</source>
-        <translation type="vanished">
-            <numerusform>Replace %n instance?</numerusform>
-            <numerusform>Replace %n instances?</numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>Ignore case</source>
-        <translation type="obsolete">Ignoruj wielkość liter</translation>
-    </message>
-    <message>
-        <source>Search up</source>
-        <translation type="obsolete">Szukaj w górę</translation>
-    </message>
-    <message>
-        <source>&amp;Replace</source>
-        <translation type="obsolete">&amp;Zamień</translation>
-    </message>
-    <message>
-        <source>Replace</source>
-        <translation type="obsolete">Zamień</translation>
-    </message>
-    <message>
-        <source>Whole words only</source>
-        <translation type="obsolete">Tylko pełne słowa</translation>
-    </message>
-    <message>
-        <source>Search down</source>
-        <translation type="obsolete">Szukaj w dół</translation>
-    </message>
-    <message>
-        <source>Search for:</source>
-        <translation type="obsolete">Szukaj:</translation>
-    </message>
-    <message>
-        <source>Question</source>
-        <translation type="obsolete">Pytanie</translation>
-    </message>
-    <message>
-        <source>Replace &amp;All</source>
-        <translation type="obsolete">Zastąp &amp;Wszystko</translation>
-    </message>
-    <message>
-        <source>Replace with:</source>
-        <translation type="obsolete">Zastąp przy pomocy:</translation>
-    </message>
-    <message>
-        <source>Phrase not found.</source>
-        <translation type="obsolete">Fraza nie odnaleziona.</translation>
-    </message>
-</context>
-<context>
-    <name>HtmlPreview</name>
-    <message>
-        <source>Print</source>
-        <translation type="obsolete">Podgląd wydruku</translation>
-    </message>
-    <message>
-        <source>HTML Preview</source>
-        <translation type="obsolete">Podgląd pliku HTML</translation>
-    </message>
-    <message>
-        <source>Github (Default)</source>
-        <translation type="obsolete">Github (Domyślny)</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="obsolete">Eksportuj</translation>
-    </message>
-    <message>
-        <source>Copy HTML</source>
-        <translation type="obsolete">Kopiuj HTML</translation>
-    </message>
-</context>
-<context>
-    <name>ImageButton</name>
-    <message>
-        <source>Open Image</source>
-        <translation type="obsolete">Otwórz obraz</translation>
-    </message>
-    <message>
-        <source>Images(%1)</source>
-        <translation type="obsolete">Obrazy(%1)</translation>
-    </message>
-</context>
-<context>
-    <name>LocaleDialog</name>
-    <message>
-        <source>The translations folder is missing.</source>
-        <translation type="obsolete">Folder z tłumaczeniami nie został odnaleziony.</translation>
-    </message>
-    <message>
-        <source>Please reinstall this application for more language options.</source>
-        <translation type="obsolete">Proszę przeinstalować tę aplikację by uzyskać więcej opcji językowych.</translation>
-    </message>
-    <message>
-        <source>Set Application Language</source>
-        <translation type="obsolete">Ustaw język aplikacji</translation>
-    </message>
-</context>
-<context>
-    <name>MainWindow</name>
-    <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">&amp;Nowy</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="obsolete">Wy&amp;tnij</translation>
-    </message>
-    <message>
-        <source>&amp;Bold</source>
-        <translation type="obsolete">&amp;Pogrubienie</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="obsolete">&amp;Kopiuj</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="obsolete">&amp;Edytuj</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="obsolete">&amp;Plik</translation>
-    </message>
-    <message>
-        <source>&amp;Find</source>
-        <translation type="obsolete">&amp;Znajdź</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="obsolete">&amp;Pomoc</translation>
-    </message>
-    <message>
-        <source>&amp;Open</source>
-        <translation type="obsolete">&amp;Otwórz</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="obsolete">&amp;Ponów</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">&amp;Wyjdź</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="obsolete">&amp;Zapisz</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="obsolete">&amp;Cofnij</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="obsolete">&amp;Widok</translation>
-    </message>
-    <message>
-        <source>&amp;* Bullet List</source>
-        <translation type="obsolete">&amp;* Lista z gwiazdkami</translation>
-    </message>
-    <message>
-        <source>* Bullet List</source>
-        <translation type="obsolete">* Lista z gwiazdkami</translation>
-    </message>
-    <message>
-        <source>&amp;Cheat Sheet HUD</source>
-        <translation type="obsolete">&amp;Interfejs Ściągi</translation>
-    </message>
-    <message>
-        <source>Focus</source>
-        <translation type="obsolete">Zaznacz</translation>
-    </message>
-    <message>
-        <source>Failed to open Quick Reference Guide.</source>
-        <translation type="obsolete">Nie udało się otworzyć poradnika.</translation>
-    </message>
-    <message>
-        <source>&amp;+ Bullet List</source>
-        <translation type="obsolete">&amp;+ Lista z plusami</translation>
-    </message>
-    <message>
-        <source>+ Bullet List</source>
-        <translation type="obsolete">+ Lista z plusami</translation>
-    </message>
-    <message>
-        <source>``` Code Block</source>
-        <translation type="obsolete">Funkcja ``` Blok kodu</translation>
-    </message>
-    <message>
-        <source>Stri&amp;kethrough</source>
-        <translation type="obsolete">Prze&amp;kreślenie</translation>
-    </message>
-    <message>
-        <source>Print Pre&amp;view</source>
-        <translation type="obsolete">Podgląd &amp;wydruku</translation>
-    </message>
-    <message>
-        <source>Quick &amp;Reference Guide</source>
-        <translation type="obsolete">&amp;Poradnik formatowania tekstu</translation>
-    </message>
-    <message>
-        <source>--- *** ___ Horizontal Rule</source>
-        <translation type="obsolete">--- *** ___ Pozioma reguła</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="obsolete">&amp;O</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="obsolete">&amp;Wklej</translation>
-    </message>
-    <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;Drukuj</translation>
-    </message>
-    <message>
-        <source>Save &amp;As...</source>
-        <translation type="obsolete">Zapisz &amp;jako...</translation>
-    </message>
-    <message>
-        <source>###### Heading 6</source>
-        <translation type="obsolete">###### Nagłówek 6</translation>
-    </message>
-    <message>
-        <source>#### Heading 4</source>
-        <translation type="obsolete">#### Nagłówek 4</translation>
-    </message>
-    <message>
-        <source>### Heading 3</source>
-        <translation type="obsolete">### Nagłówek 3</translation>
-    </message>
-    <message>
-        <source>##### Heading 5</source>
-        <translation type="obsolete">##### Nagłówek 5</translation>
-    </message>
-    <message>
-        <source>&amp;- Bullet List</source>
-        <translation type="obsolete">&amp;- Lista z myślnikami</translation>
-    </message>
-    <message>
-        <source>- Bullet List</source>
-        <translation type="obsolete">- Lista wykropkowana</translation>
-    </message>
-    <message>
-        <source>Insert Image</source>
-        <translation type="obsolete">Wstaw obraz</translation>
-    </message>
-    <message>
-        <source>&amp;Document Statistics HUD</source>
-        <translation type="obsolete">Pokaż statystyki &amp;dokumentu</translation>
-    </message>
-    <message>
-        <source>Hemingway</source>
-        <translation type="obsolete">Hemingway</translation>
-    </message>
-    <message>
-        <source>Quick Reference Guide</source>
-        <translation type="obsolete">Poradnik formatowania tekstu</translation>
-    </message>
-    <message>
-        <source>Please restart the application for changes to take effect.</source>
-        <translation type="obsolete">Restartuj aplikację by zmiany zostały wprowadzone.</translation>
-    </message>
-    <message>
-        <source>R&amp;ename...</source>
-        <translation type="obsolete">Z&amp;mień nazwę...</translation>
-    </message>
-    <message>
-        <source>&amp;HTML Comment</source>
-        <translation type="obsolete">&amp;Komentarz HTML</translation>
-    </message>
-    <message>
-        <source>&amp;Preview in HTML</source>
-        <translation type="obsolete">&amp;Podgląd HTML</translation>
-    </message>
-    <message>
-        <source>Application Language...</source>
-        <translation type="obsolete">Język programu...</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation type="obsolete">Obrazy</translation>
-    </message>
-    <message>
-        <source>&amp;Unindent</source>
-        <translation type="obsolete">&amp;Usunięcie wcięcia</translation>
-    </message>
-    <message>
-        <source>Document Statistics</source>
-        <translation type="obsolete">Statystyki dokumentu</translation>
-    </message>
-    <message>
-        <source>Open &amp;Recent...</source>
-        <translation type="obsolete">Otwórz &amp;ostatni...</translation>
-    </message>
-    <message>
-        <source>## Heading 2</source>
-        <translation type="obsolete">## Nagłówek 2</translation>
-    </message>
-    <message>
-        <source>Cheat Sheet</source>
-        <translation type="obsolete">Ściąga</translation>
-    </message>
-    <message>
-        <source>Block &amp;Quote</source>
-        <translation type="obsolete">Cytat Block &amp;Quote</translation>
-    </message>
-    <message>
-        <source>About &amp;Qt</source>
-        <translation type="obsolete">O &amp;Qt</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation type="obsolete">Podkreślenie</translation>
-    </message>
-    <message>
-        <source>&amp;Full Screen</source>
-        <translation type="obsolete">&amp;Pełen ekran</translation>
-    </message>
-    <message>
-        <source>`Code Span`</source>
-        <translation type="obsolete">Funkcja `Code Span`</translation>
-    </message>
-    <message>
-        <source>*Emphasis* _Emphasis_</source>
-        <translation type="obsolete">*Podkreślenie* _Podkreślenie_</translation>
-    </message>
-    <message>
-        <source># Heading 1</source>
-        <translation type="obsolete"># Nagłówek 1</translation>
-    </message>
-    <message>
-        <source>Toggle distraction free mode</source>
-        <translation type="obsolete">Włącz tryb nierozpraszający</translation>
-    </message>
-    <message>
-        <source>Clear Menu</source>
-        <translation type="obsolete">Wyczyść Menu</translation>
-    </message>
-    <message>
-        <source>Toggle full screen mode</source>
-        <translation type="obsolete">Włącz tryb pełnoekranowy</translation>
-    </message>
-    <message>
-        <source>[Reference Link][ID]</source>
-        <translation type="obsolete">[Odnośnik referencyjny][ID]</translation>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation type="obsolete">O %1</translation>
-    </message>
-    <message>
-        <source>&amp;Task List</source>
-        <translation type="obsolete">&amp;Lista zadań</translation>
-    </message>
-    <message>
-        <source>Toggle Task(s) &amp;Complete</source>
-        <translation type="obsolete">Odznacz zadania jako &amp;wykonane</translation>
-    </message>
-    <message>
-        <source>[Link](http://url.com &quot;Title&quot;)</source>
-        <translation type="obsolete">[Odnośnik](http://adres-strony.com &quot;Tytuł&quot;)</translation>
-    </message>
-    <message>
-        <source>&amp;Insert Image...</source>
-        <translation type="obsolete">&amp;Wstaw obraz...</translation>
-    </message>
-    <message>
-        <source>&amp;Export</source>
-        <translation type="obsolete">&amp;Eksportuj</translation>
-    </message>
-    <message>
-        <source>&amp;Italic</source>
-        <translation type="obsolete">&amp;Kursywa</translation>
-    </message>
-    <message>
-        <source>I&amp;ndent</source>
-        <translation type="obsolete">T&amp;abulator</translation>
-    </message>
-    <message>
-        <source>Re&amp;load from Disk...</source>
-        <translation type="obsolete">Wczytaj &amp;ponownie...</translation>
-    </message>
-    <message>
-        <source>Rep&amp;lace</source>
-        <translation type="obsolete">Zas&amp;tąp</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Prawa autorskie &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Masz prawo używać i rozprowadzać te oprogramowanie na zasadach&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt; GNU General Public License w Wersji 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Odwiedź oficjalną stronę projektu na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Specjalne podziękowania należą się: &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gottowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitrowi Shachnevowi, autorowi &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrielowi M. Beddingfieldowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jestem również bardzo wdzięczny &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfowi Vollprechtowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za inspirację pod postacią tak pięknego edytora Markdown.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>Themes...</source>
-        <translation type="obsolete">Motywy...</translation>
-    </message>
-    <message>
-        <source>Session Statistics</source>
-        <translation type="obsolete">Statystyki sesji</translation>
-    </message>
-    <message>
-        <source>&amp;Settings</source>
-        <translation type="obsolete">&amp;Ustawienia</translation>
-    </message>
-    <message>
-        <source>&amp;Session Statistics HUD</source>
-        <translation type="obsolete">&amp;Interfejs sesji statystyki</translation>
-    </message>
-    <message>
-        <source>&amp;Spell check</source>
-        <translation type="obsolete">&amp;Sprawdzanie pisowni</translation>
-    </message>
-    <message>
-        <source>&gt; Block Quote</source>
-        <translation type="obsolete">&gt; Cytat</translation>
-    </message>
-    <message>
-        <source>For&amp;mat</source>
-        <translation type="obsolete">For&amp;mat</translation>
-    </message>
-    <message>
-        <source>Font...</source>
-        <translation type="obsolete">Czcionka...</translation>
-    </message>
-    <message>
-        <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
-        <translation type="obsolete">[ID]: http://adres-strony.com &quot;Definicja Odniesienia&quot;</translation>
-    </message>
-    <message>
-        <source>![Image][./image.jpg &quot;Title&quot;]</source>
-        <translation type="obsolete">![Obraz][./obraz.jpg &quot;Tytuł&quot;]</translation>
-    </message>
-    <message>
-        <source>**Strong** __Strong__</source>
-        <translation type="obsolete">**Mocne Podkreślenie** __Mocne Podgkreślenie__</translation>
-    </message>
-    <message numerus="yes">
-        <source>%Ln word(s)</source>
-        <translation type="vanished">
-            <numerusform>%Ln word</numerusform>
-            <numerusform>%Ln words</numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation type="obsolete">Wszystkie pliki</translation>
-    </message>
-    <message>
-        <source>Reopen Closed File</source>
-        <translation type="obsolete">Otwórz ponownie zamknięty plik</translation>
-    </message>
-    <message>
-        <source>1. Numbered List</source>
-        <translation type="obsolete">1. Lista numeryczna</translation>
-    </message>
-    <message>
-        <source>&amp;Outline HUD</source>
-        <translation type="obsolete">Interfejs &amp;podkreślenia</translation>
-    </message>
-    <message>
-        <source>1&amp;) Numbered List</source>
-        <translation type="obsolete">1&amp;) Lista numeryczna</translation>
-    </message>
-    <message>
-        <source>1&amp;. Numbered List</source>
-        <translation type="obsolete">1&amp;. Lista numeryczna</translation>
-    </message>
-    <message>
-        <source>Toggle Hemingway mode</source>
-        <translation type="obsolete">Włącz tryb Hemingwaya</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Prawa autorskie &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Masz prawo używać i rozprowadzać te oprogramowanie na zasadach&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt; GNU General Public License w Wersji 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Odwiedź oficjalną stronę projektu na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Specjalne podziękowania należą się: &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gottowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitrowi Shachnevowi, autorowi &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrielowi M. Beddingfieldowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jestem również bardzo wdzięczny &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfowi Vollprechtowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za inspirację pod postacią tak pięknego edytora Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?}</translation>
-    </message>
-    <message>
-        <source>Copy HTML</source>
-        <translation type="obsolete">Kopiuj HTML</translation>
-    </message>
-</context>
-<context>
-    <name>MarkdownEditor</name>
-    <message>
-        <source>Add word to dictionary</source>
-        <translation type="obsolete">Dodaj słowa do słownika</translation>
-    </message>
-    <message>
-        <source>No spelling suggestions found</source>
-        <translation type="obsolete">Nie znaleziono żadnych sugestii</translation>
-    </message>
-    <message>
-        <source>Check spelling...</source>
-        <translation type="obsolete">Sprawdzanie pisowni...</translation>
-    </message>
-</context>
-<context>
-    <name>PreferencesDialog</name>
-    <message>
-        <source>HUD</source>
-        <translation type="obsolete">Interfejs</translation>
-    </message>
-    <message>
-        <source>Rounded</source>
-        <translation type="obsolete">Zaokrąglony</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="obsolete">Kwadrat</translation>
-    </message>
-</context>
-<context>
-    <name>PreviewOptionsDialog</name>
-    <message>
-        <source>Github (Default)</source>
-        <translation type="obsolete">Github (Domyślny)</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>All</source>
@@ -752,84 +16,20 @@
         <translation type="unfinished">Eksportowanie się nie powiodło:</translation>
     </message>
     <message>
-        <source>Untitled 1</source>
-        <translation type="obsolete">Bez tytulu 1</translation>
-    </message>
-    <message>
-        <source>Theme could not be saved to disk.  Please check file permissions or try renaming the theme.</source>
-        <translation type="obsolete">Motyw nie mógł być zapisany na dysk.  Proszę sprawdzić uprawnienia pliku albo spróbuj zmienić nazwę pliku.</translation>
-    </message>
-    <message>
-        <source>Theme image file could not be copied to the theme directory.  Please check file permissions.</source>
-        <translation type="obsolete">Plik obrazu motywu nie mógł być zapisany do katalogu z motywami.  Proszę sprawdzić uprawnienia.</translation>
-    </message>
-    <message>
-        <source>Failed to rename theme.  Please check file permissions.</source>
-        <translation type="obsolete">Nie udało się zmienić nazwy motywu.  Proszę sprawdzić uprawnienia.</translation>
-    </message>
-    <message>
         <source>Export to HTML is not supported with this processor.</source>
         <translation type="unfinished">Eksport do pliku HTML nie jest wspierany z tym procesorem.</translation>
-    </message>
-    <message>
-        <source>Value for %1 is out of range.  Valid values are between %2 and %3, inclusive.</source>
-        <translation type="obsolete">Wartość %1 jest poza skalą.  Poprawne wartości wynoszą od %2 do %3 włącznie.</translation>
-    </message>
-    <message>
-        <source>The specified theme does not exist in the file system: </source>
-        <translation type="obsolete">Podany motyw nie istnieje w systemie plików: </translation>
     </message>
     <message>
         <source>Null or empty file path provided for writing.</source>
         <translation type="unfinished">Podana ścieżka zapisu jest pusta.</translation>
     </message>
     <message>
-        <source>Failed to remove old theme image.  Please check file permissions.</source>
-        <translation type="obsolete">Nie udało się usunąć starego obrazu motywu.  Sprawdź uprawnienia.</translation>
-    </message>
-    <message>
-        <source>Theme is read-only.  Please try renaming the theme, or setting the theme file to be writable.</source>
-        <translation type="obsolete">Motyw jest plikiem tylko do odczytu.  Zmień nazwę lub ustaw plik jako zapisywalny.</translation>
-    </message>
-    <message>
         <source>Markdown</source>
         <translation type="unfinished">Markdown</translation>
     </message>
     <message>
-        <source>Could not delete %1 from theme.  Please try setting the theme file permissions to be writeable.</source>
-        <translation type="obsolete">Nie można było usunąć %1 z motywu.  Spróbuj ustawić plik jako zapisywalny.</translation>
-    </message>
-    <message>
-        <source>Untitled %1</source>
-        <translation type="obsolete">Bez tytulu %1</translation>
-    </message>
-    <message>
-        <source>The old theme image file could not be removed from the theme directory.  Please check file permissions.</source>
-        <translation type="obsolete">Starsza wersja pliku motywu nie została usunięta. Sprawdź uprawnienia.</translation>
-    </message>
-    <message>
-        <source>The specified theme is not available.  Try restarting the application.  If problem persists, please file a bug report.</source>
-        <translation type="obsolete">Wybrany motyw nie jest dostępny.  Spróbuj zrestartować aplikację.  Jeśli problem nawraca, proszę zgłosić błąd.</translation>
-    </message>
-    <message>
-        <source>&apos;%1&apos; already exists.  Please choose another name.</source>
-        <translation type="obsolete">&apos;%1&apos; już istnieje. Podaj inną nazwę.</translation>
-    </message>
-    <message>
-        <source>Invalid or missing value for %1 provided.</source>
-        <translation type="obsolete">Niewłaściwa bądź brakująca wartość dla podanego %1.</translation>
-    </message>
-    <message>
-        <source>%1 format is unsupported by the Sundown processor.</source>
-        <translation type="obsolete">Format %1 nie jest wspierany przez procesor Sundown.</translation>
-    </message>
-    <message>
         <source>%1 format is not supported by this processor.</source>
         <translation type="unfinished">Format %1 nie jest wspierany przez ten procesor.</translation>
-    </message>
-    <message>
-        <source>&apos;%1&apos; theme already exists.  Please choose another name.</source>
-        <translation type="obsolete">Motyw &apos;%1&apos; już istnieje. Wybierz inną nazwę.</translation>
     </message>
     <message>
         <source>Failed to execute command: </source>
@@ -1011,47 +211,9 @@
         <source>%1 %2pt</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SessionStatisticsWidget</name>
     <message>
-        <source>Pages Written:</source>
-        <translation type="obsolete">Napisane strony:</translation>
-    </message>
-    <message>
-        <source>Idle Time:</source>
-        <translation type="obsolete">Czas bezczynności:</translation>
-    </message>
-    <message>
-        <source>Average WPM:</source>
-        <translation type="obsolete">Średnia ilość słów na minutę:</translation>
-    </message>
-    <message>
-        <source>Total Time:</source>
-        <translation type="obsolete">Całkowity czas pisania:</translation>
-    </message>
-    <message>
-        <source>Words Written:</source>
-        <translation type="obsolete">Napisane słowa:</translation>
-    </message>
-</context>
-<context>
-    <name>SimpleFontDialog</name>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Rozmiar</translation>
-    </message>
-    <message>
-        <source>Family</source>
-        <translation type="obsolete">Rodzina</translation>
-    </message>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">Podgląd</translation>
-    </message>
-    <message>
-        <source>AaBbCcXxYyZz</source>
-        <translation type="obsolete">AaBbCcXxYyZz</translation>
+        <source>untitled</source>
+        <translation type="unfinished">Bez tytułu</translation>
     </message>
 </context>
 <context>
@@ -1107,194 +269,6 @@
     <message>
         <source>Not in dictionary:</source>
         <translation type="unfinished">Słowa nie ma w słowniku:</translation>
-    </message>
-</context>
-<context>
-    <name>StyleSheetManagerDialog</name>
-    <message>
-        <source>All</source>
-        <translation type="obsolete">Wszystko</translation>
-    </message>
-    <message>
-        <source>CSS</source>
-        <translation type="obsolete">CSS</translation>
-    </message>
-    <message>
-        <source>Remove selected style sheet(s) from list. (No files will be deleted from the hard disk.)</source>
-        <translation type="obsolete">Usuń wybrane style z listy. (Żaden plik nie zostanie usunięty z dysku.)</translation>
-    </message>
-    <message>
-        <source>Add new style sheet</source>
-        <translation type="obsolete">Dodaj nowy styl</translation>
-    </message>
-    <message>
-        <source>Select CSS File</source>
-        <translation type="obsolete">Wybierz plik CSS</translation>
-    </message>
-    <message>
-        <source>Custom Style Sheets</source>
-        <translation type="obsolete">Niestandardowe style (CSS)</translation>
-    </message>
-    <message>
-        <source>Don&apos;t worry! No files will be deleted from the hard disk. But are you sure you wish to remove the selected style sheet(s) from the list?</source>
-        <translation type="obsolete">Bez obaw! Żaden plik nie zostanie usunięty z dysku. Mimo to jesteś pewien że chcesz usunąć wybrany styl(e) z listy?</translation>
-    </message>
-</context>
-<context>
-    <name>TextDocument</name>
-    <message>
-        <source>untitled</source>
-        <translation type="obsolete">Bez tytułu</translation>
-    </message>
-</context>
-<context>
-    <name>ThemeEditorDialog</name>
-    <message>
-        <source>HUD</source>
-        <translation type="obsolete">Interfejs</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="obsolete">Żaden</translation>
-    </message>
-    <message>
-        <source>Tile</source>
-        <translation type="obsolete">Kafelkuj</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation type="obsolete">Przybliż</translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation type="obsolete">Skaluj</translation>
-    </message>
-    <message>
-        <source>Text Area Background Color</source>
-        <translation type="obsolete">Kolor tła pola tekstowego</translation>
-    </message>
-    <message>
-        <source>Unable to save theme.</source>
-        <translation type="obsolete">Nie można zapisać motywu.</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation type="obsolete">Tło</translation>
-    </message>
-    <message>
-        <source>Editor Corners</source>
-        <translation type="obsolete">Narożniki edytora</translation>
-    </message>
-    <message>
-        <source>Theme Name</source>
-        <translation type="obsolete">Nazwa motywu</translation>
-    </message>
-    <message>
-        <source>Failed to rename theme.</source>
-        <translation type="obsolete">Nie udało się zmienić nazwy motywu.</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="obsolete">Środek</translation>
-    </message>
-    <message>
-        <source>HUD Foreground Color</source>
-        <translation type="obsolete">Kolor interfejsu</translation>
-    </message>
-    <message>
-        <source>Text Editor</source>
-        <translation type="obsolete">Edytor Tekstu</translation>
-    </message>
-    <message>
-        <source>Square</source>
-        <translation type="obsolete">Kwadrat</translation>
-    </message>
-    <message>
-        <source>Text Color</source>
-        <translation type="obsolete">Kolor tekstu</translation>
-    </message>
-    <message>
-        <source>Edit Theme</source>
-        <translation type="obsolete">Edytuj motyw</translation>
-    </message>
-    <message>
-        <source>Markup Color</source>
-        <translation type="obsolete">Kolor zaznaczenia</translation>
-    </message>
-    <message>
-        <source>Background Image</source>
-        <translation type="obsolete">Obraz tła</translation>
-    </message>
-    <message>
-        <source>Background Color</source>
-        <translation type="obsolete">Kolor tła</translation>
-    </message>
-    <message>
-        <source>Rounded</source>
-        <translation type="obsolete">Zaokrąglony</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="obsolete">Rozciągnij</translation>
-    </message>
-    <message>
-        <source>Spelling Error Color</source>
-        <translation type="obsolete">Kolor błędu pisowni</translation>
-    </message>
-    <message>
-        <source>Link Color</source>
-        <translation type="obsolete">Kolor odnośnika</translation>
-    </message>
-    <message>
-        <source>Editor Opacity</source>
-        <translation type="obsolete">Przezroczystość</translation>
-    </message>
-    <message>
-        <source>HUD Background Color</source>
-        <translation type="obsolete">Kolor tła interfejsu</translation>
-    </message>
-    <message>
-        <source>Editor Aspect</source>
-        <translation type="obsolete">Aspekt edytora</translation>
-    </message>
-</context>
-<context>
-    <name>ThemeSelectionDialog</name>
-    <message>
-        <source>Unable to load theme.</source>
-        <translation type="obsolete">Nie udało się załadować motywu.</translation>
-    </message>
-    <message>
-        <source>Sorry, this is a built-in theme that cannot be edited.</source>
-        <translation type="obsolete">Przepraszamy. To jest motyw domyślny, którego nie można modyfikować.</translation>
-    </message>
-    <message>
-        <source>Cannot delete theme.</source>
-        <translation type="obsolete">Nie można usunąć motywu.</translation>
-    </message>
-    <message>
-        <source>Cannot edit theme.</source>
-        <translation type="obsolete">Nie można edytować motywu.</translation>
-    </message>
-    <message>
-        <source>Themes</source>
-        <translation type="obsolete">Motywy</translation>
-    </message>
-    <message>
-        <source>Failed to delete theme.</source>
-        <translation type="obsolete">Usuwanie motywu się nie powiodło.</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to permanently delete the &apos;%1&apos; theme?</source>
-        <translation type="obsolete">Jesteś pewien że chcesz usunąć motyw &apos;%1&apos;?</translation>
-    </message>
-    <message>
-        <source>Sorry, this is a built-in theme that cannot be deleted.</source>
-        <translation type="obsolete">Przepraszamy. To jest motyw domyślny, którego nie można usunąć.</translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="obsolete">Edytuj...</translation>
     </message>
 </context>
 <context>
@@ -1487,9 +461,13 @@
         <source>Replace with:</source>
         <translation type="unfinished">Zastąp przy pomocy:</translation>
     </message>
-    <message>
-        <source>%1 replacements</source>
-        <translation type="unfinished"></translation>
+    <message numerus="yes">
+        <source>%Ln replacement(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1533,28 +511,8 @@
         <translation type="unfinished">Wszystkie pliki</translation>
     </message>
     <message>
-        <source>Failed to open Quick Reference Guide.</source>
-        <translation type="obsolete">Nie udało się otworzyć poradnika.</translation>
-    </message>
-    <message>
-        <source>Quick Reference Guide</source>
-        <translation type="obsolete">Poradnik formatowania tekstu</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Copyright &amp;copy; 2014-2020 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Prawa autorskie &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;Masz prawo używać i rozprowadzać te oprogramowanie na zasadach&lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt; GNU General Public License w Wersji 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Odwiedź oficjalną stronę projektu na &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Specjalne podziękowania należą się: &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gottowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitrowi Shachnevowi, autorowi &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabrielowi M. Beddingfieldowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Jestem również bardzo wdzięczny &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolfowi Vollprechtowi&lt;/a&gt;, autorowi &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, za inspirację pod postacią tak pięknego edytora Markdown.&lt;/p&gt; {2014-2018 ?} {3&lt;?} {2014-2020 ?} {3&lt;?}</translation>
-    </message>
-    <message>
         <source>About %1</source>
         <translation type="unfinished">O %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform>%Ln word</numerusform>
-            <numerusform>%Ln words</numerusform>
-            <numerusform></numerusform>
-        </translation>
     </message>
     <message>
         <source>Please restart the application for changes to take effect.</source>
@@ -2021,14 +979,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remember file history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Tabulation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2140,6 +1090,22 @@
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>View untitled drafts...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember recent files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open last file on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ghostwriter::PreviewOptionsDialog</name>
@@ -2208,6 +1174,73 @@
     <message>
         <source>Show only monospaced fonts</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::StatisticsIndicator</name>
+    <message numerus="yes">
+        <source>%Ln word(s)</source>
+        <translation type="unfinished">
+            <numerusform>%Ln word</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1:%2 read time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1:%2 write time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln character(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln sentence(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln paragraph(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln page(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln wpm</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%Ln word(s) added</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>

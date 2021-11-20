@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2016-2020 wereturtle
  *
@@ -65,7 +65,7 @@ public slots:
     /**
      * Sets the time spent writing.
      */
-    void setWritingTime(unsigned long minutes);
+    void setWritingTime(int minutes);
 
     /**
      * Sets the percentage of time spent idle (i.e., NOT writing).

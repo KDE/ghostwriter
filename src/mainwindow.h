@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  *
@@ -34,11 +34,11 @@
 #include "documentstatisticswidget.h"
 #include "findreplace.h"
 #include "htmlpreview.h"
-#include "mainwindow.h"
 #include "outlinewidget.h"
 #include "sessionstatistics.h"
 #include "sessionstatisticswidget.h"
 #include "sidebar.h"
+#include "statisticsindicator.h"
 #include "theme.h"
 #include "themerepository.h"
 #include "timelabel.h"
@@ -82,7 +82,6 @@ private slots:
     void showQuickReferenceGuide();
     void showWikiPage();
     void showAbout();
-    void updateWordCount(int newWordCount);
     void changeFocusMode(FocusMode focusMode);
     void applyTheme();
     void refreshRecentFiles();
@@ -112,9 +111,9 @@ private:
     QString language;
     Sidebar *sidebar;
     QPushButton *sidebarToggleButton;
-    QLabel *wordCountLabel;
-    QLabel *statusLabel;
-    TimeLabel *timeLabel;
+    StatisticsIndicator *statisticsIndicator;
+    QLabel *statusIndicator;
+    TimeLabel *timeIndicator;
     QPushButton *toggleSidebarButton;
     QPushButton *previewOptionsButton;
     QPushButton *exportButton;

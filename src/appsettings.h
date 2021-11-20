@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  *
@@ -20,13 +20,14 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
+#include <QFont>
 #include <QObject>
 #include <QString>
 #include <QStringList>
-#include <QFont>
 
-#include "markdowneditortypes.h"
 #include "exporter.h"
+#include "markdowneditortypes.h"
+#include "statisticsindicator.h"
 
 namespace ghostwriter
 {
@@ -111,6 +112,9 @@ public:
     bool hideMenuBarInFullScreenEnabled() const;
     Q_SLOT void setHideMenuBarInFullScreenEnabled(bool enabled);
     Q_SIGNAL void hideMenuBarInFullScreenChanged(bool enabled);
+
+    int favoriteStatistic() const;
+    Q_SLOT void setFavoriteStatistic(int value);
 
     bool restoreSessionEnabled() const;
     Q_SLOT void setRestoreSessionEnabled(bool enabled);
