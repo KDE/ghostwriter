@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  *
@@ -165,6 +165,12 @@ void MarkdownDocument::notifyTextBlockRemoved(const QTextBlock &block)
 {
     emit textBlockRemoved(block.position());
     emit textBlockRemoved(block);
+}
+
+void MarkdownDocument::clear()
+{
+    QTextDocument::clear();
+    emit cleared();
 }
 
 void MarkdownDocumentPrivate::initializeUntitledDocument()

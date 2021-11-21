@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  *
@@ -549,10 +549,9 @@ bool DocumentManager::close()
         cursor.setPosition(0);
         d->editor->setTextCursor(cursor);
 
-        d->document->blockSignals(true);
-        d->document->setPlainText("");
-        d->document->blockSignals(false);
+        d->document->clear();
         d->document->clearUndoRedoStacks();
+
         d->editor->setReadOnly(false);
         d->document->setReadOnly(false);
         d->setFilePath(QString());
@@ -729,9 +728,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
 
     document->clearUndoRedoStacks();
     document->setUndoRedoEnabled(false);
-    document->blockSignals(true);
-    document->setPlainText("");
-    document->blockSignals(false);
+    document->clear();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     emit q->operationStarted(QObject::tr("opening %1").arg(filePath));

@@ -5,11 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.1.0] - 2021-11-20
+
+#### Added
 
 * Untitled documents are now autosaved to a draft folder when autosave is enabled.
 * Added preferences button to open the draft folder location where untitled documents are autosaved.
-* Added check box option to load last opened file on startup.  If left unchecked, a new file will be opened on startup.
+* Added check box option to load last opened file on startup.  If left unchecked, a new file will be opened on startup
+* Added ability to word count indicator in status bar to display a different statistic. (The indicator is now a combo box.)
 * Updated Brazilian Portuguese translation.
 
 ## [2.0.2] - 2021-06-27

@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2016-2020 wereturtle
+ * Copyright (C) 2016-2021 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -87,14 +87,28 @@ DocumentStatistics::DocumentStatistics(MarkdownDocument *document, QObject *pare
 
     d->document = document;
     d->wordCount = 0;
+    d->totalWordCount = 0;
     d->wordCharacterCount = 0;
     d->sentenceCount = 0;
     d->paragraphCount = 0;
     d->pageCount = 0;
     d->lixLongWordCount = 0;
+    d->readTimeMinutes = 0;
 
     connect(d->document, SIGNAL(contentsChange(int, int, int)), this, SLOT(onTextChanged(int, int, int)));
     connect(d->document, SIGNAL(textBlockRemoved(const QTextBlock &)), this, SLOT(onTextBlockRemoved(const QTextBlock &)));
+    connect(d->document,
+        &MarkdownDocument::cleared,
+        [d]() {
+            d->wordCount = 0;
+            d->wordCharacterCount = 0;
+            d->sentenceCount = 0;
+            d->paragraphCount = 0;
+            d->pageCount = 0;
+            d->lixLongWordCount = 0;
+            d->readTimeMinutes = 0;
+            d->updateStatistics();
+        });
 }
 
 DocumentStatistics::~DocumentStatistics()

@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2021 wereturtle
  *
@@ -109,6 +109,11 @@ public:
      */
     void notifyTextBlockRemoved(const QTextBlock &block);
 
+    /**
+     * Overrides base class clear() method to send cleared() signal.
+     */
+    void clear();
+
 signals:
     /**
      * Emitted when the file path changes.
@@ -126,6 +131,11 @@ signals:
      * is the QTextBlock that is being removed.
      */
     void textBlockRemoved(const QTextBlock &block);
+
+    /**
+     * Emitted when the contents of the document is cleared.
+     */
+    void cleared();
 
 private:
     QScopedPointer<MarkdownDocumentPrivate> d_ptr;
