@@ -1,0 +1,32 @@
+name: Ghostwriter Mac OS X Deployment
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+  - cron: "0 2 * * 1-5"
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Homebrew
+      run: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    - name: Install QT 5 from Brew
+      run: |
+        brew install qt5
+        brew link qt5 --force
+    - name: Build
+      run: |
+        qmake
+        make
+    - name: Upload package
+      uses: actions/upload-artifact@v2
+      with:
+        name: ghostwriter-osx
+        path: build/release/ghostwriter.app/
