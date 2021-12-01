@@ -1,15 +1,13 @@
-name: Ghostwriter Mac OS X Deployment
+name: Ghostwriter Mac OS Deployment
 
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-  schedule:
-  - cron: "0 2 * * 1-5"
 
 jobs:
-  build:
+  deploy-ghostwriter-mac-os:
 
     runs-on: macos-latest
 
@@ -21,12 +19,12 @@ jobs:
       run: |
         brew install qt5
         brew link qt5 --force
-    - name: Build
+    - name: Build ghostwriter
       run: |
         qmake
         make
     - name: Upload package
       uses: actions/upload-artifact@v2
       with:
-        name: ghostwriter-osx
+        name: ghostwriter
         path: build/release/ghostwriter.app/
