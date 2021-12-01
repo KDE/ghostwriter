@@ -1,4 +1,4 @@
-name: Ghostwriter Mac OS Deployment
+name: macos-build
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy-ghostwriter-mac-os:
+  macos-build:
 
     runs-on: macos-latest
 
