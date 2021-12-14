@@ -1005,6 +1005,10 @@ bool DocumentManagerPrivate::documentIsDraft()
 
 void DocumentManagerPrivate::createDraft()
 {
+    // TODO: This is a workaround to prevent extra empty drafts from being created when user closes application #696
+    if (document->isEmpty()) {
+        return;
+    }
     if (document->isNew()) {
         int i = 1;
         QString draftPath;
@@ -1019,5 +1023,4 @@ void DocumentManagerPrivate::createDraft()
         saveFile();
     }
 }
-
 }
