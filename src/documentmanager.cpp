@@ -231,7 +231,7 @@ DocumentManager::DocumentManager
             if (modified
                     && d->autoSaveEnabled 
                     && d->document->isNew()
-                    && (d->document->characterCount() > 0)) {
+                    && (!d->document->isEmpty())) {
                 d->createDraft();
             }
         }
@@ -281,7 +281,7 @@ void DocumentManager::setAutoSaveEnabled(bool enabled)
 
     if (enabled) {
         if (d->document->isNew()
-            && (d->document->characterCount() > 0)
+            && (!d->document->isEmpty())
             && d->document->isModified()) {
             d->createDraft();
         }
@@ -1005,10 +1005,6 @@ bool DocumentManagerPrivate::documentIsDraft()
 
 void DocumentManagerPrivate::createDraft()
 {
-    // TODO: This is a workaround to prevent extra empty drafts from being created when user closes application #696
-    if (document->isEmpty()) {
-        return;
-    }
     if (document->isNew()) {
         int i = 1;
         QString draftPath;
@@ -1023,4 +1019,5 @@ void DocumentManagerPrivate::createDraft()
         saveFile();
     }
 }
+
 }
