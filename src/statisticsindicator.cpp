@@ -203,7 +203,11 @@ void StatisticsIndicator::showPopup()
     int max = 0;
 
     for (int i = 0; i < this->count(); i++) {
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0))
         int itemWidth = this->fontMetrics().horizontalAdvance(this->itemText(i));
+#else
+        int itemWidth = this->fontMetrics().boundingRect(this->itemText(i)).width();
+#endif
 
         if (itemWidth > max) {
             max = itemWidth;
