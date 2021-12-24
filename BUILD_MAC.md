@@ -63,4 +63,4 @@ If that all went OK then run these commands to update the files:
   sed "s|^${old_line}\$|${new_line}|" <default_post.prf.backup >default_post.prf
   ```
 
-#### All done, please go back to the [main README](../README.md) and continue following the building steps for MacOS.
+#### All done, please go back to the main README and continue following the building steps for MacOS.
