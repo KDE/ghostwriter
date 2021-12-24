@@ -231,7 +231,7 @@ DocumentManager::DocumentManager
             if (modified
                     && d->autoSaveEnabled 
                     && d->document->isNew()
-                    && (d->document->characterCount() > 0)) {
+                    && (!d->document->isEmpty())) {
                 d->createDraft();
             }
         }
@@ -281,7 +281,7 @@ void DocumentManager::setAutoSaveEnabled(bool enabled)
 
     if (enabled) {
         if (d->document->isNew()
-            && (d->document->characterCount() > 0)
+            && (!d->document->isEmpty())
             && d->document->isModified()) {
             d->createDraft();
         }
