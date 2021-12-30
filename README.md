@@ -116,7 +116,7 @@ For example, to install under `/opt`, you would enter:
 3. Install Qt 5 from brew.
 
 ``` shell
-$ brew install qt5
+brew install qt5
 ```
 
 *Note:* If you installed XCode command line tools, Qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](BUILD_MAC.md)
@@ -142,13 +142,13 @@ Make sure you're cloned the repo, not just downloaded the src tarball.
 5. If you want *ghostwriter* in your applications folder, from the repo root do:
 
 ``` shell
-$ sudo cp -R ./build/release/ghostwriter.app /Applications
+sudo cp -R ./build/release/ghostwriter.app /Applications
 ```
 
 6. To use *ghostwriter* from the command line, do:
 
 ``` shell
-$ sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
+sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
 ```
 
 ### FreeBSD
