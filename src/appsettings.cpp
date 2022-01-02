@@ -175,35 +175,35 @@ void AppSettings::store()
 QString AppSettings::themeDirectoryPath() const
 {
     Q_D(const AppSettings);
-    
+
     return d->themeDirectoryPath;
 }
 
 QString AppSettings::dictionaryPath() const
 {
     Q_D(const AppSettings);
-    
+
     return d->dictionaryPath;
 }
 
 QString AppSettings::translationsPath() const
 {
     Q_D(const AppSettings);
-    
+
     return d->translationsPath;
 }
 
 bool AppSettings::autoSaveEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->autoSaveEnabled;
 }
 
 void AppSettings::setAutoSaveEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->autoSaveEnabled = enabled;
     emit autoSaveChanged(enabled);
 }
@@ -211,14 +211,14 @@ void AppSettings::setAutoSaveEnabled(bool enabled)
 bool AppSettings::backupFileEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->backupFileEnabled;
 }
 
 void AppSettings::setBackupFileEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->backupFileEnabled = enabled;
     emit backupFileChanged(enabled);
 }
@@ -233,28 +233,28 @@ QString AppSettings::draftLocation() const
 QFont AppSettings::editorFont() const
 {
     Q_D(const AppSettings);
-    
+
     return d->editorFont;
 }
 
 void AppSettings::setEditorFont(const QFont &font)
 {
     Q_D(AppSettings);
-    
+
     d->editorFont = font;
 }
 
 QFont AppSettings::previewTextFont() const
 {
     Q_D(const AppSettings);
-    
+
     return d->previewTextFont;
 }
 
 void AppSettings::setPreviewTextFont(const QFont &font)
 {
     Q_D(AppSettings);
-    
+
     d->previewTextFont = font;
     emit previewTextFontChanged(font);
 }
@@ -262,14 +262,14 @@ void AppSettings::setPreviewTextFont(const QFont &font)
 QFont AppSettings::previewCodeFont() const
 {
     Q_D(const AppSettings);
-    
+
     return d->previewCodeFont;
 }
 
 void AppSettings::setPreviewCodeFont(const QFont &font)
 {
     Q_D(AppSettings);
-    
+
     d->previewCodeFont = font;
     emit previewCodeFontChanged(font);
 }
@@ -277,14 +277,14 @@ void AppSettings::setPreviewCodeFont(const QFont &font)
 int AppSettings::tabWidth() const
 {
     Q_D(const AppSettings);
-    
+
     return d->tabWidth;
 }
 
 void AppSettings::setTabWidth(int width)
 {
     Q_D(AppSettings);
-    
+
     if ((d->tabWidth >= MIN_TAB_WIDTH) && (d->tabWidth <= MAX_TAB_WIDTH)) {
         d->tabWidth = width;
         emit tabWidthChanged(width);
@@ -294,14 +294,14 @@ void AppSettings::setTabWidth(int width)
 bool AppSettings::insertSpacesForTabsEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->insertSpacesForTabsEnabled;
 }
 
 void AppSettings::setInsertSpacesForTabsEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->insertSpacesForTabsEnabled = enabled;
     emit insertSpacesForTabsChanged(enabled);
 }
@@ -309,14 +309,14 @@ void AppSettings::setInsertSpacesForTabsEnabled(bool enabled)
 bool AppSettings::useUnderlineForEmphasis() const
 {
     Q_D(const AppSettings);
-    
+
     return d->useUnderlineForEmphasis;
 }
 
 void AppSettings::setUseUnderlineForEmphasis(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->useUnderlineForEmphasis = enabled;
     emit useUnderlineForEmphasisChanged(enabled);
 }
@@ -324,14 +324,14 @@ void AppSettings::setUseUnderlineForEmphasis(bool enabled)
 bool AppSettings::largeHeadingSizesEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->largeHeadingSizesEnabled;
 }
 
 void AppSettings::setLargeHeadingSizesEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->largeHeadingSizesEnabled = enabled;
     emit largeHeadingSizesChanged(enabled);
 }
@@ -339,14 +339,14 @@ void AppSettings::setLargeHeadingSizesEnabled(bool enabled)
 bool AppSettings::autoMatchEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->autoMatchEnabled;
 }
 
 void AppSettings::setAutoMatchEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->autoMatchEnabled = enabled;
     emit autoMatchChanged(enabled);
 }
@@ -354,14 +354,14 @@ void AppSettings::setAutoMatchEnabled(bool enabled)
 bool AppSettings::autoMatchCharEnabled(const QChar openingCharacter) const
 {
     Q_D(const AppSettings);
-    
+
     return d->autoMatchedCharFilter.contains(openingCharacter);
 }
 
 void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool enabled)
 {
     Q_D(AppSettings);
-    
+
     switch (openingCharacter.toLatin1()) {
     case '\"':
     case '\'':
@@ -391,14 +391,14 @@ void AppSettings::setAutoMatchCharEnabled(const QChar openingCharacter, bool ena
 bool AppSettings::bulletPointCyclingEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->bulletPointCyclingEnabled;
 }
 
 void AppSettings::setBulletPointCyclingEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->bulletPointCyclingEnabled = enabled;
     emit bulletPointCyclingChanged(enabled);
 }
@@ -406,14 +406,14 @@ void AppSettings::setBulletPointCyclingEnabled(bool enabled)
 FocusMode AppSettings::focusMode() const
 {
     Q_D(const AppSettings);
-    
+
     return d->focusMode;
 }
 
 void AppSettings::setFocusMode(FocusMode focusMode)
 {
     Q_D(AppSettings);
-    
+
     if ((focusMode >= FocusModeFirst) && (focusMode <= FocusModeLast)) {
         d->focusMode = focusMode;
         emit focusModeChanged(focusMode);
@@ -423,14 +423,14 @@ void AppSettings::setFocusMode(FocusMode focusMode)
 bool AppSettings::hideMenuBarInFullScreenEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->hideMenuBarInFullScreenEnabled;
 }
 
 void AppSettings::setHideMenuBarInFullScreenEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->hideMenuBarInFullScreenEnabled = enabled;
     emit hideMenuBarInFullScreenChanged(enabled);
 }
@@ -468,14 +468,14 @@ void AppSettings::setRestoreSessionEnabled(bool enabled)
 bool AppSettings::fileHistoryEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->fileHistoryEnabled;
 }
 
 void AppSettings::setFileHistoryEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->fileHistoryEnabled = enabled;
     emit fileHistoryChanged(enabled);
 }
@@ -483,14 +483,14 @@ void AppSettings::setFileHistoryEnabled(bool enabled)
 bool AppSettings::displayTimeInFullScreenEnabled()
 {
     Q_D(AppSettings);
-    
+
     return d->displayTimeInFullScreenEnabled;
 }
 
 void AppSettings::setDisplayTimeInFullScreenEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->displayTimeInFullScreenEnabled = enabled;
     emit displayTimeInFullScreenChanged(enabled);
 }
@@ -498,42 +498,42 @@ void AppSettings::setDisplayTimeInFullScreenEnabled(bool enabled)
 QString AppSettings::themeName() const
 {
     Q_D(const AppSettings);
-    
+
     return d->themeName;
 }
 
 void AppSettings::setThemeName(const QString &name)
 {
     Q_D(AppSettings);
-    
+
     d->themeName = name;
 }
 
 bool AppSettings::darkModeEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->darkModeEnabled;
 }
 
 void AppSettings::setDarkModeEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->darkModeEnabled = enabled;
 }
 
 QString AppSettings::dictionaryLanguage() const
 {
     Q_D(const AppSettings);
-    
+
     return d->dictionaryLanguage;
 }
 
 void AppSettings::setDictionaryLanguage(const QString &language)
 {
     Q_D(AppSettings);
-    
+
     d->dictionaryLanguage = language;
     emit dictionaryLanguageChanged(language);
 }
@@ -541,28 +541,28 @@ void AppSettings::setDictionaryLanguage(const QString &language)
 QString AppSettings::locale() const
 {
     Q_D(const AppSettings);
-    
+
     return d->locale;
 }
 
 void AppSettings::setLocale(const QString &locale)
 {
     Q_D(AppSettings);
-    
+
     d->locale = locale;
 }
 
 bool AppSettings::liveSpellCheckEnabled() const
 {
     Q_D(const AppSettings);
-    
+
     return d->liveSpellCheckEnabled;
 }
 
 void AppSettings::setLiveSpellCheckEnabled(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->liveSpellCheckEnabled = enabled;
     emit liveSpellCheckChanged(enabled);
 }
@@ -570,14 +570,14 @@ void AppSettings::setLiveSpellCheckEnabled(bool enabled)
 EditorWidth AppSettings::editorWidth() const
 {
     Q_D(const AppSettings);
-    
+
     return d->editorWidth;
 }
 
 void AppSettings::setEditorWidth(EditorWidth editorWidth)
 {
     Q_D(AppSettings);
-    
+
     if ((editorWidth >= EditorWidthFirst) && (editorWidth <= EditorWidthLast)) {
         d->editorWidth = editorWidth;
         emit editorWidthChanged(editorWidth);
@@ -587,14 +587,14 @@ void AppSettings::setEditorWidth(EditorWidth editorWidth)
 InterfaceStyle AppSettings::interfaceStyle() const
 {
     Q_D(const AppSettings);
-    
+
     return d->interfaceStyle;
 }
 
 void AppSettings::setInterfaceStyle(InterfaceStyle style)
 {
     Q_D(AppSettings);
-    
+
     d->interfaceStyle = style;
     emit interfaceStyleChanged(style);
 }
@@ -602,14 +602,14 @@ void AppSettings::setInterfaceStyle(InterfaceStyle style)
 bool AppSettings::italicizeBlockquotes() const
 {
     Q_D(const AppSettings);
-    
+
     return d->italicizeBlockquotes;
 }
 
 void AppSettings::setItalicizeBlockquotes(bool enabled)
 {
     Q_D(AppSettings);
-    
+
     d->italicizeBlockquotes = enabled;
     emit italicizeBlockquotesChanged(enabled);
 }
@@ -617,42 +617,42 @@ void AppSettings::setItalicizeBlockquotes(bool enabled)
 bool AppSettings::htmlPreviewVisible() const
 {
     Q_D(const AppSettings);
-    
+
     return d->htmlPreviewVisible;
 }
 
 void AppSettings::setHtmlPreviewVisible(bool visible)
 {
     Q_D(AppSettings);
-    
+
     d->htmlPreviewVisible = visible;
 }
 
 bool AppSettings::sidebarVisible() const
 {
     Q_D(const AppSettings);
-    
+
     return d->sidebarVisible;
 }
 
 void AppSettings::setSidebarVisible(bool visible)
 {
     Q_D(AppSettings);
-    
+
     d->sidebarVisible = visible;
 }
 
 Exporter *AppSettings::currentHtmlExporter() const
 {
     Q_D(const AppSettings);
-    
+
     return d->currentHtmlExporter;
 }
 
 void AppSettings::setCurrentHtmlExporter(Exporter *exporter)
 {
     Q_D(AppSettings);
-    
+
     d->currentHtmlExporter = exporter;
     emit currentHtmlExporterChanged(exporter);
 }
@@ -661,7 +661,7 @@ AppSettings::AppSettings()
     : d_ptr(new AppSettingsPrivate())
 {
     Q_D(AppSettings);
-    
+
     QCoreApplication::setOrganizationName("ghostwriter");
     QCoreApplication::setApplicationName("ghostwriter");
     QCoreApplication::setApplicationVersion(APPVERSION);
@@ -772,7 +772,7 @@ AppSettings::AppSettings()
     QStringList preferredMonospaceFonts;
 
 #ifdef Q_OS_MAC
-    preferredMonospaceFonts 
+    preferredMonospaceFonts
         << "Menlo"
         << "DejaVu Sans Mono"
         << "Monaco";
