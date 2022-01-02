@@ -807,12 +807,11 @@ AppSettings::AppSettings()
     d->autoSaveEnabled = appSettings.value(GW_AUTOSAVE_KEY, QVariant(true)).toBool();
     d->backupFileEnabled = appSettings.value(GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
 
-    auto fontparts = appSettings.value(GW_EDITOR_FONT_KEY, QVariant("")).toString().split(";");
+    QStringList fontparts = appSettings.value(GW_EDITOR_FONT_KEY, QVariant("")).toString().split(";");
     if (fontparts.isEmpty()) {
         d->editorFont = monospaceFont;
     } else {
-        auto key = fontparts.takeFirst();
-        d->editorFont.fromString(key);
+        d->editorFont.fromString(fontparts.takeFirst());
         d->editorFont.setFamilies(fontparts);
     }
 
