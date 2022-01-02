@@ -99,7 +99,7 @@ public:
     /**
      * Sets the font family and point size.
      */
-    void setFont(const QString &fontFamily, const double fontSize);
+    void setFont(const QStringList &fontFamilies, const double fontSize);
 
     /**
      * Sets whether live spell checking is enabled.

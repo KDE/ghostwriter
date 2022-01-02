@@ -108,7 +108,7 @@ public:
     /**
      * Sets the font.
      */
-    void setFont(const QString &family, double size);
+    void setFont(const QStringList &families, double size);
 
     /**
      * Sets whether tabs and spaces will be shown.

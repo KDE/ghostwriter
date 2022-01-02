@@ -556,13 +556,15 @@ void MarkdownEditor::setColorScheme
     this->focusText();
 }
 
-void MarkdownEditor::setFont(const QString &family, double pointSize)
+void MarkdownEditor::setFont(const QStringList &families, double pointSize)
 {
     Q_D(MarkdownEditor);
 
-    QFont font(family, pointSize);
+    QFont font;
+    font.setFamilies(families);
+    font.setPointSizeF(pointSize);
     QPlainTextEdit::setFont(font);
-    d->highlighter->setFont(family, pointSize);
+    d->highlighter->setFont(families, pointSize);
     setTabulationWidth(d->tabWidth);
 }
 
@@ -958,7 +960,7 @@ void MarkdownEditor::wheelEvent(QWheelEvent *e)
             fontSize = 1;
         }
 
-        setFont(this->font().family(), fontSize);
+        setFont(this->font().families(), fontSize);
         emit fontSizeChanged(fontSize);
     } else {
         QPlainTextEdit::wheelEvent(e);
@@ -1469,7 +1471,7 @@ void MarkdownEditor::increaseFontSize()
 {
     int fontSize = this->font().pointSize() + 1;
 
-    setFont(this->font().family(), fontSize);
+    setFont(this->font().families(), fontSize);
     emit fontSizeChanged(fontSize);
 
 }
@@ -1483,7 +1485,7 @@ void MarkdownEditor::decreaseFontSize()
         fontSize = 1;
     }
 
-    setFont(this->font().family(), fontSize);
+    setFont(this->font().families(), fontSize);
     emit fontSizeChanged(fontSize);
 }
 

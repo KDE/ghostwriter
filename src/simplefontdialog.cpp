@@ -47,10 +47,12 @@ public:
 
     QFont font;
     QFontComboBox *fontComboBox;
+    QFontComboBox *fallbackBox;
     QLineEdit *fontPreview;
     QCheckBox *monospaceOnlyCheckbox;
 
     void onFontFamilyChanged(const QFont &font);
+    void onFallbackChanged(const QFont &font);
     void onFontSizeChanged(int size);
 };
 
@@ -66,13 +68,22 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
 {
     Q_D(SimpleFontDialog);
 
-    d->fontComboBox = new QFontComboBox(this);
-    d->fontComboBox->setCurrentFont(initial);
     d->font = initial;
+
+    d->fontComboBox = new QFontComboBox(this);
+    d->fallbackBox = new QFontComboBox(this);
+    if (!initial.families().isEmpty()) {
+        d->fontComboBox->setCurrentFont(initial.families().first());
+        d->fallbackBox->setCurrentFont(initial.families().last());
+    }
 
     QVBoxLayout *familyLayout = new QVBoxLayout();
     familyLayout->addWidget(new QLabel(tr("Family")));
     familyLayout->addWidget(d->fontComboBox);
+
+    QVBoxLayout *fallbackLayout = new QVBoxLayout();
+    fallbackLayout->addWidget(new QLabel(tr("Fallback")));
+    fallbackLayout->addWidget(d->fallbackBox);
 
     QList<int> sizes = QFontDatabase::standardSizes();
 
@@ -121,7 +132,7 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     sizeLayout->addWidget(new QLabel(tr("Size")));
     sizeLayout->addWidget(sizeComboBox);
 
-    d->fontPreview = new QLineEdit(tr("AaBbCcXxYyZz"), this);
+    d->fontPreview = new QLineEdit(tr("AaЛлΩω09🔤"), this);
     d->fontPreview->setFont(initial);
 
     QVBoxLayout *previewLayout = new QVBoxLayout();
@@ -144,9 +155,10 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
     QGridLayout *layout = new QGridLayout();
     layout->addItem(familyLayout, 0, 0);
     layout->addItem(sizeLayout, 0, 1);
-    layout->addItem(previewLayout, 1, 0, 1, 2, Qt::AlignCenter);
-    layout->addWidget(d->monospaceOnlyCheckbox, 2, 0, 1, 2, Qt::AlignLeft);
-    layout->addWidget(buttonBox, 3, 0, 1, 2);
+    layout->addItem(fallbackLayout, 1, 0, 1, 2);
+    layout->addItem(previewLayout, 2, 0, 1, 2, Qt::AlignCenter);
+    layout->addWidget(d->monospaceOnlyCheckbox, 3, 0, 1, 2, Qt::AlignLeft);
+    layout->addWidget(buttonBox, 4, 0, 1, 2);
 
     setLayout(layout);
 
@@ -161,6 +173,16 @@ SimpleFontDialog::SimpleFontDialog(const QFont &initial, QWidget *parent)
             d->onFontFamilyChanged(newFont);
         }
     );
+
+    this->connect
+    (
+        d->fallbackBox,
+        &QFontComboBox::currentFontChanged,
+        [d](const QFont & newFont) {
+            d->onFallbackChanged(newFont);
+        }
+    );
+
     this->connect
     (
         sizeComboBox,
@@ -271,8 +293,32 @@ QFont SimpleFontDialog::monospaceFont(bool *ok, QWidget *parent)
 
 void SimpleFontDialogPrivate::onFontFamilyChanged(const QFont &font)
 {
+    QStringList families { font.family() };
+    if (!this->font.families().isEmpty()) {
+        families << this->font.families().last();
+    }
+
     int size = this->font.pointSize();
     this->font = font;
+    this->font.setFamilies(families);
+    this->font.setPointSize(size);
+    fontPreview->setFont(this->font);
+}
+
+void SimpleFontDialogPrivate::onFallbackChanged(const QFont &font)
+{
+    QStringList families;
+    if (this->font.families().isEmpty()) {
+        // we don't have a main font yet, but we just got a fallback
+        // so we'll have to duplicate it to the main too
+        families << font.family() << font.family();
+    } else {
+        families << this->font.families().first() << font.family();
+    }
+
+    int size = this->font.pointSize();
+    this->font = font;
+    this->font.setFamilies(families);
     this->font.setPointSize(size);
     fontPreview->setFont(this->font);
 }

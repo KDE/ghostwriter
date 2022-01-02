@@ -92,7 +92,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     MarkdownDocument *document = new MarkdownDocument();
 
     editor = new MarkdownEditor(document, theme.lightColorScheme(), this);
-    editor->setFont(appSettings->editorFont().family(), appSettings->editorFont().pointSize());
+    editor->setFont(appSettings->editorFont().families(), appSettings->editorFont().pointSize());
     editor->setUseUnderlineForEmphasis(appSettings->useUnderlineForEmphasis());
     editor->setEnableLargeHeadingSizes(appSettings->largeHeadingSizesEnabled());
     editor->setAutoMatchEnabled(appSettings->autoMatchEnabled());
@@ -802,7 +802,7 @@ void MainWindow::changeFont()
         SimpleFontDialog::font(&success, editor->font(), this);
 
     if (success) {
-        editor->setFont(font.family(), font.pointSize());
+        editor->setFont(font.families(), font.pointSize());
         appSettings->setEditorFont(font);
     }
 }

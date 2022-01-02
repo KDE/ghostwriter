@@ -312,12 +312,13 @@ void MarkdownHighlighter::setItalicizeBlockquotes(const bool enable)
     rehighlight();
 }
 
-void MarkdownHighlighter::setFont(const QString &fontFamily, const double fontSize)
+void MarkdownHighlighter::setFont(const QStringList &fontFamilies, const double fontSize)
 {
     Q_D(MarkdownHighlighter);
 
     QFont font;
-    font.setFamily(fontFamily);
+    font.setFamilies(fontFamilies);
+
     font.setWeight(QFont::Normal);
     font.setItalic(false);
     font.setPointSizeF(fontSize);

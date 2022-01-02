@@ -148,7 +148,11 @@ void AppSettings::store()
     appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d->displayTimeInFullScreenEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(d->editorWidth));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
-    appSettings.setValue(GW_EDITOR_FONT_KEY, QVariant(d->editorFont.toString()));
+
+    QStringList fontSpecs { d->editorFont.key() };
+    fontSpecs += d->editorFont.families();
+    appSettings.setValue(GW_EDITOR_FONT_KEY, QVariant(fontSpecs.join(";")));
+
     appSettings.setValue(GW_PREVIEW_TEXT_FONT_KEY,     QVariant(d->previewTextFont.toString()));
     appSettings.setValue(GW_PREVIEW_CODE_FONT_KEY, QVariant(d->previewCodeFont.toString()));
     appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d->hideMenuBarInFullScreenEnabled));
@@ -802,7 +806,16 @@ AppSettings::AppSettings()
 
     d->autoSaveEnabled = appSettings.value(GW_AUTOSAVE_KEY, QVariant(true)).toBool();
     d->backupFileEnabled = appSettings.value(GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
-    d->editorFont.fromString(appSettings.value(GW_EDITOR_FONT_KEY, QVariant(monospaceFont)).toString());
+
+    auto fontparts = appSettings.value(GW_EDITOR_FONT_KEY, QVariant("")).toString().split(";");
+    if (fontparts.isEmpty()) {
+        d->editorFont = monospaceFont;
+    } else {
+        auto key = fontparts.takeFirst();
+        d->editorFont.fromString(key);
+        d->editorFont.setFamilies(fontparts);
+    }
+
     d->previewTextFont.fromString(appSettings.value(GW_PREVIEW_TEXT_FONT_KEY, QVariant(variableFont)).toString());
     d->previewCodeFont.fromString(appSettings.value(GW_PREVIEW_CODE_FONT_KEY, QVariant(monospaceFont)).toString());
     d->tabWidth = appSettings.value(GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
