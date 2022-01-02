@@ -486,19 +486,22 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
 QString PreferencesDialogPrivate::languageName(const QString &language)
 {
     QString lang_code = language.left(5);
+    // eg.  en_GB-large
+    QString rest = (language.length() > 6 ? ", " + language.right(language.length() - 6) : "");
     QLocale locale(lang_code);
     QString name;
 
     if (lang_code.length() > 2) {
         if (locale.name() == lang_code) {
-            name = locale.nativeLanguageName() + " (" + locale.nativeCountryName() + ")";
+            name = locale.nativeLanguageName() + " (" + locale.nativeCountryName() + rest + ")";
         } else {
-            name = locale.nativeLanguageName() + " (" + language + ")";
+            name = locale.nativeLanguageName() + " (" + language + rest + ")";
         }
     } else {
         name = locale.nativeLanguageName();
     }
     if (locale.textDirection() == Qt::RightToLeft) {
+        // "Right-To-Left Embedding"
         name.prepend(QChar(0x202b));
     }
 
