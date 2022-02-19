@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -365,7 +365,6 @@ public slots:
 protected slots:
     void suggestSpelling(QAction *action);
     void onContentsChanged(int position, int charsAdded, int charsRemoved);
-    void onTextBlockRemoved(const QTextBlock &);
     void onSelectionChanged();
     void focusText();
     void checkIfTypingPaused();

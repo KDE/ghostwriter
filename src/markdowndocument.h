@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -103,13 +103,6 @@ public:
     void setMarkdownAST(MarkdownAST *ast);
 
     /**
-     * For internal use only with TextBlockData class.  Emits signals
-     * to notify listeners that the given text block is about to be
-     * removed from the document.
-     */
-    void notifyTextBlockRemoved(const QTextBlock &block);
-
-    /**
      * Overrides base class clear() method to send cleared() signal.
      */
     void clear();
@@ -119,18 +112,6 @@ signals:
      * Emitted when the file path changes.
      */
     void filePathChanged();
-
-    /**
-     * Emitted when the QTextBlock at the given position in the document
-     * is removed.
-     */
-    void textBlockRemoved(int position);
-
-    /**
-     * Emitted when a QTextBlock is removed from the document.  Parameter
-     * is the QTextBlock that is being removed.
-     */
-    void textBlockRemoved(const QTextBlock &block);
 
     /**
      * Emitted when the contents of the document is cleared.

@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2016-2021 wereturtle
+ * Copyright (C) 2016-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -96,7 +96,6 @@ DocumentStatistics::DocumentStatistics(MarkdownDocument *document, QObject *pare
     d->readTimeMinutes = 0;
 
     connect(d->document, SIGNAL(contentsChange(int, int, int)), this, SLOT(onTextChanged(int, int, int)));
-    connect(d->document, SIGNAL(textBlockRemoved(const QTextBlock &)), this, SLOT(onTextBlockRemoved(const QTextBlock &)));
     connect(d->document,
         &MarkdownDocument::cleared,
         [d]() {
@@ -190,7 +189,7 @@ void DocumentStatistics::onTextSelected
     while (block != end) {
         TextBlockData *blockData = (TextBlockData *) block.userData();
 
-        if ((nullptr != blockData) && !blockData->blankLine) {
+        if ((nullptr != blockData) && (block.text().trimmed().length() > 0)) {
             selectedParagraphCount++;
         }
 
@@ -218,28 +217,23 @@ void DocumentStatistics::onTextDeselected()
 void DocumentStatistics::onTextChanged(int position, int charsRemoved, int charsAdded)
 {
     Q_D(DocumentStatistics);
-    
+
+    Q_UNUSED(position)
     Q_UNUSED(charsRemoved)
+    Q_UNUSED(charsAdded)
 
-    int startIndex = position - charsRemoved;
+    d->wordCount = 0;
+    d->wordCharacterCount = 0;
+    d->sentenceCount = 0;
+    d->paragraphCount = 0;
+    d->pageCount = 0;
+    d->lixLongWordCount = 0;
+    d->readTimeMinutes = 0;
 
-    if (startIndex < 0) {
-        startIndex = 0;
-    }
-
-    int endIndex = position + charsAdded;
-
-    if ((endIndex < startIndex) || (endIndex >= d->document->characterCount())) {
-        endIndex = d->document->characterCount() - 1;
-    }
-
-    // Update the word counts of affected blocks.  Note that there is no need to
-    // check for changes to section headings, since the Highlighter class will
-    // take care of this for us.
+    // Update the word counts of affected blocks.
     //
-    QTextBlock startBlock = d->document->findBlock(startIndex);
-    QTextBlock endBlock = d->document->findBlock(endIndex);
-
+    QTextBlock startBlock = d->document->firstBlock();
+    QTextBlock endBlock = d->document->lastBlock();
     QTextBlock block = startBlock;
 
     d->updateBlockStatistics(block);
@@ -250,26 +244,6 @@ void DocumentStatistics::onTextChanged(int position, int charsRemoved, int chars
     }
 
     d->updateStatistics();
-}
-
-void DocumentStatistics::onTextBlockRemoved(const QTextBlock &block)
-{
-    Q_D(DocumentStatistics);
-    
-    TextBlockData *blockData = (TextBlockData *) block.userData();
-
-    if (nullptr != blockData) {
-        d->wordCount -= blockData->wordCount;
-        d->lixLongWordCount -= blockData->lixLongWordCount;
-        d->wordCharacterCount -= blockData->alphaNumericCharacterCount;
-        d->sentenceCount -= blockData->sentenceCount;
-
-        if (!blockData->blankLine) {
-            d->paragraphCount--;
-        }
-
-        d->updateStatistics();
-    }
 }
 
 void DocumentStatisticsPrivate::updateStatistics()
@@ -300,10 +274,6 @@ void DocumentStatisticsPrivate::updateBlockStatistics(QTextBlock &block)
         block.setUserData(blockData);
     }
 
-    int oldWordCount = blockData->wordCount;
-    int oldLixLongWordCount = blockData->lixLongWordCount;
-    int oldAlphaNumCharCount = blockData->alphaNumericCharacterCount;
-
     countWords
     (
         block.text(),
@@ -312,22 +282,15 @@ void DocumentStatisticsPrivate::updateBlockStatistics(QTextBlock &block)
         blockData->alphaNumericCharacterCount
     );
 
-    wordCount += blockData->wordCount - oldWordCount;
-    lixLongWordCount += blockData->lixLongWordCount - oldLixLongWordCount;
-    wordCharacterCount += blockData->alphaNumericCharacterCount - oldAlphaNumCharCount;
+    wordCount += blockData->wordCount;
+    lixLongWordCount += blockData->lixLongWordCount;
+    wordCharacterCount += blockData->alphaNumericCharacterCount;
 
-    int oldSentenceCount = blockData->sentenceCount;
     blockData->sentenceCount = countSentences(block.text());
-    sentenceCount += blockData->sentenceCount - oldSentenceCount;
+    sentenceCount += blockData->sentenceCount;
 
-    if (blockData->blankLine) {
-        if (block.text().trimmed().length() > 0) {
-            blockData->blankLine = false;
-            paragraphCount++;
-        }
-    } else if (block.text().trimmed().length() <= 0) {
-        blockData->blankLine = true;
-        paragraphCount--;
+    if (block.text().trimmed().length() > 0) {
+        paragraphCount++;
     }
 }
 

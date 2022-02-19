@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) Dmitry Shachnev 2012
  *
@@ -255,7 +255,6 @@ MarkdownEditor::MarkdownEditor
 
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(onCursorPositionChanged()));
     connect(this->document(), SIGNAL(contentsChange(int, int, int)), this, SLOT(onContentsChanged(int, int, int)));
-    connect(this->document(), SIGNAL(textBlockRemoved(const QTextBlock &)), this, SLOT(onTextBlockRemoved(const QTextBlock &)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
 
     d->highlighter = new MarkdownHighlighter(this, colors);
@@ -1527,13 +1526,6 @@ void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRe
         d->typingPausedScaledSignalSent = false;
         emit typingResumed();
     }
-}
-
-void MarkdownEditor::onTextBlockRemoved(const QTextBlock &)
-{
-    Q_D(MarkdownEditor);
-    
-    d->parseDocument();
 }
 
 void MarkdownEditor::onSelectionChanged()

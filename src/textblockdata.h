@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,6 @@ public:
         alphaNumericCharacterCount = 0;
         sentenceCount = 0;
         lixLongWordCount = 0;
-        blankLine = true;
     }
 
     /**
@@ -54,7 +53,7 @@ public:
      */
     virtual ~TextBlockData()
     {
-        document->notifyTextBlockRemoved(blockRef);
+        ;
     }
 
     MarkdownDocument *document;
@@ -63,7 +62,6 @@ public:
     int alphaNumericCharacterCount;
     int sentenceCount;
     int lixLongWordCount;
-    bool blankLine;
 
     /**
      * Parent text block.  For use with fetching the block's document

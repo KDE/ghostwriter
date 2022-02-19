@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -159,12 +159,6 @@ void MarkdownDocument::setMarkdownAST(MarkdownAST *ast)
     Q_D(MarkdownDocument);
 
     d->ast = ast;
-}
-
-void MarkdownDocument::notifyTextBlockRemoved(const QTextBlock &block)
-{
-    emit textBlockRemoved(block.position());
-    emit textBlockRemoved(block);
 }
 
 void MarkdownDocument::clear()

@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -111,14 +111,6 @@ OutlineWidget::OutlineWidget(MarkdownEditor *editor, QWidget *parent)
         editor->document(),
         &MarkdownDocument::contentsChange,
         [d](int, int, int) {
-            d->reloadOutline();
-        }
-    );
-    this->connect
-    (
-        (MarkdownDocument *)editor->document(),
-        static_cast<void (MarkdownDocument::*)(const QTextBlock &)>(&MarkdownDocument::textBlockRemoved),
-        [d]() {
             d->reloadOutline();
         }
     );

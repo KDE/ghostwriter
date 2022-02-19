@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2016-2020 wereturtle
+ * Copyright (C) 2016-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -136,7 +136,6 @@ public slots:
 
 protected slots:
     void onTextChanged(int position, int charsRemoved, int charsAdded);
-    void onTextBlockRemoved(const QTextBlock &blockData);
 
 private:
     QScopedPointer<DocumentStatisticsPrivate> d_ptr;
