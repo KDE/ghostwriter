@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2020 wereturtle
+ * Copyright (C) 2020-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -93,7 +93,7 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
     // the nodes returned in the AST are shifted or missing when
     // UTF-8 characters longer than 1 byte are encountered.
     //
-    cmark_parser_feed(parser, text.toLatin1().data(), text.toLocal8Bit().length());
+    cmark_parser_feed(parser, text.toLatin1().data(), text.toLatin1().length());
 
     cmark_node *root = cmark_parser_finish(parser);
     MarkdownAST *ast = new MarkdownAST(root);
@@ -127,7 +127,7 @@ QString CmarkGfmAPI::renderToHtml(const QString &text, const bool smartTypograph
     cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
     cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
-    cmark_parser_feed(parser, text.toUtf8().data(), text.toLocal8Bit().length());
+    cmark_parser_feed(parser, text.toUtf8().data(), text.toUtf8().length());
 
     cmark_node *root = cmark_parser_finish(parser);
     char *output = cmark_render_html(root, opts, cmark_parser_get_syntax_extensions(parser));

@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -715,7 +715,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                     pos = 0;
                     length = q->currentBlock().text().indexOf(':') + 1;
                     format.setForeground(colors.link);
-                } else {
+                } else if (inBlockquote) {
                     format.setForeground(colors.blockquoteMarkup);
                 }
 
@@ -783,11 +783,8 @@ int MarkdownHighlighterPrivate::columnInLine(const MarkdownNode *const node, con
 
     if (node->isBlockType()) {
         offset = 0;
-    } else if
-    (
-        (MarkdownNode::Softbreak == prevType)
-        || (MarkdownNode::Linebreak == prevType)
-    ) {
+    } else if ((MarkdownNode::Softbreak == prevType)
+            || (MarkdownNode::Linebreak == prevType)) {
         int pos = 0;
         QString text = lineText;
 
@@ -836,6 +833,15 @@ int MarkdownHighlighterPrivate::columnInLine(const MarkdownNode *const node, con
         }
 
         offset = node->position() - pos;
+
+        // When characters larger than one byte are intermixed with single-byte
+        // Latin-1 characters, the column number gets shifted by one.
+        // Subtrace one from the offset to account for this.
+        //
+        if (text.toUtf8().length() != text.toLatin1().length())
+        {
+            offset -= 1;
+        }
     }
 
     return node->position() - offset;
