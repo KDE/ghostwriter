@@ -59,16 +59,30 @@ static void filter_html_block(cmark_html_renderer *renderer, uint8_t *data, size
     cmark_strbuf_put(html, data, (bufsize_t)len);
 }
 
-static bool S_put_footnote_backref(cmark_html_renderer *renderer, cmark_strbuf *html) {
+static bool S_put_footnote_backref(cmark_html_renderer *renderer, cmark_strbuf *html, cmark_node *node) {
   if (renderer->written_footnote_ix >= renderer->footnote_ix)
     return false;
   renderer->written_footnote_ix = renderer->footnote_ix;
 
-  cmark_strbuf_puts(html, "<a href=\"#fnref");
-  char n[32];
-  snprintf(n, sizeof(n), "%d", renderer->footnote_ix);
-  cmark_strbuf_puts(html, n);
-  cmark_strbuf_puts(html, "\" class=\"footnote-backref\">↩</a>");
+  cmark_strbuf_puts(html, "<a href=\"#fnref-");
+  houdini_escape_href(html, node->as.literal.data, node->as.literal.len);
+  cmark_strbuf_puts(html, "\" class=\"footnote-backref\" data-footnote-backref aria-label=\"Back to content\">↩</a>");
+
+  if (node->footnote.def_count > 1)
+  {
+    for(int i = 2; i <= node->footnote.def_count; i++) {
+      char n[32];
+      snprintf(n, sizeof(n), "%d", i);
+
+      cmark_strbuf_puts(html, " <a href=\"#fnref-");
+      houdini_escape_href(html, node->as.literal.data, node->as.literal.len);
+      cmark_strbuf_puts(html, "-");
+      cmark_strbuf_puts(html, n);
+      cmark_strbuf_puts(html, "\" class=\"footnote-backref\" data-footnote-backref aria-label=\"Back to content\">↩<sup class=\"footnote-ref\">");
+      cmark_strbuf_puts(html, n);
+      cmark_strbuf_puts(html, "</sup></a>");
+    }
+  }
 
   return true;
 }
@@ -273,7 +287,7 @@ static int S_render_node(cmark_html_renderer *renderer, cmark_node *node,
       } else {
         if (parent->type == CMARK_NODE_FOOTNOTE_DEFINITION && node->next == NULL) {
           cmark_strbuf_putc(html, ' ');
-          S_put_footnote_backref(renderer, html);
+          S_put_footnote_backref(renderer, html, parent);
         }
         cmark_strbuf_puts(html, "</p>\n");
       }
@@ -392,16 +406,15 @@ static int S_render_node(cmark_html_renderer *renderer, cmark_node *node,
   case CMARK_NODE_FOOTNOTE_DEFINITION:
     if (entering) {
       if (renderer->footnote_ix == 0) {
-        cmark_strbuf_puts(html, "<section class=\"footnotes\">\n<ol>\n");
+        cmark_strbuf_puts(html, "<section class=\"footnotes\" data-footnotes>\n<ol>\n");
       }
       ++renderer->footnote_ix;
-      cmark_strbuf_puts(html, "<li id=\"fn");
-      char n[32];
-      snprintf(n, sizeof(n), "%d", renderer->footnote_ix);
-      cmark_strbuf_puts(html, n);
+
+      cmark_strbuf_puts(html, "<li id=\"fn-");
+      houdini_escape_href(html, node->as.literal.data, node->as.literal.len);
       cmark_strbuf_puts(html, "\">\n");
     } else {
-      if (S_put_footnote_backref(renderer, html)) {
+      if (S_put_footnote_backref(renderer, html, node)) {
         cmark_strbuf_putc(html, '\n');
       }
       cmark_strbuf_puts(html, "</li>\n");
@@ -410,12 +423,20 @@ static int S_render_node(cmark_html_renderer *renderer, cmark_node *node,
 
   case CMARK_NODE_FOOTNOTE_REFERENCE:
     if (entering) {
-      cmark_strbuf_puts(html, "<sup class=\"footnote-ref\"><a href=\"#fn");
-      cmark_strbuf_put(html, node->as.literal.data, node->as.literal.len);
-      cmark_strbuf_puts(html, "\" id=\"fnref");
-      cmark_strbuf_put(html, node->as.literal.data, node->as.literal.len);
-      cmark_strbuf_puts(html, "\">");
-      cmark_strbuf_put(html, node->as.literal.data, node->as.literal.len);
+      cmark_strbuf_puts(html, "<sup class=\"footnote-ref\"><a href=\"#fn-");
+      houdini_escape_href(html, node->parent_footnote_def->as.literal.data, node->parent_footnote_def->as.literal.len);
+      cmark_strbuf_puts(html, "\" id=\"fnref-");
+      houdini_escape_href(html, node->parent_footnote_def->as.literal.data, node->parent_footnote_def->as.literal.len);
+
+      if (node->footnote.ref_ix > 1) {
+        char n[32];
+        snprintf(n, sizeof(n), "%d", node->footnote.ref_ix);
+        cmark_strbuf_puts(html, "-");
+        cmark_strbuf_puts(html, n);
+      }
+
+      cmark_strbuf_puts(html, "\" data-footnote-ref>");
+      houdini_escape_href(html, node->as.literal.data, node->as.literal.len);
       cmark_strbuf_puts(html, "</a></sup>");
     }
     break;

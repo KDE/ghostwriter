@@ -468,7 +468,6 @@ static void process_footnotes(cmark_parser *parser) {
   while ((ev_type = cmark_iter_next(iter)) != CMARK_EVENT_DONE) {
     cur = cmark_iter_get_node(iter);
     if (ev_type == CMARK_EVENT_EXIT && cur->type == CMARK_NODE_FOOTNOTE_DEFINITION) {
-      cmark_node_unlink(cur);
       cmark_footnote_create(map, cur);
     }
   }
@@ -484,6 +483,15 @@ static void process_footnotes(cmark_parser *parser) {
       if (footnote) {
         if (!footnote->ix)
           footnote->ix = ++ix;
+
+        // store a reference to this footnote reference's footnote definition
+        // this is used by renderers when generating label ids
+        cur->parent_footnote_def = footnote->node;
+
+        // keep track of a) count of how many times this footnote def has been
+        // referenced, and b) which reference index this footnote ref is at.
+        // this is used by renderers when generating links and backreferences.
+        cur->footnote.ref_ix = ++footnote->node->footnote.def_count;
 
         char n[32];
         snprintf(n, sizeof(n), "%d", footnote->ix);
@@ -515,13 +523,16 @@ static void process_footnotes(cmark_parser *parser) {
     qsort(map->sorted, map->size, sizeof(cmark_map_entry *), sort_footnote_by_ix);
     for (unsigned int i = 0; i < map->size; ++i) {
       cmark_footnote *footnote = (cmark_footnote *)map->sorted[i];
-      if (!footnote->ix)
+      if (!footnote->ix) {
+        cmark_node_unlink(footnote->node);
         continue;
+      }
       cmark_node_append_child(parser->root, footnote->node);
       footnote->node = NULL;
     }
   }
 
+  cmark_unlink_footnotes_map(map);
   cmark_map_free(map);
 }
 

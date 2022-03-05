@@ -22,7 +22,7 @@
 #include <QSharedPointer>
 #include <QStack>
 
-#include "3rdparty/cmark-gfm/core/cmark-gfm.h"
+#include "3rdparty/cmark-gfm/src/cmark-gfm.h"
 #include "3rdparty/cmark-gfm/extensions/cmark-gfm-core-extensions.h"
 
 #include "markdownnode.h"
