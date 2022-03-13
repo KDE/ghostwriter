@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Issue #624: Text on line breaks is now correctly highlighted.
 * Issue #708: Removing large portions of text no longer freezes the app.
 * Issue #732: User-defined width of sidebar is now restored on load.
+* Issue #738: App waits longer for Pandoc to start up on Windows before timing out.
 
 ## [2.1.1] - 2021-12-24
 

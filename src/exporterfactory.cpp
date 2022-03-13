@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -293,7 +293,7 @@ QVersionNumber ExporterFactoryPrivate::isCommandAvailable(const QString &command
     QProcess process;
     process.start(command, args);
 
-    if (!process.waitForStarted(500)) {
+    if (!process.waitForStarted(2000)) {
         qWarning() << "Command" << command << "is not available.";
         return QVersionNumber();
     } else if (!process.waitForFinished(500)) {
