@@ -71,6 +71,7 @@ enum SidebarTabIndex {
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
+#define GW_SIDEBAR_STATE_KEY "Window/sidebarGeometry"
 
 MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     : QMainWindow(parent)
@@ -339,6 +340,21 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     sidebarSplitter->addWidget(mainPane);
     sidebarSplitter->setCollapsible(0, false);
     sidebarSplitter->setCollapsible(1, true);
+    sidebar->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
+    sidebar->setMaximumWidth(0.5 * this->width());
+
+    // If previous sidebar width was stored, reload it.
+    if (windowSettings.contains(GW_SIDEBAR_STATE_KEY)) {
+        sidebarSplitter->restoreState(windowSettings.value(GW_SIDEBAR_STATE_KEY).toByteArray());
+    }
+    // Else set default size of sidebar.
+    else {
+        QList<int> sidebarSplitterSizes;
+
+        sidebarSplitterSizes.append(0.25 * this->width());
+        sidebarSplitterSizes.append(0.75 * this->width());
+        sidebarSplitter->setSizes(sidebarSplitterSizes);
+    }
 
     this->setCentralWidget(sidebarSplitter);
 
@@ -350,7 +366,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     // the theme is applied before show().
     //
     applyTheme();
-    adjustEditorWidth(this->width());
+    adjustEditorWidth(this->width(), true);
 
     this->update();
     qApp->processEvents();
@@ -386,7 +402,7 @@ QSize MainWindow::sizeHint() const
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    adjustEditorWidth(event->size().width());
+    adjustEditorWidth(event->size().width(), true);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e)
@@ -465,6 +481,7 @@ void MainWindow::quitApplication()
 
         windowSettings.setValue(GW_MAIN_WINDOW_GEOMETRY_KEY, saveGeometry());
         windowSettings.setValue(GW_MAIN_WINDOW_STATE_KEY, saveState());
+        windowSettings.setValue(GW_SIDEBAR_STATE_KEY, sidebarSplitter->saveState());
         windowSettings.sync();
 
         DictionaryManager::instance().addProviders();
@@ -1462,24 +1479,35 @@ void MainWindow::buildSidebar()
     this->toggleSidebarVisible(appSettings->sidebarVisible());
 }
 
-void MainWindow::adjustEditorWidth(int width)
+void MainWindow::adjustEditorWidth(int width, bool resizeEvent)
 {
-    QList<int> sidebarSplitterSizes;
+    static bool sidebarHiddenForResize = false;
+    static QList<int> prevSidebarSizes = sidebarSplitter->sizes();
+
     QList<int> previewSplitterSizes;
     int editorWidth = width;
 
-    if (width < (0.5 * qApp->primaryScreen()->size().width())) {
-        sidebar->setMinimumWidth(0);
-        sidebarSplitterSizes.append(0);
-    } else {
-        sidebar->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
+    if (resizeEvent) {
         sidebar->setMaximumWidth(0.5 * this->width());
-        sidebar->resize(sidebar->sizeHint().width(), this->height());
-        sidebarSplitterSizes.append(sidebar->width());
-        editorWidth -= sidebar->width();
-    }
 
-    sidebarSplitterSizes.append(editorWidth);
+        if (width < (0.5 * qApp->primaryScreen()->size().width())) {
+            if (!sidebarHiddenForResize) {
+                prevSidebarSizes = sidebarSplitter->sizes();
+            }
+
+            toggleSidebarVisible(false);
+            sidebarHiddenForResize = true;
+        }
+        else {
+            if (sidebarHiddenForResize) {
+                toggleSidebarVisible(true);
+                sidebarHiddenForResize = false;
+                sidebarSplitter->setSizes(prevSidebarSizes);
+            }
+
+            editorWidth -= sidebar->width();
+        }
+    }
 
     if (htmlPreview->isVisible()) {
         editorWidth /= 2;
@@ -1488,7 +1516,6 @@ void MainWindow::adjustEditorWidth(int width)
 
     previewSplitterSizes.append(editorWidth);
     previewSplitter->setSizes(previewSplitterSizes);
-    sidebarSplitter->setSizes(sidebarSplitterSizes);
 
     // Resize the editor's margins based on the size of the window.
     editor->setupPaperMargins();

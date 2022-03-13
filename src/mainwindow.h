@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -160,7 +160,7 @@ private:
     void buildStatusBar();
     void buildSidebar();
 
-    void adjustEditorWidth(int width);
+    void adjustEditorWidth(int width, bool resizeEvent = false);
 };
 } // namespace ghostwriter
 
