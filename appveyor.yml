@@ -12,11 +12,19 @@ build_script:
   - nmake release
 after_build:
   - call "%QTDIR%/bin/qtenv2.bat"
+  - mkdir deploy
+  - cp build\release\ghostwriter.exe deploy
+  - cd deploy
+  - windeployqt ghostwriter.exe
+  - mkdir translations
+  - cp ..\build\release\translations\*.qm translations
 branches:
   only: 
   - master
 artifacts:
-   path: '**\*'
-   type: zip
+   - path: 'build\**'
+    type: zip
+   - path: 'deploy\**'
+   - type: zip
 skip_non_tags: false
 shallow_clone: true
