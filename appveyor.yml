@@ -13,6 +13,4 @@ branches:
   - master
 skip_non_tags: false
 shallow_clone: true
-build:
-  parallel: true
-  verbosity: normal
+build: off
