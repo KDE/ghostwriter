@@ -14,9 +14,8 @@ build_script:
   - nmake release
   - mkdir deploy
   - cp build\release\ghostwriter.exe deploy
+  - cp -r build\release\translations deploy
   - cd deploy
-  - mkdir translations
-  - cp '..\build\release\translations\**' translations
   - windeployqt ghostwriter.exe
 branches:
   only: 
@@ -24,6 +23,7 @@ branches:
 artifacts:
   - path: 'deploy\**'
     name: deploy files
+    type: zip
 
   - path: 'build\**'
     name: object files
