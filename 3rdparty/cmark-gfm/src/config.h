@@ -13,9 +13,9 @@ extern "C" {
   typedef char bool;
 #endif
 
-#define HAVE___BUILTIN_EXPECT
+//#define HAVE___BUILTIN_EXPECT
 
-#define HAVE___ATTRIBUTE__
+//#define HAVE___ATTRIBUTE__
 
 #ifdef HAVE___ATTRIBUTE__
   #define CMARK_ATTRIBUTE(list) __attribute__ (list)
