@@ -21,5 +21,8 @@ after_build:
 branches:
   only: 
   - master
+artifacts:
+  - path: C:\projects\ghostwriter\build\release\
+   type: zip
 skip_non_tags: false
 shallow_clone: true
