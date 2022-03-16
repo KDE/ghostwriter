@@ -10,6 +10,15 @@ before_build:
 build_script:
   - qmake ghostwriter.pro
   - nmake release
+after_build:
+  - call "%QTDIR%/bin/qtenv2.bat"
+  - cd build/release
+  - mkdir ghostwriter-portable-2.1.2
+  - cd ghostwriter-portable-2.1.2
+  - cp ../ghostwriter.exe .
+  - windeployqt ./ghostwriter.exe
+  - mkdir translations
+  - cp ../translations/*.qm translations
 branches:
   only: 
   - master
