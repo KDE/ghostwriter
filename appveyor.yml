@@ -11,6 +11,7 @@ build_script:
   - qmake ghostwriter.pro
   - nmake release
 branches:
-  only: master
+  only: 
+  - master
 skip_non_tags: false
 shallow_clone: true
