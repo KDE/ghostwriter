@@ -25,7 +25,7 @@ branches:
   only: 
   - master
 artifacts:
-  - path: %portable_dir%
+  - path: $(portable_dir)
     name: deploy files
     type: zip
 
