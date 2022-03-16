@@ -12,5 +12,4 @@ branches:
   only:
   - master
 skip_non_tags: false
-shallow_clone: true
-build: off
+shallow_clone: false
