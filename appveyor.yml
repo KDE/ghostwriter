@@ -2,6 +2,9 @@ version: 2.1.2-{build}
 platform: x64
 configuration: Release
 image: Visual Studio 2019
+environment:
+  matrix:
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
 install:
   - set QTDIR=C:\Qt\5.15.2\msvc2019_64
   - set PATH=%PATH%;%QTDIR%\bin
