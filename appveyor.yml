@@ -8,6 +8,7 @@ install:
 before_build:
   - call "%QTDIR%/bin/qtenv2.bat"
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - cd %APPVEYOR_BUILD_FOLDER%
 build_script:
   - qmake ghostwriter.pro
   - nmake release
