@@ -5,19 +5,18 @@ image: Visual Studio 2019
 install:
   - set QTDIR=C:\Qt\5.15.2\msvc2019_64
   - set PATH=%PATH%;%QTDIR%\bin
-before_build: 
+before_build:
+  - call "%QTDIR%/bin/qtenv2.bat"
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
 build_script:
   - qmake ghostwriter.pro
   - nmake release
-after_build:
-  - call "%QTDIR%/bin/qtenv2.bat"
   - mkdir deploy
   - cp build\release\ghostwriter.exe deploy
   - cd deploy
-  - windeployqt ghostwriter.exe
   - mkdir translations
-  - cp ..\build\release\translations\*.qm translations
+  - cp '..\build\release\translations\**' translations
+  - windeployqt ghostwriter.exe
 branches:
   only: 
   - master
