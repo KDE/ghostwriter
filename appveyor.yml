@@ -16,7 +16,7 @@ branches:
   only: 
   - master
 artifacts:
-   path: .
+   path: *
    type: zip
 skip_non_tags: false
 shallow_clone: true
