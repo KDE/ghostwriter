@@ -12,12 +12,6 @@ build_script:
   - nmake release
 after_build:
   - call "%QTDIR%/bin/qtenv2.bat"
-  - mkdir ghostwriter-portable-2.1.2
-  - cd ghostwriter-portable-2.1.2
-  - cp ..\build\release\ghostwriter.exe .
-  - windeployqt .\ghostwriter.exe
-  - mkdir translations
-  - cp ..\build\release\translations\*.qm translations
 branches:
   only: 
   - master
