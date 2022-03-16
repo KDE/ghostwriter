@@ -22,9 +22,11 @@ branches:
   only: 
   - master
 artifacts:
-  - path: 'build\**'
-   type: zip
   - path: 'deploy\**'
-   type: zip
+    name: deploy files
+
+  - path: 'build\**'
+    name: object files
+    type: zip
 skip_non_tags: false
 shallow_clone: true
