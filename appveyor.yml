@@ -3,7 +3,7 @@ platform: x64
 configuration: Release
 image: Visual Studio 2019
 environment:
-  portable_dir: %APPVEYOR_BUILD_FOLDER%\%APPVEYOR_PROJECT_ID%_%APPVEYOR_BUILD_VERSION%_portable
+  portable_dir: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_ID)_$(APPVEYOR_BUILD_VERSION)_portable
 install:
   - set QTDIR=C:\Qt\5.15.2\msvc2019_64
   - set PATH=%PATH%;%QTDIR%\bin
