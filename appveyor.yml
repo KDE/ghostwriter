@@ -41,12 +41,13 @@ artifacts:
 deploy:
   tag: $(appver)
   release: $(APPVEYOR_PROJECT_NAME) $(appver)
+  draft: true
   provider: GitHub
   auth_token:
     secure: BwAh7GBWfGp5VD1+HS20if8Y0QWVHM5ldypiUtDACIt3eVpEdaNvqCfao5ZIMD2C
   artifact: $(portable_dir).zip
   force_update: true
   on:
-    branch: master
+    branch: release
 skip_non_tags: false
 shallow_clone: true
