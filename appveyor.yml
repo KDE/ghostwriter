@@ -1,5 +1,6 @@
 
-version: 2.1.2
+appver: 2.1.2
+version: $(appver)+{build}
 environment:
   portable_dir: ghostwriter_$(version)_win64_portable
   QTDIR: C:\Qt\5.15.2\msvc2019_64
@@ -9,6 +10,11 @@ image: Visual Studio 2019
 install:
   - set PATH=%PATH%;%QTDIR%\bin
 before_build:
+  - echo %APPVEYOR_PROJECT_ID%
+  - echo %APPVEYOR_PROJECT_NAME%
+  - echo %APPVEYOR_BUILD_ID%
+  - echo %APPVEYOR_BUILD_NUMBER%
+  - echo %APPVEYOR_BUILD_VERSION%
   - call "%QTDIR%/bin/qtenv2.bat"
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
   - cd %APPVEYOR_BUILD_FOLDER%
