@@ -48,7 +48,7 @@ whether your masterpiece be that next blog post, your school paper,
 or your novel.
 
 %prep
-%autosetup -n %{name}-%{tarball}
+%autosetup
 
 %build
 qmake-qt5 PREFIX=%{_prefix}
