@@ -19,8 +19,6 @@ after_build:
   - mkdir %portable_dir%
   - cp build\release\ghostwriter.exe %portable_dir%
   - cp build\release\ghostwriter.res %portable_dir%
-  - cp build\release\ghostwriter.lib %portable_dir%
-  - cp build\release\ghostwriter.exp %portable_dir%
   - cp -r build\release\translations %portable_dir%
   - cd %portable_dir%
   - windeployqt ghostwriter.exe
