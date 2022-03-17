@@ -1,12 +1,11 @@
 
 version: 2.1.2
 environment:
-  appver: 2.1.2
+  portable_dir: ghostwriter_$(version)_win64_portable
   QTDIR: C:\Qt\5.15.2\msvc2019_64
 platform: x64
 configuration: Release
 image: Visual Studio 2019
-  portable_dir: ghostwriter_$(appver)_win64_portable
 install:
   - set PATH=%PATH%;%QTDIR%\bin
 before_build:
@@ -32,7 +31,7 @@ artifacts:
     name: $(portable_dir)
     type: zip
 deploy:
-  release: ghostwriter $(appver)
+  release: ghostwriter $(version)
   provider: GitHub
   auth_token:
     secure: BwAh7GBWfGp5VD1+HS20if8Y0QWVHM5ldypiUtDACIt3eVpEdaNvqCfao5ZIMD2C
