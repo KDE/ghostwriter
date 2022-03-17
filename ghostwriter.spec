@@ -15,6 +15,7 @@ License: GPLv3+ and CC-BY and CC-BY-SA and MPLv1.1 and BSD and LGPLv3 and MIT an
 Summary: A distraction-free Markdown editor
 URL: http://wereturtle.github.io/%{name}/
 
+BuildRequires: git
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: pkgconfig
