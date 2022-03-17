@@ -39,6 +39,7 @@ artifacts:
     name: $(portable_dir)
     type: zip
 deploy:
+  tag: $(appver)
   release: $(APPVEYOR_PROJECT_NAME) $(appver)
   provider: GitHub
   auth_token:
