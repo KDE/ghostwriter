@@ -2,7 +2,7 @@
 version: 2.1.2+{build}
 environment:
   appver: 2.1.2
-  portable_dir: ghostwriter_$(version)_win64_portable
+  portable_dir: ghostwriter_$(appver)_win64_portable
   QTDIR: C:\Qt\5.15.2\msvc2019_64
 platform: x64
 configuration: Release
@@ -19,7 +19,7 @@ before_build:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
   - cd %APPVEYOR_BUILD_FOLDER%
 build_script:
-  - qmake ghostwriter.pro
+  - qmake %APPVEYOR_PROJECT_NAME%.pro
   - nmake release
 after_build:
   - cd %APPVEYOR_BUILD_FOLDER%
@@ -37,11 +37,12 @@ artifacts:
     name: $(portable_dir)
     type: zip
 deploy:
-  release: ghostwriter $(version)
+  release: $(APPVEYOR_PROJECT_NAME) $(appver)
   provider: GitHub
   auth_token:
     secure: BwAh7GBWfGp5VD1+HS20if8Y0QWVHM5ldypiUtDACIt3eVpEdaNvqCfao5ZIMD2C
   artifact: $(portable_dir).zip
+  force_update: true
   on:
     branch: master
     APPVEYOR_REPO_TAG: false
