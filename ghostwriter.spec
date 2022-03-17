@@ -5,7 +5,7 @@
 %global appver 2.1.2
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
 %global changelog_date Sat Mar 12 2022
-%global tarball %([[ %{appver} == *"-"* ]] && echo master || echo %{appver})
+%global branch %([[ %{appver} == *"-"* ]] && echo master || echo release)
 
 Name: ghostwriter
 Version: %(echo %{appver} | tr '-' '~')
@@ -48,7 +48,10 @@ whether your masterpiece be that next blog post, your school paper,
 or your novel.
 
 %prep
-%autosetup
+rm -rf %{name}
+git clone %{url}.git %{name}
+cd %{name}
+git checkout %{branch}
 
 %build
 qmake-qt5 PREFIX=%{_prefix}
