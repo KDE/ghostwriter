@@ -28,6 +28,8 @@ after_build:
   - cp build\release\ghostwriter.res %portable_dir%
   - cp -r build\release\translations %portable_dir%
   - cd %portable_dir%
+  - mkdir dictionaries
+  - mkdir data
   - windeployqt ghostwriter.exe
 branches:
   only: 
