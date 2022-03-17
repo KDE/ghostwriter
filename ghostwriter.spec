@@ -54,7 +54,7 @@ cd %{name}
 git checkout %{branch}
 
 %build
-qmake-qt5 PREFIX=%{_prefix}
+PREFIX=%{_prefix} qmake-qt5 %{name}.pro
 %make_build
 
 %install
