@@ -1,9 +1,9 @@
-version: 2.1.2-{build}
+version: 2.1.2
 platform: x64
 configuration: Release
 image: Visual Studio 2019
 environment:
-  portable_dir: $(APPVEYOR_PROJECT_ID)_$(APPVEYOR_BUILD_VERSION)_portable
+  portable_dir: ghostwriter_$(APPVEYOR_BUILD_VERSION)_win64_portable
 install:
   - set QTDIR=C:\Qt\5.15.2\msvc2019_64
   - set PATH=%PATH%;%QTDIR%\bin
@@ -14,20 +14,31 @@ before_build:
 build_script:
   - qmake ghostwriter.pro
   - nmake release
+after_build:
+  - cd %APPVEYOR_BUILD_FOLDER%
   - mkdir %portable_dir%
   - cp build\release\ghostwriter.exe %portable_dir%
+  - cp build\release\ghostwriter.res %portable_dir%
+  - cp build\release\ghostwriter.lib %portable_dir%
+  - cp build\release\ghostwriter.exp %portable_dir%
   - cp -r build\release\translations %portable_dir%
   - cd %portable_dir%
   - windeployqt ghostwriter.exe
-after_build:
-  - cd %APPVEYOR_BUILD_FOLDER%
 branches:
   only: 
   - master
 artifacts:
   - path: $(portable_dir)
-    name: deploy files
+    name: $(portable_dir)
     type: zip
-
+deploy:
+  release: ghostwriter $(APPVEYOR_BUILD_VERSION)
+  provider: GitHub
+  auth_token:
+    secure: BwAh7GBWfGp5VD1+HS20if8Y0QWVHM5ldypiUtDACIt3eVpEdaNvqCfao5ZIMD2C
+  artifact: $(portable_dir).zip
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: false
 skip_non_tags: false
 shallow_clone: true
