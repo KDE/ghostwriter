@@ -47,13 +47,11 @@ ghostwriter provides a relaxing, distraction-free writing environment,
 whether your masterpiece be that next blog post, your school paper,
 or your novel.
 
-%prep
+%build
 rm -rf %{name}
 git clone %{url}.git %{name}
 cd %{name}
 git checkout %{branch}
-
-%build
 PREFIX=%{_prefix} qmake-qt5 %{name}.pro
 %make_build
 
