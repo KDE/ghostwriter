@@ -22,7 +22,7 @@
 #include <QApplication>
 #include <QChar>
 #include <QColor>
-#include <QDesktopWidget>
+//#include <QDesktopWidget>
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -194,7 +194,6 @@ MarkdownEditor::MarkdownEditor
 
     d->preferredLayout = new QGridLayout();
     d->preferredLayout->setSpacing(0);
-    d->preferredLayout->setMargin(0);
     d->preferredLayout->setContentsMargins(0, 0, 0, 0);
     d->preferredLayout->addWidget(this, 0, 0);
 
@@ -813,7 +812,7 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
             (QTextCharFormat::UnderlineStyle)
             QApplication::style()->styleHint
             (
-                QStyle::SH_SpellCheckUnderlineStyle
+                QStyle::SH_Menu_SloppySubMenus//QStyle::SH_SpellCheckUnderlineStyle
             );
 
         // Get the formatting for the cursor position under the mouse,

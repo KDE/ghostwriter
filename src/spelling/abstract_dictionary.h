@@ -21,7 +21,7 @@
 #define ABSTRACT_DICTIONARY_H
 
 class QString;
-class QStringList;
+//class QStringList;
 class QStringRef;
 
 class AbstractDictionary

@@ -30,11 +30,17 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 8) {
 
 TEMPLATE = app
 
-QT += widgets concurrent svg webenginewidgets webengine webchannel gui
+#QT += widgets concurrent svg webenginewidgets webengine webchannel gui
+QT += widgets concurrent svg webenginewidgets webchannel gui core5compat
 
-#CONFIG += debug
+CONFIG += debug
 CONFIG += warn_on
-CONFIG += c++11
+CONFIG += c++17
+
+QMAKE_LFLAGS         += "-mmacosx-version-min=12.2"
+QMAKE_CXXFLAGS       += "-mmacosx-version-min=12.2"
+QMAKE_CFLAGS_RELEASE += "-mmacosx-version-min=12.2"
+QMAKE_CXXFLAGS       += "-mmacosx-version-min=12.2"
 
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
@@ -60,7 +66,7 @@ include(3rdparty/cmark-gfm/cmark-gfm.pri)
 # Input
 
 macx {
-    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.10
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 12.2
 
     LIBS += -framework AppKit
 
@@ -87,7 +93,7 @@ macx {
         src/spelling/dictionary_provider_voikko.cpp
 }
 
-INCLUDEPATH += src src/spelling
+INCLUDEPATH += src src/spelling /opt/homebrew/Cellar/qt/6.2.2/lib/QtCore5Compat.framework/Versions/A/Headers
 
 HEADERS += \
     src/abstractstatisticswidget.h \

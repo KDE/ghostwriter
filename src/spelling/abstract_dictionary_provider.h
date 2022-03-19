@@ -22,8 +22,8 @@
 
 class AbstractDictionary;
 
-class QString;
-class QStringList;
+#include <QString>
+#include <QStringList>
 
 class AbstractDictionaryProvider
 {

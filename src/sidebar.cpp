@@ -73,7 +73,6 @@ Sidebar::Sidebar(QWidget *parent)
     d->tabs->setObjectName("sidebarTabs");
     d->tabs->setAlignment(Qt::AlignTop | Qt::AlignCenter);
     d->tabs->setSpacing(0);
-    d->tabs->setMargin(0);
     d->tabs->setContentsMargins(0, 0, 0, 0);
     d->tabs->setSizeConstraint(QLayout::SetMinimumSize);
 
@@ -95,14 +94,12 @@ Sidebar::Sidebar(QWidget *parent)
     d->buttons->setObjectName("sidebarButtons");
     d->buttons->setAlignment(Qt::AlignBottom | Qt::AlignCenter);
     d->buttons->setSpacing(0);
-    d->buttons->setMargin(0);
     d->buttons->setContentsMargins(0, 0, 0, 0);
     d->buttons->setSizeConstraint(QLayout::SetMinimumSize);
 
     QVBoxLayout *leftBarLayout = new QVBoxLayout();
     leftBarLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     leftBarLayout->setSpacing(0);
-    leftBarLayout->setMargin(0);
     leftBarLayout->setContentsMargins(0, 0, 0, 0);
     leftBarLayout->setSizeConstraint(QLayout::SetMinimumSize);
     leftBarLayout->addLayout(d->tabs);
@@ -110,7 +107,6 @@ Sidebar::Sidebar(QWidget *parent)
     leftBarLayout->addLayout(d->buttons);
 
     QHBoxLayout *layout = new QHBoxLayout();
-    layout->setMargin(0);
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->addLayout(leftBarLayout);

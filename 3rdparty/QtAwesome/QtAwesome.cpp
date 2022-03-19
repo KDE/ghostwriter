@@ -84,7 +84,6 @@ public:
         painter->save();
 
         painter->setRenderHint(QPainter::Antialiasing);
-        painter->setRenderHint(QPainter::HighQualityAntialiasing);
 
         QVariant var =options.value("anim");
         QtAwesomeAnimation* anim = var.value<QtAwesomeAnimation*>();
@@ -2573,7 +2572,7 @@ QFont QtAwesome::font(style::styles st, int size ) const
 
     QFont ft( _fontDetails[st].fontFamily());
     ft.setPixelSize(size);
-    ft.setWeight(_fontDetails[st].fontWeight());
+    ft.setWeight((QFont::Weight)_fontDetails[st].fontWeight());
 
     return ft;
 }

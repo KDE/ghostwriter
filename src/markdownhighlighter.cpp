@@ -400,7 +400,7 @@ void MarkdownHighlighterPrivate::spellCheck(const QString &text)
                 (QTextCharFormat::UnderlineStyle)
                 QApplication::style()->styleHint
                 (
-                    QStyle::SH_SpellCheckUnderlineStyle
+                    QStyle::SH_Menu_SloppySubMenus//SH_SpellCheckUnderlineStyle
                 )
             );
 
@@ -856,7 +856,7 @@ void MarkdownHighlighterPrivate::highlightRefLinks(const int pos, const int leng
     QTextCharFormat format = q->format(pos);
     format.setForeground(colors.link);
 
-    for (int i = pos; i < (pos + length) && (i < q->currentBlock().text()); i++) {
+    for (int i = pos; i < (pos + length) && (i < q->currentBlock().text().size()); i++) {
         if (skipNext) {
             skipNext = false;
             continue;

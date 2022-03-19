@@ -154,6 +154,8 @@ public:
         bool createBackup
     ) const;
 
+    void testFunc(const QString& argstr) const;
+
     /*
     * Creates a backup file with a ".backup" extension of the file having
     * the specified path.  Note that this method is intended to be run in
@@ -688,17 +690,25 @@ void DocumentManagerPrivate::saveFile()
 
     document->setTimestamp(QDateTime::currentDateTime());
 
+    const QString fp = document->filePath();
+    const QString pt = document->toPlainText();
+
     QFuture<QString> future =
         QtConcurrent::run
         (
-            this,
             &DocumentManagerPrivate::saveToDisk,
-            document->filePath(),
-            document->toPlainText(),
+            this,
+            fp,
+            pt,
             createBackupOnSave
         );
 
     this->saveFutureWatcher->setFuture(future);
+}
+
+void DocumentManagerPrivate::testFunc(const QString& argstr) const
+{
+    Q_UNUSED(argstr)
 }
 
 bool DocumentManagerPrivate::loadFile(const QString &filePath)
@@ -738,7 +748,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     // what the user is opening by default.  Enable autodetection
     // of of UTF-16 or UTF-32 BOM in case the file isn't UTF-8 encoded.
     //
-    inStream.setCodec("UTF-8");
+    inStream.setEncoding(QStringConverter::Utf8);
     inStream.setAutoDetectUnicode(true);
 
     QString text = inStream.readAll();
@@ -941,7 +951,7 @@ QString DocumentManagerPrivate::saveToDisk
     // Markdown files need to be in UTF-8, since most Markdown processors
     // (i.e., Pandoc, et. al.) can only read UTF-8 encoded text files.
     //
-    outStream.setCodec("UTF-8");
+    outStream.setEncoding(QStringConverter::Utf8);
     outStream << text;
 
     if (QFile::NoError != outputFile.error()) {

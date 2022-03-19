@@ -137,7 +137,7 @@ ColorSchemePreviewer::ColorSchemePreviewer
         font.setPixelSize(22);
 
         QFontMetricsF metrics(font);
-        int x = width - metrics.width(symbol) - 2;
+        int x = width - metrics.boundingRect(symbol).width() - 2;
         int y = 2;
 
         painter.setFont(font);

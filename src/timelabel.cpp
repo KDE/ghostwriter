@@ -77,7 +77,7 @@ void TimeLabelPrivate::updateTimeOfDay()
     Q_Q(TimeLabel);
     
     QTime currentTime = QTime::currentTime();
-    q->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
+    q->setText(currentTime.toString(Qt::TextDate));
 
     QTime nextTime = currentTime.addSecs(60);
     nextTime.setHMS(nextTime.hour(), nextTime.minute(), 0);

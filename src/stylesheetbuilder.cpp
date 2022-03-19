@@ -571,7 +571,7 @@ void StyleSheetBuilder::buildHtmlPreviewCss(const bool roundedCorners)
         }
 
         QTextStream inStream(&cssFile);
-        inStream.setCodec("UTF-8");
+        inStream.setEncoding(QStringConverter::Utf8);
         inStream.setAutoDetectUnicode(true);
         m_htmlPreviewSass = inStream.readAll();
         cssFile.close();

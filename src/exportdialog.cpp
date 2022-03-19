@@ -33,6 +33,7 @@
 #include <QString>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QStandardPaths>
 
 #include "exportdialog.h"
 #include "exporter.h"

@@ -30,7 +30,8 @@
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
-
+#include <QRegExp>
+#include <QRegularExpression>
 #include <algorithm>
 
 //-----------------------------------------------------------------------------
@@ -123,7 +124,7 @@ QString DictionaryManager::availableDictionary(const QString& language) const
 {
 	QStringList languages = availableDictionaries();
 	if (!languages.isEmpty() && !languages.contains(language)) {
-		int close = languages.indexOf(QRegExp(language.left(2) + ".*"));
+		int close = languages.indexOf(QRegularExpression(language.left(2) + ".*"));
 		return (close != -1) ? languages.at(close) : (languages.contains("en_US") ? "en_US" : languages.first());
 	} else {
 		return language;
@@ -273,7 +274,7 @@ void DictionaryManager::setPersonal(const QStringList& words)
 	QFile file(m_path + "/personal");
 	if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
 		QTextStream stream(&file);
-		stream.setCodec("UTF-8");
+		stream.setEncoding(QStringConverter::Utf8);
 		foreach (const QString& word, m_personal) {
 			stream << word << "\n";
 		}
@@ -298,7 +299,7 @@ DictionaryManager::DictionaryManager()
 	QFile file(m_path + "/personal");
 	if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
 		QTextStream stream(&file);
-		stream.setCodec("UTF-8");
+		stream.setEncoding(QStringConverter::Utf8);
 		while (!stream.atEnd()) {
 			m_personal.append(stream.readLine());
 		}

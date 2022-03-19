@@ -45,7 +45,7 @@ StatisticsIndicator::StatisticsIndicator(DocumentStatistics *documentStats,
 {
     this->setView(new QListView());
     this->view()->setTextElideMode(Qt::ElideNone);
-    this->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+    this->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
 
     connect(this,
         &QComboBox::currentTextChanged,

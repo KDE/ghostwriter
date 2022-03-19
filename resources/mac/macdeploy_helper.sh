@@ -5,7 +5,7 @@
 # Second argument is source path.
 
 mkdir -pv "$1"
-find "$2" -maxdepth 1 -exec cp -v '{}' "$1" \;
+find "$2" -maxdepth 1 -exec cp -vR '{}' "$1" \;
 
 # update qt.conf to point to our translations path
-printf "[Paths]\nPlugins = Plugins\nTranslations = Resources/translations\n" > "$1/../qt.conf"
+printf "[Paths]\nPlugins = PlugIns\nTranslations = Resources/translations\n" > "$1/../qt.conf"

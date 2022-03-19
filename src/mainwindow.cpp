@@ -333,7 +333,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     mainPane->setLayout(mainLayout);
     mainLayout->addWidget(previewSplitter, 500);
     mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(0,0,0,0);
 
     sidebarSplitter = new QSplitter(this);
     sidebarSplitter->addWidget(sidebar);
@@ -1164,13 +1164,13 @@ void MainWindow::buildStatusBar()
 
     QHBoxLayout *leftLayout = new QHBoxLayout(leftWidget);
     leftWidget->setLayout(leftLayout);
-    leftLayout->setMargin(0);
+    leftLayout->setContentsMargins(0,0,0,0);
     QHBoxLayout *midLayout = new QHBoxLayout(midWidget);
     midWidget->setLayout(midLayout);
-    midLayout->setMargin(0);
+    midLayout->setContentsMargins(0,0,0,0);
     QHBoxLayout *rightLayout = new QHBoxLayout(rightWidget);
     rightWidget->setLayout(rightLayout);
-    rightLayout->setMargin(0);
+    rightLayout->setContentsMargins(0,0,0,0);
 
     // Add left-most widgets to status bar.
     QFont buttonFont(this->awesome->font(style::stfas, 16));

@@ -183,7 +183,7 @@ HtmlPreview::~HtmlPreview()
 
 void HtmlPreview::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *menu = page()->createStandardContextMenu();
+    QMenu *menu = createStandardContextMenu();
     menu->popup(event->globalPos());
 }
 
@@ -211,8 +211,8 @@ void HtmlPreview::updatePreview()
                 QFuture<QString> future =
                     QtConcurrent::run
                     (
-                        d,
                         &HtmlPreviewPrivate::exportToHtml,
+                        d,
                         d->document->toPlainText(),
                         d->exporter
                     );
