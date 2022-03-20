@@ -1,6 +1,6 @@
 # RPM spec file for Fedora and openSUSE
-%undefine _hardened_build
-%define debug_package %{nil}
+# %undefine _hardened_build
+# %define debug_package %{nil}
 
 %global appver 2.1.2
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
@@ -12,8 +12,9 @@ Version: %(echo %{appver} | tr '-' '~')
 Release: 0.%{build_timestamp}%{?dist}
 
 License: GPLv3+ and CC-BY and CC-BY-SA and MPLv1.1 and BSD and LGPLv3 and MIT and ISC
-Summary: A distraction-free Markdown editor
+Summary: Cross-platform, aesthetic, distraction-free Markdown editor
 URL: https://github.com/wereturtle/%{name}
+Source0: %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: git
 BuildRequires: gcc-c++
@@ -36,7 +37,26 @@ BuildRequires: cmake(Qt5XmlPatterns)
 BuildRequires: update-desktop-files
 %endif
 
+BuildRequires: desktop-file-utils
+BuildRequires: gcc-c++
+BuildRequires: hunspell-devel
+BuildRequires: libappstream-glib
+BuildRequires: make
+
+Provides: bundled(cmark-gfm) = 0.29.0.gfm.3
+Provides: bundled(fontawesome-fonts) = 5.10.2
+Provides: bundled(nodejs-mathjax-full) = 3.1.2
+Provides: bundled(nodejs-react) = 17.0.1
+Provides: bundled(QtAwesome) = 5
+
 Requires: hicolor-icon-theme
+
+Recommends: cmark%{?_isa}
+Recommends: multimarkdown%{?_isa}
+Recommends: pandoc%{?_isa}
+
+# Required qt5-qtwebengine is not available on some arches.
+ExclusiveArch: %{qt5_qtwebengine_arches}
 
 %description
 ghostwriter is a text editor for Markdown, which is a plain text markup
@@ -47,19 +67,23 @@ ghostwriter provides a relaxing, distraction-free writing environment,
 whether your masterpiece be that next blog post, your school paper,
 or your novel.
 
+%prep
+%autosetup -n %{name}-%{version} -p1
+mkdir -p %{_vpath_builddir}
+rm -rf 3rdparty/hunspell
+
 %build
-rm -rf %{name}
-git clone %{url}.git %{name}
-cd %{name}
-git checkout %{branch}
-PREFIX=%{_prefix} qmake-qt5 %{name}.pro
-%make_build
+pushd %{_vpath_builddir}
+    %qmake_qt5 PREFIX=%{_prefix} ..
+popd
+%make_build -C %{_vpath_builddir}
+
+%check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %install
-%make_install INSTALL_ROOT=%{buildroot}
-%if 0%{?suse_version}
-%suse_update_desktop_file %{name}
-%endif
+%make_install INSTALL_ROOT=%{buildroot} -C %{_vpath_builddir}
 %find_lang %{name} --with-qt
 
 %files -f %{name}.lang
