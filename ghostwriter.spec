@@ -1,11 +1,11 @@
 # RPM spec file for Fedora and openSUSE
-# %undefine _hardened_build
-# %define debug_package %{nil}
+%undefine _hardened_build
+%define debug_package %{nil}
 
 %global appver 2.1.2
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
 %global changelog_date Sat Mar 12 2022
-%global branch %([[ %{appver} == *"-"* ]] && echo master || echo release)
+%global tarball %([[ %{appver} == *"-"* ]] && echo refs/heads/master.tar.gz || echo %{version}/%{name}-%{version}.tar.gz)
 
 Name: ghostwriter
 Version: %(echo %{appver} | tr '-' '~')
@@ -14,7 +14,7 @@ Release: 0.%{build_timestamp}%{?dist}
 License: GPLv3+ and CC-BY and CC-BY-SA and MPLv1.1 and BSD and LGPLv3 and MIT and ISC
 Summary: Cross-platform, aesthetic, distraction-free Markdown editor
 URL: https://github.com/wereturtle/%{name}
-Source0: %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+Source0: %{url}/archive/%{tarball}
 
 BuildRequires: git
 BuildRequires: gcc-c++
