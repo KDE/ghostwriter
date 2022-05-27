@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Fixed various sidebar and HTML preview size issues.
 * Fixed editor margins on resize and on sidebar hide/show.
+* Issue #738: App waits longer for Pandoc to finish reporting version on Windows before timing out.
 
 ## [2.1.2] - 2022-03-12
 
