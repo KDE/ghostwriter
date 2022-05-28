@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* Fixed various sidebar and HTML preview size issues.
+* Issue #751: Fixed various sidebar and HTML preview size issues.
+* Issue #724: App waits longer for Pandoc to finish reporting version on Windows before timing out.
+* Issue #762: Fixed typo in Brazilian Portuguese translation.
 * Fixed editor margins on resize and on sidebar hide/show.
-* Issue #738: App waits longer for Pandoc to finish reporting version on Windows before timing out.
+* Updated Russian translation.
 
 ## [2.1.2] - 2022-03-12
 
