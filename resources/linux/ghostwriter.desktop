@@ -2,7 +2,9 @@
 Type=Application
 Name=ghostwriter
 GenericName=Markdown Editor
+GenericName[ru]=Редактор Markdown
 Comment=Distraction-free text editor for Markdown
+Comment[ru]=Текстовый редактор Markdown для сосредоточенной работы
 Icon=ghostwriter
 TryExec=ghostwriter
 Exec=ghostwriter %f
