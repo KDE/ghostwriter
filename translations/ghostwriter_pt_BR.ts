@@ -1153,7 +1153,7 @@
     <message>
         <location filename="../src/preferencesdialog.cpp" line="87"/>
         <source>General</source>
-        <translation>Geraç</translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="88"/>
