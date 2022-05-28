@@ -40,68 +40,68 @@
         <translation>すべて</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="599"/>
+        <location filename="../src/documentmanager.cpp" line="598"/>
         <source>Error saving %1</source>
         <translation type="unfinished">%1 の保存エラー</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="654"/>
+        <location filename="../src/documentmanager.cpp" line="653"/>
         <source>The document has been modified by another program.</source>
         <translation type="unfinished">文書は他のプログラムで更新されています。</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="655"/>
+        <location filename="../src/documentmanager.cpp" line="654"/>
         <source>Would you like to reload the document?</source>
         <translation type="unfinished">文書を再読み込みしますか？</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="714"/>
-        <location filename="../src/documentmanager.cpp" line="751"/>
+        <location filename="../src/documentmanager.cpp" line="713"/>
+        <location filename="../src/documentmanager.cpp" line="748"/>
         <source>Could not read %1</source>
         <translation type="unfinished">%1 を読み込めません</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="737"/>
+        <location filename="../src/documentmanager.cpp" line="734"/>
         <source>opening %1</source>
         <translation type="unfinished">%1 を開いています</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="840"/>
+        <location filename="../src/documentmanager.cpp" line="837"/>
         <source>File has been modified.</source>
         <translation type="unfinished">ファイルが更新されています。</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="842"/>
+        <location filename="../src/documentmanager.cpp" line="839"/>
         <source>%1 has been modified.</source>
         <translation type="unfinished">%1 が更新されました。</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="851"/>
+        <location filename="../src/documentmanager.cpp" line="848"/>
         <source>Would you like to save your changes?</source>
         <translation type="unfinished">変更を保存しますか？</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="882"/>
+        <location filename="../src/documentmanager.cpp" line="879"/>
         <source>%1 is read only.</source>
         <translation type="unfinished">%1 は読み取り専用です。</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="883"/>
+        <location filename="../src/documentmanager.cpp" line="880"/>
         <source>Overwrite protected file?</source>
         <translation type="unfinished">保護されたファイルを上書きしますか？</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="902"/>
+        <location filename="../src/documentmanager.cpp" line="899"/>
         <source>Overwrite failed.</source>
         <translation type="unfinished">上書きに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="903"/>
+        <location filename="../src/documentmanager.cpp" line="900"/>
         <source>Please save file to another location.</source>
         <translation type="unfinished">ファイルを別の場所に保存してください。</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="928"/>
+        <location filename="../src/documentmanager.cpp" line="925"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>書き込み時にNullまたは空のファイル パスが与えられました。</translation>
     </message>
@@ -611,507 +611,511 @@
 <context>
     <name>ghostwriter::MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="367"/>
+        <location filename="../src/mainwindow.cpp" line="383"/>
         <source>Could not create file %1. Check permissions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Insert Image</source>
         <translation type="unfinished">画像の挿入</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="654"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>Images</source>
         <translation type="unfinished">画像</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="698"/>
         <source>All Files</source>
         <translation type="unfinished">すべてのファイル</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;あなたは &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt; の条件下で使用ならびに再配布することができます。&lt;/p&gt;&lt;p&gt;公式ウェブサイト &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;&lt;/p&gt;&lt;p&gt;再利用したコードへの深い感謝とクレジットを贈ります&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt; 氏&lt;br/&gt;&lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt; の著作者 Dmitry Shachnev 氏&lt;br/&gt;&lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt; 氏&lt;br/&gt;&lt;p&gt;また、そのような美しいMarkdown編集ツールの作成に刺激を与えてくださった &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt; 氏に大いに感謝します。&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
+        <translation type="obsolete">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;あなたは &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt; の条件下で使用ならびに再配布することができます。&lt;/p&gt;&lt;p&gt;公式ウェブサイト &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;&lt;/p&gt;&lt;p&gt;再利用したコードへの深い感謝とクレジットを贈ります&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt; 氏&lt;br/&gt;&lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt; の著作者 Dmitry Shachnev 氏&lt;br/&gt;&lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt; 氏&lt;br/&gt;&lt;p&gt;また、そのような美しいMarkdown編集ツールの作成に刺激を与えてくださった &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt; 氏に大いに感謝します。&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="720"/>
+        <location filename="../src/mainwindow.cpp" line="763"/>
         <source>About %1</source>
         <translation type="unfinished">%1 について</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="836"/>
+        <location filename="../src/mainwindow.cpp" line="879"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation type="unfinished">変更を反映させるためにアプリを再起動してください。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="963"/>
+        <location filename="../src/mainwindow.cpp" line="1017"/>
         <source>&amp;File</source>
         <translation type="unfinished">ファイル(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="965"/>
+        <location filename="../src/mainwindow.cpp" line="1019"/>
         <source>&amp;New</source>
         <translation type="unfinished">新規(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="966"/>
+        <location filename="../src/mainwindow.cpp" line="1020"/>
         <source>&amp;Open</source>
         <translation type="unfinished">開く(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="968"/>
+        <location filename="../src/mainwindow.cpp" line="1022"/>
         <source>Open &amp;Recent...</source>
         <translation type="unfinished">最近使用したファイル(&amp;R)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="969"/>
+        <location filename="../src/mainwindow.cpp" line="1023"/>
         <source>Reopen Closed File</source>
         <translation type="unfinished">閉じたファイルを開きなおす</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="977"/>
+        <location filename="../src/mainwindow.cpp" line="1031"/>
         <source>Clear Menu</source>
         <translation type="unfinished">メニューをクリア</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="982"/>
+        <location filename="../src/mainwindow.cpp" line="1036"/>
         <source>&amp;Save</source>
         <translation type="unfinished">保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="983"/>
+        <location filename="../src/mainwindow.cpp" line="1037"/>
         <source>Save &amp;As...</source>
         <translation type="unfinished">名前を付けて保存(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="984"/>
+        <location filename="../src/mainwindow.cpp" line="1038"/>
         <source>R&amp;ename...</source>
         <translation type="unfinished">名前の変更(&amp;E)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="985"/>
+        <location filename="../src/mainwindow.cpp" line="1039"/>
         <source>Re&amp;load from Disk...</source>
         <translation type="unfinished">ディスクから再読み込み(&amp;L)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="987"/>
+        <location filename="../src/mainwindow.cpp" line="1041"/>
         <source>&amp;Export</source>
         <translation type="unfinished">エクスポート(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="989"/>
+        <location filename="../src/mainwindow.cpp" line="1043"/>
         <source>&amp;Quit</source>
         <translation type="unfinished">終了(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="993"/>
+        <location filename="../src/mainwindow.cpp" line="1047"/>
         <source>&amp;Edit</source>
         <translation type="unfinished">編集(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="994"/>
+        <location filename="../src/mainwindow.cpp" line="1048"/>
         <source>&amp;Undo</source>
         <translation type="unfinished">元に戻す(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="995"/>
+        <location filename="../src/mainwindow.cpp" line="1049"/>
         <source>&amp;Redo</source>
         <translation type="unfinished">やり直し(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="997"/>
+        <location filename="../src/mainwindow.cpp" line="1051"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished">切り取り(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="998"/>
+        <location filename="../src/mainwindow.cpp" line="1052"/>
         <source>&amp;Copy</source>
         <translation type="unfinished">コピー(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="999"/>
+        <location filename="../src/mainwindow.cpp" line="1053"/>
         <source>&amp;Paste</source>
         <translation type="unfinished">貼り付け(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1000"/>
+        <location filename="../src/mainwindow.cpp" line="1054"/>
         <source>Copy &amp;HTML</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1002"/>
+        <location filename="../src/mainwindow.cpp" line="1056"/>
         <source>&amp;Insert Image...</source>
         <translation type="unfinished">画像の挿入(&amp;I)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1005"/>
+        <location filename="../src/mainwindow.cpp" line="1059"/>
         <source>&amp;Find</source>
         <translation type="unfinished">検索(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1006"/>
+        <location filename="../src/mainwindow.cpp" line="1060"/>
         <source>Rep&amp;lace</source>
         <translation type="unfinished">置換(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1007"/>
+        <location filename="../src/mainwindow.cpp" line="1061"/>
         <source>Find &amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1008"/>
+        <location filename="../src/mainwindow.cpp" line="1062"/>
         <source>Find &amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1010"/>
+        <location filename="../src/mainwindow.cpp" line="1064"/>
         <source>&amp;Spell check</source>
         <translation type="unfinished">スペルチェック(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1012"/>
+        <location filename="../src/mainwindow.cpp" line="1066"/>
         <source>For&amp;mat</source>
         <translation type="unfinished">書式(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1013"/>
+        <location filename="../src/mainwindow.cpp" line="1067"/>
         <source>&amp;Bold</source>
         <translation type="unfinished">重要 / 太字(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1014"/>
+        <location filename="../src/mainwindow.cpp" line="1068"/>
         <source>&amp;Italic</source>
         <translation type="unfinished">強調 / 斜体(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1015"/>
+        <location filename="../src/mainwindow.cpp" line="1069"/>
         <source>Stri&amp;kethrough</source>
         <translation type="unfinished">取り消し線(&amp;K)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1016"/>
+        <location filename="../src/mainwindow.cpp" line="1070"/>
         <source>&amp;HTML Comment</source>
         <translation type="unfinished">&amp;HTML コメント</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1019"/>
+        <location filename="../src/mainwindow.cpp" line="1073"/>
         <source>I&amp;ndent</source>
         <translation type="unfinished">インデント(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1020"/>
+        <location filename="../src/mainwindow.cpp" line="1074"/>
         <source>&amp;Unindent</source>
         <translation type="unfinished">逆インデント(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1022"/>
+        <location filename="../src/mainwindow.cpp" line="1076"/>
         <source>Block &amp;Quote</source>
         <translation type="unfinished">引用ブロック(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1023"/>
+        <location filename="../src/mainwindow.cpp" line="1077"/>
         <source>&amp;Strip Block Quote</source>
         <translation type="unfinished">引用ブロックを解除(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1025"/>
+        <location filename="../src/mainwindow.cpp" line="1079"/>
         <source>&amp;* Bullet List</source>
         <translation type="unfinished">&amp;* 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1026"/>
+        <location filename="../src/mainwindow.cpp" line="1080"/>
         <source>&amp;- Bullet List</source>
         <translation type="unfinished">&amp;- 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1027"/>
+        <location filename="../src/mainwindow.cpp" line="1081"/>
         <source>&amp;+ Bullet List</source>
         <translation type="unfinished">&amp;+ 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1029"/>
+        <location filename="../src/mainwindow.cpp" line="1083"/>
         <source>1&amp;. Numbered List</source>
         <translation type="unfinished">1&amp;. 番号付きリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1030"/>
+        <location filename="../src/mainwindow.cpp" line="1084"/>
         <source>1&amp;) Numbered List</source>
         <translation type="unfinished">1&amp;) 番号付きリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1032"/>
+        <location filename="../src/mainwindow.cpp" line="1086"/>
         <source>&amp;Task List</source>
         <translation type="unfinished">タスクリスト(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1033"/>
+        <location filename="../src/mainwindow.cpp" line="1087"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation type="unfinished">タスクの完了を切り替え(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1036"/>
+        <location filename="../src/mainwindow.cpp" line="1090"/>
         <source>&amp;View</source>
         <translation type="unfinished">表示(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1038"/>
+        <location filename="../src/mainwindow.cpp" line="1092"/>
         <source>&amp;Full Screen</source>
         <translation type="unfinished">全画面表示(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1046"/>
+        <location filename="../src/mainwindow.cpp" line="1100"/>
         <source>&amp;Preview in HTML</source>
         <translation type="unfinished">HTMLでプレビュー(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1306"/>
+        <location filename="../src/mainwindow.cpp" line="1360"/>
         <source>Show Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1054"/>
+        <location filename="../src/mainwindow.cpp" line="1108"/>
         <source>&amp;Outline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1064"/>
+        <location filename="../src/mainwindow.cpp" line="740"/>
+        <source>&lt;p&gt;Copyright &amp;copy; 2014-2022 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2016 wereturtle&lt;/b&gt;&lt;p&gt;あなたは &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt; の条件下で使用ならびに再配布することができます。&lt;/p&gt;&lt;p&gt;公式ウェブサイト &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;&lt;/p&gt;&lt;p&gt;再利用したコードへの深い感謝とクレジットを贈ります&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt; 氏&lt;br/&gt;&lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt; の著作者 Dmitry Shachnev 氏&lt;br/&gt;&lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt; 氏&lt;br/&gt;&lt;p&gt;また、そのような美しいMarkdown編集ツールの作成に刺激を与えてくださった &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt; の著作者 &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt; 氏に大いに感謝します。&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?} {2014-2022 ?} {3&lt;?}</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1118"/>
         <source>&amp;Session Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1073"/>
+        <location filename="../src/mainwindow.cpp" line="1127"/>
         <source>&amp;Document Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1082"/>
+        <location filename="../src/mainwindow.cpp" line="1136"/>
         <source>&amp;Cheat Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1093"/>
+        <location filename="../src/mainwindow.cpp" line="1147"/>
         <source>Increase Font Size</source>
         <translation type="unfinished">フォントサイズを大きくする</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1094"/>
+        <location filename="../src/mainwindow.cpp" line="1148"/>
         <source>Decrease Font Size</source>
         <translation type="unfinished">フォントサイズを小さくする</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1096"/>
+        <location filename="../src/mainwindow.cpp" line="1150"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">設定(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1097"/>
-        <location filename="../src/mainwindow.cpp" line="1448"/>
+        <location filename="../src/mainwindow.cpp" line="1151"/>
+        <location filename="../src/mainwindow.cpp" line="1504"/>
         <source>Themes...</source>
         <translation type="unfinished">テーマ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1098"/>
-        <location filename="../src/mainwindow.cpp" line="1449"/>
+        <location filename="../src/mainwindow.cpp" line="1152"/>
+        <location filename="../src/mainwindow.cpp" line="1505"/>
         <source>Font...</source>
         <translation type="unfinished">フォント...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1099"/>
-        <location filename="../src/mainwindow.cpp" line="1450"/>
+        <location filename="../src/mainwindow.cpp" line="1153"/>
+        <location filename="../src/mainwindow.cpp" line="1506"/>
         <source>Application Language...</source>
         <translation type="unfinished">言語...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1100"/>
-        <location filename="../src/mainwindow.cpp" line="1451"/>
+        <location filename="../src/mainwindow.cpp" line="1154"/>
+        <location filename="../src/mainwindow.cpp" line="1507"/>
         <source>Preview Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1101"/>
-        <location filename="../src/mainwindow.cpp" line="1452"/>
+        <location filename="../src/mainwindow.cpp" line="1155"/>
+        <location filename="../src/mainwindow.cpp" line="1508"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1105"/>
+        <location filename="../src/mainwindow.cpp" line="1159"/>
         <source>&amp;Help</source>
         <translation type="unfinished">ヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1106"/>
+        <location filename="../src/mainwindow.cpp" line="1160"/>
         <source>&amp;About</source>
         <translation type="unfinished">ghostwriter について(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1109"/>
+        <location filename="../src/mainwindow.cpp" line="1163"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished">Qt について(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1112"/>
+        <location filename="../src/mainwindow.cpp" line="1166"/>
         <source>Quick &amp;Reference Guide</source>
         <translation type="unfinished">クイック リファレンス ガイド(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1113"/>
+        <location filename="../src/mainwindow.cpp" line="1167"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1165"/>
+        <location filename="../src/mainwindow.cpp" line="1219"/>
         <source>Toggle sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1223"/>
+        <location filename="../src/mainwindow.cpp" line="1277"/>
         <source>Toggle dark mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1243"/>
+        <location filename="../src/mainwindow.cpp" line="1297"/>
         <source>Toggle Live HTML Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1264"/>
+        <location filename="../src/mainwindow.cpp" line="1318"/>
         <source>Toggle Hemingway mode</source>
         <translation type="unfinished">ヘミングウェイ モードの切り替え</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1273"/>
+        <location filename="../src/mainwindow.cpp" line="1327"/>
         <source>Toggle distraction free mode</source>
         <translation type="unfinished">没入モードの切り替え</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1283"/>
+        <location filename="../src/mainwindow.cpp" line="1337"/>
         <source>Toggle full screen mode</source>
         <translation type="unfinished">全画面表示モードの切り替え</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1322"/>
+        <location filename="../src/mainwindow.cpp" line="1377"/>
         <source># Heading 1</source>
         <translation type="unfinished"># 見出し 1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1323"/>
+        <location filename="../src/mainwindow.cpp" line="1378"/>
         <source>## Heading 2</source>
         <translation type="unfinished">## 見出し 2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1324"/>
+        <location filename="../src/mainwindow.cpp" line="1379"/>
         <source>### Heading 3</source>
         <translation type="unfinished">### 見出し 3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1325"/>
+        <location filename="../src/mainwindow.cpp" line="1380"/>
         <source>#### Heading 4</source>
         <translation type="unfinished">#### 見出し 4</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1326"/>
+        <location filename="../src/mainwindow.cpp" line="1381"/>
         <source>##### Heading 5</source>
         <translation type="unfinished">##### 見出し 5</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1327"/>
+        <location filename="../src/mainwindow.cpp" line="1382"/>
         <source>###### Heading 6</source>
         <translation type="unfinished">###### 見出し 6</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1328"/>
+        <location filename="../src/mainwindow.cpp" line="1383"/>
         <source>*Emphasis* _Emphasis_</source>
         <translation type="unfinished">*強調(em)* _強調(em)_</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1329"/>
+        <location filename="../src/mainwindow.cpp" line="1384"/>
         <source>**Strong** __Strong__</source>
         <translation type="unfinished">**重要(strong)** __重要(strong)__</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1330"/>
+        <location filename="../src/mainwindow.cpp" line="1385"/>
         <source>1. Numbered List</source>
         <translation type="unfinished">1. 番号付きリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1331"/>
+        <location filename="../src/mainwindow.cpp" line="1386"/>
         <source>* Bullet List</source>
         <translation type="unfinished">* 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1332"/>
+        <location filename="../src/mainwindow.cpp" line="1387"/>
         <source>+ Bullet List</source>
         <translation type="unfinished">+ 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1333"/>
+        <location filename="../src/mainwindow.cpp" line="1388"/>
         <source>- Bullet List</source>
         <translation type="unfinished">- 順序なしリスト</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1334"/>
+        <location filename="../src/mainwindow.cpp" line="1389"/>
         <source>&gt; Block Quote</source>
         <translation type="unfinished">&gt; 引用ブロック</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1335"/>
+        <location filename="../src/mainwindow.cpp" line="1390"/>
         <source>`Code Span`</source>
         <translation type="unfinished">`コード`</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1336"/>
+        <location filename="../src/mainwindow.cpp" line="1391"/>
         <source>``` Code Block</source>
         <translation type="unfinished">``` コード ブロック</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1337"/>
+        <location filename="../src/mainwindow.cpp" line="1392"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
         <translation type="unfinished">[リンク](http://url.com &quot;タイトル&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1338"/>
+        <location filename="../src/mainwindow.cpp" line="1393"/>
         <source>[Reference Link][ID]</source>
         <translation type="unfinished">[参照リンク][ID]</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1339"/>
+        <location filename="../src/mainwindow.cpp" line="1394"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
         <translation type="unfinished">[ID]: http://url.com &quot;参照の定義&quot;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1340"/>
+        <location filename="../src/mainwindow.cpp" line="1395"/>
         <source>![Image](./image.jpg &quot;Title&quot;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1341"/>
+        <location filename="../src/mainwindow.cpp" line="1396"/>
         <source>--- *** ___ Horizontal Rule</source>
         <translation type="unfinished">--- *** ___ 区切り線</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1393"/>
+        <location filename="../src/mainwindow.cpp" line="1449"/>
         <source>Outline</source>
         <translation type="unfinished">アウトライン</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1399"/>
+        <location filename="../src/mainwindow.cpp" line="1455"/>
         <source>Session Statistics</source>
         <translation type="unfinished">セッションの詳細</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1405"/>
+        <location filename="../src/mainwindow.cpp" line="1461"/>
         <source>Document Statistics</source>
         <translation type="unfinished">文書の詳細</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1411"/>
+        <location filename="../src/mainwindow.cpp" line="1467"/>
         <source>Cheat Sheet</source>
         <translation type="unfinished">チートシート</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1439"/>
+        <location filename="../src/mainwindow.cpp" line="1495"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1127,17 +1131,17 @@
 <context>
     <name>ghostwriter::MarkdownEditor</name>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="262"/>
+        <location filename="../src/markdowneditor.cpp" line="264"/>
         <source>Add word to dictionary</source>
         <translation type="unfinished">単語を辞書に追加</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="263"/>
+        <location filename="../src/markdowneditor.cpp" line="265"/>
         <source>Check spelling...</source>
         <translation type="unfinished">スペルチェック...</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="889"/>
+        <location filename="../src/markdowneditor.cpp" line="897"/>
         <source>No spelling suggestions found</source>
         <translation type="unfinished">スペルの提案はありません</translation>
     </message>

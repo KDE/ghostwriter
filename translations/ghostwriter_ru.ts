@@ -40,68 +40,68 @@
         <translation>Все</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="599"/>
+        <location filename="../src/documentmanager.cpp" line="598"/>
         <source>Error saving %1</source>
         <translation>Ошибка при сохранении %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="654"/>
+        <location filename="../src/documentmanager.cpp" line="653"/>
         <source>The document has been modified by another program.</source>
         <translation>Документ был изменён другой программой.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="655"/>
+        <location filename="../src/documentmanager.cpp" line="654"/>
         <source>Would you like to reload the document?</source>
         <translation>Загрузить документ заново?</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="714"/>
-        <location filename="../src/documentmanager.cpp" line="751"/>
+        <location filename="../src/documentmanager.cpp" line="713"/>
+        <location filename="../src/documentmanager.cpp" line="748"/>
         <source>Could not read %1</source>
         <translation>Не удалось прочесть %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="737"/>
+        <location filename="../src/documentmanager.cpp" line="734"/>
         <source>opening %1</source>
         <translation>выполняется открытие %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="840"/>
+        <location filename="../src/documentmanager.cpp" line="837"/>
         <source>File has been modified.</source>
         <translation>Файл был изменён.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="842"/>
+        <location filename="../src/documentmanager.cpp" line="839"/>
         <source>%1 has been modified.</source>
         <translation>%1 был изменён.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="851"/>
+        <location filename="../src/documentmanager.cpp" line="848"/>
         <source>Would you like to save your changes?</source>
         <translation>Сохранить правки?</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="882"/>
+        <location filename="../src/documentmanager.cpp" line="879"/>
         <source>%1 is read only.</source>
         <translation>%1 доступен только для чтения.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="883"/>
+        <location filename="../src/documentmanager.cpp" line="880"/>
         <source>Overwrite protected file?</source>
         <translation>Перезаписать защищённый файл?</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="902"/>
+        <location filename="../src/documentmanager.cpp" line="899"/>
         <source>Overwrite failed.</source>
         <translation>Не удалось перезаписать.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="903"/>
+        <location filename="../src/documentmanager.cpp" line="900"/>
         <source>Please save file to another location.</source>
         <translation>Пожалуйста, сохраните файл в другом месте.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="928"/>
+        <location filename="../src/documentmanager.cpp" line="925"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>Получен пустой или несуществующий путь для записи файла.</translation>
     </message>
@@ -613,507 +613,511 @@
 <context>
     <name>ghostwriter::MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="367"/>
+        <location filename="../src/mainwindow.cpp" line="383"/>
         <source>Could not create file %1. Check permissions.</source>
         <translation>Невозможно создать файл %1. Проверьте права доступа.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Insert Image</source>
         <translation>Вставить изображение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="654"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="698"/>
         <source>All Files</source>
         <translation>Все файлы</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Все права защищены &amp;copy; wereturtle, 2014-2021&lt;/b&gt;&lt;p&gt;Вы можете использовать и распространять данное программное обеспечение в соответствии с условиями &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;стандартной общественноой лицензии GNU (GPLv3)&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Посетите официальный сайт &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Особые благодарности за использованный код проектов&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, автору проекта &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, автору проекта &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, автору проекта &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Я также в глубоком долгу перед &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, автором проекта &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, за вдохновление, которое я получил пользуясь его прекрасной программой для редактирования разметки.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Все права защищены &amp;copy; wereturtle, 2014-2021&lt;/b&gt;&lt;p&gt;Вы можете использовать и распространять данное программное обеспечение в соответствии с условиями &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;стандартной общественноой лицензии GNU (GPLv3)&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Посетите официальный сайт &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Особые благодарности за использованный код проектов&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, автору проекта &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, автору проекта &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, автору проекта &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Я также в глубоком долгу перед &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, автором проекта &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, за вдохновление, которое я получил пользуясь его прекрасной программой для редактирования разметки.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="720"/>
+        <location filename="../src/mainwindow.cpp" line="763"/>
         <source>About %1</source>
         <translation>О %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="836"/>
+        <location filename="../src/mainwindow.cpp" line="879"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation>Пожалуйста, перезапустите приложение, чтобы изменения вступили в силу.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="963"/>
+        <location filename="../src/mainwindow.cpp" line="1017"/>
         <source>&amp;File</source>
         <translation>&amp;Файл</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="965"/>
+        <location filename="../src/mainwindow.cpp" line="1019"/>
         <source>&amp;New</source>
         <translation>Со&amp;здать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="966"/>
+        <location filename="../src/mainwindow.cpp" line="1020"/>
         <source>&amp;Open</source>
         <translation>&amp;Открыть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="968"/>
+        <location filename="../src/mainwindow.cpp" line="1022"/>
         <source>Open &amp;Recent...</source>
         <translation>Открыть &amp;недавнее...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="969"/>
+        <location filename="../src/mainwindow.cpp" line="1023"/>
         <source>Reopen Closed File</source>
         <translation>Повторно открыть закрытый файл</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="977"/>
+        <location filename="../src/mainwindow.cpp" line="1031"/>
         <source>Clear Menu</source>
         <translation>Очистить список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="982"/>
+        <location filename="../src/mainwindow.cpp" line="1036"/>
         <source>&amp;Save</source>
         <translation>&amp;Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="983"/>
+        <location filename="../src/mainwindow.cpp" line="1037"/>
         <source>Save &amp;As...</source>
         <translation>Сохранить &amp;как...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="984"/>
+        <location filename="../src/mainwindow.cpp" line="1038"/>
         <source>R&amp;ename...</source>
         <translation>Пере&amp;именовать...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="985"/>
+        <location filename="../src/mainwindow.cpp" line="1039"/>
         <source>Re&amp;load from Disk...</source>
         <translation>Загрузить &amp;заново с диска...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="987"/>
+        <location filename="../src/mainwindow.cpp" line="1041"/>
         <source>&amp;Export</source>
         <translation>&amp;Экспортировать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="989"/>
+        <location filename="../src/mainwindow.cpp" line="1043"/>
         <source>&amp;Quit</source>
         <translation>&amp;Выход</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="993"/>
+        <location filename="../src/mainwindow.cpp" line="1047"/>
         <source>&amp;Edit</source>
         <translation>&amp;Правка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="994"/>
+        <location filename="../src/mainwindow.cpp" line="1048"/>
         <source>&amp;Undo</source>
         <translation>&amp;Отменить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="995"/>
+        <location filename="../src/mainwindow.cpp" line="1049"/>
         <source>&amp;Redo</source>
         <translation>&amp;Повторить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="997"/>
+        <location filename="../src/mainwindow.cpp" line="1051"/>
         <source>Cu&amp;t</source>
         <translation>Выр&amp;езать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="998"/>
+        <location filename="../src/mainwindow.cpp" line="1052"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="999"/>
+        <location filename="../src/mainwindow.cpp" line="1053"/>
         <source>&amp;Paste</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1000"/>
+        <location filename="../src/mainwindow.cpp" line="1054"/>
         <source>Copy &amp;HTML</source>
         <translation>Копировать &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1002"/>
+        <location filename="../src/mainwindow.cpp" line="1056"/>
         <source>&amp;Insert Image...</source>
         <translation>Вставить &amp;изображение...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1005"/>
+        <location filename="../src/mainwindow.cpp" line="1059"/>
         <source>&amp;Find</source>
         <translation>&amp;Найти</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1006"/>
+        <location filename="../src/mainwindow.cpp" line="1060"/>
         <source>Rep&amp;lace</source>
         <translation>&amp;Заменить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1007"/>
+        <location filename="../src/mainwindow.cpp" line="1061"/>
         <source>Find &amp;Next</source>
         <translation>Найти &amp;следующее</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1008"/>
+        <location filename="../src/mainwindow.cpp" line="1062"/>
         <source>Find &amp;Previous</source>
         <translation>Найти &amp;предыдущее</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1010"/>
+        <location filename="../src/mainwindow.cpp" line="1064"/>
         <source>&amp;Spell check</source>
         <translation>Проверка о&amp;рфографии</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1012"/>
+        <location filename="../src/mainwindow.cpp" line="1066"/>
         <source>For&amp;mat</source>
         <translation>Фо&amp;рмат</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1013"/>
+        <location filename="../src/mainwindow.cpp" line="1067"/>
         <source>&amp;Bold</source>
         <translation>&amp;Полужирно</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1014"/>
+        <location filename="../src/mainwindow.cpp" line="1068"/>
         <source>&amp;Italic</source>
         <translation>&amp;Курсив</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1015"/>
+        <location filename="../src/mainwindow.cpp" line="1069"/>
         <source>Stri&amp;kethrough</source>
         <translation>Пере&amp;чёркнуто</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1016"/>
+        <location filename="../src/mainwindow.cpp" line="1070"/>
         <source>&amp;HTML Comment</source>
         <translation>Комментарий &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1019"/>
+        <location filename="../src/mainwindow.cpp" line="1073"/>
         <source>I&amp;ndent</source>
         <translation>&amp;Отступить</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1020"/>
+        <location filename="../src/mainwindow.cpp" line="1074"/>
         <source>&amp;Unindent</source>
         <translation>&amp;Убрать отступ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1022"/>
+        <location filename="../src/mainwindow.cpp" line="1076"/>
         <source>Block &amp;Quote</source>
         <translation>Блочная &amp;цитата</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1023"/>
+        <location filename="../src/mainwindow.cpp" line="1077"/>
         <source>&amp;Strip Block Quote</source>
         <translation>У&amp;брать цитирование</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1025"/>
+        <location filename="../src/mainwindow.cpp" line="1079"/>
         <source>&amp;* Bullet List</source>
         <translation>&amp;* Маркированный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1026"/>
+        <location filename="../src/mainwindow.cpp" line="1080"/>
         <source>&amp;- Bullet List</source>
         <translation>&amp;- Маркированный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1027"/>
+        <location filename="../src/mainwindow.cpp" line="1081"/>
         <source>&amp;+ Bullet List</source>
         <translation>&amp;+ Маркированный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1029"/>
+        <location filename="../src/mainwindow.cpp" line="1083"/>
         <source>1&amp;. Numbered List</source>
         <translation>1&amp;. Нумерованный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1030"/>
+        <location filename="../src/mainwindow.cpp" line="1084"/>
         <source>1&amp;) Numbered List</source>
         <translation>1&amp;) Нумерованный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1032"/>
+        <location filename="../src/mainwindow.cpp" line="1086"/>
         <source>&amp;Task List</source>
         <translation>Список &amp;задач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1033"/>
+        <location filename="../src/mainwindow.cpp" line="1087"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation>&amp;Переключить статус задач(и)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1036"/>
+        <location filename="../src/mainwindow.cpp" line="1090"/>
         <source>&amp;View</source>
         <translation>&amp;Вид</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1038"/>
+        <location filename="../src/mainwindow.cpp" line="1092"/>
         <source>&amp;Full Screen</source>
         <translation>&amp;Полный экран</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1046"/>
+        <location filename="../src/mainwindow.cpp" line="1100"/>
         <source>&amp;Preview in HTML</source>
         <translation>Предпросмотр &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1306"/>
+        <location filename="../src/mainwindow.cpp" line="1360"/>
         <source>Show Sidebar</source>
         <translation>Показывать боковую панель</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1054"/>
+        <location filename="../src/mainwindow.cpp" line="1108"/>
         <source>&amp;Outline</source>
         <translation>&amp;Содержание</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1064"/>
+        <location filename="../src/mainwindow.cpp" line="740"/>
+        <source>&lt;p&gt;Copyright &amp;copy; 2014-2022 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Все права защищены &amp;copy; wereturtle, 2014-2021&lt;/b&gt;&lt;p&gt;Вы можете использовать и распространять данное программное обеспечение в соответствии с условиями &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;стандартной общественноой лицензии GNU (GPLv3)&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Посетите официальный сайт &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Особые благодарности за использованный код проектов&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, автору проекта &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, автору проекта &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, автору проекта &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Я также в глубоком долгу перед &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, автором проекта &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, за вдохновление, которое я получил пользуясь его прекрасной программой для редактирования разметки.&lt;/p&gt; {2014-2022 ?} {3&lt;?}</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1118"/>
         <source>&amp;Session Statistics</source>
         <translation>С&amp;татистика сеанса</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1073"/>
+        <location filename="../src/mainwindow.cpp" line="1127"/>
         <source>&amp;Document Statistics</source>
         <translation>Статистика &amp;документа</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1082"/>
+        <location filename="../src/mainwindow.cpp" line="1136"/>
         <source>&amp;Cheat Sheet</source>
         <translation>&amp;Шпаргалка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1093"/>
+        <location filename="../src/mainwindow.cpp" line="1147"/>
         <source>Increase Font Size</source>
         <translation>Увеличить размер шрифта</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1094"/>
+        <location filename="../src/mainwindow.cpp" line="1148"/>
         <source>Decrease Font Size</source>
         <translation>Уменьшить размер шрифта</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1096"/>
+        <location filename="../src/mainwindow.cpp" line="1150"/>
         <source>&amp;Settings</source>
         <translation>&amp;Настройки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1097"/>
-        <location filename="../src/mainwindow.cpp" line="1448"/>
+        <location filename="../src/mainwindow.cpp" line="1151"/>
+        <location filename="../src/mainwindow.cpp" line="1504"/>
         <source>Themes...</source>
         <translation>Темы...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1098"/>
-        <location filename="../src/mainwindow.cpp" line="1449"/>
+        <location filename="../src/mainwindow.cpp" line="1152"/>
+        <location filename="../src/mainwindow.cpp" line="1505"/>
         <source>Font...</source>
         <translation>Шрифт...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1099"/>
-        <location filename="../src/mainwindow.cpp" line="1450"/>
+        <location filename="../src/mainwindow.cpp" line="1153"/>
+        <location filename="../src/mainwindow.cpp" line="1506"/>
         <source>Application Language...</source>
         <translation>Язык приложения...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1100"/>
-        <location filename="../src/mainwindow.cpp" line="1451"/>
+        <location filename="../src/mainwindow.cpp" line="1154"/>
+        <location filename="../src/mainwindow.cpp" line="1507"/>
         <source>Preview Options...</source>
         <translation>Настройки предпросмотра...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1101"/>
-        <location filename="../src/mainwindow.cpp" line="1452"/>
+        <location filename="../src/mainwindow.cpp" line="1155"/>
+        <location filename="../src/mainwindow.cpp" line="1508"/>
         <source>Preferences...</source>
         <translation>Параметры...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1105"/>
+        <location filename="../src/mainwindow.cpp" line="1159"/>
         <source>&amp;Help</source>
         <translation>&amp;Справка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1106"/>
+        <location filename="../src/mainwindow.cpp" line="1160"/>
         <source>&amp;About</source>
         <translation>&amp;О программе</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1109"/>
+        <location filename="../src/mainwindow.cpp" line="1163"/>
         <source>About &amp;Qt</source>
         <translation>О &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1112"/>
+        <location filename="../src/mainwindow.cpp" line="1166"/>
         <source>Quick &amp;Reference Guide</source>
         <translation>Краткая &amp;справка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1113"/>
+        <location filename="../src/mainwindow.cpp" line="1167"/>
         <source>Wiki</source>
         <translation>Вики</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1165"/>
+        <location filename="../src/mainwindow.cpp" line="1219"/>
         <source>Toggle sidebar</source>
         <translation>Переключить боковую панель</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1223"/>
+        <location filename="../src/mainwindow.cpp" line="1277"/>
         <source>Toggle dark mode</source>
         <translation>Переключить тёмный режим</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1243"/>
+        <location filename="../src/mainwindow.cpp" line="1297"/>
         <source>Toggle Live HTML Preview</source>
         <translation>Переключить интерактивный предпросмотр HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1264"/>
+        <location filename="../src/mainwindow.cpp" line="1318"/>
         <source>Toggle Hemingway mode</source>
         <translation>Переключить режим Хемингуэя</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1273"/>
+        <location filename="../src/mainwindow.cpp" line="1327"/>
         <source>Toggle distraction free mode</source>
         <translation>Переключить режим концентрации</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1283"/>
+        <location filename="../src/mainwindow.cpp" line="1337"/>
         <source>Toggle full screen mode</source>
         <translation>Переключить полноэкранный режим</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1322"/>
+        <location filename="../src/mainwindow.cpp" line="1377"/>
         <source># Heading 1</source>
         <translation># Заголовок 1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1323"/>
+        <location filename="../src/mainwindow.cpp" line="1378"/>
         <source>## Heading 2</source>
         <translation>## Заголовок 2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1324"/>
+        <location filename="../src/mainwindow.cpp" line="1379"/>
         <source>### Heading 3</source>
         <translation>### Заголовок 3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1325"/>
+        <location filename="../src/mainwindow.cpp" line="1380"/>
         <source>#### Heading 4</source>
         <translation>#### Заголовок 4</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1326"/>
+        <location filename="../src/mainwindow.cpp" line="1381"/>
         <source>##### Heading 5</source>
         <translation>##### Заголовок 5</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1327"/>
+        <location filename="../src/mainwindow.cpp" line="1382"/>
         <source>###### Heading 6</source>
         <translation>###### Заголовок 6</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1328"/>
+        <location filename="../src/mainwindow.cpp" line="1383"/>
         <source>*Emphasis* _Emphasis_</source>
         <translation>*Курсив* _Курсив_</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1329"/>
+        <location filename="../src/mainwindow.cpp" line="1384"/>
         <source>**Strong** __Strong__</source>
         <translation>**Жирный** __Жирный__</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1330"/>
+        <location filename="../src/mainwindow.cpp" line="1385"/>
         <source>1. Numbered List</source>
         <translation>1. Нумерованный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1331"/>
+        <location filename="../src/mainwindow.cpp" line="1386"/>
         <source>* Bullet List</source>
         <translation>* Маркированный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1332"/>
+        <location filename="../src/mainwindow.cpp" line="1387"/>
         <source>+ Bullet List</source>
         <translation>+ Маркированный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1333"/>
+        <location filename="../src/mainwindow.cpp" line="1388"/>
         <source>- Bullet List</source>
         <translation>- Маркированный список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1334"/>
+        <location filename="../src/mainwindow.cpp" line="1389"/>
         <source>&gt; Block Quote</source>
         <translation>&gt; Блочная цитата</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1335"/>
+        <location filename="../src/mainwindow.cpp" line="1390"/>
         <source>`Code Span`</source>
         <translation>`Код`</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1336"/>
+        <location filename="../src/mainwindow.cpp" line="1391"/>
         <source>``` Code Block</source>
         <translation>``` Блок кода</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1337"/>
+        <location filename="../src/mainwindow.cpp" line="1392"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
         <translation>[Ссылка](http://url.com &quot;Заголовок&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1338"/>
+        <location filename="../src/mainwindow.cpp" line="1393"/>
         <source>[Reference Link][ID]</source>
         <translation>[Ссылка внутри документа][Идентификатор]</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1339"/>
+        <location filename="../src/mainwindow.cpp" line="1394"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
         <translation>[ID]: http://url.com &quot;Справочное определение&quot;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1340"/>
+        <location filename="../src/mainwindow.cpp" line="1395"/>
         <source>![Image](./image.jpg &quot;Title&quot;)</source>
         <translation>![Изображение](./image.jpg &quot;Заголовок&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1341"/>
+        <location filename="../src/mainwindow.cpp" line="1396"/>
         <source>--- *** ___ Horizontal Rule</source>
         <translation>--- *** ___ Горизонтальная черта</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1393"/>
+        <location filename="../src/mainwindow.cpp" line="1449"/>
         <source>Outline</source>
         <translation>Содержание</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1399"/>
+        <location filename="../src/mainwindow.cpp" line="1455"/>
         <source>Session Statistics</source>
         <translation>Статистика сеанса</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1405"/>
+        <location filename="../src/mainwindow.cpp" line="1461"/>
         <source>Document Statistics</source>
         <translation>Статистика документа</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1411"/>
+        <location filename="../src/mainwindow.cpp" line="1467"/>
         <source>Cheat Sheet</source>
         <translation>Шпаргалка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1439"/>
+        <location filename="../src/mainwindow.cpp" line="1495"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -1129,17 +1133,17 @@
 <context>
     <name>ghostwriter::MarkdownEditor</name>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="262"/>
+        <location filename="../src/markdowneditor.cpp" line="264"/>
         <source>Add word to dictionary</source>
         <translation>Добавить слово в словарь</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="263"/>
+        <location filename="../src/markdowneditor.cpp" line="265"/>
         <source>Check spelling...</source>
         <translation>Проверить правописание...</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="889"/>
+        <location filename="../src/markdowneditor.cpp" line="897"/>
         <source>No spelling suggestions found</source>
         <translation>Вариантов правописания не найдено</translation>
     </message>
