@@ -104,7 +104,7 @@ private:
     MarkdownEditor *editor;
     FindReplace* findReplace;
     QSplitter *previewSplitter;
-    QSplitter *sidebarSplitter;
+    QSplitter *splitter;
     DocumentManager *documentManager;
     ThemeRepository *themeRepo;
     Theme theme;
@@ -134,6 +134,8 @@ private:
     QAction *recentFilesActions[MAX_RECENT_FILES];
     bool menuBarMenuActivated;
     QAction *showSidebarAction;
+    bool sidebarHiddenForResize;
+    bool focusModeEnabled;
 
     QList<QWidget *> statusBarButtons;
     QList<QWidget *> statusBarWidgets;
@@ -160,7 +162,7 @@ private:
     void buildStatusBar();
     void buildSidebar();
 
-    void adjustEditorWidth(int width, bool resizeEvent = false);
+    void adjustEditor();
 };
 } // namespace ghostwriter
 

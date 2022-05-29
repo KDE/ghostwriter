@@ -1,7 +1,7 @@
 {
     "hooks": {},
     "git": {
-        "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
+        "changelog": null,
         "requireCleanWorkingDir": true,
         "requireBranch": false,
         "requireUpstream": true,
@@ -65,6 +65,16 @@
                     "file": "./debian/changelog",
                     "search": "(\\s+--\\s+.*?>).*",
                     "replace": "$1  {{now:ddd, DD MMM YYYY HH:mm:ss ZZ}}"
+                },
+                {
+                    "file": "appveyor.yml",
+                    "search": "version:.*",
+                    "replace": "version: {{version}}+{build}"
+                },
+                {
+                    "file": "appveyor.yml",
+                    "search": "appver:.*",
+                    "replace": "appver: {{version}}"
                 }
             ]
         }

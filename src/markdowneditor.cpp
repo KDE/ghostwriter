@@ -19,12 +19,15 @@
  *
  ***********************************************************************/
 
+#include <math.h>
+#include <QDebug>
 #include <QApplication>
 #include <QChar>
 #include <QColor>
 #include <QDesktopWidget>
 #include <QDir>
 #include <QFileInfo>
+#include <QFontMetricsF>
 #include <QGuiApplication>
 #include <QHeaderView>
 #include <QMenu>
@@ -583,36 +586,42 @@ void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
 void MarkdownEditor::setupPaperMargins()
 {
     Q_D(MarkdownEditor);
-    
-    if (EditorWidthFull == d->editorWidth) {
-        d->preferredLayout->setContentsMargins(0, 0, 0, 0);
-        setViewportMargins(0, 0, 0, 0);
 
-        return;
-    }
+    this->setViewportMargins(0, 20, 0, 0);
+    d->preferredLayout->setContentsMargins(0, 0, 0, 0);
 
-    int proposedEditorWidth = this->width();
-    int margin = 0;
+    // Use a simple monospace font at a fixed size to determine
+    // margins, since getting the primary screen's width with dual monitors
+    // will not account for differing DPIs in case the window is moved
+    // to a different screen.
+    //
+    QFont f;
+    f.setStyleHint(QFont::Monospace);
+    f.setFamily("Courier New");
+    f.setPointSize(12);
+
+    int width = QFontMetrics(f).horizontalAdvance('@');
 
     switch (d->editorWidth) {
     case EditorWidthNarrow:
-        proposedEditorWidth = QFontMetrics(this->font()).averageCharWidth() * 60;
+        width *= 60;
         break;
     case EditorWidthMedium:
-        proposedEditorWidth = QFontMetrics(this->font()).averageCharWidth() * 80;
+        width *= 80;
         break;
     case EditorWidthWide:
-        proposedEditorWidth = QFontMetrics(this->font()).averageCharWidth() * 100;
+        width *= 100;
         break;
     default:
-        break;
+        return;
     }
 
-    if (proposedEditorWidth <= this->width()) {
-        margin = (this->width() - proposedEditorWidth) / 2;
+    int margin = 0;
+
+    if (width <= this->viewport()->width()) {
+        margin = (this->viewport()->width() - width) / 2;
     }
 
-    d->preferredLayout->setContentsMargins(0, 0, 0, 0);
     this->setViewportMargins(margin, 20, margin, 0);
 }
 

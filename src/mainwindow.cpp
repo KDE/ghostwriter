@@ -18,8 +18,6 @@
  *
  ***********************************************************************/
 
-#include <QDebug>
-
 #include <QApplication>
 #include <QClipboard>
 #include <QCommonStyle>
@@ -38,6 +36,7 @@
 #include <QMenuBar>
 #include <QScrollBar>
 #include <QSettings>
+#include <QSizePolicy>
 #include <QStatusBar>
 #include <QTemporaryFile>
 
@@ -71,11 +70,12 @@ enum SidebarTabIndex {
 
 #define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
 #define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
-#define GW_SIDEBAR_STATE_KEY "Window/sidebarGeometry"
+#define GW_SPLITTER_GEOMETRY_KEY "Window/splitterGeometry"
 
 MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     : QMainWindow(parent)
 {
+    this->focusModeEnabled = false;
     this->awesome = new QtAwesome(qApp);
     this->awesome->initFontAwesome();
     QString fileToOpen;
@@ -93,6 +93,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     MarkdownDocument *document = new MarkdownDocument();
 
     editor = new MarkdownEditor(document, theme.lightColorScheme(), this);
+    editor->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
     editor->setFont(appSettings->editorFont().family(), appSettings->editorFont().pointSize());
     editor->setUseUnderlineForEmphasis(appSettings->useUnderlineForEmphasis());
     editor->setEnableLargeHeadingSizes(appSettings->largeHeadingSizesEnabled());
@@ -310,16 +311,9 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
     connect(appSettings, SIGNAL(currentHtmlExporterChanged(Exporter *)), htmlPreview, SLOT(setHtmlExporter(Exporter *)));
 
-    htmlPreview->setMinimumWidth(0);
+    htmlPreview->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
     htmlPreview->setObjectName("htmlpreview");
     htmlPreview->setVisible(appSettings->htmlPreviewVisible());
-
-    previewSplitter = new QSplitter(this);
-    previewSplitter->addWidget(editorPane);
-    previewSplitter->addWidget(htmlPreview);
-    previewSplitter->setCollapsible(0, true);
-    previewSplitter->setCollapsible(1, true);
-
 
     this->findReplace = new FindReplace(this->editor, this);
     statusBarWidgets.append(this->findReplace);
@@ -327,36 +321,42 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     buildMenuBar();
     buildStatusBar();
-    
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    QWidget *mainPane = new QWidget(this);
-    mainPane->setLayout(mainLayout);
-    mainLayout->addWidget(previewSplitter, 500);
-    mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
 
-    sidebarSplitter = new QSplitter(this);
-    sidebarSplitter->addWidget(sidebar);
-    sidebarSplitter->addWidget(mainPane);
-    sidebarSplitter->setCollapsible(0, false);
-    sidebarSplitter->setCollapsible(1, true);
     sidebar->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
-    sidebar->setMaximumWidth(0.5 * this->width());
 
-    // If previous sidebar width was stored, reload it.
-    if (windowSettings.contains(GW_SIDEBAR_STATE_KEY)) {
-        sidebarSplitter->restoreState(windowSettings.value(GW_SIDEBAR_STATE_KEY).toByteArray());
+    splitter = new QSplitter(this);
+    splitter->addWidget(sidebar);
+    splitter->addWidget(editorPane);
+    splitter->addWidget(htmlPreview);
+    splitter->setChildrenCollapsible(false);
+    splitter->setStretchFactor(0, 0);
+    splitter->setStretchFactor(1, 2);
+    splitter->setStretchFactor(2, 1);
+
+    // Set default sizes for splitter.
+    QList<int> sizes;
+    int sidebarWidth = this->width() * 0.2;
+    int otherWidth = (this->width() - sidebarWidth) / 2;
+    sizes.append(sidebarWidth);
+    sizes.append(otherWidth);
+    sizes.append(otherWidth);
+
+    splitter->setSizes(sizes);
+
+    // If previous splitter geometry was stored, load it.
+    if (windowSettings.contains(GW_SPLITTER_GEOMETRY_KEY)) {
+        this->splitter->restoreState(windowSettings.value(GW_SPLITTER_GEOMETRY_KEY).toByteArray());
     }
-    // Else set default size of sidebar.
-    else {
-        QList<int> sidebarSplitterSizes;
 
-        sidebarSplitterSizes.append(0.25 * this->width());
-        sidebarSplitterSizes.append(0.75 * this->width());
-        sidebarSplitter->setSizes(sidebarSplitterSizes);
-    }
+    this->connect(splitter,
+        &QSplitter::splitterMoved,
+        [this](int pos, int index) {
+            Q_UNUSED(pos)
+            Q_UNUSED(index)
+            adjustEditor();
+        });
 
-    this->setCentralWidget(sidebarSplitter);
+    this->setCentralWidget(splitter);
 
     // Show the main window.
     show();
@@ -366,7 +366,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     // the theme is applied before show().
     //
     applyTheme();
-    adjustEditorWidth(this->width(), true);
+    adjustEditor();
 
     this->update();
     qApp->processEvents();
@@ -402,7 +402,27 @@ QSize MainWindow::sizeHint() const
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    adjustEditorWidth(event->size().width(), true);
+    int width = event->size().width();
+
+    if (width < (0.5 * qApp->primaryScreen()->size().width())) {
+        this->sidebar->setVisible(false);
+        this->sidebar->setAutoHideEnabled(true);
+        this->sidebarHiddenForResize = true;
+    }
+    else {
+        this->sidebarHiddenForResize = false;
+
+        if (!this->focusModeEnabled && this->appSettings->sidebarVisible()) {
+            this->sidebar->setAutoHideEnabled(false);
+            this->sidebar->setVisible(true);
+        }
+        else {
+            this->sidebar->setAutoHideEnabled(true);
+            this->sidebar->setVisible(false);
+        }
+    }
+
+    adjustEditor();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e)
@@ -481,7 +501,7 @@ void MainWindow::quitApplication()
 
         windowSettings.setValue(GW_MAIN_WINDOW_GEOMETRY_KEY, saveGeometry());
         windowSettings.setValue(GW_MAIN_WINDOW_STATE_KEY, saveState());
-        windowSettings.setValue(GW_SIDEBAR_STATE_KEY, sidebarSplitter->saveState());
+        windowSettings.setValue(GW_SPLITTER_GEOMETRY_KEY, splitter->saveState());
         windowSettings.sync();
 
         DictionaryManager::instance().addProviders();
@@ -523,17 +543,16 @@ void MainWindow::openPreferencesDialog()
 
 void MainWindow::toggleHtmlPreview(bool checked)
 {
-    QList<int> splitterSizes;
-
     htmlPreviewMenuAction->blockSignals(true);
 
     htmlPreviewMenuAction->setChecked(checked);
     htmlPreview->setVisible(checked);
     htmlPreview->updatePreview();
-    adjustEditorWidth(this->width());
 
     htmlPreviewMenuAction->blockSignals(false);
     appSettings->setHtmlPreviewVisible(checked);
+    this->update();
+    adjustEditor();
 }
 
 void MainWindow::toggleHemingwayMode(bool checked)
@@ -547,13 +566,20 @@ void MainWindow::toggleHemingwayMode(bool checked)
 
 void MainWindow::toggleFocusMode(bool checked)
 {
+    this->focusModeEnabled = checked;
+
     if (checked) {
-        editor->setFocusMode(appSettings->focusMode());        
+        editor->setFocusMode(appSettings->focusMode());
+        sidebar->setVisible(false);
+        sidebar->setAutoHideEnabled(true);
     } else {
         editor->setFocusMode(FocusModeDisabled);
-    }
 
-    sidebar->setAutoHideEnabled(checked);
+        if (!this->sidebarHiddenForResize && this->appSettings->sidebarVisible()) {
+            sidebar->setAutoHideEnabled(false);
+            sidebar->setVisible(true);
+        }
+    }
 }
 
 void MainWindow::toggleFullScreen(bool checked)
@@ -642,7 +668,7 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
 void MainWindow::changeEditorWidth(EditorWidth editorWidth)
 {
     editor->setEditorWidth(editorWidth);
-    adjustEditorWidth(this->width());
+    adjustEditor();
 }
 
 void MainWindow::changeInterfaceStyle(InterfaceStyle style)
@@ -914,8 +940,6 @@ void MainWindow::onAboutToShowMenuBarMenu()
 
 void MainWindow::onSidebarVisibilityChanged(bool visible)
 {
-    this->adjustEditorWidth(this->width());
-
     if (visible) {
         toggleSidebarButton->setText(QChar(fa::chevronleft));
     } else {
@@ -925,17 +949,30 @@ void MainWindow::onSidebarVisibilityChanged(bool visible)
     if (!visible) {
         editor->setFocus();
     }
+
+    this->showSidebarAction->blockSignals(true);
+    this->showSidebarAction->setChecked(visible);
+    this->showSidebarAction->blockSignals(false);
+
+    this->adjustEditor();
 }
 
 void MainWindow::toggleSidebarVisible(bool visible)
 {
     this->appSettings->setSidebarVisible(visible);
-    this->sidebar->setAutoHideEnabled(!visible);
-    this->sidebar->setVisible(visible);
 
-    this->showSidebarAction->blockSignals(true);
-    this->showSidebarAction->setChecked(visible);
-    this->showSidebarAction->blockSignals(false);
+    if (!this->sidebarHiddenForResize
+            && !this->focusModeEnabled
+            && this->appSettings->sidebarVisible()) {
+        sidebar->setAutoHideEnabled(false);
+    }
+    else {
+        sidebar->setAutoHideEnabled(true);
+    }
+
+    this->sidebar->setVisible(visible);
+    this->sidebar->setFocus();
+    adjustEditor();
 }
 
 QAction* MainWindow::createWindowAction
@@ -1328,8 +1365,9 @@ void MainWindow::buildSidebar()
     
     connect(this->showSidebarAction,
         &QAction::toggled,
-        this,
-        &MainWindow::toggleSidebarVisible);
+        [this](bool visible) {
+            this->toggleSidebarVisible(visible);
+        });
 
     cheatSheetWidget = new QListWidget(this);
 
@@ -1401,8 +1439,9 @@ void MainWindow::buildSidebar()
     connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
 
     sidebar = new Sidebar(this);
-    sidebar->setMinimumWidth(0.10 * QGuiApplication::primaryScreen()->availableSize().width());
-    sidebar->setMaximumWidth(0.33 * QGuiApplication::primaryScreen()->availableSize().width());
+    sidebar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    sidebar->setMinimumWidth(0.1 * QGuiApplication::primaryScreen()->availableSize().width());
+    sidebar->setMaximumWidth(0.5 * QGuiApplication::primaryScreen()->availableSize().width());
 
     QPushButton *tabButton = new QPushButton();
     tabButton->setFont(this->awesome->font(style::stfas, 16));
@@ -1476,52 +1515,41 @@ void MainWindow::buildSidebar()
         this,
         &MainWindow::onSidebarVisibilityChanged);
     
-    this->toggleSidebarVisible(appSettings->sidebarVisible());
+    if (!this->sidebarHiddenForResize
+            && !this->focusModeEnabled
+            && appSettings->sidebarVisible()) {
+        this->sidebar->setAutoHideEnabled(false);
+        this->sidebar->setVisible(true);
+    }
+    else {
+        this->sidebar->setAutoHideEnabled(true);
+        this->sidebar->setVisible(false);
+    }
 }
 
-void MainWindow::adjustEditorWidth(int width, bool resizeEvent)
+void MainWindow::adjustEditor()
 {
-    static bool sidebarHiddenForResize = false;
-    static QList<int> prevSidebarSizes = sidebarSplitter->sizes();
+    // Make sure editor size is updated.
+    qApp->processEvents();
 
-    QList<int> previewSplitterSizes;
-    int editorWidth = width;
+    int width = this->width();
+    int sidebarWidth = 0;
 
-    if (resizeEvent) {
-        sidebar->setMaximumWidth(0.5 * this->width());
-
-        if (width < (0.5 * qApp->primaryScreen()->size().width())) {
-            if (!sidebarHiddenForResize) {
-                prevSidebarSizes = sidebarSplitter->sizes();
-            }
-
-            toggleSidebarVisible(false);
-            sidebarHiddenForResize = true;
-        }
-        else {
-            if (sidebarHiddenForResize) {
-                toggleSidebarVisible(true);
-                sidebarHiddenForResize = false;
-                sidebarSplitter->setSizes(prevSidebarSizes);
-            }
-
-            editorWidth -= sidebar->width();
-        }
+    // Make sure live preview does not crowd out editor.
+    // It should not take up more than 50% of the window space
+    // left after the sidebar is accounted for.
+    //
+    if (this->sidebar->isVisible()) {
+        sidebarWidth = this->sidebar->width();
     }
 
-    if (htmlPreview->isVisible()) {
-        editorWidth /= 2;
-        previewSplitterSizes.append(editorWidth);
-    }
+    this->htmlPreview->setMaximumWidth((width - sidebarWidth) / 2);
 
-    previewSplitterSizes.append(editorWidth);
-    previewSplitter->setSizes(previewSplitterSizes);
-
-    // Resize the editor's margins based on the size of the window.
-    editor->setupPaperMargins();
+    // Resize the editor's margins.
+    this->editor->setupPaperMargins();
 
     // Scroll to cursor position.
-    editor->centerCursor();
+    this->editor->centerCursor();
 }
 
 void MainWindow::applyTheme()
@@ -1550,8 +1578,7 @@ void MainWindow::applyTheme()
     //
     qApp->setStyleSheet(styler.layoutStyleSheet());
 
-    previewSplitter->setStyleSheet(styler.splitterStyleSheet());
-    sidebarSplitter->setStyleSheet(styler.splitterStyleSheet());
+    this->splitter->setStyleSheet(styler.splitterStyleSheet());
     this->statusBar()->setStyleSheet(styler.statusBarStyleSheet());
 
     foreach (QWidget *w, statusBarWidgets) {
@@ -1575,7 +1602,7 @@ void MainWindow::applyTheme()
 
     htmlPreview->setStyleSheet(styler.htmlPreviewCss());
 
-    adjustEditorWidth(this->width());
+    adjustEditor();
 }
 
 } // namespace ghostwriter

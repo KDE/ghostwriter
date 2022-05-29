@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2020-2021 wereturtle
+ * Copyright (C) 2020-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -245,7 +245,7 @@ void Sidebar::setAutoHideEnabled(bool enabled)
     d->autoHideEnabled = enabled;
 
     if (enabled && !this->hasFocus() && this->isVisible()) {
-        this->setVisible(false);
+        QFrame::setVisible(false);
     }
 }
 

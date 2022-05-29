@@ -40,68 +40,68 @@
         <translation>Tous</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="599"/>
+        <location filename="../src/documentmanager.cpp" line="598"/>
         <source>Error saving %1</source>
         <translation type="unfinished">Erreur à l&apos;enregistrement de %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="654"/>
+        <location filename="../src/documentmanager.cpp" line="653"/>
         <source>The document has been modified by another program.</source>
         <translation type="unfinished">Le document a été modifié par un autre programme.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="655"/>
+        <location filename="../src/documentmanager.cpp" line="654"/>
         <source>Would you like to reload the document?</source>
         <translation type="unfinished">Voulez-vous recharger le document ?</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="714"/>
-        <location filename="../src/documentmanager.cpp" line="751"/>
+        <location filename="../src/documentmanager.cpp" line="713"/>
+        <location filename="../src/documentmanager.cpp" line="748"/>
         <source>Could not read %1</source>
         <translation type="unfinished">Impossible de lire %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="737"/>
+        <location filename="../src/documentmanager.cpp" line="734"/>
         <source>opening %1</source>
         <translation type="unfinished">Ouverture de %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="840"/>
+        <location filename="../src/documentmanager.cpp" line="837"/>
         <source>File has been modified.</source>
         <translation type="unfinished">Le fichier a été modifié.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="842"/>
+        <location filename="../src/documentmanager.cpp" line="839"/>
         <source>%1 has been modified.</source>
         <translation type="unfinished">%1 a été modifié.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="851"/>
+        <location filename="../src/documentmanager.cpp" line="848"/>
         <source>Would you like to save your changes?</source>
         <translation type="unfinished">Voulez-vous enregistrer vos modifications ?</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="882"/>
+        <location filename="../src/documentmanager.cpp" line="879"/>
         <source>%1 is read only.</source>
         <translation type="unfinished">%1 est en lecture seule.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="883"/>
+        <location filename="../src/documentmanager.cpp" line="880"/>
         <source>Overwrite protected file?</source>
         <translation type="unfinished">Remplacer le fichier protégé ?</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="902"/>
+        <location filename="../src/documentmanager.cpp" line="899"/>
         <source>Overwrite failed.</source>
         <translation type="unfinished">Le remplacement a échoué.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="903"/>
+        <location filename="../src/documentmanager.cpp" line="900"/>
         <source>Please save file to another location.</source>
         <translation type="unfinished">Enregistrer le fichier à un autre emplacement, SVP.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="928"/>
+        <location filename="../src/documentmanager.cpp" line="925"/>
         <source>Null or empty file path provided for writing.</source>
         <translation>Chemin d&apos;écriture nul ou vide.</translation>
     </message>
@@ -612,507 +612,511 @@
 <context>
     <name>ghostwriter::MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="367"/>
+        <location filename="../src/mainwindow.cpp" line="383"/>
         <source>Could not create file %1. Check permissions.</source>
         <translation type="unfinished">Impossible de créer le fichier %1. Vérifiez les permissions.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Insert Image</source>
         <translation type="unfinished">Insérer une image</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="654"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>Images</source>
         <translation type="unfinished">Images</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="698"/>
         <source>All Files</source>
         <translation type="unfinished">Tous les fichiers</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2021 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;Vous pouvez utiliser et redistribuer ce logiciel selon les termes de la licence &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiter le site internet officiel &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Crédits et remerciements spéciaux pour le code d&apos;origine à &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, auteur de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, auteur de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, auteur de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;J&apos;ai également une dette abyssale envers &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;auteur de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, pour l&apos;inspiration qu&apos;il m&apos;a donné en créant un si beau éditeur Markdown.&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
+        <translation type="obsolete">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;Vous pouvez utiliser et redistribuer ce logiciel selon les termes de la licence &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiter le site internet officiel &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Crédits et remerciements spéciaux pour le code d&apos;origine à &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, auteur de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, auteur de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, auteur de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;J&apos;ai également une dette abyssale envers &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;auteur de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, pour l&apos;inspiration qu&apos;il m&apos;a donné en créant un si beau éditeur Markdown.&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="720"/>
+        <location filename="../src/mainwindow.cpp" line="763"/>
         <source>About %1</source>
         <translation type="unfinished">À propos de %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="836"/>
+        <location filename="../src/mainwindow.cpp" line="879"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation type="unfinished">Redémarrez le logiciel pour que les modifications soient prises en compte.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="963"/>
+        <location filename="../src/mainwindow.cpp" line="1017"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Fichier</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="965"/>
+        <location filename="../src/mainwindow.cpp" line="1019"/>
         <source>&amp;New</source>
         <translation type="unfinished">&amp;Nouveau</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="966"/>
+        <location filename="../src/mainwindow.cpp" line="1020"/>
         <source>&amp;Open</source>
         <translation type="unfinished">&amp;Ouvrir</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="968"/>
+        <location filename="../src/mainwindow.cpp" line="1022"/>
         <source>Open &amp;Recent...</source>
         <translation type="unfinished">Fichiers &amp;récents ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="969"/>
+        <location filename="../src/mainwindow.cpp" line="1023"/>
         <source>Reopen Closed File</source>
         <translation type="unfinished">Réouvrir le dernier fichier fermé</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="977"/>
+        <location filename="../src/mainwindow.cpp" line="1031"/>
         <source>Clear Menu</source>
         <translation type="unfinished">Effacer le menu</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="982"/>
+        <location filename="../src/mainwindow.cpp" line="1036"/>
         <source>&amp;Save</source>
         <translation type="unfinished">&amp;Enregistrer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="983"/>
+        <location filename="../src/mainwindow.cpp" line="1037"/>
         <source>Save &amp;As...</source>
         <translation type="unfinished">Enregistrer &amp;sous ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="984"/>
+        <location filename="../src/mainwindow.cpp" line="1038"/>
         <source>R&amp;ename...</source>
         <translation type="unfinished">Reno&amp;mmer ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="985"/>
+        <location filename="../src/mainwindow.cpp" line="1039"/>
         <source>Re&amp;load from Disk...</source>
         <translation type="unfinished">Recharger depuis le &amp;disque</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="987"/>
+        <location filename="../src/mainwindow.cpp" line="1041"/>
         <source>&amp;Export</source>
         <translation type="unfinished">E&amp;xporter</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="989"/>
+        <location filename="../src/mainwindow.cpp" line="1043"/>
         <source>&amp;Quit</source>
         <translation type="unfinished">&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="993"/>
+        <location filename="../src/mainwindow.cpp" line="1047"/>
         <source>&amp;Edit</source>
         <translation type="unfinished">É&amp;dition</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="994"/>
+        <location filename="../src/mainwindow.cpp" line="1048"/>
         <source>&amp;Undo</source>
         <translation type="unfinished">&amp;Annuler</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="995"/>
+        <location filename="../src/mainwindow.cpp" line="1049"/>
         <source>&amp;Redo</source>
         <translation type="unfinished">&amp;Rétablir</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="997"/>
+        <location filename="../src/mainwindow.cpp" line="1051"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished">Co&amp;uper</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="998"/>
+        <location filename="../src/mainwindow.cpp" line="1052"/>
         <source>&amp;Copy</source>
         <translation type="unfinished">Co&amp;pier</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="999"/>
+        <location filename="../src/mainwindow.cpp" line="1053"/>
         <source>&amp;Paste</source>
         <translation type="unfinished">Co&amp;ller</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1000"/>
+        <location filename="../src/mainwindow.cpp" line="1054"/>
         <source>Copy &amp;HTML</source>
         <translation type="unfinished">Copier le &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1002"/>
+        <location filename="../src/mainwindow.cpp" line="1056"/>
         <source>&amp;Insert Image...</source>
         <translation type="unfinished">&amp;Insérer une image ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1005"/>
+        <location filename="../src/mainwindow.cpp" line="1059"/>
         <source>&amp;Find</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1006"/>
+        <location filename="../src/mainwindow.cpp" line="1060"/>
         <source>Rep&amp;lace</source>
         <translation type="unfinished">Re&amp;mplacer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1007"/>
+        <location filename="../src/mainwindow.cpp" line="1061"/>
         <source>Find &amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1008"/>
+        <location filename="../src/mainwindow.cpp" line="1062"/>
         <source>Find &amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1010"/>
+        <location filename="../src/mainwindow.cpp" line="1064"/>
         <source>&amp;Spell check</source>
         <translation type="unfinished">Correction &amp;Orthographique</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1012"/>
+        <location filename="../src/mainwindow.cpp" line="1066"/>
         <source>For&amp;mat</source>
         <translation type="unfinished">For&amp;mat</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1013"/>
+        <location filename="../src/mainwindow.cpp" line="1067"/>
         <source>&amp;Bold</source>
         <translation type="unfinished">&amp;Forte Emphase</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1014"/>
+        <location filename="../src/mainwindow.cpp" line="1068"/>
         <source>&amp;Italic</source>
         <translation type="unfinished">&amp;Emphase</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1015"/>
+        <location filename="../src/mainwindow.cpp" line="1069"/>
         <source>Stri&amp;kethrough</source>
         <translation type="unfinished">&amp;Barré</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1016"/>
+        <location filename="../src/mainwindow.cpp" line="1070"/>
         <source>&amp;HTML Comment</source>
         <translation type="unfinished">Commentaire &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1019"/>
+        <location filename="../src/mainwindow.cpp" line="1073"/>
         <source>I&amp;ndent</source>
         <translation type="unfinished">&amp;Augmenter l&apos;indentation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1020"/>
+        <location filename="../src/mainwindow.cpp" line="1074"/>
         <source>&amp;Unindent</source>
         <translation type="unfinished">&amp;Diminuer l&apos;indentation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1022"/>
+        <location filename="../src/mainwindow.cpp" line="1076"/>
         <source>Block &amp;Quote</source>
         <translation type="unfinished">&amp;Citation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1023"/>
+        <location filename="../src/mainwindow.cpp" line="1077"/>
         <source>&amp;Strip Block Quote</source>
         <translation type="unfinished">&amp;Retirer la citation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1025"/>
+        <location filename="../src/mainwindow.cpp" line="1079"/>
         <source>&amp;* Bullet List</source>
         <translation type="unfinished">&amp;* Liste non ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1026"/>
+        <location filename="../src/mainwindow.cpp" line="1080"/>
         <source>&amp;- Bullet List</source>
         <translation type="unfinished">&amp;- Liste non ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1027"/>
+        <location filename="../src/mainwindow.cpp" line="1081"/>
         <source>&amp;+ Bullet List</source>
         <translation type="unfinished">&amp;+ Liste non ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1029"/>
+        <location filename="../src/mainwindow.cpp" line="1083"/>
         <source>1&amp;. Numbered List</source>
         <translation type="unfinished">1&amp;. Liste ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1030"/>
+        <location filename="../src/mainwindow.cpp" line="1084"/>
         <source>1&amp;) Numbered List</source>
         <translation type="unfinished">1&amp;) Liste ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1032"/>
+        <location filename="../src/mainwindow.cpp" line="1086"/>
         <source>&amp;Task List</source>
         <translation type="unfinished">Liste de &amp;tâches</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1033"/>
+        <location filename="../src/mainwindow.cpp" line="1087"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation type="unfinished">Ba&amp;scule Tâche [non|] Faite</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1036"/>
+        <location filename="../src/mainwindow.cpp" line="1090"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;Affichage</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1038"/>
+        <location filename="../src/mainwindow.cpp" line="1092"/>
         <source>&amp;Full Screen</source>
         <translation type="unfinished">&amp;Plein écran</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1046"/>
+        <location filename="../src/mainwindow.cpp" line="1100"/>
         <source>&amp;Preview in HTML</source>
         <translation type="unfinished">Aperçu &amp;HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1306"/>
+        <location filename="../src/mainwindow.cpp" line="1360"/>
         <source>Show Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1054"/>
+        <location filename="../src/mainwindow.cpp" line="1108"/>
         <source>&amp;Outline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1064"/>
+        <location filename="../src/mainwindow.cpp" line="740"/>
+        <source>&lt;p&gt;Copyright &amp;copy; 2014-2022 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2018 wereturtle&lt;/b&gt;&lt;p&gt;Vous pouvez utiliser et redistribuer ce logiciel selon les termes de la licence &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visiter le site internet officiel &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Crédits et remerciements spéciaux pour le code d&apos;origine à &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, auteur de &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, auteur de &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, auteur de &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;J&apos;ai également une dette abyssale envers &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, l&apos;auteur de &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, pour l&apos;inspiration qu&apos;il m&apos;a donné en créant un si beau éditeur Markdown.&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?} {2014-2022 ?} {3&lt;?}</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="1118"/>
         <source>&amp;Session Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1073"/>
+        <location filename="../src/mainwindow.cpp" line="1127"/>
         <source>&amp;Document Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1082"/>
+        <location filename="../src/mainwindow.cpp" line="1136"/>
         <source>&amp;Cheat Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1093"/>
+        <location filename="../src/mainwindow.cpp" line="1147"/>
         <source>Increase Font Size</source>
         <translation type="unfinished">Augmenter la taille de la police</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1094"/>
+        <location filename="../src/mainwindow.cpp" line="1148"/>
         <source>Decrease Font Size</source>
         <translation type="unfinished">Diminuer la taille de la police</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1096"/>
+        <location filename="../src/mainwindow.cpp" line="1150"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">&amp;Préférences</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1097"/>
-        <location filename="../src/mainwindow.cpp" line="1448"/>
+        <location filename="../src/mainwindow.cpp" line="1151"/>
+        <location filename="../src/mainwindow.cpp" line="1504"/>
         <source>Themes...</source>
         <translation type="unfinished">Thèmes ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1098"/>
-        <location filename="../src/mainwindow.cpp" line="1449"/>
+        <location filename="../src/mainwindow.cpp" line="1152"/>
+        <location filename="../src/mainwindow.cpp" line="1505"/>
         <source>Font...</source>
         <translation type="unfinished">Police de caractères ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1099"/>
-        <location filename="../src/mainwindow.cpp" line="1450"/>
+        <location filename="../src/mainwindow.cpp" line="1153"/>
+        <location filename="../src/mainwindow.cpp" line="1506"/>
         <source>Application Language...</source>
         <translation type="unfinished">Langue de l&apos;interface ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1100"/>
-        <location filename="../src/mainwindow.cpp" line="1451"/>
+        <location filename="../src/mainwindow.cpp" line="1154"/>
+        <location filename="../src/mainwindow.cpp" line="1507"/>
         <source>Preview Options...</source>
         <translation type="unfinished">Options de prévisualisation ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1101"/>
-        <location filename="../src/mainwindow.cpp" line="1452"/>
+        <location filename="../src/mainwindow.cpp" line="1155"/>
+        <location filename="../src/mainwindow.cpp" line="1508"/>
         <source>Preferences...</source>
         <translation type="unfinished">Préférences ...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1105"/>
+        <location filename="../src/mainwindow.cpp" line="1159"/>
         <source>&amp;Help</source>
         <translation type="unfinished">Aid&amp;e</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1106"/>
+        <location filename="../src/mainwindow.cpp" line="1160"/>
         <source>&amp;About</source>
         <translation type="unfinished">À &amp;propos</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1109"/>
+        <location filename="../src/mainwindow.cpp" line="1163"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished">À propos de &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1112"/>
+        <location filename="../src/mainwindow.cpp" line="1166"/>
         <source>Quick &amp;Reference Guide</source>
         <translation type="unfinished">&amp;Guide d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1113"/>
+        <location filename="../src/mainwindow.cpp" line="1167"/>
         <source>Wiki</source>
         <translation type="unfinished">Wiki</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1165"/>
+        <location filename="../src/mainwindow.cpp" line="1219"/>
         <source>Toggle sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1223"/>
+        <location filename="../src/mainwindow.cpp" line="1277"/>
         <source>Toggle dark mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1243"/>
+        <location filename="../src/mainwindow.cpp" line="1297"/>
         <source>Toggle Live HTML Preview</source>
         <translation type="unfinished">Bascule Prévisualisation HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1264"/>
+        <location filename="../src/mainwindow.cpp" line="1318"/>
         <source>Toggle Hemingway mode</source>
         <translation type="unfinished">Hemingway activé/désactivé</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1273"/>
+        <location filename="../src/mainwindow.cpp" line="1327"/>
         <source>Toggle distraction free mode</source>
         <translation type="unfinished">Bascule Mode Concentration</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1283"/>
+        <location filename="../src/mainwindow.cpp" line="1337"/>
         <source>Toggle full screen mode</source>
         <translation type="unfinished">Plein écran activé/désactivé</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1322"/>
+        <location filename="../src/mainwindow.cpp" line="1377"/>
         <source># Heading 1</source>
         <translation type="unfinished"># Titre 1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1323"/>
+        <location filename="../src/mainwindow.cpp" line="1378"/>
         <source>## Heading 2</source>
         <translation type="unfinished">## Titre 2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1324"/>
+        <location filename="../src/mainwindow.cpp" line="1379"/>
         <source>### Heading 3</source>
         <translation type="unfinished">### Titre 3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1325"/>
+        <location filename="../src/mainwindow.cpp" line="1380"/>
         <source>#### Heading 4</source>
         <translation type="unfinished">#### Titre 4</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1326"/>
+        <location filename="../src/mainwindow.cpp" line="1381"/>
         <source>##### Heading 5</source>
         <translation type="unfinished">##### Titre 5</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1327"/>
+        <location filename="../src/mainwindow.cpp" line="1382"/>
         <source>###### Heading 6</source>
         <translation type="unfinished">###### Titre 6</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1328"/>
+        <location filename="../src/mainwindow.cpp" line="1383"/>
         <source>*Emphasis* _Emphasis_</source>
         <translation type="unfinished">*Emphase* _Emphase_</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1329"/>
+        <location filename="../src/mainwindow.cpp" line="1384"/>
         <source>**Strong** __Strong__</source>
         <translation type="unfinished">**Forte Emphase** __Forte Emphase__</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1330"/>
+        <location filename="../src/mainwindow.cpp" line="1385"/>
         <source>1. Numbered List</source>
         <translation type="unfinished">1. Liste ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1331"/>
+        <location filename="../src/mainwindow.cpp" line="1386"/>
         <source>* Bullet List</source>
         <translation type="unfinished">* Liste non ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1332"/>
+        <location filename="../src/mainwindow.cpp" line="1387"/>
         <source>+ Bullet List</source>
         <translation type="unfinished">+ Liste non ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1333"/>
+        <location filename="../src/mainwindow.cpp" line="1388"/>
         <source>- Bullet List</source>
         <translation type="unfinished">- Liste non ordonnée</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1334"/>
+        <location filename="../src/mainwindow.cpp" line="1389"/>
         <source>&gt; Block Quote</source>
         <translation type="unfinished">&gt; Citation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1335"/>
+        <location filename="../src/mainwindow.cpp" line="1390"/>
         <source>`Code Span`</source>
         <translation type="unfinished">`Fragment de code (inline)`</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1336"/>
+        <location filename="../src/mainwindow.cpp" line="1391"/>
         <source>``` Code Block</source>
         <translation type="unfinished">``` Bloc de code</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1337"/>
+        <location filename="../src/mainwindow.cpp" line="1392"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
         <translation type="unfinished">[Lien](http://url.fr &quot;Titre consultatif&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1338"/>
+        <location filename="../src/mainwindow.cpp" line="1393"/>
         <source>[Reference Link][ID]</source>
         <translation type="unfinished">[Lien référencé][ID]</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1339"/>
+        <location filename="../src/mainwindow.cpp" line="1394"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
         <translation type="unfinished">[ID]: http://url.fr &quot;Titre consultatif&quot;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1340"/>
+        <location filename="../src/mainwindow.cpp" line="1395"/>
         <source>![Image](./image.jpg &quot;Title&quot;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1341"/>
+        <location filename="../src/mainwindow.cpp" line="1396"/>
         <source>--- *** ___ Horizontal Rule</source>
         <translation type="unfinished">--- *** ___ Trait horizontal</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1393"/>
+        <location filename="../src/mainwindow.cpp" line="1449"/>
         <source>Outline</source>
         <translation type="unfinished">Sommaire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1399"/>
+        <location filename="../src/mainwindow.cpp" line="1455"/>
         <source>Session Statistics</source>
         <translation type="unfinished">Statistiques de la session</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1405"/>
+        <location filename="../src/mainwindow.cpp" line="1461"/>
         <source>Document Statistics</source>
         <translation type="unfinished">Statistiques du document</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1411"/>
+        <location filename="../src/mainwindow.cpp" line="1467"/>
         <source>Cheat Sheet</source>
         <translation type="unfinished">Aide-mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1439"/>
+        <location filename="../src/mainwindow.cpp" line="1495"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1128,17 +1132,17 @@
 <context>
     <name>ghostwriter::MarkdownEditor</name>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="262"/>
+        <location filename="../src/markdowneditor.cpp" line="264"/>
         <source>Add word to dictionary</source>
         <translation type="unfinished">Ajouter le mot au dictionnaire</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="263"/>
+        <location filename="../src/markdowneditor.cpp" line="265"/>
         <source>Check spelling...</source>
         <translation type="unfinished">Correction orthographique ...</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="889"/>
+        <location filename="../src/markdowneditor.cpp" line="897"/>
         <source>No spelling suggestions found</source>
         <translation type="unfinished">Aucune suggestion orthographique trouvée</translation>
     </message>

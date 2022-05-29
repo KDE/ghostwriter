@@ -18,7 +18,8 @@ Translations
 * Norwegian - Veronica Berglyd Olsen (vkbo)
 * Polish - mleko69
 * Portuguese (Brazil) - José Geraldo Gouvêa (jggouvea), Gustavo Costa (xfgusta)
-* Russian - suhr, Dmitriy Belyaev (dbelyaev)
+* Russian - suhr, Dmitriy Belyaev (dbelyaev),
+Olesya Gerasimenko (OlesyaGerasimenko)
 * Spanish - cemetary, Icaro Perseo (icaroperseo), Alexis Olivo (alexisolivo)
 * Swedish - Åke Engelbrektson (eson57)
 

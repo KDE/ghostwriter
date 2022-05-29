@@ -2,20 +2,21 @@
 %undefine _hardened_build
 %define debug_package %{nil}
 
-%global appver 2.1.2
+%global appver 2.1.3
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
-%global changelog_date Sat Mar 12 2022
-%global tarball %([[ %{appver} == *"-"* ]] && echo master || echo %{appver})
+%global changelog_date Sat May 28 2022
+%global tarball %([[ %{appver} == *"-"* ]] && echo refs/heads/master.tar.gz || echo %{version}/%{name}-%{version}.tar.gz)
 
 Name: ghostwriter
 Version: %(echo %{appver} | tr '-' '~')
 Release: 0.%{build_timestamp}%{?dist}
 
 License: GPLv3+ and CC-BY and CC-BY-SA and MPLv1.1 and BSD and LGPLv3 and MIT and ISC
-Summary: A distraction-free Markdown editor
-URL: http://wereturtle.github.io/%{name}/
-Source0: https://github.com/wereturtle/%{name}/archive/%{tarball}
+Summary: Cross-platform, aesthetic, distraction-free Markdown editor
+URL: https://github.com/wereturtle/%{name}
+Source0: %{url}/archive/%{tarball}
 
+BuildRequires: git
 BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: pkgconfig
@@ -36,7 +37,26 @@ BuildRequires: cmake(Qt5XmlPatterns)
 BuildRequires: update-desktop-files
 %endif
 
+BuildRequires: desktop-file-utils
+BuildRequires: gcc-c++
+BuildRequires: hunspell-devel
+BuildRequires: libappstream-glib
+BuildRequires: make
+
+Provides: bundled(cmark-gfm) = 0.29.0.gfm.3
+Provides: bundled(fontawesome-fonts) = 5.10.2
+Provides: bundled(nodejs-mathjax-full) = 3.1.2
+Provides: bundled(nodejs-react) = 17.0.1
+Provides: bundled(QtAwesome) = 5
+
 Requires: hicolor-icon-theme
+
+Recommends: cmark%{?_isa}
+Recommends: multimarkdown%{?_isa}
+Recommends: pandoc%{?_isa}
+
+# Required qt5-qtwebengine is not available on some arches.
+ExclusiveArch: %{qt5_qtwebengine_arches}
 
 %description
 ghostwriter is a text editor for Markdown, which is a plain text markup
@@ -48,17 +68,22 @@ whether your masterpiece be that next blog post, your school paper,
 or your novel.
 
 %prep
-%autosetup -n %{name}-%{tarball}
+%autosetup -n %{name}-%{version} -p1
+mkdir -p %{_vpath_builddir}
+rm -rf 3rdparty/hunspell
 
 %build
-qmake-qt5 PREFIX=%{_prefix}
-%make_build
+pushd %{_vpath_builddir}
+    %qmake_qt5 PREFIX=%{_prefix} ..
+popd
+%make_build -C %{_vpath_builddir}
+
+%check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %install
-%make_install INSTALL_ROOT=%{buildroot}
-%if 0%{?suse_version}
-%suse_update_desktop_file %{name}
-%endif
+%make_install INSTALL_ROOT=%{buildroot} -C %{_vpath_builddir}
 %find_lang %{name} --with-qt
 
 %files -f %{name}.lang
@@ -72,5 +97,5 @@ qmake-qt5 PREFIX=%{_prefix}
 %{_datadir}/metainfo/%{name}.appdata.xml
 
 %changelog
-* Sun Jan 3 2021 wereturtle <wereturtledev@gmail.com> - %{appver}
+* %{changelog_date} wereturtle <wereturtledev@gmail.com> - %{appver}
 - Upstream release.
