@@ -436,7 +436,7 @@ void ThemeRepositoryPrivate::loadPlainstractionTheme()
     ColorScheme darkColors;
     darkColors.background = "#1A1A1A";
     darkColors.foreground = "#D0D0D0";
-    darkColors.selection = "#1e262d";
+    darkColors.selection = "#074051";
     darkColors.cursor = "#b31771";
     darkColors.link = "#b31771";
     darkColors.headingText = "#009bc8";
