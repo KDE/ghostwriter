@@ -117,19 +117,21 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     d->matchCaseButton->setCheckable(true);
     d->matchCaseButton->setChecked(settings.value(GW_FIND_REPLACE_MATCH_CASE, false).toBool());
     d->matchCaseButton->setToolTip(tr("Match case"));
-    d->wholeWordButton = new QPushButton("“ ”");
-    
-    d->wholeWordButton->setFont(buttonFont);
+
+    d->wholeWordButton = new QPushButton(QChar(fa::quoteleft));
+    d->wholeWordButton->setFont(d->awesome->font(style::stfas, buttonFont.pointSize()));
     d->wholeWordButton->setFixedWidth(width);
     d->wholeWordButton->setCheckable(true);
     d->wholeWordButton->setChecked(settings.value(GW_FIND_REPLACE_WHOLE_WORD, false).toBool());
     d->wholeWordButton->setToolTip(tr("Whole word"));
+
     d->regularExpressionButton = new QPushButton(".*");
     d->regularExpressionButton->setFixedWidth(width);
     d->regularExpressionButton->setFont(buttonFont);
     d->regularExpressionButton->setCheckable(true);
     d->regularExpressionButton->setChecked(settings.value(GW_FIND_REPLACE_REGEX, false).toBool());
     d->regularExpressionButton->setToolTip(tr("Regular expression"));
+
     d->highlightMatchesButton = new QPushButton(QChar(fa::highlighter));
     d->highlightMatchesButton->setFixedWidth(width);
     d->highlightMatchesButton->setFont(d->awesome->font(style::stfas, buttonFont.pointSize()));
@@ -152,6 +154,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     d->findNextButton->setFont(d->awesome->font(style::stfas, buttonFont.pointSize()));
     d->findNextButton->setToolTip(tr("Find next"));
     connect(d->findNextButton, SIGNAL(pressed()), this, SLOT(findNext()));
+
     d->replaceButton = new QPushButton(tr("Replace"));
     connect(d->replaceButton, SIGNAL(pressed()), this, SLOT(replace()));
     d->replaceAllButton = new QPushButton(tr("Replace All"));
