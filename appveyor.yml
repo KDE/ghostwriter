@@ -36,7 +36,7 @@ after_build:
   - windeployqt ghostwriter.exe
 branches:
   only: 
-  - master
+  - release
 artifacts:
   - path: $(portable_dir)
     name: $(portable_dir)
