@@ -30,6 +30,9 @@ after_build:
   - cd %portable_dir%
   - mkdir dictionaries
   - mkdir data
+  - git clone https://github.com/wereturtle/hunspell-dictionaries.git
+  - cp hunspell-dictionaries\*.aff huns dictionaries
+  - cp hunspell-dictionaries\*.dic dictionaries
   - windeployqt ghostwriter.exe
 branches:
   only: 
