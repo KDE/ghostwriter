@@ -31,7 +31,7 @@ after_build:
   - mkdir dictionaries
   - mkdir data
   - git clone https://github.com/wereturtle/hunspell-dictionaries.git
-  - cp hunspell-dictionaries\*.aff huns dictionaries
+  - cp hunspell-dictionaries\*.aff dictionaries
   - cp hunspell-dictionaries\*.dic dictionaries
   - windeployqt ghostwriter.exe
 branches:
