@@ -12,6 +12,7 @@ assignees: wereturtle
 **Platform (please complete the following information):**
  - OS and version [e.g. Ubuntu 18.04, Windows 10, MacOS Sierra]: 
  - If Linux, Desktop Environment [e.g., Gnome, Plasma, Cinnamon, etc.]:
+ - If Linux, display server [Wayland or X11]:
 
 **ghostwriter installation (please complete the following information):**
  - ghostwriter version [see Help->About in menu bar]:

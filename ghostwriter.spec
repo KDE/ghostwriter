@@ -2,7 +2,7 @@
 %undefine _hardened_build
 %define debug_package %{nil}
 
-%global appver 2.1.4
+%global appver 2.1.5-staging
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
 %global changelog_date Sat Jun 18 2022
 %global tarball %([[ %{appver} == *"-"* ]] && echo refs/heads/master.tar.gz || echo %{version}/%{name}-%{version}.tar.gz)
