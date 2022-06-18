@@ -44,10 +44,10 @@ artifacts:
 deploy:
   tag: $(appver)
   release: $(APPVEYOR_PROJECT_NAME) $(appver)
-  draft: true
+  draft: false
   provider: GitHub
   auth_token:
-    secure: BwAh7GBWfGp5VD1+HS20if8Y0QWVHM5ldypiUtDACIt3eVpEdaNvqCfao5ZIMD2C
+    secure: B+un2fzPlu2vLk0lPKh+QkcpVEU5xGc/g4sRFCXnaKp5b1CpQeYKE8xZmJRMXf6l
   artifact: $(portable_dir).zip
   force_update: true
   on:

@@ -2,11 +2,10 @@
     "hooks": {},
     "git": {
         "changelog": null,
-        "requireCleanWorkingDir": true,
-        "requireBranch": false,
+        "requireCleanWorkingDir": false,
         "requireUpstream": true,
-        "requireCommits": false,
-        "addUntrackedFiles": false,
+        "requireCommits": true,
+        "addUntrackedFiles": true,
         "commit": true,
         "commitMessage": "Release ${version}",
         "commitArgs": [],
@@ -16,20 +15,22 @@
         "tagArgs": [],
         "push": true,
         "pushArgs": ["--follow-tags"],
-        "pushRepo": ""
+        "pushRepo": "",
+        "requireBranch": "master"
     },
     "github": {
-        "release": false,
-        "releaseName": "Release ${version}",
-        "releaseNotes": null,
+        "release": true,
+        "releaseName": "ghostwriter ${version}",
+        "releaseNotes": "./releaseNotes.py ${version}",
         "preRelease": false,
-        "draft": false,
+        "draft": true,
         "tokenRef": "GITHUB_TOKEN",
-        "assets": null,
+        "assets": ["COPYING", "CHANGELOG.md"],
         "host": null,
         "timeout": 0,
         "proxy": null,
-        "skipChecks": false
+        "skipChecks": false,
+        "web": true
     },
     "plugins": {
         "@j-ulrich/release-it-regex-bumper": {
@@ -75,6 +76,11 @@
                     "file": "appveyor.yml",
                     "search": "appver:.*",
                     "replace": "appver: {{version}}"
+                },
+                {
+                    "file": "CHANGELOG.md",
+                    "search": "\\[Unreleased\\].*",
+                    "replace": "[{{version}}] - {{now:YYYY-MM-DD}}"
                 }
             ]
         }
