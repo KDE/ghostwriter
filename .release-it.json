@@ -7,7 +7,7 @@
         "requireCommits": true,
         "addUntrackedFiles": true,
         "commit": true,
-        "commitMessage": "Release ${version}",
+        "commitMessage": "Version bump to ${version}",
         "commitArgs": [],
         "tag": true,
         "tagName": null,
@@ -25,12 +25,12 @@
         "preRelease": false,
         "draft": true,
         "tokenRef": "GITHUB_TOKEN",
-        "assets": ["COPYING", "CHANGELOG.md"],
+        "assets": ["COPYING"],
         "host": null,
         "timeout": 0,
         "proxy": null,
         "skipChecks": false,
-        "web": true
+        "web": false
     },
     "plugins": {
         "@j-ulrich/release-it-regex-bumper": {
