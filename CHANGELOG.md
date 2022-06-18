@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Replaced whole word icon in find/replace due to Windows 10 not rendering Unicode characters used for old icon.
 * Changed selection color for Plainstraction Dark theme to be brighter.
+* Issues #772, 773, and 777: Added workaround for segmentation fault on GTK/Gnome 42.
 
 ## [2.1.3] - 2022-05-28
 

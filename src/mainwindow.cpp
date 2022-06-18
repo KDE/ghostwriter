@@ -75,10 +75,10 @@ enum SidebarTabIndex {
 MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     : QMainWindow(parent)
 {
+    QString fileToOpen;
     this->focusModeEnabled = false;
     this->awesome = new QtAwesome(qApp);
     this->awesome->initFontAwesome();
-    QString fileToOpen;
     setWindowIcon(QIcon(":/resources/images/ghostwriter.svg"));
     this->setObjectName("mainWindow");
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -108,7 +108,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     editor->setInsertSpacesForTabs(appSettings->insertSpacesForTabsEnabled());
     connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
     this->setFocusProxy(editor);
-
 
     // We need to set an empty style for the editor's scrollbar in order for the
     // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
@@ -154,28 +153,9 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         recentFiles = history.recentFiles(MAX_RECENT_FILES + 2);
     }
 
-    bool fileLoadError = false;
-
     if (!filePath.isNull() && !filePath.isEmpty()) {
-        QFileInfo cliFileInfo(filePath);
-
-        if (!cliFileInfo.exists()) {
-            QFile cliFile(filePath);
-
-            // Try to create a new file if the specified file does not exist.
-            cliFile.open(QIODevice::WriteOnly);
-            cliFile.close();
-
-            if (!cliFile.exists()) {
-                fileLoadError = true;
-                qCritical("Could not create new file. Check permissions.");
-            }
-        }
-
-        if (!fileLoadError) {
-            fileToOpen = filePath;
-            recentFiles.removeAll(cliFileInfo.absoluteFilePath());
-        }
+        fileToOpen = filePath;
+        recentFiles.removeAll(QFileInfo(filePath).absoluteFilePath());
     }
 
     if (fileToOpen.isNull()
@@ -358,36 +338,32 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     this->setCentralWidget(splitter);
 
-    // Show the main window.
-    show();
-
-    // Apply the theme only after show() is called on all the widgets,
-    // since the Outline scrollbars can end up transparent in Windows if
-    // the theme is applied before show().
-    //
-    applyTheme();
-    adjustEditor();
-
-    this->update();
-    qApp->processEvents();
-
-    if (!fileToOpen.isNull() && !fileToOpen.isEmpty()) {
-        documentManager->open(fileToOpen);
-    }
-
-    if (fileLoadError) {
-        QMessageBox::critical
-        (
-            this,
-            QApplication::applicationName(),
-            tr("Could not create file %1. Check permissions.").arg(filePath)
-        );
-    }
+    qApp->installEventFilter(this);
 
     toggleHideMenuBarInFullScreen(appSettings->hideMenuBarInFullScreenEnabled());
     menuBarMenuActivated = false;
 
-    qApp->installEventFilter(this);
+    // Need this call for GTK / Gnome 42 segmentation fault workaround.
+    qApp->processEvents();
+
+    show();
+
+    // Apply the theme only after show() is called on all the widgets,
+    // since the Outline scrollbars can end up transparent in Windows if
+    // the theme is applied before show().  We cannot call show() and
+    // then apply the theme in the constructor due to a bug with
+    // Wayland + GTK that causes a segmentation fault.
+    //
+    applyTheme();
+    adjustEditor();
+
+    // Show the theme right away before loading any files.
+    qApp->processEvents();
+
+    // Load file from command line or last session.
+    if (!fileToOpen.isNull() && !fileToOpen.isEmpty()) {
+        documentManager->open(fileToOpen);
+    }
 }
 
 MainWindow::~MainWindow()
