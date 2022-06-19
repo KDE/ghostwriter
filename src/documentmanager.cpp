@@ -23,18 +23,15 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
-#include <QFuture>
-#include <QFutureWatcher>
 #include <QMessageBox>
 #include <QPair>
 #include <QString>
 #include <QStandardPaths>
-#include <QtConcurrentRun>
 #include <QTextDocument>
 #include <QTextStream>
 #include <QTimer>
-#include <QDebug>
 
+#include "asynctextwriter.h"
 #include "documenthistory.h"
 #include "documentmanager.h"
 #include "exportdialog.h"
@@ -74,10 +71,10 @@ public:
     DocumentManager *q_ptr;
     MarkdownDocument *document;
     MarkdownEditor *editor;
-    QFutureWatcher<QString> *saveFutureWatcher;
     QFileSystemWatcher *fileWatcher;
     bool fileHistoryEnabled;
     bool createBackupOnSave;
+    AsyncTextWriter *writer;
 
     /*
     * This flag is used to prevent notifying the user that the document
@@ -104,11 +101,6 @@ public:
     * Begins asynchronous save operation.  Called by save() and saveAs().
     */
     void saveFile();
-
-    /*
-    * Handles any errors or tidying up after an asynchronous save operation.
-    */
-    void onSaveCompleted();
 
     /*
     * Handles the event where a file as been modified externally on disk.
@@ -201,13 +193,47 @@ DocumentManager::DocumentManager
     d->saveInProgress = false;
     d->autoSaveEnabled = false;
     d->documentModifiedNotifVisible = false;
-    d->saveFutureWatcher = new QFutureWatcher<QString>(this);
 
     d->draftLocation =
         QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
 
     d->fileWatcher = new QFileSystemWatcher(this);
     d->document = (MarkdownDocument *) editor->document();
+
+    d->writer = new AsyncTextWriter(d->document->filePath());
+
+    // Markdown files need to be in UTF-8, since most Markdown processors
+    // (i.e., Pandoc, et. al.) can only read UTF-8 encoded text files.
+    d->writer->setCodec(QTextCodec::codecForName("UTF-8"));
+
+    this->connect(
+        d->writer,
+        &AsyncTextWriter::writeComplete,
+        [d]() {
+            d->saveInProgress = false;
+            d->document->setTimestamp(QDateTime::currentDateTime());
+
+            if (!d->fileWatcher->files().contains(d->writer->fileName())) {
+                d->fileWatcher->addPath(d->writer->fileName());
+            }
+        }
+    );
+
+    this->connect(
+        d->writer,
+        &AsyncTextWriter::writeError,
+        [d](const QString &err) {
+            if (!err.isNull() && !err.isEmpty()) {
+                MessageBoxHelper::critical(
+                    d->editor,
+                    QObject::tr("Error saving %1").arg(d->document->filePath()),
+                    err
+                );
+            }
+
+            d->saveInProgress = false;
+        }
+    );
 
     // Set up auto-save timer to save the file once every minute.
     d->autoSaveTimer = new QTimer(this);
@@ -237,13 +263,6 @@ DocumentManager::DocumentManager
         }
     );
 
-    this->connect(d->saveFutureWatcher,
-        &QFutureWatcher<QString>::finished,
-        [d]() {
-            d->onSaveCompleted();
-        }
-    );
-
     this->connect(d->fileWatcher,
         &QFileSystemWatcher::fileChanged,
         [d](const QString & path) {
@@ -255,8 +274,6 @@ DocumentManager::DocumentManager
 DocumentManager::~DocumentManager()
 {
     Q_D(DocumentManager);
-    
-    d->saveFutureWatcher->waitForFinished();
 }
 
 MarkdownDocument *DocumentManager::document() const
@@ -459,8 +476,25 @@ void DocumentManager::rename()
             );
 
         if (!filePath.isNull() && !filePath.isEmpty()) {
+            bool success;
             QFile file(d->document->filePath());
-            bool success = file.rename(filePath);
+            QFile destFile(filePath);
+
+            if (destFile.exists()) {
+                success = destFile.remove();
+
+                if (!success) {
+                    MessageBoxHelper::critical
+                    (
+                        d->editor,
+                        tr("Failed to rename %1").arg(d->document->filePath()),
+                        file.errorString()
+                    );
+                    return;
+                }
+            }
+
+            success = file.rename(filePath);
 
             if (!success) {
                 MessageBoxHelper::critical
@@ -523,8 +557,8 @@ bool DocumentManager::close()
     Q_D(DocumentManager);
     
     if (d->checkSaveChanges()) {
-        if (d->saveFutureWatcher->isRunning() || d->saveFutureWatcher->isStarted()) {
-            d->saveFutureWatcher->waitForFinished();
+        if (d->writer->writeInProgress()) {
+            d->writer->waitForFinished();
         }
 
         // Get the document's information before closing it out
@@ -585,25 +619,6 @@ void DocumentManager::exportFile()
     connect(&exportDialog, SIGNAL(exportComplete()), this, SIGNAL(operationFinished()));
 
     exportDialog.exec();
-}
-
-void DocumentManagerPrivate::onSaveCompleted()
-{
-    QString err = this->saveFutureWatcher->result();
-
-    if (!err.isNull() && !err.isEmpty()) {
-        MessageBoxHelper::critical
-        (
-            editor,
-            QObject::tr("Error saving %1").arg(this->document->filePath()),
-            err
-        );
-    } else if (!this->fileWatcher->files().contains(this->document->filePath())) {
-        fileWatcher->addPath(document->filePath());
-    }
-
-    this->document->setTimestamp(QDateTime::currentDateTime());
-    this->saveInProgress = false;
 }
 
 void DocumentManagerPrivate::onFileChangedExternally(const QString &path)
@@ -671,34 +686,25 @@ void DocumentManagerPrivate::saveFile()
 
     document->setModified(false);
     emit q->documentModifiedChanged(false);
-
-    if
-    (
-        this->saveFutureWatcher->isRunning() ||
-        this->saveFutureWatcher->isStarted()
-    ) {
-        this->saveFutureWatcher->waitForFinished();
-    }
-
+    document->setTimestamp(QDateTime::currentDateTime());
     saveInProgress = true;
 
-    if (fileWatcher->files().contains(document->filePath())) {
-        this->fileWatcher->removePath(document->filePath());
+    // If backup is enabled, back up the file first.
+    if (createBackupOnSave) {
+        backupFile(writer->fileName());
     }
 
-    document->setTimestamp(QDateTime::currentDateTime());
+    bool status = writer->write(document->toPlainText());
 
-    QFuture<QString> future =
-        QtConcurrent::run
-        (
-            this,
-            &DocumentManagerPrivate::saveToDisk,
-            document->filePath(),
-            document->toPlainText(),
-            createBackupOnSave
+    if (!status) {
+        MessageBoxHelper::critical(
+            editor,
+            QObject::tr("Error saving %1").arg(writer->fileName()),
+            QObject::tr("No file path specified")
         );
 
-    this->saveFutureWatcher->setFuture(future);
+        saveInProgress = false;
+    }
 }
 
 bool DocumentManagerPrivate::loadFile(const QString &filePath)
@@ -806,6 +812,7 @@ void DocumentManagerPrivate::setFilePath(const QString &filePath)
     }
 
     document->setFilePath(filePath);
+    writer->setFileName(filePath);
 
     if (!filePath.isNull() && !filePath.isEmpty()) {
         QFileInfo fileInfo(filePath);
@@ -912,47 +919,6 @@ bool DocumentManagerPrivate::checkPermissionsBeforeSave()
     return true;
 }
 
-QString DocumentManagerPrivate::saveToDisk
-(
-    const QString &filePath,
-    const QString &text,
-    bool createBackup
-) const
-{
-    QString err;
-
-    if (filePath.isNull() || filePath.isEmpty()) {
-        return QObject::tr("Null or empty file path provided for writing.");
-    }
-
-    QFile outputFile(filePath);
-
-    if (createBackup && outputFile.exists()) {
-        backupFile(filePath);
-    }
-
-    if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
-        return outputFile.errorString();
-    }
-
-    // Write contents to disk.
-    QTextStream outStream(&outputFile);
-
-    // Markdown files need to be in UTF-8, since most Markdown processors
-    // (i.e., Pandoc, et. al.) can only read UTF-8 encoded text files.
-    //
-    outStream.setCodec("UTF-8");
-    outStream << text;
-
-    if (QFile::NoError != outputFile.error()) {
-        err = outputFile.errorString();
-    }
-
-    // Close the file.  All done!
-    outputFile.close();
-    return err;
-}
-
 void DocumentManagerPrivate::backupFile(const QString &filePath) const
 {
     QString backupFilePath = filePath + ".backup";
@@ -960,9 +926,11 @@ void DocumentManagerPrivate::backupFile(const QString &filePath) const
 
     if (backupFile.exists()) {
         if (!backupFile.remove()) {
-            qCritical("Could not remove backup file %s before saving: %s",
-                      backupFilePath.toLatin1().data(),
-                      backupFile.errorString().toLatin1().data());
+            MessageBoxHelper::critical(
+                this->editor,
+                QObject::tr("File backup failed"),
+                backupFile.errorString()
+            );
             return;
         }
     }
@@ -970,9 +938,11 @@ void DocumentManagerPrivate::backupFile(const QString &filePath) const
     QFile file(filePath);
 
     if (!file.copy(backupFilePath)) {
-        qCritical("Failed to backup file to %s: %s",
-                  backupFilePath.toLatin1().data(),
-                  file.errorString().toLatin1().data());
+        MessageBoxHelper::critical(
+            this->editor,
+            QObject::tr("File backup failed"),
+            backupFile.errorString()
+        );
     }
 }
 

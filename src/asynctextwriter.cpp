@@ -17,6 +17,7 @@
  *
  ***********************************************************************/
 
+#include <QApplication>
 #include <QFileInfo>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -109,6 +110,17 @@ bool AsyncTextWriter::writeInProgress() const
     Q_D(const AsyncTextWriter);
 
     return d->writeInProgress;
+}
+
+void AsyncTextWriter::waitForFinished()
+{
+    Q_D(const AsyncTextWriter);
+
+    if (d->writeFutureWatcher->isRunning() || d->writeFutureWatcher->isStarted()) {
+        d->writeFutureWatcher->waitForFinished();
+    }
+
+    qApp->processEvents();
 }
 
 bool AsyncTextWriter::write(const QString &text)

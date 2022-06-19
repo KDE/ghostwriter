@@ -77,6 +77,11 @@ public:
     bool writeInProgress() const;
 
     /**
+     * Waits for write to finish (if needed) before returning.
+     */
+    void waitForFinished();
+
+    /**
      * Writes the given text to the file.  Note: Previous contents of the file
      * will be replaced.
      */
