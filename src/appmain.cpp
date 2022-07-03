@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     // fully launches.
     //
     ghostwriter::AppSettings *appSettings = ghostwriter::AppSettings::instance();
-    QLocale::setDefault(appSettings->locale());
+    QLocale::setDefault(QLocale(appSettings->locale()));
 
     QTranslator qtTranslator;
     bool ok = qtTranslator.load("qt_" + appSettings->locale(),

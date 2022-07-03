@@ -24,7 +24,6 @@
 #include <QApplication>
 #include <QChar>
 #include <QColor>
-#include <QDesktopWidget>
 #include <QDir>
 #include <QFileInfo>
 #include <QFontMetricsF>
@@ -197,7 +196,6 @@ MarkdownEditor::MarkdownEditor
 
     d->preferredLayout = new QGridLayout();
     d->preferredLayout->setSpacing(0);
-    d->preferredLayout->setMargin(0);
     d->preferredLayout->setContentsMargins(0, 0, 0, 0);
     d->preferredLayout->addWidget(this, 0, 0);
 
@@ -818,13 +816,6 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
             d->cursorForWord = cursorForPosition(contextEvent->pos());
         }
 
-        QTextCharFormat::UnderlineStyle spellingErrorUnderlineStyle =
-            (QTextCharFormat::UnderlineStyle)
-            QApplication::style()->styleHint
-            (
-                QStyle::SH_SpellCheckUnderlineStyle
-            );
-
         // Get the formatting for the cursor position under the mouse,
         // and see if it has the spell check error underline style.
         //
@@ -842,7 +833,7 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
             (
                 (blockPosition >= formatRange.start)
                 && (blockPosition <= (formatRange.start + formatRange.length))
-                && (formatRange.format.underlineStyle() == spellingErrorUnderlineStyle)
+                && (formatRange.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline)
             ) {
                 mispelledWordStartPos = formatRange.start;
                 mispelledWordLength = formatRange.length;

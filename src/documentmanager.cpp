@@ -204,7 +204,11 @@ DocumentManager::DocumentManager
 
     // Markdown files need to be in UTF-8, since most Markdown processors
     // (i.e., Pandoc, et. al.) can only read UTF-8 encoded text files.
-    d->writer->setCodec(QTextCodec::codecForName("UTF-8"));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    d->writer->setEncoding(QTextCodec::codecForName("UTF-8"));
+#else
+    d->writer->setEncoding(QStringConverter::Utf8);
+#endif
 
     this->connect(
         d->writer,

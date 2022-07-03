@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 * When renaming a file, file will now be saved even if the new file name already exists, provided the user chooses to proceed from the warning dialog.
+* Various under-the-hood changes have been made in preparation to supporting Qt 6.
 
 ## [2.1.4] - 2022-06-18
 

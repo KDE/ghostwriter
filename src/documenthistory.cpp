@@ -41,7 +41,7 @@ public:
     QString filePath;
     int position;
 
-    inline bool operator==(const RecentFile &other)
+    inline bool operator==(const RecentFile &other) const
     {
         return (other.filePath == filePath);
     }

@@ -28,6 +28,8 @@
 
 #include "../src/asynctextwriter.h"
 
+using namespace ghostwriter;
+
 /**
  * Unit test for the AsyncTextWriter class.
  */
@@ -36,51 +38,51 @@ class AsyncTextWriterTest: public QObject
     Q_OBJECT
 
 private:
+    AsyncTextWriter::Encoding DefaultEncoding;
+    AsyncTextWriter::Encoding Utf8Encoding;
+    AsyncTextWriter::Encoding Utf16Encoding;
+
     /**
      * Write helper method (nominal cases).
-     * Can use to specify different file name and codec combinations.
+     * Can use to specify different file name and encoding combinations.
      * Set successExpected parameter to verify whether the test is expected
      * to complete the write successfully (true) or else have an
      * error (false).
      */
-    void write(const QString &fileName,
-        QTextCodec *codec,
+    void runWriteTest(const QString &fileName,
+        AsyncTextWriter::Encoding encoding,
         bool successExpected);
 
 private slots:
+    void initTestCase();
     void constructor1();
     void setFileName();
-    void setCodec();
+    void setEncoding();
     void emptyFileName();
     void nullFileName();
-    void writeWithCodec();
-    void writeWithoutCodec();
+    void write();
     void writeToReadOnlyFile();
     void writeToReadOnlyDirectory();
     void writeAlreadyInProgress();
 };
 
-void AsyncTextWriterTest::write(const QString &fileName,
-        QTextCodec *codec,
+void AsyncTextWriterTest::runWriteTest(const QString &fileName,
+        AsyncTextWriter::Encoding encoding,
         bool successExpected)
 {
     bool writeCompleted = false;
     bool noErrors = true;
     QString expectedContents = "abcdefg\nxyz\n";
     QString actualContents;
-    QTextCodec *expectedCodec = codec;
 
-    if (nullptr == codec) {
-        // If null input codec, expect default codec.
-        expectedCodec = QTextCodec::codecForLocale();
-    }
+    AsyncTextWriter::Encoding expectedEncoding = encoding;
+    AsyncTextWriter writer(fileName);
 
-    ghostwriter::AsyncTextWriter writer(fileName);
-    writer.setCodec(codec);
+    writer.setEncoding(encoding);
 
     this->connect(
         &writer,
-        &ghostwriter::AsyncTextWriter::writeComplete,
+        &AsyncTextWriter::writeComplete,
         [this, &writer, &writeCompleted]() {
             QCOMPARE(writer.writeInProgress(), false);
             writeCompleted = true;
@@ -89,7 +91,7 @@ void AsyncTextWriterTest::write(const QString &fileName,
 
     this->connect(
         &writer,
-        &ghostwriter::AsyncTextWriter::writeError,
+        &AsyncTextWriter::writeError,
         [this, &writer, &noErrors](const QString &err) {
             noErrors = false;
             qWarning() << QString("Error writing to file: ") + err;
@@ -132,8 +134,12 @@ void AsyncTextWriterTest::write(const QString &fileName,
             QString actualContents;
             actualContents = stream.readAll();
 
-            // Verify codec.
-            QCOMPARE(stream.codec(), expectedCodec);
+            // Verify encoding.
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            QCOMPARE(stream.codec(), expectedEncoding);
+#else
+            QCOMPARE(stream.encoding(), expectedEncoding);
+#endif
 
             file.close();
 
@@ -146,15 +152,28 @@ void AsyncTextWriterTest::write(const QString &fileName,
     }
 }
 
+void AsyncTextWriterTest::initTestCase()
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    Utf8Encoding = QTextCodec::codecForName("UTF-8");
+    Utf16Encoding = QTextCodec::codecForName("UTF-16");
+    DefaultEncoding = Utf8Encoding;
+#else
+    Utf8Encoding = QStringConverter::Utf8;
+    Utf16Encoding = QStringConverter::Utf16;
+    DefaultEncoding = Utf8Encoding;
+#endif
+}
+
 void AsyncTextWriterTest::constructor1()
 {
     QString fileName = "constructor.txt";
     QString expectedFileName = QFileInfo(fileName).absoluteFilePath();
 
-    ghostwriter::AsyncTextWriter writer(fileName, this);
+    AsyncTextWriter writer(fileName, this);
 
     QCOMPARE(writer.fileName(), expectedFileName);
-    QCOMPARE(writer.codec(), nullptr);
+    QCOMPARE(writer.encoding(), DefaultEncoding);
     QCOMPARE(writer.parent(), this);
 }
 
@@ -163,7 +182,7 @@ void AsyncTextWriterTest::setFileName()
     QString oldfileName = "oldname.txt";
     QString expectedFileName = QFileInfo(oldfileName).absoluteFilePath();
 
-    ghostwriter::AsyncTextWriter writer(oldfileName);
+    AsyncTextWriter writer(oldfileName);
     QCOMPARE(writer.fileName(), expectedFileName);
 
     QString newFileName = "newname.txt";
@@ -172,31 +191,24 @@ void AsyncTextWriterTest::setFileName()
     QCOMPARE(writer.fileName(), expectedFileName);
 }
 
-void AsyncTextWriterTest::setCodec()
+void AsyncTextWriterTest::setEncoding()
 {
-    QString fileName = "codectest.txt";
-
-    ghostwriter::AsyncTextWriter writer("codectest.txt");
-    QCOMPARE(writer.codec(), nullptr);
-
-    QTextCodec *expectedCodec = QTextCodec::codecForName("UTF-8");
-    writer.setCodec(QTextCodec::codecForName("UTF-8"));
-    QCOMPARE(writer.codec()->name(), expectedCodec->name());
+    QString fileName = "encodingtest.txt";
+    AsyncTextWriter writer("encodingtest.txt");
+    writer.setEncoding(Utf16Encoding);
+    QCOMPARE(writer.encoding(), Utf16Encoding);
 }
 
 /**
  * OBJECTIVE:
- *
- *      Call write() with codec specified (nominal case).
+ *      Call write() (nominal case).
  *
  * INPUTS:
- *
  *      - Valid new file name.
  *      - String to write to the file.
- *      - UTF-8 codec.
+ *      - UTF-8 encoding.
  *
  * EXPECTED RESULTS:
- *
  *      - Write is NOT in progress before call to write().
  *      - Write is in progress after call to write() before writeComplete()
  *        signal is received.
@@ -206,60 +218,28 @@ void AsyncTextWriterTest::setCodec()
  *      - writeError() signal is NOT received.
  *      - File is created and written to successfully.
  *      - File contents match input string.
- *      - QTextStream detects UTF-8 codec when reading the file.
+ *      - QTextStream detects UTF-8 encoding when reading the file.
  */
-void AsyncTextWriterTest::writeWithCodec()
+void AsyncTextWriterTest::write()
 {
-    write("write.txt", QTextCodec::codecForName("UTF-8"), true);
+    runWriteTest("write.txt", Utf8Encoding, true);
 }
 
 /**
  * OBJECTIVE:
- *
- *      Call write() with default codec (nominal case).
- *
- * INPUTS:
- *
- *      - Valid new file name.
- *      - String to write to the file.
- *      - Null codec (specifying to use default)
- *
- * EXPECTED RESULTS:
- *
- *      - Write is NOT in progress before call to write().
- *      - Write is in progress after call to write() before writeComplete()
- *        signal is received.
- *      - write() returns true.
- *      - Write is NOT in progress after writeComplete() signal is received.
- *      - writeComplete() signal is received.
- *      - writeError() signal is NOT received.
- *      - File is created and written to successfully.
- *      - File contents match input string.
- *      - QTextStream detects default codec when reading the file.
- */
-void AsyncTextWriterTest::writeWithoutCodec()
-{
-    write("write.txt", nullptr, true);
-}
-
-/**
- * OBJECTIVE:
- *
- *      Call write() with writer having empty file name.
+ *      Call write() with writer having empty file name (robustness case).
  *
  * INPUTS:
- *
  *      Empty file name string.
  *
  * EXPECTED RESULTS:
- *
  *      write() returns false.
  */
 void AsyncTextWriterTest::emptyFileName()
 {
     QString fileName = QString("");
 
-    ghostwriter::AsyncTextWriter writer(fileName);
+    AsyncTextWriter writer(fileName);
 
     // Verify return value.
     QCOMPARE(writer.write("empty"), false);
@@ -267,22 +247,19 @@ void AsyncTextWriterTest::emptyFileName()
 
 /**
  * OBJECTIVE:
- *
- *      Call write() with writer having null file name.
+ *      Call write() with writer having null file name (robustness case).
  *
  * INPUTS:
- *
  *      Null file name string.
  *
  * EXPECTED RESULTS:
- *
  *      write() returns false.
  */
 void AsyncTextWriterTest::nullFileName()
 {
     QString fileName = QString();
 
-    ghostwriter::AsyncTextWriter writer(fileName);
+    AsyncTextWriter writer(fileName);
 
     // Verify return value.
     QCOMPARE(writer.write("null"), false);
@@ -290,16 +267,13 @@ void AsyncTextWriterTest::nullFileName()
 
 /**
  * OBJECTIVE:
- *
- *      Attempt to write to a file whose permissions are read-only.
+ *      Attempt to write to a file whose permissions are read-only
  *      (robustness case).
  *
  * INPUTS:
- *
  *      A file name that already exists on disk as read-only.
  *
  * EXPECTED RESULTS:
- *
  *      A writeError() signal is received.
  */
 void AsyncTextWriterTest::writeToReadOnlyFile()
@@ -326,7 +300,7 @@ void AsyncTextWriterTest::writeToReadOnlyFile()
         QFileDevice::ReadOwner |
         QFileDevice::ReadOther);
 
-    write(fileName, nullptr, false);
+    runWriteTest(fileName, Utf8Encoding, false);
 
     // Cleanup.
     file.remove();
@@ -334,15 +308,12 @@ void AsyncTextWriterTest::writeToReadOnlyFile()
 
 /**
  * OBJECTIVE:
- *
  *      Attempt to create a file in a read-only directory (robustness case).
  *
  * INPUTS:
- *
  *      A new file name whose path is in a read-only directory.
  *
  * EXPECTED RESULTS:
- *
  *      A writeError() signal is received.
  */
 void AsyncTextWriterTest::writeToReadOnlyDirectory()
@@ -368,7 +339,7 @@ void AsyncTextWriterTest::writeToReadOnlyDirectory()
 
     QString fileName = dir.path() + "/newfile.txt";
 
-    write(fileName, nullptr, false);
+    runWriteTest(fileName, Utf8Encoding, false);
 
     // Cleanup.
     dir.cdUp();
@@ -377,17 +348,14 @@ void AsyncTextWriterTest::writeToReadOnlyDirectory()
 
 /**
  * OBJECTIVE:
- *
  *      Attempt to write when a write is already in progress.
  *
  * INPUTS:
- *
  *      First call to write() with initial text string.
  *      Second call to write() while first write is in progress
  *         with new text string.
  *
  * EXPECTED RESULTS:
- *
  *      - First call to write() returns true.
  *      - Second call to write() returns true.
  *      - File is created and written to successfully.
@@ -402,11 +370,11 @@ void AsyncTextWriterTest::writeAlreadyInProgress()
     bool firstCallStatus;
     bool secondCallStatus;
 
-    ghostwriter::AsyncTextWriter writer(fileName);
+    AsyncTextWriter writer(fileName);
 
     this->connect(
         &writer,
-        &ghostwriter::AsyncTextWriter::writeComplete,
+        &AsyncTextWriter::writeComplete,
         [this, &writer, &writeCompleted]() {
             writeCompleted = true;
         }
@@ -414,7 +382,7 @@ void AsyncTextWriterTest::writeAlreadyInProgress()
 
     this->connect(
         &writer,
-        &ghostwriter::AsyncTextWriter::writeError,
+        &AsyncTextWriter::writeError,
         [this, &writer, &noErrors](const QString &err) {
             noErrors = false;
             qWarning() << QString("Error writing to file: ") + err;

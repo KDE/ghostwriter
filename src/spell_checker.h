@@ -25,11 +25,11 @@ class Dictionary;
 
 #include <QDialog>
 #include <QTextCursor>
-class QAction;
-class QLineEdit;
-class QListWidget;
-class QListWidgetItem;
-class QPlainTextEdit;
+#include <QAction>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QPlainTextEdit>
 
 class SpellChecker : public QDialog
 {

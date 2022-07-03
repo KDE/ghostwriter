@@ -30,11 +30,14 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 8) {
 
 TEMPLATE = app
 
-QT += widgets concurrent svg webenginewidgets webengine webchannel gui
+QT += widgets concurrent svg webchannel gui
+
+greaterThan(QT_MAJOR_VERSION,5): QT += core5compat
+lessThan(QT_MAJOR_VERSION,6): QT += webenginewidgets
 
 #CONFIG += debug
 CONFIG += warn_on
-CONFIG += c++11
+CONFIG += c++17
 
 DEFINES += APPVERSION='\\"$${VERSION}\\"'
 
@@ -60,31 +63,31 @@ include(3rdparty/cmark-gfm/cmark-gfm.pri)
 # Input
 
 macx {
-    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.10
+    QMAKE_LFLAGS         += "-mmacosx-version-min=12.2"
+    QMAKE_CXXFLAGS       += "-mmacosx-version-min=12.2"
+    QMAKE_CFLAGS_RELEASE += "-mmacosx-version-min=12.2"
+    QMAKE_CXXFLAGS       += "-mmacosx-version-min=12.2"
+
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 12.2
 
     LIBS += -framework AppKit
 
     HEADERS += src/spelling/dictionary_provider_nsspellchecker.h
 
     OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
+
+    INCLUDEPATH += /opt/homebrew/Cellar/qt/6.2.2/lib/QtCore5Compat.framework/Versions/A/Headers
 } else:win32 {
     include(3rdparty/hunspell/hunspell.pri)
-
-    HEADERS += src/spelling/dictionary_provider_hunspell.h \
-        src/spelling/dictionary_provider_voikko.h
-
-    SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
-        src/spelling/dictionary_provider_voikko.cpp
+    HEADERS += src/spelling/dictionary_provider_hunspell.h
+    SOURCES += src/spelling/dictionary_provider_hunspell.cpp
 
 } else:unix {
     CONFIG += link_pkgconfig
     PKGCONFIG += hunspell
-    
-    HEADERS += src/spelling/dictionary_provider_hunspell.h \
-        src/spelling/dictionary_provider_voikko.h
 
-    SOURCES += src/spelling/dictionary_provider_hunspell.cpp \
-        src/spelling/dictionary_provider_voikko.cpp
+    HEADERS += src/spelling/dictionary_provider_hunspell.h
+    SOURCES += src/spelling/dictionary_provider_hunspell.cpp
 }
 
 INCLUDEPATH += src src/spelling

@@ -21,7 +21,6 @@
 
 #ifndef Q_OS_MAC
 #include "dictionary_provider_hunspell.h"
-#include "dictionary_provider_voikko.h"
 #else
 #include "dictionary_provider_nsspellchecker.h"
 #endif
@@ -29,6 +28,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QRegularExpression>
 #include <QTextStream>
 
 #include <algorithm>
@@ -123,7 +123,7 @@ QString DictionaryManager::availableDictionary(const QString& language) const
 {
 	QStringList languages = availableDictionaries();
 	if (!languages.isEmpty() && !languages.contains(language)) {
-		int close = languages.indexOf(QRegExp(language.left(2) + ".*"));
+		int close = languages.indexOf(QRegularExpression(language.left(2) + ".*"));
 		return (close != -1) ? languages.at(close) : (languages.contains("en_US") ? "en_US" : languages.first());
 	} else {
 		return language;
@@ -148,21 +148,15 @@ void DictionaryManager::addProviders()
 {
 #ifndef Q_OS_MAC
 	bool has_hunspell = false;
-	bool has_voikko = false;
 
 	foreach (AbstractDictionaryProvider* provider, m_providers) {
 		if (dynamic_cast<DictionaryProviderHunspell*>(provider) != NULL) {
 			has_hunspell = true;
-		} else if (dynamic_cast<DictionaryProviderVoikko*>(provider) != NULL) {
-			has_voikko = true;
 		}
 	}
 
 	if (!has_hunspell) {
 		addProvider(new DictionaryProviderHunspell);
-	}
-	if (!has_voikko) {
-		addProvider(new DictionaryProviderVoikko);
 	}
 #else
 	bool has_nsspellchecker = false;
@@ -273,7 +267,11 @@ void DictionaryManager::setPersonal(const QStringList& words)
 	QFile file(m_path + "/personal");
 	if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
 		QTextStream stream(&file);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		stream.setCodec("UTF-8");
+#else
+		stream.setEncoding(QStringConverter::Utf8);
+#endif
 		foreach (const QString& word, m_personal) {
 			stream << word << "\n";
 		}
@@ -298,7 +296,11 @@ DictionaryManager::DictionaryManager()
 	QFile file(m_path + "/personal");
 	if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
 		QTextStream stream(&file);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		stream.setCodec("UTF-8");
+#else
+		stream.setEncoding(QStringConverter::Utf8);
+#endif
 		while (!stream.atEnd()) {
 			m_personal.append(stream.readLine());
 		}

@@ -17,6 +17,7 @@
  *
  ***********************************************************************/
 
+#include <QLocale>
 #include <QTime>
 #include <QTimer>
 #include <QString>
@@ -77,7 +78,9 @@ void TimeLabelPrivate::updateTimeOfDay()
     Q_Q(TimeLabel);
     
     QTime currentTime = QTime::currentTime();
-    q->setText(currentTime.toString(Qt::DefaultLocaleShortDate));
+    QLocale locale = QLocale::system();
+    QString timeText = locale.toString(currentTime, QLocale::ShortFormat);
+    q->setText(timeText);
 
     QTime nextTime = currentTime.addSecs(60);
     nextTime.setHMS(nextTime.hour(), nextTime.minute(), 0);

@@ -27,7 +27,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QListIterator>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStringList>
 #include <QTextCodec>
 
@@ -309,7 +309,7 @@ DictionaryProviderHunspell::DictionaryProviderHunspell()
 {
 	QStringList dictdirs = QDir::searchPaths("dict");
 #if !defined(Q_OS_MAC) && defined(Q_OS_UNIX)
-	QStringList xdg = QString(qgetenv("XDG_DATA_DIRS")).split(QChar(':'), QString::SkipEmptyParts);
+	QStringList xdg = QString(qgetenv("XDG_DATA_DIRS")).split(QChar(':'), Qt::SkipEmptyParts);
 	if (xdg.isEmpty()) {
 		xdg.append("/usr/local/share");
 		xdg.append("/usr/share");
@@ -338,9 +338,9 @@ QStringList DictionaryProviderHunspell::availableDictionaries() const
 		QDir dir(i.next());
 
 		QStringList dic_files = dir.entryList(QStringList() << "*.dic*", QDir::Files, QDir::Name | QDir::IgnoreCase);
-		dic_files.replaceInStrings(QRegExp("\\.dic.*"), "");
+		dic_files.replaceInStrings(QRegularExpression("\\.dic.*"), "");
 		QStringList aff_files = dir.entryList(QStringList() << "*.aff*", QDir::Files);
-		aff_files.replaceInStrings(QRegExp("\\.aff.*"), "");
+		aff_files.replaceInStrings(QRegularExpression("\\.aff.*"), "");
 
 		foreach (const QString& language, dic_files) {
 			if (aff_files.contains(language) && !result.contains(language)) {

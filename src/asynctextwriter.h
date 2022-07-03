@@ -20,14 +20,19 @@
 #ifndef ASYNCTEXTWRITER_H
 #define ASYNCTEXTWRITER_H
 
+#include <QtGlobal>
 #include <QObject>
 #include <QScopedPointer>
 #include <QString>
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QTextCodec>
+#else
+#include <QStringConverter>
+#endif
 
 namespace ghostwriter
 {
-
 /**
  * Writes document text asynchronously to a file.
  */
@@ -38,6 +43,14 @@ class AsyncTextWriter : public QObject
     Q_DECLARE_PRIVATE(AsyncTextWriter)
 
 public:
+    // typedef encoding/codec to simplify trasition to Qt 6 while still
+    // maintaining backward compatibility with Qt 5.
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    typedef QTextCodec* Encoding;
+#else
+    typedef QStringConverter::Encoding Encoding;
+#endif
+
     /**
      * Constructor with file path to which text will be written.
      */
@@ -60,16 +73,15 @@ public:
     void setFileName(const QString &fileName);
 
     /**
-     * Returns the codec.  If nullptr is returned, then the default
-     * codec for the locale is being used.
+     * Returns the encoding.
      */
-    QTextCodec * codec() const;
+    Encoding encoding() const;
 
     /**
-     * Sets the codec.  If nullptr is specified, this class will use the default
-     * codec for the locale.
+     * Sets the encoding.  The default encoding if none is
+     * set with this method is UTF-8.
      */
-    void setCodec(QTextCodec * codec);
+    void setEncoding(Encoding encoding);
 
     /**
      * Returns true if a write is currently in progress, false otherwise.

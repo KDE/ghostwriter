@@ -22,8 +22,8 @@
 
 #include <QScopedPointer>
 #include <QString>
-#include <QtWebEngineWidgets>
 #include <QWidget>
+#include <QtWebEngineWidgets>
 
 #include "exporter.h"
 #include "markdowndocument.h"

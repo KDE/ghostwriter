@@ -34,6 +34,7 @@
 #include <QPushButton>
 #include <QTextBlock>
 #include <QPlainTextEdit>
+#include <QStringRef>
 
 //-----------------------------------------------------------------------------
 

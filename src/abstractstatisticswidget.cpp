@@ -91,7 +91,7 @@ QLabel *AbstractStatisticsWidget::addStatisticLabel
 )
 {
     QHBoxLayout *layout = new QHBoxLayout();
-    layout->setMargin(0);
+    layout->setContentsMargins(0,0,0,0);
 
     QLabel *descriptionLabel = new QLabel(description);
 

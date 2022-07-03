@@ -27,6 +27,7 @@ class DictionaryRef;
 #include <QHash>
 #include <QObject>
 #include <QStringList>
+#include <QStringRef>
 
 class DictionaryManager : public QObject
 {

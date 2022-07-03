@@ -27,6 +27,12 @@
 
 #include "asynctextwriter.h"
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#define DEFAULT_STREAM_CODEC QTextCodec::codecForName("UTF-8")
+#else
+#define DEFAULT_STREAM_CODEC QStringConverter::Utf8;
+#endif
+
 namespace ghostwriter
 {
 class AsyncTextWriterPrivate
@@ -40,12 +46,11 @@ public:
 
     AsyncTextWriter *q_ptr;
     QString fileName;
-    QTextCodec *codec = nullptr;
+    AsyncTextWriter::Encoding encoding;
     QFutureWatcher<QString> *writeFutureWatcher = nullptr;
     bool writeInProgress = false;
 
-    void initialize(const QString &fileName,
-        QTextCodec *codec = nullptr);
+    void initialize(const QString &fileName);
 
     /*
     * Writes the given text to the given file path, returning a null
@@ -91,18 +96,25 @@ void AsyncTextWriter::setFileName(const QString &fileName)
     d->fileName = QFileInfo(fileName).absoluteFilePath();
 }
 
-QTextCodec * AsyncTextWriter::codec() const
-{
-    Q_D(const AsyncTextWriter);
-
-    return d->codec;
-}
-
-void AsyncTextWriter::setCodec(QTextCodec * codec)
+void AsyncTextWriter::setEncoding(AsyncTextWriter::Encoding encoding)
 {
     Q_D(AsyncTextWriter);
 
-    d->codec = codec;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    if (nullptr == encoding) {
+        d->encoding = DEFAULT_STREAM_CODEC;
+        return;
+    }
+#endif
+
+    d->encoding = encoding;
+}
+
+AsyncTextWriter::Encoding AsyncTextWriter::encoding() const
+{
+    Q_D(const AsyncTextWriter);
+
+    return d->encoding;
 }
 
 bool AsyncTextWriter::writeInProgress() const
@@ -156,13 +168,12 @@ bool AsyncTextWriter::write(const QString &text)
     return true;
 }
 
-void AsyncTextWriterPrivate::initialize(const QString &fileName,
-    QTextCodec *codec)
+void AsyncTextWriterPrivate::initialize(const QString &fileName)
 {
     Q_Q(AsyncTextWriter);
 
     this->fileName = QFileInfo(fileName).absoluteFilePath();
-    this->codec = codec;
+    this->encoding = DEFAULT_STREAM_CODEC;
     this->writeFutureWatcher = new QFutureWatcher<QString>(q);
 
     q->connect(this->writeFutureWatcher,
@@ -186,9 +197,11 @@ QString AsyncTextWriterPrivate::writeToDisk(const QString &text,
     // Write contents to disk.
     QTextStream stream(&file);
 
-    if (nullptr != codec) {
-        stream.setCodec(codec);
-    }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    stream.setCodec(encoding);
+#else
+    stream.setEncoding(encoding);
+#endif
 
     stream << text;
 

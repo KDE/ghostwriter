@@ -30,6 +30,7 @@
 #include <QList>
 #include <QPushButton>
 #include <QSettings>
+#include <QStandardPaths>
 #include <QString>
 #include <QUrl>
 #include <QVBoxLayout>

@@ -183,7 +183,12 @@ HtmlPreview::~HtmlPreview()
 
 void HtmlPreview::contextMenuEvent(QContextMenuEvent *event)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QMenu *menu = page()->createStandardContextMenu();
+#else
+    QMenu *menu = createStandardContextMenu();
+#endif
+
     menu->popup(event->globalPos());
 }
 

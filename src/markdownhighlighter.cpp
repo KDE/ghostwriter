@@ -26,6 +26,7 @@
 #include <QRegularExpression>
 #include <QStaticText>
 #include <QString>
+#include <QStringRef>
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
 #include <QTextDocument>
@@ -395,14 +396,7 @@ void MarkdownHighlighterPrivate::spellCheck(const QString &text)
         if (typingPaused || (cursorPosInBlock != (startIndex + length))) {
             QTextCharFormat spellingErrorFormat = q->format(startIndex);
             spellingErrorFormat.setUnderlineColor(colors.error);
-            spellingErrorFormat.setUnderlineStyle
-            (
-                (QTextCharFormat::UnderlineStyle)
-                QApplication::style()->styleHint
-                (
-                    QStyle::SH_SpellCheckUnderlineStyle
-                )
-            );
+            spellingErrorFormat.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
             q->setFormat(startIndex, length, spellingErrorFormat);
         }
@@ -856,7 +850,7 @@ void MarkdownHighlighterPrivate::highlightRefLinks(const int pos, const int leng
     QTextCharFormat format = q->format(pos);
     format.setForeground(colors.link);
 
-    for (int i = pos; i < (pos + length) && (i < q->currentBlock().text()); i++) {
+    for (int i = pos; i < (pos + length) && (i < q->currentBlock().text().size()); i++) {
         if (skipNext) {
             skipNext = false;
             continue;
