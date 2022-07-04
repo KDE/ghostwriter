@@ -1,5 +1,6 @@
 /***********************************************************************
  *
+ * Copyright (C) 2022 wereturtle
  * Copyright (C) 2009, 2010, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) 2014-2020 wereturtle
  *
@@ -18,9 +19,7 @@
  *
  ***********************************************************************/
 
-#include "spell_checker.h"
-
-#include "dictionary_ref.h"
+#include "spellchecker.h"
 
 #include <QAction>
 #include <QDialogButtonBox>
@@ -38,58 +37,49 @@
 #include <QTextEdit>
 #include <QSyntaxHighlighter>
 
-//-----------------------------------------------------------------------------
-
-void SpellChecker::checkDocument(QPlainTextEdit* document, QSyntaxHighlighter* spelling_highlighter, DictionaryRef& dictionary)
+namespace ghostwriter
 {
-    SpellChecker* checker = new SpellChecker(document, spelling_highlighter, dictionary);
-	checker->m_start_cursor = document->textCursor();
-	checker->m_cursor = checker->m_start_cursor;
+
+void SpellChecker::checkDocument(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary)
+{
+    SpellChecker *checker = new SpellChecker(document, spellingHighlighter, dictionary);
+	checker->m_startCursor = document->textCursor();
+	checker->m_cursor = checker->m_startCursor;
 	checker->m_cursor.movePosition(QTextCursor::StartOfBlock);
-	checker->m_loop_available = checker->m_start_cursor.block().previous().isValid();
+	checker->m_loopAvailable = checker->m_startCursor.block().previous().isValid();
 	checker->show();
     checker->check();
 }
 
-//-----------------------------------------------------------------------------
-
 void SpellChecker::reject()
 {
-    m_document->setTextCursor(m_start_cursor);
+    m_document->setTextCursor(m_startCursor);
 	QDialog::reject();
 }
 
-//-----------------------------------------------------------------------------
-
-void SpellChecker::suggestionChanged(QListWidgetItem* suggestion)
+void SpellChecker::suggestionChanged(QListWidgetItem *suggestion)
 {
 	if (suggestion) {
 		m_suggestion->setText(suggestion->text());
 	}
 }
 
-//-----------------------------------------------------------------------------
-
 void SpellChecker::add()
 {
-    m_dictionary.addToPersonal(m_word);
+    m_dictionary->addToPersonal(m_word);
 
-    if (nullptr != m_spelling_highlighter)
+    if (nullptr != m_spellingHighlighter)
     {
-        m_spelling_highlighter->rehighlight();
+        m_spellingHighlighter->rehighlight();
     }
 
 	ignore();
 }
 
-//-----------------------------------------------------------------------------
-
 void SpellChecker::ignore()
 {
 	check();
 }
-
-//-----------------------------------------------------------------------------
 
 void SpellChecker::ignoreAll()
 {
@@ -97,15 +87,11 @@ void SpellChecker::ignoreAll()
 	ignore();
 }
 
-//-----------------------------------------------------------------------------
-
 void SpellChecker::change()
 {
 	m_cursor.insertText(m_suggestion->text());
 	check();
 }
-
-//-----------------------------------------------------------------------------
 
 void SpellChecker::changeAll()
 {
@@ -125,16 +111,14 @@ void SpellChecker::changeAll()
 	check();
 }
 
-//-----------------------------------------------------------------------------
-
-SpellChecker::SpellChecker(QPlainTextEdit* document, QSyntaxHighlighter* spelling_highlighter, DictionaryRef& dictionary) :
+SpellChecker::SpellChecker(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary) :
 	QDialog(document->parentWidget(), Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint),
 	m_dictionary(dictionary),
 	m_document(document),
-    m_spelling_highlighter(spelling_highlighter),
-	m_checked_blocks(1),
-	m_total_blocks(document->document()->blockCount()),
-	m_loop_available(true)
+    m_spellingHighlighter(spellingHighlighter),
+	m_checkedBlocks(1),
+	m_totalBlocks(document->document()->blockCount()),
+	m_loopAvailable(true)
 {
 	setWindowTitle(tr("Check Spelling"));
 	setWindowModality(Qt::WindowModal);
@@ -148,92 +132,90 @@ SpellChecker::SpellChecker(QPlainTextEdit* document, QSyntaxHighlighter* spellin
 #else
     m_context->setTabStopDistance(50);
 #endif
-	QPushButton* add_button = new QPushButton(tr("&Add"), this);
-	add_button->setAutoDefault(false);
-	connect(add_button, SIGNAL(clicked()), this, SLOT(add()));
-	QPushButton* ignore_button = new QPushButton(tr("&Ignore"), this);
-	ignore_button->setAutoDefault(false);
-	connect(ignore_button, SIGNAL(clicked()), this, SLOT(ignore()));
-	QPushButton* ignore_all_button = new QPushButton(tr("I&gnore All"), this);
-	ignore_all_button->setAutoDefault(false);
-	connect(ignore_all_button, SIGNAL(clicked()), this, SLOT(ignoreAll()));
+	QPushButton *addButton = new QPushButton(tr("&Add"), this);
+	addButton->setAutoDefault(false);
+	connect(addButton, SIGNAL(clicked()), this, SLOT(add()));
+	QPushButton *ignoreButton = new QPushButton(tr("&Ignore"), this);
+	ignoreButton->setAutoDefault(false);
+	connect(ignoreButton, SIGNAL(clicked()), this, SLOT(ignore()));
+	QPushButton *ignoreAllButton = new QPushButton(tr("I&gnore All"), this);
+	ignoreAllButton->setAutoDefault(false);
+	connect(ignoreAllButton, SIGNAL(clicked()), this, SLOT(ignoreAll()));
 
 	m_suggestion = new QLineEdit(this);
-	QPushButton* change_button = new QPushButton(tr("&Change"), this);
-	change_button->setAutoDefault(false);
-	connect(change_button, SIGNAL(clicked()), this, SLOT(change()));
-	QPushButton* change_all_button = new QPushButton(tr("C&hange All"), this);
-	change_all_button->setAutoDefault(false);
-	connect(change_all_button, SIGNAL(clicked()), this, SLOT(changeAll()));
+	QPushButton *changeButton = new QPushButton(tr("&Change"), this);
+	changeButton->setAutoDefault(false);
+	connect(changeButton, SIGNAL(clicked()), this, SLOT(change()));
+	QPushButton *changeAllButton = new QPushButton(tr("C&hange All"), this);
+	changeAllButton->setAutoDefault(false);
+	connect(changeAllButton, SIGNAL(clicked()), this, SLOT(changeAll()));
 	m_suggestions = new QListWidget(this);
 	connect(m_suggestions, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(suggestionChanged(QListWidgetItem*)));
 
-	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
+	QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
 	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
 
 	// Lay out dialog
-	QGridLayout* layout = new QGridLayout(this);
+	QGridLayout *layout = new QGridLayout(this);
 	layout->setContentsMargins(12, 12, 12, 12);
 	layout->setSpacing(6);
 	layout->setColumnMinimumWidth(2, 6);
 
 	layout->addWidget(new QLabel(tr("Not in dictionary:"), this), 0, 0, 1, 2);
 	layout->addWidget(m_context, 1, 0, 3, 2);
-	layout->addWidget(add_button, 1, 3);
-	layout->addWidget(ignore_button, 2, 3);
-	layout->addWidget(ignore_all_button, 3, 3);
+	layout->addWidget(addButton, 1, 3);
+	layout->addWidget(ignoreButton, 2, 3);
+	layout->addWidget(ignoreAllButton, 3, 3);
 
 	layout->setRowMinimumHeight(4, 12);
 
 	layout->addWidget(new QLabel(tr("Change to:"), this), 5, 0);
 	layout->addWidget(m_suggestion, 5, 1);
 	layout->addWidget(m_suggestions, 6, 0, 1, 2);
-	layout->addWidget(change_button, 5, 3);
-	layout->addWidget(change_all_button, 6, 3, Qt::AlignTop);
+	layout->addWidget(changeButton, 5, 3);
+	layout->addWidget(changeAllButton, 6, 3, Qt::AlignTop);
 
 	layout->setRowMinimumHeight(7, 12);
 	layout->addWidget(buttons, 8, 3);
 }
 
-//-----------------------------------------------------------------------------
-
 void SpellChecker::check()
 {
 	setDisabled(true);
 
-	QProgressDialog wait_dialog(tr("Checking spelling..."), tr("Cancel"), 0, m_total_blocks, this);
-	wait_dialog.setWindowTitle(tr("Please wait"));
-	wait_dialog.setValue(0);
-	wait_dialog.setWindowModality(Qt::WindowModal);
+	QProgressDialog waitDialog(tr("Checking spelling..."), tr("Cancel"), 0, m_totalBlocks, this);
+	waitDialog.setWindowTitle(tr("Please wait"));
+	waitDialog.setValue(0);
+	waitDialog.setWindowModality(Qt::WindowModal);
 	bool canceled = false;
 
 	forever {
 		// Update wait dialog
-		wait_dialog.setValue(m_checked_blocks);
-		if (wait_dialog.wasCanceled()) {
+		waitDialog.setValue(m_checkedBlocks);
+		if (waitDialog.wasCanceled()) {
 			canceled = true;
 			break;
 		}
 
 		// Check current line
 		QTextBlock block = m_cursor.block();
-		QStringRef word =  m_dictionary.check(block.text(), m_cursor.position() - block.position());
+		QStringRef word =  m_dictionary->check(block.text(), m_cursor.position() - block.position());
 		if (word.isNull()) {
 			if (block.next().isValid()) {
                 m_cursor.movePosition(QTextCursor::NextBlock);
-				++m_checked_blocks;
-				if (m_checked_blocks < m_total_blocks) {
+				++m_checkedBlocks;
+				if (m_checkedBlocks < m_totalBlocks) {
 					continue;
 				} else {
 					break;
 				}
-			} else if (m_loop_available) {
-				wait_dialog.reset();
+			} else if (m_loopAvailable) {
+				waitDialog.reset();
 				if (QMessageBox::question(this, QString(), tr("Continue checking at beginning of file?"),
 						QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes) {
-					m_loop_available = false;
+					m_loopAvailable = false;
                     m_cursor.movePosition(QTextCursor::Start);
-					wait_dialog.setRange(0, m_total_blocks);
+					waitDialog.setRange(0, m_totalBlocks);
 					continue;
 				} else {
 					canceled = true;
@@ -250,7 +232,7 @@ void SpellChecker::check()
 		m_word = m_cursor.selectedText();
 
 		if (!m_ignored.contains(m_word)) {
-			wait_dialog.close();
+			waitDialog.close();
 			setEnabled(true);
 
 			// Show misspelled word in context
@@ -270,9 +252,9 @@ void SpellChecker::check()
 			// Show suggestions
 			m_suggestion->clear();
 			m_suggestions->clear();
-			QStringList words = m_dictionary.suggestions(m_word);
+			QStringList words = m_dictionary->suggestions(m_word);
 			if (!words.isEmpty()) {
-				foreach (const QString& word, words) {
+				for (const QString &word : words) {
 					m_suggestions->addItem(word);
 				}
 				m_suggestions->setCurrentRow(0);
@@ -286,11 +268,13 @@ void SpellChecker::check()
 	}
 
 	// Inform user of completed spell check
-	wait_dialog.close();
+	waitDialog.close();
+
 	if (!canceled) {
 		QMessageBox::information(this, QString(), tr("Spell check complete."));
 	}
+
 	reject();
 }
 
-//-----------------------------------------------------------------------------
+} // namespace ghostwriter

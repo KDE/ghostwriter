@@ -1,5 +1,6 @@
 /***********************************************************************
  *
+ * Copyright (C) 2022 wereturtle
  * Copyright (C) 2012, 2013 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,10 +18,10 @@
  *
  ***********************************************************************/
 
-#include "dictionary_provider_nsspellchecker.h"
+#include "nsspellcheckerprovider.h"
 
-#include "abstract_dictionary.h"
-#include "dictionary_manager.h"
+#include "dictionary.h"
+#include "dictionarymanager.h"
 
 #include <QStringList>
 #include <QVector>
@@ -30,8 +31,8 @@
 #import <Foundation/NSAutoreleasePool.h>
 #import <Foundation/NSString.h>
 
-//-----------------------------------------------------------------------------
-
+namespace ghostwriter
+{
 static NSArray* convertList(const QStringList& words)
 {
 	QVector<NSString*> strings;
@@ -43,46 +44,37 @@ static NSArray* convertList(const QStringList& words)
 	return array;
 }
 
-//-----------------------------------------------------------------------------
-
-namespace
-{
-
-class DictionaryNSSpellChecker : public AbstractDictionary
+class NSSpellCheckerDictionary : public Dictionary
 {
 public:
-	DictionaryNSSpellChecker(const QString& language);
-	~DictionaryNSSpellChecker();
+	NSSpellCheckerDictionary(const QString &language);
+	~NSSpellCheckerDictionary();
 
 	bool isValid() const
 	{
 		return true;
 	}
 
-	QStringRef check(const QString& string, int start_at) const;
-	QStringList suggestions(const QString& word) const;
+	QStringRef check(const QString &string, int start_at) const;
+	QStringList suggestions(const QString &word) const;
 
-	void addToPersonal(const QString& word);
-	void addToSession(const QStringList& words);
-	void removeFromSession(const QStringList& words);
+	void addToPersonal(const QString &word);
+	void addToSession(const QStringList &words);
+	void removeFromSession(const QStringList &words);
 
 private:
 	NSString* m_language;
 	NSInteger m_tag;
 };
 
-//-----------------------------------------------------------------------------
-
-DictionaryNSSpellChecker::DictionaryNSSpellChecker(const QString& language)
+NSSpellCheckerDictionary::NSSpellCheckerDictionary(const QString &language)
 {
 	m_language = [[NSString alloc] initWithCharacters:reinterpret_cast<const unichar*>(language.unicode()) length:language.length()];
 
 	m_tag = [NSSpellChecker uniqueSpellDocumentTag];
 }
 
-//-----------------------------------------------------------------------------
-
-DictionaryNSSpellChecker::~DictionaryNSSpellChecker()
+NSSpellCheckerDictionary::~NSSpellCheckerDictionary()
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
@@ -93,9 +85,7 @@ DictionaryNSSpellChecker::~DictionaryNSSpellChecker()
 	[pool release];
 }
 
-//-----------------------------------------------------------------------------
-
-QStringRef DictionaryNSSpellChecker::check(const QString& string, int start_at) const
+QStringRef NSSpellCheckerDictionary::check(const QString &string, int startAt) const
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
@@ -104,7 +94,7 @@ QStringRef DictionaryNSSpellChecker::check(const QString& string, int start_at) 
 	QStringRef misspelled;
 
 	NSRange range = [[NSSpellChecker sharedSpellChecker] checkSpellingOfString:nsstring
-		startingAt:start_at
+		startingAt:startAt
 		language:m_language
 		wrap:NO
 		inSpellDocumentWithTag:m_tag
@@ -119,9 +109,7 @@ QStringRef DictionaryNSSpellChecker::check(const QString& string, int start_at) 
 	return misspelled;
 }
 
-//-----------------------------------------------------------------------------
-
-QStringList DictionaryNSSpellChecker::suggestions(const QString& word) const
+QStringList NSSpellCheckerDictionary::suggestions(const QString &word) const
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
@@ -150,16 +138,12 @@ QStringList DictionaryNSSpellChecker::suggestions(const QString& word) const
 	return suggestions;
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryNSSpellChecker::addToPersonal(const QString& word)
+void NSSpellCheckerDictionary::addToPersonal(const QString &word)
 {
 	DictionaryManager::instance().add(word);
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryNSSpellChecker::addToSession(const QStringList& words)
+void NSSpellCheckerDictionary::addToSession(const QStringList &words)
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
@@ -168,11 +152,9 @@ void DictionaryNSSpellChecker::addToSession(const QStringList& words)
 	[pool release];
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryNSSpellChecker::removeFromSession(const QStringList& words)
+void NSSpellCheckerDictionary::removeFromSession(const QStringList &words)
 {
-	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
 	QStringList session;
 	NSArray* array = [[NSSpellChecker sharedSpellChecker] ignoredWordsInSpellDocumentWithTag:m_tag];
@@ -180,7 +162,7 @@ void DictionaryNSSpellChecker::removeFromSession(const QStringList& words)
 		for (unsigned int i = 0; i < [array count]; ++i) {
 			session += QString::fromUtf8([[array objectAtIndex: i] UTF8String]);
 		}
-		foreach (const QString& word, words) {
+		for (const QString &word : words) {
 			session.removeAll(word);
 		}
 	}
@@ -190,11 +172,7 @@ void DictionaryNSSpellChecker::removeFromSession(const QStringList& words)
 	[pool release];
 }
 
-}
-
-//-----------------------------------------------------------------------------
-
-QStringList DictionaryProviderNSSpellChecker::availableDictionaries() const
+QStringList NSSpellCheckerProvider::availableDictionaries() const
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
@@ -211,27 +189,21 @@ QStringList DictionaryProviderNSSpellChecker::availableDictionaries() const
 	return languages;
 }
 
-//-----------------------------------------------------------------------------
-
-AbstractDictionary* DictionaryProviderNSSpellChecker::requestDictionary(const QString& language) const
+Dictionary* NSSpellCheckerProvider::requestDictionary(const QString &language) const
 {
-	return new DictionaryNSSpellChecker(language);
+	return new NSSpellCheckerDictionary(language);
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryProviderNSSpellChecker::setIgnoreNumbers(bool ignore)
+void NSSpellCheckerProvider::setIgnoreNumbers(bool ignore)
 {
 	Q_UNUSED(ignore)
 	// Can't tell NSSpellChecker to ignore words with numbers?
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryProviderNSSpellChecker::setIgnoreUppercase(bool ignore)
+void NSSpellCheckerProvider::setIgnoreUppercase(bool ignore)
 {
 	Q_UNUSED(ignore)
 	// Can't tell NSSpellChecker to ignore words in all uppercase?
 }
 
-//-----------------------------------------------------------------------------
+} // namespace ghostwriter

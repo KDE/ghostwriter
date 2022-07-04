@@ -30,7 +30,7 @@
 #include <QStringList>
 
 #include "appsettings.h"
-#include "dictionary_manager.h"
+#include "dictionarymanager.h"
 #include "exporterfactory.h"
 
 #define GW_FAVORITE_STATISTIC_KEY "Session/favoriteStatistic"
@@ -833,11 +833,11 @@ AppSettings::AppSettings()
     d->dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
 
     // Determine locale for dictionary language (for use in spell checking).
-    QString language = DictionaryManager::instance().availableDictionary(d->dictionaryLanguage);
+    QString language = DictionaryManager::instance()->availableDictionary(d->dictionaryLanguage);
 
     // If we have an available dictionary, then set the default dictionary language.
     if (!language.isNull() && !language.isEmpty()) {
-        DictionaryManager::instance().setDefaultLanguage(language);
+        DictionaryManager::instance()->setDefaultLanguage(language);
     }
 
     d->locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();

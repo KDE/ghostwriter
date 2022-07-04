@@ -1,5 +1,6 @@
 /***********************************************************************
  *
+ * Copyright (C) 2022 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) 2014-2020 wereturtle
  *
@@ -18,10 +19,7 @@
  *
  ***********************************************************************/
 
-#include "dictionary_provider_hunspell.h"
-
-#include "abstract_dictionary.h"
-#include "dictionary_manager.h"
+#include <optional>
 
 #include <QDir>
 #include <QFile>
@@ -29,25 +27,35 @@
 #include <QListIterator>
 #include <QRegularExpression>
 #include <QStringList>
-#include <QTextCodec>
+#include <QStringRef>
+#include <QtGlobal>
 
-#ifdef _WIN32
-#include "3rdparty/hunspell/hunspell.hxx"
+#include "hunspellprovider.h"
+
+#include "dictionary.h"
+#include "dictionarymanager.h"
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    #include <QTextCodec>
 #else
-#include <hunspell.hxx>
+    #include <QStringConverter>
+    #include <QStringEncoder>
+    #include <QStringDecoder>
 #endif
 
-//-----------------------------------------------------------------------------
+#ifdef _WIN32
+    #include "3rdparty/hunspell/hunspell.hxx"
+#else
+    #include <hunspell.hxx>
+#endif
 
-static bool f_ignore_numbers = false;
-static bool f_ignore_uppercase = true;
+static bool f_ignoreNumbers = false;
+static bool f_ignoreUppercase = true;
 
-//-----------------------------------------------------------------------------
-
-namespace
+namespace ghostwriter
 {
 
-class DictionaryHunspell : public AbstractDictionary
+class DictionaryHunspell : public Dictionary
 {
 public:
 	DictionaryHunspell(const QString& language);
@@ -58,23 +66,32 @@ public:
 		return m_dictionary;
 	}
 
-	QStringRef check(const QString& string, int start_at) const;
-	QStringList suggestions(const QString& word) const;
+	QStringRef check(const QString &string, int startAt) const;
+	QStringList suggestions(const QString &word) const;
 
-	void addToPersonal(const QString& word);
-	void addToSession(const QStringList& words);
-	void removeFromSession(const QStringList& words);
+	void addToPersonal(const QString &word);
+	void addToSession(const QStringList &words);
+	void removeFromSession(const QStringList &words);
 
 private:
-	Hunspell* m_dictionary;
-	QTextCodec* m_codec;
+	Hunspell *m_dictionary;
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+	QTextCodec *m_codec;
+#else
+    QStringEncoder m_encoder;
+    QStringDecoder m_decoder;
+#endif
 };
 
-//-----------------------------------------------------------------------------
-
-DictionaryHunspell::DictionaryHunspell(const QString& language) :
-	m_dictionary(0),
-	m_codec(0)
+DictionaryHunspell::DictionaryHunspell(const QString &language) :
+	m_dictionary(nullptr),
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+	m_codec(nullptr)
+#else
+    m_encoder(QStringConverter::Utf8),
+    m_decoder(QStringConverter::Utf8)
+#endif
 {
 	// Find dictionary files
     QString aff = QFileInfo("dict:" + language + ".aff").canonicalFilePath();
@@ -95,26 +112,36 @@ DictionaryHunspell::DictionaryHunspell(const QString& language) :
 #ifndef Q_WIN32
 	m_dictionary = new Hunspell(QFile::encodeName(aff).constData(), QFile::encodeName(dic).constData());
 #else
-	m_dictionary = new Hunspell( ("\\\\?\\" + QDir::toNativeSeparators(aff)).toUtf8().constData(),
+	m_dictionary = new Hunspell( ("\\\\?\\" + QDir::toNativeSeparators(aff)).toUtf8().toStdString(),
 			("\\\\?\\" + QDir::toNativeSeparators(dic)).toUtf8().constData() );
 #endif
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	m_codec = QTextCodec::codecForName(m_dictionary->get_dic_encoding());
-	if (!m_codec) {
-		delete m_dictionary;
-		m_dictionary = 0;
-	}
-}
 
-//-----------------------------------------------------------------------------
+    if (!m_codec) {
+        delete m_dictionary;
+        m_dictionary = nullptr;
+    }
+#else
+    std::optional<QStringConverter::Encoding> encoding =
+        QStringConverter::encodingForName(m_dictionary->get_dic_encoding());
+
+    if (!encoding.has_value()) {
+        delete m_dictionary;
+        m_dictionary = nullptr;
+    } else {
+        m_encoder = QStringEncoder(encoding.value());
+        m_decoder = QStringDecoder(encoding.value());
+    }
+#endif
+}
 
 DictionaryHunspell::~DictionaryHunspell()
 {
 	delete m_dictionary;
 }
 
-//-----------------------------------------------------------------------------
-
-QStringRef DictionaryHunspell::check(const QString& string, int start_at) const
+QStringRef DictionaryHunspell::check(const QString &string, int startAt) const
 {
     // Incorporated ghostwriter's word splitting algorithm into the original
     // FocusWriter algorithm to ensure hyphenated words are counted as one
@@ -124,106 +151,90 @@ QStringRef DictionaryHunspell::check(const QString& string, int start_at) const
     int separatorCount = 0;
     int wordLen = 0;
     bool isNumber = false;
-    bool isUppercase = f_ignore_uppercase;
+    bool isUppercase = f_ignoreUppercase;
     bool isWord = false;
     int index = -1;
 
-    for (int i = start_at; i < string.length(); i++)
-    {
+    for (int i = startAt; i < string.length(); i++) {
         QChar c = string.at(i);
 
-        if (c.isLetterOrNumber() || c.isMark())
-        {
+        if (c.isLetterOrNumber() || c.isMark()) {
             inWord = true;
             separatorCount = 0;
             wordLen++;
 
-            if (index < 0)
-            {
+            if (index < 0) {
                 index = i;
             }
 
-            if (c.isNumber())
-            {
-                isNumber = f_ignore_numbers;
+            if (c.isNumber()) {
+                isNumber = f_ignoreNumbers;
             }
-            else if (c.isLower())
-            {
+            else if (c.isLower()) {
                 isUppercase = false;
             }
         }
-        else if (c.isSpace() && inWord)
-        {
+        else if (c.isSpace() && inWord) {
             inWord = false;
             isWord = true;
 
-            if (separatorCount > 0)
-            {
+            if (separatorCount > 0) {
                 wordLen--;
             }
         }
-        else
-        {
+        else {
             // This is to handle things like double dashes (`--`)
             // that separate words, while still counting hyphenated
             // words as a single word.
             //
             separatorCount++;
 
-            if (inWord)
-            {
+            if (inWord) {
                 // Only count dashes (`-`), periods (`.`) and single
                 // quotation marks (`'`) as separators that can be
                 // used inside a single word.
                 //
-                if
-                (
-                    (1 == separatorCount) &&
-                    (QChar('-') != c) &&
-                    (QChar('.') != c) &&
-                    (QChar('\'') != c)
-                )
-                {
+                if ((1 == separatorCount)
+                        && (QChar('-') != c)
+                        && (QChar('.') != c)
+                        && (QChar('\'') != c)) {
                     separatorCount = 0;
                     inWord = false;
                     isWord = true;
                 }
-                else if (separatorCount > 1)
-                {
+                else if (separatorCount > 1) {
                     separatorCount = 0;
                     inWord = false;
                     isWord = true;
                     wordLen--;
                 }
-                else
-                {
+                else {
                     wordLen++;
                 }
             }
         }
 
-        if (inWord && ((string.length() - 1) == i))
-        {
+        if (inWord && ((string.length() - 1) == i)) {
             isWord = true;
 
-            if (separatorCount > 0)
-            {
+            if (separatorCount > 0) {
                 wordLen--;
             }
         }
 
-        if (isWord && (index >= 0))
-        {
-            if (!isUppercase && !isNumber)
-            {
+        if (isWord && (index >= 0)) {
+            if (!isUppercase && !isNumber) {
                 QStringRef check(&string, index, wordLen);
                 QString word = check.toString();
 
                 // Replace any fancy single quotes with a "normal" single quote.
                 word.replace(QChar(0x2019), QLatin1Char('\''));
 
-                if (!m_dictionary->spell(m_codec->fromUnicode(word).constData()))
-                {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+                if (!m_dictionary->spell(m_codec->fromUnicode(word).toStdString())) {
+#else
+                if (!m_dictionary->spell(m_encoder.encode(word).toStdString())) {
+#endif
                     return check;
                 }
             }
@@ -234,16 +245,14 @@ QStringRef DictionaryHunspell::check(const QString& string, int start_at) const
             isWord = false;
             inWord = false;
             isNumber = false;
-            isUppercase = f_ignore_uppercase;
+            isUppercase = f_ignoreUppercase;
         }
     }
 
 	return QStringRef();
 }
 
-//-----------------------------------------------------------------------------
-
-QStringList DictionaryHunspell::suggestions(const QString& word) const
+QStringList DictionaryHunspell::suggestions(const QString &word) const
 {
 	QStringList result;
 	QString check = word;
@@ -251,61 +260,58 @@ QStringList DictionaryHunspell::suggestions(const QString& word) const
     // Replace any fancy single quotes with a "normal" single quote.
 	check.replace(QChar(0x2019), QLatin1Char('\''));
 
-	char** suggestions = 0;
-	int count = m_dictionary->suggest(&suggestions, m_codec->fromUnicode(check).constData());
-	if (suggestions != 0) {
-		for (int i = 0; i < count; ++i) {
-            QString word = m_codec->toUnicode(suggestions[i]);
+	std::vector<std::string> suggestions;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+	suggestions = m_dictionary->suggest(m_codec->fromUnicode(check).toStdString());
+#else
+    suggestions = m_dictionary->suggest(m_encoder.encode(check).toStdString());
+#endif
+	if (suggestions.size() != 0) {
+        for (const std::string &suggestion : suggestions) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            QString word = m_codec->toUnicode(suggestion.c_str());
+#else
+            QString word = m_decoder.decode(suggestions.c_str());
+#endif
 			result.append(word);
 		}
-		m_dictionary->free_list(&suggestions, count);
 	}
 	return result;
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryHunspell::addToPersonal(const QString& word)
+void DictionaryHunspell::addToPersonal(const QString &word)
 {
     // Replace any fancy single quotes with a "normal" single quote.
     QString sanitized = word;
     sanitized.replace(QChar(0x2019), QLatin1Char('\''));
 
-    DictionaryManager::instance().add(sanitized);
+    DictionaryManager::instance()->add(sanitized);
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryHunspell::addToSession(const QStringList& words)
+void DictionaryHunspell::addToSession(const QStringList &words)
 {
-	foreach (const QString& word, words) {
-#ifdef _WIN32
-		m_dictionary->add(m_codec->fromUnicode(word).constData());
-#else
+	for (const QString &word : words) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		m_dictionary->add(m_codec->fromUnicode(word).toStdString());
-#endif
-	}
-}
-
-//-----------------------------------------------------------------------------
-
-void DictionaryHunspell::removeFromSession(const QStringList& words)
-{
-	foreach (const QString& word, words) {
-#ifdef _WIN32
-		m_dictionary->remove(m_codec->fromUnicode(word).constData());
 #else
+		m_dictionary->add(m_encoder.encode(word).toStdString());
+#endif
+	}
+}
+
+void DictionaryHunspell::removeFromSession(const QStringList &words)
+{
+	for (const QString &word : words) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		m_dictionary->remove(m_codec->fromUnicode(word).toStdString());
+#else
+		m_dictionary->remove(m_encoder.encode(word).toStdString());
 #endif
 
 	}
 }
 
-}
-
-//-----------------------------------------------------------------------------
-
-DictionaryProviderHunspell::DictionaryProviderHunspell()
+HunspellProvider::HunspellProvider()
 {
 	QStringList dictdirs = QDir::searchPaths("dict");
 #if !defined(Q_OS_MAC) && defined(Q_OS_UNIX)
@@ -315,8 +321,8 @@ DictionaryProviderHunspell::DictionaryProviderHunspell()
 		xdg.append("/usr/share");
 	}
 	QStringList subdirs = QStringList() << "/hunspell" << "/myspell/dicts" << "/myspell" << "/mozilla-dicts";
-	foreach (const QString& subdir, subdirs) {
-		foreach (const QString& dir, xdg) {
+	for (const QString &subdir : subdirs) {
+		for (const QString &dir : xdg) {
 			QString path = dir + subdir;
 			if (!dictdirs.contains(path)) {
 				dictdirs.append(path);
@@ -327,9 +333,7 @@ DictionaryProviderHunspell::DictionaryProviderHunspell()
 	QDir::setSearchPaths("dict", dictdirs);
 }
 
-//-----------------------------------------------------------------------------
-
-QStringList DictionaryProviderHunspell::availableDictionaries() const
+QStringList HunspellProvider::availableDictionaries() const
 {
 	QStringList result;
 	QStringList locations = QDir::searchPaths("dict");
@@ -337,13 +341,13 @@ QStringList DictionaryProviderHunspell::availableDictionaries() const
 	while (i.hasNext()) {
 		QDir dir(i.next());
 
-		QStringList dic_files = dir.entryList(QStringList() << "*.dic*", QDir::Files, QDir::Name | QDir::IgnoreCase);
-		dic_files.replaceInStrings(QRegularExpression("\\.dic.*"), "");
-		QStringList aff_files = dir.entryList(QStringList() << "*.aff*", QDir::Files);
-		aff_files.replaceInStrings(QRegularExpression("\\.aff.*"), "");
+		QStringList dicFiles = dir.entryList(QStringList() << "*.dic*", QDir::Files, QDir::Name | QDir::IgnoreCase);
+		dicFiles.replaceInStrings(QRegularExpression("\\.dic.*"), "");
+		QStringList affFiles = dir.entryList(QStringList() << "*.aff*", QDir::Files);
+		affFiles.replaceInStrings(QRegularExpression("\\.aff.*"), "");
 
-		foreach (const QString& language, dic_files) {
-			if (aff_files.contains(language) && !result.contains(language)) {
+		for (const QString &language : dicFiles) {
+			if (affFiles.contains(language) && !result.contains(language)) {
 				result.append(language);
 			}
 		}
@@ -351,25 +355,19 @@ QStringList DictionaryProviderHunspell::availableDictionaries() const
 	return result;
 }
 
-//-----------------------------------------------------------------------------
-
-AbstractDictionary* DictionaryProviderHunspell::requestDictionary(const QString& language) const
+Dictionary * HunspellProvider::requestDictionary(const QString &language) const
 {
 	return new DictionaryHunspell(language);
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryProviderHunspell::setIgnoreNumbers(bool ignore)
+void HunspellProvider::setIgnoreNumbers(bool ignore)
 {
-	f_ignore_numbers = ignore;
+	f_ignoreNumbers = ignore;
 }
 
-//-----------------------------------------------------------------------------
-
-void DictionaryProviderHunspell::setIgnoreUppercase(bool ignore)
+void HunspellProvider::setIgnoreUppercase(bool ignore)
 {
-	f_ignore_uppercase = ignore;
+	f_ignoreUppercase = ignore;
 }
 
-//-----------------------------------------------------------------------------
+} // namespace ghostwriter

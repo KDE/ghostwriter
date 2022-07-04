@@ -6,22 +6,19 @@ HEADERS += \
     $$PWD/affixmgr.hxx \
     $$PWD/atypes.hxx \
     $$PWD/baseaffix.hxx \
-    $$PWD/config.h \
     $$PWD/csutil.hxx \
-    $$PWD/dictmgr.hxx \
     $$PWD/filemgr.hxx \
     $$PWD/hashmgr.hxx \
     $$PWD/htypes.hxx \
     $$PWD/hunspell.h \
     $$PWD/hunspell.hxx \
     $$PWD/hunvisapi.h \
-    $$PWD/hunvisapi.h.in \
     $$PWD/hunzip.hxx \
     $$PWD/langnum.hxx \
-    $$PWD/license.hunspell \
     $$PWD/phonet.hxx \
     $$PWD/replist.hxx \
     $$PWD/suggestmgr.hxx \
+    $$PWD/utf_info.hxx \
     $$PWD/w_char.hxx
 
 SOURCES += \

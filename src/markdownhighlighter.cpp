@@ -40,8 +40,7 @@
 
 #include "markdownhighlighter.h"
 #include "markdownstates.h"
-#include "spelling/dictionary_ref.h"
-#include "spelling/dictionary_manager.h"
+#include "spelling/dictionarymanager.h"
 
 namespace ghostwriter
 {
@@ -53,7 +52,7 @@ class MarkdownHighlighterPrivate
 public:
     MarkdownHighlighterPrivate(MarkdownHighlighter *highlighter) :
         q_ptr(highlighter),
-        dictionary(DictionaryManager::instance().requestDictionary()),
+        dictionary(DictionaryManager::instance()->requestDictionary()),
         inBlockquote(false),
         spellCheckEnabled(false),
         typingPaused(true),
@@ -72,7 +71,7 @@ public:
     ColorScheme colors;
     QTextBlock currentLine;
     QTextCharFormat defaultFormat;
-    DictionaryRef dictionary;
+    Dictionary *dictionary;
     MarkdownEditor *editor;
     QRegularExpression heading1SetextRegex;
     QRegularExpression heading2SetextRegex;
@@ -253,7 +252,7 @@ void MarkdownHighlighter::highlightBlock(const QString &text)
     }
 }
 
-void MarkdownHighlighter::setDictionary(const DictionaryRef &dictionary)
+void MarkdownHighlighter::setDictionary(Dictionary *dictionary)
 {
     Q_D(MarkdownHighlighter);
 
@@ -387,7 +386,7 @@ void MarkdownHighlighterPrivate::spellCheck(const QString &text)
         cursorPosInBlock = cursorPosition - cursorPosBlock.position();
     }
 
-    QStringRef misspelledWord = dictionary.check(text, 0);
+    QStringRef misspelledWord = dictionary->check(text, 0);
 
     while (!misspelledWord.isNull()) {
         int startIndex = misspelledWord.position();
@@ -402,7 +401,7 @@ void MarkdownHighlighterPrivate::spellCheck(const QString &text)
         }
 
         startIndex += length;
-        misspelledWord = dictionary.check(text, startIndex);
+        misspelledWord = dictionary->check(text, startIndex);
     }
 }
 

@@ -56,9 +56,8 @@
 #include "markdowneditor.h"
 #include "markdownhighlighter.h"
 #include "markdownstates.h"
-#include "spelling/dictionary_manager.h"
-#include "spelling/dictionary_ref.h"
-#include "spelling/spell_checker.h"
+#include "spelling/dictionarymanager.h"
+#include "spelling/spellchecker.h"
 
 #define GW_TEXT_FADE_FACTOR 1.5
 
@@ -71,7 +70,7 @@ class MarkdownEditorPrivate
 public:
     MarkdownEditorPrivate(MarkdownEditor *q_ptr)
         : q_ptr(q_ptr),
-          dictionary(DictionaryManager::instance().requestDictionary())
+          dictionary(DictionaryManager::instance()->requestDictionary())
     {
         ;
     }
@@ -96,7 +95,7 @@ public:
     QAction *checkSpellingAction;
     QString wordUnderMouse;
     QTextCursor cursorForWord;
-    DictionaryRef dictionary;
+    Dictionary *dictionary;
     bool spellCheckEnabled;
     bool autoMatchEnabled;
     bool bulletPointCyclingEnabled;
@@ -483,7 +482,7 @@ void MarkdownEditor::setDictionary(const QString &language)
 {
     Q_D(MarkdownEditor);
     
-    d->dictionary = DictionaryManager::instance().requestDictionary(language);
+    d->dictionary = DictionaryManager::instance()->requestDictionary(language);
     d->highlighter->setDictionary(d->dictionary);
 }
 
@@ -864,7 +863,7 @@ bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
         );
 
         d->wordUnderMouse = d->cursorForWord.selectedText();
-        QStringList suggestions = d->dictionary.suggestions(d->wordUnderMouse);
+        QStringList suggestions = d->dictionary->suggestions(d->wordUnderMouse);
         QMenu *popupMenu = createStandardContextMenu();
         QAction *firstAction = popupMenu->actions().first();
 
@@ -1492,7 +1491,7 @@ void MarkdownEditor::suggestSpelling(QAction *action)
     
     if (action == d->addWordToDictionaryAction) {
         this->setTextCursor(d->cursorForWord);
-        d->dictionary.addToPersonal(d->wordUnderMouse);
+        d->dictionary->addToPersonal(d->wordUnderMouse);
         d->highlighter->rehighlight();
     } else if (action == d->checkSpellingAction) {
         this->setTextCursor(d->cursorForWord);

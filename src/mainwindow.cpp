@@ -55,7 +55,7 @@
 #include "simplefontdialog.h"
 #include "stylesheetbuilder.h"
 #include "themeselectiondialog.h"
-#include "spelling/dictionary_manager.h"
+#include "spelling/dictionarymanager.h"
 
 namespace ghostwriter
 {
@@ -480,8 +480,8 @@ void MainWindow::quitApplication()
         windowSettings.setValue(GW_SPLITTER_GEOMETRY_KEY, splitter->saveState());
         windowSettings.sync();
 
-        DictionaryManager::instance().addProviders();
-        DictionaryManager::instance().setDefaultLanguage(language);
+        DictionaryManager::instance()->addProviders();
+        DictionaryManager::instance()->setDefaultLanguage(language);
 
         this->editor->document()->disconnect();
         this->editor->disconnect();

@@ -32,7 +32,7 @@
 #include <QVBoxLayout>
 
 #include "appsettings.h"
-#include "dictionary_manager.h"
+#include "dictionarymanager.h"
 #include "localedialog.h"
 #include "messageboxhelper.h"
 #include "preferencesdialog.h"
@@ -450,7 +450,7 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
 
     QComboBox *dictionaryComboBox = new QComboBox();
 
-    QStringList languages = DictionaryManager::instance().availableDictionaries();
+    QStringList languages = DictionaryManager::instance()->availableDictionaries();
     languages.sort();
 
     int currentDictionaryIndex = 0;
@@ -472,7 +472,7 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
     [this, dictionaryComboBox](int index) {
         QString language = dictionaryComboBox->itemData(index).toString();
-        DictionaryManager::instance().setDefaultLanguage(language);
+        DictionaryManager::instance()->setDefaultLanguage(language);
         appSettings->setDictionaryLanguage(language);
     }
     );

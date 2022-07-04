@@ -1,7 +1,7 @@
 /***********************************************************************
  *
+ * Copyright (C) 2022 wereturtle
  * Copyright (C) 2009, 2010, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
- * Copyright (C) 2014-2020 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,33 +18,35 @@
  *
  ***********************************************************************/
 
-#ifndef SPELL_H
-#define SPELL_H
+#ifndef SPELLCHECKER_H
+#define SPELLCHECKER_H
 
-class DictionaryRef;
-
+#include <QAction>
 #include <QDialog>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QPlainTextEdit>
+#include <QSyntaxHighlighter>
 #include <QTextCursor>
-class QAction;
-class QLineEdit;
-class QListWidget;
-class QListWidgetItem;
-class QPlainTextEdit;
-class QTextEdit;
-class QSyntaxHighlighter;
+#include <QTextEdit>
 
+#include "dictionary.h"
+
+namespace ghostwriter
+{
 class SpellChecker : public QDialog
 {
 	Q_OBJECT
 
 public:
-    static void checkDocument(QPlainTextEdit* document, QSyntaxHighlighter* spelling_highlighter, DictionaryRef& dictionary);
+    static void checkDocument(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary);
 
 public slots:
 	virtual void reject();
 
 private slots:
-	void suggestionChanged(QListWidgetItem* suggestion);
+	void suggestionChanged(QListWidgetItem *suggestion);
 	void add();
 	void ignore();
 	void ignoreAll();
@@ -52,26 +54,27 @@ private slots:
 	void changeAll();
 
 private:
-    SpellChecker(QPlainTextEdit* document, QSyntaxHighlighter* spelling_highlighter, DictionaryRef& dictionary);
+    SpellChecker(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary);
 	void check();
 
 private:
-	DictionaryRef& m_dictionary;
+	Dictionary *m_dictionary;
 
-    QPlainTextEdit* m_document;
-    QSyntaxHighlighter* m_spelling_highlighter;
-    QTextEdit* m_context;
-	QLineEdit* m_suggestion;
-	QListWidget* m_suggestions;
+    QPlainTextEdit *m_document;
+    QSyntaxHighlighter *m_spellingHighlighter;
+    QTextEdit *m_context;
+	QLineEdit *m_suggestion;
+	QListWidget *m_suggestions;
 	QTextCursor m_cursor;
-	QTextCursor m_start_cursor;
+	QTextCursor m_startCursor;
 
-	int m_checked_blocks;
-	int m_total_blocks;
-	bool m_loop_available;
+	int m_checkedBlocks;
+	int m_totalBlocks;
+	bool m_loopAvailable;
 
 	QString m_word;
 	QStringList m_ignored;
 };
+} // namespace ghostwriter
 
 #endif

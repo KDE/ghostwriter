@@ -22,7 +22,7 @@
 
 #include <QSyntaxHighlighter>
 
-#include "spelling/dictionary_ref.h"
+#include "spelling/dictionary.h"
 #include "markdowndocument.h"
 #include "markdowneditor.h"
 
@@ -64,7 +64,7 @@ public:
     /**
      * Sets the dictionary to use for live spell checking.
      */
-    void setDictionary(const DictionaryRef &dictionary);
+    void setDictionary(Dictionary *dictionary);
 
     /**
      * Increases the font size by one point.

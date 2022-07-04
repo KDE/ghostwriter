@@ -1,5 +1,6 @@
 /***********************************************************************
  *
+ * Copyright (C) 2022 wereturtle
  * Copyright (C) 2009, 2010, 2011, 2012, 2013 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,25 +18,28 @@
  *
  ***********************************************************************/
 
-#ifndef ABSTRACT_DICTIONARY_H
-#define ABSTRACT_DICTIONARY_H
+#ifndef DICTIONARY_H
+#define DICTIONARY_H
 
 #include <QString>
 #include <QStringList>
 #include <QStringRef>
 
-class AbstractDictionary
+namespace ghostwriter
+{
+class Dictionary
 {
 public:
-	virtual ~AbstractDictionary() { }
+	Dictionary() { }
+    virtual ~Dictionary() { }
 
 	virtual bool isValid() const = 0;
-	virtual QStringRef check(const QString& string, int start_at) const = 0;
-	virtual QStringList suggestions(const QString& word) const = 0;
+	virtual QStringRef check(const QString &string, int startAt) const = 0;
+	virtual QStringList suggestions(const QString &word) const = 0;
 
-	virtual void addToPersonal(const QString& word) = 0;
-	virtual void addToSession(const QStringList& words) = 0;
-	virtual void removeFromSession(const QStringList& words) = 0;
+	virtual void addToPersonal(const QString &word) = 0;
+	virtual void addToSession(const QStringList &words) = 0;
+	virtual void removeFromSession(const QStringList &words) = 0;
 };
-
+} // namespace ghostwriter
 #endif

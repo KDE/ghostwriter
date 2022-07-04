@@ -1,5 +1,6 @@
 /***********************************************************************
  *
+ * Copyright (C) 2022 wereturtle
  * Copyright (C) 2013 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,25 +18,33 @@
  *
  ***********************************************************************/
 
-#ifndef DICTIONARY_PROVIDER_VOIKKO_H
-#define DICTIONARY_PROVIDER_VOIKKO_H
+#ifndef HUNSPELL_PROVIDER_H
+#define HUNSPELL_PROVIDER_H
 
-#include "abstract_dictionary_provider.h"
+#include "dictionaryprovider.h"
 
 #include <QString>
 #include <QStringList>
+#include <QStringRef>
 
-class DictionaryProviderVoikko : public AbstractDictionaryProvider
+namespace ghostwriter
+{
+class HunspellProvider : public DictionaryProvider
 {
 public:
-	DictionaryProviderVoikko();
+	HunspellProvider();
 
-	bool isValid() const;
+	bool isValid() const
+	{
+		return true;
+	}
+
 	QStringList availableDictionaries() const;
-	AbstractDictionary* requestDictionary(const QString& language) const;
+	Dictionary *requestDictionary(const QString &language) const;
 
 	void setIgnoreNumbers(bool ignore);
 	void setIgnoreUppercase(bool ignore);
 };
+} // namespace ghostwriter
 
 #endif

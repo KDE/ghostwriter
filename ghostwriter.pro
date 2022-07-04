@@ -72,22 +72,23 @@ macx {
 
     LIBS += -framework AppKit
 
-    HEADERS += src/spelling/dictionary_provider_nsspellchecker.h
+    HEADERS += src/spelling/nsspellcheckerprovider.h
 
-    OBJECTIVE_SOURCES += src/spelling/dictionary_provider_nsspellchecker.mm
+    OBJECTIVE_SOURCES += src/spelling/nsspellcheckerprovider.mm
 
     INCLUDEPATH += /opt/homebrew/Cellar/qt/6.2.2/lib/QtCore5Compat.framework/Versions/A/Headers
 } else:win32 {
     include(3rdparty/hunspell/hunspell.pri)
-    HEADERS += src/spelling/dictionary_provider_hunspell.h
-    SOURCES += src/spelling/dictionary_provider_hunspell.cpp
+    INCLUDEPATH += 3rdparty/hunspell
+    HEADERS += src/spelling/hunspellprovider.h
+    SOURCES += src/spelling/hunspellprovider.cpp
 
 } else:unix {
     CONFIG += link_pkgconfig
     PKGCONFIG += hunspell
 
-    HEADERS += src/spelling/dictionary_provider_hunspell.h
-    SOURCES += src/spelling/dictionary_provider_hunspell.cpp
+    HEADERS += src/spelling/hunspellprovider.h
+    SOURCES += src/spelling/hunspellprovider.cpp
 }
 
 INCLUDEPATH += src src/spelling
@@ -140,11 +141,10 @@ HEADERS += \
     src/timelabel.h \
     src/findreplace.h \
     src/color_button.h \
-    src/spelling/abstract_dictionary.h \
-    src/spelling/abstract_dictionary_provider.h \
-    src/spelling/dictionary_manager.h \
-    src/spelling/dictionary_ref.h \
-    src/spelling/spell_checker.h
+    src/spelling/dictionary.h \
+    src/spelling/dictionaryprovider.h \
+    src/spelling/dictionarymanager.h \
+    src/spelling/spellchecker.h
 
 SOURCES += \
     src/abstractstatisticswidget.cpp \
@@ -191,8 +191,8 @@ SOURCES += \
     src/timelabel.cpp \
     src/color_button.cpp \
     src/findreplace.cpp \
-    src/spelling/dictionary_manager.cpp \
-    src/spelling/spell_checker.cpp
+    src/spelling/dictionarymanager.cpp \
+    src/spelling/spellchecker.cpp
 
 # Generate translations
 TRANSLATIONS = $$files(translations/ghostwriter_*.ts)
