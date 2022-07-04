@@ -65,7 +65,7 @@ public:
 
 	bool isValid() const
 	{
-		return m_validDictionary;
+		return (nullptr != m_dictionary);
 	}
 
 	QStringRef check(const QString &string, int startAt) const;
@@ -84,16 +84,16 @@ private:
     QStringEncoder *m_encoder;
     QStringDecoder *m_decoder;
 #endif
-
-    bool m_validDictionary;
 };
 
 DictionaryHunspell::DictionaryHunspell(const QString &language) :
 	m_dictionary(nullptr),
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-	m_codec(nullptr),
+	m_codec(nullptr)
+#else
+    m_encoder(nullptr),
+    m_decoder(nullptr)
 #endif
-    m_validDictionary(true)
 {
 	// Find dictionary files
     QString aff = QFileInfo("dict:" + language + ".aff").canonicalFilePath();
@@ -121,26 +121,41 @@ DictionaryHunspell::DictionaryHunspell(const QString &language) :
 	m_codec = QTextCodec::codecForName(m_dictionary->get_dic_encoding());
 
     if (!m_codec) {
-        m_validDictionary = false;
+        delete m_dictionary;
+        m_dictionary = nullptr;
     }
 #else
     std::optional<QStringConverter::Encoding> encoding =
         QStringConverter::encodingForName(m_dictionary->get_dic_encoding());
 
     if (!encoding.has_value()) {
-        m_validDictionary = false;
+        delete m_dictionary;
+        m_dictionary = nullptr;
+    } else {
         m_encoder = new QStringEncoder(encoding.value());
         m_decoder = new QStringDecoder(encoding.value());
-    } else {
-        m_encoder = new QStringEncoder(QStringConverter::Utf8);
-        m_decoder = new QStringDecoder(QStringConverter::Utf8);
     }
 #endif
 }
 
 DictionaryHunspell::~DictionaryHunspell()
 {
-	delete m_dictionary;
+    if (nullptr != m_dictionary) {
+	   delete m_dictionary;
+       m_dictionary = nullptr;
+    }
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    if (nullptr != m_encoder) {
+        delete m_encoder;
+        m_encoder = nullptr;
+    }
+
+    if (nullptr != m_decoder) {
+        delete m_decoder;
+        m_decoder = nullptr;
+    }
+#endif
 }
 
 QStringRef DictionaryHunspell::check(const QString &string, int startAt) const
