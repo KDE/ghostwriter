@@ -19,7 +19,9 @@
  *
  ***********************************************************************/
 
+#include <string.h>
 #include <optional>
+#include <vector>
 
 #include <QDir>
 #include <QFile>
@@ -58,12 +60,12 @@ namespace ghostwriter
 class DictionaryHunspell : public Dictionary
 {
 public:
-	DictionaryHunspell(const QString& language);
+	DictionaryHunspell(const QString &language);
 	~DictionaryHunspell();
 
 	bool isValid() const
 	{
-		return m_dictionary;
+		return m_validDictionary;
 	}
 
 	QStringRef check(const QString &string, int startAt) const;
@@ -79,19 +81,19 @@ private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	QTextCodec *m_codec;
 #else
-    QStringEncoder m_encoder;
-    QStringDecoder m_decoder;
+    QStringEncoder *m_encoder;
+    QStringDecoder *m_decoder;
 #endif
+
+    bool m_validDictionary;
 };
 
 DictionaryHunspell::DictionaryHunspell(const QString &language) :
 	m_dictionary(nullptr),
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-	m_codec(nullptr)
-#else
-    m_encoder(QStringConverter::Utf8),
-    m_decoder(QStringConverter::Utf8)
+	m_codec(nullptr),
 #endif
+    m_validDictionary(true)
 {
 	// Find dictionary files
     QString aff = QFileInfo("dict:" + language + ".aff").canonicalFilePath();
@@ -119,19 +121,19 @@ DictionaryHunspell::DictionaryHunspell(const QString &language) :
 	m_codec = QTextCodec::codecForName(m_dictionary->get_dic_encoding());
 
     if (!m_codec) {
-        delete m_dictionary;
-        m_dictionary = nullptr;
+        m_validDictionary = false;
     }
 #else
     std::optional<QStringConverter::Encoding> encoding =
         QStringConverter::encodingForName(m_dictionary->get_dic_encoding());
 
     if (!encoding.has_value()) {
-        delete m_dictionary;
-        m_dictionary = nullptr;
+        m_validDictionary = false;
+        m_encoder = new QStringEncoder(encoding.value());
+        m_decoder = new QStringDecoder(encoding.value());
     } else {
-        m_encoder = QStringEncoder(encoding.value());
-        m_decoder = QStringDecoder(encoding.value());
+        m_encoder = new QStringEncoder(QStringConverter::Utf8);
+        m_decoder = new QStringDecoder(QStringConverter::Utf8);
     }
 #endif
 }
@@ -232,11 +234,14 @@ QStringRef DictionaryHunspell::check(const QString &string, int startAt) const
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
                 if (!m_dictionary->spell(m_codec->fromUnicode(word).toStdString())) {
-#else
-                if (!m_dictionary->spell(m_encoder.encode(word).toStdString())) {
-#endif
                     return check;
                 }
+#else
+                QByteArray encoded = m_encoder->encode(word);
+                if (!m_dictionary->spell(encoded.toStdString())) {
+                    return check;
+                }
+#endif
             }
 
             index = -1;
@@ -261,21 +266,23 @@ QStringList DictionaryHunspell::suggestions(const QString &word) const
 	check.replace(QChar(0x2019), QLatin1Char('\''));
 
 	std::vector<std::string> suggestions;
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	suggestions = m_dictionary->suggest(m_codec->fromUnicode(check).toStdString());
 #else
-    suggestions = m_dictionary->suggest(m_encoder.encode(check).toStdString());
+    QByteArray encoded = m_encoder->encode(word);
+    suggestions = m_dictionary->suggest(encoded.toStdString());
 #endif
-	if (suggestions.size() != 0) {
-        for (const std::string &suggestion : suggestions) {
+
+    for (const std::string &suggestion : suggestions) {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            QString word = m_codec->toUnicode(suggestion.c_str());
+        QString word = m_codec->toUnicode(suggestion.c_str());
 #else
-            QString word = m_decoder.decode(suggestions.c_str());
+        QString word = m_decoder->decode(suggestion.c_str());
 #endif
-			result.append(word);
-		}
+		result.append(word);
 	}
+
 	return result;
 }
 
@@ -294,7 +301,8 @@ void DictionaryHunspell::addToSession(const QStringList &words)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		m_dictionary->add(m_codec->fromUnicode(word).toStdString());
 #else
-		m_dictionary->add(m_encoder.encode(word).toStdString());
+        QByteArray encoded = m_encoder->encode(word);
+		m_dictionary->add(encoded.toStdString());
 #endif
 	}
 }
@@ -305,9 +313,9 @@ void DictionaryHunspell::removeFromSession(const QStringList &words)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 		m_dictionary->remove(m_codec->fromUnicode(word).toStdString());
 #else
-		m_dictionary->remove(m_encoder.encode(word).toStdString());
+        QByteArray encoded = m_encoder->encode(word);
+		m_dictionary->remove(encoded.toStdString());
 #endif
-
 	}
 }
 
