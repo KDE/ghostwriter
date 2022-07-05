@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,6 @@
 
 #include <QSyntaxHighlighter>
 
-#include "spelling/dictionary.h"
 #include "markdowndocument.h"
 #include "markdowneditor.h"
 
@@ -62,11 +61,6 @@ public:
     void highlightBlock(const QString &text);
 
     /**
-     * Sets the dictionary to use for live spell checking.
-     */
-    void setDictionary(Dictionary *dictionary);
-
-    /**
      * Increases the font size by one point.
      */
     void increaseFontSize();
@@ -101,11 +95,6 @@ public:
      */
     void setFont(const QString &fontFamily, const double fontSize);
 
-    /**
-     * Sets whether live spell checking is enabled.
-     */
-    void setSpellCheckEnabled(const bool enabled);
-
 signals:
     /**
      * FOR INTERNAL USE ONLY
@@ -120,33 +109,6 @@ signals:
      * so that recursion isn't used.
      */
     void highlightBlockAtPosition(int position);
-
-public slots:
-    /**
-     * Signalled by a text editor when the user has resumed typing.
-     * This signal is used to ensure spell checking is not performed
-     * for the current word the cursor is on while the user is still
-     * typing.
-     */
-    void onTypingResumed();
-
-    /**
-     * Signalled by a text editor when the user has ceased typing.
-     * This signal is used to ensure spell checking is performed
-     * for the current word the cursor is on after the user has
-     * stopped typing.
-     */
-    void onTypingPaused();
-
-    /**
-     * Signalled by a text editor when the user changes the text
-     * cursor position.  This signal is used to ensure spell
-     * checking is performed for the previous line in which the
-     * text cursor was positioned before the user changed the text
-     * position, in case the last word the user was typing was not
-     * yet spell checked.
-     */
-    void onCursorPositionChanged();
 
 private slots:
     /*

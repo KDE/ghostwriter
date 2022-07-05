@@ -56,6 +56,7 @@
 #include "stylesheetbuilder.h"
 #include "themeselectiondialog.h"
 #include "spelling/dictionarymanager.h"
+#include "spelling/spellcheckdecorator.h"
 
 namespace ghostwriter
 {
@@ -102,11 +103,17 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     editor->setPlainText("");
     editor->setEditorWidth((EditorWidth) appSettings->editorWidth());
     editor->setEditorCorners((InterfaceStyle) appSettings->interfaceStyle());
-    editor->setSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
     editor->setItalicizeBlockquotes(appSettings->italicizeBlockquotes());
     editor->setTabulationWidth(appSettings->tabWidth());
     editor->setInsertSpacesForTabs(appSettings->insertSpacesForTabsEnabled());
-    connect(editor, SIGNAL(fontSizeChanged(int)), this, SLOT(onFontSizeChanged(int)));
+    spelling = new SpellCheckDecorator(editor);
+    spelling->setSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
+
+    connect(editor,
+        &MarkdownEditor::fontSizeChanged,
+        this,
+        &MainWindow::onFontSizeChanged
+    );
     this->setFocusProxy(editor);
 
     // We need to set an empty style for the editor's scrollbar in order for the
@@ -236,8 +243,8 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(hideMenuBarInFullScreenChanged(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
     connect(appSettings, SIGNAL(fileHistoryChanged(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
     connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
-    connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), editor, SLOT(setDictionary(QString)));
-    connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), editor, SLOT(setSpellCheckEnabled(bool)));
+    connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), spelling, SLOT(setDictionary(QString)));
+    connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), spelling, SLOT(setSpellCheckEnabled(bool)));
     connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
     connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
@@ -252,10 +259,10 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     // If we have an available dictionary, then set up spell checking.
     if (!language.isNull() && !language.isEmpty()) {
-        editor->setDictionary(language);
-        editor->setSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
+        spelling->setDictionary(language);
+        spelling->setSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
     } else {
-        editor->setSpellCheckEnabled(false);
+        spelling->setSpellCheckEnabled(false);
     }
 
     this->connect
@@ -1037,7 +1044,7 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(createWindowAction(tr("Find &Next"), findReplace, SLOT(findNext()), QKeySequence::FindNext));
     editMenu->addAction(createWindowAction(tr("Find &Previous"), findReplace, SLOT(findPrevious()), QKeySequence::FindPrevious));
     editMenu->addSeparator();
-    editMenu->addAction(createWindowAction(tr("&Spell check"), editor, SLOT(runSpellChecker())));
+    editMenu->addAction(createWindowAction(tr("&Spell check"), spelling, SLOT(runSpellCheck())));
 
     QMenu *formatMenu = this->menuBar()->addMenu(tr("For&mat"));
     formatMenu->addAction(createWidgetAction(tr("&Bold"), editor, SLOT(bold()), QKeySequence::Bold));

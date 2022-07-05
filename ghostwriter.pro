@@ -144,7 +144,8 @@ HEADERS += \
     src/spelling/dictionary.h \
     src/spelling/dictionaryprovider.h \
     src/spelling/dictionarymanager.h \
-    src/spelling/spellchecker.h
+    src/spelling/spellchecker.h \
+    src/spelling/spellcheckdecorator.h
 
 SOURCES += \
     src/abstractstatisticswidget.cpp \
@@ -192,7 +193,8 @@ SOURCES += \
     src/color_button.cpp \
     src/findreplace.cpp \
     src/spelling/dictionarymanager.cpp \
-    src/spelling/spellchecker.cpp
+    src/spelling/spellchecker.cpp \
+    src/spelling/spellcheckdecorator.cpp
 
 # Generate translations
 TRANSLATIONS = $$files(translations/ghostwriter_*.ts)

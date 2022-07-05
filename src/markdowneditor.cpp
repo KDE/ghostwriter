@@ -29,7 +29,6 @@
 #include <QFontMetricsF>
 #include <QGuiApplication>
 #include <QHeaderView>
-#include <QMenu>
 #include <QMimeData>
 #include <QPainter>
 #include <QPainterPath>
@@ -38,7 +37,6 @@
 #include <QScrollBar>
 #include <QString>
 #include <QTextBoundaryFinder>
-#include <QTextStream>
 #include <QTimer>
 #include <QUrl>
 
@@ -56,8 +54,6 @@
 #include "markdowneditor.h"
 #include "markdownhighlighter.h"
 #include "markdownstates.h"
-#include "spelling/dictionarymanager.h"
-#include "spelling/spellchecker.h"
 
 #define GW_TEXT_FADE_FACTOR 1.5
 
@@ -69,8 +65,7 @@ class MarkdownEditorPrivate
 
 public:
     MarkdownEditorPrivate(MarkdownEditor *q_ptr)
-        : q_ptr(q_ptr),
-          dictionary(DictionaryManager::instance()->requestDictionary())
+        : q_ptr(q_ptr)
     {
         ;
     }
@@ -91,15 +86,8 @@ public:
     MarkdownDocument *textDocument;
     MarkdownHighlighter *highlighter;
     QGridLayout *preferredLayout;
-    QAction *addWordToDictionaryAction;
-    QAction *checkSpellingAction;
-    QString wordUnderMouse;
-    QTextCursor cursorForWord;
-    Dictionary *dictionary;
-    bool spellCheckEnabled;
     bool autoMatchEnabled;
     bool bulletPointCyclingEnabled;
-    QList<QAction *> spellingActions;
     bool hemingwayModeEnabled;
     FocusMode focusMode;
     QBrush fadeColor;
@@ -216,9 +204,6 @@ MarkdownEditor::MarkdownEditor
 
     this->setCenterOnScroll(true);
     this->ensureCursorVisible();
-    d->spellCheckEnabled = false;
-    this->installEventFilter(this);
-    this->viewport()->installEventFilter(this);
     d->hemingwayModeEnabled = false;
     d->focusMode = FocusModeDisabled;
     d->insertSpacesForTabs = false;
@@ -258,8 +243,6 @@ MarkdownEditor::MarkdownEditor
     connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
 
     d->highlighter = new MarkdownHighlighter(this, colors);
-    d->addWordToDictionaryAction = new QAction(tr("Add word to dictionary"), this);
-    d->checkSpellingAction = new QAction(tr("Check spelling..."), this);
 
     d->typingPausedSignalSent = true;
     d->typingHasPaused = true;
@@ -305,6 +288,13 @@ MarkdownEditor::MarkdownEditor
 MarkdownEditor::~MarkdownEditor()
 {
     ;
+}
+
+
+QSyntaxHighlighter *MarkdownEditor::highlighter() const
+{
+    Q_D(const MarkdownEditor);
+    return d->highlighter;
 }
 
 void MarkdownEditor::paintEvent(QPaintEvent *event)
@@ -476,14 +466,6 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         painter.fillRect(r, QBrush(d->cursorColor));
         painter.end();
     }
-}
-
-void MarkdownEditor::setDictionary(const QString &language)
-{
-    Q_D(MarkdownEditor);
-    
-    d->dictionary = DictionaryManager::instance()->requestDictionary(language);
-    d->highlighter->setDictionary(d->dictionary);
 }
 
 QLayout *MarkdownEditor::preferredLayout()
@@ -783,151 +765,28 @@ void MarkdownEditor::keyPressEvent(QKeyEvent *e)
     }
 }
 
-bool MarkdownEditor::eventFilter(QObject *watched, QEvent *event)
+void MarkdownEditor::mouseDoubleClickEvent(QMouseEvent *e)
 {
     Q_D(MarkdownEditor);
-    
-    if (event->type() == QEvent::MouseButtonPress) {
-        d->mouseButtonDown = true;
-    } else if (event->type() == QEvent::MouseButtonRelease) {
-        d->mouseButtonDown = false;
-    } else if (event->type() == QEvent::MouseButtonDblClick) {
-        d->mouseButtonDown = true;
-    }
 
-    if (event->type() != QEvent::ContextMenu || !d->spellCheckEnabled || this->isReadOnly()) {
-        return QPlainTextEdit::eventFilter(watched, event);
-    } else {
-        // Check spelling of text block under mouse
-        QContextMenuEvent *contextEvent = static_cast<QContextMenuEvent *>(event);
+    d->mouseButtonDown = true;
+    QPlainTextEdit::mouseDoubleClickEvent(e);
+}
 
-        // If the context menu event was triggered by pressing the menu key,
-        // use the current text cursor rather than the event position to get
-        // a cursor position, since the event position is the mouse position
-        // rather than the text cursor position.
-        //
-        if (QContextMenuEvent::Keyboard == contextEvent->reason()) {
-            d->cursorForWord = this->textCursor();
-        }
-        // Else process as mouse event.
-        //
-        else {
-            d->cursorForWord = cursorForPosition(contextEvent->pos());
-        }
+void MarkdownEditor::mousePressEvent(QMouseEvent *e)
+{
+    Q_D(MarkdownEditor);
 
-        // Get the formatting for the cursor position under the mouse,
-        // and see if it has the spell check error underline style.
-        //
-        bool wordHasSpellingError = false;
-        int blockPosition = d->cursorForWord.positionInBlock();
-        QVector<QTextLayout::FormatRange> formatList =
-            d->cursorForWord.block().layout()->formats();
-        int mispelledWordStartPos = 0;
-        int mispelledWordLength = 0;
+    d->mouseButtonDown = true;
+    QPlainTextEdit::mousePressEvent(e);
+}
 
-        for (int i = 0; i < formatList.length(); i++) {
-            QTextLayout::FormatRange formatRange = formatList[i];
+void MarkdownEditor::mouseReleaseEvent(QMouseEvent *e)
+{
+    Q_D(MarkdownEditor);
 
-            if
-            (
-                (blockPosition >= formatRange.start)
-                && (blockPosition <= (formatRange.start + formatRange.length))
-                && (formatRange.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline)
-            ) {
-                mispelledWordStartPos = formatRange.start;
-                mispelledWordLength = formatRange.length;
-                wordHasSpellingError = true;
-                break;
-            }
-        }
-
-        // The word under the mouse is spelled correctly, so use the default
-        // processing for the context menu and return.
-        //
-        if (!wordHasSpellingError) {
-            return QPlainTextEdit::eventFilter(watched, event);
-        }
-
-        // Select the misspelled word.
-        d->cursorForWord.movePosition
-        (
-            QTextCursor::PreviousCharacter,
-            QTextCursor::MoveAnchor,
-            blockPosition - mispelledWordStartPos
-        );
-        d->cursorForWord.movePosition
-        (
-            QTextCursor::NextCharacter,
-            QTextCursor::KeepAnchor,
-            mispelledWordLength
-        );
-
-        d->wordUnderMouse = d->cursorForWord.selectedText();
-        QStringList suggestions = d->dictionary->suggestions(d->wordUnderMouse);
-        QMenu *popupMenu = createStandardContextMenu();
-        QAction *firstAction = popupMenu->actions().first();
-
-        d->spellingActions.clear();
-
-        if (!suggestions.empty()) {
-            for (int i = 0; i < suggestions.size(); i++) {
-                QAction *suggestionAction = new QAction(suggestions[i], this);
-
-                // Need the following line because KDE Plasma 5 will insert a hidden ampersand
-                // into the menu text as a keyboard accelerator.  Go off of the data in the
-                // QAction rather than the text to avoid this.
-                //
-                suggestionAction->setData(suggestions[i]);
-
-                d->spellingActions.append(suggestionAction);
-                popupMenu->insertAction(firstAction, suggestionAction);
-            }
-        } else {
-            QAction *noSuggestionsAction =
-                new QAction(tr("No spelling suggestions found"), this);
-            noSuggestionsAction->setEnabled(false);
-            d->spellingActions.append(noSuggestionsAction);
-            popupMenu->insertAction(firstAction, noSuggestionsAction);
-        }
-
-        popupMenu->insertSeparator(firstAction);
-        popupMenu->insertAction(firstAction, d->addWordToDictionaryAction);
-        popupMenu->insertSeparator(firstAction);
-        popupMenu->insertAction(firstAction, d->checkSpellingAction);
-        popupMenu->insertSeparator(firstAction);
-
-        // Show menu
-        connect(popupMenu, SIGNAL(triggered(QAction *)), this, SLOT(suggestSpelling(QAction *)));
-
-        QPoint menuPos;
-
-        // If event was triggered by a key press, use the text cursor
-        // coordinates to display the popup menu.
-        //
-        if (QContextMenuEvent::Keyboard == contextEvent->reason()) {
-            QRect cr = this->cursorRect();
-            menuPos.setX(cr.x());
-            menuPos.setY(cr.y() + (cr.height() / 2));
-            menuPos = viewport()->mapToGlobal(menuPos);
-        }
-        // Else use the mouse coordinates from the context menu event.
-        //
-        else {
-            menuPos = viewport()->mapToGlobal(contextEvent->pos());
-        }
-
-        popupMenu->exec(menuPos);
-
-        delete popupMenu;
-
-        for (int i = 0; i < d->spellingActions.size(); i++) {
-            delete d->spellingActions[i];
-        }
-
-        d->spellingActions.clear();
-
-        return true;
-    }
+    d->mouseButtonDown = false;
+    QPlainTextEdit::mouseReleaseEvent(e);
 }
 
 void MarkdownEditor::wheelEvent(QWheelEvent *e)
@@ -1444,25 +1303,6 @@ void MarkdownEditor::setEditorCorners(InterfaceStyle corners)
     d->editorCorners = corners;
 }
 
-void MarkdownEditor::runSpellChecker()
-{
-    Q_D(MarkdownEditor);
-    
-    if (d->spellCheckEnabled) {
-        SpellChecker::checkDocument(this, d->highlighter, d->dictionary);
-    } else {
-        SpellChecker::checkDocument(this, nullptr, d->dictionary);
-    }
-}
-
-void MarkdownEditor::setSpellCheckEnabled(const bool enabled)
-{
-    Q_D(MarkdownEditor);
-    
-    d->spellCheckEnabled = enabled;
-    d->highlighter->setSpellCheckEnabled(enabled);
-}
-
 void MarkdownEditor::increaseFontSize()
 {
     int fontSize = this->font().pointSize() + 1;
@@ -1483,22 +1323,6 @@ void MarkdownEditor::decreaseFontSize()
 
     setFont(this->font().family(), fontSize);
     emit fontSizeChanged(fontSize);
-}
-
-void MarkdownEditor::suggestSpelling(QAction *action)
-{
-    Q_D(MarkdownEditor);
-    
-    if (action == d->addWordToDictionaryAction) {
-        this->setTextCursor(d->cursorForWord);
-        d->dictionary->addToPersonal(d->wordUnderMouse);
-        d->highlighter->rehighlight();
-    } else if (action == d->checkSpellingAction) {
-        this->setTextCursor(d->cursorForWord);
-        SpellChecker::checkDocument(this, d->highlighter, d->dictionary);
-    } else if (d->spellingActions.contains(action)) {
-        d->cursorForWord.insertText(action->data().toString());
-    }
 }
 
 void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRemoved)
@@ -1679,14 +1503,6 @@ void MarkdownEditor::checkIfTypingPausedScaled()
     d->scaledTypingHasPaused = true;
 }
 
-void MarkdownEditor::spellCheckFinished(int result)
-{
-    Q_UNUSED(result)
-    Q_D(MarkdownEditor);
-    
-    d->highlighter->rehighlight();
-}
-
 void MarkdownEditor::onCursorPositionChanged()
 {
     Q_D(MarkdownEditor);
@@ -1696,12 +1512,9 @@ void MarkdownEditor::onCursorPositionChanged()
         QRect viewport = this->viewport()->rect();
         int bottom = viewport.bottom() - this->fontMetrics().height();
 
-        if
-        (
-            (d->focusMode != FocusModeDisabled) ||
-            (cursor.bottom() >= bottom) ||
-            (cursor.top() <= viewport.top())
-        ) {
+        if ((d->focusMode != FocusModeDisabled)
+                || (cursor.bottom() >= bottom)
+                || (cursor.top() <= viewport.top())) {
             centerCursor();
         }
     }

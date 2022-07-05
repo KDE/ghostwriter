@@ -42,6 +42,7 @@
 #include "theme.h"
 #include "themerepository.h"
 #include "timelabel.h"
+#include "spelling/spellcheckdecorator.h"
 
 #define MAX_RECENT_FILES 10
 
@@ -102,6 +103,7 @@ private slots:
 private:
     QtAwesome *awesome;
     MarkdownEditor *editor;
+    SpellCheckDecorator *spelling;
     FindReplace* findReplace;
     QSplitter *previewSplitter;
     QSplitter *splitter;

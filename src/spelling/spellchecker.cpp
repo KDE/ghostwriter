@@ -68,8 +68,7 @@ void SpellChecker::add()
 {
     m_dictionary->addToPersonal(m_word);
 
-    if (nullptr != m_spellingHighlighter)
-    {
+    if (nullptr != m_spellingHighlighter) {
         m_spellingHighlighter->rehighlight();
     }
 

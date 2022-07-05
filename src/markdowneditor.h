@@ -20,6 +20,7 @@
 #ifndef MARKDOWN_EDITOR_H
 #define MARKDOWN_EDITOR_H
 
+#include <QSyntaxHighlighter>
 #include <QPlainTextEdit>
 #include <QScopedPointer>
 
@@ -30,7 +31,7 @@
 namespace ghostwriter
 {
 /**
- * Markdown editor having special shortcut key handing and live spell checking.
+ * Markdown editor having special shortcut key handing and syntax highlighting.
  */
 class MarkdownEditorPrivate;
 class MarkdownEditor : public QPlainTextEdit
@@ -54,6 +55,8 @@ public:
      */
     virtual ~MarkdownEditor();
 
+    QSyntaxHighlighter *highlighter() const;
+
     /**
      * Draws the block quote and code block backgrounds.
      *
@@ -64,11 +67,6 @@ public:
      * cursor color via the "color" style sheet property.
      */
     void paintEvent(QPaintEvent *event);
-
-    /**
-     * Sets the dictionary language to use for spell checking.
-     */
-    Q_SLOT void setDictionary(const QString &language);
 
     /**
      * This editor has a preferred layout that is used to center the text
@@ -135,7 +133,9 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent *e);
     void dropEvent(QDropEvent *e);
     void keyPressEvent(QKeyEvent *e);
-    bool eventFilter(QObject *watched, QEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *e);
+    void mousePressEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
     void wheelEvent(QWheelEvent *e);
 
 signals:
@@ -342,17 +342,6 @@ public slots:
     void setEditorCorners(InterfaceStyle corners);
 
     /**
-     * Runs the spell checker over the entire document for the
-     * live spell checking.
-     */
-    void runSpellChecker();
-
-    /**
-     * Sets whether live spell checking is enabled.
-     */
-    void setSpellCheckEnabled(const bool enabled);
-
-    /**
      * Increases the font size by 1 pt.
      */
     void increaseFontSize();
@@ -363,13 +352,11 @@ public slots:
     void decreaseFontSize();
 
 protected slots:
-    void suggestSpelling(QAction *action);
     void onContentsChanged(int position, int charsAdded, int charsRemoved);
     void onSelectionChanged();
     void focusText();
     void checkIfTypingPaused();
     void checkIfTypingPausedScaled();
-    void spellCheckFinished(int result);
     void onCursorPositionChanged();
 
 private:
