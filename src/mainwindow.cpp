@@ -39,6 +39,7 @@
 #include <QSizePolicy>
 #include <QStatusBar>
 #include <QTemporaryFile>
+#include <QTextDocumentFragment>
 
 #include "3rdparty/QtAwesome/QtAwesome.h"
 

@@ -58,8 +58,9 @@ public:
     * method is intended to be run in a separate thread from the main
     * Qt event loop, and should thus never interact with any widgets.
     */
-    QString writeToDisk(const QString &text,
-        const QString &fileName) const;
+    static QString writeToDisk(const QString &text,
+        const QString &fileName,
+        AsyncTextWriter::Encoding encoding);
 
     /*
     * Handles any errors or tidying up after an asynchronous save operation.
@@ -153,10 +154,10 @@ bool AsyncTextWriter::write(const QString &text)
     QFuture<QString> future =
         QtConcurrent::run
         (
-            d,
             &AsyncTextWriterPrivate::writeToDisk,
             text,
-            d->fileName
+            d->fileName,
+            d->encoding
         );
 
     d->writeFutureWatcher->setFuture(future);
@@ -185,7 +186,8 @@ void AsyncTextWriterPrivate::initialize(const QString &fileName)
 }
 
 QString AsyncTextWriterPrivate::writeToDisk(const QString &text,
-    const QString &fileName) const
+    const QString &fileName,
+    AsyncTextWriter::Encoding encoding)
 {
     QSaveFile file(fileName);
     file.setDirectWriteFallback(true);

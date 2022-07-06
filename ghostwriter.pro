@@ -30,10 +30,9 @@ isEqual(QT_MAJOR_VERSION, 5) : lessThan(QT_MINOR_VERSION, 8) {
 
 TEMPLATE = app
 
-QT += widgets concurrent svg webchannel gui
+QT += widgets concurrent svg webchannel gui webenginewidgets
 
-greaterThan(QT_MAJOR_VERSION,5): QT += core5compat
-lessThan(QT_MAJOR_VERSION,6): QT += webenginewidgets
+equals(QT_MAJOR_VERSION,6): QT += core5compat
 
 #CONFIG += debug
 CONFIG += warn_on

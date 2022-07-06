@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
  *
  ***********************************************************************/
 
+#include <QFutureWatcher>
+#include <QMenu>
 #include <QVariant>
 #include <QFile>
 #include <QTextStream>
@@ -28,6 +30,11 @@
 #include <QtConcurrentRun>
 #include <QFuture>
 #include <QWebChannel>
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QWebEngineProfile>
+#include <QWebEngineSettings>
+#endif
 
 #include "exporter.h"
 #include "htmlpreview.h"
@@ -81,7 +88,7 @@ public:
     */
     void setHtmlContent(const QString &html);
 
-    QString exportToHtml(const QString &text, Exporter *exporter) const;
+    static QString exportToHtml(const QString &text, Exporter *exporter);
 };
 
 HtmlPreview::HtmlPreview
@@ -216,7 +223,6 @@ void HtmlPreview::updatePreview()
                 QFuture<QString> future =
                     QtConcurrent::run
                     (
-                        d,
                         &HtmlPreviewPrivate::exportToHtml,
                         d->document->toPlainText(),
                         d->exporter
@@ -314,7 +320,7 @@ QString HtmlPreviewPrivate::exportToHtml
 (
     const QString &text,
     Exporter *exporter
-) const
+)
 {
     QString html;
 

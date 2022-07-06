@@ -748,7 +748,11 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     // what the user is opening by default.  Enable autodetection
     // of of UTF-16 or UTF-32 BOM in case the file isn't UTF-8 encoded.
     //
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     inStream.setCodec("UTF-8");
+#else
+    inStream.setEncoding(QStringConverter::Utf8);
+#endif
     inStream.setAutoDetectUnicode(true);
 
     QString text = inStream.readAll();

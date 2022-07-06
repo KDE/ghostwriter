@@ -22,6 +22,7 @@
 
 #include <QAction>
 #include <QLabel>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QSettings>
 #include <QSplitter>

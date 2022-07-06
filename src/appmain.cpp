@@ -19,8 +19,9 @@
 
 #include <QApplication>
 #include <QCoreApplication>
-#include <QTranslator>
+#include <QLibraryInfo>
 #include <QLocale>
+#include <QTranslator>
 
 #include <QDebug>
 
@@ -29,7 +30,7 @@
 
 int main(int argc, char *argv[])
 {
-#if QT_VERSION >= 0x050600
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
@@ -54,44 +55,35 @@ int main(int argc, char *argv[])
     ghostwriter::AppSettings *appSettings = ghostwriter::AppSettings::instance();
     QLocale::setDefault(QLocale(appSettings->locale()));
 
-    QTranslator qtTranslator;
-    bool ok = qtTranslator.load("qt_" + appSettings->locale(),
-                                QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    QStringList baseTranslators = { "qt", "qtbase", "ghostwriter" };
 
-    if (!ok) {
-        qtTranslator.load("qt_" + appSettings->locale(),
-                          appSettings->translationsPath());
-    }
+    for (auto translatorStr : baseTranslators) {
+        QTranslator translator;
+        bool ok = false;
 
-    app.installTranslator(&qtTranslator);
+        if (translatorStr != "ghostwriter") {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            ok = qtTranslator.load(translatorStr + "_" + appSettings->locale(),
+                                        QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+#else
+            ok = translator.load(translatorStr + "_" + appSettings->locale(),
+                                        QLibraryInfo::path(QLibraryInfo::TranslationsPath));
+#endif
+        }
 
-    QTranslator qtBaseTranslator;
-    ok = qtBaseTranslator.load("qtbase_" + appSettings->locale(),
-                               QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-
-    if (!ok) {
-        qtBaseTranslator.load("qtbase_" + appSettings->locale(),
+        if (!ok) {
+            ok = translator.load(translatorStr + "_" + appSettings->locale(),
                               appSettings->translationsPath());
+
+            if (!ok && (QString("ghostwriter") == translatorStr)) {
+                ok = translator.load("ghostwriter_en", appSettings->translationsPath());
+            }
+        }
+
+        if (ok) {
+            app.installTranslator(&translator);
+        }
     }
-
-    app.installTranslator(&qtBaseTranslator);
-
-    QTranslator appTranslator;
-    ok = appTranslator.load
-         (
-             QString("ghostwriter_") + appSettings->locale(),
-             appSettings->translationsPath()
-         );
-
-    if (!ok) {
-        appTranslator.load
-        (
-            "ghostwriter_en",
-            appSettings->translationsPath()
-        );
-    }
-
-    app.installTranslator(&appTranslator);
 
     QString filePath = QString();
 
