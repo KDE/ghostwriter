@@ -1,7 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2022 wereturtle
- * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +17,6 @@
  *
  ***********************************************************************/
 
-#include <QDebug>
 #include <QAction>
 #include <QContextMenuEvent>
 #include <QMenu>
@@ -26,13 +24,14 @@
 #include <QTextCharFormat>
 #include <QTextCursor>
 #include <QTextLayout>
+#include <QTimer>
 #include <QVector>
 
 #include "spellcheckdecorator.h"
 
-#include "spelling/dictionary.h"
-#include "spelling/dictionarymanager.h"
-#include "spelling/spellchecker.h"
+#include "dictionary.h"
+#include "dictionarymanager.h"
+#include "spellchecker.h"
 
 namespace ghostwriter
 {
@@ -55,6 +54,7 @@ public:
     QPlainTextEdit *editor;
     bool spellCheckEnabled;
     Dictionary *dictionary;
+    QColor errorColor;
 
     QMenu * createContextMenu(const QTextCursor &cursorForWord) const;
 
@@ -77,6 +77,7 @@ SpellCheckDecorator::SpellCheckDecorator(QPlainTextEdit *editor)
 {
     Q_D(SpellCheckDecorator);
 
+    d->spellCheckEnabled = true;
     d->editor = editor;
 
     Q_ASSERT(nullptr != d->editor);
@@ -86,11 +87,11 @@ SpellCheckDecorator::SpellCheckDecorator(QPlainTextEdit *editor)
 
     connect(d->editor->document(),
         static_cast<void (QTextDocument::*)(int, int, int)>(&QTextDocument::contentsChange),
+        this,
         [d](int position, int charsAdded, int charsRemoved) {
             d->onContentsChanged(position, charsAdded, charsRemoved);
         }
     );
-
 }
 
 SpellCheckDecorator::~SpellCheckDecorator()
@@ -98,14 +99,21 @@ SpellCheckDecorator::~SpellCheckDecorator()
     ;
 }
 
-bool SpellCheckDecorator::spellCheckEnabled() const
+bool SpellCheckDecorator::liveSpellCheckEnabled() const
 {
     Q_D(const SpellCheckDecorator);
 
     return d->spellCheckEnabled;
 }
 
-void SpellCheckDecorator::setSpellCheckEnabled(bool enabled)
+QColor SpellCheckDecorator::errorColor() const
+{
+    Q_D(const SpellCheckDecorator);
+
+    return d->errorColor;
+}
+
+void SpellCheckDecorator::setLiveSpellCheckEnabled(bool enabled)
 {
     Q_D(SpellCheckDecorator);
 
@@ -122,14 +130,38 @@ void SpellCheckDecorator::setDictionary(const QString &language)
     d->dictionary = DictionaryManager::instance()->requestDictionary(language);
 }
 
+void SpellCheckDecorator::setErrorColor(const QColor &color)
+{
+    Q_D(SpellCheckDecorator);
+
+    d->errorColor = color;
+    d->resetLiveSpellChecking();
+}
+
 void SpellCheckDecorator::runSpellCheck()
 {
     Q_D(SpellCheckDecorator);
 
-    SpellChecker::checkDocument(d->editor, nullptr, d->dictionary);
+    SpellChecker::checkDocument(d->editor, d->dictionary);
 
     if (d->spellCheckEnabled) {
         d->resetLiveSpellChecking();
+    }
+}
+
+void SpellCheckDecorator::startLiveSpellCheck()
+{
+    Q_D(SpellCheckDecorator);
+
+    if (!d->spellCheckEnabled) {
+        return;
+    }
+
+    QTextBlock block = d->editor->document()->begin();
+
+    while (block.isValid()) {
+        d->spellCheckBlock(block);
+        block = block.next();
     }
 }
 
@@ -210,9 +242,10 @@ QMenu * SpellCheckDecoratorPrivate::createContextMenu(
 
     q->connect(checkSpellingAction,
         &QAction::triggered,
+        q,
         [this, cursorForWord]() {
             this->editor->setTextCursor(cursorForWord);
-            SpellChecker::checkDocument(this->editor, nullptr, this->dictionary);
+            SpellChecker::checkDocument(this->editor, this->dictionary);
         }
     );
 
@@ -235,6 +268,7 @@ QMenu * SpellCheckDecoratorPrivate::createSpellingMenu(
 
     q->connect(addWordToDictionaryAction,
         &QAction::triggered,
+        q,
         [this, cursorForWord, misspelledWord]() {
             this->editor->setTextCursor(cursorForWord);
             this->dictionary->addToPersonal(misspelledWord);
@@ -291,8 +325,7 @@ QString SpellCheckDecoratorPrivate::getMisspelledWordAtCursor(
     // Look for formatting for the word at the provided cursor position that
     // matches the spell check error underline style.  If the word has that
     // style, then it is misspelled.
-    for (QTextLayout::FormatRange formatRange :
-            cursorForWord.block().layout()->formats()) {
+    for (const QTextLayout::FormatRange &formatRange : cursorForWord.block().layout()->formats()) {
         if ((blockPosition >= formatRange.start)
                 && (blockPosition <= (formatRange.start + formatRange.length))
                 && (formatRange.format.underlineStyle()
@@ -334,16 +367,16 @@ void SpellCheckDecoratorPrivate::onContentsChanged(
         return;
     }
 
-    QTextBlock block = editor->document()->findBlock(position);
-    if (!block.isValid()) {
+    QTextBlock firstBlock = editor->document()->findBlock(position);
+    QTextBlock lastBlock = editor->document()->findBlock(position
+                            + charsAdded + charsRemoved);
+
+    if (!firstBlock.isValid()) {
         return;
     }
 
+    QTextBlock block = firstBlock;
     int endPosition;
-
-    QTextBlock lastBlock =
-        editor->document()->findBlock(position + charsAdded
-            + (charsRemoved > 0 ? 1 : 0));
 
     if (lastBlock.isValid()) {
         endPosition = lastBlock.position() + lastBlock.length();
@@ -360,8 +393,6 @@ void SpellCheckDecoratorPrivate::onContentsChanged(
 
 void SpellCheckDecoratorPrivate::spellCheckBlock(QTextBlock &block) const
 {
-    clearSpellCheckFormatting(block);
-
     QStringRef misspelledWord = dictionary->check(block.text(), 0);
 
     while (!misspelledWord.isNull()) {
@@ -390,7 +421,7 @@ void SpellCheckDecoratorPrivate::clearSpellCheckFormatting(QTextBlock &block) co
 {
     QVector<QTextLayout::FormatRange> formats;
 
-    for (auto format : block.layout()->formats()) {
+    for (const QTextLayout::FormatRange &format : block.layout()->formats()) {
         if (QTextCharFormat::SpellCheckUnderline != format.format.underlineStyle()) {
             formats.append(format);
         }

@@ -766,6 +766,8 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
         inputFile.close();
         return false;
     }
+
+    inputFile.close();
     
     setFilePath(filePath);
     editor->setPlainText(text);
@@ -773,8 +775,6 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     emit q->operationUpdate();
 
     document->setUndoRedoEnabled(true);
-
-    inputFile.close();
 
     if (fileHistoryEnabled) {
         DocumentHistory history;

@@ -1,7 +1,7 @@
 /***********************************************************************
  *
- * Copyright (C) 2022 wereturtle
  * Copyright (C) 2009, 2010, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,6 @@
 #include <QPlainTextEdit>
 #include <QSyntaxHighlighter>
 #include <QTextCursor>
-#include <QTextEdit>
 
 #include "dictionary.h"
 
@@ -40,7 +39,7 @@ class SpellChecker : public QDialog
 	Q_OBJECT
 
 public:
-    static void checkDocument(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary);
+    static void checkDocument(QPlainTextEdit *document, Dictionary *dictionary);
 
 public slots:
 	virtual void reject();
@@ -54,15 +53,14 @@ private slots:
 	void changeAll();
 
 private:
-    SpellChecker(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary);
+    SpellChecker(QPlainTextEdit *document, Dictionary *dictionary);
 	void check();
 
 private:
 	Dictionary *m_dictionary;
 
     QPlainTextEdit *m_document;
-    QSyntaxHighlighter *m_spellingHighlighter;
-    QTextEdit *m_context;
+    QPlainTextEdit *m_context;
 	QLineEdit *m_suggestion;
 	QListWidget *m_suggestions;
 	QTextCursor m_cursor;

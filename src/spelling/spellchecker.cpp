@@ -1,8 +1,7 @@
 /***********************************************************************
  *
- * Copyright (C) 2022 wereturtle
  * Copyright (C) 2009, 2010, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,19 +29,18 @@
 #include <QLineEdit>
 #include <QListWidget>
 #include <QMessageBox>
+#include <QPlainTextEdit>
 #include <QProgressDialog>
 #include <QPushButton>
 #include <QTextBlock>
-#include <QPlainTextEdit>
-#include <QTextEdit>
-#include <QSyntaxHighlighter>
+#include <QTextLayout>
 
 namespace ghostwriter
 {
 
-void SpellChecker::checkDocument(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary)
+void SpellChecker::checkDocument(QPlainTextEdit *document, Dictionary *dictionary)
 {
-    SpellChecker *checker = new SpellChecker(document, spellingHighlighter, dictionary);
+    SpellChecker *checker = new SpellChecker(document, dictionary);
 	checker->m_startCursor = document->textCursor();
 	checker->m_cursor = checker->m_startCursor;
 	checker->m_cursor.movePosition(QTextCursor::StartOfBlock);
@@ -67,10 +65,6 @@ void SpellChecker::suggestionChanged(QListWidgetItem *suggestion)
 void SpellChecker::add()
 {
     m_dictionary->addToPersonal(m_word);
-
-    if (nullptr != m_spellingHighlighter) {
-        m_spellingHighlighter->rehighlight();
-    }
 
 	ignore();
 }
@@ -110,11 +104,10 @@ void SpellChecker::changeAll()
 	check();
 }
 
-SpellChecker::SpellChecker(QPlainTextEdit *document, QSyntaxHighlighter *spellingHighlighter, Dictionary *dictionary) :
+SpellChecker::SpellChecker(QPlainTextEdit *document, Dictionary *dictionary) :
 	QDialog(document->parentWidget(), Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint),
 	m_dictionary(dictionary),
-	m_document(document),
-    m_spellingHighlighter(spellingHighlighter),
+    m_document(document),
 	m_checkedBlocks(1),
 	m_totalBlocks(document->document()->blockCount()),
 	m_loopAvailable(true)
@@ -124,7 +117,7 @@ SpellChecker::SpellChecker(QPlainTextEdit *document, QSyntaxHighlighter *spellin
 	setAttribute(Qt::WA_DeleteOnClose);
 
 	// Create widgets
-    m_context = new QTextEdit(this);
+    m_context = new QPlainTextEdit(this);
 	m_context->setReadOnly(true);
 #if (QT_VERSION_MAJOR == 5) && (QT_VERSION_MINOR < 10)
     m_context->setTabStopWidth(50);
@@ -133,26 +126,26 @@ SpellChecker::SpellChecker(QPlainTextEdit *document, QSyntaxHighlighter *spellin
 #endif
 	QPushButton *addButton = new QPushButton(tr("&Add"), this);
 	addButton->setAutoDefault(false);
-	connect(addButton, SIGNAL(clicked()), this, SLOT(add()));
+    connect(addButton, &QPushButton::clicked, this, &SpellChecker::add);
 	QPushButton *ignoreButton = new QPushButton(tr("&Ignore"), this);
 	ignoreButton->setAutoDefault(false);
-	connect(ignoreButton, SIGNAL(clicked()), this, SLOT(ignore()));
+    connect(ignoreButton, &QPushButton::clicked, this, &SpellChecker::ignore);
 	QPushButton *ignoreAllButton = new QPushButton(tr("I&gnore All"), this);
 	ignoreAllButton->setAutoDefault(false);
-	connect(ignoreAllButton, SIGNAL(clicked()), this, SLOT(ignoreAll()));
+    connect(ignoreAllButton, &QPushButton::clicked, this, &SpellChecker::ignoreAll);
 
 	m_suggestion = new QLineEdit(this);
 	QPushButton *changeButton = new QPushButton(tr("&Change"), this);
 	changeButton->setAutoDefault(false);
-	connect(changeButton, SIGNAL(clicked()), this, SLOT(change()));
+    connect(changeButton, &QPushButton::clicked, this, &SpellChecker::change);
 	QPushButton *changeAllButton = new QPushButton(tr("C&hange All"), this);
 	changeAllButton->setAutoDefault(false);
-	connect(changeAllButton, SIGNAL(clicked()), this, SLOT(changeAll()));
+    connect(changeAllButton, &QPushButton::clicked, this, &SpellChecker::changeAll);
 	m_suggestions = new QListWidget(this);
-	connect(m_suggestions, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(suggestionChanged(QListWidgetItem*)));
+    connect(m_suggestions, &QListWidget::currentItemChanged, this, &SpellChecker::suggestionChanged);
 
 	QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
-	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttons, &QDialogButtonBox::rejected, this, &SpellChecker::reject);
 
 	// Lay out dialog
 	QGridLayout *layout = new QGridLayout(this);
@@ -234,19 +227,37 @@ void SpellChecker::check()
 			waitDialog.close();
 			setEnabled(true);
 
-			// Show misspelled word in context
-			QTextCursor cursor = m_cursor;
-			cursor.movePosition(QTextCursor::PreviousWord, QTextCursor::MoveAnchor, 10);
-			int end = m_cursor.position() - cursor.position();
-			int start = end - m_word.length();
-			cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor, 21);
-			QString context = cursor.selectedText();
-			context.insert(end, "</span>");
-            context.insert(start, "<span style=\"color: red;\">");
-			context.replace("\n", "</p><p>");
-			context.replace("\t", "<span style=\"white-space: pre;\">\t</span>");
-			context = "<p>" + context + "</p>";
-            m_context->setHtml(context);
+            // Show misspelled word in context
+            m_context->setPlainText(m_cursor.selectedText());
+
+            QTextCursor contextCursor(m_context->textCursor());
+
+            QTextCursor before = m_cursor;
+            before.movePosition(QTextCursor::PreviousWord, QTextCursor::KeepAnchor, 10);
+            contextCursor.setPosition(0);
+            contextCursor.insertText(before.selectedText());
+
+            int wordStart = before.selectedText().length();
+
+            QTextCursor after = m_cursor;
+            after.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor, 10);
+            contextCursor.setPosition(m_context->document()->characterCount());
+            contextCursor.insertText(after.selectedText());
+
+            QTextBlock block = m_context->document()->findBlock(wordStart);
+            wordStart -= block.position();
+
+            QTextCharFormat spellingErrorFormat;
+            spellingErrorFormat.setForeground(Qt::red);
+
+            QTextLayout::FormatRange range;
+            range.start = wordStart;
+            range.length = m_word.length();
+            range.format = spellingErrorFormat;
+
+            auto formats = block.layout()->formats();
+            formats.append(range);
+            block.layout()->setFormats(formats);
 
 			// Show suggestions
 			m_suggestion->clear();

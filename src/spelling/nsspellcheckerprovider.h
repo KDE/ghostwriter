@@ -1,7 +1,7 @@
 /***********************************************************************
  *
- * Copyright (C) 2022 wereturtle
  * Copyright (C) 2013 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

@@ -107,8 +107,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     editor->setItalicizeBlockquotes(appSettings->italicizeBlockquotes());
     editor->setTabulationWidth(appSettings->tabWidth());
     editor->setInsertSpacesForTabs(appSettings->insertSpacesForTabsEnabled());
-    spelling = new SpellCheckDecorator(editor);
-    spelling->setSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
 
     connect(editor,
         &MarkdownEditor::fontSizeChanged,
@@ -124,6 +122,9 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     //
     editor->verticalScrollBar()->setStyle(new QCommonStyle());
     editor->horizontalScrollBar()->setStyle(new QCommonStyle());
+
+    spelling = new SpellCheckDecorator(editor);
+    spelling->setLiveSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
 
     buildSidebar();
 
@@ -175,7 +176,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
             lastFile = recentFiles.first();
         }
 
-        if (QFileInfo(lastFile).exists()) {
+        if (QFileInfo::exists(lastFile)) {
             fileToOpen = lastFile;
             recentFiles.removeAll(lastFile);
         }
@@ -188,6 +189,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         (
             recentFilesActions[i],
             &QAction::triggered,
+            this,
             [this, i]() {
 
                 if (nullptr != recentFilesActions[i]) {
@@ -261,9 +263,9 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     // If we have an available dictionary, then set up spell checking.
     if (!language.isNull() && !language.isEmpty()) {
         spelling->setDictionary(language);
-        spelling->setSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
+        spelling->setLiveSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
     } else {
-        spelling->setSpellCheckEnabled(false);
+        spelling->setLiveSpellCheckEnabled(false);
     }
 
     this->connect
@@ -372,6 +374,8 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     if (!fileToOpen.isNull() && !fileToOpen.isEmpty()) {
         documentManager->open(fileToOpen);
     }
+
+    spelling->startLiveSpellCheck();
 }
 
 MainWindow::~MainWindow()
@@ -1555,6 +1559,7 @@ void MainWindow::applyTheme()
 
     editor->setColorScheme(colorScheme);
     editor->setStyleSheet(styler.editorStyleSheet());
+    spelling->setErrorColor(colorScheme.error);
 
     // Do not call this->setStyleSheet().  Calling it more than once in a run
     // (i.e., when changing a theme) causes a crash in Qt 5.11.  Instead,
