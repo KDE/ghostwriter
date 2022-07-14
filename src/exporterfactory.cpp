@@ -337,6 +337,7 @@ void ExporterFactoryPrivate::addPandocExporter
     int minorVersion
 )
 {
+    Q_UNUSED(majorVersion)
     Q_UNUSED(minorVersion)
 
     CommandLineExporter *exporter = new CommandLineExporter(name);

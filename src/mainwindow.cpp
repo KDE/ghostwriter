@@ -247,7 +247,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(fileHistoryChanged(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
     connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
     connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), spelling, SLOT(setDictionary(QString)));
-    connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), spelling, SLOT(setSpellCheckEnabled(bool)));
+    connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), spelling, SLOT(setLiveSpellCheckEnabled(bool)));
     connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
     connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
@@ -458,7 +458,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             this->menuBar()->hide();
         } else if (QEvent::MouseMove == event->type()) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-            if ((mouseEvent->globalY()) <= 0 && !this->menuBar()->isVisible()) {
+            if ((mouseEvent->globalPosition().y()) <= 0 && !this->menuBar()->isVisible()) {
                 this->menuBar()->show();
             }
         } else if ((this == obj) 

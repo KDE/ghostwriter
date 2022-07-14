@@ -143,6 +143,8 @@ MarkdownHighlighter::~MarkdownHighlighter()
 //
 void MarkdownHighlighter::highlightBlock(const QString &text)
 {
+    Q_UNUSED(text)
+
     Q_D(MarkdownHighlighter);
 
     int line = currentBlock().blockNumber() + 1;

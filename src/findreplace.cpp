@@ -258,8 +258,6 @@ FindReplace::~FindReplace()
 
 bool FindReplace::focusNextPrevChild(bool next)
 {
-    Q_D(FindReplace);
-    
     Q_UNUSED(next)
     return false;
 }

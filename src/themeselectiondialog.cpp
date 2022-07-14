@@ -382,6 +382,7 @@ void ThemeSelectionDialogPrivate::createNewTheme()
         themeEditorDialog,
         &ThemeEditorDialog::finished,
         [this, themeEditorDialog](int result) {
+            Q_UNUSED(result)
             updateTheme(themeEditorDialog->theme());
         }
     );
@@ -497,8 +498,6 @@ void ThemeSelectionDialogPrivate::editTheme()
 
 void ThemeSelectionDialogPrivate::updateTheme(const Theme &theme)
 {
-    Q_Q(ThemeSelectionDialog);
-    
     // Update theme name and preview icon, as applicable.
     //
     QList<QListWidgetItem *> selectedThemes = themeListWidget->selectedItems();
