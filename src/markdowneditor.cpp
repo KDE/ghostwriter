@@ -145,7 +145,7 @@ public:
     bool insertPairedCharacters(const QChar firstChar);
     bool handleEndPairCharacterTyped(const QChar ch);
     bool handleWhitespaceInEmptyMatch(const QChar whitespace);
-    void insertFormattingMarkup(const QString &markup);
+    void insertFormattingMarkup(const QString &markup, const bool auto_close = false);
     QString priorIndentation();
     QString priorMarkdownBlockItemStart
     (
@@ -836,21 +836,21 @@ void MarkdownEditor::bold()
 {
     Q_D(MarkdownEditor);
     
-    d->insertFormattingMarkup("**");
+    d->insertFormattingMarkup("**", true);
 }
 
 void MarkdownEditor::italic()
 {
     Q_D(MarkdownEditor);
     
-    d->insertFormattingMarkup("*");
+    d->insertFormattingMarkup("*", true);
 }
 
 void MarkdownEditor::strikethrough()
 {
     Q_D(MarkdownEditor);
     
-    d->insertFormattingMarkup("~~");
+    d->insertFormattingMarkup("~~", true);
 }
 
 void MarkdownEditor::insertComment()
@@ -1941,7 +1941,7 @@ bool MarkdownEditorPrivate::handleWhitespaceInEmptyMatch(const QChar whitespace)
     return false;
 }
 
-void MarkdownEditorPrivate::insertFormattingMarkup(const QString &markup)
+void MarkdownEditorPrivate::insertFormattingMarkup(const QString &markup, const bool auto_close)
 {
     Q_Q(MarkdownEditor);
     
@@ -1960,14 +1960,41 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const QString &markup)
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::QTextCursor::KeepAnchor, markup.length());
         q->setTextCursor(cursor);
     } else {
+        bool insert = true;
+
+        // Check if the next character(s) are the end of a markup chunk... if so, simply move the cursor
+        // past and do not add extra markup.
+        //
+        // This is the same as "closing" a bold/italic/strikethrough phrase, rather than inserting a new one.
+        if (auto_close){
+            int cur_pos = cursor.position();
+            const int cur_pos_in_block = cursor.positionInBlock();
+            cursor.select(QTextCursor::SelectionType::BlockUnderCursor);
+            const QString& block_str = cursor.selectedText();
+            const int mkp_len = markup.length();
+            // Check number of characters left in block
+            if ((block_str.length() - cur_pos_in_block) >= mkp_len) {
+                QString buf;
+                for (int i = 1; i <= mkp_len; i++)
+                    buf.append(block_str[cur_pos_in_block + i]);
+                if (buf == markup){
+                    insert = false;
+                    cur_pos += mkp_len;
+                }
+            }
+            cursor.setPosition(cur_pos);
+        }
+
         // Insert markup twice (for opening and closing around the cursor),
         // and then move the cursor to be between the pair.
         //
-        cursor.beginEditBlock();
-        cursor.insertText(markup);
-        cursor.insertText(markup);
-        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, markup.length());
-        cursor.endEditBlock();
+        if (insert) {
+            cursor.beginEditBlock();
+            cursor.insertText(markup);
+            cursor.insertText(markup);
+            cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, markup.length());
+            cursor.endEditBlock();
+        }
         q->setTextCursor(cursor);
     }
 }
