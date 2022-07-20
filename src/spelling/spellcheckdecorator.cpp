@@ -400,7 +400,7 @@ void SpellCheckDecoratorPrivate::spellCheckBlock(QTextBlock &block) const
         int length = misspelledWord.length();
 
         QTextCharFormat spellingErrorFormat;
-        spellingErrorFormat.setUnderlineColor(Qt::red);
+        spellingErrorFormat.setUnderlineColor(this->errorColor);
         spellingErrorFormat.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
         QTextLayout::FormatRange range;
