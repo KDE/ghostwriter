@@ -164,6 +164,10 @@ private:
     void buildMenuBar();
     void buildStatusBar();
     void buildSidebar();
+    
+#ifdef Q_OS_WIN
+    void applyWindowsDarkUI();
+#endif
 
     void adjustEditor();
 };
