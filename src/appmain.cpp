@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
         if (translatorStr != "ghostwriter") {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            ok = qtTranslator.load(translatorStr + "_" + appSettings->locale(),
+            ok = translator.load(translatorStr + "_" + appSettings->locale(),
                                         QLibraryInfo::location(QLibraryInfo::TranslationsPath));
 #else
             ok = translator.load(translatorStr + "_" + appSettings->locale(),

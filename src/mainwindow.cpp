@@ -107,6 +107,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     editor->setItalicizeBlockquotes(appSettings->italicizeBlockquotes());
     editor->setTabulationWidth(appSettings->tabWidth());
     editor->setInsertSpacesForTabs(appSettings->insertSpacesForTabsEnabled());
+    editor->setScrollPastEnd(appSettings->scrollPastEnd());
 
     connect(editor,
         &MarkdownEditor::fontSizeChanged,
@@ -252,6 +253,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
     connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
     connect(appSettings, SIGNAL(previewCodeFontChanged(QFont)), this, SLOT(applyTheme()));
+    connect(appSettings, SIGNAL(scrollPastEndChanged(bool)), editor, SLOT(setScrollPastEnd(bool)));
 
     if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
         this->menuBar()->hide();
@@ -458,7 +460,11 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             this->menuBar()->hide();
         } else if (QEvent::MouseMove == event->type()) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            if ((mouseEvent->globalPos().y()) <= 0 && !this->menuBar()->isVisible()) {
+#else
             if ((mouseEvent->globalPosition().y()) <= 0 && !this->menuBar()->isVisible()) {
+#endif
                 this->menuBar()->show();
             }
         } else if ((this == obj) 

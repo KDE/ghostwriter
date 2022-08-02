@@ -303,6 +303,11 @@ public slots:
     void setAutoMatchEnabled(const QChar openingCharacter, bool enabled);
 
     /**
+     * Sets whether the window can be scrolled to fill the screen with blank space
+     */
+    void setScrollPastEnd(bool enable);
+
+    /**
      * Sets whether bullet points should be automatically cycled with
      * a different bullet point mark (*, -, +) each time a sublist is
      * created.

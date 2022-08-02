@@ -94,6 +94,7 @@ public:
     QColor blockColor;
     bool insertSpacesForTabs;
     int tabWidth;
+    bool scrollPastEnd;
     EditorWidth editorWidth;
     InterfaceStyle editorCorners;
     QRegularExpression emptyBlockquoteRegex;
@@ -177,6 +178,7 @@ MarkdownEditor::MarkdownEditor
     d->autoMatchEnabled = true;
     d->bulletPointCyclingEnabled = true;
     d->mouseButtonDown = false;
+    d->scrollPastEnd = true;
 
     this->setDocument(textDocument);
     this->setAcceptDrops(true);
@@ -1245,6 +1247,15 @@ void MarkdownEditor::setAutoMatchEnabled(const QChar openingCharacter, bool enab
     Q_D(MarkdownEditor);
     
     d->autoMatchFilter.insert(openingCharacter, enabled);
+}
+
+void MarkdownEditor::setScrollPastEnd(bool enable)
+{
+    Q_D(MarkdownEditor);
+
+    d->scrollPastEnd = enable;
+
+    this->setCenterOnScroll(d->scrollPastEnd);
 }
 
 void MarkdownEditor::setBulletPointCyclingEnabled(bool enable)

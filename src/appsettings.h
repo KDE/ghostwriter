@@ -97,6 +97,10 @@ public:
     Q_SLOT void setAutoMatchEnabled(bool enabled);
     Q_SIGNAL void autoMatchChanged(bool enabled);
 
+    bool scrollPastEnd() const;
+    Q_SLOT void setScrollPastEnd(bool enabled);
+    Q_SIGNAL void scrollPastEndChanged(bool enabled);
+
     bool autoMatchCharEnabled(const QChar openingCharacter) const;
     Q_SLOT void setAutoMatchCharEnabled(const QChar openingCharacter, bool enabled);
     Q_SIGNAL void autoMatchCharChanged(const QChar openingChar, bool enabled);

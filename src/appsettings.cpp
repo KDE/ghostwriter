@@ -46,6 +46,7 @@
 #define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
 #define GW_FOCUS_MODE_KEY "Style/focusMode"
 #define GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY "Style/hideMenuBarInFullScreenEnabled"
+#define GW_SCROLL_PAST_END_KEY "Style/ScrollPastEnd"
 #define GW_THEME_KEY "Style/theme"
 #define GW_DARK_MODE_KEY "Style/darkModeEnabled"
 #define GW_EDITOR_WIDTH_KEY "Style/editorWidth"
@@ -114,6 +115,7 @@ public:
     QString themeDirectoryPath;
     QString themeName;
     bool darkModeEnabled;
+    bool scrollPastEnd;
     QString translationsPath;
 };
 
@@ -168,6 +170,7 @@ void AppSettings::store()
     appSettings.setValue(GW_THEME_KEY, QVariant(d->themeName));
     appSettings.setValue(GW_DARK_MODE_KEY, QVariant(d->darkModeEnabled));
     appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(d->useUnderlineForEmphasis));
+    appSettings.setValue(GW_SCROLL_PAST_END_KEY, QVariant(d->scrollPastEnd));
 
     appSettings.sync();
 }
@@ -349,6 +352,21 @@ void AppSettings::setAutoMatchEnabled(bool enabled)
     
     d->autoMatchEnabled = enabled;
     emit autoMatchChanged(enabled);
+}
+
+bool AppSettings::scrollPastEnd() const
+{
+    Q_D(const AppSettings);
+
+    return d->scrollPastEnd;
+}
+
+void AppSettings::setScrollPastEnd(bool enabled)
+{
+    Q_D(AppSettings);
+
+    d->scrollPastEnd = enabled;
+    emit scrollPastEndChanged(enabled);
 }
 
 bool AppSettings::autoMatchCharEnabled(const QChar openingCharacter) const
@@ -818,6 +836,7 @@ AppSettings::AppSettings()
     d->autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
     d->bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
     d->focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
+    d->scrollPastEnd = appSettings.value(GW_SCROLL_PAST_END_KEY, QVariant(true)).toBool();
 
     if ((d->focusMode < FocusModeFirst) || (d->focusMode > FocusModeLast)) {
         d->focusMode = FocusModeSentence;

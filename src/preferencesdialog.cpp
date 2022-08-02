@@ -208,6 +208,12 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     connect(menuBarCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideMenuBarInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(menuBarCheckBox);
 
+    QCheckBox *scrollPastEndCheckbox = new QCheckBox(tr("Scroll past end"));
+    scrollPastEndCheckbox->setCheckable(true);
+    scrollPastEndCheckbox->setChecked(appSettings->scrollPastEnd());
+    connect(scrollPastEndCheckbox, SIGNAL(toggled(bool)), appSettings, SLOT(setScrollPastEnd(bool)));
+    displayGroupLayout->addRow(scrollPastEndCheckbox);
+
     QComboBox *cornersComboBox = new QComboBox(q);
     cornersComboBox->addItem(tr("Rounded"), QVariant(InterfaceStyleRounded));
     cornersComboBox->addItem(tr("Square"), QVariant(InterfaceStyleSquare));
