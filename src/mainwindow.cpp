@@ -445,7 +445,11 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             this->menuBar()->hide();
         } else if (QEvent::MouseMove == event->type()) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            if ((mouseEvent->globalPos().y()) <= 0 && !this->menuBar()->isVisible()) {
+#else
             if ((mouseEvent->globalPosition().y()) <= 0 && !this->menuBar()->isVisible()) {
+#endif
                 this->menuBar()->show();
             }
         } else if ((this == obj) 

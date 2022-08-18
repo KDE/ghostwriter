@@ -62,15 +62,15 @@ int main(int argc, char *argv[])
         bool ok = false;
 
         if (translatorStr != "ghostwriter") {
+            const QString& translation_loc = 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            ok = qtTranslator.load(translatorStr + "_" + appSettings->locale(),
-                                        QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+                QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 #else
-            ok = translator.load(translatorStr + "_" + appSettings->locale(),
-                                        QLibraryInfo::path(QLibraryInfo::TranslationsPath));
+                QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #endif
+            ok = translator.load(translatorStr + "_" + appSettings->locale(),
+                                        translation_loc);        
         }
-
         if (!ok) {
             ok = translator.load(translatorStr + "_" + appSettings->locale(),
                               appSettings->translationsPath());
