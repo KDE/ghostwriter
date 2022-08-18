@@ -35,8 +35,6 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
-    QApplication app(argc, argv);
-    
 #if defined(Q_OS_WIN)
     // Use ANGLE instead of OpenGL to bypass bug where full screen windows
     // under Windows 10 and OpenGL will not show menus from the menu bar
@@ -44,6 +42,8 @@ int main(int argc, char *argv[])
     //
     QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
 #endif
+
+    QApplication app(argc, argv);
 
 #if QT_VERSION >= 0x050700 && defined(Q_OS_LINUX)
     QGuiApplication::setDesktopFileName("ghostwriter");

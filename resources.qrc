@@ -64,5 +64,6 @@
         <file>3rdparty/MathJax/bin/startup.js</file>
         <file>3rdparty/MathJax/bin/loader.js</file>
         <file>3rdparty/MathJax/bin/core.js</file>
+        <file>resources/widgets.qss</file>
     </qresource>
 </RCC>

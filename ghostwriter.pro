@@ -254,3 +254,6 @@ else:unix {
 
     INSTALLS += target icon desktop appdata man qm
 }
+
+DISTFILES += \
+    resources/qss/widgets.

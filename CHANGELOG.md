@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Spell check dialog no longer eats HTML angle brackets when showing the context around a misspelled word.
 * Application now supports Qt 6 while maintaining backward compatibility with Qt 5.
 * Various under-the-hood refactoring/improvements have been added.
+* CSS and QSS style sheets now support SASS-style variables.
+* Hover and pressed button effects have been added to improve visibility.
 
 ## [2.1.4] - 2022-06-18
 

@@ -1,0 +1,480 @@
+/***********************************************************************
+ *
+ * Copyright (C) 2022 wereturtle
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ ***********************************************************************/
+
+/******************************************************************************/
+/*  Scrollbars                                                                */
+/******************************************************************************/
+
+QMainWindow QAbstractScrollArea::corner {
+    background: transparent;
+}
+
+QMainWindow QAbstractScrollArea {
+    padding: 3px 3px 0px 3px;
+    margin: 0
+}
+
+QMainWindow QScrollBar::horizontal,
+QMainWindow QScrollBar::vertical {
+    margin: 5px;
+    border: 0;
+    background: transparent;
+}
+
+QMainWindow QScrollBar::horizontal {
+    height: 16px;
+}
+
+QMainWindow QScrollBar::vertical {
+    width: 16px;
+}
+
+QMainWindow QScrollBar::horizontal:hover,
+QMainWindow QScrollBar::vertical:hover {
+    background-color: $tertiary-fill-color;
+    border-radius: $scrollbar-border-radius;
+}
+
+QMainWindow QScrollBar::handle:horizontal,
+QMainWindow QScrollBar::handle:vertical {
+    border: 0;
+    background: $secondary-fill-color;
+    border-radius: $scrollbar-border-radius;
+}
+
+QMainWindow QScrollBar::handle:horizontal {
+    min-width: 50px;
+}
+
+QMainWindow QScrollBar::handle:vertical {
+    min-height: 50px;
+}
+
+QMainWindow QScrollBar::handle:horizontal:hover,
+QMainWindow QScrollBar::handle:vertical:hover {
+    background: $accent-color;
+}
+
+QMainWindow QScrollBar::add-line,
+QMainWindow QScrollBar::sub-line,
+QMainWindow QScrollBar::add-page,
+QMainWindow QScrollBar::sub-page,
+QMainWindow QScrollBar::down-arrow,
+QMainWindow QScrollBar::right-arrow {
+    background: transparent;
+    border: 0
+}
+
+QMainWindow QMenuBar {
+    color: $label-color;
+    background-color: $background-color;
+    font-size: 10pt;
+    spacing: 2px;
+    border: 0px;
+    border-bottom: 1px;
+    border-color: $secondary-separator-color;
+    border-style: solid;
+}
+
+QMainWindow QMenuBar::item {
+    padding: 2px 5px 2px 5px;
+    border: 0px;
+    margin: 2px;
+    border-radius: $default-border-radius;
+}
+
+QMainWindow QMenuBar::item:selected {
+    background-color: $fill-color;
+}
+
+QMainWindow QMenuBar::item:hover {
+    background-color: $fill-color-hover;
+}
+
+QMainWindow QMenuBar::item:pressed {
+    background-color: $fill-color-pressed;
+}
+
+/******************************************************************************/
+/*  Popup menus                                                               */
+/******************************************************************************/
+
+QMainWindow QMenu {
+    color: $label-color;
+    background-color: $background-color;
+    border: 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+QMainWindow QMenu::item {
+    background-color: transparent;
+    padding: 5px 15px 5px 15px;
+    margin: 0px;
+}
+
+QMainWindow QMenu::item:selected {
+    background-color: $selected-text-bg-color;
+    color: $selected-text-fg-color;
+}
+
+/******************************************************************************/
+/*  Editor                                                                    */
+/******************************************************************************/
+
+QMainWindow QPlainTextEdit {
+    border: 0;
+    margin: 0;
+    padding: 5px;
+    background-color: $background-color;
+    color: $text-color;
+    selection-color: $selected-text-fg-color;
+    selection-background-color: $selected-text-bg-color;
+}
+
+QMainWindow QSplitter::handle {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: $secondary-separator-color;
+}
+
+QMainWindow QSplitter::handle:vertical {
+    height: 1px;
+}
+
+QMainWindow QSplitter::handle:horizontal {
+    width: 1px;
+}
+
+/******************************************************************************/
+/*  Sidebar and Activity Bar                                                  */
+/******************************************************************************/
+
+/* Sidebar */
+QMainWindow ghostwriter--Sidebar,
+QSplitter ghostwriter--Sidebar {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+}
+
+ghostwriter--Sidebar QStackedWidget {
+    border: 0;
+    padding: 1;
+    margin: 0;
+    background-color: $background-color;
+    border-width: 0px;
+}
+
+/* Activity bar tabs */
+ghostwriter--Sidebar QPushButton[checkable="true"] {
+    icon-size: 22px;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: $secondary-label-color;
+    border-width: 0px;
+    border-left-width: 3px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0px;
+    font-size: 16px;
+    font-family: "Font Awesome 5 Free Solid";
+}
+
+/* Cheat Sheet activity bar tab's icon uses a different font. */
+ghostwriter--Sidebar #cheatSheetTab {
+    font-family: "Font Awesome 5 Free Brands";
+}
+
+ghostwriter--Sidebar QPushButton:checked {
+    border-color: $accent-color;
+    color: $label-color;
+    background-color: $tertiary-fill-color;
+}
+
+ghostwriter--Sidebar QPushButton:checked:hover {
+    border-color: $accent-color;
+    color: $label-color;
+    background-color: $tertiary-fill-color;
+}
+
+/* Activity bar buttons */
+ghostwriter--Sidebar QPushButton[checkable="false"] {
+    icon-size: 22px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    background-color: transparent;
+    color: $secondary-label-color;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    font-family: "Font Awesome 5 Free Solid";
+}
+
+ghostwriter--Sidebar QPushButton:hover {
+    color: $label-color;
+}
+
+ghostwriter--Sidebar QPushButton:pressed {
+    color: $label-color-pressed;
+}
+
+/* Stacked widgets inside sidebar pane */
+
+ghostwriter--Sidebar QListWidget {
+    outline: none;
+    border: 0;
+    padding: 1;
+    background-color: $background-color;
+    color: $label-color;
+    font-size: 11pt;
+    font-weight: normal
+}
+
+ghostwriter--Sidebar QListWidget::item {
+    border: 0;
+    padding: 1 0 1 0;
+    margin: 0;
+    background-color: $background-color;
+    color: $label-color;
+    font-weight: normal
+}
+
+ghostwriter--Sidebar QListWidget::item:selected {
+    border-radius: 0px;
+    color: $selected-text-fg-color;
+    background-color: $selected-text-bg-color;
+}
+
+ghostwriter--Sidebar QLabel {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 11pt;
+    color: $label-color;
+}
+
+/******************************************************************************/
+/* Status bar                                                                 */
+/******************************************************************************/
+
+QStatusBar {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid $secondary-separator-color;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    background: $background-color;
+    color: $secondary-label-color;
+}
+
+QStatusBar QLabel {
+    font-size: 11pt;
+    margin: 0px;
+    padding: 5px;
+    border: 0;
+    background: transparent;
+    color: $secondary-label-color;
+}
+
+QStatusBar QPushButton {
+    padding: 5 5 5 5;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    color: $secondary-label-color;
+    background-color: transparent;
+    font-size: 16px;
+    width: 32px;
+    height: 16px;
+    font-family: "Font Awesome 5 Free Solid";
+}
+
+QStatusBar QPushButton:hover,
+QStatusBar QPushButton:checked:hover {
+    background-color: $fill-color-hover;
+}
+
+QStatusBar QPushButton:pressed,
+QStatusBar QPushButton:checked:pressed {
+    color: $secondary-label-color-pressed;
+    background-color: $fill-color-pressed;
+}
+
+QStatusBar QPushButton:flat,
+        QStatusBar QPushButton:checked {
+    background-color: $fill-color;
+}
+
+QStatusBar QPushButton#showSidebarButton {
+    font-family: "Font Awesome 5 Free Solid";
+    font-size: 16px;
+    background-color: transparent;
+}
+
+QStatusBar QPushButton#showSidebarButton:hover {
+    color: $label-color-hover;
+    background-color: transparent;
+}
+
+QStatusBar QPushButton#showSidebarButton:pressed {
+    color: $label-color-pressed;
+    background-color: transparent;
+}
+
+QStatusBar QComboBox {
+    height: 22px;
+    border: 0px;
+    margin: 0;
+    padding: 0;
+    color: $secondary-label-color;
+    background-color: $background-color;
+    font-size: 11pt;
+}
+
+QStatusBar QComboBox:hover {
+    border-bottom: 2px solid $accent-color;
+}
+
+QStatusBar QListView {
+    padding: 10px 0px 10px 0px;
+    margin: 0px;
+    color: $label-color;
+    background-color: $background-color;
+}
+
+QStatusBar QListView::item {
+    background-color: transparent;
+    padding: 5px 15px 5px 15px;
+}
+
+QStatusBar QListView::item:selected {
+    background-color: $selected-text-bg-color;
+    color: $selected-text-fg-color;
+}
+
+QStatusBar QComboBox::drop-down {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+}
+
+QStatusBar QComboBox::down-arrow {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 14px;
+    width: 14px;
+    image: url($status-indicator-icon-path)
+}
+
+QStatusBar QComboBox::drop-down:hover {
+    border-radius: 10px;
+    background-color: $fill-color-hover;
+}
+
+QStatusBar #leftStatusBarWidget,
+QStatusBar #midStatusBarWidget,
+QStatusBar #rightStatusBarWidget {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/******************************************************************************/
+/* Find and Replace Pane                                                      */
+/******************************************************************************/
+
+ghostwriter--FindReplace QLabel {
+    font-size: 11pt;
+    margin: 0px;
+    padding: 5px;
+    border: 0;
+    background: transparent;
+    color: $secondary-label-color;
+}
+
+ghostwriter--FindReplace QPushButton {
+    font-size: 16px;
+    padding: 5 5 5 5;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    color: $secondary-label-color;
+    background-color: $fill-color;
+    min-width: 16px
+}
+
+ghostwriter--FindReplace QPushButton[checkable=\"true\"] {
+    font-size: 16px;
+    font-family: "Font Awesome 5 Free Solid";
+    background: transparent;
+    min-width: 32px;
+    height: 16px;
+}
+
+ghostwriter--FindReplace QPushButton:pressed {
+    background-color: $fill-color-pressed;
+    color: $secondary-label-color-pressed;
+}
+
+ghostwriter--FindReplace QPushButton:checked {
+    background-color: $fill-color-active;
+    color: $secondary-label-color-active;
+}
+
+ghostwriter--FindReplace QPushButton:hover {
+    background-color: $tertiary-fill-color-hover;
+    color: $secondary-label-color-hover;
+}
+
+ghostwriter--FindReplace QPushButton:flat {
+    background: transparent;
+}
+
+ghostwriter--FindReplace QPushButton#findReplaceCloseButton {
+    font-size: 12px;
+    font-family: "Font Awesome 5 Free Solid";
+}
+
+QMainWindow QLineEdit {
+    color: $text-color;
+    background-color: $tertiary-fill-color;
+    border: 0px;
+    border-radius: 3px;
+    selection-color: $selected-text-fg-color;
+    selection-background-color: $selected-text-bg-color;
+}
+
+QMainWindow QLineEdit:focus {
+    border: 1px solid $tertiary-fill-color-active;
+}

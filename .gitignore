@@ -42,3 +42,8 @@ build/
 
 # Mac finder stub
 .DS_Store
+
+# VSCode
+
+.vscode/
+.vscode/*

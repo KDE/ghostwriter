@@ -1,7 +1,7 @@
 ﻿/***********************************************************************
  *
  * Copyright (C) 2014-2022 wereturtle
- * Copyright (C) 2009, 2010, 2011, 2012, 2013, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2009-2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,6 @@
 
 #include <QApplication>
 #include <QClipboard>
-#include <QCommonStyle>
 #include <QDesktopServices>
 #include <QFile>
 #include <QFileDialog>
@@ -115,14 +114,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     );
     this->setFocusProxy(editor);
 
-    // We need to set an empty style for the editor's scrollbar in order for the
-    // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
-    // background color will have the Windows 98 checkered look rather than
-    // being a solid or transparent color.
-    //
-    editor->verticalScrollBar()->setStyle(new QCommonStyle());
-    editor->horizontalScrollBar()->setStyle(new QCommonStyle());
-
     spelling = new SpellCheckDecorator(editor);
     spelling->setLiveSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
 
@@ -150,10 +141,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     editor->setAutoMatchEnabled('_', appSettings->autoMatchCharEnabled('_'));
     editor->setAutoMatchEnabled('`', appSettings->autoMatchCharEnabled('`'));
     editor->setAutoMatchEnabled('<', appSettings->autoMatchCharEnabled('<'));
-
-    QWidget *editorPane = new QWidget(this);
-    editorPane->setObjectName("editorLayoutArea");
-    editorPane->setLayout(editor->preferredLayout());
 
     QStringList recentFiles;
 
@@ -316,7 +303,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     splitter = new QSplitter(this);
     splitter->addWidget(sidebar);
-    splitter->addWidget(editorPane);
+    splitter->addWidget(editor);
     splitter->addWidget(htmlPreview);
     splitter->setChildrenCollapsible(false);
     splitter->setStretchFactor(0, 0);
@@ -1179,13 +1166,10 @@ void MainWindow::buildStatusBar()
     // Divide the status bar into thirds for placing widgets.
     QFrame *leftWidget = new QFrame(this->statusBar());
     leftWidget->setObjectName("leftStatusBarWidget");
-    leftWidget->setStyleSheet("#leftStatusBarWidget { border: 0; margin: 0; padding: 0 }");
     QFrame *midWidget = new QFrame(this->statusBar());
     midWidget->setObjectName("midStatusBarWidget");
-    midWidget->setStyleSheet("#midStatusBarWidget { border: 0; margin: 0; padding: 0 }");
     QFrame *rightWidget = new QFrame(this->statusBar());
     rightWidget->setObjectName("rightStatusBarWidget");
-    rightWidget->setStyleSheet("#rightStatusBarWidget { border: 0; margin: 0; padding: 0 }");
 
     QHBoxLayout *leftLayout = new QHBoxLayout(leftWidget);
     leftWidget->setLayout(leftLayout);
@@ -1198,11 +1182,8 @@ void MainWindow::buildStatusBar()
     rightLayout->setContentsMargins(0,0,0,0);
 
     // Add left-most widgets to status bar.
-    QFont buttonFont(this->awesome->font(style::stfas, 16));
-
     toggleSidebarButton = new QPushButton(QChar(fa::chevronright));
     toggleSidebarButton->setObjectName("showSidebarButton");
-    toggleSidebarButton->setFont(buttonFont);
     toggleSidebarButton->setFocusPolicy(Qt::NoFocus);
     toggleSidebarButton->setToolTip(tr("Toggle sidebar"));
     toggleSidebarButton->setCheckable(false);
@@ -1260,7 +1241,6 @@ void MainWindow::buildStatusBar()
 
     // Add right-most widgets to status bar.
     QPushButton *button = new QPushButton(QChar(fa::moon));
-    button->setFont(buttonFont);
     button->setFocusPolicy(Qt::NoFocus);
     button->setToolTip(tr("Toggle dark mode"));
     button->setCheckable(true);
@@ -1280,7 +1260,6 @@ void MainWindow::buildStatusBar()
     statusBarWidgets.append(button);
 
     button = new QPushButton(QChar(fa::code));
-    button->setFont(buttonFont);
     button->setFocusPolicy(Qt::NoFocus);
     button->setToolTip(tr("Toggle Live HTML Preview"));
     button->setCheckable(true);
@@ -1301,7 +1280,6 @@ void MainWindow::buildStatusBar()
     );
 
     button = new QPushButton(QChar(fa::backspace));
-    button->setFont(buttonFont);
     button->setFocusPolicy(Qt::NoFocus);
     button->setToolTip(tr("Toggle Hemingway mode"));
     button->setCheckable(true);
@@ -1310,7 +1288,6 @@ void MainWindow::buildStatusBar()
     statusBarWidgets.append(button);
 
     button = new QPushButton(QChar(fa::headphonesalt));
-    button->setFont(buttonFont);
     button->setFocusPolicy(Qt::NoFocus);
     button->setToolTip(tr("Toggle distraction free mode"));
     button->setCheckable(true);
@@ -1319,7 +1296,6 @@ void MainWindow::buildStatusBar()
     statusBarWidgets.append(button);
 
     button = new QPushButton(QChar(fa::expand));
-    button->setFont(buttonFont);
     button->setFocusPolicy(Qt::NoFocus);
     button->setObjectName("fullscreenButton");
     button->setToolTip(tr("Toggle full screen mode"));
@@ -1383,11 +1359,11 @@ void MainWindow::buildSidebar()
     cheatSheetWidget->addItem(tr("![Image](./image.jpg \"Title\")"));
     cheatSheetWidget->addItem(tr("--- *** ___ Horizontal Rule"));
 
-    documentStatsWidget = new DocumentStatisticsWidget();
+    documentStatsWidget = new DocumentStatisticsWidget(this);
     documentStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
     documentStatsWidget->setAlternatingRowColors(false);
 
-    sessionStatsWidget = new SessionStatisticsWidget();
+    sessionStatsWidget = new SessionStatisticsWidget(this);
     sessionStatsWidget->setSelectionMode(QAbstractItemView::NoSelection);
     sessionStatsWidget->setAlternatingRowColors(false);
 
@@ -1432,42 +1408,24 @@ void MainWindow::buildSidebar()
     sidebar->setMaximumWidth(0.5 * QGuiApplication::primaryScreen()->availableSize().width());
 
     QPushButton *tabButton = new QPushButton();
-    tabButton->setFont(this->awesome->font(style::stfas, 16));
     tabButton->setText(QChar(fa::hashtag));
     tabButton->setToolTip(tr("Outline"));
     sidebar->addTab(tabButton, outlineWidget);
 
     tabButton = new QPushButton();
-    tabButton->setFont(this->awesome->font(style::stfas, 16));
     tabButton->setText(QChar(fa::tachometeralt));
     tabButton->setToolTip(tr("Session Statistics"));
     sidebar->addTab(tabButton, sessionStatsWidget);
 
     tabButton = new QPushButton();
-    tabButton->setFont(this->awesome->font(style::stfas, 16));
     tabButton->setText(QChar(fa::chartbar));
     tabButton->setToolTip(tr("Document Statistics"));
     sidebar->addTab(tabButton, documentStatsWidget);
 
     tabButton = new QPushButton();
-    tabButton->setFont(this->awesome->font(style::stfab, 16));
     tabButton->setText(QChar(fa::markdown));
     tabButton->setToolTip(tr("Cheat Sheet"));
     sidebar->addTab(tabButton, cheatSheetWidget);
-
-    // We need to set an empty style for the scrollbar in order for the
-    // scrollbar CSS stylesheet to take full effect.  Otherwise, the scrollbar's
-    // background color will have the Windows 98 checkered look rather than
-    // being a solid or transparent color.
-    //
-    outlineWidget->verticalScrollBar()->setStyle(new QCommonStyle());
-    outlineWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
-    documentStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
-    documentStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
-    sessionStatsWidget->verticalScrollBar()->setStyle(new QCommonStyle());
-    sessionStatsWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
-    cheatSheetWidget->verticalScrollBar()->setStyle(new QCommonStyle());
-    cheatSheetWidget->horizontalScrollBar()->setStyle(new QCommonStyle());
 
     int tabIndex = QSettings().value("sidebarCurrentTab", (int)FirstSidebarTab).toInt();
 
@@ -1478,7 +1436,6 @@ void MainWindow::buildSidebar()
     sidebar->setCurrentTabIndex(tabIndex);
 
     QPushButton *button = new QPushButton(QChar(fa::cog));
-    button->setFont(this->awesome->font(style::stfas, 16));
     button->setFocusPolicy(Qt::NoFocus);
     button->setToolTip(tr("Settings"));
     button->setCheckable(false);
@@ -1493,7 +1450,9 @@ void MainWindow::buildSidebar()
             popupMenu->addAction(tr("Font..."), this, SLOT(changeFont()));
             popupMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
             popupMenu->addAction(tr("Preview Options..."), this, SLOT(showPreviewOptions()));
-            popupMenu->addAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()))->setMenuRole(QAction::PreferencesRole);
+            popupMenu->addAction(tr("Preferences..."),
+                this,
+                SLOT(openPreferencesDialog()))->setMenuRole(QAction::PreferencesRole);
             popupMenu->popup(button->mapToGlobal(QPoint(button->width() / 2, -(button->height() / 2) - 10)));
         }
     );
@@ -1558,38 +1517,31 @@ void MainWindow::applyTheme()
         appSettings->previewCodeFont());
 
     editor->setColorScheme(colorScheme);
-    editor->setStyleSheet(styler.editorStyleSheet());
     spelling->setErrorColor(colorScheme.error);
 
     // Do not call this->setStyleSheet().  Calling it more than once in a run
     // (i.e., when changing a theme) causes a crash in Qt 5.11.  Instead,
     // change the main window's style sheet via qApp.
     //
-    qApp->setStyleSheet(styler.layoutStyleSheet());
+    QString styleSheet = styler.widgetStyleSheet();
 
-    this->splitter->setStyleSheet(styler.splitterStyleSheet());
-    this->statusBar()->setStyleSheet(styler.statusBarStyleSheet());
-
-    foreach (QWidget *w, statusBarWidgets) {
-        w->setStyleSheet(styler.statusBarWidgetsStyleSheet());
+    if (styleSheet.isNull()) {
+        qCritical() << "Invalid widget style sheet provided.";
+    } else {
+        qApp->style()->unpolish(qApp);
+        qApp->style()->unpolish(this);
+        qApp->setStyleSheet(styleSheet);
+        qApp->style()->polish(qApp);
+        qApp->style()->polish(this);
     }
 
-    findReplace->setStyleSheet(styler.findReplaceStyleSheet());
-    sidebar->setStyleSheet(styler.sidebarStyleSheet());
+    styleSheet = styler.htmlPreviewStyleSheet();
 
-    // Clear style sheet cache by setting to empty string before
-    // setting the new style sheet.
-    //
-    outlineWidget->setStyleSheet("");
-    outlineWidget->setStyleSheet(styler.sidebarWidgetStyleSheet());
-    cheatSheetWidget->setStyleSheet("");
-    cheatSheetWidget->setStyleSheet(styler.sidebarWidgetStyleSheet());
-    documentStatsWidget->setStyleSheet("");
-    documentStatsWidget->setStyleSheet(styler.sidebarWidgetStyleSheet());
-    sessionStatsWidget->setStyleSheet("");
-    sessionStatsWidget->setStyleSheet(styler.sidebarWidgetStyleSheet());
-
-    htmlPreview->setStyleSheet(styler.htmlPreviewCss());
+    if (styleSheet.isNull()) {
+        qCritical() << "Invalid HTML preview style sheet provided.";
+    } else {
+        htmlPreview->setStyleSheet(styler.htmlPreviewStyleSheet());
+    }
 
     adjustEditor();
 }
