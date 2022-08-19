@@ -21,7 +21,7 @@ function loadNavBar() {
                     <a class="nav-link" href="documentation.html">Documentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contribute.html">Get Involved</a>
+                    <a class="nav-link" href="contribute.html">Contribute</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="donate.html">Donate</a>

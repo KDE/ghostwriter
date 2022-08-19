@@ -11,6 +11,7 @@ body {
     color: #3a3434;
     background-color: rgb(255, 246, 234);
     font-family: "Open Sans", sans-serif;
+    font-size: medium;
     display: flex;
     flex-direction: column;
 }
@@ -34,7 +35,6 @@ hr {
 }
 
 a {
-    /* color: #00779b; */
     color: #2B99A7;
 }
 
@@ -53,25 +53,19 @@ pre {
 
 :not(dt) > code {
     font-family: "Roboto Mono", monospace;
-    /* color: #C1436D */
     color: #AE3536
 }
 
 kbd {
-    background-color: #AE353610;
-    border: 0px solid;
-    border-radius: 5px;
-    padding-left: .25em;
-    padding-right: .25em;
-    font-weight: bold;
-}
-
-kbd {
     color: rgb(255, 246, 234);
-    background: #AE3536;
+    background-color: #AE3536;
+    border: 0px solid;
+    border-radius: 3px;
     font-family: "Roboto Mono", monospace;
     font-size: small;
-    border-radius: 3px;
+    font-weight: bold;
+    padding-left: .25em;
+    padding-right: .25em;
     padding: 1px 5px;
     box-shadow: 1px 1px 1px #3a3434;
     margin: 3px;
@@ -206,7 +200,7 @@ html.plat-osx span.linux {
     font-family: "Cherry Swash", sans-serif;
     font-weight: normal;
     font-style: normal;
-    font-size: small;
+    font-size: medium;
     color: #3a3434;
 }
 
@@ -229,8 +223,6 @@ html.plat-osx span.linux {
     background-size: 100%;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2858, 52, 52, 1.0%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-
-
 
 button.navbar-toggler {
     border: 0;

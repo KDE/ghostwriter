@@ -7,7 +7,10 @@
 <title>ghostwriter</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+    crossorigin="anonymous">
 
 <meta name="description" content="A distraction-free Markdown editor for the desktop">
 <meta name="keywords" content="Markdown editor,distraction-free,text editor,word processor,fullscreen,full screen">
@@ -26,89 +29,91 @@
 </header>
 
 <main class="container my-5">
-    <h1>Get Involved</h1>
-    <p>
-        Interested in making <em>ghostwriter</em> even better?  Please read the
-        sections below to see how you can contribute.
-    </p>
-    <h2>Bugs Reports</h2>
-    <p>Found a bug? Please report it on the GitHub issue tracker <a href="https://github.com/wereturtle/ghostwriter/issues">here</a>.</p>
-    <h2>New Features and Bug Fixes</h2>
-    <p>Do you know how to code?  Follow these steps:</p>
-    <p>
-        <ol>
-            <li>Submit an issue for your feature or bug on the GitHub issue tracker <a href="https://github.com/wereturtle/ghostwriter/issues">here</a>.
-                <br/>This step is necessary to ensure that the new feature meets the project goals or that the bug isn't really a feature. You will also want to coordinate what areas of code you will be updating to avoid merge conflicts in case someone else is working on that same area of code as well.
-            </li>
-            <li>After discussion for your new issue, code your feature or bug fix.  Please follow the <a href="https://community.kde.org/Policies/Frameworks_Coding_Style">KDE Frameworks coding style guide</a>.</li>
-            <li>Submit a pull request against the <code>master</code> branch with your code updates.
-                <br/><strong>Important:</strong> Please squash your commits in <code>git</code> before submitting the pull request!
-            </li>
-            <li>Wait for a brief code review and at least two other volunteers to test your feature or bug fix.</li>
-            <li>Make updates to your pull request as you receive feedback.</li>
-            <li>Once your pull request is approved by at least two other volunteer testers, your pull request will be merged.</li>
-        </ol>
-    </p>
-    <h2>Code Reviews</h2>
-    <p>Do you know how to code and have an eye for detail? Volunteer to peer review new pull requests.</p>
-    <ol>
-        <li>Look for a new pull request, and add a comment that you are volunteering to code review it.</li>
-        <li>Submit code review comments.</li>
-        <li>Wait for updates to the pull request (if needed).</li>
-        <li>Continue providing feedback until you are confident the code is sound.</li>
-        <li>Leave a comment with your approval of the pull request.</li>
-        <li>Once at least two volunteer testers submit their approval, the pull request will be merged.</li>
-    </ol>
-    <p>Some tips of what to look for in code reviews:</p>
-    <ul>
-        <li>Does the submitted code follow the <a href="https://community.kde.org/Policies/Frameworks_Coding_Style">KDE Frameworks coding style guide</a>?</li>
-        <li>Is the code pessimistic?  In other words, does it check for invalid values before using them and handle possible error conditions?</li>
-    </ul>
-    <h2>Testing</h2>
-    <p>Volunteer to review code and test new features and bug fixes. Follow these steps:</p>
-    <p>
-        <ol>
-            <li>Look for a new pull request, and add a comment that you are volunteering to code review and/or test it.</li>
-            <li>Build the pull request on your platform.</li>
-            <li>Test the feature/bug fix and try to break it!</li>
-            <li>Provide feedback on test results in the pull request.</li>
-            <li>Wait for updates to the pull request (if needed).</li>
-            <li>Continue testing and providing feedback until you are confident the code is working.</li>
-            <li>Leave a comment with your approval of the pull request.</li>
-            <li>Once at least on other volunteer tester submits their approval, the pull request will be merged.</li>
-        </ol>
-    </p>
-    <h2>Translations</h2>
-    <p>
-        With <a href="https://doc.qt.io/qt-5/qtlinguist-index.html">Qt Linguist</a>,
-        you can translate <em>ghostwriter</em> into other languages, or update
-        an existing translation file.  The <code>translations/</code>
-        directory within the <a href="https://github.com/wereturtle/ghostwriter">
-            source code repository</a> contains all the <code>.ts</code> files you need to get started.
-    </p>
-    <h2>Wiki Documentation</h2>
-    <p>
-        Found a workaround for a common issue?  Have any useful tips?  Please
-        document your insights on the <a href="https://github.com/wereturtle/ghostwriter/wiki">Wiki</a>.
-    </p>
-    <h2>Tech Support</h2>
-    <p>
-        Knowledgeable about Linux or building for MacOS?  Know how to fix that
-        one issue others keep running into?  Your answering user questions and
-        troubleshooting in the
-        <a href="https://github.com/wereturtle/ghostwriter/issues">
-            GitHub issue tracker</a> would be much appreciated!
-    </p>
-    <h2>Automated Builds</h2>
-    <p>
-        The <em>ghostwriter</em> project uses continuous integration for its
-        Linux builds to provide both staging and stable releases. Sadly,
-        this capability has not been implemented for MacOS.
-    </p>
-    <p>
-        If you are familiar with MacOS, please consider creating automated builds.
-        These builds will ideally provide installable executables.
-    </p>
+<h1>Contribute</h1>
+<p>Interested in making <em>ghostwriter</em> even better? Please read the sections below to see how you can contribute.</p>
+<h2>Bugs Reports</h2>
+<p>Found a bug? Please report it on the GitHub issue tracker <a href="https://github.com/wereturtle/ghostwriter/issues">here</a>. Please be sure to fill out all answers to the questions in the bug report template.</p>
+<p><strong>Warning:</strong> Failing to provide the information required in the bug report template will result in the bug report being automatically closed.</p>
+<h2>New Features and Bug Fixes</h2>
+<p>Do you know how to code? Follow these steps:</p>
+<ol>
+<li>Submit an issue for your feature or bug on the GitHub issue tracker <a href="https://github.com/wereturtle/ghostwriter/issues">here</a>.<br />
+<strong>Note:</strong> This step is necessary to ensure that the new feature meets the project goals or that the bug isn't really a feature. You will also want to coordinate what areas of code you will be updating to avoid merge conflicts in case someone else is working on that same area of code as well.</li>
+<li>After discussion for your new issue, code your feature or bug fix. Please follow the <a href="https://community.kde.org/Policies/Frameworks_Coding_Style">KDE Frameworks coding style guide</a>.</li>
+<li>Submit a pull request against the master branch with your code updates.<br />
+<strong>Important:</strong> Please squash your commits in git before submitting the pull request!</li>
+<li>Wait for a brief code review and at least two other volunteers to test your feature or bug fix.</li>
+<li>Make updates to your pull request as you receive feedback.</li>
+<li>Once your pull request is approved by at least two other volunteer testers, your pull request will be merged.</li>
+</ol>
+<h2>Code Reviews</h2>
+<p>Do you know how to code and have an eye for detail? Volunteer to peer review new pull requests!</p>
+<ol>
+<li>Look for a <a href="https://github.com/wereturtle/ghostwriter/pulls">new pull request</a>, and add a comment that you are volunteering to code review it.</li>
+<li>Submit code review comments.</li>
+<li>Wait for updates to the pull request (if needed).</li>
+<li>Continue providing feedback until you are confident the code is sound.</li>
+<li>Leave a comment with your approval of the pull request.</li>
+<li>Once at least two volunteer testers submit their approval, the pull request will be merged.</li>
+</ol>
+<p>Here are some tips of what to look for in code reviews:</p>
+<ul>
+<li>
+<p>Does the submitted code follow the <a href="https://community.kde.org/Policies/Frameworks_Coding_Style">KDE Frameworks coding style guide</a>?</p>
+</li>
+<li>
+<p>Is the code readable, with comments explaining any non-obvious lines?</p>
+</li>
+<li>
+<p>Is the code &quot;pessimistic&quot;? In other words, does it check for invalid values before using them and handle possible error conditions?</p>
+</li>
+<li>
+<p>Are multiple comparisons or statements wrapped in parentheses within <code>if</code> statements to prevent accidents with order of operations?  Examples:</p>
+<pre><code class="language-cpp">// Wrong
+if (a == b || c &gt; d);
+
+// Correct
+if ((a == b) || (c &gt; d));</code></pre>
+</li>
+<li>
+<p>Are literals on the left side of the <code>==</code> operator to prevent a typo with the <code>=</code> operator from escaping the compiler's notice? Examples:</p>
+<pre><code class="language-cpp">// Wrong
+if (variable == 1);
+
+// Reason: What if there's a typo?
+//         The compiler will not catch it!
+if (variable = 1); // Oops!
+
+// Correct
+if (1 == variable);
+
+// Reason: This time the compiler will catch
+//         the typo.
+if (1 = variable); // Oops!</code></pre>
+</li>
+</ul>
+<h2>Testing</h2>
+<p>Volunteer to review code and test new features and bug fixes! Follow these steps:</p>
+<ol>
+<li>Look for a <a href="https://github.com/wereturtle/ghostwriter/pulls">new pull request</a>, and add a comment that you are volunteering to test it.</li>
+<li>Build the pull request on your platform.</li>
+<li>Test the feature/bug fix and try to break it!</li>
+<li>Provide feedback on test results in the pull request.</li>
+<li>Wait for updates to the pull request (if needed).</li>
+<li>Continue testing and providing feedback until you are confident the code is working.</li>
+<li>Leave a comment with your approval of the pull request.</li>
+<li>Once at least on other volunteer tester submits their approval, the pull request will be merged.</li>
+</ol>
+<h2>Translations</h2>
+<p>With <a href="https://doc.qt.io/qt-5/qtlinguist-index.html">Qt Linguist</a>, you can translate ghostwriter into other languages, or update an existing translation file. The <code>translations/</code> directory within the <a href="https://github.com/wereturtle/ghostwriter">source code repository</a> contains all the <code>.ts</code> files you need to get started.</p>
+<h2>Wiki Documentation</h2>
+<p>Found a workaround for a common issue? Have any useful tips? Please document your insights on the project's <a href="https://github.com/wereturtle/ghostwriter/wiki">wiki</a>.</p>
+<h2>Tech Support</h2>
+<p>Knowledgeable about Linux or building for MacOS? Know how to fix that one issue others keep running into? Your answering user questions and troubleshooting in the <a href="https://github.com/wereturtle/ghostwriter/issues">GitHub issue tracker</a> would be much appreciated!</p>
+<h2>Automated Builds</h2>
+<p>The ghostwriter project uses continuous integration for its Windows and Linux builds to provide regular releases. Sadly, this capability has not been implemented for MacOS.</p>
+<p>If you are familiar with MacOS, please consider creating automated builds. These builds will ideally provide an installer for the application.</p>
+<p>Also, the current Windows build does not provide an installer (<code>setup.exe</code> or <code>.msi</code>). If you are familiar with making Windows installers for Qt apps in AppVeyor, please consider contributing to the project's appveyor.yml file.</p>
 </main>
 
 <footer></footer>
@@ -117,8 +122,8 @@
 
 <script src="js/navbar.js"></script>
 <script src="js/footer.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
 </body>
 </html>
