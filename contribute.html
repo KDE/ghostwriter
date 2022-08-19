@@ -29,15 +29,55 @@
     <h1>Get Involved</h1>
     <p>
         Interested in making <em>ghostwriter</em> even better?  Please read the
-        sections below to see what you can contribute.
+        sections below to see how you can contribute.
     </p>
-    <p>
-        Please note that pull requests for anything but translations or simple
-        documentation fixes will not be accepted for the time being. Likewise,
-        please do not use the GitHub issue tracker to request new features.
-    </p>
-    <h2>Bug Reports</h2>
+    <h2>Bugs Reports</h2>
     <p>Found a bug? Please report it on the GitHub issue tracker <a href="https://github.com/wereturtle/ghostwriter/issues">here</a>.</p>
+    <h2>New Features and Bug Fixes</h2>
+    <p>Do you know how to code?  Follow these steps:</p>
+    <p>
+        <ol>
+            <li>Submit an issue for your feature or bug on the GitHub issue tracker <a href="https://github.com/wereturtle/ghostwriter/issues">here</a>.
+                <br/>This step is necessary to ensure that the new feature meets the project goals or that the bug isn't really a feature. You will also want to coordinate what areas of code you will be updating to avoid merge conflicts in case someone else is working on that same area of code as well.
+            </li>
+            <li>After discussion for your new issue, code your feature or bug fix.  Please follow the <a href="https://community.kde.org/Policies/Frameworks_Coding_Style">KDE Frameworks coding style guide</a>.</li>
+            <li>Submit a pull request against the <code>master</code> branch with your code updates.
+                <br/><strong>Important:</strong> Please squash your commits in <code>git</code> before submitting the pull request!
+            </li>
+            <li>Wait for a brief code review and at least two other volunteers to test your feature or bug fix.</li>
+            <li>Make updates to your pull request as you receive feedback.</li>
+            <li>Once your pull request is approved by at least two other volunteer testers, your pull request will be merged.</li>
+        </ol>
+    </p>
+    <h2>Code Reviews</h2>
+    <p>Do you know how to code and have an eye for detail? Volunteer to peer review new pull requests.</p>
+    <ol>
+        <li>Look for a new pull request, and add a comment that you are volunteering to code review it.</li>
+        <li>Submit code review comments.</li>
+        <li>Wait for updates to the pull request (if needed).</li>
+        <li>Continue providing feedback until you are confident the code is sound.</li>
+        <li>Leave a comment with your approval of the pull request.</li>
+        <li>Once at least two volunteer testers submit their approval, the pull request will be merged.</li>
+    </ol>
+    <p>Some tips of what to look for in code reviews:</p>
+    <ul>
+        <li>Does the submitted code follow the <a href="https://community.kde.org/Policies/Frameworks_Coding_Style">KDE Frameworks coding style guide</a>?</li>
+        <li>Is the code pessimistic?  In other words, does it check for invalid values before using them and handle possible error conditions?</li>
+    </ul>
+    <h2>Testing</h2>
+    <p>Volunteer to review code and test new features and bug fixes. Follow these steps:</p>
+    <p>
+        <ol>
+            <li>Look for a new pull request, and add a comment that you are volunteering to code review and/or test it.</li>
+            <li>Build the pull request on your platform.</li>
+            <li>Test the feature/bug fix and try to break it!</li>
+            <li>Provide feedback on test results in the pull request.</li>
+            <li>Wait for updates to the pull request (if needed).</li>
+            <li>Continue testing and providing feedback until you are confident the code is working.</li>
+            <li>Leave a comment with your approval of the pull request.</li>
+            <li>Once at least on other volunteer tester submits their approval, the pull request will be merged.</li>
+        </ol>
+    </p>
     <h2>Translations</h2>
     <p>
         With <a href="https://doc.qt.io/qt-5/qtlinguist-index.html">Qt Linguist</a>,
@@ -49,7 +89,7 @@
     <h2>Wiki Documentation</h2>
     <p>
         Found a workaround for a common issue?  Have any useful tips?  Please
-        document your insights on the <em>Wiki</em>.
+        document your insights on the <a href="https://github.com/wereturtle/ghostwriter/wiki">Wiki</a>.
     </p>
     <h2>Tech Support</h2>
     <p>
@@ -63,14 +103,11 @@
     <p>
         The <em>ghostwriter</em> project uses continuous integration for its
         Linux builds to provide both staging and stable releases. Sadly,
-        this capability has not been implemented for Windows or MacOS.
+        this capability has not been implemented for MacOS.
     </p>
     <p>
-        If you are familiar with GitHub activities or Travis CI, please
-        consider creating automated builds for one or both of these platforms.
-        These builds will ideally provide installable executables and--in 
-        the case of Windows 10--a portable version of the application within
-        a Zip file.
+        If you are familiar with MacOS, please consider creating automated builds.
+        These builds will ideally provide installable executables.
     </p>
 </main>
 

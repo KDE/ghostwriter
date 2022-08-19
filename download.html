@@ -31,7 +31,7 @@
         <ul>
             <li>
                 Windows 10 - available only as
-                <a href="https://github.com/michelolvera/vs-ghostwriter/releases/latest">
+                <a href="https://github.com/wereturtle/ghostwriter/releases/latest">
                     portable 64 bit
                 </a>
             </li>
@@ -49,34 +49,19 @@
     </p>
     <h2 id="linux">Linux</h2>
     <p>
-        Enter the following commands based on your Linux distribution.  Choose
-        the "Stable" column for the latest stable release, or else choose the
-        "Staging" column to test drive the next release candidate.
-    </p>
-    <p>
-        <strong>WARNING:</strong> The staging version is only for the very
-        brave!
+        Enter the following commands based on your Linux distribution.
     </p>
     <table class="table align-top">
         <thead>
             <th scope="col">Distro</th>
-            <th scope="col">Stable Repo Installation Commands</th>
-            <th scope="col">Staging Repo Installation Commands</th>
+            <th scope="col">Installation Commands</th>
         </thead>
         <tr class="align-top">
             <td class="align-top">Ubuntu</td>
             <td class="align-top">
-                <div class="terminal">
-                <code>
-                    $ sudo add-apt-repository ppa:wereturtle/ppa<br/>
-                    $ sudo apt update<br/>
-                    $ sudo apt install ghostwriter</code>
-                </div>
-            </td>
-            <td class="align-top">
             <div class="terminal">
                 <code>
-                    $ sudo add-apt-repository ppa:wereturtle/staging<br/>
+                    $ sudo add-apt-repository ppa:wereturtle/ppa<br/>
                     $ sudo apt update<br/>
                     $ sudo apt install ghostwriter
                 </code>
@@ -93,32 +78,23 @@
                 </code>
             </div>
             </td>
-            <td class="align-top">
-            <div class="terminal">
-                <code>
-                    $ sudo dnf copr enable wereturtle/staging<br/>
-                    $ sudo dnf install ghostwriter
-                </code>
-            </div>
-            </td>
         </tr>
     </table>
     <h2 id="macos">MacOS</h2>
     <p>
-        MacOS has unofficial support provided by the community.  However,
-        the app mostly works but for a few quirks.  Unfortunately, you
+        MacOS has unofficial support provided by the community.
+        The app mostly works but for a few quirks.  Unfortunately, you
         will have to compile the source in order to run it, as there is
         currently no installer available.
     </p>
     <p>
         Download the source code from the
         <a href="https://github.com/wereturtle/ghostwriter">
-            GitHub repository
-        </a> and see the README.md file for build instructions.
+            GitHub repository</a> and see the README.md file for build instructions.
     </p>
     <p>
         If you would like to contribute to improving MacOS support,
-        please see the <a href="contribute.html#macos">contributing
+        please see the <a href="contribute.html">contributing
         guidelines.</a>
     </p>
 </main>

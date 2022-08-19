@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&family=Lobster+Two&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&family=Cherry+Swash:wght@400;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nova+Mono&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Roboto+Mono&family=Rum+Raisin&family=Shrikhand&display=swap');
 
 html, body {
     height: 100%;
@@ -51,8 +51,7 @@ pre {
 }
 
 :not(dt) > code {
-    font-family: "Ubuntu Mono", monospace;
-    font-size: 12pt;
+    font-family: "Roboto Mono", monospace;
     /* color: #C1436D */
     color: #AE3536
 }
@@ -69,21 +68,16 @@ kbd {
 kbd {
     color: rgb(255, 246, 234);
     background: #AE3536;
-    font-family: "Ubuntu Mono", monospace;
+    font-family: "Roboto Mono", monospace;
     font-size: small;
-    font-variant: small-caps;
     border-radius: 3px;
     padding: 1px 5px;
     box-shadow: 1px 1px 1px #3a3434;
     margin: 3px;
 }
 
-pre code {
-    font-size: 12pt;
-}
-
 dt, dt code {
-    font-family: "Shrikhand", sans-serif;
+    font-family: "Cherry Swash", serif;
     color: #3a3434;
 }
 
@@ -92,7 +86,7 @@ dd {
 }
 
 th {
-    font-family: "Shrikhand", sans-serif;
+    font-family: "Cherry Swash", serif;
     border-bottom: 1px solid #3a3434;
     border-top: 2px solid #3a3434;
     text-align: left;
@@ -125,21 +119,31 @@ td {
 
 .hero h1 {
     color: rgb(255, 246, 234);
-    font-family: "Lobster";
+    font-family: "Lobster Two", cursive;
+    font-style: italic;
+    font-weight: bold;
     text-shadow: 2px 2px 10px black;
+}
+
+.hero h1 .display-3 {
+    font-style: normal;
 }
 
 .hero p {
     text-shadow: 2px 2px 10px black;
     color: rgb(255, 246, 234);
-    font-family: "Shrikhand", sans-serif;
+    font-family: "Cherry Swash", sans-serif;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .est {
     color: rgb(255, 246, 234);
     text-align: center;
     font-size: medium;
-    font-family: "Lobster";
+    font-family: "Lobster Two", cursive;
+    font-style: italic;
+    font-weight: bold;
     text-shadow: 2px 2px 10px black;
 }
 
@@ -191,12 +195,17 @@ html.plat-osx span.linux {
 .navbar-brand {
     cursor: pointer;
     color: #3a3434;
-    font-family: "Lobster", sans-serif;
+    font-family: "Lobster Two", cursive;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .nav-link {
     margin-right: 1em !important;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Cherry Swash", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: small;
     color: #3a3434;
 }
 
@@ -245,16 +254,33 @@ button.navbar-toggler {
 
 }
 
-h1, h2, h3, h4 {
+h1 {
+    font-family: "Lobster Two", cursive;
+    font-style: italic;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Lobster Two', cursive;
+    font-style: italic;
+    font-weight: normal;
+}
+
+h3, h4, h5, h6 {
     color: #3a3434;
-    font-family: "Lobster";
+    font-family: "Cherry Swash", serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100%;
 }
 
 #download a.btn-primary {
     border: 0;
     color: rgb(255, 246, 234);
     background-color: #2B99A7;
-    font-family: "Shrikhand";
+    font-family: "Cherry Swash";
+    font-weight: bold;
+    font-style: italic;
     box-shadow: 2px 2px 10px black;
 }
 
