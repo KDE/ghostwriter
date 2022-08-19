@@ -2,12 +2,10 @@
 name: Bug Report or Troubleshooting Request
 about: Create a bug report or troubleshooting request
 title: ''
-labels: ''
+labels: 'bug, unconfirmed'
 assignees: wereturtle
 
 ---
-
-**IMPORTANT NOTICE**:  Please do NOT use the issue tracker for new feature requests.  Only bug reports or troubleshooting requests are being accepted at this time.  For details, please see the [contributing guidelines](https://github.com/wereturtle/ghostwriter/blob/master/CONTRIBUTING.md).
 
 **Platform (please complete the following information):**
  - OS and version [e.g. Ubuntu 18.04, Windows 10, MacOS Sierra]: 
@@ -16,8 +14,8 @@ assignees: wereturtle
 
 **ghostwriter installation (please complete the following information):**
  - ghostwriter version [see Help->About in menu bar]:
- - If Windows, installation type [e.g., portable or full install]:
- - If Linux, installation type [e.g., Flatpak, PPA, private build]:
+ - Installation type [e.g., Windows portable, Flatpak, PPA, Fedora COPR, private build, Linux repository]:
+ - If using a private build, version of Qt used to build [see Help->About Qt in menu bar]:
 
 **Describe the bug**
 A clear and concise description of what the bug is.
@@ -25,15 +23,17 @@ A clear and concise description of what the bug is.
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
+2. Click on '...'
+3. Scroll down to '...'
 4. See error
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+If applicable, add screenshots to help explain the issue.
 
 **Additional context**
 Add any other context about the problem here.
+
+Please attach or copy any text that will help demonstrate the issue.
