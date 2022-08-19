@@ -199,8 +199,8 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 
 ## Contribute
 
-Please submit any bugs you find through [GitHub](http://github.com/wereturtle/ghostwriter) with a detailed description on how to replicate the problem.  New translations are also welcome. However, please note that new feature requests are no longer being accepted.  Please read the [contributing guide](https://github.com/wereturtle/ghostwriter/blob/master/CONTRIBUTING.md) for further details before reporting an issue or submitting a pull request.  Please also consider volunteering for one of the tasks listed on the website [here](https://wereturtle.github.io/ghostwriter/contribute.html).
+Please read the [contributing guide](https://wereturtle.github.io/ghostwriter/contribute.html) on how to contribute.
 
 ## Licensing
 
-The source code for *ghostwriter* is licensed under the [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).  However, various icons and third-party FOSS code (i.e., Hunspell and cmark-gfm) have different licenses compatible with GPLv3.  Please read the COPYING files in the respective folders for the different licenses.
+The source code for *ghostwriter* is licensed under the [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).  However, various icons and third-party FOSS code (i.e., Hunspell and cmark-gfm) have different licenses compatible with GPLv3.  Please read the COPYING or LICENSE files in the respective folders for the different licenses.
