@@ -81,24 +81,6 @@ static QColor mix
 );
 
 /**
- * Returns a copy of the given color set with the given alpha value.
- * The valid range for the alpha parameter is between 0 and 255.
- */
-static QColor rgba(const QColor &color, int alpha);
-
-/**
- * Returns a copy of the given color set that is more transparent by the given
- * percentage (0-100).
- */
-static QColor fadeOut(const QColor &color, int percentage);
-
-/**
- * Returns a copy of the given color set that is more opaque by the given
- * percentage (0-100).
- */
-static QColor fadeIn(const QColor &color, int percentage);
-
-/**
  * Returns the font family name of the given font with bracketed text removed.
  */
 static QString sanitizeFontFamily(const QFont &font)
@@ -249,7 +231,10 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
 
 StyleSheetBuilder::~StyleSheetBuilder()
 {
-    ;
+    if (nullptr != this->m_awesome) {
+        delete this->m_awesome;
+        this->m_awesome = nullptr;
+    }
 }
 
 void StyleSheetBuilder::clearCache()
@@ -283,10 +268,18 @@ QString StyleSheetBuilder::stringValueOf(const QString &variableName) const {
         return QString();
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    if (QMetaType::QString == (QMetaType::Type) value.type()) {
+#else
     if (QMetaType::QString == value.typeId()) {
+#endif
         return value.toString();
     }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    else if (QMetaType::QColor == (QMetaType::Type) value.type()) {
+#else
     else if (QMetaType::QColor == value.typeId()) {
+#endif
         QColor color = value.value<QColor>();
 
         if (color.alpha() < 255) {
@@ -462,32 +455,5 @@ QColor mix
     blendedColor.setBlue(mixColorChannel(color1.blue(), color2.blue(), normalizedWeight));
 
     return blendedColor;
-}
-
-static QColor rgba(const QColor &color, int alpha)
-{
-    QColor alphaColor = color;
-    alphaColor.setAlpha(alpha);
-    return alphaColor;
-}
-
-static QColor fadeOut(const QColor &color, int amount)
-{
-    QColor result = color;
-
-    if (amount < 0) {
-        amount = 0;
-    } else if (amount > 100) {
-        amount = 100;
-    }
-
-    int value = color.alpha() * (1.0 - (double(amount) / 100.0));
-
-    if (value < 0) {
-        value = 0;
-    }
-
-    result.setAlpha(value);
-    return result;
 }
 } // namespace ghostwriter

@@ -1427,6 +1427,7 @@ void MainWindow::buildSidebar()
     sidebar->addTab(tabButton, documentStatsWidget);
 
     tabButton = new QPushButton();
+    tabButton->setObjectName("cheatSheetTab");
     tabButton->setText(QChar(fa::markdown));
     tabButton->setToolTip(tr("Cheat Sheet"));
     sidebar->addTab(tabButton, cheatSheetWidget);

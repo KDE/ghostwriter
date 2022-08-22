@@ -1,4 +1,4 @@
-/**
+﻿/**
  * QtAwesome - use font-awesome (or other font icons) in your c++ / Qt Application
  *
  * MIT Licensed
@@ -2375,8 +2375,9 @@ bool QtAwesome::initFontAwesome( )
         if( fd.fontId() < 0 ) {
             // load the font file
             QFile res(":/fonts/" + fd.fontFilename());
+            printf("Loading %s\n", fd.fontFilename().toStdString().c_str());
             if(!res.open(QIODevice::ReadOnly)) {
-                qDebug() << "Font awesome font" << fd.fontFilename() << "could not be loaded!";
+                qCritical() << "Font awesome font" << fd.fontFilename() << "could not be loaded!";
                 errors = true;
                 continue;
             }
@@ -2391,7 +2392,7 @@ bool QtAwesome::initFontAwesome( )
         if( !loadedFontFamilies.empty() ) {
             fd.setFontFamily( loadedFontFamilies.at(0) );
         } else {
-            qDebug() << "Font awesome" << fd.fontFilename() << " font is empty?!";
+            qCritical() << "Font awesome" << fd.fontFilename() << " font is empty?!";
             fd.setFontId( -1 ); // restore the font-awesome id
             return false;
         }

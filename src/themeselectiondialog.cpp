@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2014-2020 wereturtle
  *
@@ -187,7 +187,6 @@ ThemeSelectionDialog::ThemeSelectionDialog
             d->deleteTheme();
         }
     );
-    d->themeListWidget;
     this->connect
     (
         darkModeCheckbox,

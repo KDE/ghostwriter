@@ -61,14 +61,14 @@
 enum MarkupType {
     MarkupType_None = -1,
     MarkupType_BoldItalic, // Special case used for checking if bold + itallic are both on
-    MarkupType_Bold, 
+    MarkupType_Bold,
     MarkupType_StrikeThrough,
     MarkupType_Italic,
     MarkupType_Count
 };
 
 // Need to be in order of decreasing length
-static const QString Markup_Strings[MarkupType_Count] = {
+static const QString MarkupStrings[MarkupType_Count] = {
     QStringLiteral("***"),
     QStringLiteral("**"),
     QStringLiteral("~~"),
@@ -85,8 +85,8 @@ static const QChar Markup_Chars[] = {
 };
 
 // Used to strip out non-markup characters from scan buffers.
-static const bool isQCharMarkup(const QChar& ch){
-    for (int i = 0; i < sizeof(Markup_Chars) / sizeof(Markup_Chars[0]); i++) {
+static bool isQCharMarkup(const QChar& ch) {
+    for (size_t i = 0; (i < sizeof(Markup_Chars)) / sizeof(Markup_Chars[0]); i++) {
         if (ch == Markup_Chars[i]) {
             return true;
         }
@@ -1080,7 +1080,7 @@ void MarkdownEditor::indentText()
 
                 // Restart numbering for the nested list.
                 if (capture.size() == 2) {
-                    QRegularExpression numberRegex("\\d+");
+                    static QRegularExpression numberRegex("\\d+");
 
                     cursor.movePosition(QTextCursor::StartOfBlock);
                     cursor.movePosition
@@ -2021,7 +2021,7 @@ bool MarkdownEditorPrivate::handleWhitespaceInEmptyMatch(const QChar whitespace)
 
 void MarkdownEditorPrivate::insertFormattingMarkup(const MarkupType markupType)
 {
-    const QString& markup = Markup_Strings[markupType];
+    const QString& markup = MarkupStrings[markupType];
     // Get document text for testing toggles and so on
     const int mkp_len = markup.length();
 
@@ -2073,12 +2073,12 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const MarkupType markupType)
             }
 
             for (int i = 0; i < MarkupType_Count; i++){
-                const QString& markup_test = Markup_Strings[i];
+                const QString& markup_test = MarkupStrings[i];
                 if (preceding_str == markup_test) preceding_markup_out = static_cast<MarkupType>(i);
                 if (succeeding_str == markup_test) succeeding_markup_out = static_cast<MarkupType>(i);
             }
         }
-        if (preceding_markup_out == succeeding_markup_out && preceding_markup_out != MarkupType_None) 
+        if (preceding_markup_out == succeeding_markup_out && preceding_markup_out != MarkupType_None)
             return true;
         return false;
     };
@@ -2142,12 +2142,12 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const MarkupType markupType)
     } 
     // If no selection active, check if there are surrounding markup strings. If so, select the text within and toggle.
     else {
-        MarkupType preceding_existing_markup = MarkupType_None, succeeding_existing_markup = MarkupType_None;
-        detectMarkupTypes(cursor.position(), cursor.position(), preceding_existing_markup, succeeding_existing_markup);
+        MarkupType preceding_existing_markup = MarkupType_None, succeedingExistingMarkup = MarkupType_None;
+        detectMarkupTypes(cursor.position(), cursor.position(), preceding_existing_markup, succeedingExistingMarkup);
 
         // If both preceding and succeeding strings are the same markup and no text is selected, we're inside the middle, so just toggle.
         // E.g., **<cursor>**
-        if (preceding_existing_markup != MarkupType_None && preceding_existing_markup == succeeding_existing_markup) {
+        if (preceding_existing_markup != MarkupType_None && preceding_existing_markup == succeedingExistingMarkup) {
             toggleMarkupOfSelection();
             return;
         }
@@ -2156,7 +2156,7 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const MarkupType markupType)
         // If "dont_select" is set to true, it will only check for the existence of the markup complement.
         const auto& selectTextWithinMarkupBoundary = [&](const bool reverse_search, const MarkupType found_markup_type, 
                     const bool break_at_space = false, const bool dont_select = false) -> bool {
-            const QString& existing_markup = Markup_Strings[found_markup_type];
+            const QString& existing_markup = MarkupStrings[found_markup_type];
 
             QTextCursor c_tmp = cursor;
             c_tmp.select(QTextCursor::BlockUnderCursor);
@@ -2218,7 +2218,7 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const MarkupType markupType)
             return false;
         };
 
-        if (preceding_existing_markup != MarkupType_None){
+        if (preceding_existing_markup != MarkupType_None) {
             // Check if there is a space immediately after the markup. If so, select the text within.
             if (detectAdjacentSpace(false, 0, true) && selectTextWithinMarkupBoundary(true, preceding_existing_markup)) {
                 toggleMarkupOfSelection();
@@ -2226,39 +2226,39 @@ void MarkdownEditorPrivate::insertFormattingMarkup(const MarkupType markupType)
             }
             else{
                 // Try to toggle the other direction, if it exists.
-                cursor.setPosition(cursor.position() - Markup_Strings[preceding_existing_markup].length());
+                cursor.setPosition(cursor.position() - MarkupStrings[preceding_existing_markup].length());
                 if (selectTextWithinMarkupBoundary(false, preceding_existing_markup)){
                     toggleMarkupOfSelection();
                     return;
                 }
                 else
-                    cursor.setPosition(cursor.position() + Markup_Strings[preceding_existing_markup].length());
+                    cursor.setPosition(cursor.position() + MarkupStrings[preceding_existing_markup].length());
             }
         }
-        if (succeeding_existing_markup != MarkupType_None) {
+        if (succeedingExistingMarkup != MarkupType_None) {
             // If there is a space immediately before the markup, select the text within the proceeding markup block.
             if (detectAdjacentSpace(true)) {
-                if (selectTextWithinMarkupBoundary(false, succeeding_existing_markup)) {
+                if (selectTextWithinMarkupBoundary(false, succeedingExistingMarkup)) {
                     toggleMarkupOfSelection();
                     return;
                 }
             }
-            if (succeeding_existing_markup == markupType || 
-                succeeding_existing_markup == MarkupType_BoldItalic && markupType == MarkupType_Bold ||
-                succeeding_existing_markup == MarkupType_BoldItalic && markupType == MarkupType_Italic){
+            if ((succeedingExistingMarkup == markupType) ||
+                    ((succeedingExistingMarkup == MarkupType_BoldItalic) && (markupType == MarkupType_Bold)) ||
+                    ((succeedingExistingMarkup == MarkupType_BoldItalic) && (markupType == MarkupType_Italic))) {
                 // Move cursor beyond terminating markup string to "close" markup block.
-                cursor.setPosition(cursor.position() + Markup_Strings[succeeding_existing_markup].length());
-                q->setTextCursor(cursor);cursor.setPosition(cursor.position() + Markup_Strings[succeeding_existing_markup].length());
+                cursor.setPosition(cursor.position() + MarkupStrings[succeedingExistingMarkup].length());
+                q->setTextCursor(cursor);cursor.setPosition(cursor.position() + MarkupStrings[succeedingExistingMarkup].length());
                 return;
             }
             // If there is a space immediately after the detected markup, and it isn't the same, toggle it.
-            if (detectAdjacentSpace(false, Markup_Strings[succeeding_existing_markup].length(), true)) {
-                cursor.setPosition(cursor.position() + Markup_Strings[succeeding_existing_markup].length());
-                if (selectTextWithinMarkupBoundary(true, succeeding_existing_markup)) {
+            if (detectAdjacentSpace(false, MarkupStrings[succeedingExistingMarkup].length(), true)) {
+                cursor.setPosition(cursor.position() + MarkupStrings[succeedingExistingMarkup].length());
+                if (selectTextWithinMarkupBoundary(true, succeedingExistingMarkup)) {
                     toggleMarkupOfSelection();
                     return;
                 }
-                else cursor.setPosition(cursor.position() - Markup_Strings[succeeding_existing_markup].length());
+                else cursor.setPosition(cursor.position() - MarkupStrings[succeedingExistingMarkup].length());
             }
         }
 

@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
  * Copyright (C) 2022 wereturtle
  *
@@ -201,12 +201,14 @@ ghostwriter--Sidebar QPushButton[checkable="true"] {
     border-color: transparent;
     border-radius: 0px;
     font-size: 16px;
-    font-family: "Font Awesome 5 Free Solid";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Font Awesome Solid */
 }
 
 /* Cheat Sheet activity bar tab's icon uses a different font. */
 ghostwriter--Sidebar #cheatSheetTab {
-    font-family: "Font Awesome 5 Free Brands";
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400; /* Font Awesome Brands (Regular) */
 }
 
 ghostwriter--Sidebar QPushButton:checked {
@@ -233,7 +235,8 @@ ghostwriter--Sidebar QPushButton[checkable="false"] {
     width: 40px;
     height: 40px;
     font-size: 16px;
-    font-family: "Font Awesome 5 Free Solid";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Font Awesome Solid */
 }
 
 ghostwriter--Sidebar QPushButton:hover {
@@ -314,7 +317,8 @@ QStatusBar QPushButton {
     font-size: 16px;
     width: 32px;
     height: 16px;
-    font-family: "Font Awesome 5 Free Solid";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Font Awesome Solid */
 }
 
 QStatusBar QPushButton:hover,
@@ -334,7 +338,8 @@ QStatusBar QPushButton:flat,
 }
 
 QStatusBar QPushButton#showSidebarButton {
-    font-family: "Font Awesome 5 Free Solid";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Font Awesome Solid */
     font-size: 16px;
     background-color: transparent;
 }
@@ -436,7 +441,8 @@ ghostwriter--FindReplace QPushButton {
 
 ghostwriter--FindReplace QPushButton[checkable=\"true\"] {
     font-size: 16px;
-    font-family: "Font Awesome 5 Free Solid";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Font Awesome Solid */
     background: transparent;
     min-width: 32px;
     height: 16px;
@@ -463,7 +469,8 @@ ghostwriter--FindReplace QPushButton:flat {
 
 ghostwriter--FindReplace QPushButton#findReplaceCloseButton {
     font-size: 12px;
-    font-family: "Font Awesome 5 Free Solid";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Font Awesome Solid */
 }
 
 QMainWindow QLineEdit {
