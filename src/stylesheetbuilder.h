@@ -46,6 +46,10 @@ namespace ghostwriter
  * $background-color
  *      application/window background color
  *
+ * $secondary-background-color
+ *      secondary background color for widgets above the application/window
+ *      background (i.e., popup menus)
+ *
  * $text-color
  *      input text field/text area/text editor text color
  * $placeholder-text-color

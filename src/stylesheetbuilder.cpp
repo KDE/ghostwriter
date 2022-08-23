@@ -179,6 +179,7 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
         }
     }
 
+    m_styleSheetVariables["$secondary-background-color"] = mix(chromeColor, colors.background, 5);
     m_styleSheetVariables["$fill-color"] = mix(chromeColor, colors.background, 20);
     m_styleSheetVariables["$secondary-fill-color"] = mix(chromeColor, colors.background, 40);
     m_styleSheetVariables["$tertiary-fill-color"] = mix(chromeColor, colors.background, 10);
