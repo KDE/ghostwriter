@@ -115,20 +115,23 @@ QMainWindow QMenuBar::item:pressed {
 /*  Popup menus                                                               */
 /******************************************************************************/
 
-QMainWindow QMenu {
+QMainWindow QMenu,
+QMenuBar QMenu {
     color: $label-color;
     background-color: $background-color;
     border: 0px;
     padding: 10px 0px 10px 0px;
 }
 
-QMainWindow QMenu::item {
+QMainWindow QMenu::item,
+QMenuBar QMenu::item {
     background-color: transparent;
     padding: 5px 15px 5px 15px;
     margin: 0px;
 }
 
-QMainWindow QMenu::item:selected {
+QMainWindow QMenu::item:selected,
+QMenuBar QMenu::item::selected {
     background-color: $selected-text-bg-color;
     color: $selected-text-fg-color;
 }
@@ -433,42 +436,97 @@ ghostwriter--FindReplace QPushButton {
     padding: 5 5 5 5;
     margin: 0;
     border: 0;
-    border-radius: 5px;
+    border-radius: $default-border-radius;
     color: $secondary-label-color;
-    background-color: $fill-color;
-    min-width: 16px
+    background-color: transparent;
+    min-width: 16px;
 }
 
-ghostwriter--FindReplace QPushButton[checkable=\"true\"] {
+ghostwriter--FindReplace QPushButton:pressed {
+    color: $label-color-pressed;
+    background-color: transparent;
+}
+
+ghostwriter--FindReplace QPushButton:hover {
+    color: $label-color-hover;
+    background-color: transparent;
+}
+
+ghostwriter--FindReplace QPushButton:disabled {
+    color: $secondary-label-color-disabled;
+    background-color: transparent;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"] {
+    color: $secondary-label-color;
+    background-color: transparent;
     font-size: 16px;
     font-family: "Font Awesome 5 Free";
     font-weight: 900; /* Font Awesome Solid */
-    background: transparent;
     min-width: 32px;
     height: 16px;
 }
 
-ghostwriter--FindReplace QPushButton:pressed {
-    background-color: $fill-color-pressed;
+ghostwriter--FindReplace QPushButton[checkable="true"]:disabled,
+ghostwriter--FindReplace QPushButton:flat:disabled {
+    color: $secondary-label-color-disabled;
+    background-color: $fill-color-disabled;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"]:hover,
+ghostwriter--FindReplace QPushButton:checked:hover {
+    background-color: $secondary-label-color-hover;
+    background-color: $fill-color-hover;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"]:pressed,
+ghostwriter--FindReplace QPushButton:checked:pressed {
     color: $secondary-label-color-pressed;
+    background-color: $fill-color-pressed;
 }
 
 ghostwriter--FindReplace QPushButton:checked {
-    background-color: $fill-color-active;
-    color: $secondary-label-color-active;
-}
-
-ghostwriter--FindReplace QPushButton:hover {
-    background-color: $tertiary-fill-color-hover;
-    color: $secondary-label-color-hover;
+    background-color: $fill-color;
 }
 
 ghostwriter--FindReplace QPushButton:flat {
-    background: transparent;
+    color: $secondary-label-color;
+    background-color: $fill-color;
+    font-weight: bold;
+}
+
+ghostwriter--FindReplace QPushButton:flat:hover {
+    color: $secondary-label-color-hover;
+    background-color: $fill-color-hover;
+}
+
+ghostwriter--FindReplace QPushButton:flat:pressed {
+    color: $secondary-label-color-pressed;
+    background-color: $fill-color-pressed;
+}
+
+ghostwriter--FindReplace QPushButton:flat:disabled {
+    color: $secondary-label-color-disabled;
+    background-color: $fill-color-disabled;
+}
+
+ghostwriter--FindReplace QPushButton#matchCaseButton,
+ghostwriter--FindReplace QPushButton#regexButton {
+    font-size: 16px;
+    font-family: default;
+    font-weight: bold;
+} 
+
+ghostwriter--FindReplace QPushButton#replaceButton,
+ghostwriter--FindReplace QPushButton#replaceAllButton {
+    font-size: 11pt;
+    font-family: default;
 }
 
 ghostwriter--FindReplace QPushButton#findReplaceCloseButton {
-    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
     font-family: "Font Awesome 5 Free";
     font-weight: 900; /* Font Awesome Solid */
 }

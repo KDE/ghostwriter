@@ -196,7 +196,12 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
                 m_styleSheetVariables[key + "-pressed"] = baseColor.darker(107);
                 m_styleSheetVariables[key + "-active"] = baseColor.darker(103);
                 m_styleSheetVariables[key + "-hover"] = baseColor.lighter(103);
-                m_styleSheetVariables[key + "-disabled"] = baseColor.lighter(110);
+
+                if (key.endsWith("fill-color")) {
+                    m_styleSheetVariables[key + "-disabled"] = baseColor.lighter(105);
+                } else {
+                    m_styleSheetVariables[key + "-disabled"] = baseColor.lighter(125);
+                }
             } else {
                 m_styleSheetVariables[key + "-pressed"] = baseColor.darker(120);
                 m_styleSheetVariables[key + "-active"] = baseColor.darker(110);
