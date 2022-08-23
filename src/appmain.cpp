@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,11 +36,18 @@ int main(int argc, char *argv[])
 #endif
 
 #if defined(Q_OS_WIN)
-    // Use ANGLE instead of OpenGL to bypass bug where full screen windows
-    // under Windows 10 and OpenGL will not show menus from the menu bar
-    // (or any other popup menus).  Thank you, Microsoft, you made my day.
+    // For Qt 5, use ANGLE instead of OpenGL to bypass bug where full screen
+    // windows under Windows 10 and OpenGL will not show menus from the menu
+    // bar (or any other popup menus).  For Qt 6, this is option is no longer
+    // available, so use the software OpenGL option instead.
     //
+    // Thank you, Microsoft, you made my day.
+    //
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
+#else
+    QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL, true);
+#endif
 #endif
 
     QApplication app(argc, argv);
