@@ -17,6 +17,8 @@
  *
  ***********************************************************************/
 
+#include <tuple>
+
 #include <QApplication>
 #include <QDir>
 #include <QFile>
@@ -35,10 +37,369 @@
 
 namespace ghostwriter
 {
- static const QColor InfoColor("#03A9F4");
- static const QColor SuccessColor("#4CAF50");
- static const QColor WarningColor("#FFEB3B");
- static const QColor ErrorColor("#F44336");
+static const QColor InfoColor("#03A9F4");
+static const QColor SuccessColor("#4CAF50");
+static const QColor WarningColor("#FFEB3B");
+static const QColor ErrorColor("#F44336");
+
+typedef enum
+{
+    M_FirstBaseColor,
+    M_Red = M_FirstBaseColor,
+    M_Pink,
+    M_Purple,
+    M_DeepPurple,
+    M_Indigo,
+    M_Blue,
+    M_LightBlue,
+    M_Cyan,
+    M_Teal,
+    M_Green,
+    M_LightGreen,
+    M_Lime,
+    M_Yellow,
+    M_Amber,
+    M_Orange,
+    M_DeepOrange,
+    M_Brown,
+    M_Gray,
+    M_BlueGray,
+    M_BaseColorCount
+} MaterialHue;
+
+typedef enum
+{
+    M_FirstBaseShade
+    M_50 = M_FirstBaseShade,
+    M_100,
+    M_200,
+    M_300,
+    M_400,
+    M_500,
+    M_600,
+    M_700,
+    M_800,
+    M_900,
+    M_LastBaseShade = M_900,
+    M_FirstAccentShade,
+    M_A100 = M_FirstAccentShade,
+    M_A200,
+    M_A400,
+    M_A700,
+    M_LastAccentShade = M_A700,
+    M_ShadeCount
+} MaterialShade;
+
+class MaterialColor
+{
+public:
+    MaterialColor(MaterialHue base, MaterialShade shade);
+    MaterialColor(const QColor& color);
+
+    ~MaterialColor();
+
+    QColor color() const;
+
+    MaterialColor lighter() const;
+    MaterialColor darker() const;
+
+private:
+    const QColor m_palette[ColorCount][ShadeCount] =
+    {
+        [M_Red] = {
+            [M_50] = 0xFFFFEBEE
+            [M_100] = 0xFFFFCDD2
+            [M_200] = 0xFFEF9A9A
+            [M_300] = 0xFFE57373
+            [M_400] = 0xFFEF5350
+            [M_500] = 0xFFF44336
+            [M_600] = 0xFFE53935
+            [M_700] = 0xFFD32F2F
+            [M_800] = 0xFFC62828
+            [M_900] = 0xFFB71C1C
+            [M_A100] = 0xFFFF8A80
+            [M_A200] = 0xFFFF5252
+            [M_A400] = 0xFFFF1744
+            [M_A700] = 0xFFD50000
+        },
+        [M_Pink] = {
+            [M_50] = 0xFFFCE4EC
+            [M_100] = 0xFFF8BBD0
+            [M_200] = 0xFFF48FB1
+            [M_300] = 0xFFF06292
+            [M_400] = 0xFFEC407A
+            [M_500] = 0xFFE91E63
+            [M_600] = 0xFFD81B60
+            [M_700] = 0xFFC2185B
+            [M_800] = 0xFFAD1457
+            [M_900] = 0xFF880E4F
+            [M_A100] = 0xFFFF80AB
+            [M_A200] = 0xFFFF4081
+            [M_A400] = 0xFFF50057
+            [M_A700] = 0xFFC51162
+        },
+        [M_Purple] = {
+            [M_50] = 0xFFF3E5F5
+            [M_100] = 0xFFE1BEE7
+            [M_200] = 0xFFCE93D8
+            [M_300] = 0xFFBA68C8
+            [M_400] = 0xFFAB47BC
+            [M_500] = 0xFF9C27B0
+            [M_600] = 0xFF8E24AA
+            [M_700] = 0xFF7B1FA2
+            [M_800] = 0xFF6A1B9A
+            [M_900] = 0xFF4A148C
+            [M_A100] = 0xFFEA80FC
+            [M_A200] = 0xFFE040FB
+            [M_A400] = 0xFFD500F9
+            [M_A700] = 0xFFAA00FF
+        },
+        [M_DeepPurple] = {
+            [M_50] = 0xFFEDE7F6
+            [M_100] = 0xFFD1C4E9
+            [M_200] = 0xFFB39DDB
+            [M_300] = 0xFF9575CD
+            [M_400] = 0xFF7E57C2
+            [M_500] = 0xFF673AB7
+            [M_600] = 0xFF5E35B1
+            [M_700] = 0xFF512DA8
+            [M_800] = 0xFF4527A0
+            [M_900] = 0xFF311B92
+            [M_A100] = 0xFFB388FF
+            [M_A200] = 0xFF7C4DFF
+            [M_A400] = 0xFF651FFF
+            [M_A700] = 0xFF6200EA
+        },
+        [M_Indigo] = {
+            [M_50] = 0xFFE8EAF6
+            [M_100] = 0xFFC5CAE9
+            [M_200] = 0xFF9FA8DA
+            [M_300] = 0xFF7986CB
+            [M_400] = 0xFF5C6BC0
+            [M_500] = 0xFF3F51B5
+            [M_600] = 0xFF3949AB
+            [M_700] = 0xFF303F9F
+            [M_800] = 0xFF283593
+            [M_900] = 0xFF1A237E
+            [M_A100] = 0xFF8C9EFF
+            [M_A200] = 0xFF536DFE
+            [M_A400] = 0xFF3D5AFE
+            [M_A700] = 0xFF304FFE
+        },
+        [M_Blue] = {
+            [M_50] = 0xFFE3F2FD
+            [M_100] = 0xFFBBDEFB
+            [M_200] = 0xFF90CAF9
+            [M_300] = 0xFF64B5F6
+            [M_400] = 0xFF42A5F5
+            [M_500] = 0xFF2196F3
+            [M_600] = 0xFF1E88E5
+            [M_700] = 0xFF1976D2
+            [M_800] = 0xFF1565C0
+            [M_900] = 0xFF0D47A1
+            [M_A100] = 0xFF82B1FF
+            [M_A200] = 0xFF448AFF
+            [M_A400] = 0xFF2979FF
+            [M_A700] = 0xFF2962FF
+        },
+        [M_LightBlue] = {
+            [M_50] = 0xFFE1F5FE
+            [M_100] = 0xFFB3E5FC
+            [M_200] = 0xFF81D4FA
+            [M_300] = 0xFF4FC3F7
+            [M_400] = 0xFF29B6F6
+            [M_500] = 0xFF03A9F4
+            [M_600] = 0xFF039BE5
+            [M_700] = 0xFF0288D1
+            [M_800] = 0xFF0277BD
+            [M_900] = 0xFF01579B
+            [M_A100] = 0xFF80D8FF
+            [M_A200] = 0xFF40C4FF
+            [M_A400] = 0xFF00B0FF
+            [M_A700] = 0xFF0091EA
+        },
+        [M_Cyan] = {
+            [M_50] = 0xFFE0F7FA
+            [M_100] = 0xFFB2EBF2
+            [M_200] = 0xFF80DEEA
+            [M_300] = 0xFF4DD0E1
+            [M_400] = 0xFF26C6DA
+            [M_500] = 0xFF00BCD4
+            [M_600] = 0xFF00ACC1
+            [M_700] = 0xFF0097A7
+            [M_800] = 0xFF00838F
+            [M_900] = 0xFF006064
+            [M_A100] = 0xFF84FFFF
+            [M_A200] = 0xFF18FFFF
+            [M_A400] = 0xFF00E5FF
+            [M_A700] = 0xFF00B8D4
+        },
+        [M_Teal] = {
+            [M_50] = 0xFFE0F2F1
+            [M_100] = 0xFFB2DFDB
+            [M_200] = 0xFF80CBC4
+            [M_300] = 0xFF4DB6AC
+            [M_400] = 0xFF26A69A
+            [M_500] = 0xFF009688
+            [M_600] = 0xFF00897B
+            [M_700] = 0xFF00796B
+            [M_800] = 0xFF00695C
+            [M_900] = 0xFF004D40
+            [M_A100] = 0xFFA7FFEB
+            [M_A200] = 0xFF64FFDA
+            [M_A400] = 0xFF1DE9B6
+            [M_A700] = 0xFF00BFA5
+        },
+        [M_Green] = {
+            [M_50] = 0xFFE8F5E9
+            [M_100] = 0xFFC8E6C9
+            [M_200] = 0xFFA5D6A7
+            [M_300] = 0xFF81C784
+            [M_400] = 0xFF66BB6A
+            [M_500] = 0xFF4CAF50
+            [M_600] = 0xFF43A047
+            [M_700] = 0xFF388E3C
+            [M_800] = 0xFF2E7D32
+            [M_900] = 0xFF1B5E20
+            [M_A100] = 0xFFB9F6CA
+            [M_A200] = 0xFF69F0AE
+            [M_A400] = 0xFF00E676
+            [M_A700] = 0xFF00C853
+        },
+        [M_LightGreen] = {
+            [M_50] = 0xFFF1F8E9
+            [M_100] = 0xFFDCEDC8
+            [M_200] = 0xFFC5E1A5
+            [M_300] = 0xFFAED581
+            [M_400] = 0xFF9CCC65
+            [M_500] = 0xFF8BC34A
+            [M_600] = 0xFF7CB342
+            [M_700] = 0xFF689F38
+            [M_800] = 0xFF558B2F
+            [M_900] = 0xFF33691E
+            [M_A100] = 0xFFCCFF90
+            [M_A200] = 0xFFB2FF59
+            [M_A400] = 0xFF76FF03
+            [M_A700] = 0xFF64DD17
+        },
+        [M_Lime] = {
+            [M_50] = 0xFFF9FBE7
+            [M_100] = 0xFFF0F4C3
+            [M_200] = 0xFFE6EE9C
+            [M_300] = 0xFFDCE775
+            [M_400] = 0xFFD4E157
+            [M_500] = 0xFFCDDC39
+            [M_600] = 0xFFC0CA33
+            [M_700] = 0xFFAFB42B
+            [M_800] = 0xFF9E9D24
+            [M_900] = 0xFF827717
+            [M_A100] = 0xFFF4FF81
+            [M_A200] = 0xFFEEFF41
+            [M_A400] = 0xFFC6FF00
+            [M_A700] = 0xFFAEEA00
+        },
+        [M_Yellow] = {
+            [M_50] = 0xFFFFFDE7
+            [M_100] = 0xFFFFF9C4
+            [M_200] = 0xFFFFF59D
+            [M_300] = 0xFFFFF176
+            [M_400] = 0xFFFFEE58
+            [M_500] = 0xFFFFEB3B
+            [M_600] = 0xFFFDD835
+            [M_700] = 0xFFFBC02D
+            [M_800] = 0xFFF9A825
+            [M_900] = 0xFFF57F17
+            [M_A100] = 0xFFFFFF8D
+            [M_A200] = 0xFFFFFF00
+            [M_A400] = 0xFFFFEA00
+            [M_A700] = 0xFFFFD600
+        },
+        [M_Amber] = {
+            [M_50] = 0xFFFFF8E1
+            [M_100] = 0xFFFFECB3
+            [M_200] = 0xFFFFE082
+            [M_300] = 0xFFFFD54F
+            [M_400] = 0xFFFFCA28
+            [M_500] = 0xFFFFC107
+            [M_600] = 0xFFFFB300
+            [M_700] = 0xFFFFA000
+            [M_800] = 0xFFFF8F00
+            [M_900] = 0xFFFF6F00
+            [M_A100] = 0xFFFFE57F
+            [M_A200] = 0xFFFFD740
+            [M_A400] = 0xFFFFC400
+            [M_A700] = 0xFFFFAB00
+        },
+        [M_Orange] = {
+            [M_50] = 0xFFFFF3E0
+            [M_100] = 0xFFFFE0B2
+            [M_200] = 0xFFFFCC80
+            [M_300] = 0xFFFFB74D
+            [M_400] = 0xFFFFA726
+            [M_500] = 0xFFFF9800
+            [M_600] = 0xFFFB8C00
+            [M_700] = 0xFFF57C00
+            [M_800] = 0xFFEF6C00
+            [M_900] = 0xFFE65100
+            [M_A100] = 0xFFFFD180
+            [M_A200] = 0xFFFFAB40
+            [M_A400] = 0xFFFF9100
+            [M_A700] = 0xFFFF6D00
+        },
+        [M_DeepOrange] = {
+            [M_50] = 0xFFFBE9E7
+            [M_100] = 0xFFFFCCBC
+            [M_200] = 0xFFFFAB91
+            [M_300] = 0xFFFF8A65
+            [M_400] = 0xFFFF7043
+            [M_500] = 0xFFFF5722
+            [M_600] = 0xFFF4511E
+            [M_700] = 0xFFE64A19
+            [M_800] = 0xFFD84315
+            [M_900] = 0xFFBF360C
+            [M_A100] = 0xFFFF9E80
+            [M_A200] = 0xFFFF6E40
+            [M_A400] = 0xFFFF3D00
+            [M_A700] = 0xFFDD2C00
+        },
+        [M_Brown] = {
+            [M_50] = 0xFFEFEBE9
+            [M_100] = 0xFFD7CCC8
+            [M_200] = 0xFFBCAAA4
+            [M_300] = 0xFFA1887F
+            [M_400] = 0xFF8D6E63
+            [M_500] = 0xFF795548
+            [M_600] = 0xFF6D4C41
+            [M_700] = 0xFF5D4037
+            [M_800] = 0xFF4E342E
+            [M_900] = 0xFF3E2723
+        },
+        [M_Gray] = {
+            [M_50] = 0xFFFAFAFA
+            [M_100] = 0xFFF5F5F5
+            [M_200] = 0xFFEEEEEE
+            [M_300] = 0xFFE0E0E0
+            [M_400] = 0xFFBDBDBD
+            [M_500] = 0xFF9E9E9E
+            [M_600] = 0xFF757575
+            [M_700] = 0xFF616161
+            [M_800] = 0xFF424242
+            [M_900] = 0xFF212121
+        },
+        [M_BlueGray] = {
+            [M_50] = 0xFFECEFF1
+            [M_100] = 0xFFCFD8DC
+            [M_200] = 0xFFB0BEC5
+            [M_300] = 0xFF90A4AE
+            [M_400] = 0xFF78909C
+            [M_500] = 0xFF607D8B
+            [M_600] = 0xFF546E7A
+            [M_700] = 0xFF455A64
+            [M_800] = 0xFF37474F
+            [M_900] = 0xFF263238
+        }
+    };
+};
 
 /**
  * Returns the luminance of this color on a scale of 0.0 (dark) to
@@ -462,4 +823,22 @@ QColor mix
 
     return blendedColor;
 }
+
+static
+std::pair<MaterialColor, MaterialShade>
+nearestPaletteMatch(const QColor &color)
+{
+    if 
+}
+
+static std::pair<QColor, QColor> duoShades(const QColor &color, int count)
+{
+
+}
+
+static std::tuple<QColor, QColor, QColor> trioShades(const QColor &color)
+{
+
+}
+
 } // namespace ghostwriter

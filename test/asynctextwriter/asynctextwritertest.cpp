@@ -26,7 +26,7 @@
 #include <QTextStream>
 #include <QString>
 
-#include "../src/asynctextwriter.h"
+#include "../../src/asynctextwriter.h"
 
 using namespace ghostwriter;
 
@@ -165,6 +165,18 @@ void AsyncTextWriterTest::initTestCase()
 #endif
 }
 
+/**
+ * OBJECTIVE:
+ *      Call constructor with file name (nominal case).
+ *
+ * INPUTS:
+ *      - Valid file name and parent object passed to constructor.
+ *
+ * EXPECTED RESULTS:
+ *      - Call to filename() returns the file passed to the constructor.
+ *      - Call to encoding() returns default encoding.
+ *      - Call to parent() returns parent object.
+ */
 void AsyncTextWriterTest::constructor1()
 {
     QString fileName = "constructor.txt";
@@ -177,6 +189,20 @@ void AsyncTextWriterTest::constructor1()
     QCOMPARE(writer.parent(), this);
 }
 
+/**
+ * OBJECTIVE:
+ *      Call setFileName() (nominal case).
+ *
+ * INPUTS:
+ *      - Valid old file name passed to constructor.
+ *      - Valid new file name passed to setFileName().
+ *
+ * EXPECTED RESULTS:
+ *      - Call to filename() before call to setFileName() returns the old file
+ *        name.
+ *      - Call to filename() after call to setFileName() returns the new file
+ *        name.
+ */
 void AsyncTextWriterTest::setFileName()
 {
     QString oldfileName = "oldname.txt";
@@ -191,6 +217,17 @@ void AsyncTextWriterTest::setFileName()
     QCOMPARE(writer.fileName(), expectedFileName);
 }
 
+/**
+ * OBJECTIVE:
+ *      Call setEncoding() (nominal case).
+ *
+ * INPUTS:
+ *      - Valid new file name.
+ *      - UTF-16 encoding.
+ *
+ * EXPECTED RESULTS:
+ *      - Call to encoding() returns UTF-16.
+ */
 void AsyncTextWriterTest::setEncoding()
 {
     QString fileName = "encodingtest.txt";
@@ -279,11 +316,19 @@ void AsyncTextWriterTest::nullFileName()
 void AsyncTextWriterTest::writeToReadOnlyFile()
 {
     QString fileName = "readonly.txt";
-
     QFile file(fileName);
-    bool readOnlyFileCreated =
-        file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text);
 
+    if (file.exists()) {
+        file.remove();
+    }
+
+    bool readOnlyFileCreated =
+        file.open(QIODevice::WriteOnly | QIODevice::Truncate
+            | QIODevice::Text | QIODeviceBase::NewOnly);
+
+    if (!readOnlyFileCreated) {
+        qCritical() << file.error();
+    }
     // Verify file could be created.
     QVERIFY(readOnlyFileCreated);
 
@@ -302,6 +347,10 @@ void AsyncTextWriterTest::writeToReadOnlyFile()
 
     runWriteTest(fileName, Utf8Encoding, false);
 
+    // Revert file permissions so file can be deleted.
+    file.setPermissions(QFileDevice::WriteOwner |
+        QFileDevice::WriteUser);
+
     // Cleanup.
     file.remove();
 }
@@ -318,8 +367,14 @@ void AsyncTextWriterTest::writeToReadOnlyFile()
  */
 void AsyncTextWriterTest::writeToReadOnlyDirectory()
 {
+
+#if defined(Q_OS_WIN)
+    QSKIP("Cannot programmatically create read-only directories on Windows.");
+#else
     bool readOnlyDirectoryCreated;
     QDir dir("");
+    
+    QFile currentDir(".");
 
     readOnlyDirectoryCreated = dir.mkdir("readonly");
 
@@ -341,9 +396,14 @@ void AsyncTextWriterTest::writeToReadOnlyDirectory()
 
     runWriteTest(fileName, Utf8Encoding, false);
 
+    // Revert permissions so directory can be deleted.
+    dirFile.setPermissions(QFileDevice::WriteOwner |
+        QFileDevice::WriteUser);
+    
     // Cleanup.
     dir.cdUp();
     dir.rmdir("readonly");
+#endif
 }
 
 /**
