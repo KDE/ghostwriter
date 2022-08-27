@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -361,7 +361,7 @@ void ThemeRepositoryPrivate::loadClassicTheme()
 {
     ColorScheme lightColors;
     lightColors.background = "#eff0f1";
-    lightColors.foreground = "#31363b";
+    lightColors.foreground = "#2d363a";
     lightColors.selection = "#93CEE9";
     lightColors.cursor = "#3DAEE9";
     lightColors.link = "#3DAEE9";
@@ -415,7 +415,7 @@ void ThemeRepositoryPrivate::loadPlainstractionTheme()
 {
     ColorScheme lightColors;
     lightColors.background = "#ffffff";
-    lightColors.foreground = "#363c42";
+    lightColors.foreground = "#14191A";
     lightColors.selection = "#B8E3F0";
     lightColors.cursor = "#c23184";
     lightColors.link = "#c23184";

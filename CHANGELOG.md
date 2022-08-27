@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Various under-the-hood refactoring/improvements have been added.
 * CSS and QSS style sheets now support SASS-style variables.
 * Hover and pressed button effects have been added to improve visibility.
+* User interface component icons and text have had their coloring adjusted to better meet WCAG accesibility standards.
 
 ## [2.1.4] - 2022-06-18
 

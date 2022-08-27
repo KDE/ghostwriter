@@ -17,9 +17,10 @@
  *
  ***********************************************************************/
 
-#include <tuple>
+#include <math.h>
 
 #include <QApplication>
+#include <QColor>
 #include <QDir>
 #include <QFile>
 #include <QPalette>
@@ -31,7 +32,6 @@
 #include <QVariant>
 
 #include "3rdparty/QtAwesome/QtAwesome.h"
-#include "qcolor.h"
 #include "stylesheetbuilder.h"
 
 
@@ -43,25 +43,23 @@ static const QColor WarningColor("#FFEB3B");
 static const QColor ErrorColor("#F44336");
 
 /**
- * Returns the luminance of this color on a scale of 0.0 (dark) to
+ * Returns the luminance of a color on a scale of 0.0 (dark) to
  * 1.0 (light).  Luminance is based on how light or dark a color
  * appears to the human eye.
  */
-double luminance(const QColor &color);
+static double luminance(const QColor &color);
 
 /**
- * Returns a new color based on the foreground color,
- * such that the new color is lightened to achieve the desired
- * contrast ratio against the given background color.
- *
- * Note:
- *
- *   This method assumes that this foreground color is darker
- *   than the background color.  Passing in a background color
- *   that is darker than this color results in
- *   this original color being returned.
+ * Returns the contrast ratio between two colors.
  */
-static QColor lightenToMatchContrastRatio
+static double contrast(const QColor &rgb1, const QColor &rgb2);
+
+/**
+ * Returns a new color based on the foreground color, such that the new color
+ * is lightened or darkened to achieve the desired contrast ratio against the
+ * given background color.
+ */
+static QColor shadeToContrastRatio
 (
     const QColor &foreground,
     const QColor &background,
@@ -146,31 +144,39 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
 
     // If light mode color scheme...
     if (lightMode) {
-        // Create a UI chrome color based on a lightened editor text color,
-        // such that the new color achieves a lower contrast ratio.
-        //
-        chromeColor =
-            lightenToMatchContrastRatio(
-                colors.foreground,
-                colors.background,
-                2.0
-            );
 
         // Slightly blend the new UI chrome color with the editor background
         // color to help it match better.
         //
         chromeColor = mix(chromeColor, colors.background, 86);
 
+        // Create a UI chrome color based on a lightened editor text color,
+        // such that the new color achieves a lower contrast ratio.
+        //
+        chromeColor =
+            shadeToContrastRatio(
+                colors.foreground,
+                colors.background,
+                4.5
+            );
+        m_styleSheetVariables["$fill-color"] = shadeToContrastRatio(colors.background, chromeColor, 3.0);
+
         // If the text selection background color is very dark, then make the
         // text selection foreground color light to ensure sufficient contrast.
         //
         if (luminance(colors.selection) < 0.5) {
             selectedFgColor = colors.background;
-        }
+        }        
     }
     // Else if the dark mode color scheme...
     else {
-        chromeColor = colors.foreground.darker(120);
+        chromeColor =
+            shadeToContrastRatio(
+                colors.foreground,
+                colors.background,
+                5.5
+            );
+        m_styleSheetVariables["$fill-color"] = shadeToContrastRatio(colors.background, chromeColor, 4.5);
 
         // If the text selection background color is very light, then make sure
         // the text selection foreground color is dark to ensure sufficient
@@ -182,7 +188,6 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
     }
 
     m_styleSheetVariables["$secondary-background-color"] = mix(chromeColor, colors.background, 5);
-    m_styleSheetVariables["$fill-color"] = mix(chromeColor, colors.background, 20);
     m_styleSheetVariables["$secondary-fill-color"] = mix(chromeColor, colors.background, 40);
     m_styleSheetVariables["$tertiary-fill-color"] = mix(chromeColor, colors.background, 10);
     m_styleSheetVariables["$secondary-label-color"] = chromeColor;
@@ -358,27 +363,51 @@ QString StyleSheetBuilder::compileStyleSheet(const QString &path) const
     return compiled;
 }
 
-// Algorithm taken from *Grokking the GIMP* by Carey Bunks,
-// section 5.3.
-//
-// Grokking the GIMP
-// by Carey Bunks
-// Copyright (c) 2000 by New Riders Publishing, www.newriders.com
-// ISBN 0-7357-0924-6.
-//
-double luminance(const QColor &color)
+double channelLuminance(const float colorChannel)
 {
-    QColor c = color;
+    double result;
 
-    // Ensure color is non-zero.
-    if (c == QColor(Qt::black)) {
-        c.setRgb(1, 1, 1);
+    if (colorChannel <= 0.03928) {
+        result = colorChannel / 12.92;
+    } else {
+        result = pow((colorChannel + 0.055) / 1.055, 2.4);
     }
 
-    return (0.30 * c.redF()) + (0.59 * c.greenF()) + (0.11 * c.blueF());
+    return result;
 }
 
-QColor lightenToMatchContrastRatio
+double luminance(const QColor &color)
+{
+    double r, g, b;
+
+    // // Ensure color is non-zero.
+    // if (c == QColor(Qt::black)) {
+    //     c.setRgb(1, 1, 1);
+    // }
+
+    r = channelLuminance(color.redF());
+    g = channelLuminance(color.greenF());
+    b = channelLuminance(color.blueF());
+
+    return (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+}
+
+double contrast(const QColor &rgb1, const QColor &rgb2)
+{
+    double lum1 = luminance(rgb1);
+    double lum2 = luminance(rgb2);
+    double brightest = lum2;
+    double darkest = lum1;
+
+    if (lum1 > lum2) {
+        brightest = lum1;
+        darkest = lum2;
+    }
+
+    return (brightest + 0.05) / (darkest + 0.05);
+}
+
+QColor shadeToContrastRatio
 (
     const QColor &foreground,
     const QColor &background,
@@ -387,45 +416,44 @@ QColor lightenToMatchContrastRatio
 {
     double fgBrightness = luminance(foreground);
     double bgBrightness = luminance(background);
-
-    // If the background color is brighter than the foreground color...
-    if (bgBrightness > fgBrightness) {
-        double actualContrastRatio = bgBrightness / fgBrightness;
-        double colorFactor = contrastRatio / actualContrastRatio;
-
-        QColor result = foreground;
-
-        // Ensure color is non-zero.
-        if (result == QColor(Qt::black)) {
-            result.setRgb(1, 1, 1);
-        }
-
-        qreal r = result.redF() / colorFactor;
-        qreal g = result.greenF() / colorFactor;
-        qreal b = result.blueF() / colorFactor;
-
-        if (r > 1.0) {
-            r = 1.0;
-        }
-
-        if (g > 1.0) {
-            g = 1.0;
-        }
-
-        if (b > 1.0) {
-            b = 1.0;
-        }
-
-        result.setRgbF(r, g, b);
-
-        return result;
-    } else {
-        // This algorithm cannot change the foreground color when it is
-        // lighter than the background color, so return this color's
-        // original value.
-        //
-        return foreground;
+    int step = 64;
+    
+    // If the foreground color is brighter than the background color,
+    // then set the HSV brightness step value to go darker rather than
+    // lighter.
+    //
+    if (fgBrightness > bgBrightness) {
+        step = -step;
     }
+
+    QColor result = foreground;
+    double actualContrastRatio = contrast(foreground, background);
+
+    while ((actualContrastRatio > contrastRatio) 
+            && (((step > 0) && (result.value() <= (255 - step)))
+                || ((step < 0) && (result.value() >= -step)))) {
+        result.setHsv(result.hue(), result.saturation(),
+            result.value() + step);
+        actualContrastRatio = contrast(result, background);
+
+        if (actualContrastRatio < contrastRatio) {
+            // Oops!  Went too far!  Back up a step!
+            result.setHsv(result.hue(), result.saturation(),
+                result.value() - step);
+            actualContrastRatio = contrast(result, background);
+            
+            // Make smaller steps toward target ratio from here.
+            if (abs(step) > 1) {
+                step /= 2;
+            }
+            else {
+                // Can't go any further. Done!
+                break;
+            }
+        }
+    }
+
+    return result;
 }
 
 /**
