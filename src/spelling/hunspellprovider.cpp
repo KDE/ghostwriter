@@ -1,6 +1,6 @@
-/***********************************************************************
+﻿/***********************************************************************
  *
- * Copyright (C) 2009, 2010, 2011, 2012, 2013 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2009-2013 Graeme Gott <graeme@gottcode.org>
  * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
@@ -337,7 +337,15 @@ HunspellProvider::HunspellProvider()
 {
 	QStringList dictdirs = QDir::searchPaths("dict");
 #if !defined(Q_OS_MAC) && defined(Q_OS_UNIX)
-	QStringList xdg = QString(qgetenv("XDG_DATA_DIRS")).split(QChar(':'), Qt::SkipEmptyParts);
+    QStringList xdg =
+        QString(qgetenv("XDG_DATA_DIRS")).split(QChar(':'),
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+            QString::SkipEmptyParts
+#else
+            Qt::SkipEmptyParts
+#endif
+        );
+
 	if (xdg.isEmpty()) {
 		xdg.append("/usr/local/share");
 		xdg.append("/usr/share");
