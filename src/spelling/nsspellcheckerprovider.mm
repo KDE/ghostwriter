@@ -140,7 +140,7 @@ QStringList NSSpellCheckerDictionary::suggestions(const QString &word) const
 
 void NSSpellCheckerDictionary::addToPersonal(const QString &word)
 {
-	DictionaryManager::instance().add(word);
+	DictionaryManager::instance()->add(word);
 }
 
 void NSSpellCheckerDictionary::addToSession(const QStringList &words)
