@@ -1,6 +1,6 @@
 ﻿/***********************************************************************
  *
- * Copyright (C) 2014-2021 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@
 #include <QTimer>
 
 #include "asynctextwriter.h"
-#include "documenthistory.h"
+#include "library.h"
 #include "documentmanager.h"
 #include "exportdialog.h"
 #include "exporter.h"
@@ -400,8 +400,8 @@ void DocumentManager::open(const QString &filePath)
                 d->editor->navigateDocument(oldCursorPosition);
             } else if (d->fileHistoryEnabled) {
                 if (!oldFileWasNew) {
-                    DocumentHistory history;
-                    history.add
+                    Library library;
+                    library.addRecent
                     (
                         oldFilePath,
                         oldCursorPosition
@@ -417,15 +417,16 @@ void DocumentManager::reopenLastClosedFile()
     Q_D(DocumentManager);
     
     if (d->fileHistoryEnabled) {
-        DocumentHistory history;
-        QStringList recentFiles = history.recentFiles(2);
+        Library library;
 
         if (!d->document->isNew()) {
-            recentFiles.removeAll(d->document->filePath());
+            library.removeRecent(d->document->filePath());
         }
 
-        if (!recentFiles.isEmpty()) {
-            open(recentFiles.first());
+        Bookmarks recent = library.recentFiles(1);
+
+        if (!recent.isEmpty()) {
+            open(recent.first().filePath());
             emit documentClosed();
         }
     }
@@ -597,8 +598,8 @@ bool DocumentManager::close()
 
         if (d->fileHistoryEnabled && 
                 (!documentIsNew || this->autoSaveEnabled())) {
-            DocumentHistory history;
-            history.add
+            Library library;
+            library.addRecent
             (
                 filePath,
                 cursorPosition
@@ -777,8 +778,9 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     document->setUndoRedoEnabled(true);
 
     if (fileHistoryEnabled) {
-        DocumentHistory history;
-        editor->navigateDocument(history.cursorPosition(filePath));
+        Library library;
+        Bookmark bookmark = library.lookup(filePath);
+        editor->navigateDocument(bookmark.cursorPosition());
     } else {
         editor->navigateDocument(0);
     }

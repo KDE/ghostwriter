@@ -42,7 +42,7 @@
 
 #include "3rdparty/QtAwesome/QtAwesome.h"
 
-#include "documenthistory.h"
+#include "library.h"
 #include "exporter.h"
 #include "exporterfactory.h"
 #include "findreplace.h"
@@ -142,16 +142,20 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     editor->setAutoMatchEnabled('`', appSettings->autoMatchCharEnabled('`'));
     editor->setAutoMatchEnabled('<', appSettings->autoMatchCharEnabled('<'));
 
-    QStringList recentFiles;
+    Library library;
+    Bookmarks recentFiles;
+    Bookmark fileBookmark(filePath);
 
     if (appSettings->fileHistoryEnabled()) {
-        DocumentHistory history;
-        recentFiles = history.recentFiles(MAX_RECENT_FILES + 2);
+        recentFiles = library.recentFiles(MAX_RECENT_FILES + 2);
+
+        if (fileBookmark.isValid()) {
+            recentFiles.removeAll(fileBookmark);
+        }
     }
 
     if (!filePath.isNull() && !filePath.isEmpty()) {
         fileToOpen = filePath;
-        recentFiles.removeAll(QFileInfo(filePath).absoluteFilePath());
     }
 
     if (fileToOpen.isNull()
@@ -160,7 +164,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         QString lastFile;
 
         if (!recentFiles.isEmpty()) {
-            lastFile = recentFiles.first();
+            lastFile = recentFiles.first().filePath();
         }
 
         if (QFileInfo::exists(lastFile)) {
@@ -191,13 +195,13 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         );
 
         if (i < recentFiles.size()) {
-            recentFilesActions[i]->setText(recentFiles.at(i));
+            recentFilesActions[i]->setText(recentFiles.at(i).filePath());
 
             // Use the action's data for access to the actual file path, since
             // KDE Plasma will add a keyboard accelerator to the action's text
             // by inserting an ampersand (&) into it.
             //
-            recentFilesActions[i]->setData(recentFiles.at(i));
+            recentFilesActions[i]->setData(recentFiles.at(i).filePath());
 
             recentFilesActions[i]->setVisible(true);
         } else {
@@ -752,19 +756,17 @@ void MainWindow::changeFocusMode(FocusMode focusMode)
 void MainWindow::refreshRecentFiles()
 {
     if (appSettings->fileHistoryEnabled()) {
-        DocumentHistory history;
-        QStringList recentFiles = history.recentFiles(MAX_RECENT_FILES + 1);
+        Library library;
+        Bookmarks recentFiles = library.recentFiles(MAX_RECENT_FILES + 1);
         MarkdownDocument *document = documentManager->document();
 
         if (!document->isNew()) {
-            QString sanitizedPath =
-                QFileInfo(document->filePath()).absoluteFilePath();
-            recentFiles.removeAll(sanitizedPath);
+            recentFiles.removeAll(document->filePath());
         }
 
         for (int i = 0; (i < MAX_RECENT_FILES) && (i < recentFiles.size()); i++) {
-            recentFilesActions[i]->setText(recentFiles.at(i));
-            recentFilesActions[i]->setData(recentFiles.at(i));
+            recentFilesActions[i]->setText(recentFiles.at(i).filePath());
+            recentFilesActions[i]->setData(recentFiles.at(i).filePath());
             recentFilesActions[i]->setVisible(true);
         }
 
@@ -776,8 +778,8 @@ void MainWindow::refreshRecentFiles()
 
 void MainWindow::clearRecentFileHistory()
 {
-    DocumentHistory history;
-    history.clear();
+    Library library;
+    library.clear();
 
     for (int i = 0; i < MAX_RECENT_FILES; i++) {
         recentFilesActions[i]->setVisible(false);

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,16 @@
  *
  ***********************************************************************/
 
-#ifndef DOCUMENTHISTORY_H
-#define DOCUMENTHISTORY_H
+#ifndef LIBRARY_H
+#define LIBRARY_H
 
-#include <QObject>
-#include <QHash>
+#include <QDateTime>
+#include <QFileInfo>
+#include <QList>
+#include <QScopedPointer>
 #include <QString>
-#include <QStringList>
+
+#include "bookmark.h"
 
 namespace ghostwriter
 {
@@ -32,48 +35,66 @@ namespace ghostwriter
  * It is reentrant, and different instances can be used from anywhere to
  * access the same file history.
  */
-class DocumentHistory
+class LibraryPrivate;
+class Library
 {
 public:
     /**
      * Constructor.
      */
-    DocumentHistory();
+    Library();
 
     /**
-     * Destructor.
+     * Destructor. Will store data to disk.
      */
-    ~DocumentHistory();
+    ~Library();
+
+    /**
+     * Finds the bookmark for the given file path.  If none is found,
+     * this method returns a null bookmark (i.e., the bookmark's
+     * isNull() method returns true).
+     */
+    Bookmark lookup(const QString &filePath) const;
 
     /**
      * Returns the list of recent files, up to the maximum number specified.
      * Specify a value of -1 to get the entire history.
      */
-    QStringList recentFiles(int max = -1);
+    Bookmarks recentFiles(int max = -1);
 
     /**
-     * Adds the given file path and cursor position to the history.
+     * Adds the given bookmark to the history.
      */
-    void add(const QString &filePath, int cursorPosition);
+    void addRecent(const Bookmark &bookmark);
 
     /**
-     * Gets the last-known cursor position for the given file path.  This
-     * will return 0 (beginning of the file) if the last cursor position
-     * is unknown.
+     * Adds the given bookmark to the history.
      */
-    int cursorPosition(const QString &filePath);
+    void addRecent(const QString &filePath, int position);
 
     /**
-     * Wipes the document history clean.
+     * Removes the bookmark with the given file path from the history.
+     */
+    void removeRecent(const QString &filePath);
+
+    /**
+     * Removes the given bookmark from the history.
+     */
+    void removeRecent(const Bookmark &bookmark);
+
+    /**
+     * Wipes all saved bookmarks.
      */
     void clear();
 
-signals:
     /**
-     * Emitted when a recent file is added/removed from the history.
+     * Save data to disk.
      */
-    void recentFilesChanged();
-};
-}
+    void sync();
 
-#endif // DOCUMENTHISTORY_H
+private:
+    QScopedPointer<LibraryPrivate> d;
+};
+} // namespace ghostwriter
+
+#endif // LIBRARY_H
