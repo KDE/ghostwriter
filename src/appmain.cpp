@@ -18,10 +18,12 @@
  ***********************************************************************/
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QCoreApplication>
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QTranslator>
+#include <QWindow>
 
 #include <QDebug>
 
@@ -30,6 +32,23 @@
 
 int main(int argc, char *argv[])
 {
+    bool disableGPU = false;
+
+    // Unfortunately, we must preparse the arguments for the --disable-gpu
+    // option rather than using QCommandLineParser since we must set the
+    // software rendering attribute before creating the QApplication.
+    //
+    for (int i = 0; i < argc; i++) {
+        if (0 == strcmp(argv[i], "--disable-gpu")) {
+            disableGPU = true;
+            break;
+        }
+    }
+
+    if (disableGPU) {
+        QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
+    }
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -39,14 +58,17 @@ int main(int argc, char *argv[])
     // For Qt 5, use ANGLE instead of OpenGL to bypass bug where full screen
     // windows under Windows 10 and OpenGL will not show menus from the menu
     // bar (or any other popup menus).  For Qt 6, this is option is no longer
-    // available, so use the software OpenGL option instead.
+    // available, so allow the user to pass in the software OpenGL option if
+    // desired. (Note: Software rendering can be buggy, so leave it optional).
+    // Sadly, the full screen OpenGL workaround in Qt's documentation does not
+    // actually work.
     //
-    // Thank you, Microsoft, you made my day.
+    // Thank you, Microsoft (and now Qt for removing ANGLE), you made my day.
     //
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
-#else
-    QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL, true);
+    if (!disableGPU) {
+        QCoreApplication::setAttribute(Qt::AA_UseOpenGLES, true);
+    }
 #endif
 #endif
 
@@ -94,9 +116,28 @@ int main(int argc, char *argv[])
 
     QString filePath = QString();
 
-    if (argc > 1) {
-        filePath = app.arguments().at(1);
+    QCommandLineParser clParser;
+    clParser.setApplicationDescription(QCoreApplication::translate("main",
+        "Welcome to ghostwriter!"));
+    clParser.addHelpOption();
+    clParser.addVersionOption();
+    clParser.addPositionalArgument("file",
+        QCoreApplication::translate("main", "(Optional) File to open."));
+
+    QCommandLineOption renderingOption("disable-gpu",
+        QCoreApplication::translate("main", "Disables GPU acceleration."));
+
+    clParser.addOption(renderingOption);
+    clParser.process(app);
+
+    QStringList posArgs = clParser.positionalArguments();
+
+    if (posArgs.size() > 0) {
+        filePath = posArgs.first();
     }
+
+    // Note: --disable-gpu option was already processed. We added it here
+    //       only so it is displayed in the help output.
 
     ghostwriter::MainWindow window(filePath);
 
