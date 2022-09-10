@@ -324,7 +324,7 @@ QVersionNumber ExporterFactoryPrivate::isCommandAvailable(const QString &command
     }
 
     QVersionNumber version = QVersionNumber::fromString(versionStr);
-    qInfo().noquote() << "Using" << command << "version" << version;
+    qInfo().noquote() << "Using" << command << "version" << version.toString();
 
     return version;
 }
@@ -344,6 +344,7 @@ void ExporterFactoryPrivate::addPandocExporter
 
     exporter->setSmartTypographyOnArgument("+smart");
     exporter->setSmartTypographyOffArgument("-smart");
+    exporter->setMathSupported(true);
 
     exporter->setHtmlRenderCommand
     (

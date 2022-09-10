@@ -92,6 +92,11 @@ public slots:
      */
     void setStyleSheet(const QString &css);
 
+    /**
+     * Call this method to enable or disable math rendering.
+     */
+    void setMathEnabled(bool enabled);
+
 protected:
     void closeEvent(QCloseEvent *event);
 

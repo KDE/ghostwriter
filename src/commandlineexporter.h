@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -90,6 +90,11 @@ public:
      * in the exporter.
      */
     void setSmartTypographyOffArgument(const QString &argument);
+
+    /**
+     * Sets whether the command supports tex-based math.
+     */
+    void setMathSupported(bool supported);
 
     /**
      * Exports the given text to html, returning the HTML in the html

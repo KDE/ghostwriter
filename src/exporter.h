@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -79,6 +79,11 @@ public:
     void setSmartTypographyEnabled(bool enabled);
 
     /**
+     * Returns true if this exporter supports tex-based math, false otherwise.
+     */
+    bool supportsMath() const;
+
+    /**
      * Override this method to transform the given text into HTML for
      * use in the Live HTML Preview.  By default, this method will set the
      * html parameter to have HTML-formatted error text indicating that HTML
@@ -122,6 +127,11 @@ protected:
     * toggle.
     */
     bool m_smartTypographyEnabled;
+
+    /*
+    * Use this flag to indicate that tex-based math is supported.
+    */
+    bool m_mathSupported;
 
 private:
     QString m_name;

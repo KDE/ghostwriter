@@ -38,8 +38,8 @@
 
 #include "exporter.h"
 #include "htmlpreview.h"
+#include "previewproxy.h"
 #include "sandboxedwebpage.h"
-#include "stringobserver.h"
 
 namespace ghostwriter
 {
@@ -64,8 +64,7 @@ public:
     MarkdownDocument *document;
     bool updateInProgress;
     bool updateAgain;
-    StringObserver livePreviewHtml;
-    StringObserver styleSheet;
+    PreviewProxy proxy;
     QString baseUrl;
     QRegularExpression headingTagExp;
     Exporter *exporter;
@@ -105,28 +104,34 @@ HtmlPreview::HtmlPreview
     d->updateInProgress = false;
     d->updateAgain = false;
     d->exporter = exporter;
+    d->proxy.setMathEnabled(d->exporter->supportsMath());
 
     d->baseUrl = "";
-    d->livePreviewHtml.setText("");
-    d->styleSheet.setText("");
 
     this->setPage(new SandboxedWebPage(this));
     this->settings()->setDefaultTextEncoding("utf-8");
-    this->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
-    this->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
+    this->settings()->setAttribute(
+        QWebEngineSettings::LocalContentCanAccessFileUrls,
+        true);
+    this->settings()->setAttribute(
+        QWebEngineSettings::LocalContentCanAccessRemoteUrls,
+        true);
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     this->page()->action(QWebEnginePage::Reload)->setVisible(false);
-    this->page()->action(QWebEnginePage::ReloadAndBypassCache)->setVisible(false);
-    this->page()->action(QWebEnginePage::OpenLinkInThisWindow)->setVisible(false);
-    this->page()->action(QWebEnginePage::OpenLinkInNewWindow)->setVisible(false);
+    this->page()->action(QWebEnginePage::ReloadAndBypassCache)
+        ->setVisible(false);
+    this->page()->action(QWebEnginePage::OpenLinkInThisWindow)
+        ->setVisible(false);
+    this->page()->action(QWebEnginePage::OpenLinkInNewWindow)
+        ->setVisible(false);
     this->page()->action(QWebEnginePage::ViewSource)->setVisible(false);
     this->page()->action(QWebEnginePage::SavePage)->setVisible(false);
-    QWebEngineProfile::defaultProfile()->setHttpCacheType(QWebEngineProfile::NoCache);
+    QWebEngineProfile::defaultProfile()
+        ->setHttpCacheType(QWebEngineProfile::NoCache);
     QWebEngineProfile::defaultProfile()->clearHttpCache();
     QWebEngineProfile::defaultProfile()->clearAllVisitedLinks();
 
-    this->connect
-    (
+    this->connect(
         this,
         &QWebEngineView::loadFinished,
         [d](bool ok) {
@@ -137,8 +142,7 @@ HtmlPreview::HtmlPreview
     d->headingTagExp.setPattern("^[Hh][1-6]$");
 
     d->futureWatcher = new QFutureWatcher<QString>(this);
-    this->connect
-    (
+    this->connect(
         d->futureWatcher,
         &QFutureWatcher<QString>::finished,
         [d]() {
@@ -146,8 +150,7 @@ HtmlPreview::HtmlPreview
         }
     );
 
-    this->connect
-    (
+    this->connect(
         document,
         &MarkdownDocument::filePathChanged,
         [d]() {
@@ -158,12 +161,12 @@ HtmlPreview::HtmlPreview
     // Set zoom factor for Chromium browser to account for system DPI settings,
     // since Chromium assumes 96 DPI as a fixed resolution.
     //
-    qreal horizontalDpi = QGuiApplication::primaryScreen()->logicalDotsPerInchX();
+    qreal horizontalDpi =
+        QGuiApplication::primaryScreen()->logicalDotsPerInchX();
     this->setZoomFactor((horizontalDpi / 96.0));
 
     QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QStringLiteral("stylesheet"), &d->styleSheet);
-    channel->registerObject(QStringLiteral("livepreviewcontent"), &d->livePreviewHtml);
+    channel->registerObject(QStringLiteral("previewProxy"), &d->proxy);
     this->page()->setWebChannel(channel);
 
     QFile wrapperHtmlFile(":/resources/preview.html");
@@ -250,6 +253,7 @@ void HtmlPreview::setHtmlExporter(Exporter *exporter)
     
     d->exporter = exporter;
     d->setHtmlContent("");
+    d->proxy.setMathEnabled(d->exporter->supportsMath());
     updatePreview();
 }
 
@@ -257,7 +261,14 @@ void HtmlPreview::setStyleSheet(const QString &css)
 {
     Q_D(HtmlPreview);
     
-    d->styleSheet.setText(css);
+    d->proxy.setStyleSheet(css);
+}
+
+void HtmlPreview::setMathEnabled(bool enabled)
+{
+    Q_D(HtmlPreview);
+    
+    d->proxy.setMathEnabled(enabled);
 }
 
 void HtmlPreviewPrivate::onHtmlReady()
@@ -279,7 +290,8 @@ void HtmlPreviewPrivate::onLoadFinished(bool ok)
     Q_Q(HtmlPreview);
     
     if (ok) {
-        q->page()->runJavaScript("document.documentElement.contentEditable = false;");
+        q->page()->runJavaScript(
+            "document.documentElement.contentEditable = false;");
     }
 }
 
@@ -292,9 +304,9 @@ void HtmlPreviewPrivate::updateBaseDir()
         // ensure it works.  If the slash isn't there, then it won't
         // recognize the base URL for some reason.
         //
-        baseUrl =
-            QUrl::fromLocalFile(QFileInfo(document->filePath()).dir().absolutePath()
-                                + "/").toString();
+        baseUrl = QUrl::fromLocalFile(
+            QFileInfo(document->filePath()).dir().absolutePath() 
+                      + "/").toString();
     } else {
         this->baseUrl = "";
     }
@@ -313,7 +325,7 @@ void HtmlPreview::closeEvent(QCloseEvent *event)
 
 void HtmlPreviewPrivate::setHtmlContent(const QString &html)
 {
-    this->livePreviewHtml.setText(html);
+    this->proxy.setHtmlContent(html);
 }
 
 QString HtmlPreviewPrivate::exportToHtml

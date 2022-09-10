@@ -125,13 +125,13 @@ HEADERS += \
     src/outlinewidget.h \
     src/preferencesdialog.h \
     src/previewoptionsdialog.h \
+    src/previewproxy.h \
     src/sandboxedwebpage.h \
     src/sessionstatistics.h \
     src/sessionstatisticswidget.h \
     src/sidebar.h \
     src/simplefontdialog.h \
     src/statisticsindicator.h \
-    src/stringobserver.h \
     src/stylesheetbuilder.h \
     src/textblockdata.h \
     src/theme.h \
@@ -178,13 +178,13 @@ SOURCES += \
     src/outlinewidget.cpp \
     src/preferencesdialog.cpp \
     src/previewoptionsdialog.cpp \
+    src/previewproxy.cpp \
     src/sandboxedwebpage.cpp \
     src/sessionstatistics.cpp \
     src/sessionstatisticswidget.cpp \
     src/sidebar.cpp \
     src/simplefontdialog.cpp \
     src/statisticsindicator.cpp \
-    src/stringobserver.cpp \
     src/stylesheetbuilder.cpp \
     src/theme.cpp \
     src/themeeditordialog.cpp \

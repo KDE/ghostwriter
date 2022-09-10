@@ -15,7 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Various under-the-hood refactoring/improvements have been added.
 * CSS and QSS style sheets now support SASS-style variables.
 * Hover and pressed button effects have been added to improve visibility.
-* User interface component icons and text have had their coloring adjusted to better meet WCAG accesibility standards.
+* User interface component icons and text have had their coloring adjusted to better meet WCAG accessibility standards.
+* Issues #790, 803, and 809: To prevent the equation and typing duplication in math equations, math rendering has been restricted to the Pandoc processor.  All other Markdown processors will no longer render math, since special preprocessing is required that only Pandoc does.
+* Added a command line option `--disable-gpu` to disable GPU acceleration to allow users to bypass a Windows but in Qt 6 where full screen windows having an OpenGL component (in this case, QWebEngineView) cannot display menus (popups, menus from the menu bar).
 
 ## [2.1.4] - 2022-06-18
 

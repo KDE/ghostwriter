@@ -69,6 +69,12 @@ Building on Windows requires Visual Studio.  Open a terminal window, and enter t
 
 Unless you have built *ghostwriter* as a standalone executable statically linked to your own build of Qt's source code, you will need to copy the necessary Qt and Windows .dll files to the same location as `ghostwriter.exe` so that the executable can find the required libraries.  This can be accomplished by running the [windeployqt tool](https://doc.qt.io/qt-5/windows-deployment.html).
 
+**IMPORTANT**: If compiling against Qt 6, note that having OpenGL components (in this case, QWebEngineView) will force the entire window to be rendered in OpenGL.  This triggers a bug in Windows in full screen mode where menus can no longer be displayed, such as the menu bar menus or popup menus.
+
+This issue was not present in Qt 5, since ANGLE was available to bypass the default OpenGL implementation and use DirectX.  With ANGLE having been removed from Qt 6 and the documented solutions not entirely working, you will have to use software rendering instead if you wish to work in full screen mode.  Please see the section below on command line arguments for further instructions on disabling GPU acceleration.
+
+Obviously, the best option is to continue using Qt 5 on Windows for as long as possible.
+
 ### Linux
 
 Before proceeding, ensure that you have the necessary packages installed for Qt 5.
@@ -182,6 +188,12 @@ For terminal users, *ghostwriter* can be run from the command line.  In your ter
     $ ghostwriter myfile.md
 
 where `myfile.md` is the path to your Markdown text file.
+
+An option to disable GPU acceleration `--disable-gpu` is also available.  Simply type the following:
+
+    $ ghostwriter --disable-gpu
+
+A scenario where you may consider using software rendering would be if compiling against Qt 6 on Windows, and running the application in full screen mode.  See documented bug under the Windows build instructions above for further details.  Note that the application may inconsistently launch on Windows with GPU acceleration disabled, and it may take several attempts before you can start it successfully.
 
 ## Portable Mode
 

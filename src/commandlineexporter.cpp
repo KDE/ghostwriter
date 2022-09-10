@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,6 +119,11 @@ void CommandLineExporter::setSmartTypographyOffArgument(const QString &argument)
     d->smartTypographyOffArgument = argument;
 }
 
+void CommandLineExporter::setMathSupported(bool supported)
+{
+    m_mathSupported = supported;
+}
+
 void CommandLineExporter::exportToHtml(const QString &text, QString &html)
 {
     Q_D(CommandLineExporter);
@@ -149,7 +154,9 @@ void CommandLineExporter::exportToHtml(const QString &text, QString &html)
             errorMessage = stderrOutput;
         }
 
-        html = QString("<center><b style='color: red'>") + QObject::tr("Export failed: ") + QString("%1</b></center>").arg(errorMessage);
+        html = QString("<center><b style='color: red'>") 
+            + QObject::tr("Export failed: ")
+            + QString("%1</b></center>").arg(errorMessage);
     }
 }
 
@@ -168,7 +175,8 @@ void CommandLineExporter::exportToFile
     QString stderrOutput;
 
     if (!d->formatToCommandMap.contains(format)) {
-        err = QObject::tr("%1 format is not supported by this processor.").arg(format->name());
+        err = QObject::tr("%1 format is not supported by this processor.")
+            .arg(format->name());
         return;
     }
 
@@ -190,7 +198,8 @@ void CommandLineExporter::exportToFile
         if (!stderrOutput.isNull() && !stderrOutput.isEmpty()) {
             err = stderrOutput;
         } else {
-            err = QObject::tr("Failed to execute command: ") + QString("%1").arg(command);
+            err = QObject::tr("Failed to execute command: ")
+                + QString("%1").arg(command);
         }
     } else {
         err = QString();
@@ -211,13 +220,14 @@ bool CommandLineExporterPrivate::executeCommand
     QProcess process;
     process.setReadChannel(QProcess::StandardOutput);
 
-    QString expandedCommand = command + QString(" ");
+    QString expandedCommand = command + " ";
 
     if (!outputFilePath.isNull() && !outputFilePath.isEmpty()) {
         // Redirect stdout to the output file path if the path variable wasn't
         // set in the command string.
         //
-        if (!expandedCommand.contains(CommandLineExporter::OUTPUT_FILE_PATH_VAR)) {
+        if (!expandedCommand.contains(
+                CommandLineExporter::OUTPUT_FILE_PATH_VAR)) {
             process.setStandardOutputFile(outputFilePath);
         } else {
             // Surround file path with quotes in case there are spaces in the
@@ -225,25 +235,20 @@ bool CommandLineExporterPrivate::executeCommand
             //
             QString outputFilePathWithQuotes = QString('\"') +
                                                outputFilePath + '\"';
-            expandedCommand.replace(CommandLineExporter::OUTPUT_FILE_PATH_VAR, outputFilePathWithQuotes);
+            expandedCommand.replace(
+                CommandLineExporter::OUTPUT_FILE_PATH_VAR,
+                outputFilePathWithQuotes);
         }
     }
 
-    if
-    (
-        smartTypographyEnabled &&
-        !smartTypographyOnArgument.isNull()
-    ) {
+    if (smartTypographyEnabled && !smartTypographyOnArgument.isNull()) {
         expandedCommand.replace
         (
             CommandLineExporter::SMART_TYPOGRAPHY_ARG,
             smartTypographyOnArgument
         );
-    } else if
-    (
-        !smartTypographyEnabled &&
-        !smartTypographyOffArgument.isNull()
-    ) {
+    } else if (!smartTypographyEnabled
+            && !smartTypographyOffArgument.isNull()) {
         expandedCommand.replace
         (
             CommandLineExporter::SMART_TYPOGRAPHY_ARG,
@@ -264,7 +269,11 @@ bool CommandLineExporterPrivate::executeCommand
         process.setWorkingDirectory(QFileInfo(inputFilePath).dir().path());
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     process.start(expandedCommand);
+#else
+    process.startCommand(expandedCommand);
+#endif
 
     if (!process.waitForStarted()) {
         return false;
@@ -277,14 +286,13 @@ bool CommandLineExporterPrivate::executeCommand
         if (!process.waitForFinished()) {
             return false;
         } else {
-            stdoutOutput = QString::fromUtf8(process.readAllStandardOutput().data());
-            stderrOutput = QString::fromUtf8(process.readAllStandardError().data());
+            stdoutOutput = QString::fromUtf8(
+                process.readAllStandardOutput().data());
+            stderrOutput = QString::fromUtf8(
+                process.readAllStandardError().data());
 
-            if
-            (
-                (QProcess::NormalExit != process.exitStatus()) ||
-                (0 != process.exitCode())
-            ) {
+            if ((QProcess::NormalExit != process.exitStatus())
+                    || (0 != process.exitCode())) {
                 return false;
             }
         }

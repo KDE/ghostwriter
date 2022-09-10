@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2014-2020 wereturtle
+ * Copyright (C) 2014-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,9 @@
 namespace ghostwriter
 {
 Exporter::Exporter(const QString &name)
-    : m_smartTypographyEnabled(false), m_name(name)
+    : m_smartTypographyEnabled(false), 
+      m_mathSupported(false),
+      m_name(name)
 {
     ;
 }
@@ -58,6 +60,11 @@ bool Exporter::smartTypographyEnabled() const
 void Exporter::setSmartTypographyEnabled(bool enabled)
 {
     m_smartTypographyEnabled = enabled;
+}
+
+bool Exporter::supportsMath() const
+{
+    return m_mathSupported;
 }
 
 void Exporter::exportToHtml(const QString &text, QString &html)

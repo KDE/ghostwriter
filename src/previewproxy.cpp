@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2018-2020 wereturtle
+ * Copyright (C) 2018-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,28 +17,56 @@
  *
  ***********************************************************************/
 
-#include "stringobserver.h"
+#include "previewproxy.h"
 
 namespace ghostwriter
 {
-StringObserver::StringObserver(QObject *parent) : QObject(parent)
+PreviewProxy::PreviewProxy(QObject *parent)
+    : QObject(parent),
+      m_htmlContent(""),
+      m_styleSheet(""),
+      m_mathEnabled(false)
 {
     ;
 }
 
-StringObserver::~StringObserver()
+PreviewProxy::~PreviewProxy()
 {
     ;
 }
 
-void StringObserver::setText(const QString &text)
+void PreviewProxy::setHtmlContent(const QString &html)
 {
-    mText = text;
-    emit textChanged(mText);
+    m_htmlContent = html;
+    emit htmlChanged(m_htmlContent);
 }
 
-QString StringObserver::text() const
+QString PreviewProxy::htmlContent() const
 {
-    return mText;
+    return m_htmlContent;
+}
+
+void PreviewProxy::setStyleSheet(const QString &css)
+{
+    m_styleSheet = css;
+    emit styleSheetChanged(m_styleSheet);
+}
+
+QString PreviewProxy::styleSheet() const
+{
+    return m_styleSheet;
+}
+
+void PreviewProxy::setMathEnabled(bool enabled)
+{
+    if (enabled != m_mathEnabled) {
+        m_mathEnabled = enabled;
+        emit mathToggled(m_mathEnabled);
+    }
+}
+
+bool PreviewProxy::mathEnabled() const
+{
+    return m_mathEnabled;
 }
 } // namespace ghostwriter

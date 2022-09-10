@@ -2,7 +2,7 @@
 <!--
 /***********************************************************************
  *
- * Copyright (C) 2018-2021 wereturtle
+ * Copyright (C) 2018-2022 wereturtle
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@
             function scrollToHeading(headingNumber) {
                 var headers = document.querySelectorAll("div > h1, div > h2, div > h3, div > h4, div > h5, div > h6");
 
-                if (headingNumber > 0 && headingNumber <= headers.length) {
+                if ((headingNumber > 0) && (headingNumber <= headers.length)) {
                     headers[headingNumber - 1].scrollIntoView();
                 }
             }
@@ -54,6 +54,7 @@
                     this.initializeWebChannel = this.initializeWebChannel.bind(this);
                     this.loadStyleSheet = this.loadStyleSheet.bind(this);
                     this.updateLivePreview = this.updateLivePreview.bind(this);
+                    this.setMathEnabled = this.setMathEnabled.bind(this);
                     this.scrollToChange = this.scrollToChange.bind(this);
 
                     this.mutationObserver = new MutationObserver(
@@ -75,7 +76,8 @@
                     );
 
                     this.state = {
-                        livePreviewHTML: ''
+                        livePreviewHTML: '',
+                        mathEnabled: false
                     };
 
                     new QWebChannel(qt.webChannelTransport,
@@ -84,13 +86,16 @@
                 }
 
                 initializeWebChannel(channel) {
-                    var styleSheet = channel.objects.stylesheet;
-                    this.loadStyleSheet(styleSheet.text);
-                    styleSheet.textChanged.connect(this.loadStyleSheet);
+                    var proxy = channel.objects.previewProxy;
 
-                    var content = channel.objects.livepreviewcontent;
-                    this.updateLivePreview(content.text);
-                    content.textChanged.connect(this.updateLivePreview);
+                    this.loadStyleSheet(proxy.styleSheet);
+                    proxy.styleSheetChanged.connect(this.loadStyleSheet);
+
+                    this.updateLivePreview(proxy.htmlContent);
+                    proxy.htmlChanged.connect(this.updateLivePreview);
+
+                    this.setMathEnabled(proxy.mathEnabled);
+                    proxy.mathToggled.connect(this.setMathEnabled);
                 }
 
                 loadStyleSheet(css) {
@@ -112,10 +117,25 @@
                 updateLivePreview(html) {
                     this.setState({ livePreviewHTML: html });
 
-                    // Call MathJax to update document, if the library is available.
-                    if (typeof window.MathJax !== 'undefined') {
+                    // Call MathJax to update document, if the library is
+                    // available and the math feature is enabled.
+                    if ((typeof window.MathJax !== 'undefined')
+                            && (this.state.mathEnabled)) {
                         window.MathJax.typeset();
                     }
+                }
+
+                setMathEnabled(enabled) {
+                    this.setState({ mathEnabled: enabled });
+
+                    // Clear out the old MathJax data in the DOM, otherwise
+                    // React will not properly diff the old and new
+                    // content where equations appear.
+                    var previousHtml = this.state.livePreviewHTML;
+                    this.updateLivePreview("");
+                    
+                    // Restore the old content without the math.
+                    this.updateLivePreview(previousHtml);
                 }
 
                 getLivePreviewContent() {
@@ -128,16 +148,13 @@
                     for (var i = 0; i < mutations.length; i++) {
                         var mutation = mutations[0];
 
-                        if ("attributes" === mutation.type)
-                        {
+                        if ("attributes" === mutation.type) {
                             scrollToNode = mutation.target;
                         }
-                        else if ("characterData" === mutation.type)
-                        {
+                        else if ("characterData" === mutation.type) {
                             scrollToNode = mutation.target.parentNode;
                         }
-                        else if ("childList" === mutation.type)
-                        {
+                        else if ("childList" === mutation.type) {
                             if (mutation.addedNodes.length > 0) {
                                 for (var j = 0; j < mutation.addedNodes.length; j++) {
                                     if (1 === mutation.addedNodes[j].nodeType) {
@@ -157,9 +174,9 @@
                                 }
                             }
                         }
-                        else
-                        {
-                            console.error("Unsupported mutationt type from MutationObserver: " + mutation.type);
+                        else {
+                            console.error("Unsupported mutation type from MutationObserver: "
+                                + mutation.type);
                         }
                     }
 
