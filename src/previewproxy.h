@@ -100,8 +100,6 @@ private:
     bool m_mathEnabled;
 };
 
-Q_DECLARE_METATYPE(PreviewProxy);
-
 } // namespace ghostwriter
 
 #endif // PREVIEWPROXY_H
