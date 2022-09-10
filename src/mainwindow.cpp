@@ -1000,7 +1000,7 @@ void MainWindow::buildMenuBar()
     fileMenu->addAction(createWindowAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New));
     fileMenu->addAction(createWindowAction(tr("&Open"), documentManager, SLOT(open()), QKeySequence::Open));
 
-    QMenu *recentFilesMenu = new QMenu(tr("Open &Recent..."));
+    QMenu *recentFilesMenu = new QMenu(tr("Open &Recent..."), fileMenu);
     recentFilesMenu->addAction(createWindowAction(tr("Reopen Closed File"), documentManager, SLOT(reopenLastClosedFile()), QKeySequence("SHIFT+CTRL+T")));
     recentFilesMenu->addSeparator();
 

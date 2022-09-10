@@ -2375,7 +2375,7 @@ bool QtAwesome::initFontAwesome( )
         if( fd.fontId() < 0 ) {
             // load the font file
             QFile res(":/fonts/" + fd.fontFilename());
-            printf("Loading %s\n", fd.fontFilename().toStdString().c_str());
+            
             if(!res.open(QIODevice::ReadOnly)) {
                 qCritical() << "Font awesome font" << fd.fontFilename() << "could not be loaded!";
                 errors = true;

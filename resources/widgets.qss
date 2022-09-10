@@ -90,10 +90,11 @@ QMainWindow QMenuBar {
     border-bottom: 1px;
     border-color: $secondary-separator-color;
     border-style: solid;
+    padding: 1px 0px 1px 0px;
 }
 
 QMainWindow QMenuBar::item {
-    padding: 2px 5px 2px 5px;
+    padding: 2px 7px 2px 7px;
     border: 0px;
     margin: 2px;
     border-radius: $default-border-radius;
@@ -120,13 +121,13 @@ QMenuBar QMenu {
     color: $label-color;
     background-color: $secondary-background-color;
     border: 0px;
-    padding: 10px 0px 10px 0px;
+    padding: 7px 0px 7px 0px;
 }
 
 QMainWindow QMenu::item,
 QMenuBar QMenu::item {
     background-color: transparent;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 10px 5px 10px;
     margin: 0px;
 }
 
@@ -372,7 +373,7 @@ QStatusBar QComboBox:hover {
 }
 
 QStatusBar QListView {
-    padding: 10px 0px 10px 0px;
+    padding: 7px 0px 7px 0px;
     margin: 0px;
     color: $label-color;
     background-color: $background-color;
@@ -380,7 +381,8 @@ QStatusBar QListView {
 
 QStatusBar QListView::item {
     background-color: transparent;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 10px 5px 10px;
+    margin: 0px;
 }
 
 QStatusBar QListView::item:selected {
@@ -531,7 +533,7 @@ ghostwriter--FindReplace QPushButton#findReplaceCloseButton {
     font-weight: 900; /* Font Awesome Solid */
 }
 
-QMainWindow QLineEdit {
+ghostwriter--FindReplace QLineEdit {
     color: $text-color;
     background-color: $tertiary-fill-color;
     border: 0px;
@@ -540,6 +542,6 @@ QMainWindow QLineEdit {
     selection-background-color: $selected-text-bg-color;
 }
 
-QMainWindow QLineEdit:focus {
+ghostwriter--FindReplace QLineEdit:focus {
     border: 1px solid $tertiary-fill-color-active;
 }
