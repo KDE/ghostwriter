@@ -72,6 +72,10 @@ int main(int argc, char *argv[])
 #endif
 #endif
 
+    // Disable icons in menus for now, since matching their colors to the
+    // current theme is not supported yet.
+    QCoreApplication::setAttribute(Qt::AA_DontShowIconsInMenus, true);
+
     QApplication app(argc, argv);
 
 #if QT_VERSION >= 0x050700 && defined(Q_OS_LINUX)
