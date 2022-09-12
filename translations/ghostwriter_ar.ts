@@ -4,109 +4,120 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/commandlineexporter.cpp" line="152"/>
+        <location filename="../src/commandlineexporter.cpp" line="158"/>
         <source>Export failed: </source>
         <translation>فشل التصدير: </translation>
     </message>
     <message>
-        <location filename="../src/commandlineexporter.cpp" line="171"/>
+        <location filename="../src/commandlineexporter.cpp" line="178"/>
         <source>%1 format is not supported by this processor.</source>
         <translation>لا يدعم هذا المعالج التنسيق %1.</translation>
     </message>
     <message>
-        <location filename="../src/commandlineexporter.cpp" line="193"/>
+        <location filename="../src/commandlineexporter.cpp" line="201"/>
         <source>Failed to execute command: </source>
         <translation>فشل تنفيذ الأمر: </translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="70"/>
+        <location filename="../src/documentmanager.cpp" line="67"/>
         <location filename="../src/markdowndocument.cpp" line="180"/>
         <source>untitled</source>
         <translation type="unfinished">بدون عنوان</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="185"/>
+        <location filename="../src/documentmanager.cpp" line="177"/>
         <source>Markdown</source>
         <translation>ماركداون</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="186"/>
+        <location filename="../src/documentmanager.cpp" line="178"/>
         <source>Text</source>
         <translation>النص</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="187"/>
+        <location filename="../src/documentmanager.cpp" line="179"/>
         <source>All</source>
         <translation>الكل</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="598"/>
+        <location filename="../src/documentmanager.cpp" line="233"/>
+        <location filename="../src/documentmanager.cpp" line="707"/>
         <source>Error saving %1</source>
         <translation type="unfinished">خطأ في حفظ %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="653"/>
+        <location filename="../src/documentmanager.cpp" line="673"/>
         <source>The document has been modified by another program.</source>
         <translation type="unfinished">تم تعديل الملف بواسطة برنامج آخر.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="654"/>
+        <location filename="../src/documentmanager.cpp" line="674"/>
         <source>Would you like to reload the document?</source>
         <translation type="unfinished">هل تريد إعادة فتح المستند؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="713"/>
-        <location filename="../src/documentmanager.cpp" line="748"/>
+        <location filename="../src/documentmanager.cpp" line="708"/>
+        <source>No file path specified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/documentmanager.cpp" line="724"/>
+        <location filename="../src/documentmanager.cpp" line="763"/>
         <source>Could not read %1</source>
         <translation type="unfinished">لا يمكن قراءة %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="734"/>
+        <location filename="../src/documentmanager.cpp" line="745"/>
         <source>opening %1</source>
         <translation type="unfinished">يفتح %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="837"/>
+        <location filename="../src/documentmanager.cpp" line="854"/>
         <source>File has been modified.</source>
         <translation type="unfinished">تم تعديل الملف.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="839"/>
+        <location filename="../src/documentmanager.cpp" line="856"/>
         <source>%1 has been modified.</source>
         <translation type="unfinished">تم تعديل %1.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="848"/>
+        <location filename="../src/documentmanager.cpp" line="865"/>
         <source>Would you like to save your changes?</source>
         <translation type="unfinished">هل تريد حفظ تعديلاتك؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="879"/>
+        <location filename="../src/documentmanager.cpp" line="896"/>
         <source>%1 is read only.</source>
         <translation type="unfinished">%1 مفتوح للقراءة فقط.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="880"/>
+        <location filename="../src/documentmanager.cpp" line="897"/>
         <source>Overwrite protected file?</source>
         <translation type="unfinished">الكتابة فوق ملف محمي؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="899"/>
+        <location filename="../src/documentmanager.cpp" line="916"/>
         <source>Overwrite failed.</source>
         <translation type="unfinished">تعذرت إعادة الكتابة.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="900"/>
+        <location filename="../src/documentmanager.cpp" line="917"/>
         <source>Please save file to another location.</source>
         <translation type="unfinished">فضلاً، احفظ الملف في مكانٍ مختلف.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="925"/>
-        <source>Null or empty file path provided for writing.</source>
-        <translation>مسار ملف الكتابة فارغ أو ملغى.</translation>
+        <location filename="../src/documentmanager.cpp" line="941"/>
+        <location filename="../src/documentmanager.cpp" line="953"/>
+        <source>File backup failed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/exporter.cpp" line="68"/>
+        <source>Null or empty file path provided for writing.</source>
+        <translation type="vanished">مسار ملف الكتابة فارغ أو ملغى.</translation>
+    </message>
+    <message>
+        <location filename="../src/exporter.cpp" line="75"/>
         <source>Export to HTML is not supported with this processor.</source>
         <translation>لا يدعم هذا المعالج التصدير إلى HTML.</translation>
     </message>
@@ -146,17 +157,17 @@
         <translation type="unfinished">صعب جداً</translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="450"/>
+        <location filename="../src/findreplace.cpp" line="432"/>
         <source>Search wrapped</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="457"/>
+        <location filename="../src/findreplace.cpp" line="439"/>
         <source>No results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="499"/>
+        <location filename="../src/findreplace.cpp" line="481"/>
         <source>%1 matches</source>
         <translation type="unfinished"></translation>
     </message>
@@ -274,69 +285,56 @@
 <context>
     <name>SpellChecker</name>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="139"/>
         <source>Check Spelling</source>
-        <translation>التنقيح الإملائي</translation>
+        <translation type="vanished">التنقيح الإملائي</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="151"/>
         <source>&amp;Add</source>
-        <translation>إ&amp;ضافة</translation>
+        <translation type="vanished">إ&amp;ضافة</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="154"/>
         <source>&amp;Ignore</source>
-        <translation>&amp;تجاهل</translation>
+        <translation type="vanished">&amp;تجاهل</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="157"/>
         <source>I&amp;gnore All</source>
-        <translation>ت&amp;جاهل الكل</translation>
+        <translation type="vanished">ت&amp;جاهل الكل</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="162"/>
         <source>&amp;Change</source>
-        <translation>ت&amp;غيير</translation>
+        <translation type="vanished">ت&amp;غيير</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="165"/>
         <source>C&amp;hange All</source>
-        <translation>تغ&amp;يير الكل</translation>
+        <translation type="vanished">تغ&amp;يير الكل</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="180"/>
         <source>Not in dictionary:</source>
-        <translation>ليس في المعجم:</translation>
+        <translation type="vanished">ليس في المعجم:</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="188"/>
         <source>Change to:</source>
-        <translation>تغيير إلى:</translation>
+        <translation type="vanished">تغيير إلى:</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Checking spelling...</source>
-        <translation>التنقيح الإملائي...</translation>
+        <translation type="vanished">التنقيح الإملائي...</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="204"/>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation type="vanished">إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="205"/>
         <source>Please wait</source>
-        <translation>فضلاً انتظر</translation>
+        <translation type="vanished">فضلاً انتظر</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="232"/>
         <source>Continue checking at beginning of file?</source>
-        <translation>استئناف التنقيح من بداءة الملف؟</translation>
+        <translation type="vanished">استئناف التنقيح من بداءة الملف؟</translation>
     </message>
     <message>
-        <location filename="../src/spelling/spell_checker.cpp" line="291"/>
         <source>Spell check complete.</source>
-        <translation>انتهى التنقيح الإملائي.</translation>
+        <translation type="vanished">انتهى التنقيح الإملائي.</translation>
     </message>
 </context>
 <context>
@@ -370,42 +368,43 @@
 <context>
     <name>ghostwriter::DocumentManager</name>
     <message>
-        <location filename="../src/documentmanager.cpp" line="349"/>
+        <location filename="../src/documentmanager.cpp" line="370"/>
         <source>Open File</source>
         <translation type="unfinished">فتح ملف</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="362"/>
+        <location filename="../src/documentmanager.cpp" line="383"/>
         <source>Could not open %1</source>
         <translation type="unfinished">لا يمكن فتح %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="363"/>
+        <location filename="../src/documentmanager.cpp" line="384"/>
         <source>Permission denied.</source>
         <translation type="unfinished">لا يوجد صلاحيات.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="424"/>
+        <location filename="../src/documentmanager.cpp" line="446"/>
         <source>The document has been modified.</source>
         <translation type="unfinished">تم تعديل المستند.</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="425"/>
+        <location filename="../src/documentmanager.cpp" line="447"/>
         <source>Discard changes?</source>
         <translation type="unfinished">تجاهل التعديلات؟</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="456"/>
+        <location filename="../src/documentmanager.cpp" line="478"/>
         <source>Rename File</source>
         <translation type="unfinished">تسمية الملف</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="469"/>
+        <location filename="../src/documentmanager.cpp" line="495"/>
+        <location filename="../src/documentmanager.cpp" line="508"/>
         <source>Failed to rename %1</source>
         <translation type="unfinished">تعذّرت تسمية الملف %1</translation>
     </message>
     <message>
-        <location filename="../src/documentmanager.cpp" line="507"/>
+        <location filename="../src/documentmanager.cpp" line="546"/>
         <source>Save File</source>
         <translation type="unfinished">حفظ الملف</translation>
     </message>
@@ -486,38 +485,38 @@
 <context>
     <name>ghostwriter::ExportDialog</name>
     <message>
-        <location filename="../src/exportdialog.cpp" line="53"/>
-        <location filename="../src/exportdialog.cpp" line="100"/>
+        <location filename="../src/exportdialog.cpp" line="54"/>
+        <location filename="../src/exportdialog.cpp" line="101"/>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="85"/>
+        <location filename="../src/exportdialog.cpp" line="86"/>
         <source>Smart Typography</source>
         <translation type="unfinished">التنسيق الذكي</translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="88"/>
+        <location filename="../src/exportdialog.cpp" line="89"/>
         <source>Export Options</source>
         <translation type="unfinished">خيارات التصدير</translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="90"/>
+        <location filename="../src/exportdialog.cpp" line="91"/>
         <source>Markdown Converter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="91"/>
+        <location filename="../src/exportdialog.cpp" line="92"/>
         <source>File Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="171"/>
+        <location filename="../src/exportdialog.cpp" line="172"/>
         <source>exporting to %1</source>
         <translation type="unfinished">يصدر إلى %1</translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="187"/>
+        <location filename="../src/exportdialog.cpp" line="188"/>
         <source>Export failed.</source>
         <translation type="unfinished">فشل التصدير.</translation>
     </message>
@@ -525,57 +524,57 @@
 <context>
     <name>ghostwriter::FindReplace</name>
     <message>
-        <location filename="../src/findreplace.cpp" line="119"/>
+        <location filename="../src/findreplace.cpp" line="110"/>
         <source>Match case</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="126"/>
+        <location filename="../src/findreplace.cpp" line="115"/>
         <source>Whole word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="132"/>
+        <location filename="../src/findreplace.cpp" line="121"/>
         <source>Regular expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="138"/>
+        <location filename="../src/findreplace.cpp" line="126"/>
         <source>Highlight matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="148"/>
+        <location filename="../src/findreplace.cpp" line="134"/>
         <source>Find previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="153"/>
+        <location filename="../src/findreplace.cpp" line="139"/>
         <source>Find next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="155"/>
+        <location filename="../src/findreplace.cpp" line="144"/>
         <source>Replace</source>
         <translation type="unfinished">استبدال</translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="157"/>
+        <location filename="../src/findreplace.cpp" line="148"/>
         <source>Replace All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="194"/>
+        <location filename="../src/findreplace.cpp" line="178"/>
         <source>Find:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/findreplace.cpp" line="200"/>
+        <location filename="../src/findreplace.cpp" line="184"/>
         <source>Replace with:</source>
         <translation type="unfinished">استبدال بـ:</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/findreplace.cpp" line="400"/>
+        <location filename="../src/findreplace.cpp" line="382"/>
         <source>%Ln replacement(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -590,7 +589,7 @@
 <context>
     <name>ghostwriter::HtmlPreview</name>
     <message>
-        <location filename="../src/htmlpreview.cpp" line="165"/>
+        <location filename="../src/htmlpreview.cpp" line="175"/>
         <source>Error loading resources/preview.html</source>
         <translation type="unfinished"></translation>
     </message>
@@ -616,22 +615,21 @@
 <context>
     <name>ghostwriter::MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="383"/>
         <source>Could not create file %1. Check permissions.</source>
-        <translation type="unfinished">لا يمكن إنشاء الملف %1. تحقق من الصلاحيات.</translation>
+        <translation type="obsolete">لا يمكن إنشاء الملف %1. تحقق من الصلاحيات.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="694"/>
+        <location filename="../src/mainwindow.cpp" line="677"/>
         <source>Insert Image</source>
         <translation type="unfinished">إدراج صورة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
+        <location filename="../src/mainwindow.cpp" line="680"/>
         <source>Images</source>
         <translation type="unfinished">الصور</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="698"/>
+        <location filename="../src/mainwindow.cpp" line="681"/>
         <source>All Files</source>
         <translation type="unfinished">جميع الملفات</translation>
     </message>
@@ -640,487 +638,487 @@
         <translation type="obsolete">&lt;p&gt;Copyright &amp;copy; 2014-2019 wereturtle&lt;/b&gt;&lt;p&gt;يمكنك استعمال وتوزيع هذا البرنامج بشروط &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.ar.html&quot;&gt;رخصة جنو العمومية الإصدار 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;زر الموقع الرسمي على الرابط &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;شكر خاص وذكر لإعادة استعمال برامجهم لـ &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;، منشأ برنامج &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev، منشأ &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;، منشأ &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;وأدين بالكثير لـ &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;، منشأ &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;، للإلهام الذي أثره بواسطة الأداة الرائعة لتحرير ماركداون التي برمجها.&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="763"/>
+        <location filename="../src/mainwindow.cpp" line="746"/>
         <source>About %1</source>
         <translation type="unfinished">حول %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="879"/>
+        <location filename="../src/mainwindow.cpp" line="860"/>
         <source>Please restart the application for changes to take effect.</source>
         <translation type="unfinished">فضلاًـ أعد تشغيل التطبيق لتأخذ التغييرات فعاليتها.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1017"/>
+        <location filename="../src/mainwindow.cpp" line="998"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;ملف</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1019"/>
+        <location filename="../src/mainwindow.cpp" line="1000"/>
         <source>&amp;New</source>
         <translation type="unfinished">&amp;جديد</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1020"/>
+        <location filename="../src/mainwindow.cpp" line="1001"/>
         <source>&amp;Open</source>
         <translation type="unfinished">&amp;فتح</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1022"/>
+        <location filename="../src/mainwindow.cpp" line="1003"/>
         <source>Open &amp;Recent...</source>
         <translation type="unfinished">فتح ال&amp;سابق...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1023"/>
+        <location filename="../src/mainwindow.cpp" line="1004"/>
         <source>Reopen Closed File</source>
         <translation type="unfinished">إعادة فتح الملف المغلق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1031"/>
+        <location filename="../src/mainwindow.cpp" line="1012"/>
         <source>Clear Menu</source>
         <translation type="unfinished">مسح القائمة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1036"/>
+        <location filename="../src/mainwindow.cpp" line="1017"/>
         <source>&amp;Save</source>
         <translation type="unfinished">&amp;حفظ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1037"/>
+        <location filename="../src/mainwindow.cpp" line="1018"/>
         <source>Save &amp;As...</source>
         <translation type="unfinished">حفظ &amp;باسم...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1038"/>
+        <location filename="../src/mainwindow.cpp" line="1019"/>
         <source>R&amp;ename...</source>
         <translation type="unfinished">&amp;تسمية...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1039"/>
+        <location filename="../src/mainwindow.cpp" line="1020"/>
         <source>Re&amp;load from Disk...</source>
         <translation type="unfinished">است&amp;عادة من القرص...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1041"/>
+        <location filename="../src/mainwindow.cpp" line="1022"/>
         <source>&amp;Export</source>
         <translation type="unfinished">ت&amp;صدير</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1043"/>
+        <location filename="../src/mainwindow.cpp" line="1024"/>
         <source>&amp;Quit</source>
         <translation type="unfinished">&amp;خروج</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1047"/>
+        <location filename="../src/mainwindow.cpp" line="1028"/>
         <source>&amp;Edit</source>
         <translation type="unfinished">&amp;تحرير</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1048"/>
+        <location filename="../src/mainwindow.cpp" line="1029"/>
         <source>&amp;Undo</source>
         <translation type="unfinished">&amp;تراجع</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1049"/>
+        <location filename="../src/mainwindow.cpp" line="1030"/>
         <source>&amp;Redo</source>
         <translation type="unfinished">إ&amp;عادة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1051"/>
+        <location filename="../src/mainwindow.cpp" line="1032"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished">&amp;قص</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1052"/>
+        <location filename="../src/mainwindow.cpp" line="1033"/>
         <source>&amp;Copy</source>
         <translation type="unfinished">&amp;نسخ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1053"/>
+        <location filename="../src/mainwindow.cpp" line="1034"/>
         <source>&amp;Paste</source>
         <translation type="unfinished">&amp;لصق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1054"/>
+        <location filename="../src/mainwindow.cpp" line="1035"/>
         <source>Copy &amp;HTML</source>
         <translation type="unfinished">ن&amp;سخ HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1056"/>
+        <location filename="../src/mainwindow.cpp" line="1037"/>
         <source>&amp;Insert Image...</source>
         <translation type="unfinished">إ&amp;دراج صورة...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1059"/>
+        <location filename="../src/mainwindow.cpp" line="1040"/>
         <source>&amp;Find</source>
         <translation type="unfinished">&amp;بحث</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1060"/>
+        <location filename="../src/mainwindow.cpp" line="1041"/>
         <source>Rep&amp;lace</source>
         <translation type="unfinished">است&amp;بدال</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1061"/>
+        <location filename="../src/mainwindow.cpp" line="1042"/>
         <source>Find &amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1062"/>
+        <location filename="../src/mainwindow.cpp" line="1043"/>
         <source>Find &amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1064"/>
+        <location filename="../src/mainwindow.cpp" line="1045"/>
         <source>&amp;Spell check</source>
         <translation type="unfinished">تن&amp;قيح إملائي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1066"/>
+        <location filename="../src/mainwindow.cpp" line="1047"/>
         <source>For&amp;mat</source>
         <translation type="unfinished">تن&amp;سيق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1067"/>
+        <location filename="../src/mainwindow.cpp" line="1048"/>
         <source>&amp;Bold</source>
         <translation type="unfinished">&amp;غامق</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1068"/>
+        <location filename="../src/mainwindow.cpp" line="1049"/>
         <source>&amp;Italic</source>
         <translation type="unfinished">&amp;مائل</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1069"/>
+        <location filename="../src/mainwindow.cpp" line="1050"/>
         <source>Stri&amp;kethrough</source>
         <translation type="unfinished">&amp;وسطه خط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1070"/>
+        <location filename="../src/mainwindow.cpp" line="1051"/>
         <source>&amp;HTML Comment</source>
         <translation type="unfinished">ت&amp;عليقات HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1073"/>
+        <location filename="../src/mainwindow.cpp" line="1054"/>
         <source>I&amp;ndent</source>
         <translation type="unfinished">م&amp;باعدة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1074"/>
+        <location filename="../src/mainwindow.cpp" line="1055"/>
         <source>&amp;Unindent</source>
         <translation type="unfinished">م&amp;قاربة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1076"/>
+        <location filename="../src/mainwindow.cpp" line="1057"/>
         <source>Block &amp;Quote</source>
         <translation type="unfinished">ا&amp;قتباس</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1077"/>
+        <location filename="../src/mainwindow.cpp" line="1058"/>
         <source>&amp;Strip Block Quote</source>
         <translation type="unfinished">إل&amp;غاء الاقتباس</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1079"/>
+        <location filename="../src/mainwindow.cpp" line="1060"/>
         <source>&amp;* Bullet List</source>
         <translation type="unfinished">&amp;* قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1080"/>
+        <location filename="../src/mainwindow.cpp" line="1061"/>
         <source>&amp;- Bullet List</source>
         <translation type="unfinished">&amp;- قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1081"/>
+        <location filename="../src/mainwindow.cpp" line="1062"/>
         <source>&amp;+ Bullet List</source>
         <translation type="unfinished">&amp;+ قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1083"/>
+        <location filename="../src/mainwindow.cpp" line="1064"/>
         <source>1&amp;. Numbered List</source>
         <translation type="unfinished">1&amp;. قائمة مرتبة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1084"/>
+        <location filename="../src/mainwindow.cpp" line="1065"/>
         <source>1&amp;) Numbered List</source>
         <translation type="unfinished">1&amp;) قائمة مرتبة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1086"/>
+        <location filename="../src/mainwindow.cpp" line="1067"/>
         <source>&amp;Task List</source>
         <translation type="unfinished">قائمة م&amp;هات</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1087"/>
+        <location filename="../src/mainwindow.cpp" line="1068"/>
         <source>Toggle Task(s) &amp;Complete</source>
         <translation type="unfinished">مبا&amp;دلة تشغيل إنجاز المهمة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1090"/>
+        <location filename="../src/mainwindow.cpp" line="1071"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;عرض</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1092"/>
+        <location filename="../src/mainwindow.cpp" line="1073"/>
         <source>&amp;Full Screen</source>
         <translation type="unfinished">&amp;ملئ الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1100"/>
+        <location filename="../src/mainwindow.cpp" line="1081"/>
         <source>&amp;Preview in HTML</source>
         <translation type="unfinished">م&amp;عاينة HTML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1360"/>
+        <location filename="../src/mainwindow.cpp" line="1330"/>
         <source>Show Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1108"/>
+        <location filename="../src/mainwindow.cpp" line="1089"/>
         <source>&amp;Outline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="740"/>
+        <location filename="../src/mainwindow.cpp" line="723"/>
         <source>&lt;p&gt;Copyright &amp;copy; 2014-2022 wereturtle&lt;/b&gt;&lt;p&gt;You may use and redistribute this software under the terms of the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GNU General Public License Version 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Visit the official website at &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Special thanks and credit for reused code goes to&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;, author of &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev, author of &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;, author of &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am also deeply indebted to &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;, the author of &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;, for the inspiration he provided in creating such a beautiful Markdown editing tool.&lt;/p&gt;</source>
         <translation type="unfinished">&lt;p&gt;Copyright &amp;copy; 2014-2019 wereturtle&lt;/b&gt;&lt;p&gt;يمكنك استعمال وتوزيع هذا البرنامج بشروط &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.ar.html&quot;&gt;رخصة جنو العمومية الإصدار 3&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;زر الموقع الرسمي على الرابط &lt;a href=&quot;http://github.com/wereturtle/ghostwriter&quot;&gt;http://github.com/wereturtle/ghostwriter&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;شكر خاص وذكر لإعادة استعمال برامجهم لـ &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;mailto:graeme@gottcode.org&quot;&gt;Graeme Gott&lt;/a&gt;، منشأ برنامج &lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt;&lt;br/&gt;Dmitry Shachnev، منشأ &lt;a href=&quot;http://sourceforge.net/p/retext/home/ReText/&quot;&gt;Retext&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;mailto:gabriel@teuton.org&quot;&gt;Gabriel M. Beddingfield&lt;/a&gt;، منشأ &lt;a href=&quot;http://www.teuton.org/~gabriel/stretchplayer/&quot;&gt;StretchPlayer&lt;/a&gt;&lt;br/&gt;&lt;p&gt;وأدين بالكثير لـ &lt;a href=&quot;mailto:w.vollprecht@gmail.com&quot;&gt;Wolf Vollprecht&lt;/a&gt;، منشأ &lt;a href=&quot;http://uberwriter.wolfvollprecht.de/&quot;&gt;UberWriter&lt;/a&gt;، للإلهام الذي أثره بواسطة الأداة الرائعة لتحرير ماركداون التي برمجها.&lt;/p&gt; {2014-2020 ?} {3&lt;?} {2014-2021 ?} {3&lt;?} {2014-2022 ?} {3&lt;?}</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1118"/>
+        <location filename="../src/mainwindow.cpp" line="1099"/>
         <source>&amp;Session Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1127"/>
+        <location filename="../src/mainwindow.cpp" line="1108"/>
         <source>&amp;Document Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1136"/>
+        <location filename="../src/mainwindow.cpp" line="1117"/>
         <source>&amp;Cheat Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1147"/>
+        <location filename="../src/mainwindow.cpp" line="1128"/>
         <source>Increase Font Size</source>
         <translation type="unfinished">تكبير حجم الخط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1148"/>
+        <location filename="../src/mainwindow.cpp" line="1129"/>
         <source>Decrease Font Size</source>
         <translation type="unfinished">تصغير حجم الخط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1150"/>
+        <location filename="../src/mainwindow.cpp" line="1131"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">إ&amp;عدادات</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1151"/>
-        <location filename="../src/mainwindow.cpp" line="1504"/>
+        <location filename="../src/mainwindow.cpp" line="1132"/>
+        <location filename="../src/mainwindow.cpp" line="1436"/>
         <source>Themes...</source>
         <translation type="unfinished">الثمات...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1152"/>
-        <location filename="../src/mainwindow.cpp" line="1505"/>
+        <location filename="../src/mainwindow.cpp" line="1133"/>
+        <location filename="../src/mainwindow.cpp" line="1437"/>
         <source>Font...</source>
         <translation type="unfinished">الخط...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1153"/>
-        <location filename="../src/mainwindow.cpp" line="1506"/>
+        <location filename="../src/mainwindow.cpp" line="1134"/>
+        <location filename="../src/mainwindow.cpp" line="1438"/>
         <source>Application Language...</source>
         <translation type="unfinished">لغة التطبيق...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1154"/>
-        <location filename="../src/mainwindow.cpp" line="1507"/>
+        <location filename="../src/mainwindow.cpp" line="1135"/>
+        <location filename="../src/mainwindow.cpp" line="1439"/>
         <source>Preview Options...</source>
         <translation type="unfinished">إعدادات المعاينة...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1155"/>
-        <location filename="../src/mainwindow.cpp" line="1508"/>
+        <location filename="../src/mainwindow.cpp" line="1136"/>
+        <location filename="../src/mainwindow.cpp" line="1440"/>
         <source>Preferences...</source>
         <translation type="unfinished">التفضيلات...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1159"/>
+        <location filename="../src/mainwindow.cpp" line="1140"/>
         <source>&amp;Help</source>
         <translation type="unfinished">&amp;مساعدة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1160"/>
+        <location filename="../src/mainwindow.cpp" line="1141"/>
         <source>&amp;About</source>
         <translation type="unfinished">&amp;حول</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1163"/>
+        <location filename="../src/mainwindow.cpp" line="1144"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1166"/>
+        <location filename="../src/mainwindow.cpp" line="1147"/>
         <source>Quick &amp;Reference Guide</source>
         <translation type="unfinished">ال&amp;مرجع السريع</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1167"/>
+        <location filename="../src/mainwindow.cpp" line="1148"/>
         <source>Wiki</source>
         <translation type="unfinished">الويكي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1219"/>
+        <location filename="../src/mainwindow.cpp" line="1194"/>
         <source>Toggle sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1277"/>
+        <location filename="../src/mainwindow.cpp" line="1251"/>
         <source>Toggle dark mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1297"/>
+        <location filename="../src/mainwindow.cpp" line="1270"/>
         <source>Toggle Live HTML Preview</source>
         <translation type="unfinished">مبادلة تشغيل معاينة HTML المباشرة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1318"/>
+        <location filename="../src/mainwindow.cpp" line="1290"/>
         <source>Toggle Hemingway mode</source>
         <translation type="unfinished">مبادة تشغيل نمط هامينغوي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1327"/>
+        <location filename="../src/mainwindow.cpp" line="1298"/>
         <source>Toggle distraction free mode</source>
         <translation type="unfinished">مبادلة تشغيل نمط عدم الإزعاج</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1337"/>
+        <location filename="../src/mainwindow.cpp" line="1307"/>
         <source>Toggle full screen mode</source>
         <translation type="unfinished">مبادلة تشغيل نمط ملئ الشاشة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1377"/>
+        <location filename="../src/mainwindow.cpp" line="1347"/>
         <source># Heading 1</source>
         <translation type="unfinished"># عنوان 1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1378"/>
+        <location filename="../src/mainwindow.cpp" line="1348"/>
         <source>## Heading 2</source>
         <translation type="unfinished">## عنوان 2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1379"/>
+        <location filename="../src/mainwindow.cpp" line="1349"/>
         <source>### Heading 3</source>
         <translation type="unfinished">### عنوان 3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1380"/>
+        <location filename="../src/mainwindow.cpp" line="1350"/>
         <source>#### Heading 4</source>
         <translation type="unfinished">#### عنوان 4</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1381"/>
+        <location filename="../src/mainwindow.cpp" line="1351"/>
         <source>##### Heading 5</source>
         <translation type="unfinished">##### عنوان 5</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1382"/>
+        <location filename="../src/mainwindow.cpp" line="1352"/>
         <source>###### Heading 6</source>
         <translation type="unfinished">###### عنوان 6</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1383"/>
+        <location filename="../src/mainwindow.cpp" line="1353"/>
         <source>*Emphasis* _Emphasis_</source>
         <translation type="unfinished">*توكيد* _توكيد_</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1384"/>
+        <location filename="../src/mainwindow.cpp" line="1354"/>
         <source>**Strong** __Strong__</source>
         <translation type="unfinished">**غامق** __غامق__</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1385"/>
+        <location filename="../src/mainwindow.cpp" line="1355"/>
         <source>1. Numbered List</source>
         <translation type="unfinished">1. قائمة مرتبة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1386"/>
+        <location filename="../src/mainwindow.cpp" line="1356"/>
         <source>* Bullet List</source>
         <translation type="unfinished">* قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1387"/>
+        <location filename="../src/mainwindow.cpp" line="1357"/>
         <source>+ Bullet List</source>
         <translation type="unfinished">+ قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1388"/>
+        <location filename="../src/mainwindow.cpp" line="1358"/>
         <source>- Bullet List</source>
         <translation type="unfinished">- قائمة نقطية</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1389"/>
+        <location filename="../src/mainwindow.cpp" line="1359"/>
         <source>&gt; Block Quote</source>
         <translation type="unfinished">&gt; اقتباس</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1390"/>
+        <location filename="../src/mainwindow.cpp" line="1360"/>
         <source>`Code Span`</source>
         <translation type="unfinished">`رمز برمجي`</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1391"/>
+        <location filename="../src/mainwindow.cpp" line="1361"/>
         <source>``` Code Block</source>
         <translation type="unfinished">``` برنامج حاسبي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1392"/>
+        <location filename="../src/mainwindow.cpp" line="1362"/>
         <source>[Link](http://url.com &quot;Title&quot;)</source>
         <translation type="unfinished">[رابط](http://url.com &quot;عنوان&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1393"/>
+        <location filename="../src/mainwindow.cpp" line="1363"/>
         <source>[Reference Link][ID]</source>
         <translation type="unfinished">[إشارة مرجعية][المعرف]</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1394"/>
+        <location filename="../src/mainwindow.cpp" line="1364"/>
         <source>[ID]: http://url.com &quot;Reference Definition&quot;</source>
         <translation type="unfinished">[المعرف]: http://url.com &quot;تعريف مرجعي&quot;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1395"/>
+        <location filename="../src/mainwindow.cpp" line="1365"/>
         <source>![Image](./image.jpg &quot;Title&quot;)</source>
         <translation type="unfinished">![صورة](./image.jpg &quot;عنوان&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1396"/>
+        <location filename="../src/mainwindow.cpp" line="1366"/>
         <source>--- *** ___ Horizontal Rule</source>
         <translation type="unfinished">--- *** ___ خط أفقي</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1449"/>
+        <location filename="../src/mainwindow.cpp" line="1416"/>
         <source>Outline</source>
         <translation type="unfinished">التخطيط</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1455"/>
+        <location filename="../src/mainwindow.cpp" line="1417"/>
         <source>Session Statistics</source>
         <translation type="unfinished">إحصائيات الجلسة</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1461"/>
+        <location filename="../src/mainwindow.cpp" line="1418"/>
         <source>Document Statistics</source>
         <translation type="unfinished">إحصائيات المستند</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1467"/>
+        <location filename="../src/mainwindow.cpp" line="1419"/>
         <source>Cheat Sheet</source>
         <translation type="unfinished">نموذج تذكير</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1495"/>
+        <location filename="../src/mainwindow.cpp" line="1429"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1136,19 +1134,16 @@
 <context>
     <name>ghostwriter::MarkdownEditor</name>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="264"/>
         <source>Add word to dictionary</source>
-        <translation type="unfinished">إضافة كلمة للمعجم</translation>
+        <translation type="obsolete">إضافة كلمة للمعجم</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="265"/>
         <source>Check spelling...</source>
-        <translation type="unfinished">ينقح إملائياً...</translation>
+        <translation type="obsolete">ينقح إملائياً...</translation>
     </message>
     <message>
-        <location filename="../src/markdowneditor.cpp" line="897"/>
         <source>No spelling suggestions found</source>
-        <translation type="unfinished">لا يوجد اقتراحات إملائية</translation>
+        <translation type="obsolete">لا يوجد اقتراحات إملائية</translation>
     </message>
 </context>
 <context>
@@ -1474,6 +1469,97 @@
     </message>
 </context>
 <context>
+    <name>ghostwriter::SpellCheckDecoratorPrivate</name>
+    <message>
+        <location filename="../src/spelling/spellcheckdecorator.cpp" line="241"/>
+        <source>Check spelling...</source>
+        <translation type="unfinished">ينقح إملائياً...</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellcheckdecorator.cpp" line="263"/>
+        <source>Spelling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellcheckdecorator.cpp" line="267"/>
+        <source>Add word to dictionary</source>
+        <translation type="unfinished">إضافة كلمة للمعجم</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellcheckdecorator.cpp" line="308"/>
+        <source>No spelling suggestions found</source>
+        <translation type="unfinished">لا يوجد اقتراحات إملائية</translation>
+    </message>
+</context>
+<context>
+    <name>ghostwriter::SpellChecker</name>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="115"/>
+        <source>Check Spelling</source>
+        <translation type="unfinished">التنقيح الإملائي</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="127"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished">إ&amp;ضافة</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="130"/>
+        <source>&amp;Ignore</source>
+        <translation type="unfinished">&amp;تجاهل</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="133"/>
+        <source>I&amp;gnore All</source>
+        <translation type="unfinished">ت&amp;جاهل الكل</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="138"/>
+        <source>&amp;Change</source>
+        <translation type="unfinished">ت&amp;غيير</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="141"/>
+        <source>C&amp;hange All</source>
+        <translation type="unfinished">تغ&amp;يير الكل</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="156"/>
+        <source>Not in dictionary:</source>
+        <translation type="unfinished">ليس في المعجم:</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="164"/>
+        <source>Change to:</source>
+        <translation type="unfinished">تغيير إلى:</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="178"/>
+        <source>Checking spelling...</source>
+        <translation type="unfinished">التنقيح الإملائي...</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="178"/>
+        <source>Cancel</source>
+        <translation type="unfinished">إلغاء</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="179"/>
+        <source>Please wait</source>
+        <translation type="unfinished">فضلاً انتظر</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="206"/>
+        <source>Continue checking at beginning of file?</source>
+        <translation type="unfinished">استئناف التنقيح من بداءة الملف؟</translation>
+    </message>
+    <message>
+        <location filename="../src/spelling/spellchecker.cpp" line="284"/>
+        <source>Spell check complete.</source>
+        <translation type="unfinished">انتهى التنقيح الإملائي.</translation>
+    </message>
+</context>
+<context>
     <name>ghostwriter::StatisticsIndicator</name>
     <message numerus="yes">
         <location filename="../src/statisticsindicator.cpp" line="26"/>
@@ -1658,6 +1744,24 @@
         <location filename="../src/themeselectiondialog.cpp" line="160"/>
         <source>Edit...</source>
         <translation type="unfinished">تحرير...</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <location filename="../src/appmain.cpp" line="118"/>
+        <source>Welcome to ghostwriter!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/appmain.cpp" line="123"/>
+        <source>(Optional) File to open.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/appmain.cpp" line="126"/>
+        <source>Disables GPU acceleration.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

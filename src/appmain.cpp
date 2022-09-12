@@ -91,30 +91,24 @@ int main(int argc, char *argv[])
     QStringList baseTranslators = { "qt", "qtbase", "ghostwriter" };
 
     for (auto translatorStr : baseTranslators) {
-        QTranslator translator;
+        QTranslator *translator = new QTranslator(&app);
+        QString fileName = translatorStr + "_" + appSettings->locale();
         bool ok = false;
 
         if (translatorStr != "ghostwriter") {
-            const QString& translation_loc = 
+            const QString& translationLocation = 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
                 QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 #else
                 QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #endif
-            ok = translator.load(translatorStr + "_" + appSettings->locale(),
-                                        translation_loc);        
-        }
-        if (!ok) {
-            ok = translator.load(translatorStr + "_" + appSettings->locale(),
-                              appSettings->translationsPath());
-
-            if (!ok && (QString("ghostwriter") == translatorStr)) {
-                ok = translator.load("ghostwriter_en", appSettings->translationsPath());
-            }
+            ok = translator->load(fileName, translationLocation);        
+        } else {
+            ok = translator->load(fileName, appSettings->translationsPath());
         }
 
         if (ok) {
-            app.installTranslator(&translator);
+            app.installTranslator(translator);
         }
     }
 
