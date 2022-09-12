@@ -382,7 +382,7 @@ void ThemeRepositoryPrivate::loadClassicTheme()
     ColorScheme darkColors;
     darkColors.background = "#151719";
     darkColors.foreground = "#bdc3c7";
-    darkColors.selection = "#93CEE9";
+    darkColors.selection = "#074051";
     darkColors.cursor = "#3DAEE9";
     darkColors.link = "#3DAEE9";
     darkColors.headingText = "#bdc3c7";
