@@ -130,6 +130,7 @@ pre {
     border-radius: 3px;
     line-height: normal;
     font-size: $code-font-size;
+    overflow: auto;
 }
 
 code {
