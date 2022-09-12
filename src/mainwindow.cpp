@@ -1413,26 +1413,10 @@ void MainWindow::buildSidebar()
     sidebar->setMinimumWidth(0.1 * QGuiApplication::primaryScreen()->availableSize().width());
     sidebar->setMaximumWidth(0.5 * QGuiApplication::primaryScreen()->availableSize().width());
 
-    QPushButton *tabButton = new QPushButton();
-    tabButton->setText(QChar(fa::hashtag));
-    tabButton->setToolTip(tr("Outline"));
-    sidebar->addTab(tabButton, outlineWidget);
-
-    tabButton = new QPushButton();
-    tabButton->setText(QChar(fa::tachometeralt));
-    tabButton->setToolTip(tr("Session Statistics"));
-    sidebar->addTab(tabButton, sessionStatsWidget);
-
-    tabButton = new QPushButton();
-    tabButton->setText(QChar(fa::chartbar));
-    tabButton->setToolTip(tr("Document Statistics"));
-    sidebar->addTab(tabButton, documentStatsWidget);
-
-    tabButton = new QPushButton();
-    tabButton->setObjectName("cheatSheetTab");
-    tabButton->setText(QChar(fa::markdown));
-    tabButton->setToolTip(tr("Cheat Sheet"));
-    sidebar->addTab(tabButton, cheatSheetWidget);
+    sidebar->addTab(QChar(fa::hashtag), outlineWidget, tr("Outline"));
+    sidebar->addTab(QChar(fa::tachometeralt), sessionStatsWidget, tr("Session Statistics"));
+    sidebar->addTab(QChar(fa::chartbar), documentStatsWidget, tr("Document Statistics"));
+    sidebar->addTab(QChar(fa::markdown), cheatSheetWidget, tr("Cheat Sheet"), "cheatSheetTab");
 
     int tabIndex = QSettings().value("sidebarCurrentTab", (int)FirstSidebarTab).toInt();
 
@@ -1442,11 +1426,7 @@ void MainWindow::buildSidebar()
 
     sidebar->setCurrentTabIndex(tabIndex);
 
-    QPushButton *button = new QPushButton(QChar(fa::cog));
-    button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Settings"));
-    button->setCheckable(false);
-    sidebar->addButton(button);
+    QPushButton *button = sidebar->addButton(QChar(fa::cog), tr("Settings"));
     this->connect
     (
         button,
@@ -1460,7 +1440,8 @@ void MainWindow::buildSidebar()
             popupMenu->addAction(tr("Preferences..."),
                 this,
                 SLOT(openPreferencesDialog()))->setMenuRole(QAction::PreferencesRole);
-            popupMenu->popup(button->mapToGlobal(QPoint(button->width() / 2, -(button->height() / 2) - 10)));
+            popupMenu->popup(button->mapToGlobal(QPoint(button->width() / 2,
+                -(button->height() / 2) - 10)));
         }
     );
 
