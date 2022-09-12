@@ -23,7 +23,7 @@
 #include <QChar>
 #include <QString>
 
-class cmark_node;
+struct cmark_node;
 
 namespace ghostwriter
 {

@@ -57,6 +57,9 @@
 
 #define GW_TEXT_FADE_FACTOR 1.5
 
+namespace ghostwriter
+{
+
 // Need to be in order of decreasing length
 enum MarkupType {
     MarkupType_None = -1,
@@ -75,19 +78,19 @@ static const QString MarkupStrings[MarkupType_Count] = {
     QStringLiteral("*")
 };
 
-// Maxmimum length of any markup string, used for initializing scan buffer.
+// Maximum length of any markup string, used for initializing scan buffer.
 static constexpr int Markup_MaxLen = 3;
 
 // Used for stripping out non-markup characters from scan buffers.
-static const QChar Markup_Chars[] = {
+static const QList<QChar> Markup_Chars({
     QChar('*'), 
     QChar('~')
-};
+});
 
 // Used to strip out non-markup characters from scan buffers.
-static bool isQCharMarkup(const QChar& ch) {
-    for (size_t i = 0; (i < sizeof(Markup_Chars)) / sizeof(Markup_Chars[0]); i++) {
-        if (ch == Markup_Chars[i]) {
+static bool isQCharMarkup(const QChar &ch) {
+    for (auto markupChar : Markup_Chars) {
+        if (ch == markupChar) {
             return true;
         }
     }
@@ -95,7 +98,8 @@ static bool isQCharMarkup(const QChar& ch) {
 }
 
 // Similar to Qt's indexOf, but can go reverse.
-static int getIndexOfMarkup(const QString& markup, const QString& block_str, int start_pos = -1, const bool reverse = false,
+static int getIndexOfMarkup(const QString &markup, const QString &block_str,
+        int start_pos = -1, const bool reverse = false,
         const bool stop_at_space = false) {
     const int block_len = block_str.length();
     const int markup_len = markup.length();
@@ -117,7 +121,7 @@ static int getIndexOfMarkup(const QString& markup, const QString& block_str, int
     }
     else{
         if (start_pos < 0) start_pos = 0;
-        for (int i = start_pos; i < block_len; i++){
+        for (int i = start_pos; i < block_len; i++) {
             bool match = true;
             for (int j = 0; j < markup_len; j++) {
                 if ((i + j) >= block_len) return -1;
@@ -135,8 +139,6 @@ static int getIndexOfMarkup(const QString& markup, const QString& block_str, int
     return -1;
 };
 
-namespace ghostwriter
-{
 class MarkdownEditorPrivate
 {
     Q_DECLARE_PUBLIC(MarkdownEditor)

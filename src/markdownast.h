@@ -25,7 +25,7 @@
 #include "markdownnode.h"
 #include "memoryarena.h"
 
-class cmark_node;
+struct cmark_node;
 
 namespace ghostwriter
 {
