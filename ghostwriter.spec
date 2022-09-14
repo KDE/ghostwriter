@@ -2,9 +2,9 @@
 %undefine _hardened_build
 %define debug_package %{nil}
 
-%global appver 2.1.5
+%global appver 2.1.6
 %global build_timestamp %(date "+%%Y%%m%%d%%H%%M%%S")
-%global changelog_date Fri Sep 09 2022
+%global changelog_date Tue Sep 13 2022
 %global tarball %([[ %{appver} == *"-"* ]] && echo refs/heads/master.tar.gz || echo %{version}/%{name}-%{version}.tar.gz)
 
 Name: ghostwriter
