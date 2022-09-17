@@ -1,7 +1,7 @@
 
-version: 2.1.6+{build}
+version: 2.2.0+{build}
 environment:
-  appver: 2.1.6
+  appver: 2.2.0
   portable_dir: ghostwriter_$(appver)_win64_portable
   QTDIR: C:\Qt\5.15.2\msvc2019_64
 platform: x64

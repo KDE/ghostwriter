@@ -28,6 +28,6 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="2.1.6" date="2022-09-13" type="stable"/>
+    <release version="2.2.0" date="2022-09-17" type="stable"/>
   </releases>
 </component>
