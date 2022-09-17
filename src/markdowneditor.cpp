@@ -161,6 +161,9 @@ public:
         BlockTypeCode
     } BlockType;
 
+
+    const QString lineBreakChar = "↵";
+
     MarkdownEditor *q_ptr;
 
     MarkdownDocument *textDocument;
@@ -172,6 +175,7 @@ public:
     FocusMode focusMode;
     QBrush fadeColor;
     QColor blockColor;
+    QColor whitespaceRenderColor;
     bool insertSpacesForTabs;
     int tabWidth;
     EditorWidth editorWidth;
@@ -277,7 +281,7 @@ MarkdownEditor::MarkdownEditor
 
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    this->setShowTabsAndSpacesEnabled(true);
+    this->setShowTabsAndSpacesEnabled(false);
 
     // Make sure QPlainTextEdit does not draw a cursor.  (We'll paint it manually.)
     this->setCursorWidth(0);
@@ -532,6 +536,55 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
     // Draw the visible editor text.
     QPlainTextEdit::paintEvent(event);
 
+    // Find all Markdown line breaks, and draw line break symbols for them.
+    block = firstVisibleBlock();
+    done = false;
+    offset = contentOffset();
+
+    while (block.isValid() && !done) {        
+        QRectF r = this->blockBoundingRect(block).translated(offset);
+
+        // If not in a code block, and the current block ends with two spaces
+        // to indicate a line break in Markdown syntax, then draw the line
+        // break symbol at the end of the block.
+        if (!d->isCodeBlock(block) && block.text().endsWith("  ")) {
+            // Get position of last space character in the block.
+            QTextCursor c(block);
+            c.movePosition(QTextCursor::EndOfBlock);
+            c.movePosition(QTextCursor::PreviousCharacter);
+            QRect spaceRect = this->cursorRect(c);
+
+            // Calculate where to draw the line break character. We want it
+            // drawn over the space character.
+            QFontMetrics m(this->font());
+            QRect breakRect = m.tightBoundingRect(d->lineBreakChar);
+            dy = (breakRect.height() - spaceRect.height()) / 2;
+            QPoint pos(spaceRect.left(), spaceRect.bottom() + dy);
+
+            // Draw the line break character!
+            QPainter painter(viewport());
+            painter.setFont(this->font());
+
+            if (!this->textCursor().hasSelection()
+                    || (c.position() >= this->textCursor().selectionEnd())
+                    || (c.position() < this->textCursor().selectionStart())) {
+                painter.setPen(d->whitespaceRenderColor);
+            }
+
+            painter.drawText(pos, d->lineBreakChar);
+            painter.end();
+        }
+
+        block = block.next();
+        offset.ry() += r.height();
+
+        // If this is the last text block visible within the viewport...
+        if (offset.y() > viewportRect.height()) {
+            // Finished drawing.
+            done = true;
+        }
+    }
+
     // Draw the text cursor/caret.
     if (d->textCursorVisible && this->hasFocus()) {
         // Get the cursor rect so that we have the ideal height for it,
@@ -607,6 +660,7 @@ void MarkdownEditor::setColorScheme
     
     d->highlighter->setColorScheme(colors);
     d->cursorColor = colors.cursor;
+    d->whitespaceRenderColor = colors.listMarkup;
     d->blockColor = colors.foreground;
     d->blockColor.setAlpha(10);
 
