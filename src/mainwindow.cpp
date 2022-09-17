@@ -156,6 +156,14 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     if (!filePath.isNull() && !filePath.isEmpty()) {
         fileToOpen = filePath;
+
+        // If the file passed as a command line argument does not exist, then
+        // create it.
+        if (!QFileInfo(fileToOpen).exists()) {
+            QFile file(fileToOpen);
+            file.open(QIODevice::WriteOnly);
+            file.close();
+        }
     }
 
     if (fileToOpen.isNull()
@@ -167,7 +175,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
             lastFile = recentFiles.first().filePath();
         }
 
-        if (QFileInfo::exists(lastFile)) {
+        if (!lastFile.isNull()) {
             fileToOpen = lastFile;
             recentFiles.removeAll(lastFile);
         }
