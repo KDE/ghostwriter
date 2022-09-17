@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+* Issue #813: Opening the app after a fresh install no longer complains of a file backup error when text is entered.
+* Spaces are now properly underlined in emphasized text when emphasis style option is set to underline.
+
+### Added
+
+* A line break symbol is now drawn at the end of lines having two trailing spaces to designate a line break.
+
 ## [2.1.6] - 2022-09-13
 
 ### Fixed
@@ -91,7 +102,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2021-05-08
 
-#### Added
+### Added
 
 * cmark-gfm now replaces Sundown as the default Markdown processor for live previews an export.
 * Syntax highlighting now utilizes cmark-gfm for better accuracy, especially with nested blocks.

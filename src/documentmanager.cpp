@@ -947,12 +947,14 @@ void DocumentManagerPrivate::backupFile(const QString &filePath) const
 
     QFile file(filePath);
 
-    if (!file.copy(backupFilePath)) {
-        MessageBoxHelper::critical(
-            this->editor,
-            QObject::tr("File backup failed"),
-            backupFile.errorString()
-        );
+    if (file.exists()) {
+        if (!file.copy(backupFilePath)) {
+            MessageBoxHelper::critical(
+                this->editor,
+                QObject::tr("File backup failed"),
+                file.errorString()
+            );
+        }
     }
 }
 
