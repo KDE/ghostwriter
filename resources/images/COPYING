@@ -1,36 +1,12 @@
-Files: configure-dark.svg, configure-light.svg,
-       copy-html-dark.svg, copy-html-light.svg,
-       export-dark.svg, export-light.svg, focus-dark.svg,
-       focus-light.svg, fullscreen-dark.svg,
-       fullscreen-light.svg, hemingway-dark.svg,
-       hemingway-light.svg, html-preview-dark.svg,
-       html-preview-light.svg, hide-huds-dark.svg,
-       hide-huds-light.svg
-Author: wereturtle
-License: GNU GPL v3
-  GNU General Public License, version 3
-  
-  These are derived from the "Papirus Icon Theme", Copyright 2016 Sergei
-  Eremenko.  The "Papirus Icon Theme" is distributed under the terms of
-  the GNU GPL v3.  The original version can be found at
-  <http://github.com/PapirusDevelopmentTeam/papirus-icon-theme>.
-  
-  To view a copy of this licence, visit <http://www.gnu.org/licenses/>.
-
-  When attributing the artwork, using "wereturtle" is enough. Please link to
-  http://github.com/wereturtle/ghostwriter where available.
-
-
-Files: ghostwriter.svg, close-delete.svg, size-grip.svg, unavailable.svg,
-       close.svg, close-hover.svg, close-pressed.svg
-Author: wereturtle
+Files: ghostwriter.svg
+Author: Megan Conkle
 License: CC BY-SA 4.0
   Creative Commons Attribution 4.0 Share-Alike License
     
-  This work is licenced under the Creative Commons Attribution-Share Alike 4.0
-  International License. To view a copy of this licence, visit
+  This work is licensed under the Creative Commons Attribution-Share Alike 4.0
+  International License. To view a copy of this license, visit
   <http://creativecommons.org/licenses/by-sa/4.0/> or send a letter to Creative
   Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
-  When attributing the artwork, using "wereturtle" is enough. Please link to
+  When attributing the artwork, using "Megan Conkle" is enough. Please link to
   http://github.com/wereturtle/ghostwriter where available.

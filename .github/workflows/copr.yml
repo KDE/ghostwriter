@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 name: fedora-copr-build
 
 on:

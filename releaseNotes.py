@@ -1,5 +1,9 @@
 #!/bin/python
 
+# SPDX-FileCopyrightText: 2022 Megan Conkle <wereturtle@airpost.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 import sys
 
 if len(sys.argv) != 2:

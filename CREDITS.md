@@ -1,7 +1,7 @@
 Developers
 ==========
 
-* wereturtle <http://www.github.com/wereturtle>
+* Megan Conkle <wereturtle@airpost.net>
 
 Translations
 ============

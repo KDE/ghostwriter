@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2008-2010 Graeme Gott <graeme@gottcode.org>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 /***********************************************************************
  *
  * Copyright (C) 2008, 2009, 2010 Graeme Gott <graeme@gottcode.org>

@@ -1,15 +1,15 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ghostwriter
-Upstream-Contact: wereturtle <wereturtledev@gmail.com>
+Upstream-Contact: Megan Conkle <wereturtle@airpost.net>
 Source: http://wereturtle.github.io/ghostwriter/
         git://github.com/wereturtle/ghostwriter.git
 
 Files: *
-Copyright: 2014-2018 wereturtle <wereturtledev@gmail.com>
+Copyright: 2014-2022 Megan Conkle <wereturtle@airpost.net>
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2015-2018 wereturtle <wereturtledev@gmail.com>
+Copyright: 2015-2018 Megan Conkle <wereturtle@airpost.net>
 License: GPL-3.0+
 
 License: GPL-3.0+

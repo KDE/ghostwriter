@@ -1,0 +1,63 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ghostwriter
+Upstream-Contact: Megan Conkle <wereturtle@airpost.net>
+Source: https://github.com/wereturtle/ghostwriter
+
+Files: translations/*
+       .github/*.md
+       .release-it.json
+       *.md
+       autotest/README.md
+       debian/*
+       resources/*
+Copyright: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+License: GPL-3.0-or-later
+
+Files: translations/*
+Copyright: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+License: GPL-3.0-or-later
+
+Files: resources/images/ghostwriter.svg
+       resources/linux/icons/*
+       resources/windows/ghostwriter.ico
+       resources/mac/ghostwriter.icns
+Copyright: Megan Conkle <wereturtle@airpost.net>
+License: CC-BY-SA-4.0
+
+Files: 3rdparty/MathJax/*
+Copyright: 2018 The MathJax Consortium
+License: Apache-2.0
+
+Files: 3rdparty/hunspell/*
+Copyright: 2002-2017 Németh László <nemethl@gyorsposta.hu>
+           2002 Kevin Hendricks
+License: MPL-1.1 or GPL-2.0-or-later or LGPL-2.1-or-later
+
+Files: 3rdparty/cmark-gfm/*
+Copyright: 2014 John MacFarlane
+           2012 Vicent Martí
+           2012 Github, Inc.
+           2009 Public Software Group e. V., Berlin, Germany.
+           2013 Karl Dubost
+License: AAL and MIT
+
+Files: 3rdparty/cmark-gfm/test/spec.txt
+Copyright: 2014 John MacFarlane
+License: CC-BY-SA-4.0
+
+Files: 3rdparty/cmark-gfm/test/*
+Copyright: 2014 John MacFarlane
+License: AAL
+
+Files: 3rdparty/QtAwesome/*
+Copyright: 2013-2019 Reliable Bits Software by Blommers IT
+Author: Rick Blommers <rick@blommersit.nl>
+License: MIT
+
+Files: 3rdparty/QtAwesome/fonts/*
+Copyright: Fonticons, Inc. <https://fontawesome.com>
+License: OFL-1.1
+
+Files: 3rdparty/react/*
+Copyright: 2013-present Facebook, Inc.
+License: MIT

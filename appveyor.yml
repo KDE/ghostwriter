@@ -1,4 +1,8 @@
 
+# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 version: 2.2.0+{build}
 environment:
   appver: 2.2.0

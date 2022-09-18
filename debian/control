@@ -2,7 +2,7 @@ Source: ghostwriter
 Section: editors
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Uploaders: wereturtle <wereturtledev@gmail.com>
+Uploaders: Megan Conkle <wereturtle@airpost.net>
 Build-Depends: debhelper (>= 11),
 		qtbase5-dev,
 		libqt5svg5-dev,

@@ -1,3 +1,8 @@
+
+# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # RPM spec file for Fedora and openSUSE
 %undefine _hardened_build
 %define debug_package %{nil}
@@ -97,5 +102,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
 
 %changelog
-* %{changelog_date} wereturtle <wereturtledev@gmail.com> - %{appver}
+* %{changelog_date} Megan Conkle <wereturtle@airpost.net> - %{appver}
 - Upstream release.
