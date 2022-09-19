@@ -366,7 +366,9 @@ void FindReplace::replaceAll()
         count++;
     }
 
-    d->statusLabel->setText(tr("%Ln replacement(s)", "", count));
+    //~ singular %Ln replacement
+    //~ plural %Ln replacements
+    d->statusLabel->setText(tr("%Ln replacement(s)", "", count)); //~ singular
     d->editor->setFocus();
 }
 
@@ -416,14 +418,14 @@ bool FindReplacePrivate::findMatch(QTextCursor& cursor, bool wrap, bool backward
 
             cursor = this->editor->textCursor();
             cursor.movePosition(location);
-            this->statusLabel->setText(QObject::tr("Search wrapped"));
+            this->statusLabel->setText(FindReplace::tr("Search wrapped"));
 
             wrapCount++;
         }
     }
 
     if (!found) {
-        this->statusLabel->setText(QObject::tr("No results"));
+        this->statusLabel->setText(FindReplace::tr("No results"));
         this->statusLabel->setProperty("error", true);
     }
 
@@ -465,7 +467,7 @@ void FindReplacePrivate::highlightMatches(bool enabled)
     this->editor->setExtraSelections(selections);
 
     if (!selections.isEmpty()) {
-        this->statusLabel->setText(QObject::tr("%1 matches").arg(selections.count()));
+        this->statusLabel->setText(FindReplace::tr("%1 matches").arg(selections.count()));
     }    
 }
 

@@ -162,21 +162,21 @@ void ThemeEditorDialogPrivate::addColorsToLayout(QGridLayout *layout)
 {
     int row = 0;
 
-    layout->addWidget(new QLabel(QObject::tr("Element")), 0, 0, 1, 1);
-    layout->addWidget(new QLabel(QObject::tr("Light Mode")), 0, 1, 1, 1);
-    layout->addWidget(new QLabel(QObject::tr("Dark Mode")), 0, 2, 1, 1);
+    layout->addWidget(new QLabel(ThemeEditorDialog::tr("Element")), 0, 0, 1, 1);
+    layout->addWidget(new QLabel(ThemeEditorDialog::tr("Light Mode")), 0, 1, 1, 1);
+    layout->addWidget(new QLabel(ThemeEditorDialog::tr("Dark Mode")), 0, 2, 1, 1);
 
-    addColorRowToLayout(layout, ++row, QObject::tr("Foreground"), { &lightColors.foreground,     &darkColors.foreground     });
-    addColorRowToLayout(layout, ++row, QObject::tr("Background"), { &lightColors.background,     &darkColors.background     });
-    addColorRowToLayout(layout, ++row, QObject::tr("Selection"),  { &lightColors.selection,      &darkColors.selection      });
-    addColorRowToLayout(layout, ++row, QObject::tr("Cursor"),     { &lightColors.cursor,         &darkColors.cursor         });
-    addColorRowToLayout(layout, ++row, QObject::tr("Markup"),     { &lightColors.emphasisMarkup, &darkColors.emphasisMarkup });
-    addColorRowToLayout(layout, ++row, QObject::tr("Accent"),     { &lightColors.listMarkup,     &darkColors.listMarkup     });
-    addColorRowToLayout(layout, ++row, QObject::tr("Heading"),    { &lightColors.headingText,    &darkColors.headingText    });
-    addColorRowToLayout(layout, ++row, QObject::tr("Emphasis"),   { &lightColors.emphasisText,   &darkColors.emphasisText   });
-    addColorRowToLayout(layout, ++row, QObject::tr("Block Text"), { &lightColors.blockquoteText, &darkColors.blockquoteText });
-    addColorRowToLayout(layout, ++row, QObject::tr("Link"),       { &lightColors.link,           &darkColors.link           });
-    addColorRowToLayout(layout, ++row, QObject::tr("Error"),      { &lightColors.error,          &darkColors.error          });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Foreground"), { &lightColors.foreground,     &darkColors.foreground     });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Background"), { &lightColors.background,     &darkColors.background     });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Selection"),  { &lightColors.selection,      &darkColors.selection      });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Cursor"),     { &lightColors.cursor,         &darkColors.cursor         });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Markup"),     { &lightColors.emphasisMarkup, &darkColors.emphasisMarkup });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Accent"),     { &lightColors.listMarkup,     &darkColors.listMarkup     });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Heading"),    { &lightColors.headingText,    &darkColors.headingText    });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Emphasis"),   { &lightColors.emphasisText,   &darkColors.emphasisText   });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Block Text"), { &lightColors.blockquoteText, &darkColors.blockquoteText });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Link"),       { &lightColors.link,           &darkColors.link           });
+    addColorRowToLayout(layout, ++row, ThemeEditorDialog::tr("Error"),      { &lightColors.error,          &darkColors.error          });
 }
 
 bool ThemeEditorDialogPrivate::saveTheme()
@@ -209,7 +209,7 @@ bool ThemeEditorDialogPrivate::saveTheme()
         MessageBoxHelper::critical
         (
             q,
-            QObject::tr("Unable to save theme."),
+            ThemeEditorDialog::tr("Unable to save theme."),
             error
         );
         theme.setName(oldThemeName);

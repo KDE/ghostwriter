@@ -51,7 +51,7 @@ public:
 
     }
 
-    const QString draftName = QObject::tr("untitled");
+    const QString draftName = DocumentManager::tr("untitled");
 
     QString draftLocation;
 
@@ -161,9 +161,9 @@ public:
 
 const QString DocumentManagerPrivate::FILE_CHOOSER_FILTER =
     QString("%1 (*.md *.markdown *.mdown *.mkdn *.mkd *.mdwn *.mdtxt *.mdtext *.text *.Rmd *.txt);;%2 (*.txt);;%3 (*)")
-    .arg(QObject::tr("Markdown"))
-    .arg(QObject::tr("Text"))
-    .arg(QObject::tr("All"));
+    .arg(DocumentManager::tr("Markdown"))
+    .arg(DocumentManager::tr("Text"))
+    .arg(DocumentManager::tr("All"));
 
 DocumentManager::DocumentManager
 (
@@ -217,7 +217,7 @@ DocumentManager::DocumentManager
             if (!err.isNull() && !err.isEmpty()) {
                 MessageBoxHelper::critical(
                     d->editor,
-                    QObject::tr("Error saving %1").arg(d->document->filePath()),
+                    DocumentManager::tr("Error saving %1").arg(d->document->filePath()),
                     err
                 );
             }
@@ -657,8 +657,8 @@ void DocumentManagerPrivate::onFileChangedExternally(const QString &path)
                 MessageBoxHelper::question
                 (
                     editor,
-                    QObject::tr("The document has been modified by another program."),
-                    QObject::tr("Would you like to reload the document?"),
+                    DocumentManager::tr("The document has been modified by another program."),
+                    DocumentManager::tr("Would you like to reload the document?"),
                     QMessageBox::Yes | QMessageBox::No,
                     QMessageBox::Yes
                 );
@@ -691,8 +691,8 @@ void DocumentManagerPrivate::saveFile()
     if (!status) {
         MessageBoxHelper::critical(
             editor,
-            QObject::tr("Error saving %1").arg(writer->fileName()),
-            QObject::tr("No file path specified")
+            DocumentManager::tr("Error saving %1").arg(writer->fileName()),
+            DocumentManager::tr("No file path specified")
         );
 
         saveInProgress = false;
@@ -708,7 +708,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
 
     if (!inputFile.open(QIODevice::ReadOnly)) {
         MessageBoxHelper::critical(editor,
-            QObject::tr("Could not read %1").arg(filePath),
+            DocumentManager::tr("Could not read %1").arg(filePath),
             inputFile.errorString()
         );
         return false;
@@ -729,7 +729,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     document->clear();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    emit q->operationStarted(QObject::tr("opening %1").arg(filePath));
+    emit q->operationStarted(DocumentManager::tr("opening %1").arg(filePath));
     QTextStream inStream(&inputFile);
 
     // Markdown files need to be in UTF-8 format, so assume that is
@@ -747,7 +747,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
 
     if (QFile::NoError != inputFile.error()) {
         MessageBoxHelper::critical(editor,
-            QObject::tr("Could not read %1").arg(filePath),
+            DocumentManager::tr("Could not read %1").arg(filePath),
             inputFile.errorString()
         );
 
@@ -838,9 +838,9 @@ bool DocumentManagerPrivate::checkSaveChanges()
             QString text;
 
             if (document->isNew()) {
-                text = QObject::tr("File has been modified.");
+                text = DocumentManager::tr("File has been modified.");
             } else {
-                text = (QObject::tr("%1 has been modified.")
+                text = (DocumentManager::tr("%1 has been modified.")
                         .arg(document->displayName()));
             }
 
@@ -849,7 +849,7 @@ bool DocumentManagerPrivate::checkSaveChanges()
                 (
                     editor,
                     text,
-                    QObject::tr("Would you like to save your changes?"),
+                    DocumentManager::tr("Would you like to save your changes?"),
                     QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel,
                     QMessageBox::Save
                 );
@@ -880,8 +880,8 @@ bool DocumentManagerPrivate::checkPermissionsBeforeSave()
             MessageBoxHelper::question
             (
                 editor,
-                QObject::tr("%1 is read only.").arg(document->filePath()),
-                QObject::tr("Overwrite protected file?"),
+                DocumentManager::tr("%1 is read only.").arg(document->filePath()),
+                DocumentManager::tr("Overwrite protected file?"),
                 QMessageBox::Yes | QMessageBox::No,
                 QMessageBox::Yes
             );
@@ -900,8 +900,8 @@ bool DocumentManagerPrivate::checkPermissionsBeforeSave()
                     MessageBoxHelper::critical
                     (
                         editor,
-                        QObject::tr("Overwrite failed."),
-                        QObject::tr("Please save file to another location.")
+                        DocumentManager::tr("Overwrite failed."),
+                        DocumentManager::tr("Please save file to another location.")
                     );
 
                     fileWatcher->addPath(document->filePath());
@@ -925,7 +925,7 @@ void DocumentManagerPrivate::backupFile(const QString &filePath) const
         if (!backupFile.remove()) {
             MessageBoxHelper::critical(
                 this->editor,
-                QObject::tr("File backup failed"),
+                DocumentManager::tr("File backup failed"),
                 backupFile.errorString()
             );
             return;
@@ -938,7 +938,7 @@ void DocumentManagerPrivate::backupFile(const QString &filePath) const
         if (!file.copy(backupFilePath)) {
             MessageBoxHelper::critical(
                 this->editor,
-                QObject::tr("File backup failed"),
+                DocumentManager::tr("File backup failed"),
                 file.errorString()
             );
         }

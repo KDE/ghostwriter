@@ -225,7 +225,7 @@ QMenu * SpellCheckDecoratorPrivate::createContextMenu(
     QMenu *popupMenu = this->editor->createStandardContextMenu();
 
     QAction *checkSpellingAction =
-        new QAction(q->tr("Check spelling..."), popupMenu);
+        new QAction(SpellCheckDecorator::tr("Check spelling..."), popupMenu);
 
     q->connect(checkSpellingAction,
         &QAction::triggered,
@@ -247,11 +247,11 @@ QMenu * SpellCheckDecoratorPrivate::createSpellingMenu(
 {
     Q_Q(const SpellCheckDecorator);
 
-    QMenu *spellingMenu = new QMenu(q->tr("Spelling"));
+    QMenu *spellingMenu = new QMenu(SpellCheckDecorator::tr("Spelling"));
     QStringList suggestions = this->dictionary->suggestions(misspelledWord);
 
     QAction *addWordToDictionaryAction =
-        new QAction(q->tr("Add word to dictionary"), spellingMenu);
+        new QAction(SpellCheckDecorator::tr("Add word to dictionary"), spellingMenu);
 
     q->connect(addWordToDictionaryAction,
         &QAction::triggered,
@@ -292,7 +292,7 @@ QMenu * SpellCheckDecoratorPrivate::createSpellingMenu(
         }
     } else {
         QAction *noSuggestionsAction =
-            new QAction(q->tr("No spelling suggestions found"), spellingMenu);
+            new QAction(SpellCheckDecorator::tr("No spelling suggestions found"), spellingMenu);
         noSuggestionsAction->setEnabled(false);
         spellingMenu->addAction(noSuggestionsAction);
     }

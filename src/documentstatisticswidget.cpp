@@ -16,11 +16,11 @@ class DocumentStatisticsWidgetPrivate
 {
 public:
     DocumentStatisticsWidgetPrivate()
-        : VERY_EASY_READING_EASE_STR(QObject::tr("Very Easy")),
-          EASY_READING_EASE_STR(QObject::tr("Easy")),
-          MEDIUM_READING_EASE_STR(QObject::tr("Standard")),
-          DIFFICULT_READING_EASE_STR(QObject::tr("Difficult")),
-          VERY_DIFFICULT_READING_EASE_STR(QObject::tr("Very Difficult"))
+        : VERY_EASY_READING_EASE_STR(DocumentStatisticsWidget::tr("Very Easy")),
+          EASY_READING_EASE_STR(DocumentStatisticsWidget::tr("Easy")),
+          MEDIUM_READING_EASE_STR(DocumentStatisticsWidget::tr("Standard")),
+          DIFFICULT_READING_EASE_STR(DocumentStatisticsWidget::tr("Difficult")),
+          VERY_DIFFICULT_READING_EASE_STR(DocumentStatisticsWidget::tr("Very Difficult"))
     {
         ;
     }

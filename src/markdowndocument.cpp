@@ -164,7 +164,7 @@ void MarkdownDocumentPrivate::initializeUntitledDocument()
 
     this->filePath = QString();
     this->readOnlyFlag = false;
-    this->displayName = QObject::tr("untitled");
+    this->displayName = MarkdownDocument::tr("untitled");
     this->timestamp = QDateTime::currentDateTime();
     this->ast = nullptr;
 }

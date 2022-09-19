@@ -10,13 +10,31 @@
 
 namespace ghostwriter
 {
+//~ singular %Ln word
+//~ plural %Ln words
 static QString wordCountText(int value) { return StatisticsIndicator::tr("%Ln word(s)", "", value); }
+
+//~ singular %Ln character
+//~ plural %Ln characters
 static QString characterCountText(int value) { return StatisticsIndicator::tr("%Ln character(s)", "", value); }
+
+//~ singular %Ln sentence
+//~ plural %Ln sentences
 static QString sentenceCountText(int value) { return StatisticsIndicator::tr("%Ln sentence(s)", "", value); }
+
+//~ singular %Ln paragraph
+//~ plural %Ln paragraphs
 static QString paragraphCountText(int value) { return StatisticsIndicator::tr("%Ln paragraph(s)", "", value); }
+
+//~ singular %Ln page
+//~ plural %Ln pages
 static QString pageCountText(int value) { return StatisticsIndicator::tr("%Ln page(s)", "", value); }
+
+//~ singular %Ln word added
+//~ plural %Ln words added
 static QString wordsAddedText(int value) { return StatisticsIndicator::tr("%Ln word(s) added", "", value); }
-static QString wpmText(int value) { return StatisticsIndicator::tr("%Ln wpm", "", value); }
+
+static QString wpmText(int value) { return StatisticsIndicator::tr("%1 wpm").arg(value); }
 static QString readTimeText(int minutes) { return StatisticsIndicator::tr("%1:%2 read time")
                                                         .arg((int) (minutes / 60), 2, 10, QChar('0'))
                                                         .arg((int) (minutes % 60), 2, 10, QChar('0')); }

@@ -394,8 +394,8 @@ void ThemeSelectionDialogPrivate::deleteTheme()
         MessageBoxHelper::critical
         (
             q,
-            QObject::tr("Cannot delete theme."),
-            QObject::tr("Sorry, this is a built-in theme that cannot be deleted.")
+            ThemeSelectionDialog::tr("Cannot delete theme."),
+            ThemeSelectionDialog::tr("Sorry, this is a built-in theme that cannot be deleted.")
         );
         return;
     }
@@ -406,7 +406,7 @@ void ThemeSelectionDialogPrivate::deleteTheme()
         MessageBoxHelper::question
         (
             q,
-            QObject::tr("Are you sure you want to permanently delete the '%1' theme?")
+            ThemeSelectionDialog::tr("Are you sure you want to permanently delete the '%1' theme?")
             .arg(themeName),
             QString(),
             QMessageBox::Yes | QMessageBox::No,
@@ -422,7 +422,7 @@ void ThemeSelectionDialogPrivate::deleteTheme()
             MessageBoxHelper::critical
             (
                 q,
-                QObject::tr("Failed to delete theme."),
+                ThemeSelectionDialog::tr("Failed to delete theme."),
                 err
             );
         } else {
@@ -450,8 +450,8 @@ void ThemeSelectionDialogPrivate::editTheme()
             MessageBoxHelper::critical
             (
                 q,
-                QObject::tr("Cannot edit theme."),
-                QObject::tr("Sorry, this is a built-in theme that cannot be edited.")
+                ThemeSelectionDialog::tr("Cannot edit theme."),
+                ThemeSelectionDialog::tr("Sorry, this is a built-in theme that cannot be edited.")
             );
             return;
         }

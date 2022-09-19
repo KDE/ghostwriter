@@ -160,7 +160,7 @@ void PreviewOptionsDialogPrivate::onExporterChanged(int index)
 
 QString PreviewOptionsDialogPrivate::fontToString(const QFont &font) const
 {
-    return QObject::tr("%1 %2pt")
+    return PreviewOptionsDialog::tr("%1 %2pt")
         .arg(font.family())
         .arg(font.pointSize());
 }

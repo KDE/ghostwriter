@@ -94,7 +94,7 @@ void PreferencesDialogPrivate::showAutoMatchFilterDialog()
     Q_Q(PreferencesDialog);
 
     QDialog autoMatchFilterDialog(q);
-    autoMatchFilterDialog.setWindowTitle(tr("Matched Characters"));
+    autoMatchFilterDialog.setWindowTitle(PreferencesDialog::tr("Matched Characters"));
 
     QGridLayout *layout = new QGridLayout();
 
@@ -177,27 +177,27 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     QVBoxLayout *tabLayout = new QVBoxLayout();
     tab->setLayout(tabLayout);
 
-    QGroupBox *displayGroupBox = new QGroupBox(tr("Display"));
+    QGroupBox *displayGroupBox = new QGroupBox(PreferencesDialog::tr("Display"));
     tabLayout->addWidget(displayGroupBox);
 
     QFormLayout *displayGroupLayout = new QFormLayout();
     displayGroupBox->setLayout(displayGroupLayout);
 
-    QCheckBox *clockCheckBox = new QCheckBox(tr("Show current time in full screen mode"));
+    QCheckBox *clockCheckBox = new QCheckBox(PreferencesDialog::tr("Show current time in full screen mode"));
     clockCheckBox->setCheckable(true);
     clockCheckBox->setChecked(appSettings->displayTimeInFullScreenEnabled());
     connect(clockCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setDisplayTimeInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(clockCheckBox);
 
-    QCheckBox *menuBarCheckBox = new QCheckBox(tr("Hide menu bar in full screen mode"));
+    QCheckBox *menuBarCheckBox = new QCheckBox(PreferencesDialog::tr("Hide menu bar in full screen mode"));
     menuBarCheckBox->setCheckable(true);
     menuBarCheckBox->setChecked(appSettings->hideMenuBarInFullScreenEnabled());
     connect(menuBarCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setHideMenuBarInFullScreenEnabled(bool)));
     displayGroupLayout->addRow(menuBarCheckBox);
 
     QComboBox *cornersComboBox = new QComboBox(q);
-    cornersComboBox->addItem(tr("Rounded"), QVariant(InterfaceStyleRounded));
-    cornersComboBox->addItem(tr("Square"), QVariant(InterfaceStyleSquare));
+    cornersComboBox->addItem(PreferencesDialog::tr("Rounded"), QVariant(InterfaceStyleRounded));
+    cornersComboBox->addItem(PreferencesDialog::tr("Square"), QVariant(InterfaceStyleSquare));
     cornersComboBox->setCurrentIndex((int) appSettings->interfaceStyle());
 
     q->connect
@@ -209,28 +209,28 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
         }
     );
 
-    displayGroupLayout->addRow(tr("Interface style"), cornersComboBox);
+    displayGroupLayout->addRow(PreferencesDialog::tr("Interface style"), cornersComboBox);
 
-    QGroupBox *savingGroupBox = new QGroupBox(tr("File Saving"));
+    QGroupBox *savingGroupBox = new QGroupBox(PreferencesDialog::tr("File Saving"));
     tabLayout->addWidget(savingGroupBox);
 
     QFormLayout *savingGroupLayout = new QFormLayout();
     savingGroupBox->setLayout(savingGroupLayout);
 
-    QCheckBox *autoSaveCheckBox = new QCheckBox(tr("Auto save"));
+    QCheckBox *autoSaveCheckBox = new QCheckBox(PreferencesDialog::tr("Auto save"));
     autoSaveCheckBox->setCheckable(true);
     autoSaveCheckBox->setChecked(appSettings->autoSaveEnabled());
     connect(autoSaveCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setAutoSaveEnabled(bool)));
 
     savingGroupLayout->addRow(autoSaveCheckBox);
 
-    QCheckBox *backupCheckBox = new QCheckBox(tr("Backup file on save"));
+    QCheckBox *backupCheckBox = new QCheckBox(PreferencesDialog::tr("Backup file on save"));
     backupCheckBox->setCheckable(true);
     backupCheckBox->setChecked(appSettings->backupFileEnabled());
     connect(backupCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setBackupFileEnabled(bool)));
     savingGroupLayout->addRow(backupCheckBox);
 
-    QPushButton *openDraftDirButton = new QPushButton(tr("View untitled drafts..."));
+    QPushButton *openDraftDirButton = new QPushButton(PreferencesDialog::tr("View untitled drafts..."));
     q->connect(
         openDraftDirButton,
         &QPushButton::clicked,
@@ -240,19 +240,19 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     );
     savingGroupLayout->addRow(openDraftDirButton);
 
-    QGroupBox *sessionGroupBox = new QGroupBox(tr("Session"));
+    QGroupBox *sessionGroupBox = new QGroupBox(PreferencesDialog::tr("Session"));
     tabLayout->addWidget(sessionGroupBox);
 
     QFormLayout *sessionGroupLayout = new QFormLayout();
     sessionGroupBox->setLayout(sessionGroupLayout);
 
-    QCheckBox *rememberHistoryCheckBox = new QCheckBox(tr("Remember recent files"));
+    QCheckBox *rememberHistoryCheckBox = new QCheckBox(PreferencesDialog::tr("Remember recent files"));
     rememberHistoryCheckBox->setCheckable(true);
     rememberHistoryCheckBox->setChecked(appSettings->fileHistoryEnabled());
     connect(rememberHistoryCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setFileHistoryEnabled(bool)));
     sessionGroupLayout->addRow(rememberHistoryCheckBox);
 
-    QCheckBox *restoreSessionCheckBox = new QCheckBox(tr("Open last file on startup"));
+    QCheckBox *restoreSessionCheckBox = new QCheckBox(PreferencesDialog::tr("Open last file on startup"));
     restoreSessionCheckBox->setCheckable(true);
     restoreSessionCheckBox->setChecked(appSettings->restoreSessionEnabled());
     q->connect(
@@ -275,13 +275,13 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     QVBoxLayout *tabLayout = new QVBoxLayout();
     tab->setLayout(tabLayout);
 
-    QGroupBox *tabsGroupBox = new QGroupBox(tr("Tabulation"));
+    QGroupBox *tabsGroupBox = new QGroupBox(PreferencesDialog::tr("Tabulation"));
     tabLayout->addWidget(tabsGroupBox);
 
     QFormLayout *tabsGroupLayout = new QFormLayout();
     tabsGroupBox->setLayout(tabsGroupLayout);
 
-    QCheckBox *spacesCheckBox = new QCheckBox(tr("Insert spaces for tabs"));
+    QCheckBox *spacesCheckBox = new QCheckBox(PreferencesDialog::tr("Insert spaces for tabs"));
     spacesCheckBox->setCheckable(true);
     spacesCheckBox->setChecked(appSettings->insertSpacesForTabsEnabled());
     connect(spacesCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setInsertSpacesForTabsEnabled(bool)));
@@ -297,20 +297,20 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
 
     tabWidthInput->setValue(appSettings->tabWidth());
     connect(tabWidthInput, SIGNAL(valueChanged(int)), appSettings, SLOT(setTabWidth(int)));
-    tabsGroupLayout->addRow(tr("Tabulation width"), tabWidthInput);
+    tabsGroupLayout->addRow(PreferencesDialog::tr("Tabulation width"), tabWidthInput);
 
-    QGroupBox *stylingGroupBox = new QGroupBox(tr("Styling"));
+    QGroupBox *stylingGroupBox = new QGroupBox(PreferencesDialog::tr("Styling"));
     tabLayout->addWidget(stylingGroupBox);
 
     QFormLayout *stylingGroupLayout = new QFormLayout();
     stylingGroupBox->setLayout(stylingGroupLayout);
 
     QComboBox *focusModeCombo = new QComboBox();
-    focusModeCombo->addItem(tr("Sentence"), FocusModeSentence);
-    focusModeCombo->addItem(tr("Current Line"), FocusModeCurrentLine);
-    focusModeCombo->addItem(tr("Three Lines"), FocusModeThreeLines);
-    focusModeCombo->addItem(tr("Paragraph"), FocusModeParagraph);
-    focusModeCombo->addItem(tr("Typewriter"), FocusModeTypewriter);
+    focusModeCombo->addItem(PreferencesDialog::tr("Sentence"), FocusModeSentence);
+    focusModeCombo->addItem(PreferencesDialog::tr("Current Line"), FocusModeCurrentLine);
+    focusModeCombo->addItem(PreferencesDialog::tr("Three Lines"), FocusModeThreeLines);
+    focusModeCombo->addItem(PreferencesDialog::tr("Paragraph"), FocusModeParagraph);
+    focusModeCombo->addItem(PreferencesDialog::tr("Typewriter"), FocusModeTypewriter);
     focusModeCombo->setCurrentIndex(appSettings->focusMode() - 1);
 
     q->connect
@@ -322,13 +322,13 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
         }
     );
 
-    stylingGroupLayout->addRow(tr("Focus mode"), focusModeCombo);
+    stylingGroupLayout->addRow(PreferencesDialog::tr("Focus mode"), focusModeCombo);
 
     QComboBox *editorWidthCombo = new QComboBox();
-    editorWidthCombo->addItem(tr("Narrow"), EditorWidthNarrow);
-    editorWidthCombo->addItem(tr("Medium"), EditorWidthMedium);
-    editorWidthCombo->addItem(tr("Wide"), EditorWidthWide);
-    editorWidthCombo->addItem(tr("Full"), EditorWidthFull);
+    editorWidthCombo->addItem(PreferencesDialog::tr("Narrow"), EditorWidthNarrow);
+    editorWidthCombo->addItem(PreferencesDialog::tr("Medium"), EditorWidthMedium);
+    editorWidthCombo->addItem(PreferencesDialog::tr("Wide"), EditorWidthWide);
+    editorWidthCombo->addItem(PreferencesDialog::tr("Full"), EditorWidthFull);
     editorWidthCombo->setCurrentIndex(appSettings->editorWidth());
 
     q->connect
@@ -340,11 +340,11 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
         }
     );
 
-    stylingGroupLayout->addRow(tr("Editor width"), editorWidthCombo);
+    stylingGroupLayout->addRow(PreferencesDialog::tr("Editor width"), editorWidthCombo);
 
     QComboBox *blockquoteStyleCombo = new QComboBox();
-    blockquoteStyleCombo->addItem(tr("Plain"), false);
-    blockquoteStyleCombo->addItem(tr("Italic"), true);
+    blockquoteStyleCombo->addItem(PreferencesDialog::tr("Plain"), false);
+    blockquoteStyleCombo->addItem(PreferencesDialog::tr("Italic"), true);
     blockquoteStyleCombo->setCurrentIndex(appSettings->italicizeBlockquotes() ? 1 : 0);
 
     q->connect
@@ -356,11 +356,11 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     }
     );
 
-    stylingGroupLayout->addRow(tr("Blockquote style"), blockquoteStyleCombo);
+    stylingGroupLayout->addRow(PreferencesDialog::tr("Blockquote style"), blockquoteStyleCombo);
 
     QComboBox *underlineCombo = new QComboBox();
-    underlineCombo->addItem(tr("Italic"), false);
-    underlineCombo->addItem(tr("Underline"), true);
+    underlineCombo->addItem(PreferencesDialog::tr("Italic"), false);
+    underlineCombo->addItem(PreferencesDialog::tr("Underline"), true);
     underlineCombo->setCurrentIndex(appSettings->useUnderlineForEmphasis() ? 1 : 0);
 
     q->connect
@@ -372,33 +372,33 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     }
     );
 
-    stylingGroupLayout->addRow(tr("Emphasis style"), underlineCombo);
+    stylingGroupLayout->addRow(PreferencesDialog::tr("Emphasis style"), underlineCombo);
 
-    QCheckBox *largeHeadingsCheckBox = new QCheckBox(tr("Use large headings"));
+    QCheckBox *largeHeadingsCheckBox = new QCheckBox(PreferencesDialog::tr("Use large headings"));
     largeHeadingsCheckBox->setCheckable(true);
     largeHeadingsCheckBox->setChecked(appSettings->largeHeadingSizesEnabled());
     connect(largeHeadingsCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setLargeHeadingSizesEnabled(bool)));
     stylingGroupLayout->addRow(largeHeadingsCheckBox);
 
-    QGroupBox *typingGroupBox = new QGroupBox(tr("Typing"));
+    QGroupBox *typingGroupBox = new QGroupBox(PreferencesDialog::tr("Typing"));
     tabLayout->addWidget(typingGroupBox);
 
     QFormLayout *typingGroupLayout = new QFormLayout();
     typingGroupBox->setLayout(typingGroupLayout);
 
-    QCheckBox *cycleBulletPointsCheckBox = new QCheckBox(tr("Cycle bullet point markers"));
+    QCheckBox *cycleBulletPointsCheckBox = new QCheckBox(PreferencesDialog::tr("Cycle bullet point markers"));
     cycleBulletPointsCheckBox->setCheckable(true);
     cycleBulletPointsCheckBox->setChecked(appSettings->bulletPointCyclingEnabled());
     connect(cycleBulletPointsCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setBulletPointCyclingEnabled(bool)));
     typingGroupLayout->addRow(cycleBulletPointsCheckBox);
 
-    QCheckBox *autoMatchCheckBox = new QCheckBox(tr("Automatically match characters"));
+    QCheckBox *autoMatchCheckBox = new QCheckBox(PreferencesDialog::tr("Automatically match characters"));
     autoMatchCheckBox->setCheckable(true);
     autoMatchCheckBox->setChecked(appSettings->autoMatchEnabled());
     connect(autoMatchCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setAutoMatchEnabled(bool)));
     typingGroupLayout->addRow(autoMatchCheckBox);
 
-    QPushButton *matchedCharsButton = new QPushButton(tr("Customize matched characters..."));
+    QPushButton *matchedCharsButton = new QPushButton(PreferencesDialog::tr("Customize matched characters..."));
 
     q->connect
     (
@@ -423,13 +423,13 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
     QVBoxLayout *tabLayout = new QVBoxLayout();
     tab->setLayout(tabLayout);
 
-    QCheckBox *spellcheckCheckBox = new QCheckBox(tr("Live spellcheck enabled"));
+    QCheckBox *spellcheckCheckBox = new QCheckBox(PreferencesDialog::tr("Live spellcheck enabled"));
     spellcheckCheckBox->setCheckable(true);
     spellcheckCheckBox->setChecked(appSettings->liveSpellCheckEnabled());
     connect(spellcheckCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setLiveSpellCheckEnabled(bool)));
     tabLayout->addWidget(spellcheckCheckBox);
 
-    QGroupBox *languageGroupBox = new QGroupBox(tr("Language"));
+    QGroupBox *languageGroupBox = new QGroupBox(PreferencesDialog::tr("Language"));
     tabLayout->addWidget(languageGroupBox);
 
     QFormLayout *languageGroupLayout = new QFormLayout();
@@ -464,7 +464,7 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
     }
     );
 
-    languageGroupLayout->addRow(tr("Dictionary"), dictionaryComboBox);
+    languageGroupLayout->addRow(PreferencesDialog::tr("Dictionary"), dictionaryComboBox);
 
     return tab;
 }
