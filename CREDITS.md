@@ -1,7 +1,7 @@
 Developers
 ==========
 
-* Megan Conkle <wereturtle@airpost.net>
+* Megan Conkle <megan.conkle@kdemail.net>
 
 Translations
 ============

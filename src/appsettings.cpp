@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+ * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2008-2014 Graeme Gott <graeme@gottcode.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later

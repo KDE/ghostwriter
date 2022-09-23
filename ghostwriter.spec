@@ -1,5 +1,5 @@
 
-# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -102,5 +102,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
 
 %changelog
-* %{changelog_date} Megan Conkle <wereturtle@airpost.net> - %{appver}
+* %{changelog_date} Megan Conkle <megan.conkle@kdemail.net> - %{appver}
 - Upstream release.

@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ghostwriter
-Upstream-Contact: Megan Conkle <wereturtle@airpost.net>
+Upstream-Contact: Megan Conkle <megan.conkle@kdemail.net>
 Source: https://github.com/wereturtle/ghostwriter
 
 Files: translations/*
@@ -10,18 +10,18 @@ Files: translations/*
        autotest/README.md
        debian/*
        resources/*
-Copyright: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+Copyright: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
 License: GPL-3.0-or-later
 
 Files: translations/*
-Copyright: 2014-2022 Megan Conkle <wereturtle@airpost.net>
+Copyright: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
 License: GPL-3.0-or-later
 
 Files: resources/images/ghostwriter.svg
        resources/linux/icons/*
        resources/windows/ghostwriter.ico
        resources/mac/ghostwriter.icns
-Copyright: Megan Conkle <wereturtle@airpost.net>
+Copyright: Megan Conkle <megan.conkle@kdemail.net>
 License: CC-BY-SA-4.0
 
 Files: 3rdparty/MathJax/*
