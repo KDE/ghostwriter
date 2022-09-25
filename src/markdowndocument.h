@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef MARKUPDOCUMENT_H
-#define MARKUPDOCUMENT_H
+#ifndef MARKDOWNDOCUMENT_H
+#define MARKDOWNDOCUMENT_H
 
 #include <QDateTime>
 #include <QScopedPointer>
@@ -19,7 +19,7 @@ namespace ghostwriter
 {
 /**
  * Text document that maintains timestamp, read-only state, and new vs.
- * saved status.
+ * saved status. 
  */
 class MarkdownDocumentPrivate;
 class MarkdownDocument : public QTextDocument
@@ -110,4 +110,4 @@ private:
 };
 } // namespace ghostwriter
 
-#endif // MARKUPDOCUMENT_H
+#endif // MARKDOWNDOCUMENT_H

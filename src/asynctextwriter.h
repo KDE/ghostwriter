@@ -30,7 +30,7 @@ class AsyncTextWriter : public QObject
     Q_DECLARE_PRIVATE(AsyncTextWriter)
 
 public:
-    // typedef encoding/codec to simplify trasition to Qt 6 while still
+    // typedef encoding/codec to simplify transition to Qt 6 while still
     // maintaining backward compatibility with Qt 5.
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     typedef QTextCodec* Encoding;

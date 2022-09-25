@@ -8,7 +8,7 @@
 #include <QTextStream>
 #include <QtGlobal>
 
-#include "3rdparty/cmark-gfm/src/cmark-gfm.h"
+#include "../3rdparty/cmark-gfm/src/cmark-gfm.h"
 
 #include "markdownast.h"
 

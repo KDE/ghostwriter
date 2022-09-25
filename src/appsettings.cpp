@@ -17,7 +17,7 @@
 #include <QStringList>
 
 #include "appsettings.h"
-#include "dictionarymanager.h"
+#include "spelling/dictionarymanager.h"
 #include "exporterfactory.h"
 
 #define GW_FAVORITE_STATISTIC_KEY "Session/favoriteStatistic"

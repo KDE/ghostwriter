@@ -1,3 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
+
+include(FeatureSummary)
 
 option(QTAWESOME_USE_FREE "Use Font Awesome Free" OFF)
 option(QTAWESOME_USE_PRO "Use Font Awesome Pro" OFF)
@@ -21,28 +24,31 @@ set(SOURCES
   QtAwesome.h
 )
 
-find_package(Qt5 COMPONENTS Gui Widgets)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Widgets)
 
-if(NOT TARGET QtAwesome)
-  add_library(QtAwesome
+add_library(QtAwesome STATIC
     ${SOURCES}
     QtAwesome${_config}.qrc
-  )
-endif()
-target_include_directories(QtAwesome
-  PUBLIC
+)
+target_include_directories(QtAwesome INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 set_target_properties(QtAwesome PROPERTIES
   AUTOMOC TRUE
   AUTORCC TRUE
 )
-target_link_libraries(QtAwesome Qt5::Gui Qt5::Widgets)
+target_link_libraries(QtAwesome PRIVATE
+    Qt::Gui
+    Qt::Widgets
+)
 
 if(_config STREQUAL "Pro")
-  target_compile_definitions(QtAwesome INTERFACE
+  target_compile_definitions(QtAwesome PRIVATE
     FONT_AWESOME_PRO=1
   )
 endif()
 
 unset(_config)
+
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+

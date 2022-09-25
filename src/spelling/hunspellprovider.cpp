@@ -32,7 +32,7 @@
 #endif
 
 #ifdef _WIN32
-    #include "3rdparty/hunspell/hunspell.hxx"
+    #include "../3rdparty/hunspell/hunspell.hxx"
 #else
     #include <hunspell.hxx>
 #endif

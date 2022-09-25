@@ -10,7 +10,7 @@
 #include <QFont>
 #include <QString>
 
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 #include "colorscheme.h"
 
 namespace ghostwriter

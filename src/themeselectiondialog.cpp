@@ -18,7 +18,7 @@
 #include <QString>
 #include <QStringList>
 
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 
 #include "colorschemepreviewer.h"
 #include "messageboxhelper.h"

@@ -14,7 +14,7 @@
 #include <QSettings>
 #include <QSplitter>
 
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 
 #include "appsettings.h"
 #include "documentmanager.h"

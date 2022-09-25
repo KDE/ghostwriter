@@ -18,7 +18,7 @@
 #include <QTimer>
 
 #include "findreplace.h"
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 
 #define GW_FIND_REPLACE_MATCH_CASE "FindReplace/matchCase"
 #define GW_FIND_REPLACE_WHOLE_WORD "FindReplace/wholeWord"
