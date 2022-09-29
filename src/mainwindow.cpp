@@ -28,11 +28,14 @@
 #include <QFontDialog>
 #include <QGridLayout>
 #include <QIcon>
+#include <QImage>
+#include <QImageWriter>
 #include <QIODevice>
 #include <QLabel>
 #include <QLocale>
 #include <QMenu>
 #include <QMenuBar>
+#include <QRandomGenerator>
 #include <QScrollBar>
 #include <QSettings>
 #include <QSizePolicy>
@@ -870,6 +873,72 @@ void MainWindow::onSetLocale()
     }
 }
 
+void MainWindow::pasteImage()
+{
+    MarkdownDocument *document = documentManager->document();
+    QByteArray imageData;
+    QBuffer buffer(&imageData);
+    QClipboard *clipboard = QApplication::clipboard();
+    QImage image = clipboard->image(clipboard->Clipboard);
+    QString startingDirectory = QString();
+
+    buffer.open(QIODevice::WriteOnly);
+    image.save(&buffer);
+
+    // Check whether clipboard actually contains an image before running
+    if (!image.isNull()) {
+        if (!document->isNew()) {
+            startingDirectory = QFileInfo(document->filePath()).dir().path();
+        }
+
+        QString documentName = QString(document->displayName());
+        documentName.chop(3);
+
+        // Use a random number generator to append a value to the filename
+        QRandomGenerator *generator = QRandomGenerator::system();
+        QString randomNumber = QString::number(generator->bounded(100000));
+
+        QString imagePath = QFileDialog::getSaveFileName(
+            this,
+            tr("Save Image"),
+            QString("%1/%2-%3.png")
+            .arg(startingDirectory)
+            .arg(documentName)
+            .arg(randomNumber),
+            QString("%1 (*.jpg *.jpeg *.gif *.png *.bmp);;")
+            .arg(tr("Images"))
+        );
+
+        if (!imagePath.isNull() && !imagePath.isEmpty()) {
+            // Write the image to the path selected by the user
+            QImageWriter writer;
+            writer.setFileName(imagePath);
+            writer.write(image);
+
+            QFileInfo imgInfo(imagePath);
+            bool isRelativePath = false;
+
+            if (imgInfo.exists()) {
+                if (!document->isNew()) {
+                    QFileInfo docInfo(document->filePath());
+
+                    if (docInfo.exists()) {
+                        imagePath = docInfo.dir().relativeFilePath(imagePath);
+                        isRelativePath = true;
+                    }
+                }
+            }
+
+            if (!isRelativePath) {
+                imagePath = QString("file://") + imagePath;
+            }
+
+            QTextCursor cursor = editor->textCursor();
+            cursor.insertText(QString("![](%1)").arg(imagePath));
+        }
+    }
+}
+
 void MainWindow::copyHtml()
 {
     Exporter *htmlExporter = appSettings->currentHtmlExporter();
@@ -1040,6 +1109,7 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(createWidgetAction(tr("Cu&t"), editor, SLOT(cut()), QKeySequence::Cut));
     editMenu->addAction(createWidgetAction(tr("&Copy"), editor, SLOT(copy()), QKeySequence::Copy));
     editMenu->addAction(createWidgetAction(tr("&Paste"), editor, SLOT(paste()), QKeySequence::Paste));
+    editMenu->addAction(createWidgetAction(tr("&Paste Image"), this, SLOT(pasteImage()), QKeySequence("SHIFT+CTRL+V")));
     editMenu->addAction(createWidgetAction(tr("Copy &HTML"), this, SLOT(copyHtml()), QKeySequence("SHIFT+CTRL+C")));
     editMenu->addSeparator();
     editMenu->addAction(createWidgetAction(tr("&Insert Image..."), this, SLOT(insertImage())));
