@@ -15,7 +15,7 @@ class ColorButton : public QPushButton
     Q_OBJECT
 
 public:
-    ColorButton(QWidget *parent = 0);
+    ColorButton(QWidget *parent = nullptr);
 
     QColor color() const;
     QString toString() const;

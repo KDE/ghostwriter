@@ -67,7 +67,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     this->focusModeEnabled = false;
     this->awesome = new QtAwesome(qApp);
     this->awesome->initFontAwesome();
-    setWindowIcon(QIcon(":/resources/images/ghostwriter.svg"));
     this->setObjectName("mainWindow");
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 

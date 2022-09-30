@@ -46,26 +46,26 @@ namespace ghostwriter
 class DictionaryHunspell : public Dictionary
 {
 public:
-	DictionaryHunspell(const QString &language);
-	~DictionaryHunspell();
+    DictionaryHunspell(const QString &language);
+    ~DictionaryHunspell();
 
-	bool isValid() const
-	{
-		return (nullptr != m_dictionary);
-	}
+    bool isValid() const override
+    {
+        return (nullptr != m_dictionary);
+    }
 
-	QStringRef check(const QString &string, int startAt) const;
-	QStringList suggestions(const QString &word) const;
+    QStringRef check(const QString &string, int startAt) const override;
+    QStringList suggestions(const QString &word) const override;
 
-	void addToPersonal(const QString &word);
-	void addToSession(const QStringList &words);
-	void removeFromSession(const QStringList &words);
+    void addToPersonal(const QString &word) override;
+    void addToSession(const QStringList &words) override;
+    void removeFromSession(const QStringList &words) override;
 
 private:
-	Hunspell *m_dictionary;
+    Hunspell *m_dictionary;
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-	QTextCodec *m_codec;
+    QTextCodec *m_codec;
 #else
     QStringEncoder *m_encoder;
     QStringDecoder *m_decoder;
@@ -73,38 +73,38 @@ private:
 };
 
 DictionaryHunspell::DictionaryHunspell(const QString &language) :
-	m_dictionary(nullptr),
+    m_dictionary(nullptr),
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-	m_codec(nullptr)
+    m_codec(nullptr)
 #else
     m_encoder(nullptr),
     m_decoder(nullptr)
 #endif
 {
-	// Find dictionary files
+    // Find dictionary files
     QString aff = QFileInfo("dict:" + language + ".aff").canonicalFilePath();
-	if (aff.isEmpty()) {
+    if (aff.isEmpty()) {
         aff = QFileInfo("dict:" + language + ".aff.hz").canonicalFilePath();
-		aff.chop(3);
-	}
+        aff.chop(3);
+    }
     QString dic = QFileInfo("dict:" + language + ".dic").canonicalFilePath();
-	if (dic.isEmpty()) {
+    if (dic.isEmpty()) {
         dic = QFileInfo("dict:" + language + ".dic.hz").canonicalFilePath();
-		dic.chop(3);
-	}
-	if (language.isEmpty() || aff.isEmpty() || dic.isEmpty()) {
-		return;
-	}
+        dic.chop(3);
+    }
+    if (language.isEmpty() || aff.isEmpty() || dic.isEmpty()) {
+        return;
+    }
 
-	// Create dictionary
+    // Create dictionary
 #ifndef Q_WIN32
-	m_dictionary = new Hunspell(QFile::encodeName(aff).constData(), QFile::encodeName(dic).constData());
+    m_dictionary = new Hunspell(QFile::encodeName(aff).constData(), QFile::encodeName(dic).constData());
 #else
-	m_dictionary = new Hunspell( ("\\\\?\\" + QDir::toNativeSeparators(aff)).toUtf8().toStdString(),
-			("\\\\?\\" + QDir::toNativeSeparators(dic)).toUtf8().constData() );
+    m_dictionary = new Hunspell( ("\\\\?\\" + QDir::toNativeSeparators(aff)).toUtf8().toStdString(),
+            ("\\\\?\\" + QDir::toNativeSeparators(dic)).toUtf8().constData() );
 #endif
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-	m_codec = QTextCodec::codecForName(m_dictionary->get_dic_encoding());
+    m_codec = QTextCodec::codecForName(m_dictionary->get_dic_encoding());
 
     if (!m_codec) {
         delete m_dictionary;
@@ -127,7 +127,7 @@ DictionaryHunspell::DictionaryHunspell(const QString &language) :
 DictionaryHunspell::~DictionaryHunspell()
 {
     if (nullptr != m_dictionary) {
-	   delete m_dictionary;
+       delete m_dictionary;
        m_dictionary = nullptr;
     }
 
@@ -255,21 +255,21 @@ QStringRef DictionaryHunspell::check(const QString &string, int startAt) const
         }
     }
 
-	return QStringRef();
+    return QStringRef();
 }
 
 QStringList DictionaryHunspell::suggestions(const QString &word) const
 {
-	QStringList result;
-	QString check = word;
+    QStringList result;
+    QString check = word;
 
     // Replace any fancy single quotes with a "normal" single quote.
-	check.replace(QChar(0x2019), QLatin1Char('\''));
+    check.replace(QChar(0x2019), QLatin1Char('\''));
 
-	std::vector<std::string> suggestions;
+    std::vector<std::string> suggestions;
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-	suggestions = m_dictionary->suggest(m_codec->fromUnicode(check).toStdString());
+    suggestions = m_dictionary->suggest(m_codec->fromUnicode(check).toStdString());
 #else
     QByteArray encoded = m_encoder->encode(word);
     suggestions = m_dictionary->suggest(encoded.toStdString());
@@ -281,10 +281,10 @@ QStringList DictionaryHunspell::suggestions(const QString &word) const
 #else
         QString word = m_decoder->decode(suggestion.c_str());
 #endif
-		result.append(word);
-	}
+        result.append(word);
+    }
 
-	return result;
+    return result;
 }
 
 void DictionaryHunspell::addToPersonal(const QString &word)
@@ -298,31 +298,31 @@ void DictionaryHunspell::addToPersonal(const QString &word)
 
 void DictionaryHunspell::addToSession(const QStringList &words)
 {
-	for (const QString &word : words) {
+    for (const QString &word : words) {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-		m_dictionary->add(m_codec->fromUnicode(word).toStdString());
+        m_dictionary->add(m_codec->fromUnicode(word).toStdString());
 #else
         QByteArray encoded = m_encoder->encode(word);
-		m_dictionary->add(encoded.toStdString());
+        m_dictionary->add(encoded.toStdString());
 #endif
-	}
+    }
 }
 
 void DictionaryHunspell::removeFromSession(const QStringList &words)
 {
-	for (const QString &word : words) {
+    for (const QString &word : words) {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-		m_dictionary->remove(m_codec->fromUnicode(word).toStdString());
+        m_dictionary->remove(m_codec->fromUnicode(word).toStdString());
 #else
         QByteArray encoded = m_encoder->encode(word);
-		m_dictionary->remove(encoded.toStdString());
+        m_dictionary->remove(encoded.toStdString());
 #endif
-	}
+    }
 }
 
 HunspellProvider::HunspellProvider()
 {
-	QStringList dictdirs = QDir::searchPaths("dict");
+    QStringList dictdirs = QDir::searchPaths("dict");
 #if !defined(Q_OS_MAC) && defined(Q_OS_UNIX)
     QStringList xdg =
         QString(qgetenv("XDG_DATA_DIRS")).split(QChar(':'),
@@ -333,58 +333,58 @@ HunspellProvider::HunspellProvider()
 #endif
         );
 
-	if (xdg.isEmpty()) {
-		xdg.append("/usr/local/share");
-		xdg.append("/usr/share");
-	}
-	QStringList subdirs = QStringList() << "/hunspell" << "/myspell/dicts" << "/myspell" << "/mozilla-dicts";
-	for (const QString &subdir : subdirs) {
-		for (const QString &dir : xdg) {
-			QString path = dir + subdir;
-			if (!dictdirs.contains(path)) {
-				dictdirs.append(path);
-			}
-		}
-	}
+    if (xdg.isEmpty()) {
+        xdg.append("/usr/local/share");
+        xdg.append("/usr/share");
+    }
+    QStringList subdirs = QStringList() << "/hunspell" << "/myspell/dicts" << "/myspell" << "/mozilla-dicts";
+    for (const QString &subdir : subdirs) {
+        for (const QString &dir : xdg) {
+            QString path = dir + subdir;
+            if (!dictdirs.contains(path)) {
+                dictdirs.append(path);
+            }
+        }
+    }
 #endif
-	QDir::setSearchPaths("dict", dictdirs);
+    QDir::setSearchPaths("dict", dictdirs);
 }
 
 QStringList HunspellProvider::availableDictionaries() const
 {
-	QStringList result;
-	QStringList locations = QDir::searchPaths("dict");
-	QListIterator<QString> i(locations);
-	while (i.hasNext()) {
-		QDir dir(i.next());
+    QStringList result;
+    QStringList locations = QDir::searchPaths("dict");
+    QListIterator<QString> i(locations);
+    while (i.hasNext()) {
+        QDir dir(i.next());
 
-		QStringList dicFiles = dir.entryList(QStringList() << "*.dic*", QDir::Files, QDir::Name | QDir::IgnoreCase);
-		dicFiles.replaceInStrings(QRegularExpression("\\.dic.*"), "");
-		QStringList affFiles = dir.entryList(QStringList() << "*.aff*", QDir::Files);
-		affFiles.replaceInStrings(QRegularExpression("\\.aff.*"), "");
+        QStringList dicFiles = dir.entryList(QStringList() << "*.dic*", QDir::Files, QDir::Name | QDir::IgnoreCase);
+        dicFiles.replaceInStrings(QRegularExpression("\\.dic.*"), "");
+        QStringList affFiles = dir.entryList(QStringList() << "*.aff*", QDir::Files);
+        affFiles.replaceInStrings(QRegularExpression("\\.aff.*"), "");
 
-		for (const QString &language : dicFiles) {
-			if (affFiles.contains(language) && !result.contains(language)) {
-				result.append(language);
-			}
-		}
-	}
-	return result;
+        for (const QString &language : dicFiles) {
+            if (affFiles.contains(language) && !result.contains(language)) {
+                result.append(language);
+            }
+        }
+    }
+    return result;
 }
 
 Dictionary * HunspellProvider::requestDictionary(const QString &language) const
 {
-	return new DictionaryHunspell(language);
+    return new DictionaryHunspell(language);
 }
 
 void HunspellProvider::setIgnoreNumbers(bool ignore)
 {
-	f_ignoreNumbers = ignore;
+    f_ignoreNumbers = ignore;
 }
 
 void HunspellProvider::setIgnoreUppercase(bool ignore)
 {
-	f_ignoreUppercase = ignore;
+    f_ignoreUppercase = ignore;
 }
 
 } // namespace ghostwriter

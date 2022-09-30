@@ -101,7 +101,7 @@ Exporter *ExporterFactory::exporterByName(const QString &name)
     Q_D(ExporterFactory);
     
     // Search in HTML exporter list first.
-    foreach (Exporter *exporter, d->htmlExporters) {
+    for (Exporter *exporter : d->htmlExporters) {
         if (exporter->name() == name) {
             // Found a match!
             return exporter;
@@ -112,7 +112,7 @@ Exporter *ExporterFactory::exporterByName(const QString &name)
     // with the desired name, search in the file exporter
     // list next.
     //
-    foreach (Exporter *exporter, d->fileExporters) {
+    for (Exporter *exporter : d->fileExporters) {
         if (exporter->name() == name) {
             // Found a match!
             return exporter;

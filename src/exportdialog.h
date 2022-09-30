@@ -33,7 +33,7 @@ public:
      * Constructor that takes text document to export as the parameter,
      * as well as the parent widget which will own this dialog.
      */
-    ExportDialog(MarkdownDocument *document, QWidget *parent = 0);
+    ExportDialog(MarkdownDocument *document, QWidget *parent = nullptr);
     virtual ~ExportDialog();
 
 signals:
@@ -56,12 +56,12 @@ private slots:
     /*
     * Called when the user clicks on Export button.
     */
-    void accept();
+    void accept() override;
 
     /*
     * Called when the user clicks on the Cancel button.
     */
-    void reject();
+    void reject() override;
 
     /*
     * Called when the user changes which exporter to use via selecting

@@ -2,24 +2,20 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-cmake_minimum_required(VERSION 3.16)
-
 add_executable(ghostwriter ../resources.qrc)
 
-target_compile_definitions(ghostwriter PRIVATE APPVERSION="${RELEASE_SERVICE_VERSION}")
+target_compile_definitions(ghostwriter PRIVATE APPVERSION="${INTERNAL_RELEASE_VERSION}")
 
 target_include_directories(ghostwriter PUBLIC
     "${PROJECT_BINARY_DIR}"
     "${PROJECT_SOURCE_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}"
     "${CMAKE_CURRENT_BINARY_DIR}/../3rdparty/cmark-gfm/src"
+    "${PROJECT_SOURCE_DIR}/3rdparty/QtAwesome"
 )
 
-set(CMAKE_AUTOMOC True)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_sources(ghostwriter PRIVATE
-    # ../../3rdparty/QtAwesome/QtAwesome.h
-    # ../../3rdparty/QtAwesome/QtAwesomeAnim.h
     abstractstatisticswidget.cpp
     appmain.cpp
     appsettings.cpp
@@ -71,6 +67,8 @@ target_sources(ghostwriter PRIVATE
     spelling/spellcheckdecorator.cpp
 )
 
+ecm_create_qm_loader(ghostwriter ghostwriter_qt)
+
 if (UNIX)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(Hunspell REQUIRED IMPORTED_TARGET hunspell)
@@ -80,26 +78,41 @@ if (UNIX)
     target_link_libraries(ghostwriter PRIVATE PkgConfig::Hunspell)
 endif()
 
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
+    Core
+    Concurrent
+    Widgets
+    Svg
+    WebChannel
+    Gui
+    WebEngineWidgets
+)
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(Qt6 REQUIRED COMPONENTS Qt6Core5Compat)
+endif()
+
 target_link_libraries(ghostwriter PRIVATE
-    Qt${QT_MAJOR_VERSION}::Core
-    Qt${QT_MAJOR_VERSION}::Concurrent
-    Qt${QT_MAJOR_VERSION}::Widgets
-    Qt${QT_MAJOR_VERSION}::Svg
-    Qt${QT_MAJOR_VERSION}::WebChannel
-    Qt${QT_MAJOR_VERSION}::Gui
-    Qt${QT_MAJOR_VERSION}::WebEngineWidgets
+    Qt::Core
+    Qt::Concurrent
+    Qt::Widgets
+    Qt::Svg
+    Qt::WebChannel
+    Qt::Gui
+    Qt::WebEngineWidgets
     QtAwesome
     libcmark-gfm_static
     libcmark-gfm-extensions_static
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(ghostwriter
-        Qt::Core5Compat
+    target_link_libraries(ghostwriter PRIVATE
+        Qt::Qt6Core5Compat
     )
 endif()
 
-# set_target_properties(ghostwriter PROPERTIES
-#     WIN32_EXECUTABLE ON
-#     MACOSX_BUNDLE ON
-# )
+set_target_properties(ghostwriter PROPERTIES
+    WIN32_EXECUTABLE ON
+    MACOSX_BUNDLE ON
+)
+

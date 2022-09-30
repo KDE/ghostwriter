@@ -5,9 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 -->
 <RCC>
     <qresource prefix="/">
-        <file>resources/images/ghostwriter.svg</file>
+        <!-- <file>resources/images/ghostwriter.svg</file> -->
         <file>resources/preview.css</file>
         <file>resources/preview.html</file>
+        <file>resources/widgets.qss</file>
         <file>3rdparty/react/react-dom.production.min.js</file>
         <file>3rdparty/react/react.production.min.js</file>
         <file>3rdparty/react/html-react-parser.js</file>
@@ -69,6 +70,5 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <file>3rdparty/MathJax/bin/startup.js</file>
         <file>3rdparty/MathJax/bin/loader.js</file>
         <file>3rdparty/MathJax/bin/core.js</file>
-        <file>resources/widgets.qss</file>
     </qresource>
 </RCC>

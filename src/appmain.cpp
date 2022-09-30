@@ -73,31 +73,31 @@ int main(int argc, char *argv[])
     // fully launches.
     //
     ghostwriter::AppSettings *appSettings = ghostwriter::AppSettings::instance();
-    QLocale::setDefault(QLocale(appSettings->locale()));
+//     QLocale::setDefault(QLocale(appSettings->locale()));
 
-    QStringList baseTranslators = { "qt", "qtbase", "ghostwriter" };
+//     QStringList baseTranslators = { "qt", "qtbase", "ghostwriter" };
 
-    for (auto translatorStr : baseTranslators) {
-        QTranslator *translator = new QTranslator(&app);
-        QString fileName = translatorStr + "_" + appSettings->locale();
-        bool ok = false;
+//     for (auto translatorStr : baseTranslators) {
+//         QTranslator *translator = new QTranslator(&app);
+//         QString fileName = translatorStr + "_" + appSettings->locale();
+//         bool ok = false;
 
-        if (translatorStr != "ghostwriter") {
-            const QString& translationLocation = 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                QLibraryInfo::location(QLibraryInfo::TranslationsPath);
-#else
-                QLibraryInfo::path(QLibraryInfo::TranslationsPath);
-#endif
-            ok = translator->load(fileName, translationLocation);        
-        } else {
-            ok = translator->load(fileName, appSettings->translationsPath());
-        }
+//         if (translatorStr != "ghostwriter") {
+//             const QString& translationLocation = 
+// #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+//                 QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+// #else
+//                 QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+// #endif
+//             ok = translator->load(fileName, translationLocation);        
+//         } else {
+//             ok = translator->load(fileName, appSettings->translationsPath());
+//         }
 
-        if (ok) {
-            app.installTranslator(translator);
-        }
-    }
+//         if (ok) {
+//             app.installTranslator(translator);
+//         }
+//     }
 
     QString filePath = QString();
 

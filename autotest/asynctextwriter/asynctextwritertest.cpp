@@ -94,7 +94,7 @@ void AsyncTextWriterTest::runWriteTest(const QString &fileName,
     // Give the thread time to complete the write.
     QThread::sleep(1);
 
-    // Verify write is in progress before signals are received.
+    // Verify write is in progress before signals: are received.
     QVERIFY(writer.writeInProgress());
 
     // Force signal/event processing.

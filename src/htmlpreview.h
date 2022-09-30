@@ -40,7 +40,7 @@ public:
     (
         MarkdownDocument *document,
         Exporter *exporter,
-        QWidget *parent = 0
+        QWidget *parent = nullptr
     );
 
     /**
@@ -51,7 +51,7 @@ public:
     /**
      * Customize QtWebEngine context menu.
      */
-    void contextMenuEvent(QContextMenuEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event) override;
 
 public slots:
     /**
@@ -85,7 +85,7 @@ public slots:
     void setMathEnabled(bool enabled);
 
 protected:
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     QScopedPointer<HtmlPreviewPrivate> d_ptr;

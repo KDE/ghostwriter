@@ -710,7 +710,7 @@ AppSettings::AppSettings()
                                 "/translations");
         translationPaths.append(appDir + "/../Resources/translations");
 
-        foreach (const QString &path, translationPaths) {
+        for (const QString &path : translationPaths) {
             if (QFile::exists(path)) {
                 d->translationsPath = path;
                 break;

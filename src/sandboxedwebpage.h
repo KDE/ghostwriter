@@ -22,10 +22,7 @@ public:
     /**
      * Constructor.
      */
-    SandboxedWebPage
-    (
-        QObject *parent = 0
-    );
+    SandboxedWebPage(QObject *parent = nullptr);
 
     /**
      * Destructor.
@@ -36,12 +33,11 @@ public:
      * Handles link clicks and opens external links with the
      * default system browser.
      */
-    bool acceptNavigationRequest
-    (
+    bool acceptNavigationRequest(
         const QUrl &url,
         QWebEnginePage::NavigationType type,
         bool isMainFrame
-    );
+    ) override;
 
 };
 } // namespace ghostwriter

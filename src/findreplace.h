@@ -42,7 +42,7 @@ public:
      * the change of focus between child widgets when the tab
      * key is pressed.
      */
-    bool focusNextPrevChild(bool next);
+    bool focusNextPrevChild(bool next) override;
 
     /**
      * PRIVATE USE ONLY.
@@ -50,7 +50,7 @@ public:
      * This method is overridden to respond to common shortcut
      * keys used in a find/replace widget.
      */
-    void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) override;
 
 public slots:
     // NOTE:  The following slots should be triggered by shortcut keys.

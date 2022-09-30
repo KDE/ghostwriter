@@ -64,7 +64,7 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     Exporter *exporter = (Exporter *) exporterVariant.value<void *>();
     fileFormatComboBox = new QComboBox();
     
-    foreach (const ExportFormat *format, exporter->supportedFormats()) {
+    for (const ExportFormat *format : exporter->supportedFormats()) {
         fileFormatComboBox->addItem(format->name(), QVariant::fromValue((void *) format));
     }
     
@@ -191,7 +191,7 @@ void ExportDialog::onExporterChanged(int index)
     Exporter *exporter = (Exporter *) exporterVariant.value<void *>();
     fileFormatComboBox->clear();
     
-    foreach (const ExportFormat *format, exporter->supportedFormats()) {
+    for (const ExportFormat *format : exporter->supportedFormats()) {
         fileFormatComboBox->addItem(format->name(), QVariant::fromValue((void *) format));
     }
 

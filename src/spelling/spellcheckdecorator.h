@@ -86,7 +86,7 @@ public slots:
     void startLiveSpellCheck();
 
 protected:
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QScopedPointer<SpellCheckDecoratorPrivate> d_ptr;

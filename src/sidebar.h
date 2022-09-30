@@ -157,8 +157,8 @@ protected slots:
     void onFocusChanged(QWidget *old, QWidget *now);
 
 protected:
-    void hideEvent(QHideEvent *event);
-    void showEvent(QShowEvent *event);
+    void hideEvent(QHideEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 private:
     QScopedPointer<SidebarPrivate> d_ptr;

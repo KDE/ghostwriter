@@ -200,7 +200,7 @@ void OutlineWidgetPrivate::reloadOutline()
 
     QVector<MarkdownNode *> headings = ast->headings();
 
-    foreach (MarkdownNode *heading, headings) {
+    for (MarkdownNode *heading : headings) {
         QString headingText("   ");
 
         for (int i = 1; i < heading->headingLevel(); i++) {

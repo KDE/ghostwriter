@@ -11,41 +11,45 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <dict>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
+    <key>NSHighResolutionCapable</key>
+    <string>True</string>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>English</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleIconFile</key>
-    <string>@ICON@</string>
+    <string>${MACOSX_BUNDLE_ICON_FILE}</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleExecutable</key>
-    <string>@EXECUTABLE@</string>
+    <string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
     <key>CFBundleIdentifier</key>
     <string>io.github.wereturtle.ghostwriter</string>
     <key>CFBundleShortVersionString</key>
-    <string>@SHORT_VERSION@</string>
+    <string>${MACOSX_BUNDLE_SHORT_VERSION_STRING}</string>
     <key>CFBundleVersion</key>
-    <string>@SHORT_VERSION@</string>
+    <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>
     <key>CFBundleGetInfoString</key>
-    <string>ghostwriter @SHORT_VERSION@</string>
+    <string>${MACOSX_BUNDLE_INFO_STRING}</string>
     <key>CFBundleName</key>
-    <string>ghostwriter</string>
+    <string>${MACOSX_BUNDLE_BUNDLE_NAME}</string>
     <key>NSHumanReadableCopyright</key>
-    <string>© 2014-2018 wereturtle. GPLv3</string>
+    <string>${MACOSX_BUNDLE_COPYRIGHT}</string>
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>
-            <key>CFBundleTypeName</key>
-            <string>Markdown document</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
             <key>LSItemContentTypes</key>
             <array>
+                <string>public.text</string>
+                <string>public.plain-text</string>
                 <string>public.markdown</string>
             </array>
-        </dict>
-        <dict>
+            <key>CFBundleTypeName</key>
+            <string>NSStringPboardType</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
             <key>CFBundleTypeExtensions</key>
             <array>
                 <string>md</string>
@@ -54,40 +58,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
             </array>
             <key>CFBundleTypeMIMETypes</key>
             <array>
-                <string>text/xml</string>
                 <string>text/x-markdown</string>
                 <string>text/markdown</string>
             </array>
             <key>CFBundleTypeIconFile</key>
             <string>txt.icns</string>
-            <key>CFBundleTypeName</key>
-            <string>Markdown document</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-        </dict>
-        <dict>
-            <key>CFBundleTypeIconFile</key>
-            <string>txt.icns</string>
-            <key>CFBundleTypeName</key>
-            <string>NSStringPboardType</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>LSItemContentTypes</key>
-            <array>
-                <string>public.plain-text</string>
-            </array>
-        </dict>
-        <dict>
-            <key>CFBundleTypeIconFile</key>
-            <string>txt.icns</string>
-            <key>CFBundleTypeName</key>
-            <string>NSStringPboardType</string>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>LSItemContentTypes</key>
-            <array>
-                <string>public.text</string>
-            </array>
         </dict>
     </array>
 </dict>

@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
+remove_definitions(-DQT_USE_QSTRINGBUILDER)
+
 include(FeatureSummary)
 
 option(QTAWESOME_USE_FREE "Use Font Awesome Free" OFF)

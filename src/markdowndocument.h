@@ -31,12 +31,12 @@ public:
     /**
      * Constructor.
      */
-    MarkdownDocument(QObject *parent = 0);
+    MarkdownDocument(QObject *parent = nullptr);
 
     /**
      * Constructor.
      */
-    MarkdownDocument(const QString &text, QObject *parent = 0);
+    MarkdownDocument(const QString &text, QObject *parent = nullptr);
 
     /**
      * Destructor.
@@ -92,7 +92,7 @@ public:
     /**
      * Overrides base class clear() method to send cleared() signal.
      */
-    void clear();
+    void clear() override;
 
 signals:
     /**

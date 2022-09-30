@@ -25,7 +25,7 @@ class OutlineWidget : public QListWidget
     Q_DECLARE_PRIVATE(OutlineWidget)
 
 public:
-    OutlineWidget(MarkdownEditor *editor, QWidget *parent = 0);
+    OutlineWidget(MarkdownEditor *editor, QWidget *parent = nullptr);
     virtual ~OutlineWidget();
 
 signals:
