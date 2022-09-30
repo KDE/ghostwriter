@@ -298,7 +298,7 @@ void HtmlPreviewPrivate::updateBaseDir()
         this->baseUrl = "";
     }
 
-    q->setHtml(wrapperHtml, baseUrl);
+    q->setHtml(wrapperHtml, QUrl(baseUrl));
     q->updatePreview();
 }
 

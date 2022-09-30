@@ -18,7 +18,7 @@
 #include <QTemporaryFile>
 #include <QVariant>
 
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 #include "stylesheetbuilder.h"
 
 

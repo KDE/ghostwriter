@@ -19,18 +19,18 @@ namespace ghostwriter
 class HunspellProvider : public DictionaryProvider
 {
 public:
-	HunspellProvider();
+    HunspellProvider();
 
-	bool isValid() const
-	{
-		return true;
-	}
+    bool isValid() const override
+    {
+        return true;
+    }
 
-	QStringList availableDictionaries() const;
-	Dictionary *requestDictionary(const QString &language) const;
+    QStringList availableDictionaries() const override;
+    Dictionary *requestDictionary(const QString &language) const override;
 
-	void setIgnoreNumbers(bool ignore);
-	void setIgnoreUppercase(bool ignore);
+    void setIgnoreNumbers(bool ignore) override;
+    void setIgnoreUppercase(bool ignore) override;
 };
 } // namespace ghostwriter
 

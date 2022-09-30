@@ -13,7 +13,7 @@
 #include <QTextEdit>
 
 #include "colorschemepreviewer.h"
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 
 namespace ghostwriter
 {

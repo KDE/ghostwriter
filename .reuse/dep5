@@ -17,8 +17,7 @@ Files: translations/*
 Copyright: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
 License: GPL-3.0-or-later
 
-Files: resources/images/ghostwriter.svg
-       resources/linux/icons/*
+Files: resources/icons/*
        resources/windows/ghostwriter.ico
        resources/mac/ghostwriter.icns
 Copyright: Megan Conkle <megan.conkle@kdemail.net>

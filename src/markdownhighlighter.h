@@ -45,7 +45,7 @@ public:
      * Overridden method to highlight the given text for the current
      * text block in the document.
      */
-    void highlightBlock(const QString &text);
+    void highlightBlock(const QString &text) override;
 
     /**
      * Increases the font size by one point.

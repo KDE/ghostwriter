@@ -783,9 +783,7 @@ bool DocumentManagerPrivate::loadFile(const QString &filePath)
     document->setModified(false);
     document->setTimestamp(fileInfo.lastModified());
 
-    QString watchedFile;
-
-    foreach (watchedFile, fileWatcher->files()) {
+    for (QString watchedFile : fileWatcher->files()) {
         fileWatcher->removePath(watchedFile);
     }
 

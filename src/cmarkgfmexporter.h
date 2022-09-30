@@ -31,7 +31,7 @@ public:
      * Exports the given Markdown text to HTML, setting the html parameter
      * to have the HTML output.
      */
-    void exportToHtml(const QString &text, QString &html);
+    void exportToHtml(const QString &text, QString &html) override;
 
     /**
      * Exports the given Markdown text to the given export format and
@@ -46,7 +46,7 @@ public:
         const QString &text,
         const QString &outputFilePath,
         QString &err
-    );
+    ) override;
 };
 }
 

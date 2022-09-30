@@ -87,7 +87,7 @@ public:
      * Exports the given text to html, returning the HTML in the html
      * parameter for use in the Live HTML Preview.
      */
-    void exportToHtml(const QString &text, QString &html);
+    void exportToHtml(const QString &text, QString &html) override;
 
     /**
      * Exports the given text to the given format and output file path.
@@ -101,7 +101,7 @@ public:
         const QString &text,
         const QString &outputFilePath,
         QString &err
-    );
+    ) override;
 
     /**
      * Contains the variable string for output file path.  Callers can

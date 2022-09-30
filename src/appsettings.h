@@ -14,7 +14,6 @@
 
 #include "exporter.h"
 #include "markdowneditortypes.h"
-#include "statisticsindicator.h"
 
 namespace ghostwriter
 {

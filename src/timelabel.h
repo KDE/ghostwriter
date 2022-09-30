@@ -27,7 +27,7 @@ public:
     /**
      * Constructor.
      */
-    explicit TimeLabel(QWidget *parent = 0);
+    explicit TimeLabel(QWidget *parent = nullptr);
 
     /**
      * Destructor

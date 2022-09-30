@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* Issue #813: Opening the app after a fresh install no longer complains of a file backup error when text is entered.
+* Issue #813: Opening the app after a fresh install no longer complains of a file ba                                                                                                                                                                                                                                                                                                            ckup error when text is entered.
 * Issue #815: Invoking the app from the command line with a non-existent file path specified will now create an empty file for the path.
 * Spaces are now properly underlined in emphasized text when emphasis style option is set to underline.
 

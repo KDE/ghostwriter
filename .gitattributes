@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Use UNIX line endings to pass pre-receive git hook audit on KDE Invent GitLab
+* text=auto eol=lf
+*.bat eol=crlf
+*.xsl eol=crlf

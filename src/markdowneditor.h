@@ -34,7 +34,7 @@ public:
     (
         MarkdownDocument *textDocument,
         const ColorScheme &colors,
-        QWidget *parent = 0
+        QWidget *parent = nullptr
     );
 
     /**
@@ -53,7 +53,7 @@ public:
      * used to in prior versions.  This means that we cannot control the
      * cursor color via the "color" style sheet property.
      */
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
 
     /**
      * This editor has a preferred layout that is used to center the text
@@ -115,15 +115,15 @@ public:
     void setupPaperMargins();
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *e);
-    void dragMoveEvent(QDragMoveEvent *e);
-    void dragLeaveEvent(QDragLeaveEvent *e);
-    void dropEvent(QDropEvent *e);
-    void keyPressEvent(QKeyEvent *e);
-    void mouseDoubleClickEvent(QMouseEvent *e);
-    void mousePressEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
-    void wheelEvent(QWheelEvent *e);
+    void dragEnterEvent(QDragEnterEvent *e) override;
+    void dragMoveEvent(QDragMoveEvent *e) override;
+    void dragLeaveEvent(QDragLeaveEvent *e) override;
+    void dropEvent(QDropEvent *e) override;
+    void keyPressEvent(QKeyEvent *e) override;
+    void mouseDoubleClickEvent(QMouseEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
+    void wheelEvent(QWheelEvent *e) override;
 
 signals:
     /**

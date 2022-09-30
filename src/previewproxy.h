@@ -40,7 +40,7 @@ public:
      * Returns the HTML contents of the live preview browser.
      */
     Q_INVOKABLE QString htmlContent() const;
-    Q_PROPERTY(QString htmlContent READ htmlContent NOTIFY htmlChanged);
+    Q_PROPERTY(QString htmlContent READ htmlContent NOTIFY htmlChanged)
 
     /**
      * Sets the CSS style sheet of the live preview browser.
@@ -51,7 +51,7 @@ public:
      * Returns the CSS style sheet used in the live preview browser.
      */
     Q_INVOKABLE QString styleSheet() const;
-    Q_PROPERTY(QString styleSheet READ styleSheet NOTIFY styleSheetChanged);
+    Q_PROPERTY(QString styleSheet READ styleSheet NOTIFY styleSheetChanged)
 
     /**
      * Sets whether math rendering is enabled in the live preview.
@@ -63,7 +63,7 @@ public:
      * false otherwise.
      */
     Q_INVOKABLE bool mathEnabled() const;
-    Q_PROPERTY(bool mathEnabled READ mathEnabled NOTIFY mathToggled);
+    Q_PROPERTY(bool mathEnabled READ mathEnabled NOTIFY mathToggled)
 
 signals:
     /**

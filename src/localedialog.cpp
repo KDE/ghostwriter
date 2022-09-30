@@ -56,7 +56,7 @@ LocaleDialog::LocaleDialog
         int currentIndex = 0;
         int row = 0;
 
-        foreach (QFileInfo info, fileInfos) {
+        for (QFileInfo info : fileInfos) {
             if (!info.isDir()) {
                 // Grab the language/country from the file name.
 

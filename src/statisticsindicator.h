@@ -36,7 +36,7 @@ public:
      */
     ~StatisticsIndicator();
 
-    void showPopup();
+    void showPopup() override;
 
 };
 }

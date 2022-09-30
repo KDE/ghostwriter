@@ -34,7 +34,7 @@ public:
     (
         const QString &currentThemeName,
         const bool darkModeEnabled,
-        QWidget *parent = 0
+        QWidget *parent = nullptr
     );
 
     /**

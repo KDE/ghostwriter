@@ -14,7 +14,7 @@
 #include <QSettings>
 #include <QSplitter>
 
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include "../3rdparty/QtAwesome/QtAwesome.h"
 
 #include "appsettings.h"
 #include "documentmanager.h"
@@ -44,15 +44,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(const QString &filePath = QString(), QWidget *parent = 0);
+    MainWindow(const QString &filePath = QString(), QWidget *parent = nullptr);
     virtual ~MainWindow();
 
 protected:
-    QSize sizeHint() const;
-    void resizeEvent(QResizeEvent *event);
-    void keyPressEvent(QKeyEvent *e);
-    bool eventFilter(QObject *obj, QEvent *event);
-    void closeEvent(QCloseEvent *event);
+    QSize sizeHint() const  override;
+    void resizeEvent(QResizeEvent *event) override;
+    void keyPressEvent(QKeyEvent *e) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void quitApplication();

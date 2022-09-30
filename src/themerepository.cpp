@@ -110,7 +110,7 @@ QStringList ThemeRepository::availableThemes() const
     
     QStringList themeNames;
 
-    foreach (Theme theme, d->builtInThemes) {
+    for (Theme theme : d->builtInThemes) {
         themeNames.append(theme.name());
     }
 

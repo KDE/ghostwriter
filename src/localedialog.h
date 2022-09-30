@@ -32,7 +32,7 @@ public:
     (
         const QString &initialLocale,
         const QString &translationsPath,
-        QWidget *parent = 0
+        QWidget *parent = nullptr
     );
 
     /**
@@ -61,7 +61,7 @@ public:
         bool *ok,
         const QString &initialLocale,
         const QString &translationsPath,
-        QWidget *parent = 0
+        QWidget *parent = nullptr
     );
 
 private:

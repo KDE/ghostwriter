@@ -17,7 +17,7 @@
 #include <QStringList>
 
 #include "appsettings.h"
-#include "dictionarymanager.h"
+#include "spelling/dictionarymanager.h"
 #include "exporterfactory.h"
 
 #define GW_FAVORITE_STATISTIC_KEY "Session/favoriteStatistic"
@@ -710,7 +710,7 @@ AppSettings::AppSettings()
                                 "/translations");
         translationPaths.append(appDir + "/../Resources/translations");
 
-        foreach (const QString &path, translationPaths) {
+        for (const QString &path : translationPaths) {
             if (QFile::exists(path)) {
                 d->translationsPath = path;
                 break;

@@ -199,7 +199,7 @@ public:
     bool scaledTypingHasPaused;
 
     // Use these flags to keep from sending the typingPaused() and
-    // typingPausedScaled() signals multiple times after they have
+    // typingPausedScaled() signals: multiple times after they have
     // already been sent the first time after a pause in the user's
     // typing.
     //
@@ -1456,9 +1456,9 @@ void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRe
 
     d->parseDocument();
 
-    // Don't use the textChanged() or contentsChanged() (no parameters) signals
+    // Don't use the textChanged() or contentsChanged() (no parameters) signals:
     // for checking if the typingResumed() signal needs to be emitted.  These
-    // two signals are emitted even when the text formatting changes (i.e.,
+    // two signals: are emitted even when the text formatting changes (i.e.,
     // when the QSyntaxHighlighter formats the text). Instead, use QTextDocument's
     // onContentsChanged(int, int, int) signal, which is only emitted when the
     // document text actually changes.

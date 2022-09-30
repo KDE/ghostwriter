@@ -19,7 +19,7 @@
 #include <QVBoxLayout>
 
 #include "appsettings.h"
-#include "dictionarymanager.h"
+#include "spelling/dictionarymanager.h"
 #include "localedialog.h"
 #include "messageboxhelper.h"
 #include "preferencesdialog.h"

@@ -28,12 +28,12 @@ public:
     /**
      * Constructor.
      */
-    SimpleFontDialog(QWidget *parent = 0);
+    SimpleFontDialog(QWidget *parent = nullptr);
 
     /**
      * Constructor.  Takes initial font to display as a parameter.
      */
-    SimpleFontDialog(const QFont &initial, QWidget *parent = 0);
+    SimpleFontDialog(const QFont &initial, QWidget *parent = nullptr);
 
     /**
      * Destructor.

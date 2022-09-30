@@ -41,8 +41,8 @@ public:
     const Theme &theme() const;
 
 private slots:
-    void accept();
-    void reject();
+    void accept() override;
+    void reject() override;
 
 private:
     QScopedPointer<ThemeEditorDialogPrivate> d_ptr;
