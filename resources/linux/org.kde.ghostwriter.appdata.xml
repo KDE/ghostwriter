@@ -1,10 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
   <id>ghostwriter.desktop</id>
   <metadata_license>CC-BY-SA-4.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>ghostwriter</name>
+  <name xml:lang="ca">ghostwriter</name>
+  <name xml:lang="ca-valencia">ghostwriter</name>
+  <name xml:lang="es">ghostwriter</name>
+  <name xml:lang="nl">ghostwriter</name>
+  <name xml:lang="tr">ghostwriter</name>
+  <name xml:lang="uk">ghostwriter</name>
+  <name xml:lang="x-test">xxghostwriterxx</name>
   <summary>Distraction-free text editor for Markdown</summary>
+  <summary xml:lang="ca">Editor de text lliure de distraccions per al Markdown</summary>
+  <summary xml:lang="ca-valencia">Editor de text lliure de distraccions per a Markdown</summary>
+  <summary xml:lang="es">Editor de texto sin distracciones para Markdown</summary>
+  <summary xml:lang="nl">Tekstbewerker zonder afleiding voor Markdown</summary>
+  <summary xml:lang="tr">Markdown için, dikkat dağıtmayan metin düzenleyici</summary>
+  <summary xml:lang="uk">Ненав'язливий текстовий редактор для Markdown</summary>
+  <summary xml:lang="x-test">xxDistraction-free text editor for Markdownxx</summary>
   <description>
     <p>ghostwriter is a distraction-free text editor for Markdown featuring
        a live HTML preview as you type, theme creation, focus mode, fullscreen
@@ -12,17 +26,38 @@
        environment.  It comes with the cmark-gfm Markdown processor built in, and
        can integrate with Pandoc, MultiMarkdown, Discount, and cmark 
        processors if they are installed.</p>
+    <p xml:lang="ca">El «ghostwriter» és un editor de text lliure de distraccions per al Markdown amb una vista prèvia HTML en viu mentre s'escriu, creació de temes, mode d'enfocament, mode de pantalla completa, recompte de paraules en directe i navegació de documents en un entorn d'escriptura estètica. Ve amb el processador «cmark-gfm» del Markdown integrat, i pot integrar-se amb els processadors Pandoc, MultiMarkdown, Discount i «cmark» si estan instal·lats.</p>
+    <p xml:lang="ca-valencia">«ghostwriter» és un editor de text lliure de distraccions per a Markdown amb una vista prèvia HTML en viu mentre s'escriu, creació de temes, mode d'enfocament, mode de pantalla completa, recompte de paraules en directe i navegació de documents en un entorn d'escriptura estètica. Ve amb el processador «cmark-gfm» de Markdown integrat, i pot integrar-se amb els processadors Pandoc, MultiMarkdown, Discount i «cmark» si estan instal·lats.</p>
+    <p xml:lang="es">ghostwriter es un editor de texto sin distracciones para Markdown que muestra una vista previa HTML en vivo mientras escribe, creación de temas, modo de concentración, modo a pantalla completa, contador de palabras en tiempo real y navegación por el documento en un entorno de escritura estético. Contiene el procesador de texto Markdown «cmark-gfm» y puede integrarse con los procesadores Pandoc, MultiMarkdown, Discount y cmark, si están instalados.</p>
+    <p xml:lang="nl">ghostwriter is tekstbewerker zonder afleiding voor Markdown met een live HTML voorbeeld terwijl u typt, thema maken, focusmodus, modus volledig scherm, live woorden tellen en documentnavigatie in een esthetische schrijfomgeving. Het komt met de cmark-gfm Markdown processor ingebouwd en kan integreren met Pandoc, MultiMarkdown, Discount en cmark-processors als ze geïnstalleerd zijn.</p>
+    <p xml:lang="tr">ghostwriter; Markdown için, siz yazdıkça canlı bir HTML önizlemesi, tema oluşturma, odak kipi, tam ekran kipi, canlı sözcük sayımı ve estetik bir yazım ortamında belgede dolaşma sunan bir dikkat dağıtmayan metin düzenleyicidir. cmark-gfm Markdown işleyicisi ile birlikte gelir ve eğer kurulularsa Pandoc, MultiMarkDown, Discount ve cmark işlemcileriyle tümleşebilir.</p>
+    <p xml:lang="uk">ghostwriter — ненав'язливий текстовий редактор для Markdown із інтерактивним попереднім переглядом HTML, створенням тем, режимом фокусування, повноекранним режимом, інтерактивним обліком слів та навігацією документом в естетичному середовищі для написання текстів. Редактор постачається з вбудованим обробником Markdown cmark-gfm і можливістю інтеграції із процесорами Pandoc, MultiMarkdown, Discount та cmark, якщо їх встановлено.</p>
+    <p xml:lang="x-test">xxghostwriter is a distraction-free text editor for Markdown featuring a live HTML preview as you type, theme creation, focus mode, fullscreen mode, live word count, and document navigation in an aesthetic writing environment. It comes with the cmark-gfm Markdown processor built in, and can integrate with Pandoc, MultiMarkdown, Discount, and cmark processors if they are installed.xx</p>
   </description>
   <screenshots>
     <screenshot type="default">
       <image>http://wereturtle.github.io/ghostwriter/images/dark-theme.png</image>
       <caption>Enjoy a distraction-free writing experience, including a full screen mode and a clean interface</caption>
+      <caption xml:lang="ca">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
+      <caption xml:lang="ca-valencia">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
+      <caption xml:lang="es">Disfrute de una experiencia de escritura sin distracciones, que incluye un modo a pantalla completa y una interfaz limpia</caption>
+      <caption xml:lang="nl">Geniet van een schrijfervaring zonder afleiding, inclusief een modus volledig scherm en een helder interface</caption>
+      <caption xml:lang="tr">Bir tam ekran kipi ve temiz bir arayüz içeren bu dikkat dağıtmayan yazım deneyiminin keyfini çıkarın</caption>
+      <caption xml:lang="uk">Насолоджуйтеся ненав'язливим засобом написання текстів із можливістю користуватися повноекранним режимом і простим інтерфейсом</caption>
+      <caption xml:lang="x-test">xxEnjoy a distraction-free writing experience, including a full screen mode and a clean interfacexx</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">http://wereturtle.github.io/ghostwriter/</url>
   <url type="bugtracker">http://github.com/wereturtle/ghostwriter/</url>
   <url type="donation">http://wereturtle.github.io/ghostwriter/</url>
   <developer_name>wereturtle</developer_name>
+  <developer_name xml:lang="ca">wereturtle</developer_name>
+  <developer_name xml:lang="ca-valencia">wereturtle</developer_name>
+  <developer_name xml:lang="es">wereturtle</developer_name>
+  <developer_name xml:lang="nl">wereturtle</developer_name>
+  <developer_name xml:lang="tr">wereturtle</developer_name>
+  <developer_name xml:lang="uk">wereturtle</developer_name>
+  <developer_name xml:lang="x-test">xxwereturtlexx</developer_name>
   <provides>
     <binary>ghostwriter</binary>
   </provides>
