@@ -1,0 +1,1645 @@
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-09-30 12:28+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.08.1\n"
+
+#: src/abstractstatisticswidget.cpp:16
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "&lt; 1m"
+msgstr "&lt; 1 dk"
+
+#: src/abstractstatisticswidget.cpp:17
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "&lt; 1"
+msgstr "&lt; 1"
+
+#: src/abstractstatisticswidget.cpp:18
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "250 words per page"
+msgstr "Sayfa başına 250 sözcük"
+
+#: src/abstractstatisticswidget.cpp:52
+#, qt-format
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "%1h %2m"
+msgstr "%1 sa %2 dk"
+
+#: src/abstractstatisticswidget.cpp:54
+#, qt-format
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "%1m"
+msgstr "%1 dk"
+
+#: src/appmain.cpp:105
+msgctxt "main|"
+msgid "Welcome to ghostwriter!"
+msgstr "ghostwriter'a hoş geldiniz!"
+
+#: src/appmain.cpp:110
+msgctxt "main|"
+msgid "(Optional) File to open."
+msgstr "(İsteğe bağlı) Açılacak dosya."
+
+#: src/appmain.cpp:113
+msgctxt "main|"
+msgid "Disables GPU acceleration."
+msgstr "GPU ivmelendirmesini devre dışı bırakır"
+
+#: src/cmarkgfmexporter.cpp:50
+#, qt-format
+msgctxt "QObject|"
+msgid "%1 format is unsupported by the cmark-gfm processor."
+msgstr "%1 biçimi, cmark-gfm işlemcisi tarafından desteklenmiyor"
+
+#: src/cmarkgfmexporter.cpp:58
+msgctxt "QObject|"
+msgid "Export failed"
+msgstr "Dışa aktarma başarısız"
+
+#: src/commandlineexporter.cpp:145
+msgctxt "QObject|"
+msgid "Export failed: "
+msgstr "Dışa aktarma başarısız:"
+
+#: src/commandlineexporter.cpp:165
+#, qt-format
+msgctxt "QObject|"
+msgid "%1 format is not supported by this processor."
+msgstr "%1 biçimi, bu işlemci tarafından desteklenmiyor"
+
+#: src/commandlineexporter.cpp:188
+msgctxt "QObject|"
+msgid "Failed to execute command: "
+msgstr "Komut yürütülemedi:"
+
+#: src/documentmanager.cpp:54
+msgctxt "ghostwriter::DocumentManager|"
+msgid "untitled"
+msgstr "başlıksız"
+
+#: src/documentmanager.cpp:164
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Markdown"
+msgstr "Markdown"
+
+#: src/documentmanager.cpp:165
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Text"
+msgstr "Metin"
+
+#: src/documentmanager.cpp:166
+msgctxt "ghostwriter::DocumentManager|"
+msgid "All"
+msgstr "Tümü"
+
+#: src/documentmanager.cpp:220 src/documentmanager.cpp:694
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Error saving %1"
+msgstr "%1 kaydedilirken hata"
+
+#: src/documentmanager.cpp:357
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Open File"
+msgstr "Dosya Aç"
+
+#: src/documentmanager.cpp:370
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Could not open %1"
+msgstr "%1, açılamadı"
+
+#: src/documentmanager.cpp:371
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Permission denied."
+msgstr "İzin verilmedi."
+
+#: src/documentmanager.cpp:433
+msgctxt "ghostwriter::DocumentManager|"
+msgid "The document has been modified."
+msgstr "Belge değiştirildi."
+
+#: src/documentmanager.cpp:434
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Discard changes?"
+msgstr "Değişiklikler atılsın mı?"
+
+#: src/documentmanager.cpp:465
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Rename File"
+msgstr "Dosyayı Yeniden Adlandır"
+
+#: src/documentmanager.cpp:482 src/documentmanager.cpp:495
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Failed to rename %1"
+msgstr "%1, yeniden adlandırılamadı."
+
+#: src/documentmanager.cpp:533
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Save File"
+msgstr "Dosyayı Kaydet"
+
+#: src/documentmanager.cpp:660
+msgctxt "ghostwriter::DocumentManager|"
+msgid "The document has been modified by another program."
+msgstr "Belge, başka bir program tarafından değiştirilmiş."
+
+#: src/documentmanager.cpp:661
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Would you like to reload the document?"
+msgstr "Belgeyi yeniden yüklemek ister misiniz?"
+
+#: src/documentmanager.cpp:695
+msgctxt "ghostwriter::DocumentManager|"
+msgid "No file path specified"
+msgstr "Bir dosya yolu belirtilmedi"
+
+#: src/documentmanager.cpp:711 src/documentmanager.cpp:750
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Could not read %1"
+msgstr "%1, okunamadı"
+
+#: src/documentmanager.cpp:732
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "opening %1"
+msgstr "%1, açılıyor"
+
+#: src/documentmanager.cpp:839
+msgctxt "ghostwriter::DocumentManager|"
+msgid "File has been modified."
+msgstr "Dosya değiştirildi."
+
+#: src/documentmanager.cpp:841
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "%1 has been modified."
+msgstr "%1, değiştirildi"
+
+#: src/documentmanager.cpp:850
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Would you like to save your changes?"
+msgstr "Değişikliklerinizi kaydetmek ister misiniz?"
+
+#: src/documentmanager.cpp:881
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "%1 is read only."
+msgstr "%1, saltokunur"
+
+#: src/documentmanager.cpp:882
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Overwrite protected file?"
+msgstr "Korunan dosyanın üzerine yazılsın mı?"
+
+#: src/documentmanager.cpp:901
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Overwrite failed."
+msgstr "Üzerine yazma başarısız."
+
+#: src/documentmanager.cpp:902
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Please save file to another location."
+msgstr "Lütfen, dosyayı başka bir konuma kaydedin."
+
+#: src/documentmanager.cpp:926 src/documentmanager.cpp:939
+msgctxt "ghostwriter::DocumentManager|"
+msgid "File backup failed"
+msgstr "Dosya yedeklemesi başarısız"
+
+#: src/documentstatisticswidget.cpp:19
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Very Easy"
+msgstr "Çok Kolay"
+
+#: src/documentstatisticswidget.cpp:20
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Easy"
+msgstr "Kolay"
+
+#: src/documentstatisticswidget.cpp:21
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Standard"
+msgstr "Standart"
+
+#: src/documentstatisticswidget.cpp:22
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Difficult"
+msgstr "Güç"
+
+#: src/documentstatisticswidget.cpp:23
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Very Difficult"
+msgstr "Çok Güç"
+
+#: src/documentstatisticswidget.cpp:60
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Words:"
+msgstr "Sözcük:"
+
+#: src/documentstatisticswidget.cpp:61
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Characters:"
+msgstr "Karakter:"
+
+#: src/documentstatisticswidget.cpp:62
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Sentences:"
+msgstr "Tümce:"
+
+#: src/documentstatisticswidget.cpp:63
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Paragraphs:"
+msgstr "Paragraf:"
+
+#: src/documentstatisticswidget.cpp:64
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Pages:"
+msgstr "Sayfa:"
+
+#: src/documentstatisticswidget.cpp:65
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Complex Words:"
+msgstr "Karmaşık Sözcük:"
+
+#: src/documentstatisticswidget.cpp:66
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Reading Time:"
+msgstr "Okuma Süresi:"
+
+#: src/documentstatisticswidget.cpp:67
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Reading Ease:"
+msgstr "Okuma Kolaylığı:"
+
+#: src/documentstatisticswidget.cpp:67
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "LIX Reading Ease"
+msgstr "LIX Okuma Kolaylığı"
+
+#: src/documentstatisticswidget.cpp:68
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Grade Level:"
+msgstr "Sınıf Düzeyi:"
+
+#: src/documentstatisticswidget.cpp:68
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Coleman-Liau Readability Index (CLI)"
+msgstr "Coleman-Liau Okunabilirlik İndeksi (CLI)"
+
+#: src/documentstatisticswidget.cpp:149
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Kindergarten"
+msgstr "Anaokulu"
+
+#: src/documentstatisticswidget.cpp:152
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Rocket Science"
+msgstr "Matematiksel Zeka"
+
+#: src/documentstatisticswidget.cpp:154
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "College"
+msgstr "Üniversite"
+
+#: src/exportdialog.cpp:41 src/exportdialog.cpp:88
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: src/exportdialog.cpp:73
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Smart Typography"
+msgstr "Akıllı Tipografi"
+
+#: src/exportdialog.cpp:76
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Export Options"
+msgstr "Dışa Aktar Seçenekleri"
+
+#: src/exportdialog.cpp:78
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Markdown Converter"
+msgstr "Markdown Dönüştürücü"
+
+#: src/exportdialog.cpp:79
+msgctxt "ghostwriter::ExportDialog|"
+msgid "File Format"
+msgstr "Dosya Biçimi"
+
+#: src/exportdialog.cpp:159
+#, qt-format
+msgctxt "ghostwriter::ExportDialog|"
+msgid "exporting to %1"
+msgstr "%1 olarak dışa aktarılıyor"
+
+#: src/exportdialog.cpp:175
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Export failed."
+msgstr "Dışa aktarma başarısız."
+
+#: src/exporter.cpp:62
+msgctxt "QObject|"
+msgid "Export to HTML is not supported with this processor."
+msgstr "Bu işlemci ile HTML'ye dışa aktarma desteklenmiyor."
+
+#: src/findreplace.cpp:97
+msgctxt "ghostwriter::FindReplace|"
+msgid "Match case"
+msgstr "BÜYÜK/küçük harf eşleştir"
+
+#: src/findreplace.cpp:102
+msgctxt "ghostwriter::FindReplace|"
+msgid "Whole word"
+msgstr "Tam sözcük"
+
+#: src/findreplace.cpp:108
+msgctxt "ghostwriter::FindReplace|"
+msgid "Regular expression"
+msgstr "Düzenli ifade"
+
+#: src/findreplace.cpp:113
+msgctxt "ghostwriter::FindReplace|"
+msgid "Highlight matches"
+msgstr "Eşleşmeleri vurgula"
+
+#: src/findreplace.cpp:121
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find previous"
+msgstr "Öncekini bul"
+
+#: src/findreplace.cpp:126
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find next"
+msgstr "Sonrakini bul"
+
+#: src/findreplace.cpp:131
+msgctxt "ghostwriter::FindReplace|"
+msgid "Replace"
+msgstr "Değiştir"
+
+#: src/findreplace.cpp:135
+msgctxt "ghostwriter::FindReplace|"
+msgid "Replace All"
+msgstr "Tümünü Değiştir"
+
+#: src/findreplace.cpp:165
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find:"
+msgstr "Bul:"
+
+#: src/findreplace.cpp:171
+msgctxt "ghostwriter::FindReplace|"
+msgid "Replace with:"
+msgstr "Şununla değiştir:"
+
+#: src/findreplace.cpp:371
+msgctxt "ghostwriter::FindReplace|"
+msgid "%Ln replacement(s)"
+msgid_plural "%Ln replacement(s)"
+msgstr[0] "%Ln değiştirme"
+msgstr[1] "%Ln değiştirme"
+
+#: src/findreplace.cpp:421
+msgctxt "ghostwriter::FindReplace|"
+msgid "Search wrapped"
+msgstr "Arama kaydırıldı"
+
+#: src/findreplace.cpp:428
+msgctxt "ghostwriter::FindReplace|"
+msgid "No results"
+msgstr "Sonuç yok"
+
+#: src/findreplace.cpp:470
+#, qt-format
+msgctxt "ghostwriter::FindReplace|"
+msgid "%1 matches"
+msgstr "%1 eşleşme"
+
+#: src/htmlpreview.cpp:162
+msgctxt "ghostwriter::HtmlPreview|"
+msgid "Error loading resources/preview.html"
+msgstr "resources/preview.html yüklenirken hata"
+
+#: src/localedialog.cpp:26
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Set Application Language"
+msgstr "Uygulama Dilini Ayarla"
+
+#: src/localedialog.cpp:36
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "The translations folder is missing."
+msgstr "Çeviriler klasörü eksik."
+
+#: src/localedialog.cpp:37
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Please reinstall this application for more language options."
+msgstr "Daha çok dil seçeneği için, lütfen bu uygulamayı yeniden kurun."
+
+#: src/mainwindow.cpp:671
+msgctxt "ghostwriter::MainWindow|"
+msgid "Insert Image"
+msgstr "Görsel Ekle"
+
+#: src/mainwindow.cpp:674
+msgctxt "ghostwriter::MainWindow|"
+msgid "Images"
+msgstr "Görseller"
+
+#: src/mainwindow.cpp:675
+msgctxt "ghostwriter::MainWindow|"
+msgid "All Files"
+msgstr "Tüm Dosyalar"
+
+#: src/mainwindow.cpp:717
+msgctxt "ghostwriter::MainWindow|"
+msgid ""
+"<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and redistribute "
+"this software under the terms of the <a href=\"http://www.gnu.org/licenses/"
+"gpl.html\">GNU General Public License Version 3</a>.</p><p>Visit the "
+"official website at <a href=\"http://github.com/wereturtle/ghostwriter"
+"\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special thanks and "
+"credit for reused code goes to</p><p><a href=\"mailto:graeme@gottcode.org"
+"\">Graeme Gott</a>, author of <a href=\"http://gottcode.org/focuswriter/"
+"\">FocusWriter</a><br/>Dmitry Shachnev, author of <a href=\"http://"
+"sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href=\"mailto:"
+"gabriel@teuton.org\">Gabriel M. Beddingfield</a>, author of <a href=\"http://"
+"www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/><p>I am also "
+"deeply indebted to <a href=\"mailto:w.vollprecht@gmail.com\">Wolf "
+"Vollprecht</a>, the author of <a href=\"http://uberwriter.wolfvollprecht.de/"
+"\">UberWriter</a>, for the inspiration he provided in creating such a "
+"beautiful Markdown editing tool.</p>"
+msgstr ""
+"<p>Telif hakkı &copy; 2014-2022 wereturtle</b><p>Bu yazılımı, <a href="
+"\"http://www.gnu.org/licenses/gpl.html\">GNU Genel Kamu Lisansı 3. Sürüm</a> "
+"altında kullanabilir ve dağıtabilirsiniz.</p><p><a href=\"http://github.com/"
+"wereturtle/ghostwriter\">http://github.com/wereturtle/ghostwriter</a> "
+"adresindeki resmi siteyi ziyaret edin.</p><p>Kod yeniden kullanımı için özel "
+"teşekkürler:</p><p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, "
+"<a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a>'ın yazarı<br/"
+">Dmitry Shachnev, <a href=\"http://sourceforge.net/p/retext/home/ReText/"
+"\">Retext</a>'in yazarı<br/><a href=\"mailto:gabriel@teuton.org\">Gabriel M. "
+"Beddingfield</a>, <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
+"\">StretchPlayer</a>'ın yazarı<br/><p>Ayrıca, <a href=\"http://uberwriter."
+"wolfvollprecht.de/\">UberWriter</a>'ın yazarı olan <a href=\"mailto:w."
+"vollprecht@gmail.com\">Wolf Vollprecht</a>'e bu kadar güzel bir Markdown "
+"düzenleme aracı yarattığı ve verdiği ilhamdan dolayı en içten teşekkürlerimi "
+"sunarım.</p>"
+
+#: src/mainwindow.cpp:740
+#, qt-format
+msgctxt "ghostwriter::MainWindow|"
+msgid "About %1"
+msgstr "%1 Hakkında"
+
+#: src/mainwindow.cpp:854
+msgctxt "ghostwriter::MainWindow|"
+msgid "Please restart the application for changes to take effect."
+msgstr "Değişikliklerin etkisi olması için lütfen uygulamayı yeniden başlatın."
+
+#: src/mainwindow.cpp:992
+msgctxt "ghostwriter::MainWindow|"
+msgid "&File"
+msgstr "&Dosya"
+
+#: src/mainwindow.cpp:994
+msgctxt "ghostwriter::MainWindow|"
+msgid "&New"
+msgstr "&Yeni"
+
+#: src/mainwindow.cpp:995
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Open"
+msgstr "&Aç"
+
+#: src/mainwindow.cpp:997
+msgctxt "ghostwriter::MainWindow|"
+msgid "Open &Recent..."
+msgstr "&Son Kullanılan Aç..."
+
+#: src/mainwindow.cpp:998
+msgctxt "ghostwriter::MainWindow|"
+msgid "Reopen Closed File"
+msgstr "Kapatılan Dosyayı Yeniden Aç"
+
+#: src/mainwindow.cpp:1006
+msgctxt "ghostwriter::MainWindow|"
+msgid "Clear Menu"
+msgstr "Menüyü Temizle"
+
+#: src/mainwindow.cpp:1011
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Save"
+msgstr "&Kaydet"
+
+#: src/mainwindow.cpp:1012
+msgctxt "ghostwriter::MainWindow|"
+msgid "Save &As..."
+msgstr "&Farklı Kaydet"
+
+#: src/mainwindow.cpp:1013
+msgctxt "ghostwriter::MainWindow|"
+msgid "R&ename..."
+msgstr "Y&eniden Adlandır..."
+
+#: src/mainwindow.cpp:1014
+msgctxt "ghostwriter::MainWindow|"
+msgid "Re&load from Disk..."
+msgstr "D&iskten Yeniden Yükle..."
+
+#: src/mainwindow.cpp:1016
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Export"
+msgstr "Dışa Akta&r"
+
+#: src/mainwindow.cpp:1018
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Quit"
+msgstr "Çı&k"
+
+#: src/mainwindow.cpp:1022
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Edit"
+msgstr "Dü&zen"
+
+#: src/mainwindow.cpp:1023
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Undo"
+msgstr "&Geri Al"
+
+#: src/mainwindow.cpp:1024
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Redo"
+msgstr "&Yinele"
+
+#: src/mainwindow.cpp:1026
+msgctxt "ghostwriter::MainWindow|"
+msgid "Cu&t"
+msgstr "&Kes"
+
+#: src/mainwindow.cpp:1027
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Copy"
+msgstr "K&opyala"
+
+#: src/mainwindow.cpp:1028
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Paste"
+msgstr "Ya&pıştır"
+
+#: src/mainwindow.cpp:1029
+msgctxt "ghostwriter::MainWindow|"
+msgid "Copy &HTML"
+msgstr "&HTML Kopyala"
+
+#: src/mainwindow.cpp:1031
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Insert Image..."
+msgstr "&Görsel Ekle..."
+
+#: src/mainwindow.cpp:1034
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Find"
+msgstr "&Bul"
+
+#: src/mainwindow.cpp:1035
+msgctxt "ghostwriter::MainWindow|"
+msgid "Rep&lace"
+msgstr "&Değiştir"
+
+#: src/mainwindow.cpp:1036
+msgctxt "ghostwriter::MainWindow|"
+msgid "Find &Next"
+msgstr "&Sonrakini Bul"
+
+#: src/mainwindow.cpp:1037
+msgctxt "ghostwriter::MainWindow|"
+msgid "Find &Previous"
+msgstr "Ö&ncekini Bul"
+
+#: src/mainwindow.cpp:1039
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Spell check"
+msgstr "Ya&zım Denetimi"
+
+#: src/mainwindow.cpp:1041
+msgctxt "ghostwriter::MainWindow|"
+msgid "For&mat"
+msgstr "&Biçim"
+
+#: src/mainwindow.cpp:1042
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Bold"
+msgstr "&Kalın"
+
+#: src/mainwindow.cpp:1043
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Italic"
+msgstr "&Yatık"
+
+#: src/mainwindow.cpp:1044
+msgctxt "ghostwriter::MainWindow|"
+msgid "Stri&kethrough"
+msgstr "Ü&zeri Çizili"
+
+#: src/mainwindow.cpp:1045
+msgctxt "ghostwriter::MainWindow|"
+msgid "&HTML Comment"
+msgstr "&HTML Yorum"
+
+#: src/mainwindow.cpp:1048
+msgctxt "ghostwriter::MainWindow|"
+msgid "I&ndent"
+msgstr "&Girintile"
+
+#: src/mainwindow.cpp:1049
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Unindent"
+msgstr "&Girintiyi Kaldır"
+
+#: src/mainwindow.cpp:1051
+msgctxt "ghostwriter::MainWindow|"
+msgid "Block &Quote"
+msgstr "&Blok Alıntı"
+
+#: src/mainwindow.cpp:1052
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Strip Block Quote"
+msgstr "B&lok Alıntıyı Çıkar"
+
+#: src/mainwindow.cpp:1054
+msgctxt "ghostwriter::MainWindow|"
+msgid "&* Bullet List"
+msgstr "&* Madde İmi"
+
+#: src/mainwindow.cpp:1055
+msgctxt "ghostwriter::MainWindow|"
+msgid "&- Bullet List"
+msgstr "&- Madde İmi"
+
+#: src/mainwindow.cpp:1056
+msgctxt "ghostwriter::MainWindow|"
+msgid "&+ Bullet List"
+msgstr "&+ Madde İmi"
+
+#: src/mainwindow.cpp:1058
+msgctxt "ghostwriter::MainWindow|"
+msgid "1&. Numbered List"
+msgstr "1&. Numaralandırılmış Liste"
+
+#: src/mainwindow.cpp:1059
+msgctxt "ghostwriter::MainWindow|"
+msgid "1&) Numbered List"
+msgstr "1&) Numaralandırılmış Liste"
+
+#: src/mainwindow.cpp:1061
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Task List"
+msgstr "Gö&rev Listesi"
+
+#: src/mainwindow.cpp:1062
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle Task(s) &Complete"
+msgstr "Yapılan Görevleri Göster/Gi&zle"
+
+#: src/mainwindow.cpp:1065
+msgctxt "ghostwriter::MainWindow|"
+msgid "&View"
+msgstr "&Görünüm"
+
+#: src/mainwindow.cpp:1067
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Full Screen"
+msgstr "&Tam Ekran"
+
+#: src/mainwindow.cpp:1075
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Preview in HTML"
+msgstr "HTML &Olarak Önizle"
+
+#: src/mainwindow.cpp:1083
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Outline"
+msgstr "&Ana Hat"
+
+#: src/mainwindow.cpp:1093
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Session Statistics"
+msgstr "O&turum İstatistikleri"
+
+#: src/mainwindow.cpp:1102
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Document Statistics"
+msgstr "&Belge İstatistikleri"
+
+#: src/mainwindow.cpp:1111
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Cheat Sheet"
+msgstr "Ko&pya Kağıdı"
+
+#: src/mainwindow.cpp:1122
+msgctxt "ghostwriter::MainWindow|"
+msgid "Increase Font Size"
+msgstr "Yazıtipi Büyüklüğünü Artır"
+
+#: src/mainwindow.cpp:1123
+msgctxt "ghostwriter::MainWindow|"
+msgid "Decrease Font Size"
+msgstr "Yazıtipi Büyüklüğünü Azalt"
+
+#: src/mainwindow.cpp:1125
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Settings"
+msgstr "&Ayarlar"
+
+#: src/mainwindow.cpp:1126 src/mainwindow.cpp:1430
+msgctxt "ghostwriter::MainWindow|"
+msgid "Themes..."
+msgstr "Temalar..."
+
+#: src/mainwindow.cpp:1127 src/mainwindow.cpp:1431
+msgctxt "ghostwriter::MainWindow|"
+msgid "Font..."
+msgstr "Yazıtipi..."
+
+#: src/mainwindow.cpp:1128 src/mainwindow.cpp:1432
+msgctxt "ghostwriter::MainWindow|"
+msgid "Application Language..."
+msgstr "Uygulama Dili..."
+
+#: src/mainwindow.cpp:1129 src/mainwindow.cpp:1433
+msgctxt "ghostwriter::MainWindow|"
+msgid "Preview Options..."
+msgstr "Önizleme Seçenekleri..."
+
+#: src/mainwindow.cpp:1130 src/mainwindow.cpp:1434
+msgctxt "ghostwriter::MainWindow|"
+msgid "Preferences..."
+msgstr "Tercihler..."
+
+#: src/mainwindow.cpp:1134
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Help"
+msgstr "&Yardım"
+
+#: src/mainwindow.cpp:1135
+msgctxt "ghostwriter::MainWindow|"
+msgid "&About"
+msgstr "&Hakkında"
+
+#: src/mainwindow.cpp:1138
+msgctxt "ghostwriter::MainWindow|"
+msgid "About &Qt"
+msgstr "&Qt Hakkında"
+
+#: src/mainwindow.cpp:1141
+msgctxt "ghostwriter::MainWindow|"
+msgid "Quick &Reference Guide"
+msgstr "Tez &Başvuru Kılavuzu"
+
+#: src/mainwindow.cpp:1142
+msgctxt "ghostwriter::MainWindow|"
+msgid "Wiki"
+msgstr "Viki"
+
+#: src/mainwindow.cpp:1188
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle sidebar"
+msgstr "Kenar çubuğunu aç/kapat"
+
+#: src/mainwindow.cpp:1245
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle dark mode"
+msgstr "Koyu kipi aç/kapat"
+
+#: src/mainwindow.cpp:1264
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle Live HTML Preview"
+msgstr "Canlı HTML önizlemesini aç/kapat"
+
+#: src/mainwindow.cpp:1284
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle Hemingway mode"
+msgstr "Hemingway kipini aç/kapat"
+
+#: src/mainwindow.cpp:1292
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle distraction free mode"
+msgstr "Dikkat dağıtmayan kipi aç/kapat"
+
+#: src/mainwindow.cpp:1301
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle full screen mode"
+msgstr "Tam ekran kipini aç/kapat"
+
+#: src/mainwindow.cpp:1324
+msgctxt "ghostwriter::MainWindow|"
+msgid "Show Sidebar"
+msgstr "Kenar Çubuğunu Göster"
+
+#: src/mainwindow.cpp:1341
+msgctxt "ghostwriter::MainWindow|"
+msgid "# Heading 1"
+msgstr "# Başlık 1"
+
+#: src/mainwindow.cpp:1342
+msgctxt "ghostwriter::MainWindow|"
+msgid "## Heading 2"
+msgstr "## Başlık 2"
+
+#: src/mainwindow.cpp:1343
+msgctxt "ghostwriter::MainWindow|"
+msgid "### Heading 3"
+msgstr "### Başlık 3"
+
+#: src/mainwindow.cpp:1344
+msgctxt "ghostwriter::MainWindow|"
+msgid "#### Heading 4"
+msgstr "#### Başlık 4"
+
+#: src/mainwindow.cpp:1345
+msgctxt "ghostwriter::MainWindow|"
+msgid "##### Heading 5"
+msgstr "##### Başlık 5"
+
+#: src/mainwindow.cpp:1346
+msgctxt "ghostwriter::MainWindow|"
+msgid "###### Heading 6"
+msgstr "###### Başlık 6"
+
+#: src/mainwindow.cpp:1347
+msgctxt "ghostwriter::MainWindow|"
+msgid "*Emphasis* _Emphasis_"
+msgstr "*Vurgu* _Vurgu_"
+
+#: src/mainwindow.cpp:1348
+msgctxt "ghostwriter::MainWindow|"
+msgid "**Strong** __Strong__"
+msgstr "**Güçlü** __Güçlü__"
+
+#: src/mainwindow.cpp:1349
+msgctxt "ghostwriter::MainWindow|"
+msgid "1. Numbered List"
+msgstr "1. Numaralandırılmış Liste"
+
+#: src/mainwindow.cpp:1350
+msgctxt "ghostwriter::MainWindow|"
+msgid "* Bullet List"
+msgstr "* Madde İmi"
+
+#: src/mainwindow.cpp:1351
+msgctxt "ghostwriter::MainWindow|"
+msgid "+ Bullet List"
+msgstr "+ Madde İmi"
+
+#: src/mainwindow.cpp:1352
+msgctxt "ghostwriter::MainWindow|"
+msgid "- Bullet List"
+msgstr "- Madde İmi"
+
+#: src/mainwindow.cpp:1353
+msgctxt "ghostwriter::MainWindow|"
+msgid "> Block Quote"
+msgstr "> Blok Alıntı"
+
+#: src/mainwindow.cpp:1354
+msgctxt "ghostwriter::MainWindow|"
+msgid "`Code Span`"
+msgstr "`Kod Aralığı`"
+
+#: src/mainwindow.cpp:1355
+msgctxt "ghostwriter::MainWindow|"
+msgid "``` Code Block"
+msgstr "``` Kod Bloku"
+
+#: src/mainwindow.cpp:1356
+msgctxt "ghostwriter::MainWindow|"
+msgid "[Link](http://url.com \"Title\")"
+msgstr "[Bağlantı](http://url.com \"Başlık\")"
+
+#: src/mainwindow.cpp:1357
+msgctxt "ghostwriter::MainWindow|"
+msgid "[Reference Link][ID]"
+msgstr "[Başvuru Bağlantısı][Kimlik]"
+
+#: src/mainwindow.cpp:1358
+msgctxt "ghostwriter::MainWindow|"
+msgid "[ID]: http://url.com \"Reference Definition\""
+msgstr "[Kimlik]: http://url.com \"Başvuru Tanımı\""
+
+#: src/mainwindow.cpp:1359
+msgctxt "ghostwriter::MainWindow|"
+msgid "![Image](./image.jpg \"Title\")"
+msgstr "![Görsel](./image.jpg \"Başlık\")"
+
+#: src/mainwindow.cpp:1360
+msgctxt "ghostwriter::MainWindow|"
+msgid "--- *** ___ Horizontal Rule"
+msgstr "--- *** ___ Yatay Kural"
+
+#: src/mainwindow.cpp:1410
+msgctxt "ghostwriter::MainWindow|"
+msgid "Outline"
+msgstr "Ana Hat"
+
+#: src/mainwindow.cpp:1411
+msgctxt "ghostwriter::MainWindow|"
+msgid "Session Statistics"
+msgstr "Oturum İstatistikleri"
+
+#: src/mainwindow.cpp:1412
+msgctxt "ghostwriter::MainWindow|"
+msgid "Document Statistics"
+msgstr "Belge İstatistikleri"
+
+#: src/mainwindow.cpp:1413
+msgctxt "ghostwriter::MainWindow|"
+msgid "Cheat Sheet"
+msgstr "Kopya Kağıdı"
+
+#: src/mainwindow.cpp:1423
+msgctxt "ghostwriter::MainWindow|"
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/markdowndocument.cpp:95 src/markdowndocument.cpp:167
+msgctxt "ghostwriter::MarkdownDocument|"
+msgid "untitled"
+msgstr "başlıksız"
+
+#: src/preferencesdialog.cpp:65
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: src/preferencesdialog.cpp:74
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "General"
+msgstr "Genel"
+
+#: src/preferencesdialog.cpp:75
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Editor"
+msgstr "Düzenleyici"
+
+#: src/preferencesdialog.cpp:76
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Spell Check"
+msgstr "Yazım Denetimi"
+
+#: src/preferencesdialog.cpp:97
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Matched Characters"
+msgstr "Eşleşen Karakterler"
+
+#: src/preferencesdialog.cpp:180
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Display"
+msgstr "Görünüm"
+
+#: src/preferencesdialog.cpp:186
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Show current time in full screen mode"
+msgstr "Tam ekran kipinde geçerli zamanı göster"
+
+#: src/preferencesdialog.cpp:192
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Hide menu bar in full screen mode"
+msgstr "Tam ekran kipinde menü çubuğunu gizle"
+
+#: src/preferencesdialog.cpp:199
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Rounded"
+msgstr "Yuvarlatılmış"
+
+#: src/preferencesdialog.cpp:200
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Square"
+msgstr "Kare"
+
+#: src/preferencesdialog.cpp:212
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Interface style"
+msgstr "Arayüz bicemi"
+
+#: src/preferencesdialog.cpp:214
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "File Saving"
+msgstr "Dosya Kaydetme"
+
+#: src/preferencesdialog.cpp:220
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Auto save"
+msgstr "Otomatik kaydet"
+
+#: src/preferencesdialog.cpp:227
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Backup file on save"
+msgstr "Kaydederken dosyayı yedekle"
+
+#: src/preferencesdialog.cpp:233
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "View untitled drafts..."
+msgstr "Başlıksız taslakları görüntüle..."
+
+#: src/preferencesdialog.cpp:243
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Session"
+msgstr "Oturum"
+
+#: src/preferencesdialog.cpp:249
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Remember recent files"
+msgstr "Son kullanılan dosyaları hatırla"
+
+#: src/preferencesdialog.cpp:255
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Open last file on startup"
+msgstr "Başlangıçta son kullanılan dosyayı aç"
+
+#: src/preferencesdialog.cpp:278
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Tabulation"
+msgstr "Sekmeleme"
+
+#: src/preferencesdialog.cpp:284
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Insert spaces for tabs"
+msgstr "Sekmeler için boşluklar ekle"
+
+#: src/preferencesdialog.cpp:300
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Tabulation width"
+msgstr "Sekmeleme genişliği"
+
+#: src/preferencesdialog.cpp:302
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Styling"
+msgstr "Biçemleme"
+
+#: src/preferencesdialog.cpp:309
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Sentence"
+msgstr "Tümce"
+
+#: src/preferencesdialog.cpp:310
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Current Line"
+msgstr "Geçerli Satır"
+
+#: src/preferencesdialog.cpp:311
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Three Lines"
+msgstr "Üç Satır"
+
+#: src/preferencesdialog.cpp:312
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Paragraph"
+msgstr "Paragraf"
+
+#: src/preferencesdialog.cpp:313
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Typewriter"
+msgstr "Daktilo"
+
+#: src/preferencesdialog.cpp:325
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Focus mode"
+msgstr "Odak kipi"
+
+#: src/preferencesdialog.cpp:328
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Narrow"
+msgstr "Dar"
+
+#: src/preferencesdialog.cpp:329
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Medium"
+msgstr "Orta"
+
+#: src/preferencesdialog.cpp:330
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Wide"
+msgstr "Geniş"
+
+#: src/preferencesdialog.cpp:331
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Full"
+msgstr "Tam"
+
+#: src/preferencesdialog.cpp:343
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Editor width"
+msgstr "Düzenleyici genişliği"
+
+#: src/preferencesdialog.cpp:346
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Plain"
+msgstr "Düz"
+
+#: src/preferencesdialog.cpp:347 src/preferencesdialog.cpp:362
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Italic"
+msgstr "Yatık"
+
+#: src/preferencesdialog.cpp:359
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Blockquote style"
+msgstr "Blok alıntı biçemi"
+
+#: src/preferencesdialog.cpp:363
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Underline"
+msgstr "Altı çizili"
+
+#: src/preferencesdialog.cpp:375
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Emphasis style"
+msgstr "Vurgu biçemi"
+
+#: src/preferencesdialog.cpp:377
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Use large headings"
+msgstr "Büyük başlıklar kullan"
+
+#: src/preferencesdialog.cpp:383
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Typing"
+msgstr "Yazma"
+
+#: src/preferencesdialog.cpp:389
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Cycle bullet point markers"
+msgstr "Madde imlerini çevir"
+
+#: src/preferencesdialog.cpp:395
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Automatically match characters"
+msgstr "Karakterleri kendiliğinden eşleştir"
+
+#: src/preferencesdialog.cpp:401
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Customize matched characters..."
+msgstr "Eşleştirilen karakterleri özelleştir..."
+
+#: src/preferencesdialog.cpp:426
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Live spellcheck enabled"
+msgstr "Canlı yazım denetimi etkin"
+
+#: src/preferencesdialog.cpp:432
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Language"
+msgstr "Dil"
+
+#: src/preferencesdialog.cpp:467
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Dictionary"
+msgstr "Sözlük"
+
+#: src/previewoptionsdialog.cpp:49
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Preview Options"
+msgstr "Önizleme Seçenekleri"
+
+#: src/previewoptionsdialog.cpp:88
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Markdown Flavor"
+msgstr "Markdown Türü"
+
+#: src/previewoptionsdialog.cpp:96 src/previewoptionsdialog.cpp:122
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Choose..."
+msgstr "Seç..."
+
+#: src/previewoptionsdialog.cpp:114
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Text Font:"
+msgstr "Metin Yazıtipi:"
+
+#: src/previewoptionsdialog.cpp:140
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Code Font:"
+msgstr "Kod Yazitıpı:"
+
+#: src/previewoptionsdialog.cpp:163
+#, qt-format
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "%1 %2pt"
+msgstr "%1 %2 pnt"
+
+#: src/sessionstatisticswidget.cpp:37
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Words Written:"
+msgstr "Yazılan Sözcük:"
+
+#: src/sessionstatisticswidget.cpp:38
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Pages Written:"
+msgstr "Yazılan Sayfa:"
+
+#: src/sessionstatisticswidget.cpp:39
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Average WPM:"
+msgstr "Ortalama Sözcük/Dakika:"
+
+#: src/sessionstatisticswidget.cpp:40
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Total Time:"
+msgstr "Toplam Süre:"
+
+#: src/sessionstatisticswidget.cpp:41
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Idle Time:"
+msgstr "Boştaki Süre:"
+
+#: src/simplefontdialog.cpp:61
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Family"
+msgstr "Aile"
+
+#: src/simplefontdialog.cpp:108
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Size"
+msgstr "Boyut"
+
+#: src/simplefontdialog.cpp:111
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "AaBbCcXxYyZz"
+msgstr "AaBbCcVvYyZz"
+
+#: src/simplefontdialog.cpp:115
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Preview"
+msgstr "Önizleme"
+
+#: src/simplefontdialog.cpp:118
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Show only monospaced fonts"
+msgstr "Yalnızca eş aralıklı yazıtiplerini göster"
+
+#: src/spelling/spellcheckdecorator.cpp:228
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "Check spelling..."
+msgstr "Yazımı denetle..."
+
+#: src/spelling/spellcheckdecorator.cpp:250
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "Spelling"
+msgstr "Yazım Denetimi"
+
+#: src/spelling/spellcheckdecorator.cpp:254
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "Add word to dictionary"
+msgstr "Sözcüğü, sözlüğe ekle"
+
+#: src/spelling/spellcheckdecorator.cpp:295
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "No spelling suggestions found"
+msgstr "Yazım önerisi bulunamadı"
+
+#: src/spelling/spellchecker.cpp:102
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Check Spelling"
+msgstr "Yazımı Denetle"
+
+#: src/spelling/spellchecker.cpp:114
+msgctxt "ghostwriter::SpellChecker|"
+msgid "&Add"
+msgstr "&Ekle"
+
+#: src/spelling/spellchecker.cpp:117
+msgctxt "ghostwriter::SpellChecker|"
+msgid "&Ignore"
+msgstr "&Yok Say"
+
+#: src/spelling/spellchecker.cpp:120
+msgctxt "ghostwriter::SpellChecker|"
+msgid "I&gnore All"
+msgstr "&Tümünü Yok Say"
+
+#: src/spelling/spellchecker.cpp:125
+msgctxt "ghostwriter::SpellChecker|"
+msgid "&Change"
+msgstr "&Değiştir"
+
+#: src/spelling/spellchecker.cpp:128
+msgctxt "ghostwriter::SpellChecker|"
+msgid "C&hange All"
+msgstr "Tü&münü Değiştir"
+
+#: src/spelling/spellchecker.cpp:143
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Not in dictionary:"
+msgstr "Sözlükte yok:"
+
+#: src/spelling/spellchecker.cpp:151
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Change to:"
+msgstr "Şuna değiştir:"
+
+#: src/spelling/spellchecker.cpp:165
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Checking spelling..."
+msgstr "Yazım denetleniyor..."
+
+#: src/spelling/spellchecker.cpp:165
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/spelling/spellchecker.cpp:166
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Please wait"
+msgstr "Lütfen bekleyin"
+
+#: src/spelling/spellchecker.cpp:193
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Continue checking at beginning of file?"
+msgstr "Denetim, dosyanın başından sürdürülsün mü?"
+
+#: src/spelling/spellchecker.cpp:271
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Spell check complete."
+msgstr "Yazım denetimi tamamlandı."
+
+#: src/statisticsindicator.cpp:15
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln word(s)"
+msgid_plural "%Ln word(s)"
+msgstr[0] "%Ln sözcük"
+msgstr[1] "%Ln sözcük"
+
+#: src/statisticsindicator.cpp:19
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln character(s)"
+msgid_plural "%Ln character(s)"
+msgstr[0] "%Ln karakter"
+msgstr[1] "%Ln karakter"
+
+#: src/statisticsindicator.cpp:23
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln sentence(s)"
+msgid_plural "%Ln sentence(s)"
+msgstr[0] "%Ln tümce"
+msgstr[1] "%Ln tümce"
+
+#: src/statisticsindicator.cpp:27
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln paragraph(s)"
+msgid_plural "%Ln paragraph(s)"
+msgstr[0] "%Ln paragraf"
+msgstr[1] "%Ln paragraf"
+
+#: src/statisticsindicator.cpp:31
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln page(s)"
+msgid_plural "%Ln page(s)"
+msgstr[0] "%Ln sayfa"
+msgstr[1] "%Ln sayfa"
+
+#: src/statisticsindicator.cpp:35
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln word(s) added"
+msgid_plural "%Ln word(s) added"
+msgstr[0] "%Ln sözcük eklendi"
+msgstr[1] "%Ln sözcük eklendi"
+
+#: src/statisticsindicator.cpp:37
+#, qt-format
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%1 wpm"
+msgstr "%1 sözcük/dakika"
+
+#: src/statisticsindicator.cpp:38
+#, qt-format
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%1:%2 read time"
+msgstr "%1:%2 okuma süresi"
+
+#: src/statisticsindicator.cpp:41
+#, qt-format
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%1:%2 write time"
+msgstr "%1:%2 yazma süresi"
+
+#: src/themeeditordialog.cpp:76
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Edit Theme"
+msgstr "Temayı Düzenle"
+
+#: src/themeeditordialog.cpp:79
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Theme Name"
+msgstr "Tema Adı"
+
+#: src/themeeditordialog.cpp:165
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Element"
+msgstr "Öge"
+
+#: src/themeeditordialog.cpp:166
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Light Mode"
+msgstr "Açık Kip"
+
+#: src/themeeditordialog.cpp:167
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Dark Mode"
+msgstr "Koyu Kip"
+
+#: src/themeeditordialog.cpp:169
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Foreground"
+msgstr "Ön Plan"
+
+#: src/themeeditordialog.cpp:170
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Background"
+msgstr "Arka Plan"
+
+#: src/themeeditordialog.cpp:171
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Selection"
+msgstr "Seçim"
+
+#: src/themeeditordialog.cpp:172
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Cursor"
+msgstr "İmleç"
+
+#: src/themeeditordialog.cpp:173
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Markup"
+msgstr "Biçim"
+
+#: src/themeeditordialog.cpp:174
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Accent"
+msgstr "Aksan"
+
+#: src/themeeditordialog.cpp:175
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Heading"
+msgstr "Başlık"
+
+#: src/themeeditordialog.cpp:176
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Emphasis"
+msgstr "Vurgu"
+
+#: src/themeeditordialog.cpp:177
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Block Text"
+msgstr "Blok Metin"
+
+#: src/themeeditordialog.cpp:178
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Link"
+msgstr "Bağlantı"
+
+#: src/themeeditordialog.cpp:179
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Error"
+msgstr "Hata"
+
+#: src/themeeditordialog.cpp:212
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Unable to save theme."
+msgstr "Tema kaydedilemedi."
+
+#: src/themerepository.cpp:149
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "The specified theme does not exist in the file system: %1"
+msgstr "Belirtilen tema, dosya sisteminde yok: %1"
+
+#: src/themerepository.cpp:157
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Could not open theme file for reading: %1"
+msgstr "Tema dosyası, okuma için açılamadı: %1"
+
+#: src/themerepository.cpp:167
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Invalid theme format: %1"
+msgstr "Geçersiz tema biçimi: %1"
+
+#: src/themerepository.cpp:186 src/themerepository.cpp:195
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Invalid or missing value(s) in %1"
+msgstr "%1 içinde geçersiz veya eksik değer(ler)"
+
+#: src/themerepository.cpp:203
+msgctxt "ghostwriter::ThemeRepository|"
+msgid ""
+"The specified theme is not available.  Try restarting the application.  If "
+"problem persists, please file a bug report."
+msgstr ""
+"Belirtilen tema, kullanılamıyor. Uygulamayı yeniden başlatmayı deneyin. "
+"Sorun sürerse bir hata kaydı açın."
+
+#: src/themerepository.cpp:219
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid ""
+"Could not delete theme at %1. Please try setting the file permissions to be "
+"writeable."
+msgstr ""
+"%1 konumundaki tema silinemedi. Dosya izinlerini, yazılabilir olarak "
+"ayarlamayı deneyin."
+
+#: src/themerepository.cpp:239
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "'%1' already exists.  Please choose another name."
+msgstr "'%1', halihazırda var. Lütfen başka bir tema seçin."
+
+#: src/themerepository.cpp:248
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "'%1' theme already exists.  Please choose another name."
+msgstr "'%1' teması, halihazırda var. Lütfen başka bir ad seçin."
+
+#: src/themerepository.cpp:255
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Failed to rename theme.  Please check file permissions."
+msgstr "Tema, yeniden adlandırılamadı. Lütfen dosya izinlerini denetleyin."
+
+#: src/themerepository.cpp:293
+msgctxt "ghostwriter::ThemeRepository|"
+msgid ""
+"Theme could not be saved to disk.  Please check file permissions or try "
+"renaming the theme."
+msgstr ""
+"Tema, diske kaydedilemedi. Lütfen dosya izinlerini denetleyin veya temayı "
+"yeniden adlandırmayı deneyin."
+
+#: src/themerepository.cpp:323
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Untitled 1"
+msgstr "Başlıksız 1"
+
+#: src/themerepository.cpp:333
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Untitled %1"
+msgstr "Başlıksız %1"
+
+#: src/themeselectiondialog.cpp:98
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Themes"
+msgstr "Temalar"
+
+#: src/themeselectiondialog.cpp:147
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Edit..."
+msgstr "Düzenle..."
+
+#: src/themeselectiondialog.cpp:397
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Cannot delete theme."
+msgstr "Tema silinemiyor."
+
+#: src/themeselectiondialog.cpp:398
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Sorry, this is a built-in theme that cannot be deleted."
+msgstr ""
+"Üzgünüm, bu uygulamayla birlikte gelen ve bu nedenle silinemeyen bir temadır."
+
+#: src/themeselectiondialog.cpp:409
+#, qt-format
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Are you sure you want to permanently delete the '%1' theme?"
+msgstr "'%1' temasını kalıcı olarak silmek istediğinizden emin misiniz?"
+
+#: src/themeselectiondialog.cpp:425
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Failed to delete theme."
+msgstr "Tema silinemedi."
+
+#: src/themeselectiondialog.cpp:453
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Cannot edit theme."
+msgstr "Tema düzenlenemiyor."
+
+#: src/themeselectiondialog.cpp:454
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Sorry, this is a built-in theme that cannot be edited."
+msgstr ""
+"Üzgünüm, bu uygulamayla birlikte gelen ve bu nedenle düzenlenemeyen bir "
+"temadır."

@@ -1,0 +1,1616 @@
+# translation of ghostwriter_qt.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: ghostwriter_qt\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:40+0000\n"
+"PO-Revision-Date: 2019-11-08 21:37+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: src/abstractstatisticswidget.cpp:16
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "&lt; 1m"
+msgstr ""
+
+#: src/abstractstatisticswidget.cpp:17
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "&lt; 1"
+msgstr ""
+
+#: src/abstractstatisticswidget.cpp:18
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "250 words per page"
+msgstr ""
+
+#: src/abstractstatisticswidget.cpp:52
+#, qt-format
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "%1h %2m"
+msgstr ""
+
+#: src/abstractstatisticswidget.cpp:54
+#, qt-format
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "%1m"
+msgstr ""
+
+#: src/appmain.cpp:105
+msgctxt "main|"
+msgid "Welcome to ghostwriter!"
+msgstr ""
+
+#: src/appmain.cpp:110
+msgctxt "main|"
+msgid "(Optional) File to open."
+msgstr ""
+
+#: src/appmain.cpp:113
+msgctxt "main|"
+msgid "Disables GPU acceleration."
+msgstr ""
+
+#: src/cmarkgfmexporter.cpp:50
+#, qt-format
+msgctxt "QObject|"
+msgid "%1 format is unsupported by the cmark-gfm processor."
+msgstr ""
+
+#: src/cmarkgfmexporter.cpp:58
+msgctxt "QObject|"
+msgid "Export failed"
+msgstr ""
+
+#: src/commandlineexporter.cpp:145
+msgctxt "QObject|"
+msgid "Export failed: "
+msgstr ""
+
+#: src/commandlineexporter.cpp:165
+#, qt-format
+msgctxt "QObject|"
+msgid "%1 format is not supported by this processor."
+msgstr ""
+
+#: src/commandlineexporter.cpp:188
+msgctxt "QObject|"
+msgid "Failed to execute command: "
+msgstr ""
+
+#: src/documentmanager.cpp:54
+msgctxt "ghostwriter::DocumentManager|"
+msgid "untitled"
+msgstr ""
+
+#: src/documentmanager.cpp:164
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Markdown"
+msgstr ""
+
+#: src/documentmanager.cpp:165
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Text"
+msgstr ""
+
+#: src/documentmanager.cpp:166
+msgctxt "ghostwriter::DocumentManager|"
+msgid "All"
+msgstr ""
+
+#: src/documentmanager.cpp:220 src/documentmanager.cpp:694
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Error saving %1"
+msgstr ""
+
+#: src/documentmanager.cpp:357
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Open File"
+msgstr ""
+
+#: src/documentmanager.cpp:370
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Could not open %1"
+msgstr ""
+
+#: src/documentmanager.cpp:371
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Permission denied."
+msgstr ""
+
+#: src/documentmanager.cpp:433
+msgctxt "ghostwriter::DocumentManager|"
+msgid "The document has been modified."
+msgstr ""
+
+#: src/documentmanager.cpp:434
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Discard changes?"
+msgstr ""
+
+#: src/documentmanager.cpp:465
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Rename File"
+msgstr ""
+
+#: src/documentmanager.cpp:482 src/documentmanager.cpp:495
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Failed to rename %1"
+msgstr ""
+
+#: src/documentmanager.cpp:533
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Save File"
+msgstr ""
+
+#: src/documentmanager.cpp:660
+msgctxt "ghostwriter::DocumentManager|"
+msgid "The document has been modified by another program."
+msgstr ""
+
+#: src/documentmanager.cpp:661
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Would you like to reload the document?"
+msgstr ""
+
+#: src/documentmanager.cpp:695
+msgctxt "ghostwriter::DocumentManager|"
+msgid "No file path specified"
+msgstr ""
+
+#: src/documentmanager.cpp:711 src/documentmanager.cpp:750
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Could not read %1"
+msgstr ""
+
+#: src/documentmanager.cpp:732
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "opening %1"
+msgstr ""
+
+#: src/documentmanager.cpp:839
+msgctxt "ghostwriter::DocumentManager|"
+msgid "File has been modified."
+msgstr ""
+
+#: src/documentmanager.cpp:841
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "%1 has been modified."
+msgstr ""
+
+#: src/documentmanager.cpp:850
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Would you like to save your changes?"
+msgstr ""
+
+#: src/documentmanager.cpp:881
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "%1 is read only."
+msgstr ""
+
+#: src/documentmanager.cpp:882
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Overwrite protected file?"
+msgstr ""
+
+#: src/documentmanager.cpp:901
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Overwrite failed."
+msgstr ""
+
+#: src/documentmanager.cpp:902
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Please save file to another location."
+msgstr ""
+
+#: src/documentmanager.cpp:926 src/documentmanager.cpp:939
+msgctxt "ghostwriter::DocumentManager|"
+msgid "File backup failed"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:19
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Very Easy"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:20
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Easy"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:21
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Standard"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:22
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Difficult"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:23
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Very Difficult"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:60
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Words:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:61
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Characters:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:62
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Sentences:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:63
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Paragraphs:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:64
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Pages:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:65
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Complex Words:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:66
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Reading Time:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:67
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Reading Ease:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:67
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "LIX Reading Ease"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:68
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Grade Level:"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:68
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Coleman-Liau Readability Index (CLI)"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:149
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Kindergarten"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:152
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Rocket Science"
+msgstr ""
+
+#: src/documentstatisticswidget.cpp:154
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "College"
+msgstr ""
+
+#: src/exportdialog.cpp:41 src/exportdialog.cpp:88
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Export"
+msgstr ""
+
+#: src/exportdialog.cpp:73
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Smart Typography"
+msgstr ""
+
+#: src/exportdialog.cpp:76
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Export Options"
+msgstr ""
+
+#: src/exportdialog.cpp:78
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Markdown Converter"
+msgstr ""
+
+#: src/exportdialog.cpp:79
+msgctxt "ghostwriter::ExportDialog|"
+msgid "File Format"
+msgstr ""
+
+#: src/exportdialog.cpp:159
+#, qt-format
+msgctxt "ghostwriter::ExportDialog|"
+msgid "exporting to %1"
+msgstr ""
+
+#: src/exportdialog.cpp:175
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Export failed."
+msgstr ""
+
+#: src/exporter.cpp:62
+msgctxt "QObject|"
+msgid "Export to HTML is not supported with this processor."
+msgstr ""
+
+#: src/findreplace.cpp:97
+msgctxt "ghostwriter::FindReplace|"
+msgid "Match case"
+msgstr ""
+
+#: src/findreplace.cpp:102
+msgctxt "ghostwriter::FindReplace|"
+msgid "Whole word"
+msgstr ""
+
+#: src/findreplace.cpp:108
+msgctxt "ghostwriter::FindReplace|"
+msgid "Regular expression"
+msgstr ""
+
+#: src/findreplace.cpp:113
+msgctxt "ghostwriter::FindReplace|"
+msgid "Highlight matches"
+msgstr ""
+
+#: src/findreplace.cpp:121
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find previous"
+msgstr ""
+
+#: src/findreplace.cpp:126
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find next"
+msgstr ""
+
+#: src/findreplace.cpp:131
+msgctxt "ghostwriter::FindReplace|"
+msgid "Replace"
+msgstr ""
+
+#: src/findreplace.cpp:135
+msgctxt "ghostwriter::FindReplace|"
+msgid "Replace All"
+msgstr ""
+
+#: src/findreplace.cpp:165
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find:"
+msgstr ""
+
+#: src/findreplace.cpp:171
+msgctxt "ghostwriter::FindReplace|"
+msgid "Replace with:"
+msgstr ""
+
+#: src/findreplace.cpp:371
+msgctxt "ghostwriter::FindReplace|"
+msgid "%Ln replacement(s)"
+msgid_plural "%Ln replacement(s)"
+msgstr[0] ""
+
+#: src/findreplace.cpp:421
+msgctxt "ghostwriter::FindReplace|"
+msgid "Search wrapped"
+msgstr ""
+
+#: src/findreplace.cpp:428
+msgctxt "ghostwriter::FindReplace|"
+msgid "No results"
+msgstr ""
+
+#: src/findreplace.cpp:470
+#, qt-format
+msgctxt "ghostwriter::FindReplace|"
+msgid "%1 matches"
+msgstr ""
+
+#: src/htmlpreview.cpp:162
+msgctxt "ghostwriter::HtmlPreview|"
+msgid "Error loading resources/preview.html"
+msgstr ""
+
+#: src/localedialog.cpp:26
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Set Application Language"
+msgstr ""
+
+#: src/localedialog.cpp:36
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "The translations folder is missing."
+msgstr ""
+
+#: src/localedialog.cpp:37
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Please reinstall this application for more language options."
+msgstr ""
+
+#: src/mainwindow.cpp:671
+msgctxt "ghostwriter::MainWindow|"
+msgid "Insert Image"
+msgstr ""
+
+#: src/mainwindow.cpp:674
+msgctxt "ghostwriter::MainWindow|"
+msgid "Images"
+msgstr ""
+
+#: src/mainwindow.cpp:675
+msgctxt "ghostwriter::MainWindow|"
+msgid "All Files"
+msgstr ""
+
+#: src/mainwindow.cpp:717
+msgctxt "ghostwriter::MainWindow|"
+msgid ""
+"<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and redistribute "
+"this software under the terms of the <a href=\"http://www.gnu.org/licenses/"
+"gpl.html\">GNU General Public License Version 3</a>.</p><p>Visit the "
+"official website at <a href=\"http://github.com/wereturtle/ghostwriter"
+"\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special thanks and "
+"credit for reused code goes to</p><p><a href=\"mailto:graeme@gottcode.org"
+"\">Graeme Gott</a>, author of <a href=\"http://gottcode.org/focuswriter/"
+"\">FocusWriter</a><br/>Dmitry Shachnev, author of <a href=\"http://"
+"sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href=\"mailto:"
+"gabriel@teuton.org\">Gabriel M. Beddingfield</a>, author of <a href=\"http://"
+"www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/><p>I am also "
+"deeply indebted to <a href=\"mailto:w.vollprecht@gmail.com\">Wolf "
+"Vollprecht</a>, the author of <a href=\"http://uberwriter.wolfvollprecht.de/"
+"\">UberWriter</a>, for the inspiration he provided in creating such a "
+"beautiful Markdown editing tool.</p>"
+msgstr ""
+
+#: src/mainwindow.cpp:740
+#, qt-format
+msgctxt "ghostwriter::MainWindow|"
+msgid "About %1"
+msgstr ""
+
+#: src/mainwindow.cpp:854
+msgctxt "ghostwriter::MainWindow|"
+msgid "Please restart the application for changes to take effect."
+msgstr ""
+
+#: src/mainwindow.cpp:992
+msgctxt "ghostwriter::MainWindow|"
+msgid "&File"
+msgstr ""
+
+#: src/mainwindow.cpp:994
+msgctxt "ghostwriter::MainWindow|"
+msgid "&New"
+msgstr ""
+
+#: src/mainwindow.cpp:995
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Open"
+msgstr ""
+
+#: src/mainwindow.cpp:997
+msgctxt "ghostwriter::MainWindow|"
+msgid "Open &Recent..."
+msgstr ""
+
+#: src/mainwindow.cpp:998
+msgctxt "ghostwriter::MainWindow|"
+msgid "Reopen Closed File"
+msgstr ""
+
+#: src/mainwindow.cpp:1006
+msgctxt "ghostwriter::MainWindow|"
+msgid "Clear Menu"
+msgstr ""
+
+#: src/mainwindow.cpp:1011
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Save"
+msgstr ""
+
+#: src/mainwindow.cpp:1012
+msgctxt "ghostwriter::MainWindow|"
+msgid "Save &As..."
+msgstr ""
+
+#: src/mainwindow.cpp:1013
+msgctxt "ghostwriter::MainWindow|"
+msgid "R&ename..."
+msgstr ""
+
+#: src/mainwindow.cpp:1014
+msgctxt "ghostwriter::MainWindow|"
+msgid "Re&load from Disk..."
+msgstr ""
+
+#: src/mainwindow.cpp:1016
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Export"
+msgstr ""
+
+#: src/mainwindow.cpp:1018
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Quit"
+msgstr ""
+
+#: src/mainwindow.cpp:1022
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Edit"
+msgstr ""
+
+#: src/mainwindow.cpp:1023
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Undo"
+msgstr ""
+
+#: src/mainwindow.cpp:1024
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Redo"
+msgstr ""
+
+#: src/mainwindow.cpp:1026
+msgctxt "ghostwriter::MainWindow|"
+msgid "Cu&t"
+msgstr ""
+
+#: src/mainwindow.cpp:1027
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Copy"
+msgstr ""
+
+#: src/mainwindow.cpp:1028
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Paste"
+msgstr ""
+
+#: src/mainwindow.cpp:1029
+msgctxt "ghostwriter::MainWindow|"
+msgid "Copy &HTML"
+msgstr ""
+
+#: src/mainwindow.cpp:1031
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Insert Image..."
+msgstr ""
+
+#: src/mainwindow.cpp:1034
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Find"
+msgstr ""
+
+#: src/mainwindow.cpp:1035
+msgctxt "ghostwriter::MainWindow|"
+msgid "Rep&lace"
+msgstr ""
+
+#: src/mainwindow.cpp:1036
+msgctxt "ghostwriter::MainWindow|"
+msgid "Find &Next"
+msgstr ""
+
+#: src/mainwindow.cpp:1037
+msgctxt "ghostwriter::MainWindow|"
+msgid "Find &Previous"
+msgstr ""
+
+#: src/mainwindow.cpp:1039
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Spell check"
+msgstr ""
+
+#: src/mainwindow.cpp:1041
+msgctxt "ghostwriter::MainWindow|"
+msgid "For&mat"
+msgstr ""
+
+#: src/mainwindow.cpp:1042
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Bold"
+msgstr ""
+
+#: src/mainwindow.cpp:1043
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Italic"
+msgstr ""
+
+#: src/mainwindow.cpp:1044
+msgctxt "ghostwriter::MainWindow|"
+msgid "Stri&kethrough"
+msgstr ""
+
+#: src/mainwindow.cpp:1045
+msgctxt "ghostwriter::MainWindow|"
+msgid "&HTML Comment"
+msgstr ""
+
+#: src/mainwindow.cpp:1048
+msgctxt "ghostwriter::MainWindow|"
+msgid "I&ndent"
+msgstr ""
+
+#: src/mainwindow.cpp:1049
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Unindent"
+msgstr ""
+
+#: src/mainwindow.cpp:1051
+msgctxt "ghostwriter::MainWindow|"
+msgid "Block &Quote"
+msgstr ""
+
+#: src/mainwindow.cpp:1052
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Strip Block Quote"
+msgstr ""
+
+#: src/mainwindow.cpp:1054
+msgctxt "ghostwriter::MainWindow|"
+msgid "&* Bullet List"
+msgstr ""
+
+#: src/mainwindow.cpp:1055
+msgctxt "ghostwriter::MainWindow|"
+msgid "&- Bullet List"
+msgstr ""
+
+#: src/mainwindow.cpp:1056
+msgctxt "ghostwriter::MainWindow|"
+msgid "&+ Bullet List"
+msgstr ""
+
+#: src/mainwindow.cpp:1058
+msgctxt "ghostwriter::MainWindow|"
+msgid "1&. Numbered List"
+msgstr ""
+
+#: src/mainwindow.cpp:1059
+msgctxt "ghostwriter::MainWindow|"
+msgid "1&) Numbered List"
+msgstr ""
+
+#: src/mainwindow.cpp:1061
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Task List"
+msgstr ""
+
+#: src/mainwindow.cpp:1062
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle Task(s) &Complete"
+msgstr ""
+
+#: src/mainwindow.cpp:1065
+msgctxt "ghostwriter::MainWindow|"
+msgid "&View"
+msgstr ""
+
+#: src/mainwindow.cpp:1067
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Full Screen"
+msgstr ""
+
+#: src/mainwindow.cpp:1075
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Preview in HTML"
+msgstr ""
+
+#: src/mainwindow.cpp:1083
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Outline"
+msgstr ""
+
+#: src/mainwindow.cpp:1093
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Session Statistics"
+msgstr ""
+
+#: src/mainwindow.cpp:1102
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Document Statistics"
+msgstr ""
+
+#: src/mainwindow.cpp:1111
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Cheat Sheet"
+msgstr ""
+
+#: src/mainwindow.cpp:1122
+msgctxt "ghostwriter::MainWindow|"
+msgid "Increase Font Size"
+msgstr ""
+
+#: src/mainwindow.cpp:1123
+msgctxt "ghostwriter::MainWindow|"
+msgid "Decrease Font Size"
+msgstr ""
+
+#: src/mainwindow.cpp:1125
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Settings"
+msgstr ""
+
+#: src/mainwindow.cpp:1126 src/mainwindow.cpp:1430
+msgctxt "ghostwriter::MainWindow|"
+msgid "Themes..."
+msgstr ""
+
+#: src/mainwindow.cpp:1127 src/mainwindow.cpp:1431
+msgctxt "ghostwriter::MainWindow|"
+msgid "Font..."
+msgstr ""
+
+#: src/mainwindow.cpp:1128 src/mainwindow.cpp:1432
+msgctxt "ghostwriter::MainWindow|"
+msgid "Application Language..."
+msgstr ""
+
+#: src/mainwindow.cpp:1129 src/mainwindow.cpp:1433
+msgctxt "ghostwriter::MainWindow|"
+msgid "Preview Options..."
+msgstr ""
+
+#: src/mainwindow.cpp:1130 src/mainwindow.cpp:1434
+msgctxt "ghostwriter::MainWindow|"
+msgid "Preferences..."
+msgstr ""
+
+#: src/mainwindow.cpp:1134
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Help"
+msgstr ""
+
+#: src/mainwindow.cpp:1135
+msgctxt "ghostwriter::MainWindow|"
+msgid "&About"
+msgstr ""
+
+#: src/mainwindow.cpp:1138
+msgctxt "ghostwriter::MainWindow|"
+msgid "About &Qt"
+msgstr ""
+
+#: src/mainwindow.cpp:1141
+msgctxt "ghostwriter::MainWindow|"
+msgid "Quick &Reference Guide"
+msgstr ""
+
+#: src/mainwindow.cpp:1142
+msgctxt "ghostwriter::MainWindow|"
+msgid "Wiki"
+msgstr ""
+
+#: src/mainwindow.cpp:1188
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:1245
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle dark mode"
+msgstr ""
+
+#: src/mainwindow.cpp:1264
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle Live HTML Preview"
+msgstr ""
+
+#: src/mainwindow.cpp:1284
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle Hemingway mode"
+msgstr ""
+
+#: src/mainwindow.cpp:1292
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle distraction free mode"
+msgstr ""
+
+#: src/mainwindow.cpp:1301
+msgctxt "ghostwriter::MainWindow|"
+msgid "Toggle full screen mode"
+msgstr ""
+
+#: src/mainwindow.cpp:1324
+msgctxt "ghostwriter::MainWindow|"
+msgid "Show Sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:1341
+msgctxt "ghostwriter::MainWindow|"
+msgid "# Heading 1"
+msgstr ""
+
+#: src/mainwindow.cpp:1342
+msgctxt "ghostwriter::MainWindow|"
+msgid "## Heading 2"
+msgstr ""
+
+#: src/mainwindow.cpp:1343
+msgctxt "ghostwriter::MainWindow|"
+msgid "### Heading 3"
+msgstr ""
+
+#: src/mainwindow.cpp:1344
+msgctxt "ghostwriter::MainWindow|"
+msgid "#### Heading 4"
+msgstr ""
+
+#: src/mainwindow.cpp:1345
+msgctxt "ghostwriter::MainWindow|"
+msgid "##### Heading 5"
+msgstr ""
+
+#: src/mainwindow.cpp:1346
+msgctxt "ghostwriter::MainWindow|"
+msgid "###### Heading 6"
+msgstr ""
+
+#: src/mainwindow.cpp:1347
+msgctxt "ghostwriter::MainWindow|"
+msgid "*Emphasis* _Emphasis_"
+msgstr ""
+
+#: src/mainwindow.cpp:1348
+msgctxt "ghostwriter::MainWindow|"
+msgid "**Strong** __Strong__"
+msgstr ""
+
+#: src/mainwindow.cpp:1349
+msgctxt "ghostwriter::MainWindow|"
+msgid "1. Numbered List"
+msgstr ""
+
+#: src/mainwindow.cpp:1350
+msgctxt "ghostwriter::MainWindow|"
+msgid "* Bullet List"
+msgstr ""
+
+#: src/mainwindow.cpp:1351
+msgctxt "ghostwriter::MainWindow|"
+msgid "+ Bullet List"
+msgstr ""
+
+#: src/mainwindow.cpp:1352
+msgctxt "ghostwriter::MainWindow|"
+msgid "- Bullet List"
+msgstr ""
+
+#: src/mainwindow.cpp:1353
+msgctxt "ghostwriter::MainWindow|"
+msgid "> Block Quote"
+msgstr ""
+
+#: src/mainwindow.cpp:1354
+msgctxt "ghostwriter::MainWindow|"
+msgid "`Code Span`"
+msgstr ""
+
+#: src/mainwindow.cpp:1355
+msgctxt "ghostwriter::MainWindow|"
+msgid "``` Code Block"
+msgstr ""
+
+#: src/mainwindow.cpp:1356
+msgctxt "ghostwriter::MainWindow|"
+msgid "[Link](http://url.com \"Title\")"
+msgstr ""
+
+#: src/mainwindow.cpp:1357
+msgctxt "ghostwriter::MainWindow|"
+msgid "[Reference Link][ID]"
+msgstr ""
+
+#: src/mainwindow.cpp:1358
+msgctxt "ghostwriter::MainWindow|"
+msgid "[ID]: http://url.com \"Reference Definition\""
+msgstr ""
+
+#: src/mainwindow.cpp:1359
+msgctxt "ghostwriter::MainWindow|"
+msgid "![Image](./image.jpg \"Title\")"
+msgstr ""
+
+#: src/mainwindow.cpp:1360
+msgctxt "ghostwriter::MainWindow|"
+msgid "--- *** ___ Horizontal Rule"
+msgstr ""
+
+#: src/mainwindow.cpp:1410
+msgctxt "ghostwriter::MainWindow|"
+msgid "Outline"
+msgstr ""
+
+#: src/mainwindow.cpp:1411
+msgctxt "ghostwriter::MainWindow|"
+msgid "Session Statistics"
+msgstr ""
+
+#: src/mainwindow.cpp:1412
+msgctxt "ghostwriter::MainWindow|"
+msgid "Document Statistics"
+msgstr ""
+
+#: src/mainwindow.cpp:1413
+msgctxt "ghostwriter::MainWindow|"
+msgid "Cheat Sheet"
+msgstr ""
+
+#: src/mainwindow.cpp:1423
+msgctxt "ghostwriter::MainWindow|"
+msgid "Settings"
+msgstr ""
+
+#: src/markdowndocument.cpp:95 src/markdowndocument.cpp:167
+msgctxt "ghostwriter::MarkdownDocument|"
+msgid "untitled"
+msgstr ""
+
+#: src/preferencesdialog.cpp:65
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Preferences"
+msgstr ""
+
+#: src/preferencesdialog.cpp:74
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "General"
+msgstr ""
+
+#: src/preferencesdialog.cpp:75
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Editor"
+msgstr ""
+
+#: src/preferencesdialog.cpp:76
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Spell Check"
+msgstr ""
+
+#: src/preferencesdialog.cpp:97
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Matched Characters"
+msgstr ""
+
+#: src/preferencesdialog.cpp:180
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Display"
+msgstr ""
+
+#: src/preferencesdialog.cpp:186
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Show current time in full screen mode"
+msgstr ""
+
+#: src/preferencesdialog.cpp:192
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Hide menu bar in full screen mode"
+msgstr ""
+
+#: src/preferencesdialog.cpp:199
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Rounded"
+msgstr ""
+
+#: src/preferencesdialog.cpp:200
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Square"
+msgstr ""
+
+#: src/preferencesdialog.cpp:212
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Interface style"
+msgstr ""
+
+#: src/preferencesdialog.cpp:214
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "File Saving"
+msgstr ""
+
+#: src/preferencesdialog.cpp:220
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Auto save"
+msgstr ""
+
+#: src/preferencesdialog.cpp:227
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Backup file on save"
+msgstr ""
+
+#: src/preferencesdialog.cpp:233
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "View untitled drafts..."
+msgstr ""
+
+#: src/preferencesdialog.cpp:243
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Session"
+msgstr ""
+
+#: src/preferencesdialog.cpp:249
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Remember recent files"
+msgstr ""
+
+#: src/preferencesdialog.cpp:255
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Open last file on startup"
+msgstr ""
+
+#: src/preferencesdialog.cpp:278
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Tabulation"
+msgstr ""
+
+#: src/preferencesdialog.cpp:284
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Insert spaces for tabs"
+msgstr ""
+
+#: src/preferencesdialog.cpp:300
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Tabulation width"
+msgstr ""
+
+#: src/preferencesdialog.cpp:302
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Styling"
+msgstr ""
+
+#: src/preferencesdialog.cpp:309
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Sentence"
+msgstr ""
+
+#: src/preferencesdialog.cpp:310
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Current Line"
+msgstr ""
+
+#: src/preferencesdialog.cpp:311
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Three Lines"
+msgstr ""
+
+#: src/preferencesdialog.cpp:312
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Paragraph"
+msgstr ""
+
+#: src/preferencesdialog.cpp:313
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Typewriter"
+msgstr ""
+
+#: src/preferencesdialog.cpp:325
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Focus mode"
+msgstr ""
+
+#: src/preferencesdialog.cpp:328
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Narrow"
+msgstr ""
+
+#: src/preferencesdialog.cpp:329
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Medium"
+msgstr ""
+
+#: src/preferencesdialog.cpp:330
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Wide"
+msgstr ""
+
+#: src/preferencesdialog.cpp:331
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Full"
+msgstr ""
+
+#: src/preferencesdialog.cpp:343
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Editor width"
+msgstr ""
+
+#: src/preferencesdialog.cpp:346
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Plain"
+msgstr ""
+
+#: src/preferencesdialog.cpp:347 src/preferencesdialog.cpp:362
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Italic"
+msgstr ""
+
+#: src/preferencesdialog.cpp:359
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Blockquote style"
+msgstr ""
+
+#: src/preferencesdialog.cpp:363
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Underline"
+msgstr ""
+
+#: src/preferencesdialog.cpp:375
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Emphasis style"
+msgstr ""
+
+#: src/preferencesdialog.cpp:377
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Use large headings"
+msgstr ""
+
+#: src/preferencesdialog.cpp:383
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Typing"
+msgstr ""
+
+#: src/preferencesdialog.cpp:389
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Cycle bullet point markers"
+msgstr ""
+
+#: src/preferencesdialog.cpp:395
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Automatically match characters"
+msgstr ""
+
+#: src/preferencesdialog.cpp:401
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Customize matched characters..."
+msgstr ""
+
+#: src/preferencesdialog.cpp:426
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Live spellcheck enabled"
+msgstr ""
+
+#: src/preferencesdialog.cpp:432
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Language"
+msgstr ""
+
+#: src/preferencesdialog.cpp:467
+msgctxt "ghostwriter::PreferencesDialog|"
+msgid "Dictionary"
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:49
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Preview Options"
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:88
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Markdown Flavor"
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:96 src/previewoptionsdialog.cpp:122
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Choose..."
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:114
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Text Font:"
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:140
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Code Font:"
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:163
+#, qt-format
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "%1 %2pt"
+msgstr ""
+
+#: src/sessionstatisticswidget.cpp:37
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Words Written:"
+msgstr ""
+
+#: src/sessionstatisticswidget.cpp:38
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Pages Written:"
+msgstr ""
+
+#: src/sessionstatisticswidget.cpp:39
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Average WPM:"
+msgstr ""
+
+#: src/sessionstatisticswidget.cpp:40
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Total Time:"
+msgstr ""
+
+#: src/sessionstatisticswidget.cpp:41
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Idle Time:"
+msgstr ""
+
+#: src/simplefontdialog.cpp:61
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Family"
+msgstr ""
+
+#: src/simplefontdialog.cpp:108
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Size"
+msgstr ""
+
+#: src/simplefontdialog.cpp:111
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "AaBbCcXxYyZz"
+msgstr ""
+
+#: src/simplefontdialog.cpp:115
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Preview"
+msgstr ""
+
+#: src/simplefontdialog.cpp:118
+msgctxt "ghostwriter::SimpleFontDialog|"
+msgid "Show only monospaced fonts"
+msgstr ""
+
+#: src/spelling/spellcheckdecorator.cpp:228
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "Check spelling..."
+msgstr ""
+
+#: src/spelling/spellcheckdecorator.cpp:250
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "Spelling"
+msgstr ""
+
+#: src/spelling/spellcheckdecorator.cpp:254
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "Add word to dictionary"
+msgstr ""
+
+#: src/spelling/spellcheckdecorator.cpp:295
+msgctxt "ghostwriter::SpellCheckDecorator|"
+msgid "No spelling suggestions found"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:102
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Check Spelling"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:114
+msgctxt "ghostwriter::SpellChecker|"
+msgid "&Add"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:117
+msgctxt "ghostwriter::SpellChecker|"
+msgid "&Ignore"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:120
+msgctxt "ghostwriter::SpellChecker|"
+msgid "I&gnore All"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:125
+msgctxt "ghostwriter::SpellChecker|"
+msgid "&Change"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:128
+msgctxt "ghostwriter::SpellChecker|"
+msgid "C&hange All"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:143
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Not in dictionary:"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:151
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Change to:"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:165
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Checking spelling..."
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:165
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Cancel"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:166
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Please wait"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:193
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Continue checking at beginning of file?"
+msgstr ""
+
+#: src/spelling/spellchecker.cpp:271
+msgctxt "ghostwriter::SpellChecker|"
+msgid "Spell check complete."
+msgstr ""
+
+#: src/statisticsindicator.cpp:15
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln word(s)"
+msgid_plural "%Ln word(s)"
+msgstr[0] ""
+
+#: src/statisticsindicator.cpp:19
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln character(s)"
+msgid_plural "%Ln character(s)"
+msgstr[0] ""
+
+#: src/statisticsindicator.cpp:23
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln sentence(s)"
+msgid_plural "%Ln sentence(s)"
+msgstr[0] ""
+
+#: src/statisticsindicator.cpp:27
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln paragraph(s)"
+msgid_plural "%Ln paragraph(s)"
+msgstr[0] ""
+
+#: src/statisticsindicator.cpp:31
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln page(s)"
+msgid_plural "%Ln page(s)"
+msgstr[0] ""
+
+#: src/statisticsindicator.cpp:35
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%Ln word(s) added"
+msgid_plural "%Ln word(s) added"
+msgstr[0] ""
+
+#: src/statisticsindicator.cpp:37
+#, qt-format
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%1 wpm"
+msgstr ""
+
+#: src/statisticsindicator.cpp:38
+#, qt-format
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%1:%2 read time"
+msgstr ""
+
+#: src/statisticsindicator.cpp:41
+#, qt-format
+msgctxt "ghostwriter::StatisticsIndicator|"
+msgid "%1:%2 write time"
+msgstr ""
+
+#: src/themeeditordialog.cpp:76
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Edit Theme"
+msgstr ""
+
+#: src/themeeditordialog.cpp:79
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Theme Name"
+msgstr ""
+
+#: src/themeeditordialog.cpp:165
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Element"
+msgstr ""
+
+#: src/themeeditordialog.cpp:166
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Light Mode"
+msgstr ""
+
+#: src/themeeditordialog.cpp:167
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Dark Mode"
+msgstr ""
+
+#: src/themeeditordialog.cpp:169
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Foreground"
+msgstr ""
+
+#: src/themeeditordialog.cpp:170
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Background"
+msgstr ""
+
+#: src/themeeditordialog.cpp:171
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Selection"
+msgstr ""
+
+#: src/themeeditordialog.cpp:172
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Cursor"
+msgstr ""
+
+#: src/themeeditordialog.cpp:173
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Markup"
+msgstr ""
+
+#: src/themeeditordialog.cpp:174
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Accent"
+msgstr ""
+
+#: src/themeeditordialog.cpp:175
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Heading"
+msgstr ""
+
+#: src/themeeditordialog.cpp:176
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Emphasis"
+msgstr ""
+
+#: src/themeeditordialog.cpp:177
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Block Text"
+msgstr ""
+
+#: src/themeeditordialog.cpp:178
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Link"
+msgstr ""
+
+#: src/themeeditordialog.cpp:179
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Error"
+msgstr ""
+
+#: src/themeeditordialog.cpp:212
+msgctxt "ghostwriter::ThemeEditorDialog|"
+msgid "Unable to save theme."
+msgstr ""
+
+#: src/themerepository.cpp:149
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "The specified theme does not exist in the file system: %1"
+msgstr ""
+
+#: src/themerepository.cpp:157
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Could not open theme file for reading: %1"
+msgstr ""
+
+#: src/themerepository.cpp:167
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Invalid theme format: %1"
+msgstr ""
+
+#: src/themerepository.cpp:186 src/themerepository.cpp:195
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Invalid or missing value(s) in %1"
+msgstr ""
+
+#: src/themerepository.cpp:203
+msgctxt "ghostwriter::ThemeRepository|"
+msgid ""
+"The specified theme is not available.  Try restarting the application.  If "
+"problem persists, please file a bug report."
+msgstr ""
+
+#: src/themerepository.cpp:219
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid ""
+"Could not delete theme at %1. Please try setting the file permissions to be "
+"writeable."
+msgstr ""
+
+#: src/themerepository.cpp:239
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "'%1' already exists.  Please choose another name."
+msgstr ""
+
+#: src/themerepository.cpp:248
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "'%1' theme already exists.  Please choose another name."
+msgstr ""
+
+#: src/themerepository.cpp:255
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Failed to rename theme.  Please check file permissions."
+msgstr ""
+
+#: src/themerepository.cpp:293
+msgctxt "ghostwriter::ThemeRepository|"
+msgid ""
+"Theme could not be saved to disk.  Please check file permissions or try "
+"renaming the theme."
+msgstr ""
+
+#: src/themerepository.cpp:323
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Untitled 1"
+msgstr ""
+
+#: src/themerepository.cpp:333
+#, qt-format
+msgctxt "ghostwriter::ThemeRepository|"
+msgid "Untitled %1"
+msgstr ""
+
+#: src/themeselectiondialog.cpp:98
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Themes"
+msgstr ""
+
+#: src/themeselectiondialog.cpp:147
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Edit..."
+msgstr ""
+
+#: src/themeselectiondialog.cpp:397
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Cannot delete theme."
+msgstr ""
+
+#: src/themeselectiondialog.cpp:398
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Sorry, this is a built-in theme that cannot be deleted."
+msgstr ""
+
+#: src/themeselectiondialog.cpp:409
+#, qt-format
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Are you sure you want to permanently delete the '%1' theme?"
+msgstr ""
+
+#: src/themeselectiondialog.cpp:425
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Failed to delete theme."
+msgstr ""
+
+#: src/themeselectiondialog.cpp:453
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Cannot edit theme."
+msgstr ""
+
+#: src/themeselectiondialog.cpp:454
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Sorry, this is a built-in theme that cannot be edited."
+msgstr ""
