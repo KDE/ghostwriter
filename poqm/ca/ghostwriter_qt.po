@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-01 18:36+0200\n"
+"PO-Revision-Date: 2022-10-02 17:05+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -522,7 +522,7 @@ msgstr "&Fitxer"
 #: src/mainwindow.cpp:994
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
-msgstr "&^Nou"
+msgstr "&Nou"
 
 #: src/mainwindow.cpp:995
 msgctxt "ghostwriter::MainWindow|"
@@ -610,181 +610,151 @@ msgid "Copy &HTML"
 msgstr "Copia l'&HTML"
 
 #: src/mainwindow.cpp:1031
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
-msgstr "Insereix una imatge..."
+msgstr "&Insereix una imatge..."
 
 #: src/mainwindow.cpp:1034
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
-msgstr "Cerca"
+msgstr "&Cerca"
 
 #: src/mainwindow.cpp:1035
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
-msgstr "Substitueix"
+msgstr "&Substitueix"
 
 #: src/mainwindow.cpp:1036
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
-msgstr "Cerca la següent"
+msgstr "Cerca la següe&nt"
 
 #: src/mainwindow.cpp:1037
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
-msgstr "Cerca l'anterior"
+msgstr "Cerca l'an&terior"
 
 #: src/mainwindow.cpp:1039
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
-msgstr "Verificació ortogràfica"
+msgstr "&Verificació de l'ortografia"
 
 #: src/mainwindow.cpp:1041
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
-msgstr "Format"
+msgstr "For&mat"
 
 #: src/mainwindow.cpp:1042
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
-msgstr "Negreta"
+msgstr "&Negreta"
 
 #: src/mainwindow.cpp:1043
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
-msgstr "Cursiva"
+msgstr "&Cursiva"
 
 #: src/mainwindow.cpp:1044
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
-msgstr "Ratllat"
+msgstr "Ba&rrat"
 
 #: src/mainwindow.cpp:1045
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
-msgstr "Comentari HTML"
+msgstr "Comentari d'&HTML"
 
 #: src/mainwindow.cpp:1048
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
-msgstr "Sagnat"
+msgstr "Sag&nat"
 
 #: src/mainwindow.cpp:1049
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
-msgstr "Sense sagnat"
+msgstr "&Sense sagnat"
 
 #: src/mainwindow.cpp:1051
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
-msgstr "Cita de bloc"
+msgstr "Bloc de &cita"
 
 #: src/mainwindow.cpp:1052
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr "Cometes de bloc de ratllat"
+msgstr "&Elimina el bloc de cita"
 
 #: src/mainwindow.cpp:1054
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
-msgstr "* Llista de pics"
+msgstr "Llista de pics &*"
 
 #: src/mainwindow.cpp:1055
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
-msgstr "- Llista de pics"
+msgstr "Llista de pics &-"
 
 #: src/mainwindow.cpp:1056
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
-msgstr "+ Llista de pics"
+msgstr "Llista de pics &+"
 
 #: src/mainwindow.cpp:1058
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
-msgstr "1. Llista numerada"
+msgstr "Llista numerada 1&."
 
 #: src/mainwindow.cpp:1059
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
-msgstr "1) Llista numerada"
+msgstr "Llista numerada 1&)"
 
 #: src/mainwindow.cpp:1061
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
-msgstr "Llista de tasques"
+msgstr "Llista de &tasques"
 
 #: src/mainwindow.cpp:1062
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr "Commuta les tasques completades"
+msgstr "Commuta la/es tasca/ques &completada/es"
 
 #: src/mainwindow.cpp:1065
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
-msgstr "Visualització"
+msgstr "&Visualitza"
 
 #: src/mainwindow.cpp:1067
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
-msgstr "Pantalla completa"
+msgstr "&Pantalla completa"
 
 #: src/mainwindow.cpp:1075
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
-msgstr "Vista prèvia en HTML"
+msgstr "&Vista prèvia en HTML"
 
 #: src/mainwindow.cpp:1083
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
-msgstr "Contorn"
+msgstr "C&ontorn"
 
 #: src/mainwindow.cpp:1093
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
-msgstr "Estadístiques de la sessió"
+msgstr "Estadístiques de la &sessió"
 
 #: src/mainwindow.cpp:1102
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
-msgstr "Estadístiques del document"
+msgstr "Estadístiques del &document"
 
 #: src/mainwindow.cpp:1111
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
-msgstr "Full de cigració"
+msgstr "Full de tru&cs"
 
 #: src/mainwindow.cpp:1122
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Augmenta la mida del tipus de lletra"
