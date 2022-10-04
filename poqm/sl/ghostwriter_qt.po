@@ -1,10 +1,12 @@
 # Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
+# Martin Srebotnjak <miles@filmsi.net>, 2022.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-02 07:07+0200\n"
-"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"PO-Revision-Date: 2022-10-03 09:47+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -674,14 +676,16 @@ msgid "&Unindent"
 msgstr "Odzamik"
 
 #: src/mainwindow.cpp:1051
+#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
-msgstr ""
+msgstr "&Citirani odstavek"
 
 #: src/mainwindow.cpp:1052
+#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr ""
+msgstr "&Odstrani citatno postavitev"
 
 #: src/mainwindow.cpp:1054
 msgctxt "ghostwriter::MainWindow|"
@@ -914,14 +918,16 @@ msgid "- Bullet List"
 msgstr "- Seznam"
 
 #: src/mainwindow.cpp:1353
+#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
-msgstr ""
+msgstr "> Citirani odstavek"
 
 #: src/mainwindow.cpp:1354
+#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
-msgstr ""
+msgstr "»Razpon kode«"
 
 #: src/mainwindow.cpp:1355
 msgctxt "ghostwriter::MainWindow|"
@@ -1159,9 +1165,10 @@ msgid "Italic"
 msgstr "Poševno"
 
 #: src/preferencesdialog.cpp:359
+#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Blockquote style"
-msgstr ""
+msgstr "Slog citiranega odstavka"
 
 #: src/preferencesdialog.cpp:363
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1184,19 +1191,22 @@ msgid "Typing"
 msgstr "Tipkanje"
 
 #: src/preferencesdialog.cpp:389
+#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Cycle bullet point markers"
-msgstr ""
+msgstr "Kroži med označbami seznama"
 
 #: src/preferencesdialog.cpp:395
+#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Automatically match characters"
-msgstr ""
+msgstr "Samodejno najdi ujemajoče znake"
 
 #: src/preferencesdialog.cpp:401
+#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Customize matched characters..."
-msgstr ""
+msgstr "Prilagodi ujemajoče znake …"
 
 #: src/preferencesdialog.cpp:426
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1219,9 +1229,10 @@ msgid "Preview Options"
 msgstr "Možnosti predogleda"
 
 #: src/previewoptionsdialog.cpp:88
+#, fuzzy
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr ""
+msgstr "Vrsta markodowna/označevalnega jezika"
 
 #: src/previewoptionsdialog.cpp:96 src/previewoptionsdialog.cpp:122
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1292,7 +1303,7 @@ msgstr "Predogled"
 #: src/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr ""
+msgstr "Pokaži samo pisave enake širine črk"
 
 #: src/spelling/spellcheckdecorator.cpp:228
 msgctxt "ghostwriter::SpellCheckDecorator|"
