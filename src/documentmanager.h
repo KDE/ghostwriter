@@ -171,6 +171,12 @@ public slots:
     void rename();
 
     /**
+     * Saves document contents to disk. If the file is a saved draft, call
+     * saveAs, otherwise just save.
+     */
+    bool saveFile();
+
+    /**
      * Saves document contents to disk.  This method does nothing if the
      * document is new and is not associated with a file on disk.
      */

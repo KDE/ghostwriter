@@ -949,7 +949,7 @@ void MainWindow::buildMenuBar()
     fileMenu->addMenu(recentFilesMenu);
 
     fileMenu->addSeparator();
-    fileMenu->addAction(createWindowAction(tr("&Save"), documentManager, SLOT(save()), QKeySequence::Save));
+    fileMenu->addAction(createWindowAction(tr("&Save"), documentManager, SLOT(saveFile()), QKeySequence::Save));
     fileMenu->addAction(createWindowAction(tr("Save &As..."), documentManager, SLOT(saveAs()), QKeySequence::SaveAs));
     fileMenu->addAction(createWindowAction(tr("R&ename..."), documentManager, SLOT(rename())));
     fileMenu->addAction(createWindowAction(tr("Re&load from Disk..."), documentManager, SLOT(reload())));
