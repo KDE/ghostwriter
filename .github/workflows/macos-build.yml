@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Homebrew
-      run: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - name: Install QT 5 from Brew
       run: |
         brew install qt5
