@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.16)
+if (POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif()
 set(LIBRARY "libcmark-gfm-extensions")
 set(STATICLIBRARY "libcmark-gfm-extensions_static")
 set(LIBRARY_SOURCES

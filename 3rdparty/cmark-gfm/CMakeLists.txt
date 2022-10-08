@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
+if (POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif()
 project(cmark-gfm)
 
 set(PROJECT_VERSION_MAJOR 0)
