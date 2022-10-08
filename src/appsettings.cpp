@@ -17,7 +17,6 @@
 #include <QStringList>
 
 #include "appsettings.h"
-#include "spelling/dictionarymanager.h"
 #include "exporterfactory.h"
 
 #define GW_FAVORITE_STATISTIC_KEY "Session/favoriteStatistic"
@@ -41,7 +40,6 @@
 #define GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY "Style/displayTimeInFullScreen"
 #define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
 #define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
-#define GW_DICTIONARY_KEY "Spelling/locale"
 #define GW_LOCALE_KEY "Application/locale"
 #define GW_LIVE_SPELL_CHECK_KEY "Spelling/liveSpellCheck"
 #define GW_SIDEBAR_OPEN_KEY "Window/sidebarOpen"
@@ -95,8 +93,6 @@ public:
     QFont previewTextFont;
     QFont previewCodeFont;
     QString autoMatchedCharFilter;
-    QString dictionaryLanguage;
-    QString dictionaryPath;
     QString locale;
     QString themeDirectoryPath;
     QString themeName;
@@ -131,7 +127,6 @@ void AppSettings::store()
     appSettings.setValue(GW_AUTOSAVE_KEY, QVariant(d->autoSaveEnabled));
     appSettings.setValue(GW_BACKUP_FILE_KEY, QVariant(d->backupFileEnabled));
     appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(d->bulletPointCyclingEnabled));
-    appSettings.setValue(GW_DICTIONARY_KEY, QVariant(d->dictionaryLanguage));
     appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d->displayTimeInFullScreenEnabled));
     appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(d->editorWidth));
     appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
@@ -164,13 +159,6 @@ QString AppSettings::themeDirectoryPath() const
     Q_D(const AppSettings);
     
     return d->themeDirectoryPath;
-}
-
-QString AppSettings::dictionaryPath() const
-{
-    Q_D(const AppSettings);
-    
-    return d->dictionaryPath;
 }
 
 QString AppSettings::translationsPath() const
@@ -510,21 +498,6 @@ void AppSettings::setDarkModeEnabled(bool enabled)
     d->darkModeEnabled = enabled;
 }
 
-QString AppSettings::dictionaryLanguage() const
-{
-    Q_D(const AppSettings);
-    
-    return d->dictionaryLanguage;
-}
-
-void AppSettings::setDictionaryLanguage(const QString &language)
-{
-    Q_D(AppSettings);
-    
-    d->dictionaryLanguage = language;
-    emit dictionaryLanguageChanged(language);
-}
-
 QString AppSettings::locale() const
 {
     Q_D(const AppSettings);
@@ -537,21 +510,6 @@ void AppSettings::setLocale(const QString &locale)
     Q_D(AppSettings);
     
     d->locale = locale;
-}
-
-bool AppSettings::liveSpellCheckEnabled() const
-{
-    Q_D(const AppSettings);
-    
-    return d->liveSpellCheckEnabled;
-}
-
-void AppSettings::setLiveSpellCheckEnabled(bool enabled)
-{
-    Q_D(AppSettings);
-    
-    d->liveSpellCheckEnabled = enabled;
-    emit liveSpellCheckChanged(enabled);
 }
 
 EditorWidth AppSettings::editorWidth() const
@@ -726,27 +684,6 @@ AppSettings::AppSettings()
         themeDir.mkpath(themeDir.path());
     }
 
-    d->dictionaryPath = userDir + "/dictionaries";
-
-    QDir dictionaryDir(d->dictionaryPath);
-
-    if (!dictionaryDir.exists()) {
-        dictionaryDir.mkpath(dictionaryDir.path());
-    }
-
-    DictionaryManager::setPath(d->dictionaryPath);
-
-    QStringList dictdirs;
-    dictdirs.append(DictionaryManager::path());
-
-    dictionaryDir = QDir(appDir + "/dictionaries");
-
-    if (dictionaryDir.exists()) {
-        dictdirs.append(dictionaryDir.path());
-    }
-
-    QDir::setSearchPaths("dict", dictdirs);
-
     // End FocusWriter lift/mod
 
     // Depending on the OS and Qt version, the default monospaced font returned
@@ -817,15 +754,6 @@ AppSettings::AppSettings()
     d->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     d->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
     d->darkModeEnabled = appSettings.value(GW_DARK_MODE_KEY, QVariant(true)).toBool();
-    d->dictionaryLanguage = appSettings.value(GW_DICTIONARY_KEY, QLocale().name()).toString();
-
-    // Determine locale for dictionary language (for use in spell checking).
-    QString language = DictionaryManager::instance()->availableDictionary(d->dictionaryLanguage);
-
-    // If we have an available dictionary, then set the default dictionary language.
-    if (!language.isNull() && !language.isEmpty()) {
-        DictionaryManager::instance()->setDefaultLanguage(language);
-    }
 
     d->locale = appSettings.value(GW_LOCALE_KEY, QLocale().name()).toString();
     d->liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();

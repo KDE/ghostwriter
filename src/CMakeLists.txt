@@ -62,9 +62,8 @@ target_sources(ghostwriter PRIVATE
     timelabel.cpp
     color_button.cpp
     findreplace.cpp
-    spelling/dictionarymanager.cpp
-    spelling/spellchecker.cpp
     spelling/spellcheckdecorator.cpp
+    spelling/spellcheckdialog.cpp
 )
 
 ecm_create_qm_loader(ghostwriter ghostwriter_qt)
@@ -72,9 +71,6 @@ ecm_create_qm_loader(ghostwriter ghostwriter_qt)
 if (UNIX)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(Hunspell REQUIRED IMPORTED_TARGET hunspell)
-    target_sources(ghostwriter PRIVATE
-        spelling/hunspellprovider.cpp
-    )
     target_link_libraries(ghostwriter PRIVATE PkgConfig::Hunspell)
 endif()
 
@@ -92,6 +88,13 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     find_package(Qt6 REQUIRED COMPONENTS Qt6Core5Compat)
 endif()
 
+find_package(
+    KF5 ${KF5_MIN_VERSION}
+    REQUIRED
+    COMPONENTS
+    Sonnet
+)
+
 target_link_libraries(ghostwriter PRIVATE
     Qt::Core
     Qt::Concurrent
@@ -100,6 +103,8 @@ target_link_libraries(ghostwriter PRIVATE
     Qt::WebChannel
     Qt::Gui
     Qt::WebEngineWidgets
+    KF5::SonnetCore
+    KF5::SonnetUi
     QtAwesome
     libcmark-gfm_static
     libcmark-gfm-extensions_static

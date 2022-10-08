@@ -87,6 +87,7 @@ private slots:
     void onAboutToShowMenuBarMenu();
     void onSidebarVisibilityChanged(bool visible);
     void toggleSidebarVisible(bool visible);
+    void runSpellCheck();
 
 private:
     QtAwesome *awesome;

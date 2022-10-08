@@ -42,8 +42,8 @@
 #include "simplefontdialog.h"
 #include "stylesheetbuilder.h"
 #include "themeselectiondialog.h"
-#include "spelling/dictionarymanager.h"
 #include "spelling/spellcheckdecorator.h"
+#include "spelling/spellcheckdialog.h"
 
 namespace ghostwriter
 {
@@ -101,7 +101,11 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     this->setFocusProxy(editor);
 
     spelling = new SpellCheckDecorator(editor);
-    spelling->setLiveSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
+    connect(appSettings,
+        &AppSettings::spellCheckSettingsChanged,
+        spelling,
+        &SpellCheckDecorator::settingsChanged
+    );
 
     buildSidebar();
 
@@ -231,8 +235,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(hideMenuBarInFullScreenChanged(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
     connect(appSettings, SIGNAL(fileHistoryChanged(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
     connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
-    connect(appSettings, SIGNAL(dictionaryLanguageChanged(QString)), spelling, SLOT(setDictionary(QString)));
-    connect(appSettings, SIGNAL(liveSpellCheckChanged(bool)), spelling, SLOT(setLiveSpellCheckEnabled(bool)));
     connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
     connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
@@ -240,17 +242,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
         this->menuBar()->hide();
-    }
-
-    // Default language for dictionary is set from AppSettings initialization.
-    QString language = appSettings->dictionaryLanguage();
-
-    // If we have an available dictionary, then set up spell checking.
-    if (!language.isNull() && !language.isEmpty()) {
-        spelling->setDictionary(language);
-        spelling->setLiveSpellCheckEnabled(appSettings->liveSpellCheckEnabled());
-    } else {
-        spelling->setLiveSpellCheckEnabled(false);
     }
 
     this->connect
@@ -480,9 +471,6 @@ void MainWindow::quitApplication()
         windowSettings.setValue(GW_MAIN_WINDOW_STATE_KEY, saveState());
         windowSettings.setValue(GW_SPLITTER_GEOMETRY_KEY, splitter->saveState());
         windowSettings.sync();
-
-        DictionaryManager::instance()->addProviders();
-        DictionaryManager::instance()->setDefaultLanguage(language);
 
         this->editor->document()->disconnect();
         this->editor->disconnect();
@@ -1036,7 +1024,7 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(createWindowAction(tr("Find &Next"), findReplace, SLOT(findNext()), QKeySequence::FindNext));
     editMenu->addAction(createWindowAction(tr("Find &Previous"), findReplace, SLOT(findPrevious()), QKeySequence::FindPrevious));
     editMenu->addSeparator();
-    editMenu->addAction(createWindowAction(tr("&Spell check"), spelling, SLOT(runSpellCheck())));
+    editMenu->addAction(createWindowAction(tr("&Spell check"), this, SLOT(runSpellCheck())));
 
     QMenu *formatMenu = this->menuBar()->addMenu(tr("For&mat"));
     formatMenu->addAction(createWidgetAction(tr("&Bold"), editor, SLOT(bold()), QKeySequence::Bold));
@@ -1526,6 +1514,12 @@ void MainWindow::applyTheme()
     }
 
     adjustEditor();
+}
+
+void MainWindow::runSpellCheck()
+{
+    SpellCheckDialog *dialog = new SpellCheckDialog(this->editor);
+    dialog->show();
 }
 
 } // namespace ghostwriter

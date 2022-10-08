@@ -42,25 +42,15 @@ public:
     ~SpellCheckDecorator();
 
     /**
-     * Returns whether live spell checking is enabled.
-     */
-    bool liveSpellCheckEnabled() const;
-
-    /**
      * Returns the color used to highlight spelling errors.
      */
     QColor errorColor() const;
 
 public slots:
     /**
-     * Sets whether live spell checking is enabled.
+     * Updates internal state on spell check configuration change.
      */
-    void setLiveSpellCheckEnabled(bool enabled);
-
-    /**
-     * Sets the dictionary language to use for spell checking.
-     */
-    void setDictionary(const QString &language);
+    void settingsChanged();
 
     /**
      * Sets the color used to highlight spelling errors.
@@ -68,20 +58,15 @@ public slots:
     void setErrorColor(const QColor &color);
 
     /**
-     * Runs the interactive spell checker dialog.
-     */
-    void runSpellCheck();
-
-    /**
-     * Begins live spell checking on the document.  Call this method once at
+     * Begins automatic spell checking on the document.  Call this method once at
      * application startup after show() has been called for the main window
      * (and by extension, any editor whose document has a QSyntaxHighlighter
      * attached to it). This will prevent QSyntaxHighlighter from wiping out the
      * live spell check highlighting, as it tends to rehighlight from scratch
      * multiple times during initialization / first load of text in the document.
      *
-     * Note: If live spell checking is disabled (with a call to
-     * setLiveSpellCheckEnabled(false), this method will do nothing.
+     * Note: If automatic spell checking is disabled (via Sonnet configuration),
+     * this method will do nothing.
      */
     void startLiveSpellCheck();
 

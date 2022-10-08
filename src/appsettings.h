@@ -40,7 +40,6 @@ public:
     void store();
 
     QString themeDirectoryPath() const;
-    QString dictionaryPath() const;
     QString translationsPath() const;
     QString draftLocation() const;
 
@@ -119,16 +118,10 @@ public:
     bool darkModeEnabled() const;
     void setDarkModeEnabled(bool enabled);
 
-    QString dictionaryLanguage() const;
-    void setDictionaryLanguage(const QString &language);
-    Q_SIGNAL void dictionaryLanguageChanged(const QString &language);
-
     QString locale() const;
     void setLocale(const QString &locale);
 
-    bool liveSpellCheckEnabled() const;
-    Q_SLOT void setLiveSpellCheckEnabled(bool enabled);
-    Q_SIGNAL void liveSpellCheckChanged(bool enabled);
+    Q_SIGNAL void spellCheckSettingsChanged() const;
 
     EditorWidth editorWidth() const;
     void setEditorWidth(EditorWidth editorWidth);

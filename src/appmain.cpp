@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     // Call this to force settings initialization before the application
     // fully launches.
     //
-    ghostwriter::AppSettings *appSettings = ghostwriter::AppSettings::instance();
+    ghostwriter::AppSettings::instance();
 //     QLocale::setDefault(QLocale(appSettings->locale()));
 
 //     QStringList baseTranslators = { "qt", "qtbase", "ghostwriter" };

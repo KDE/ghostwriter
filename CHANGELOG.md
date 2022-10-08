@@ -7,13 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
 * Updated file licenses to be compliant with REUSE.
+* Transitioned to KDE Frameworks' Sonnet spell checking library, which provides language detection as a new feature.
 
 ## [2.2.0] - 2022-09-17
 
 ### Fixed
 
-* Issue #813: Opening the app after a fresh install no longer complains of a file ba                                                                                                                                                                                                                                                                                                            ckup error when text is entered.
+* Issue #813: Opening the app after a fresh install no longer complains of a file backup error when text is entered.
 * Issue #815: Invoking the app from the command line with a non-existent file path specified will now create an empty file for the path.
 * Spaces are now properly underlined in emphasized text when emphasis style option is set to underline.
 

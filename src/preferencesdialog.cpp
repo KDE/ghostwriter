@@ -1,6 +1,5 @@
 /*
  * SPDX-FileCopyrightText: 2016-2022 Megan Conkle <megan.conkle@kdemail.net>
- * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -18,9 +17,9 @@
 #include <QUrl>
 #include <QVBoxLayout>
 
+#include <Sonnet/ConfigWidget>
+
 #include "appsettings.h"
-#include "spelling/dictionarymanager.h"
-#include "localedialog.h"
 #include "messageboxhelper.h"
 #include "preferencesdialog.h"
 
@@ -52,8 +51,6 @@ public:
     QWidget *initializeGeneralTab();
     QWidget *initializeEditorTab();
     QWidget *initializeSpellCheckTab();
-
-    QString languageName(const QString &language);
 };
 
 PreferencesDialog::PreferencesDialog(QWidget *parent)
@@ -200,8 +197,7 @@ QWidget *PreferencesDialogPrivate::initializeGeneralTab()
     cornersComboBox->addItem(PreferencesDialog::tr("Square"), QVariant(InterfaceStyleSquare));
     cornersComboBox->setCurrentIndex((int) appSettings->interfaceStyle());
 
-    q->connect
-    (
+    q->connect(
         cornersComboBox,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         [this, cornersComboBox](int index) {
@@ -289,8 +285,7 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
 
     QSpinBox *tabWidthInput = new QSpinBox();
 
-    tabWidthInput->setRange
-    (
+    tabWidthInput->setRange(
         appSettings->MIN_TAB_WIDTH,
         appSettings->MAX_TAB_WIDTH
     );
@@ -313,8 +308,7 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     focusModeCombo->addItem(PreferencesDialog::tr("Typewriter"), FocusModeTypewriter);
     focusModeCombo->setCurrentIndex(appSettings->focusMode() - 1);
 
-    q->connect
-    (
+    q->connect(
         focusModeCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         [this, focusModeCombo](int index) {
@@ -331,8 +325,7 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     editorWidthCombo->addItem(PreferencesDialog::tr("Full"), EditorWidthFull);
     editorWidthCombo->setCurrentIndex(appSettings->editorWidth());
 
-    q->connect
-    (
+    q->connect(
         editorWidthCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         [this, editorWidthCombo](int index) {
@@ -347,13 +340,12 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     blockquoteStyleCombo->addItem(PreferencesDialog::tr("Italic"), true);
     blockquoteStyleCombo->setCurrentIndex(appSettings->italicizeBlockquotes() ? 1 : 0);
 
-    q->connect
-    (
+    q->connect(
         blockquoteStyleCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    [this, blockquoteStyleCombo](int index) {
-        appSettings->setItalicizeBlockquotes(blockquoteStyleCombo->itemData(index).toBool());
-    }
+        [this, blockquoteStyleCombo](int index) {
+            appSettings->setItalicizeBlockquotes(blockquoteStyleCombo->itemData(index).toBool());
+        }
     );
 
     stylingGroupLayout->addRow(PreferencesDialog::tr("Blockquote style"), blockquoteStyleCombo);
@@ -363,13 +355,12 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
     underlineCombo->addItem(PreferencesDialog::tr("Underline"), true);
     underlineCombo->setCurrentIndex(appSettings->useUnderlineForEmphasis() ? 1 : 0);
 
-    q->connect
-    (
+    q->connect(
         underlineCombo,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    [this, underlineCombo](int index) {
-        appSettings->setUseUnderlineForEmphasis(underlineCombo->itemData(index).toBool());
-    }
+        [this, underlineCombo](int index) {
+            appSettings->setUseUnderlineForEmphasis(underlineCombo->itemData(index).toBool());
+        }
     );
 
     stylingGroupLayout->addRow(PreferencesDialog::tr("Emphasis style"), underlineCombo);
@@ -400,13 +391,12 @@ QWidget *PreferencesDialogPrivate::initializeEditorTab()
 
     QPushButton *matchedCharsButton = new QPushButton(PreferencesDialog::tr("Customize matched characters..."));
 
-    q->connect
-    (
+    q->connect(
         matchedCharsButton,
         &QPushButton::pressed,
-    [this]() {
-        this->showAutoMatchFilterDialog();
-    }
+        [this]() {
+            this->showAutoMatchFilterDialog();
+        }
     );
 
     typingGroupLayout->addRow(matchedCharsButton);
@@ -418,77 +408,22 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
 {
     Q_Q(PreferencesDialog);
 
-    QWidget *tab = new QWidget();
+    Sonnet::ConfigWidget *tab = new Sonnet::ConfigWidget(q);
 
-    QVBoxLayout *tabLayout = new QVBoxLayout();
-    tab->setLayout(tabLayout);
-
-    QCheckBox *spellcheckCheckBox = new QCheckBox(PreferencesDialog::tr("Live spellcheck enabled"));
-    spellcheckCheckBox->setCheckable(true);
-    spellcheckCheckBox->setChecked(appSettings->liveSpellCheckEnabled());
-    connect(spellcheckCheckBox, SIGNAL(toggled(bool)), appSettings, SLOT(setLiveSpellCheckEnabled(bool)));
-    tabLayout->addWidget(spellcheckCheckBox);
-
-    QGroupBox *languageGroupBox = new QGroupBox(PreferencesDialog::tr("Language"));
-    tabLayout->addWidget(languageGroupBox);
-
-    QFormLayout *languageGroupLayout = new QFormLayout();
-    languageGroupBox->setLayout(languageGroupLayout);
-
-    QComboBox *dictionaryComboBox = new QComboBox();
-
-    QStringList languages = DictionaryManager::instance()->availableDictionaries();
-    languages.sort();
-
-    int currentDictionaryIndex = 0;
-
-    for (int i = 0; i < languages.length(); i++) {
-        QString language = languages[i];
-        dictionaryComboBox->addItem(languageName(language), language);
-
-        if (appSettings->dictionaryLanguage() == language) {
-            currentDictionaryIndex = i;
-        }
-    }
-
-    dictionaryComboBox->setCurrentIndex(currentDictionaryIndex);
-
-    q->connect
-    (
-        dictionaryComboBox,
-        static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-    [this, dictionaryComboBox](int index) {
-        QString language = dictionaryComboBox->itemData(index).toString();
-        DictionaryManager::instance()->setDefaultLanguage(language);
-        appSettings->setDictionaryLanguage(language);
-    }
+    q->connect(
+        tab,
+        &Sonnet::ConfigWidget::configChanged,
+        tab,
+        &Sonnet::ConfigWidget::save
     );
 
-    languageGroupLayout->addRow(PreferencesDialog::tr("Dictionary"), dictionaryComboBox);
+    q->connect(
+        tab,
+        &Sonnet::ConfigWidget::configChanged,
+        appSettings,
+        &AppSettings::spellCheckSettingsChanged
+    );
 
-    return tab;
-}
-
-// Lifted from FocusWriter
-QString PreferencesDialogPrivate::languageName(const QString &language)
-{
-    QString lang_code = language.left(5);
-    QLocale locale(lang_code);
-    QString name;
-
-    if (lang_code.length() > 2) {
-        if (locale.name() == lang_code) {
-            name = locale.nativeLanguageName() + " (" + locale.nativeCountryName() + ")";
-        } else {
-            name = locale.nativeLanguageName() + " (" + language + ")";
-        }
-    } else {
-        name = locale.nativeLanguageName();
-    }
-    if (locale.textDirection() == Qt::RightToLeft) {
-        name.prepend(QChar(0x202b));
-    }
-
-    return name;
+    return (QWidget *) tab;
 }
 } // namespace ghostwriter
