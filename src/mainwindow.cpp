@@ -24,8 +24,10 @@
 #include <QSettings>
 #include <QSizePolicy>
 #include <QStatusBar>
-#include <QTemporaryFile>
-#include <QTextDocumentFragment>
+
+#include <KCoreAddons/KAboutData>
+#include <KXmlGui/KAboutApplicationDialog>
+#include <KXmlGui/KHelpMenu>
 
 #include "3rdparty/QtAwesome/QtAwesome.h"
 
@@ -689,43 +691,12 @@ void MainWindow::insertImage()
 
 void MainWindow::showQuickReferenceGuide()
 {
-    QDesktopServices::openUrl(QUrl("https://wereturtle.github.io/ghostwriter/quickrefguide.html"));
+    QDesktopServices::openUrl(QUrl("https://ghostwriter.kde.org/documentation"));
 }
 
 void MainWindow::showWikiPage()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/wereturtle/ghostwriter/wiki"));
-}
-
-void MainWindow::showAbout()
-{
-    QString aboutText =
-        QString("<p><b>") +  qAppName() + QString(" ")
-        + qApp->applicationVersion() + QString("</b></p>")
-        + tr("<p>Copyright &copy; 2014-2022 wereturtle</b>"
-             "<p>You may use and redistribute this software under the terms of the "
-             "<a href=\"http://www.gnu.org/licenses/gpl.html\">"
-             "GNU General Public License Version 3</a>.</p>"
-             "<p>Visit the official website at "
-             "<a href=\"http://github.com/wereturtle/ghostwriter\">"
-             "http://github.com/wereturtle/ghostwriter</a>.</p>"
-             "<p>Special thanks and credit for reused code goes to</p>"
-             "<p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, "
-             "author of "
-             "<a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a><br/>"
-             "Dmitry Shachnev, author of "
-             "<a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/>"
-             "<a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
-             "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/\">"
-             "StretchPlayer</a><br/>"
-             "<p>I am also deeply indebted to "
-             "<a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, "
-             "the author of "
-             "<a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, "
-             "for the inspiration he provided in creating such a beautiful "
-             "Markdown editing tool.</p>");
-
-    QMessageBox::about(this, tr("About %1").arg(qAppName()), aboutText);
+    QDesktopServices::openUrl(QUrl("https://github.com/KDE/ghostwriter/wiki"));
 }
 
 void MainWindow::changeFocusMode(FocusMode focusMode)
@@ -1119,15 +1090,12 @@ void MainWindow::buildMenuBar()
     preferencesAction->setMenuRole(QAction::PreferencesRole);
     settingsMenu->addAction(preferencesAction);
 
-    QMenu *helpMenu = this->menuBar()->addMenu(tr("&Help"));
-    QAction *helpAction = createWindowAction(tr("&About"), this, SLOT(showAbout()));
-    helpAction->setMenuRole(QAction::AboutRole);
-    helpMenu->addAction(helpAction);
-    helpAction = createWindowAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
-    helpAction->setMenuRole(QAction::AboutQtRole);
-    helpMenu->addAction(helpAction);
+    KHelpMenu *kHelpMenu = new KHelpMenu(this, KAboutData::applicationData());
+    QMenu *helpMenu = kHelpMenu->menu();
+    helpMenu->addSeparator();
     helpMenu->addAction(createWindowAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide())));
     helpMenu->addAction(createWindowAction(tr("Wiki"), this, SLOT(showWikiPage())));
+    this->menuBar()->addMenu(helpMenu);
 
     connect(fileMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
     connect(fileMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
@@ -1519,6 +1487,13 @@ void MainWindow::applyTheme()
 void MainWindow::runSpellCheck()
 {
     SpellCheckDialog *dialog = new SpellCheckDialog(this->editor);
+    connect(
+        dialog,
+        &SpellCheckDialog::finished,
+        this->spelling,
+        &SpellCheckDecorator::rehighlight
+    );
+
     dialog->show();
 }
 

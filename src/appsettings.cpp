@@ -606,51 +606,14 @@ AppSettings::AppSettings()
     : d_ptr(new AppSettingsPrivate())
 {
     Q_D(AppSettings);
-    
-    QCoreApplication::setOrganizationName("ghostwriter");
-    QCoreApplication::setApplicationName("ghostwriter");
-    QCoreApplication::setApplicationVersion(APPVERSION);
-
-    // The following was lifted/modded from FocusWriter.
-    // See GPL license at the beginning of this file.
-    //
-    QString appDir = qApp->applicationDirPath();
-
-    // Set up portable settings directories.
-#if defined(Q_OS_MAC)
-    QFileInfo portable(appDir + "/../../../data");
-#elif defined(Q_OS_UNIX)
-    QFileInfo portable(appDir + "/data");
-#else
-    QFileInfo portable(appDir + "/data");
-#endif
-
-    // Handle portability
-    QString userDir;
 
     d->draftLocation =
         QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    
+    d->themeDirectoryPath =
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)
+        + "/themes";
 
-    if (portable.exists() && portable.isWritable()) {
-        userDir = portable.absoluteFilePath();
-        QSettings::setDefaultFormat(QSettings::IniFormat);
-        QSettings::setPath
-        (
-            QSettings::IniFormat,
-            QSettings::UserScope,
-            userDir + "/settings"
-        );
-
-        d->translationsPath = appDir + "/translations";
-
-        d->draftLocation = appDir + "/drafts";
-
-        QDir draftDir(d->draftLocation);
-
-        if (!draftDir.exists()) {
-            draftDir.mkpath(draftDir.path());
-        }
-    } else {
 #ifdef Q_OS_WIN32
         // On Windows, don't ever use the registry to store settings, for the
         // sake of cleanness, ability to load configuration files on other
@@ -658,25 +621,6 @@ AppSettings::AppSettings()
         //
         QSettings::setDefaultFormat(QSettings::IniFormat);
 #endif
-        QSettings settings;
-        userDir = QFileInfo(settings.fileName()).dir().absolutePath();
-
-        QStringList translationPaths;
-        translationPaths.append(appDir + "/translations");
-        translationPaths.append(appDir + "/../share/" +
-                                QCoreApplication::applicationName().toLower() +
-                                "/translations");
-        translationPaths.append(appDir + "/../Resources/translations");
-
-        for (const QString &path : translationPaths) {
-            if (QFile::exists(path)) {
-                d->translationsPath = path;
-                break;
-            }
-        }
-    }
-
-    d->themeDirectoryPath = userDir + "/themes";
 
     QDir themeDir(d->themeDirectoryPath);
 

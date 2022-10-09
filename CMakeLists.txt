@@ -78,7 +78,7 @@ if(APPLE)
         PROPERTY MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/resources/mac/MacOSBundleInfo.plist.in
     )
 
-    # These are substituted by CMake into plist.in.
+    # These are substituted by CMake into MacOSBundleInfo.plist.in.
     set(MACOSX_BUNDLE_DISPLAY_NAME "ghostwriter")
     set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.ghostwriter")
     set(MACOSX_BUNDLE_BUNDLE_NAME "ghostwriter")

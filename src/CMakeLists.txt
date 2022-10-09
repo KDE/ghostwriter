@@ -93,6 +93,8 @@ find_package(
     REQUIRED
     COMPONENTS
     Sonnet
+    CoreAddons
+    XmlGui
 )
 
 target_link_libraries(ghostwriter PRIVATE
@@ -105,6 +107,8 @@ target_link_libraries(ghostwriter PRIVATE
     Qt::WebEngineWidgets
     KF5::SonnetCore
     KF5::SonnetUi
+    KF5::CoreAddons
+    KF5::XmlGui
     QtAwesome
     libcmark-gfm_static
     libcmark-gfm-extensions_static

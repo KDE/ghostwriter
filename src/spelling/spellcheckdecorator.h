@@ -70,6 +70,12 @@ public slots:
      */
     void startLiveSpellCheck();
 
+    /**
+     * Highlight misspelled words from scratch if automatic spell checking is
+     * enabled, or else remove all highlights for misspelled words.
+     */
+    void rehighlight() const;
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 

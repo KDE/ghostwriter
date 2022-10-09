@@ -72,7 +72,6 @@ public:
     void onContentsChanged(int position, int charsAdded, int charsRemoved);
     void spellCheckBlock(QTextBlock &block) const;
     void clearSpellCheckFormatting(QTextBlock &block) const;
-    void resetLiveSpellChecking() const;
     Positions wordBreaks(const QString &text) const;
     Positions sentenceBreaks(const QString &text) const;
 
@@ -125,7 +124,7 @@ void SpellCheckDecorator::setErrorColor(const QColor &color)
     Q_D(SpellCheckDecorator);
 
     d->errorColor = color;
-    d->resetLiveSpellChecking();
+    this->rehighlight();
 }
 
 void SpellCheckDecorator::settingsChanged()
@@ -138,7 +137,7 @@ void SpellCheckDecorator::settingsChanged()
     }
 
     d->speller->setLanguage(d->settings->defaultLanguage());
-    d->resetLiveSpellChecking();
+    this->rehighlight();
 }
 
 void SpellCheckDecorator::startLiveSpellCheck()
@@ -153,6 +152,23 @@ void SpellCheckDecorator::startLiveSpellCheck()
 
     while (block.isValid()) {
         d->spellCheckBlock(block);
+        block = block.next();
+    }
+}
+
+void SpellCheckDecorator::rehighlight() const
+{
+    Q_D(const SpellCheckDecorator);
+
+    QTextBlock block = d->editor->document()->begin();
+
+    while (block.isValid()) {
+        d->clearSpellCheckFormatting(block);
+
+        if (d->settings->checkerEnabledByDefault()) {
+            d->spellCheckBlock(block);
+        }
+
         block = block.next();
     }
 }
@@ -236,6 +252,12 @@ QMenu * SpellCheckDecoratorPrivate::createContextMenu()
         q,
         [this, q]() {
             spellCheckDialog = new SpellCheckDialog(this->editor);
+            q->connect(
+                spellCheckDialog,
+                &SpellCheckDialog::finished,
+                q,
+                &SpellCheckDecorator::rehighlight
+            );
             spellCheckDialog->show();
         }
     );
@@ -280,11 +302,10 @@ QMenu * SpellCheckDecoratorPrivate::createSpellingMenu(
 
     q->connect(addWordToDictionaryAction,
         &QAction::triggered,
-        [this, cursorForWord, misspelledWord]() {
+        [this, q, cursorForWord, misspelledWord]() {
             this->editor->setTextCursor(cursorForWord);
             this->speller->addToPersonal(misspelledWord);
-
-            resetLiveSpellChecking();
+            q->rehighlight();
         }
     );
 
@@ -453,21 +474,6 @@ void SpellCheckDecoratorPrivate::clearSpellCheckFormatting(QTextBlock &block) co
     }
 
     block.layout()->setFormats(formats);
-}
-
-void SpellCheckDecoratorPrivate::resetLiveSpellChecking() const
-{
-    QTextBlock block = editor->document()->begin();
-
-    while (block.isValid()) {
-        clearSpellCheckFormatting(block);
-
-        if (this->settings->checkerEnabledByDefault()) {
-            spellCheckBlock(block);
-        }
-
-        block = block.next();
-    }
 }
 
 // Code is lifted from KDE Frameworks' Sonnet library, because we know it

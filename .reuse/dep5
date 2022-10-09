@@ -60,3 +60,7 @@ License: OFL-1.1
 Files: 3rdparty/react/*
 Copyright: 2013-present Facebook, Inc.
 License: MIT
+
+Files: poqm/*
+Copyright: 2022-present KDE
+License: LGPL-2.1-or-later

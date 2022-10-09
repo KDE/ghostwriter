@@ -70,7 +70,6 @@ private slots:
     void insertImage();
     void showQuickReferenceGuide();
     void showWikiPage();
-    void showAbout();
     void changeFocusMode(FocusMode focusMode);
     void applyTheme();
     void refreshRecentFiles();

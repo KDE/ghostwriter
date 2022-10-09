@@ -50,6 +50,7 @@ SpellCheckDialog::SpellCheckDialog(QPlainTextEdit *editor)
 {
     Q_D(SpellCheckDialog);
 
+    this->setWindowTitle(tr("Spell Check"));
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     QString buffer;
@@ -148,8 +149,8 @@ void SpellCheckDialogPrivate::spellCheckDone(const QString &newBuffer)
 
     MessageBoxHelper::information(
         this->editor,
-        QString(),
-        SpellCheckDialog::tr("Spell check is complete!")
+        SpellCheckDialog::tr("Spell check is complete!"),
+        QString()
     );
 }
 
