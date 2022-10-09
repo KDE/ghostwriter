@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+Dependencies:
+- 'on': ['@all']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/sonnet': '@stable'
+    'frameworks/kcoreaddons': '@stable'
+    'frameworks/kxmlgui': '@stable'
+    'frameworks/kconfigwidgets': '@stable'
