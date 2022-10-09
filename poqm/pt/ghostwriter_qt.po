@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-04 14:38+0100\n"
+"PO-Revision-Date: 2022-10-08 18:01+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -1303,12 +1303,9 @@ msgid "No spelling suggestions found"
 msgstr "Sem sugestões ortográficas"
 
 #: src/spelling/spellcheckdialog.cpp:152
-#, fuzzy
-#| msgctxt "ghostwriter::SpellChecker|"
-#| msgid "Spell check complete."
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
-msgstr "Verificação ortográfica completa."
+msgstr "A verificação ortográfica está completa!"
 
 #: src/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1577,63 +1574,3 @@ msgstr "Não é possível editar o tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Infelizmente, este é um tema incorporado que não pode ser modificado."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Live spellcheck enabled"
-#~ msgstr "Verificação ortográfica em directo activa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Language"
-#~ msgstr "Língua"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Dictionary"
-#~ msgstr "Dicionário"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Check Spelling"
-#~ msgstr "Verificar a Ortografia"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Add"
-#~ msgstr "&Adicionar"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Ignore"
-#~ msgstr "&Ignorar"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "I&gnore All"
-#~ msgstr "I&gnorar Tudo"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Change"
-#~ msgstr "Modifi&car"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "C&hange All"
-#~ msgstr "M&odificar Tudo"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Not in dictionary:"
-#~ msgstr "Fora do dicionário:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Change to:"
-#~ msgstr "Mudar para:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Checking spelling..."
-#~ msgstr "A verificar a ortografia..."
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Please wait"
-#~ msgstr "Espere por favor"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Continue checking at beginning of file?"
-#~ msgstr "Deseja prosseguir a verificação no início do ficheiro?"
