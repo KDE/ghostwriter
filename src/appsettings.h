@@ -40,7 +40,6 @@ public:
     void store();
 
     QString themeDirectoryPath() const;
-    QString translationsPath() const;
     QString draftLocation() const;
 
     bool autoSaveEnabled() const;
@@ -119,7 +118,9 @@ public:
     void setDarkModeEnabled(bool enabled);
 
     QString locale() const;
-    void setLocale(const QString &locale);
+    bool setLocale(const QString &locale);
+
+    QStringList availableTranslations() const;
 
     Q_SIGNAL void spellCheckSettingsChanged() const;
 

@@ -793,26 +793,8 @@ void MainWindow::onFontSizeChanged(int size)
 
 void MainWindow::onSetLocale()
 {
-    bool ok;
-
-    QString locale =
-        LocaleDialog::locale
-        (
-            &ok,
-            appSettings->locale(),
-            appSettings->translationsPath()
-        );
-
-    if (ok && (locale != appSettings->locale())) {
-        appSettings->setLocale(locale);
-
-        QMessageBox::information
-        (
-            this,
-            QApplication::applicationName(),
-            tr("Please restart the application for changes to take effect.")
-        );
-    }
+    LocaleDialog *dialog = new LocaleDialog(this);
+    dialog->show();
 }
 
 void MainWindow::copyHtml()
@@ -1090,11 +1072,21 @@ void MainWindow::buildMenuBar()
     preferencesAction->setMenuRole(QAction::PreferencesRole);
     settingsMenu->addAction(preferencesAction);
 
-    KHelpMenu *kHelpMenu = new KHelpMenu(this, KAboutData::applicationData());
-    QMenu *helpMenu = kHelpMenu->menu();
+    KHelpMenu *kHelpMenu = new KHelpMenu(this, KAboutData::applicationData(), false);
+
+    QMenu *helpMenu = this->menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(createWindowAction(
+        kHelpMenu->action(KHelpMenu::menuAboutApp)->text(), kHelpMenu, SLOT(aboutApplication())));
+    helpMenu->addAction(createWindowAction(
+        kHelpMenu->action(KHelpMenu::menuAboutKDE)->text(), kHelpMenu, SLOT(aboutKDE())));
+    helpMenu->addAction(createWindowAction(
+        kHelpMenu->action(KHelpMenu::menuReportBug)->text(), kHelpMenu, SLOT(reportBug())));
+    helpMenu->addAction(createWindowAction(
+        kHelpMenu->action(KHelpMenu::menuDonate)->text(), kHelpMenu, SLOT(donate())));
     helpMenu->addSeparator();
     helpMenu->addAction(createWindowAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide())));
     helpMenu->addAction(createWindowAction(tr("Wiki"), this, SLOT(showWikiPage())));
+
     this->menuBar()->addMenu(helpMenu);
 
     connect(fileMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));

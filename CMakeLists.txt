@@ -48,12 +48,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/poqm")
+    ecm_install_po_files_as_qm(poqm)
+endif()
+
 set(QTAWESOME_USE_FREE ON)
 add_subdirectory(3rdparty/QtAwesome)
 add_subdirectory(3rdparty/cmark-gfm EXCLUDE_FROM_ALL)
 add_subdirectory(src)
-
-ecm_install_po_files_as_qm(poqm)
 
 # Add icon files to the application's source files to have CMake bundle them in the executable.
 set(ICONS_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons)

@@ -8,71 +8,34 @@
 #define LOCALEDIALOG_H
 
 #include <QDialog>
-
-class QComboBox;
+#include <QScopedPointer>
 
 namespace ghostwriter
 {
 /**
  * Displays a dialog with supported languages for the applications
  * from which the user may choose.
+ * 
+ * Note: This dialog is set to delete on close automatically.
  */
+class LocaleDialogPrivate;
 class LocaleDialog : public QDialog
 {
     Q_OBJECT
 
 public:
     /**
-     * Constructor.  Parameters are the initially selected locale string
-     * (in language_country or language form, i.e, en_US, or en) and the
-     * translations directory path where the application's *.qm translation
-     * files are stored.
+     * Constructor.
      */
-    explicit LocaleDialog
-    (
-        const QString &initialLocale,
-        const QString &translationsPath,
-        QWidget *parent = nullptr
-    );
+    explicit LocaleDialog(QWidget *parent = nullptr);
 
     /**
      * Destructor.
      */
     virtual ~LocaleDialog();
 
-    /**
-     * Returns the currently selected locale in the dialog box.
-     */
-    QString selectedLocale() const;
-
-    /**
-     * Convenience method to display this dialog.  Returns the locale
-     * selected by the user, in language_country or language form, i.e.,
-     * en_US or en.  If the user selects the Cancel button, ok will be
-     * set to false.
-     *
-     * Parameters are the initially selected locale string
-     * (in language_country or language form, i.e, en_US, or en) and the
-     * translations directory path where the application's *.qm translation
-     * files are stored.
-     */
-    static QString locale
-    (
-        bool *ok,
-        const QString &initialLocale,
-        const QString &translationsPath,
-        QWidget *parent = nullptr
-    );
-
 private:
-    QComboBox *localeComboBox;
-
-    /*
-    * Gets a descriptive language/country string from the given
-    * language code, which is in language_country or language form,
-    * i.e, en_US, or en.
-    */
-    QString localeDescription(const QString &languageCode);
+    QScopedPointer<LocaleDialogPrivate> d;
 
 };
 } // namespace ghostwriter

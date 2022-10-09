@@ -14,6 +14,8 @@ target_include_directories(ghostwriter PUBLIC
     "${PROJECT_SOURCE_DIR}/3rdparty/QtAwesome"
 )
 
+ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_sources(ghostwriter PRIVATE
     abstractstatisticswidget.cpp
@@ -64,9 +66,10 @@ target_sources(ghostwriter PRIVATE
     findreplace.cpp
     spelling/spellcheckdecorator.cpp
     spelling/spellcheckdialog.cpp
+    ${ghostwriter_QM_LOADER}
 )
 
-ecm_create_qm_loader(ghostwriter ghostwriter_qt)
+message("QM Files = ${ghostwriter_QM_LOADER}")
 
 if (UNIX)
     find_package(PkgConfig REQUIRED)
@@ -95,6 +98,7 @@ find_package(
     Sonnet
     CoreAddons
     XmlGui
+    ConfigWidgets
 )
 
 target_link_libraries(ghostwriter PRIVATE
@@ -109,6 +113,7 @@ target_link_libraries(ghostwriter PRIVATE
     KF5::SonnetUi
     KF5::CoreAddons
     KF5::XmlGui
+    KF5::ConfigWidgets
     QtAwesome
     libcmark-gfm_static
     libcmark-gfm-extensions_static

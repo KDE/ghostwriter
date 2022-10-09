@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
                     QCoreApplication::translate("main", "ghostwriter"),
                     APPVERSION);
 
+    aboutData.setOrganizationDomain("kde.org");
     aboutData.setShortDescription(QCoreApplication::translate("main",
         "A markdown editor"));
 
