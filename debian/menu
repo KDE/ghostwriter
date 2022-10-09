@@ -1,7 +1,0 @@
-?package(ghostwriter):\
-    needs="x11"\
-    section="Applications/Editors"\
-    title="ghostwriter"\
-    longtitle="Distraction-free Markdown editor"\
-    icon="/usr/share/icons/hicolor/scalable/apps/ghostwriter.svg"\
-    command="/usr/bin/ghostwriter"
