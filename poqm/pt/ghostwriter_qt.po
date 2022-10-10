@@ -47,17 +47,93 @@ msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
 msgstr "%1m"
 
+#: src/appmain.cpp:75
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Welcome to ghostwriter!"
+msgctxt "main|"
+msgid "ghostwriter"
+msgstr "Bem-vindo ao Ghostwriter!"
+
+#: src/appmain.cpp:79
+#, fuzzy
+#| msgctxt "ghostwriter::ExportDialog|"
+#| msgid "Markdown Converter"
+msgctxt "main|"
+msgid "A markdown editor"
+msgstr "Conversor de Markdown"
+
+#: src/appmain.cpp:86
+msgctxt "main|"
+msgid "FocusWriter developer, whose Qt code mentored me"
+msgstr ""
+
+#: src/appmain.cpp:91
+msgctxt "main|"
+msgid "ReText developer, whose algorithms helped immensely"
+msgstr ""
+
+#: src/appmain.cpp:96
+msgctxt "main|"
+msgid ""
+"StretchPlayer developer, whose application showed me how to make frameless "
+"windows in Qt"
+msgstr ""
+
+#: src/appmain.cpp:101
+msgctxt "main|"
+msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
+msgstr ""
+
 #: src/appmain.cpp:105
+msgctxt "main|"
+msgid "Other Contributors"
+msgstr ""
+
+#: src/appmain.cpp:106
+msgctxt "main|"
+msgid ""
+"Everyone who provided translations, documentation, bug fixes, or new "
+"features over the years"
+msgstr ""
+
+#: src/appmain.cpp:111
+msgctxt "main|"
+msgid "An extended version of the C reference implementation of CommonMark"
+msgstr ""
+
+#: src/appmain.cpp:116
+msgctxt "main|"
+msgid "A JavaScript library for building user interfaces"
+msgstr ""
+
+#: src/appmain.cpp:121
+msgctxt "main|"
+msgid "Font Awesome support for Qt applications"
+msgstr ""
+
+#: src/appmain.cpp:126
+msgctxt "main|"
+msgid "A JavaScript display engine for mathematics"
+msgstr ""
+
+#: src/appmain.cpp:131
+#, qt-format
+msgctxt "main|"
+msgid "Copyright 2014-%1 The ghostwriter team"
+msgstr ""
+
+#: src/appmain.cpp:149
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
 msgstr "Bem-vindo ao Ghostwriter!"
 
-#: src/appmain.cpp:110
+#: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
 msgstr "(Opcional) Ficheiro a abrir."
 
-#: src/appmain.cpp:113
+#: src/appmain.cpp:155
 msgctxt "main|"
 msgid "Disables GPU acceleration."
 msgstr "Desactiva a aceleração da placa gráfica."
@@ -440,543 +516,505 @@ msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
 msgstr "Erro ao carregar o 'resources/preview.html'"
 
-#: src/localedialog.cpp:26
+#: src/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
 msgstr "Mudar a Língua da Aplicação"
 
-#: src/localedialog.cpp:36
+#: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
-msgid "The translations folder is missing."
-msgstr "Falta a pasta de traduções."
+msgid "No translations are available!"
+msgstr ""
 
-#: src/localedialog.cpp:37
+#: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
 msgstr "Por favor, reinstale esta aplicação para obter mais opções de línguas."
 
-#: src/mainwindow.cpp:659
+#: src/localedialog.cpp:89
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Sorry!"
+msgstr ""
+
+#: src/localedialog.cpp:90
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Could not load translation."
+msgstr ""
+
+#: src/localedialog.cpp:97
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Please restart the application for changes to take effect."
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Please restart the application for changes to take effect."
+msgstr "Por favor reinstale a aplicação para que as alterações façam efeito."
+
+#: src/mainwindow.cpp:661
 msgctxt "ghostwriter::MainWindow|"
 msgid "Insert Image"
 msgstr "Inserir uma Imagem"
 
-#: src/mainwindow.cpp:662
+#: src/mainwindow.cpp:664
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images"
 msgstr "Imagens"
 
-#: src/mainwindow.cpp:663
+#: src/mainwindow.cpp:665
 msgctxt "ghostwriter::MainWindow|"
 msgid "All Files"
 msgstr "Todos os Ficheiros"
 
-#: src/mainwindow.cpp:705
-msgctxt "ghostwriter::MainWindow|"
-msgid ""
-"<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and redistribute "
-"this software under the terms of the <a href=\"http://www.gnu.org/licenses/"
-"gpl.html\">GNU General Public License Version 3</a>.</p><p>Visit the "
-"official website at <a href=\"http://github.com/wereturtle/ghostwriter"
-"\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special thanks and "
-"credit for reused code goes to</p><p><a href=\"mailto:graeme@gottcode.org"
-"\">Graeme Gott</a>, author of <a href=\"http://gottcode.org/focuswriter/"
-"\">FocusWriter</a><br/>Dmitry Shachnev, author of <a href=\"http://"
-"sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href=\"mailto:"
-"gabriel@teuton.org\">Gabriel M. Beddingfield</a>, author of <a href=\"http://"
-"www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/><p>I am also "
-"deeply indebted to <a href=\"mailto:w.vollprecht@gmail.com\">Wolf "
-"Vollprecht</a>, the author of <a href=\"http://uberwriter.wolfvollprecht.de/"
-"\">UberWriter</a>, for the inspiration he provided in creating such a "
-"beautiful Markdown editing tool.</p>"
-msgstr ""
-"<p>Copyright &copy; 2014-2022 wereturtle</b><p>Poderá usar e redistribuir "
-"esta aplicação segundo os termos da <a href=\"http://www.gnu.org/licenses/"
-"gpl.html\">Licença Pública Geral da GNU, Versão 3</a>.</p><p>Visite a página "
-"Web oficial em <a href=\"http://github.com/wereturtle/ghostwriter\">http://"
-"github.com/wereturtle/ghostwriter</a>.</p><p>Muito obrigado e créditos pelo "
-"código reutilizado a</p><p><a href=\"mailto:graeme@gottcode.org\">Graeme "
-"Gott</a>, autor do <a href=\"http://gottcode.org/focuswriter/\">FocusWriter</"
-"a><br/>Dmitry Shachnev, autor do <a href=\"http://sourceforge.net/p/retext/"
-"home/ReText/\">Retext</a><br/><a href=\"mailto:gabriel@teuton.org\">Gabriel "
-"M. Beddingfield</a>, autor do <a href=\"http://www.teuton.org/~gabriel/"
-"stretchplayer/\">StretchPlayer</a><br/><p>Também tenho uma dívida em "
-"particular ao <a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, "
-"o autor do <a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, "
-"pela inspiração que forneceu na criação de uma ferramenta de edição de "
-"Markdown tão bonita.</p>"
-
-#: src/mainwindow.cpp:728
-#, qt-format
-msgctxt "ghostwriter::MainWindow|"
-msgid "About %1"
-msgstr "Acerca do %1"
-
-#: src/mainwindow.cpp:842
-msgctxt "ghostwriter::MainWindow|"
-msgid "Please restart the application for changes to take effect."
-msgstr "Por favor reinstale a aplicação para que as alterações façam efeito."
-
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Ficheiro"
 
-#: src/mainwindow.cpp:982
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Novo"
 
-#: src/mainwindow.cpp:983
+#: src/mainwindow.cpp:936
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Abrir"
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:938
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Abrir um &Recente..."
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:939
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Reabrir o Ficheiro Fechado"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:947
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Limpar o Menu"
 
-#: src/mainwindow.cpp:999
+#: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Gravar"
 
-#: src/mainwindow.cpp:1000
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Gravar &Como..."
 
-#: src/mainwindow.cpp:1001
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "Mudar o Nom&e..."
 
-#: src/mainwindow.cpp:1002
+#: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "Re&carregar do Disco..."
 
-#: src/mainwindow.cpp:1004
+#: src/mainwindow.cpp:957
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Exportar"
 
-#: src/mainwindow.cpp:1006
+#: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "Sai&r"
 
-#: src/mainwindow.cpp:1010
+#: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Editar"
 
-#: src/mainwindow.cpp:1011
+#: src/mainwindow.cpp:964
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "&Desfazer"
 
-#: src/mainwindow.cpp:1012
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "&Refazer"
 
-#: src/mainwindow.cpp:1014
+#: src/mainwindow.cpp:967
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "Cor&tar"
 
-#: src/mainwindow.cpp:1015
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Copiar"
 
-#: src/mainwindow.cpp:1016
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "Co&lar"
 
-#: src/mainwindow.cpp:1017
+#: src/mainwindow.cpp:970
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Copiar o &HTML"
 
-#: src/mainwindow.cpp:1019
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "&Inserir uma Imagem..."
 
-#: src/mainwindow.cpp:1022
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "&Procurar"
 
-#: src/mainwindow.cpp:1023
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "Su&bstituir"
 
-#: src/mainwindow.cpp:1024
+#: src/mainwindow.cpp:977
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Procurar o Segui&nte"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Procurar o &Anterior"
 
-#: src/mainwindow.cpp:1027
+#: src/mainwindow.cpp:980
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "Verificação &Ortográfica"
 
-#: src/mainwindow.cpp:1029
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "For&mato"
 
-#: src/mainwindow.cpp:1030
+#: src/mainwindow.cpp:983
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "&Negrito"
 
-#: src/mainwindow.cpp:1031
+#: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "&Itálico"
 
-#: src/mainwindow.cpp:1032
+#: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "&Traçado"
 
-#: src/mainwindow.cpp:1033
+#: src/mainwindow.cpp:986
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "Comentário de &HTML"
 
-#: src/mainwindow.cpp:1036
+#: src/mainwindow.cpp:989
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "I&ndentar"
 
-#: src/mainwindow.cpp:1037
+#: src/mainwindow.cpp:990
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "&Remover a Indentação"
 
-#: src/mainwindow.cpp:1039
+#: src/mainwindow.cpp:992
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "Citação em &Bloco"
 
-#: src/mainwindow.cpp:1040
+#: src/mainwindow.cpp:993
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "Remo&ver a Citação em Bloco"
 
-#: src/mainwindow.cpp:1042
+#: src/mainwindow.cpp:995
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "Lista de Tópicos &*"
 
-#: src/mainwindow.cpp:1043
+#: src/mainwindow.cpp:996
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "Lista de Tópicos &-"
 
-#: src/mainwindow.cpp:1044
+#: src/mainwindow.cpp:997
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "Lista de Tópicos &+"
 
-#: src/mainwindow.cpp:1046
+#: src/mainwindow.cpp:999
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "Lista Numerada 1&."
 
-#: src/mainwindow.cpp:1047
+#: src/mainwindow.cpp:1000
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "Lista Numerada 1&)"
 
-#: src/mainwindow.cpp:1049
+#: src/mainwindow.cpp:1002
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "Lista de &Tarefas"
 
-#: src/mainwindow.cpp:1050
+#: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "&Comutar a Finalização das Tarefas"
 
-#: src/mainwindow.cpp:1053
+#: src/mainwindow.cpp:1006
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Ver"
 
-#: src/mainwindow.cpp:1055
+#: src/mainwindow.cpp:1008
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "Ecrã &Completo"
 
-#: src/mainwindow.cpp:1063
+#: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "&Antevisão em HTML"
 
-#: src/mainwindow.cpp:1071
+#: src/mainwindow.cpp:1024
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "&Estrutura"
 
-#: src/mainwindow.cpp:1081
+#: src/mainwindow.cpp:1034
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "Estatísticas da &Sessão"
 
-#: src/mainwindow.cpp:1090
+#: src/mainwindow.cpp:1043
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "Estatísticas do &Documento"
 
-#: src/mainwindow.cpp:1099
+#: src/mainwindow.cpp:1052
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "&Cábula"
 
-#: src/mainwindow.cpp:1110
+#: src/mainwindow.cpp:1063
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Aumentar o Tamanho do Texto"
 
-#: src/mainwindow.cpp:1111
+#: src/mainwindow.cpp:1064
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Diminuir o Tamanho do Texto"
 
-#: src/mainwindow.cpp:1113
+#: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "&Configuração"
 
-#: src/mainwindow.cpp:1114 src/mainwindow.cpp:1418
+#: src/mainwindow.cpp:1067 src/mainwindow.cpp:1378
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Temas..."
 
-#: src/mainwindow.cpp:1115 src/mainwindow.cpp:1419
+#: src/mainwindow.cpp:1068 src/mainwindow.cpp:1379
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Tipo de Letra..."
 
-#: src/mainwindow.cpp:1116 src/mainwindow.cpp:1420
+#: src/mainwindow.cpp:1069 src/mainwindow.cpp:1380
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Língua da Aplicação..."
 
-#: src/mainwindow.cpp:1117 src/mainwindow.cpp:1421
+#: src/mainwindow.cpp:1070 src/mainwindow.cpp:1381
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Opções da Antevisão..."
 
-#: src/mainwindow.cpp:1118 src/mainwindow.cpp:1422
+#: src/mainwindow.cpp:1071 src/mainwindow.cpp:1382
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Preferências..."
 
-#: src/mainwindow.cpp:1122
+#: src/mainwindow.cpp:1077
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "A&juda"
 
-#: src/mainwindow.cpp:1123
-msgctxt "ghostwriter::MainWindow|"
-msgid "&About"
-msgstr "&Acerca"
-
-#: src/mainwindow.cpp:1126
-msgctxt "ghostwriter::MainWindow|"
-msgid "About &Qt"
-msgstr "Acerca do &Qt"
-
-#: src/mainwindow.cpp:1129
+#: src/mainwindow.cpp:1087
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "Guia de &Referência Rápida"
 
-#: src/mainwindow.cpp:1130
+#: src/mainwindow.cpp:1088
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1176
+#: src/mainwindow.cpp:1136
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Comutar a barra lateral"
 
-#: src/mainwindow.cpp:1233
+#: src/mainwindow.cpp:1193
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Comutar o modo escuro"
 
-#: src/mainwindow.cpp:1252
+#: src/mainwindow.cpp:1212
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "Comutar a Antevisão de HTML em Directo"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1232
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Comutar o modo Hemingway"
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1240
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Comutar o modo sem distracções"
 
-#: src/mainwindow.cpp:1289
+#: src/mainwindow.cpp:1249
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Comutar o modo de ecrã completo"
 
-#: src/mainwindow.cpp:1312
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Mostrar a Barra Lateral"
 
-#: src/mainwindow.cpp:1329
+#: src/mainwindow.cpp:1289
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Cabeçalho 1"
 
-#: src/mainwindow.cpp:1330
+#: src/mainwindow.cpp:1290
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Cabeçalho 2"
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1291
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Cabeçalho 3"
 
-#: src/mainwindow.cpp:1332
+#: src/mainwindow.cpp:1292
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Cabeçalho 4"
 
-#: src/mainwindow.cpp:1333
+#: src/mainwindow.cpp:1293
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Cabeçalho 5"
 
-#: src/mainwindow.cpp:1334
+#: src/mainwindow.cpp:1294
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Cabeçalho 6"
 
-#: src/mainwindow.cpp:1335
+#: src/mainwindow.cpp:1295
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Ênfase* _Ênfase_"
 
-#: src/mainwindow.cpp:1336
+#: src/mainwindow.cpp:1296
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Carregado** __Carregado__"
 
-#: src/mainwindow.cpp:1337
+#: src/mainwindow.cpp:1297
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "Lista Numerada 1."
 
-#: src/mainwindow.cpp:1338
+#: src/mainwindow.cpp:1298
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "Lista de Tópicos *"
 
-#: src/mainwindow.cpp:1339
+#: src/mainwindow.cpp:1299
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "Lista de Tópicos +"
 
-#: src/mainwindow.cpp:1340
+#: src/mainwindow.cpp:1300
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "Lista de Tópicos -"
 
-#: src/mainwindow.cpp:1341
+#: src/mainwindow.cpp:1301
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "Citação em Bloco >"
 
-#: src/mainwindow.cpp:1342
+#: src/mainwindow.cpp:1302
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Secção de Código`"
 
-#: src/mainwindow.cpp:1343
+#: src/mainwindow.cpp:1303
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "Bloco de Código ```"
 
-#: src/mainwindow.cpp:1344
+#: src/mainwindow.cpp:1304
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Ligação](http://url.com \"Título\")"
 
-#: src/mainwindow.cpp:1345
+#: src/mainwindow.cpp:1305
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Ligação a Referência][ID]"
 
-#: src/mainwindow.cpp:1346
+#: src/mainwindow.cpp:1306
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Definição da Referência\""
 
-#: src/mainwindow.cpp:1347
+#: src/mainwindow.cpp:1307
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Imagem](./imagem.jpg \"Título\")"
 
-#: src/mainwindow.cpp:1348
+#: src/mainwindow.cpp:1308
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Linha Horizontal"
 
-#: src/mainwindow.cpp:1398
+#: src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Estrutura"
 
-#: src/mainwindow.cpp:1399
+#: src/mainwindow.cpp:1359
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Estatísticas da Sessão"
 
-#: src/mainwindow.cpp:1400
+#: src/mainwindow.cpp:1360
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Estatísticas do Documento"
 
-#: src/mainwindow.cpp:1401
+#: src/mainwindow.cpp:1361
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Cábula"
 
-#: src/mainwindow.cpp:1411
+#: src/mainwindow.cpp:1371
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Configuração"
@@ -1282,25 +1320,33 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Mostrar apenas os tipos de letra monoespaçados"
 
-#: src/spelling/spellcheckdecorator.cpp:232
+#: src/spelling/spellcheckdecorator.cpp:248
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Verificação ortográfica..."
 
-#: src/spelling/spellcheckdecorator.cpp:254
+#: src/spelling/spellcheckdecorator.cpp:276
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Ortografia"
 
-#: src/spelling/spellcheckdecorator.cpp:279
+#: src/spelling/spellcheckdecorator.cpp:301
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "Adicionar a palavra ao dicionário"
 
-#: src/spelling/spellcheckdecorator.cpp:319
+#: src/spelling/spellcheckdecorator.cpp:340
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "Sem sugestões ortográficas"
+
+#: src/spelling/spellcheckdialog.cpp:53
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Spell Check"
+msgctxt "ghostwriter::SpellCheckDialog|"
+msgid "Spell Check"
+msgstr "Verificação Ortográfica"
 
 #: src/spelling/spellcheckdialog.cpp:152
 msgctxt "ghostwriter::SpellCheckDialog|"
@@ -1574,3 +1620,55 @@ msgstr "Não é possível editar o tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Infelizmente, este é um tema incorporado que não pode ser modificado."
+
+#~ msgctxt "ghostwriter::LocaleDialog|"
+#~ msgid "The translations folder is missing."
+#~ msgstr "Falta a pasta de traduções."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid ""
+#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and "
+#~ "redistribute this software under the terms of the <a href=\"http://www."
+#~ "gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</"
+#~ "p><p>Visit the official website at <a href=\"http://github.com/wereturtle/"
+#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special "
+#~ "thanks and credit for reused code goes to</p><p><a href=\"mailto:"
+#~ "graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://"
+#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, author "
+#~ "of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/"
+#~ "><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
+#~ "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
+#~ "\">StretchPlayer</a><br/><p>I am also deeply indebted to <a href=\"mailto:"
+#~ "w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href="
+#~ "\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the "
+#~ "inspiration he provided in creating such a beautiful Markdown editing "
+#~ "tool.</p>"
+#~ msgstr ""
+#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>Poderá usar e redistribuir "
+#~ "esta aplicação segundo os termos da <a href=\"http://www.gnu.org/licenses/"
+#~ "gpl.html\">Licença Pública Geral da GNU, Versão 3</a>.</p><p>Visite a "
+#~ "página Web oficial em <a href=\"http://github.com/wereturtle/ghostwriter"
+#~ "\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Muito obrigado e "
+#~ "créditos pelo código reutilizado a</p><p><a href=\"mailto:graeme@gottcode."
+#~ "org\">Graeme Gott</a>, autor do <a href=\"http://gottcode.org/focuswriter/"
+#~ "\">FocusWriter</a><br/>Dmitry Shachnev, autor do <a href=\"http://"
+#~ "sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href=\"mailto:"
+#~ "gabriel@teuton.org\">Gabriel M. Beddingfield</a>, autor do <a href="
+#~ "\"http://www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/"
+#~ "><p>Também tenho uma dívida em particular ao <a href=\"mailto:w."
+#~ "vollprecht@gmail.com\">Wolf Vollprecht</a>, o autor do <a href=\"http://"
+#~ "uberwriter.wolfvollprecht.de/\">UberWriter</a>, pela inspiração que "
+#~ "forneceu na criação de uma ferramenta de edição de Markdown tão bonita.</"
+#~ "p>"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "About %1"
+#~ msgstr "Acerca do %1"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&About"
+#~ msgstr "&Acerca"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "About &Qt"
+#~ msgstr "Acerca do &Qt"

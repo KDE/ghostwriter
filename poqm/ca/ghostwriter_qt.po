@@ -8,15 +8,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-04 18:09+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2022-10-09 11:49+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Lokalize 20.12.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/abstractstatisticswidget.cpp:16
@@ -46,17 +46,93 @@ msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
 msgstr "%1m"
 
+#: src/appmain.cpp:75
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Welcome to ghostwriter!"
+msgctxt "main|"
+msgid "ghostwriter"
+msgstr "Us donem la benvinguda al «ghostwriter»"
+
+#: src/appmain.cpp:79
+#, fuzzy
+#| msgctxt "ghostwriter::ExportDialog|"
+#| msgid "Markdown Converter"
+msgctxt "main|"
+msgid "A markdown editor"
+msgstr "Convertidor del Markdown"
+
+#: src/appmain.cpp:86
+msgctxt "main|"
+msgid "FocusWriter developer, whose Qt code mentored me"
+msgstr ""
+
+#: src/appmain.cpp:91
+msgctxt "main|"
+msgid "ReText developer, whose algorithms helped immensely"
+msgstr ""
+
+#: src/appmain.cpp:96
+msgctxt "main|"
+msgid ""
+"StretchPlayer developer, whose application showed me how to make frameless "
+"windows in Qt"
+msgstr ""
+
+#: src/appmain.cpp:101
+msgctxt "main|"
+msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
+msgstr ""
+
 #: src/appmain.cpp:105
+msgctxt "main|"
+msgid "Other Contributors"
+msgstr ""
+
+#: src/appmain.cpp:106
+msgctxt "main|"
+msgid ""
+"Everyone who provided translations, documentation, bug fixes, or new "
+"features over the years"
+msgstr ""
+
+#: src/appmain.cpp:111
+msgctxt "main|"
+msgid "An extended version of the C reference implementation of CommonMark"
+msgstr ""
+
+#: src/appmain.cpp:116
+msgctxt "main|"
+msgid "A JavaScript library for building user interfaces"
+msgstr ""
+
+#: src/appmain.cpp:121
+msgctxt "main|"
+msgid "Font Awesome support for Qt applications"
+msgstr ""
+
+#: src/appmain.cpp:126
+msgctxt "main|"
+msgid "A JavaScript display engine for mathematics"
+msgstr ""
+
+#: src/appmain.cpp:131
+#, qt-format
+msgctxt "main|"
+msgid "Copyright 2014-%1 The ghostwriter team"
+msgstr ""
+
+#: src/appmain.cpp:149
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
 msgstr "Us donem la benvinguda al «ghostwriter»"
 
-#: src/appmain.cpp:110
+#: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
 msgstr "(Opcional) Fitxer a obrir."
 
-#: src/appmain.cpp:113
+#: src/appmain.cpp:155
 msgctxt "main|"
 msgid "Disables GPU acceleration."
 msgstr "Desactiva l'acceleració de la GPU."
@@ -439,545 +515,507 @@ msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
 msgstr "Error en carregar «resources/preview.html»"
 
-#: src/localedialog.cpp:26
+#: src/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
 msgstr "Estableix l'idioma de l'aplicació"
 
-#: src/localedialog.cpp:36
+#: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
-msgid "The translations folder is missing."
-msgstr "Manca la carpeta de traduccions."
+msgid "No translations are available!"
+msgstr ""
 
-#: src/localedialog.cpp:37
+#: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
 msgstr "Reinstal·leu aquesta aplicació per a més opcions d'idioma."
 
-#: src/mainwindow.cpp:659
+#: src/localedialog.cpp:89
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Sorry!"
+msgstr ""
+
+#: src/localedialog.cpp:90
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Could not load translation."
+msgstr ""
+
+#: src/localedialog.cpp:97
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Please restart the application for changes to take effect."
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Please restart the application for changes to take effect."
+msgstr "Reinicieu l'aplicació perquè els canvis tinguin efecte."
+
+#: src/mainwindow.cpp:661
 msgctxt "ghostwriter::MainWindow|"
 msgid "Insert Image"
 msgstr "Insereix una imatge"
 
-#: src/mainwindow.cpp:662
+#: src/mainwindow.cpp:664
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images"
 msgstr "Imatges"
 
-#: src/mainwindow.cpp:663
+#: src/mainwindow.cpp:665
 msgctxt "ghostwriter::MainWindow|"
 msgid "All Files"
 msgstr "Tots els fitxers"
 
-#: src/mainwindow.cpp:705
-msgctxt "ghostwriter::MainWindow|"
-msgid ""
-"<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and redistribute "
-"this software under the terms of the <a href=\"http://www.gnu.org/licenses/"
-"gpl.html\">GNU General Public License Version 3</a>.</p><p>Visit the "
-"official website at <a href=\"http://github.com/wereturtle/ghostwriter"
-"\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special thanks and "
-"credit for reused code goes to</p><p><a href=\"mailto:graeme@gottcode.org"
-"\">Graeme Gott</a>, author of <a href=\"http://gottcode.org/focuswriter/"
-"\">FocusWriter</a><br/>Dmitry Shachnev, author of <a href=\"http://"
-"sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href=\"mailto:"
-"gabriel@teuton.org\">Gabriel M. Beddingfield</a>, author of <a href=\"http://"
-"www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/><p>I am also "
-"deeply indebted to <a href=\"mailto:w.vollprecht@gmail.com\">Wolf "
-"Vollprecht</a>, the author of <a href=\"http://uberwriter.wolfvollprecht.de/"
-"\">UberWriter</a>, for the inspiration he provided in creating such a "
-"beautiful Markdown editing tool.</p>"
-msgstr ""
-"<p>Copyright &copy; 2014-2022 wereturtle</b><p>Podeu usar i redistribuir "
-"aquest programari segons els termes de la <a href=\"http://www.gnu.org/"
-"licenses/gpl.html\">Llicència Pública General de GNU Versió 3</a>.</"
-"p><p>Visiteu el lloc web oficial a <a href=\"http://github.com/wereturtle/"
-"ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Un "
-"agraïment i reconeixement en especial per a </p><p><a href=\"mailto:"
-"graeme@gottcode.org\">Graeme Gott</a>, autor del <a href=\"http://gottcode."
-"org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, autor del <a href="
-"\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href="
-"\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, autor del <a href="
-"\"http://www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/"
-"><p>També tinc un deute enorme amb <a href=\"mailto:w.vollprecht@gmail.com"
-"\">Wolf Vollprecht</a>, l'autor del <a href=\"http://uberwriter."
-"wolfvollprecht.de/\">UberWriter</a>, per la inspiració que va proporcionar "
-"en crear aquesta magnífica eina d'edició del Markdown.</p>"
-
-#: src/mainwindow.cpp:728
-#, qt-format
-msgctxt "ghostwriter::MainWindow|"
-msgid "About %1"
-msgstr "Quant al %1"
-
-#: src/mainwindow.cpp:842
-msgctxt "ghostwriter::MainWindow|"
-msgid "Please restart the application for changes to take effect."
-msgstr "Reinicieu l'aplicació perquè els canvis tinguin efecte."
-
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Fitxer"
 
-#: src/mainwindow.cpp:982
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Nou"
 
-#: src/mainwindow.cpp:983
+#: src/mainwindow.cpp:936
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Obre"
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:938
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Obre'n un de &recent..."
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:939
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Torna a obrir un fitxer tancat"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:947
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Neteja el menú"
 
-#: src/mainwindow.cpp:999
+#: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "De&sa"
 
-#: src/mainwindow.cpp:1000
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Des&a com a..."
 
-#: src/mainwindow.cpp:1001
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "R&eanomena..."
 
-#: src/mainwindow.cpp:1002
+#: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "To&rna a carregar des del disc..."
 
-#: src/mainwindow.cpp:1004
+#: src/mainwindow.cpp:957
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Exporta"
 
-#: src/mainwindow.cpp:1006
+#: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "&Surt"
 
-#: src/mainwindow.cpp:1010
+#: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Edita"
 
-#: src/mainwindow.cpp:1011
+#: src/mainwindow.cpp:964
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "&Desfés"
 
-#: src/mainwindow.cpp:1012
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "&Refés"
 
-#: src/mainwindow.cpp:1014
+#: src/mainwindow.cpp:967
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "Re&talla"
 
-#: src/mainwindow.cpp:1015
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Copia"
 
-#: src/mainwindow.cpp:1016
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "&Enganxa"
 
-#: src/mainwindow.cpp:1017
+#: src/mainwindow.cpp:970
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Copia l'&HTML"
 
-#: src/mainwindow.cpp:1019
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "&Insereix una imatge..."
 
-#: src/mainwindow.cpp:1022
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "&Cerca"
 
-#: src/mainwindow.cpp:1023
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "&Substitueix"
 
-#: src/mainwindow.cpp:1024
+#: src/mainwindow.cpp:977
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Cerca la següe&nt"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Cerca l'an&terior"
 
-#: src/mainwindow.cpp:1027
+#: src/mainwindow.cpp:980
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "&Verificació de l'ortografia"
 
-#: src/mainwindow.cpp:1029
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "For&mat"
 
-#: src/mainwindow.cpp:1030
+#: src/mainwindow.cpp:983
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "&Negreta"
 
-#: src/mainwindow.cpp:1031
+#: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "&Cursiva"
 
-#: src/mainwindow.cpp:1032
+#: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "Ba&rrat"
 
-#: src/mainwindow.cpp:1033
+#: src/mainwindow.cpp:986
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "Comentari d'&HTML"
 
-#: src/mainwindow.cpp:1036
+#: src/mainwindow.cpp:989
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "Sag&nat"
 
-#: src/mainwindow.cpp:1037
+#: src/mainwindow.cpp:990
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "&Sense sagnat"
 
-#: src/mainwindow.cpp:1039
+#: src/mainwindow.cpp:992
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "Bloc de &cita"
 
-#: src/mainwindow.cpp:1040
+#: src/mainwindow.cpp:993
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "&Elimina el bloc de cita"
 
-#: src/mainwindow.cpp:1042
+#: src/mainwindow.cpp:995
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "Llista de pics &*"
 
-#: src/mainwindow.cpp:1043
+#: src/mainwindow.cpp:996
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "Llista de pics &-"
 
-#: src/mainwindow.cpp:1044
+#: src/mainwindow.cpp:997
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "Llista de pics &+"
 
-#: src/mainwindow.cpp:1046
+#: src/mainwindow.cpp:999
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "Llista numerada 1&."
 
-#: src/mainwindow.cpp:1047
+#: src/mainwindow.cpp:1000
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "Llista numerada 1&)"
 
-#: src/mainwindow.cpp:1049
+#: src/mainwindow.cpp:1002
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "Llista de &tasques"
 
-#: src/mainwindow.cpp:1050
+#: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "Commuta la/es tasca/ques &completada/es"
 
-#: src/mainwindow.cpp:1053
+#: src/mainwindow.cpp:1006
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Visualitza"
 
-#: src/mainwindow.cpp:1055
+#: src/mainwindow.cpp:1008
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "&Pantalla completa"
 
-#: src/mainwindow.cpp:1063
+#: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "&Vista prèvia en HTML"
 
-#: src/mainwindow.cpp:1071
+#: src/mainwindow.cpp:1024
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "C&ontorn"
 
-#: src/mainwindow.cpp:1081
+#: src/mainwindow.cpp:1034
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "Estadístiques de la &sessió"
 
-#: src/mainwindow.cpp:1090
+#: src/mainwindow.cpp:1043
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "Estadístiques del &document"
 
-#: src/mainwindow.cpp:1099
+#: src/mainwindow.cpp:1052
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "Full de tru&cs"
 
-#: src/mainwindow.cpp:1110
+#: src/mainwindow.cpp:1063
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Augmenta la mida del tipus de lletra"
 
-#: src/mainwindow.cpp:1111
+#: src/mainwindow.cpp:1064
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Disminueix la mida del tipus de lletra"
 
-#: src/mainwindow.cpp:1113
+#: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "&Configuració"
 
-#: src/mainwindow.cpp:1114 src/mainwindow.cpp:1418
+#: src/mainwindow.cpp:1067 src/mainwindow.cpp:1378
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Temes..."
 
-#: src/mainwindow.cpp:1115 src/mainwindow.cpp:1419
+#: src/mainwindow.cpp:1068 src/mainwindow.cpp:1379
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Tipus de lletra..."
 
-#: src/mainwindow.cpp:1116 src/mainwindow.cpp:1420
+#: src/mainwindow.cpp:1069 src/mainwindow.cpp:1380
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Idioma de l'aplicació..."
 
-#: src/mainwindow.cpp:1117 src/mainwindow.cpp:1421
+#: src/mainwindow.cpp:1070 src/mainwindow.cpp:1381
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Opcions de la vista prèvia..."
 
-#: src/mainwindow.cpp:1118 src/mainwindow.cpp:1422
+#: src/mainwindow.cpp:1071 src/mainwindow.cpp:1382
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Preferències..."
 
-#: src/mainwindow.cpp:1122
+#: src/mainwindow.cpp:1077
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "&Ajuda"
 
-#: src/mainwindow.cpp:1123
-msgctxt "ghostwriter::MainWindow|"
-msgid "&About"
-msgstr "Qu&ant a"
-
-#: src/mainwindow.cpp:1126
-msgctxt "ghostwriter::MainWindow|"
-msgid "About &Qt"
-msgstr "Quant a les &Qt"
-
-#: src/mainwindow.cpp:1129
+#: src/mainwindow.cpp:1087
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "Guia de &referència ràpida"
 
-#: src/mainwindow.cpp:1130
+#: src/mainwindow.cpp:1088
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1176
+#: src/mainwindow.cpp:1136
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Mostra o oculta la barra lateral"
 
-#: src/mainwindow.cpp:1233
+#: src/mainwindow.cpp:1193
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Commuta el mode fosc"
 
-#: src/mainwindow.cpp:1252
+#: src/mainwindow.cpp:1212
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "Commuta la vista prèvia HTML en directe"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1232
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Commuta el mode Hemingway"
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1240
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Commuta el mode lliure de distracció"
 
-#: src/mainwindow.cpp:1289
+#: src/mainwindow.cpp:1249
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Canvia al mode de pantalla completa"
 
-#: src/mainwindow.cpp:1312
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Mostra la barra lateral"
 
-#: src/mainwindow.cpp:1329
+#: src/mainwindow.cpp:1289
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Encapçalament 1"
 
-#: src/mainwindow.cpp:1330
+#: src/mainwindow.cpp:1290
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Encapçalament 2"
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1291
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Encapçalament 3"
 
-#: src/mainwindow.cpp:1332
+#: src/mainwindow.cpp:1292
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Encapçalament 4"
 
-#: src/mainwindow.cpp:1333
+#: src/mainwindow.cpp:1293
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Encapçalament 5"
 
-#: src/mainwindow.cpp:1334
+#: src/mainwindow.cpp:1294
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Encapçalament 6"
 
-#: src/mainwindow.cpp:1335
+#: src/mainwindow.cpp:1295
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Èmfasi* _Èmfasi_"
 
-#: src/mainwindow.cpp:1336
+#: src/mainwindow.cpp:1296
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Destacat** __Destacat__"
 
-#: src/mainwindow.cpp:1337
+#: src/mainwindow.cpp:1297
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. Llista numerada"
 
-#: src/mainwindow.cpp:1338
+#: src/mainwindow.cpp:1298
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Llista de pics"
 
-#: src/mainwindow.cpp:1339
+#: src/mainwindow.cpp:1299
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Llista de pics"
 
-#: src/mainwindow.cpp:1340
+#: src/mainwindow.cpp:1300
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Llista de pics"
 
-#: src/mainwindow.cpp:1341
+#: src/mainwindow.cpp:1301
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> Bloc de cita"
 
 # skip-rule: t-acc_obe
-#: src/mainwindow.cpp:1342
+#: src/mainwindow.cpp:1302
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Espai de codi`"
 
 # skip-rule: t-acc_obe
-#: src/mainwindow.cpp:1343
+#: src/mainwindow.cpp:1303
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Bloc de codi"
 
-#: src/mainwindow.cpp:1344
+#: src/mainwindow.cpp:1304
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Enllaç](http://url.com \"Títol\")"
 
-#: src/mainwindow.cpp:1345
+#: src/mainwindow.cpp:1305
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Enllaç de referència][ID]"
 
-#: src/mainwindow.cpp:1346
+#: src/mainwindow.cpp:1306
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Definició de la referència\""
 
-#: src/mainwindow.cpp:1347
+#: src/mainwindow.cpp:1307
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Imatge](./image.jpg \"Títol\")"
 
-#: src/mainwindow.cpp:1348
+#: src/mainwindow.cpp:1308
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Regle horitzontal"
 
-#: src/mainwindow.cpp:1398
+#: src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Esquema"
 
-#: src/mainwindow.cpp:1399
+#: src/mainwindow.cpp:1359
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Estadístiques de la sessió"
 
-#: src/mainwindow.cpp:1400
+#: src/mainwindow.cpp:1360
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Estadístiques del document"
 
-#: src/mainwindow.cpp:1401
+#: src/mainwindow.cpp:1361
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Full de trucs"
 
-#: src/mainwindow.cpp:1411
+#: src/mainwindow.cpp:1371
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Configuració"
@@ -1283,33 +1321,38 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Mostra només els tipus de lletra monoespai"
 
-#: src/spelling/spellcheckdecorator.cpp:232
+#: src/spelling/spellcheckdecorator.cpp:248
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Verifica l'ortografia..."
 
-#: src/spelling/spellcheckdecorator.cpp:254
+#: src/spelling/spellcheckdecorator.cpp:276
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Ortografia"
 
-#: src/spelling/spellcheckdecorator.cpp:279
+#: src/spelling/spellcheckdecorator.cpp:301
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "Afegeix una paraula al diccionari"
 
-#: src/spelling/spellcheckdecorator.cpp:319
+#: src/spelling/spellcheckdecorator.cpp:340
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "No s'ha trobat cap suggeriment ortogràfic"
 
-#: src/spelling/spellcheckdialog.cpp:152
+#: src/spelling/spellcheckdialog.cpp:53
 #, fuzzy
-#| msgctxt "ghostwriter::SpellChecker|"
-#| msgid "Spell check complete."
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Spell Check"
+msgctxt "ghostwriter::SpellCheckDialog|"
+msgid "Spell Check"
+msgstr "Verificació de l'ortografia"
+
+#: src/spelling/spellcheckdialog.cpp:152
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
-msgstr "La verificació ortogràfica ha finalitzat."
+msgstr "La verificació ortogràfica ha finalitzat!"
 
 #: src/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1578,62 +1621,54 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Aquest és un tema integrat que no es pot editar."
 
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Live spellcheck enabled"
-#~ msgstr "Activació de la verificació ortogràfica en directe"
+#~ msgctxt "ghostwriter::LocaleDialog|"
+#~ msgid "The translations folder is missing."
+#~ msgstr "Manca la carpeta de traduccions."
 
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Language"
-#~ msgstr "Idioma"
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid ""
+#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and "
+#~ "redistribute this software under the terms of the <a href=\"http://www."
+#~ "gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</"
+#~ "p><p>Visit the official website at <a href=\"http://github.com/wereturtle/"
+#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special "
+#~ "thanks and credit for reused code goes to</p><p><a href=\"mailto:"
+#~ "graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://"
+#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, author "
+#~ "of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/"
+#~ "><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
+#~ "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
+#~ "\">StretchPlayer</a><br/><p>I am also deeply indebted to <a href=\"mailto:"
+#~ "w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href="
+#~ "\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the "
+#~ "inspiration he provided in creating such a beautiful Markdown editing "
+#~ "tool.</p>"
+#~ msgstr ""
+#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>Podeu usar i redistribuir "
+#~ "aquest programari segons els termes de la <a href=\"http://www.gnu.org/"
+#~ "licenses/gpl.html\">Llicència Pública General de GNU Versió 3</a>.</"
+#~ "p><p>Visiteu el lloc web oficial a <a href=\"http://github.com/wereturtle/"
+#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Un "
+#~ "agraïment i reconeixement en especial per a </p><p><a href=\"mailto:"
+#~ "graeme@gottcode.org\">Graeme Gott</a>, autor del <a href=\"http://"
+#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, autor "
+#~ "del <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</"
+#~ "a><br/><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
+#~ "autor del <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
+#~ "\">StretchPlayer</a><br/><p>També tinc un deute enorme amb <a href="
+#~ "\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, l'autor del <a "
+#~ "href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, per la "
+#~ "inspiració que va proporcionar en crear aquesta magnífica eina d'edició "
+#~ "del Markdown.</p>"
 
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Dictionary"
-#~ msgstr "Diccionari"
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "About %1"
+#~ msgstr "Quant al %1"
 
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Check Spelling"
-#~ msgstr "Verificació ortogràfica"
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&About"
+#~ msgstr "Qu&ant a"
 
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Add"
-#~ msgstr "&Afegeix"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Ignore"
-#~ msgstr "&Ignora"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "I&gnore All"
-#~ msgstr "I&gnora-ho tot"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Change"
-#~ msgstr "&Canvia"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "C&hange All"
-#~ msgstr "Canvia-&ho tot"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Not in dictionary:"
-#~ msgstr "No al diccionari:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Change to:"
-#~ msgstr "Canvia a:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Checking spelling..."
-#~ msgstr "Verificació ortografia..."
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Cancel"
-#~ msgstr "Cancel·la"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Please wait"
-#~ msgstr "Espereu"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Continue checking at beginning of file?"
-#~ msgstr "Continuo la verificació al començament del fitxer?"
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "About &Qt"
+#~ msgstr "Quant a les &Qt"
