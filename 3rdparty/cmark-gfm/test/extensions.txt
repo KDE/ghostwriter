@@ -545,6 +545,38 @@ size (100) for parsing delimiters in inlines.c
 
 scyther@pokemon.com
 
+scy.the_rbe-edr+ill@pokemon.com
+
+scyther@pokemon.com.
+
+scyther@pokemon.com/
+
+scyther@pokemon.com/beedrill@pokemon.com
+
+mailto:scyther@pokemon.com
+
+This is a mailto:scyther@pokemon.com
+
+mailto:scyther@pokemon.com.
+
+mmmmailto:scyther@pokemon.com
+
+mailto:scyther@pokemon.com/
+
+mailto:scyther@pokemon.com/message
+
+mailto:scyther@pokemon.com/mailto:beedrill@pokemon.com
+
+xmpp:scyther@pokemon.com
+
+xmpp:scyther@pokemon.com.
+
+xmpp:scyther@pokemon.com/message
+
+xmpp:scyther@pokemon.com/message.
+
+Email me at:scyther@pokemon.com
+
 www.github.com www.github.com/á
 
 www.google.com/a_b
@@ -568,6 +600,22 @@ http://🍄.ga/ http://x🍄.ga/
 <p>: <a href="http://google.com">http://google.com</a> <a href="https://google.com">https://google.com</a></p>
 <p><a href="http://google.com/%C3%A5">http://google.com/å</a> <a href="http://google.com/%C3%A5">http://google.com/å</a></p>
 <p><a href="mailto:scyther@pokemon.com">scyther@pokemon.com</a></p>
+<p><a href="mailto:scy.the_rbe-edr+ill@pokemon.com">scy.the_rbe-edr+ill@pokemon.com</a></p>
+<p><a href="mailto:scyther@pokemon.com">scyther@pokemon.com</a>.</p>
+<p><a href="mailto:scyther@pokemon.com">scyther@pokemon.com</a>/</p>
+<p><a href="mailto:scyther@pokemon.com">scyther@pokemon.com</a>/<a href="mailto:beedrill@pokemon.com">beedrill@pokemon.com</a></p>
+<p><a href="mailto:scyther@pokemon.com">mailto:scyther@pokemon.com</a></p>
+<p>This is a <a href="mailto:scyther@pokemon.com">mailto:scyther@pokemon.com</a></p>
+<p><a href="mailto:scyther@pokemon.com">mailto:scyther@pokemon.com</a>.</p>
+<p>mmmmailto:<a href="mailto:scyther@pokemon.com">scyther@pokemon.com</a></p>
+<p><a href="mailto:scyther@pokemon.com">mailto:scyther@pokemon.com</a>/</p>
+<p><a href="mailto:scyther@pokemon.com">mailto:scyther@pokemon.com</a>/message</p>
+<p><a href="mailto:scyther@pokemon.com">mailto:scyther@pokemon.com</a>/<a href="mailto:beedrill@pokemon.com">mailto:beedrill@pokemon.com</a></p>
+<p><a href="xmpp:scyther@pokemon.com">xmpp:scyther@pokemon.com</a></p>
+<p><a href="xmpp:scyther@pokemon.com">xmpp:scyther@pokemon.com</a>.</p>
+<p><a href="xmpp:scyther@pokemon.com/message">xmpp:scyther@pokemon.com/message</a></p>
+<p><a href="xmpp:scyther@pokemon.com/message">xmpp:scyther@pokemon.com/message</a>.</p>
+<p>Email me at:<a href="mailto:scyther@pokemon.com">scyther@pokemon.com</a></p>
 <p><a href="http://www.github.com">www.github.com</a> <a href="http://www.github.com/%C3%A1">www.github.com/á</a></p>
 <p><a href="http://www.google.com/a_b">www.google.com/a_b</a></p>
 <p><strong>Autolink and <a href="http://inlines">http://inlines</a></strong></p>

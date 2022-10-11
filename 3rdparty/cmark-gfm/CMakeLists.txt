@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
+project(cmark-gfm)
 if (POLICY CMP0063)
     cmake_policy(SET CMP0063 NEW)
 endif()
-project(cmark-gfm)
 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 29)
 set(PROJECT_VERSION_PATCH 0)
-set(PROJECT_VERSION_GFM 3)
+set(PROJECT_VERSION_GFM 6)
 set(PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}.gfm.${PROJECT_VERSION_GFM})
 
 include("FindAsan.cmake")

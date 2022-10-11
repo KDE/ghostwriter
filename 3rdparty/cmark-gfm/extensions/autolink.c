@@ -269,6 +269,22 @@ static cmark_node *match(cmark_syntax_extension *ext, cmark_parser *parser,
   // inline was finished in inlines.c.
 }
 
+static bool validate_protocol(char protocol[], uint8_t *data, int rewind) {
+  size_t len = strlen(protocol);
+
+  // Check that the protocol matches
+  for (int i = 1; i <= len; i++) {
+    if (data[-rewind - i] != protocol[len - i]) {
+      return false;
+    }
+  }
+
+  char prev_char = data[-rewind - len - 1];
+
+  // Make sure the character before the protocol is non-alphanumeric
+  return !cmark_isalnum(prev_char);
+}
+
 static void postprocess_text(cmark_parser *parser, cmark_node *text, int offset, int depth) {
   // postprocess_text can recurse very deeply if there is a very long line of
   // '@' only.  Stop at a reasonable depth to ensure it cannot crash.
@@ -278,6 +294,8 @@ static void postprocess_text(cmark_parser *parser, cmark_node *text, int offset,
   uint8_t *data = text->as.literal.data,
     *at;
   size_t size = text->as.literal.len;
+  bool auto_mailto = true;
+  bool is_xmpp = false;
   int rewind, max_rewind,
       nb = 0, np = 0, ns = 0;
 
@@ -304,8 +322,18 @@ static void postprocess_text(cmark_parser *parser, cmark_node *text, int offset,
     if (strchr(".+-_", c) != NULL)
       continue;
 
-    if (c == '/')
-      ns++;
+    if (strchr(":", c) != NULL) {
+      if (validate_protocol("mailto:", data, rewind)) {
+        auto_mailto = false;
+        continue;
+      }
+
+      if (validate_protocol("xmpp:", data, rewind)) {
+        auto_mailto = false;
+        is_xmpp = true;
+        continue;
+      }
+    }
 
     break;
   }
@@ -325,6 +353,8 @@ static void postprocess_text(cmark_parser *parser, cmark_node *text, int offset,
       nb++;
     else if (c == '.' && link_end < size - 1 && cmark_isalnum(data[link_end + 1]))
       np++;
+    else if (c == '/' && is_xmpp)
+      continue;
     else if (c != '-' && c != '_')
       break;
   }
@@ -347,7 +377,8 @@ static void postprocess_text(cmark_parser *parser, cmark_node *text, int offset,
   cmark_node *link_node = cmark_node_new_with_mem(CMARK_NODE_LINK, parser->mem);
   cmark_strbuf buf;
   cmark_strbuf_init(parser->mem, &buf, 10);
-  cmark_strbuf_puts(&buf, "mailto:");
+  if (auto_mailto)
+    cmark_strbuf_puts(&buf, "mailto:");
   cmark_strbuf_put(&buf, data - rewind, (bufsize_t)(link_end + rewind));
   link_node->as.link.url = cmark_chunk_buf_detach(&buf);
 

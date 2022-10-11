@@ -41,6 +41,8 @@ typedef struct bracket {
   bool image;
   bool active;
   bool bracket_after;
+  bool in_bracket_image0;
+  bool in_bracket_image1;
 } bracket;
 
 typedef struct subject{
@@ -516,6 +518,8 @@ static void push_bracket(subject *subj, bool image, cmark_node *inl_text) {
   bracket *b = (bracket *)subj->mem->calloc(1, sizeof(bracket));
   if (subj->last_bracket != NULL) {
     subj->last_bracket->bracket_after = true;
+    b->in_bracket_image0 = subj->last_bracket->in_bracket_image0;
+    b->in_bracket_image1 = subj->last_bracket->in_bracket_image1;
   }
   b->image = image;
   b->active = true;
@@ -524,6 +528,11 @@ static void push_bracket(subject *subj, bool image, cmark_node *inl_text) {
   b->previous_delimiter = subj->last_delim;
   b->position = subj->pos;
   b->bracket_after = false;
+  if (image) {
+    b->in_bracket_image1 = true;
+  } else {
+    b->in_bracket_image0 = true;
+  }
   subj->last_bracket = b;
 }
 
@@ -1254,6 +1263,17 @@ match:
       }
       opener = opener->previous;
     }
+    bool in_bracket_image1 = false;
+    if (opener) {
+      in_bracket_image1 = opener->in_bracket_image1;
+    }
+    bracket *opener2 = subj->last_bracket;
+    while (opener2 != opener) {
+      if (opener2->image) {
+        opener2->in_bracket_image1 = in_bracket_image1;
+      }
+      opener2 = opener2->previous;
+    }
   }
 
   return NULL;
@@ -1662,10 +1682,15 @@ cmark_chunk *cmark_inline_parser_get_chunk(cmark_inline_parser *parser) {
 }
 
 int cmark_inline_parser_in_bracket(cmark_inline_parser *parser, int image) {
-  for (bracket *b = parser->last_bracket; b; b = b->previous)
-    if (b->active && b->image == (image != 0))
-      return 1;
-  return 0;
+  bracket *b = parser->last_bracket;
+  if (!b) {
+    return 0;
+  }
+  if (image != 0) {
+    return b->in_bracket_image1;
+  } else {
+    return b->in_bracket_image0;
+  }
 }
 
 void cmark_node_unput(cmark_node *node, int n) {

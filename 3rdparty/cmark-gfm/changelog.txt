@@ -1,3 +1,12 @@
+[0.29.0.gfm.6]
+  * Fixed polynomial time complexity DoS vulnerability in autolink extension
+  
+[0.29.0.gfm.5]
+  * Added xmpp: and mailto: support to the autolink extension
+
+[0.29.0.gfm.4]
+  * Remove `source` from list of HTML blocks
+
 [0.29.0.gfm.3]
   * Fixed heap memory corruption vulnerabiliy via integer overflow per https://github.com/github/cmark-gfm/security/advisories/GHSA-mc3g-88wq-6f4x
 
