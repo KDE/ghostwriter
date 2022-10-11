@@ -62,7 +62,6 @@ target_sources(ghostwriter PRIVATE
     themerepository.cpp
     themeselectiondialog.cpp
     timelabel.cpp
-    color_button.cpp
     findreplace.cpp
     spelling/spellcheckdecorator.cpp
     spelling/spellcheckdialog.cpp

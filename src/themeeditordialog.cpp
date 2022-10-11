@@ -15,10 +15,11 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 
+#include <KWidgetsAddons/KColorButton>
+
 #include "themeeditordialog.h"
 #include "theme.h"
 #include "themerepository.h"
-#include "color_button.h"
 #include "messageboxhelper.h"
 
 namespace ghostwriter
@@ -142,14 +143,12 @@ void ThemeEditorDialogPrivate::addColorRowToLayout
         QColor *colorPtr = colors.at(i);
 
         if (nullptr != colorPtr) {
-            ColorButton *button = new ColorButton();
-            button->setColor(*colorPtr);
+            KColorButton *button = new KColorButton(*colorPtr, q);
             layout->addWidget(button, rowIndex, (i + 1));
 
-            q->connect
-            (
+            q->connect(
                 button,
-                &ColorButton::changed,
+                &KColorButton::changed,
                 [colorPtr](const QColor & color) {
                     *colorPtr = color;
                 }
