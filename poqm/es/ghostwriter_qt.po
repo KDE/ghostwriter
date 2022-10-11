@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-08 18:08+0200\n"
+"PO-Revision-Date: 2022-10-10 23:53+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -41,30 +41,24 @@ msgid "%1m"
 msgstr "%1 m"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "¡Bienvenido a ghostwriter!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Conversor Markdown"
+msgstr "Editor de Markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Desarrollador de FocusWriter, cuyo código Qt me guió"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Desarrollador de ReText, cuyos algoritmos me ayudaron en gran medida"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -72,16 +66,20 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Desarrollador de StretchPlayer, cuya aplicación me enseñó a crear ventanas "
+"sin marco en Qt"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"Desarrollador de UberWriter (ahora Apostrophe), por proporcionarme "
+"inspiración"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Otros colaboradores"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -89,32 +87,35 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Todos los que han proporcionado traducciones, documentación, correcciones de "
+"errores o nuevas funcionalidades a lo largo de los años"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
+"Una versión extendida de la implementación de referencia de CommonMark en C"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Una biblioteca en JavaScript para crear interfaces de usuario"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Uso de Font Awesome en aplicaciones Qt"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Un motor de visualización para matemáticas en JavaScript"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Copyright 2014-%1 El equipo de ghostwriter"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -517,7 +518,7 @@ msgstr "Definir el idioma de la aplicación"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "No hay traducciones disponibles"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -527,17 +528,14 @@ msgstr "Vuelva a instalar esta aplicación para más opciones de idiomas."
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Lo sentimos!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "No se ha podido cargar la traducción."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Reinicie la aplicación para que los cambios tengan efecto."
@@ -1334,9 +1332,6 @@ msgid "No spelling suggestions found"
 msgstr "No se han encontrado sugerencias ortográficas"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Comprobación ortográfica"

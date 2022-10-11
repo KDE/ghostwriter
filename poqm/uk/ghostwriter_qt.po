@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-09 08:35+0300\n"
+"PO-Revision-Date: 2022-10-10 18:46+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -42,30 +42,24 @@ msgid "%1m"
 msgstr "%1 хв."
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "Вітаємо у ghostwriter!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Перетворювач Markdown"
+msgstr "Редактор Markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Розробник FocusWriter, за кодом Qt якого навчався автор"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Розробник ReText, чиї алгоритми значно сприяли розробці"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -73,16 +67,18 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Розробник StretchPlayer, чия програма показала автору, як створювати вікна "
+"без рамок на Qt"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "Розробник UberWriter (тепер Apostrophe), за натхнення"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Інші учасники розробки"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -90,32 +86,34 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Усі, хто надавав переклади, документацію, виправлення вад або реалізував "
+"можливості протягом усіх років розробки"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "Розширена версія еталонної реалізації на C CommonMark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Бібліотека на JavaScript для побудови інтерфейсу користувача"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Підтримка шрифтів Awesome для програм Qt"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Рушій показу на JavaScript для формул"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "© Команда ghostwriter, 2014-%1"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -520,7 +518,7 @@ msgstr "Встановлення мови програми"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Переклади недоступні!"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -532,17 +530,14 @@ msgstr ""
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Вибачте!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Не вдалося завантажити переклад."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Будь ласка, перезапустіть програму для набуття чинності змінами."
@@ -1339,9 +1334,6 @@ msgid "No spelling suggestions found"
 msgstr "Не знайдено пропозицій перевірки правопису"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Перевірка правопису"

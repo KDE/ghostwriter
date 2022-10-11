@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-09 06:07+0300\n"
+"PO-Revision-Date: 2022-10-10 22:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -41,30 +41,24 @@ msgid "%1m"
 msgstr "%1 dk"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "ghostwriter'a hoş geldiniz!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Markdown Dönüştürücü"
+msgstr "Bir Markdown düzenleyicisi"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Yazdığı Qt kodu beni motive eden FocusWriter geliştiricisi"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Yazdığı algoritmaların çok yararı dokunan ReText geliştiricisi"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -72,16 +66,18 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Yazdığı uygulama bana Qt üzerinde kenarlıksız pencereler yapmayı gösteren "
+"StretchPlayer geliştiricisi"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "Ufkumu açtığı için UberWriter (şimde Aposthrophe) geliştiricisi"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Diğer Katkıcılar"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -89,32 +85,34 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Yıllar boyunca çeviriler, belgelendirme, hata düzeltmeleri veya yeni "
+"özellikler sağlayan herkes"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "CommonMark'ın C başvuru uygulamasının genişletilmiş bir sürümü"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Kullanıcı arayüzleri yapmak için bir JavaScript kitaplığı"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Qt uygulamaları için FontAwesome desteği"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Matematik için bir JavaScript görüntüleme işletkesi"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Telif hakkı 2014-%1 ghostwriter takımı"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -517,7 +515,7 @@ msgstr "Uygulama Dilini Ayarla"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Kullanılabilir çeviri yok!"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -527,20 +525,17 @@ msgstr "Daha çok dil seçeneği için, lütfen bu uygulamayı yeniden kurun."
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Üzgünüm!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Çeviri yüklenemedi."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr "Değişikliklerin etkisi olması için lütfen uygulamayı yeniden başlatın."
+msgstr "Değişikliklerin etkili olması için uygulamayı yeniden başlatın."
 
 #: src/mainwindow.cpp:661
 msgctxt "ghostwriter::MainWindow|"
@@ -1334,9 +1329,6 @@ msgid "No spelling suggestions found"
 msgstr "Yazım önerisi bulunamadı"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Yazım Denetimi"

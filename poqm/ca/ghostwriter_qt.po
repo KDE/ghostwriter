@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-09 11:49+0200\n"
+"PO-Revision-Date: 2022-10-10 10:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -47,30 +47,27 @@ msgid "%1m"
 msgstr "%1m"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "Us donem la benvinguda al «ghostwriter»"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Convertidor del Markdown"
+msgstr "Un editor de Markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
 msgstr ""
+"El desenvolupador del FocusWriter, el codi Qt del qual m'ha fet de mentor"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
 msgstr ""
+"El desenvolupador del ReText, els algorismes del qual m'han ajudat "
+"immensament"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -78,16 +75,20 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"El desenvolupador del StretchPlayer, l'aplicació del qual m'ha ensenyat com "
+"fer finestres sense marc en les Qt"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"El desenvolupador de l'UberWriter (ara Apostrophe), per proporcionar-me "
+"inspiració"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Altres col·laboradors"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -95,32 +96,35 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Tothom que ha proporcionat les traduccions, documentació, correccions "
+"d'errors o característiques noves durant anys"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
+"Una versió ampliada de la implementació de referència del C de CommonMark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Una biblioteca JavaScript per a construir interfícies d'usuari"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Implementació de Font Awesome per a les aplicacions Qt"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Un motor de visualització JavaScript per a matemàtiques"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Copyright 2014-%1 The ghostwriter team"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -523,7 +527,7 @@ msgstr "Estableix l'idioma de l'aplicació"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "No hi ha cap traducció disponible!"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -533,17 +537,14 @@ msgstr "Reinstal·leu aquesta aplicació per a més opcions d'idioma."
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Ho lamento!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "No s'ha pogut carregar la traducció."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Reinicieu l'aplicació perquè els canvis tinguin efecte."
@@ -1342,9 +1343,6 @@ msgid "No spelling suggestions found"
 msgstr "No s'ha trobat cap suggeriment ortogràfic"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Verificació de l'ortografia"
@@ -1620,55 +1618,3 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Aquest és un tema integrat que no es pot editar."
-
-#~ msgctxt "ghostwriter::LocaleDialog|"
-#~ msgid "The translations folder is missing."
-#~ msgstr "Manca la carpeta de traduccions."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and "
-#~ "redistribute this software under the terms of the <a href=\"http://www."
-#~ "gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</"
-#~ "p><p>Visit the official website at <a href=\"http://github.com/wereturtle/"
-#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special "
-#~ "thanks and credit for reused code goes to</p><p><a href=\"mailto:"
-#~ "graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://"
-#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, author "
-#~ "of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/"
-#~ "><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
-#~ "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
-#~ "\">StretchPlayer</a><br/><p>I am also deeply indebted to <a href=\"mailto:"
-#~ "w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href="
-#~ "\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the "
-#~ "inspiration he provided in creating such a beautiful Markdown editing "
-#~ "tool.</p>"
-#~ msgstr ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>Podeu usar i redistribuir "
-#~ "aquest programari segons els termes de la <a href=\"http://www.gnu.org/"
-#~ "licenses/gpl.html\">Llicència Pública General de GNU Versió 3</a>.</"
-#~ "p><p>Visiteu el lloc web oficial a <a href=\"http://github.com/wereturtle/"
-#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Un "
-#~ "agraïment i reconeixement en especial per a </p><p><a href=\"mailto:"
-#~ "graeme@gottcode.org\">Graeme Gott</a>, autor del <a href=\"http://"
-#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, autor "
-#~ "del <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</"
-#~ "a><br/><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
-#~ "autor del <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
-#~ "\">StretchPlayer</a><br/><p>També tinc un deute enorme amb <a href="
-#~ "\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, l'autor del <a "
-#~ "href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, per la "
-#~ "inspiració que va proporcionar en crear aquesta magnífica eina d'edició "
-#~ "del Markdown.</p>"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About %1"
-#~ msgstr "Quant al %1"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&About"
-#~ msgstr "Qu&ant a"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About &Qt"
-#~ msgstr "Quant a les &Qt"
