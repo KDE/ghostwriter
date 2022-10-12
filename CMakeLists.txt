@@ -54,6 +54,7 @@ endif()
 
 set(QTAWESOME_USE_FREE ON)
 add_subdirectory(3rdparty/QtAwesome)
+set(CMARK_TESTS OFF)
 add_subdirectory(3rdparty/cmark-gfm EXCLUDE_FROM_ALL)
 add_subdirectory(src)
 
@@ -106,8 +107,10 @@ install(
 )
 
 install(
-    FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/org.kde.ghostwriter.appdata.xml
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/org.kde.ghostwriter.metadata.xml
     DESTINATION ${KDE_INSTALL_METAINFODIR}
 )
+
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/ghostwriter.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

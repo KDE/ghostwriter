@@ -68,8 +68,6 @@ target_sources(ghostwriter PRIVATE
     ${ghostwriter_QM_LOADER}
 )
 
-message("QM Files = ${ghostwriter_QM_LOADER}")
-
 if (UNIX)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(Hunspell REQUIRED IMPORTED_TARGET hunspell)
@@ -100,6 +98,19 @@ find_package(
     ConfigWidgets
 )
 
+# For whatever reason, MSVC has issues statically linking with cmark-gfm.
+if (MSVC)
+    set(CMARK_LIBS
+        libcmark-gfm
+        libcmark-gfm-extensions
+    )
+else()
+    set(CMARK_LIBS
+        libcmark-gfm_static
+        libcmark-gfm-extensions_static
+    )
+endif()
+
 target_link_libraries(ghostwriter PRIVATE
     Qt::Core
     Qt::Concurrent
@@ -114,8 +125,7 @@ target_link_libraries(ghostwriter PRIVATE
     KF5::XmlGui
     KF5::ConfigWidgets
     QtAwesome
-    libcmark-gfm_static
-    libcmark-gfm-extensions_static
+    ${CMARK_LIBS}
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")

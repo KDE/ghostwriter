@@ -45,7 +45,7 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>http://wereturtle.github.io/ghostwriter/images/dark-theme.png</image>
+      <image>https://ghostwriter.kde.org/images/dark-theme.png</image>
       <caption>Enjoy a distraction-free writing experience, including a full screen mode and a clean interface</caption>
       <caption xml:lang="ca">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
       <caption xml:lang="ca-valencia">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
@@ -59,20 +59,20 @@
       <caption xml:lang="x-test">xxEnjoy a distraction-free writing experience, including a full screen mode and a clean interfacexx</caption>
     </screenshot>
   </screenshots>
-  <url type="homepage">http://wereturtle.github.io/ghostwriter/</url>
-  <url type="bugtracker">http://github.com/wereturtle/ghostwriter/</url>
-  <url type="donation">http://wereturtle.github.io/ghostwriter/</url>
-  <developer_name>wereturtle</developer_name>
-  <developer_name xml:lang="ca">wereturtle</developer_name>
-  <developer_name xml:lang="ca-valencia">wereturtle</developer_name>
-  <developer_name xml:lang="es">wereturtle</developer_name>
-  <developer_name xml:lang="id">wereturtle</developer_name>
-  <developer_name xml:lang="nl">wereturtle</developer_name>
-  <developer_name xml:lang="pt">wereturtle</developer_name>
-  <developer_name xml:lang="sl">wereturtle</developer_name>
-  <developer_name xml:lang="tr">wereturtle</developer_name>
-  <developer_name xml:lang="uk">wereturtle</developer_name>
-  <developer_name xml:lang="x-test">xxwereturtlexx</developer_name>
+  <url type="homepage">https://ghostwriter.kde.org</url>
+  <url type="bugtracker">https://bugs.kde.org</url>
+  <url type="donation">https://kde.org/community/donations/?app=ghostwriter</url>
+  <developer_name>Megan Conkle</developer_name>
+  <developer_name xml:lang="ca">Megan Conkle</developer_name>
+  <developer_name xml:lang="ca-valencia">Megan Conkle</developer_name>
+  <developer_name xml:lang="es">Megan Conkle</developer_name>
+  <developer_name xml:lang="id">Megan Conkle</developer_name>
+  <developer_name xml:lang="nl">Megan Conkle</developer_name>
+  <developer_name xml:lang="pt">Megan Conkle</developer_name>
+  <developer_name xml:lang="sl">Megan Conkle</developer_name>
+  <developer_name xml:lang="tr">Megan Conkle</developer_name>
+  <developer_name xml:lang="uk">Megan Conkle</developer_name>
+  <developer_name xml:lang="x-test">xxMegan Conklexx</developer_name>
   <provides>
     <binary>ghostwriter</binary>
   </provides>
