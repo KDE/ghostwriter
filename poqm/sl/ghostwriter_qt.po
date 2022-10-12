@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-09 09:30+0200\n"
-"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"PO-Revision-Date: 2022-10-11 08:45+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Lokalize 22.04.1\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -45,30 +45,24 @@ msgid "%1m"
 msgstr "%1m"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "Dobrodošli v ghostwriter!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Konverter Markdown"
+msgstr "Urejevalnik za markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Razvojnik programa FocusWriter, katerega koda Qt me je naučila"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Razvojnik programa ReText, čigar algoritmi so mi neskončno pomagali"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -76,16 +70,19 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Razvojnik programa StretchPlayer, čigar aplikacija mi je pokazala, kako "
+"napraviti okna brez okvirjev v Qt"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"Razvojnik programa UberWriter (zdaj Apostrophe) za zagotavljanje navdiha"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Ostali sodelavci"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -93,32 +90,34 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Vsi, ki so pripravili prevode, dokumentacijo, popravke napak ali nove "
+"zmožnosti skozi leta"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "Razširjena različica referenčne izvedbe C Commonmark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Knjižnica JavaScript za gradnjo uporabniških vmesnikov"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Font Awesome za podpora aplikacij Qt"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "JavaScript zaslonski modul za matematiko"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Copyright 2014-%1 Ekipa ghostwriter"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -523,7 +522,7 @@ msgstr "Nastavi jezik aplikacije"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Ni na voljo prevodov!"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -533,17 +532,14 @@ msgstr "Ponovno namestite to aplikacijo za več jezikovnih možnosti."
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Se opravičujemo!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Ni bilo mogoče naložiti prevoda."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Ponovno zaženite aplikacijo za uveljavljanje sprememb."
@@ -1340,9 +1336,6 @@ msgid "No spelling suggestions found"
 msgstr "Ni najdenega namiga za črkovanje"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Črkovanje"
@@ -1424,87 +1417,87 @@ msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
 msgstr "%1:%2 čas pisanja"
 
-#: src/themeeditordialog.cpp:76
+#: src/themeeditordialog.cpp:77
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
 msgstr "Uredi temo"
 
-#: src/themeeditordialog.cpp:79
+#: src/themeeditordialog.cpp:80
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
 msgstr "Ime teme"
 
-#: src/themeeditordialog.cpp:165
+#: src/themeeditordialog.cpp:164
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Element"
 msgstr "Element"
 
-#: src/themeeditordialog.cpp:166
+#: src/themeeditordialog.cpp:165
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
 msgstr "Svetli način"
 
-#: src/themeeditordialog.cpp:167
+#: src/themeeditordialog.cpp:166
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Dark Mode"
 msgstr "Temni način"
 
-#: src/themeeditordialog.cpp:169
+#: src/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
 msgstr "Ospredje"
 
-#: src/themeeditordialog.cpp:170
+#: src/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
 msgstr "Ozadje"
 
-#: src/themeeditordialog.cpp:171
+#: src/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Selection"
 msgstr "Izbira"
 
-#: src/themeeditordialog.cpp:172
+#: src/themeeditordialog.cpp:171
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Cursor"
 msgstr "Kazalka"
 
-#: src/themeeditordialog.cpp:173
+#: src/themeeditordialog.cpp:172
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Markup"
 msgstr "Markup"
 
-#: src/themeeditordialog.cpp:174
+#: src/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
 msgstr "Poudarek"
 
-#: src/themeeditordialog.cpp:175
+#: src/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
 msgstr "Naslov"
 
-#: src/themeeditordialog.cpp:176
+#: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
 msgstr "Poudarek"
 
-#: src/themeeditordialog.cpp:177
+#: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
 msgstr "Blok besedila"
 
-#: src/themeeditordialog.cpp:178
+#: src/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Link"
 msgstr "Povezava"
 
-#: src/themeeditordialog.cpp:179
+#: src/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
 msgstr "Napaka"
 
-#: src/themeeditordialog.cpp:212
+#: src/themeeditordialog.cpp:211
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
 msgstr "Ni mogoče shraniti teme."

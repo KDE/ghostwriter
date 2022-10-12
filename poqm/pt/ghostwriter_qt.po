@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-08 18:01+0100\n"
+"PO-Revision-Date: 2022-10-11 19:22+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -18,7 +18,8 @@ msgstr ""
 "X-POFile-SpellExtra: resources preview wereturtle Graeme Gott FocusWriter\n"
 "X-POFile-SpellExtra: Dmitry Shachnev Retext Beddingfield StretchPlayer\n"
 "X-POFile-SpellExtra: Vollprecht UberWriter Hemingway pt\n"
-"X-POFile-SpellExtra: AaBbCcXxYyZz ppm\n"
+"X-POFile-SpellExtra: AaBbCcXxYyZz ppm ghostwriter ReText Apostrophe\n"
+"X-POFile-SpellExtra: CommonMark Font Awesome\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -48,30 +49,24 @@ msgid "%1m"
 msgstr "%1m"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "Bem-vindo ao Ghostwriter!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Conversor de Markdown"
+msgstr "Um editor de Markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Programador do FocusWriter, cujo código em Qt me ajudou"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Programador do ReText, cujos algoritmos ajudaram em grande medida"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -79,16 +74,19 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Programador do StretchPlayer, cuja aplicação mostrou-me como criar janelas "
+"sem contorno no Qt"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"Programador do UberWriter (agora Apostrophe), por oferecer alguma inspiração"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Outros Colaboradores"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -96,32 +94,34 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Todos os que forneceram traduções, documentação, correcções de erros ou "
+"novas funcionalidades ao longo dos anos"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "Uma versão estendida da implementação de referência em C do CommonMark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Uma biblioteca de JavaScript para criar interfaces de utilizador"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Suporte para Font Awesome nas aplicações do Qt"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Um motor de visualização em JavaScript para matemática"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Copyright 2014-%1 da equipa do ghostwriter"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -524,7 +524,7 @@ msgstr "Mudar a Língua da Aplicação"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Não estão disponíveis nenhumas traduções!"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -534,17 +534,14 @@ msgstr "Por favor, reinstale esta aplicação para obter mais opções de língu
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Desculpe!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Não foi possível carregar a tradução."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Por favor reinstale a aplicação para que as alterações façam efeito."
@@ -1341,9 +1338,6 @@ msgid "No spelling suggestions found"
 msgstr "Sem sugestões ortográficas"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Verificação Ortográfica"
@@ -1413,87 +1407,87 @@ msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
 msgstr "%1:%2 de tempo de escrita"
 
-#: src/themeeditordialog.cpp:76
+#: src/themeeditordialog.cpp:77
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
 msgstr "Editar o Tema"
 
-#: src/themeeditordialog.cpp:79
+#: src/themeeditordialog.cpp:80
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
 msgstr "Nome do Tema"
 
-#: src/themeeditordialog.cpp:165
+#: src/themeeditordialog.cpp:164
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Element"
 msgstr "Elemento"
 
-#: src/themeeditordialog.cpp:166
+#: src/themeeditordialog.cpp:165
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
 msgstr "Modo Claro"
 
-#: src/themeeditordialog.cpp:167
+#: src/themeeditordialog.cpp:166
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Dark Mode"
 msgstr "Modo Escuro"
 
-#: src/themeeditordialog.cpp:169
+#: src/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
 msgstr "Principal"
 
-#: src/themeeditordialog.cpp:170
+#: src/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
 msgstr "Fundo"
 
-#: src/themeeditordialog.cpp:171
+#: src/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Selection"
 msgstr "Selecção"
 
-#: src/themeeditordialog.cpp:172
+#: src/themeeditordialog.cpp:171
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Cursor"
 msgstr "Cursor"
 
-#: src/themeeditordialog.cpp:173
+#: src/themeeditordialog.cpp:172
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Markup"
 msgstr "Formatação"
 
-#: src/themeeditordialog.cpp:174
+#: src/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
 msgstr "Acentuado"
 
-#: src/themeeditordialog.cpp:175
+#: src/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
 msgstr "Cabeçalho"
 
-#: src/themeeditordialog.cpp:176
+#: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
 msgstr "Ênfase"
 
-#: src/themeeditordialog.cpp:177
+#: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
 msgstr "Texto em Bloco"
 
-#: src/themeeditordialog.cpp:178
+#: src/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Link"
 msgstr "Ligação"
 
-#: src/themeeditordialog.cpp:179
+#: src/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/themeeditordialog.cpp:212
+#: src/themeeditordialog.cpp:211
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
 msgstr "Não foi possível gravar o tema."
@@ -1620,55 +1614,3 @@ msgstr "Não é possível editar o tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Infelizmente, este é um tema incorporado que não pode ser modificado."
-
-#~ msgctxt "ghostwriter::LocaleDialog|"
-#~ msgid "The translations folder is missing."
-#~ msgstr "Falta a pasta de traduções."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and "
-#~ "redistribute this software under the terms of the <a href=\"http://www."
-#~ "gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</"
-#~ "p><p>Visit the official website at <a href=\"http://github.com/wereturtle/"
-#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special "
-#~ "thanks and credit for reused code goes to</p><p><a href=\"mailto:"
-#~ "graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://"
-#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, author "
-#~ "of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/"
-#~ "><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
-#~ "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
-#~ "\">StretchPlayer</a><br/><p>I am also deeply indebted to <a href=\"mailto:"
-#~ "w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href="
-#~ "\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the "
-#~ "inspiration he provided in creating such a beautiful Markdown editing "
-#~ "tool.</p>"
-#~ msgstr ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>Poderá usar e redistribuir "
-#~ "esta aplicação segundo os termos da <a href=\"http://www.gnu.org/licenses/"
-#~ "gpl.html\">Licença Pública Geral da GNU, Versão 3</a>.</p><p>Visite a "
-#~ "página Web oficial em <a href=\"http://github.com/wereturtle/ghostwriter"
-#~ "\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Muito obrigado e "
-#~ "créditos pelo código reutilizado a</p><p><a href=\"mailto:graeme@gottcode."
-#~ "org\">Graeme Gott</a>, autor do <a href=\"http://gottcode.org/focuswriter/"
-#~ "\">FocusWriter</a><br/>Dmitry Shachnev, autor do <a href=\"http://"
-#~ "sourceforge.net/p/retext/home/ReText/\">Retext</a><br/><a href=\"mailto:"
-#~ "gabriel@teuton.org\">Gabriel M. Beddingfield</a>, autor do <a href="
-#~ "\"http://www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a><br/"
-#~ "><p>Também tenho uma dívida em particular ao <a href=\"mailto:w."
-#~ "vollprecht@gmail.com\">Wolf Vollprecht</a>, o autor do <a href=\"http://"
-#~ "uberwriter.wolfvollprecht.de/\">UberWriter</a>, pela inspiração que "
-#~ "forneceu na criação de uma ferramenta de edição de Markdown tão bonita.</"
-#~ "p>"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About %1"
-#~ msgstr "Acerca do %1"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&About"
-#~ msgstr "&Acerca"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About &Qt"
-#~ msgstr "Acerca do &Qt"

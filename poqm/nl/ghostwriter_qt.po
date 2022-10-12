@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-09 15:14+0200\n"
+"PO-Revision-Date: 2022-10-10 10:28+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -41,30 +41,24 @@ msgid "%1m"
 msgstr "%1m"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "Welkom bij ghostwriter!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Markdown Converter"
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Markdown converter"
+msgstr "Een bewerker van Markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Ontwikkelaar van FocusWriter, wiens Qt-code een mentor voor mij was"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Ontwikkelaar van ReText, wiens algoritmen enorm hielpen"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -72,16 +66,19 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Ontwikkelaar van StretchPlayer, wiens toepassing mij toonde hoe vensters "
+"zonder frame in Qt gemaakt worden"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"Ontwikkelaar van UberWriter (nu Apostrophe), voor het leveren van inspiratie"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Anderen die bijdroegen"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -89,32 +86,35 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Iedereen die vertalingen, documentatie, reparaties van bugs of nieuwe "
+"functies gedurende de jaren leverde"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
+"Een uitgebreide versie van de C referentie implementatie van CommonMark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Een JavaScript bibliotheek voor het bouwen van gebruikersinterfaces"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Enorme ondersteuning van fonts voor Qt toepassingen"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Een JavaScript engine voor tonen van wiskundige formules"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Copyright 2014-%1 het team van ghostwriter"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -517,7 +517,7 @@ msgstr "Taal van programma instellen"
 #: src/localedialog.cpp:49
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Er zijn geen vertalingen beschikbaar!"
 
 #: src/localedialog.cpp:50
 msgctxt "ghostwriter::LocaleDialog|"
@@ -527,17 +527,14 @@ msgstr "Deze toepassing opnieuw installeren voor meer taalopties."
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Sorry!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Kon vertaling niet laden."
 
 #: src/localedialog.cpp:97
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Please restart the application for changes to take effect."
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "De toepassing opnieuw starten o wijzigingen effect te laten hebben."
@@ -1334,9 +1331,6 @@ msgid "No spelling suggestions found"
 msgstr "Geen suggesties voor spelling gevonden"
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "Spellingcontrole"
@@ -1406,87 +1400,87 @@ msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
 msgstr "%1:%2 schrijftijd"
 
-#: src/themeeditordialog.cpp:76
+#: src/themeeditordialog.cpp:77
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
 msgstr "Thema bewerken"
 
-#: src/themeeditordialog.cpp:79
+#: src/themeeditordialog.cpp:80
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
 msgstr "Themanaam"
 
-#: src/themeeditordialog.cpp:165
+#: src/themeeditordialog.cpp:164
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Element"
 msgstr "Element"
 
-#: src/themeeditordialog.cpp:166
+#: src/themeeditordialog.cpp:165
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
 msgstr "Lichte modus"
 
-#: src/themeeditordialog.cpp:167
+#: src/themeeditordialog.cpp:166
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Dark Mode"
 msgstr "Donkere modus"
 
-#: src/themeeditordialog.cpp:169
+#: src/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
 msgstr "Voorgrond"
 
-#: src/themeeditordialog.cpp:170
+#: src/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
 msgstr "Achtergrond"
 
-#: src/themeeditordialog.cpp:171
+#: src/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Selection"
 msgstr "Selectie"
 
-#: src/themeeditordialog.cpp:172
+#: src/themeeditordialog.cpp:171
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Cursor"
 msgstr "Cursor"
 
-#: src/themeeditordialog.cpp:173
+#: src/themeeditordialog.cpp:172
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Markup"
 msgstr "Markup"
 
-#: src/themeeditordialog.cpp:174
+#: src/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
 msgstr "Accent"
 
-#: src/themeeditordialog.cpp:175
+#: src/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
 msgstr "Kop"
 
-#: src/themeeditordialog.cpp:176
+#: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
 msgstr "Accentuering"
 
-#: src/themeeditordialog.cpp:177
+#: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
 msgstr "Block Text"
 
-#: src/themeeditordialog.cpp:178
+#: src/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Link"
 msgstr "Koppeling"
 
-#: src/themeeditordialog.cpp:179
+#: src/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
 msgstr "Fout"
 
-#: src/themeeditordialog.cpp:212
+#: src/themeeditordialog.cpp:211
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
 msgstr "Thema opslaan lukt niet."

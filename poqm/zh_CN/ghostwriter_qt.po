@@ -1389,87 +1389,87 @@ msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
 msgstr ""
 
-#: src/themeeditordialog.cpp:76
+#: src/themeeditordialog.cpp:77
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
 msgstr ""
 
-#: src/themeeditordialog.cpp:79
+#: src/themeeditordialog.cpp:80
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
 msgstr ""
 
-#: src/themeeditordialog.cpp:165
+#: src/themeeditordialog.cpp:164
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Element"
 msgstr ""
 
-#: src/themeeditordialog.cpp:166
+#: src/themeeditordialog.cpp:165
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
 msgstr ""
 
-#: src/themeeditordialog.cpp:167
+#: src/themeeditordialog.cpp:166
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Dark Mode"
 msgstr ""
 
-#: src/themeeditordialog.cpp:169
+#: src/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
 msgstr ""
 
-#: src/themeeditordialog.cpp:170
+#: src/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
 msgstr ""
 
-#: src/themeeditordialog.cpp:171
+#: src/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Selection"
 msgstr ""
 
-#: src/themeeditordialog.cpp:172
+#: src/themeeditordialog.cpp:171
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Cursor"
 msgstr ""
 
-#: src/themeeditordialog.cpp:173
+#: src/themeeditordialog.cpp:172
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Markup"
 msgstr ""
 
-#: src/themeeditordialog.cpp:174
+#: src/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
 msgstr ""
 
-#: src/themeeditordialog.cpp:175
+#: src/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
 msgstr ""
 
-#: src/themeeditordialog.cpp:176
+#: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
 msgstr ""
 
-#: src/themeeditordialog.cpp:177
+#: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
 msgstr ""
 
-#: src/themeeditordialog.cpp:178
+#: src/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Link"
 msgstr ""
 
-#: src/themeeditordialog.cpp:179
+#: src/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
 msgstr ""
 
-#: src/themeeditordialog.cpp:212
+#: src/themeeditordialog.cpp:211
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
 msgstr ""
