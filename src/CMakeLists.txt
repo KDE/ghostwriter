@@ -96,6 +96,7 @@ find_package(
     CoreAddons
     XmlGui
     ConfigWidgets
+    WidgetsAddons
 )
 
 # For whatever reason, MSVC has issues statically linking with cmark-gfm.

@@ -1,57 +1,48 @@
-# <img src="./resources/images/ghostwriter.svg" align="left" width="32" style="padding-right:5px"> ghostwriter
+# <img src="./resources/icons/sc-apps-ghostwriter.svg" align="left" width="32" style="padding-right:5px"> ghostwriter
 
- ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/wereturtle/ghostwriter?style=flat-square&label=upstream&labelColor=red&color=gray&logo=github) ![Debian package](https://img.shields.io/debian/v/ghostwriter?style=flat-square&labelColor=blue&color=gray&logo=debian) ![Ubuntu package](https://img.shields.io/ubuntu/v/ghostwriter?logo=ubuntu&style=flat-square&labelColor=purple&color=gray) ![Fedora package](https://img.shields.io/fedora/v/ghostwriter?labelColor=blue&&color=gray&logo=fedora&style=flat-square) ![Arch Linux package](https://img.shields.io/archlinux/v/community/x86_64/ghostwriter?style=flat-square&logo=archlinux)
-
-![ubuntu-build](https://github.com/wereturtle/ghostwriter/workflows/ubuntu-build/badge.svg?branch=master) ![launchpad-ppa-build](https://github.com/wereturtle/ghostwriter/workflows/launchpad-ppa-build/badge.svg?branch=master) ![fedora-copr-build](https://github.com/wereturtle/ghostwriter/workflows/fedora-copr-build/badge.svg?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/dy5p5d9i3hkht9y4/branch/master?svg=true)](https://ci.appveyor.com/project/wereturtle/ghostwriter/branch/master)
-
-*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  For a tour of its features, please visit the [*ghostwriter* project page](http://wereturtle.github.io/ghostwriter/).
+*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  For a tour of its features, please visit the [*ghostwriter* project site](https://ghostwriter.kde.org).
 
 ## Screenshots
 
-You can view screenshots of the application at [*ghostwriter's* project page](http://wereturtle.github.io/ghostwriter).
+You can view screenshots of the application at [*ghostwriter's* project site](https://ghostwriter.kde.org).
 
 ## Documentation
 
-A quick reference guide is available [here](http://wereturtle.github.io/ghostwriter/documentation.html).  *ghostwriter* also has a community wiki [here](https://github.com/wereturtle/ghostwriter/wiki).  You can read up on help topics or contribute your own.
+A quick reference guide is available [here](https://ghostwriter.kde.org/documentation/).
 
 ## Installation
 
 ### Windows
 
-On Windows, you can either download the setup.exe and go through the setup wizard (recommended), or you can run the portable version (advanced users).  To install via the setup wizard, download `ghostwriter-x64_installer.exe` from [the Windows repository here](https://github.com/michelolvera/vs-ghostwriter) to the location of your choice, double click on its icon to run, and follow the installation steps.  Note that you must have administrator rights to install.
-
-The portable version is a zip file which you can unzip to any location on your computer.  Within the zip file is a simple folder containing the `ghostwriter.exe` file.  Double click on this file to run the program.  The `dictionaries` subfolder contains your Hunspell dictionaries.  The `data` subfolder contains the location of your personal dictionaries, themes, and application settings.  The portable version is an excellent alternative for when you do not have administrative rights to install the application.  You can take it anywhere on a thumb drive and run it--at school, a friend's house, etc.
+An installer will be forthcoming at the [KDE binary factory](https://binary-factory.kde.org/), along with a nightly build.
 
 ### Linux
 
-If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.), open a terminal, and enter the following commands:
+Versions of *ghostwriter* 2.2.0 and above are provided with KDE Gears releases and should be available with your Linux distribution.  For example, on Ubuntu, you can enter the following commands from your terminal:
+
+    $ sudo apt update
+    $ sudo apt install ghostwriter
+
+On Fedora, enter the following commands instead:
+
+    $ sudo dnf install ghostwriter
+
+You may also find packages on the author's personal repository locations version 2.1.6 in case your GNU/Linux distribution is behind.  If you are running Ubuntu or one of its derivatives (Linux Mint, Xubuntu, etc.), open a terminal, and enter the following commands:
 
     $ sudo add-apt-repository ppa:wereturtle/ppa
     $ sudo apt update
     $ sudo apt install ghostwriter
 
-There is also now a staging PPA for release candidate builds for advanced users who wish to test drive the latest features/fixes.  To install the latest release candidate, enter the following commands from a terminal:
-
-    $ sudo add-apt-repository ppa:wereturtle/staging
-    $ sudo apt-get update
-    $ sudo apt install ghostwriter
-
-Fedora users can install *ghostwriter* from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
+Fedora users can install older version of *ghostwriter* from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
 
     $ sudo dnf copr enable wereturtle/stable
     $ sudo dnf install ghostwriter
-
-There is likewise a staging repository for [Copr](https://copr.fedorainfracloud.org/), where the latest release candidate can be installed with the following commands:
-
-    $ sudo dnf copr enable wereturtle/staging
-    $ sudo dnf install ghostwriter
-    
 
 Finally, you may follow the build instructions below to install on Linux with the latest source code.
 
 ### MacOS
 
-You can download an application bundle for MacOS and copy it under /Applications (for all the users) or $HOME/Applications (for the current user). That application should work on osx 10.10+, but was tested only on macOS 10.13. Please remember that this build is experimental and you'll find some bugs. Please report those on the issue tracker.
+An installer is planned in the future and will be hosted at the [KDE binary factory](https://binary-factory.kde.org/), along with a nightly build.  If you have any expertise to offer, please consider helping with a [Craft configuration](https://community.kde.org/Craft).
 
 ## Build
 
@@ -61,101 +52,40 @@ This documentation assumes you already have the source code unzipped in a folder
 
 ### Windows
 
-Building on Windows requires Visual Studio.  Open a terminal window, and enter the following commands:
-
-    > cd <your_ghostwriter_folder_location>
-    > qmake
-    > nmake release
-
-Unless you have built *ghostwriter* as a standalone executable statically linked to your own build of Qt's source code, you will need to copy the necessary Qt and Windows .dll files to the same location as `ghostwriter.exe` so that the executable can find the required libraries.  This can be accomplished by running the [windeployqt tool](https://doc.qt.io/qt-5/windows-deployment.html).
+Building on Windows requires Visual Studio.  General instructions for building KDE applications in Windows are available [here](https://community.kde.org/Get_Involved/development/Windows).
 
 **IMPORTANT**: If compiling against Qt 6, note that having OpenGL components (in this case, QWebEngineView) will force the entire window to be rendered in OpenGL.  This triggers a bug in Windows in full screen mode where menus can no longer be displayed, such as the menu bar menus or popup menus.
 
-This issue was not present in Qt 5, since ANGLE was available to bypass the default OpenGL implementation and use DirectX.  With ANGLE having been removed from Qt 6 and the documented solutions not entirely working, you will have to use software rendering instead if you wish to work in full screen mode.  Please see the section below on command line arguments for further instructions on disabling GPU acceleration.
+This issue was not present in Qt 5, since ANGLE was available to bypass the default OpenGL implementation and use DirectX.  With ANGLE having been removed from Qt 6 and the documented solutions not entirely working, you will have to use software rendering instead if you wish to work in full screen mode.  Please see the section below for command line arguments that will disable GPU acceleration.
 
 Obviously, the best option is to continue using Qt 5 on Windows for as long as possible.
 
 ### Linux
 
-Before proceeding, ensure that you have the necessary packages installed for Qt 5.
+Before proceeding, ensure that you have the necessary packages installed for Qt 5 and KDE Frameworks.
 
 For Debian or Ubuntu distributions:
 
-    $ sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libhunspell-dev pkg-config libqt5concurrent5 qttools5-dev-tools
+    $ sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev pkg-config libqt5concurrent5 qttools5-dev-tools libkf5coreaddons-dev libkf5kwidgetsaddons-dev libkf5xmlgui-dev libkf5configwidgets-dev libkf5sonnet-dev cmake extra-cmake-modules
 
 For Fedora:
 
-    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel hunspell-devel qt5-linguist
+    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel qt5-linguist kf5-kcoreaddons-devel kf5-kwidgetsaddons-devel kf5-kconfigwidgets-devel kf5-kxmlgui-devel kf5-sonnet-devel cmake extra-cmake-modules
 
-For other Linux flavors, the list will be similar; `qmake` will tell you if you are missing anything.
+For other Linux flavors, the list will be similar; `cmake` will tell you if you are missing anything.
 
 Next, open a terminal window, and enter the following commands:
 
     $ cd <your_ghostwriter_folder_location>
-    $ qmake-qt5
+    $ mkdir build
+    $ cd build
+    $ cmake ..
     $ make
     # make install
 
-The last command will install *ghostwriter* on your machine.  If you need to install the application in an alternative location to `/usr/local`, enter the following command in lieu of the second command above, passing in the desired value for `PREFIX`:
-
-    $ qmake PREFIX=<your_install_path_here>
-
-For example, to install under `/opt`, you would enter:
-
-    $ qmake PREFIX=/opt
-
-**Note:**  If you see blank areas where there should be icons, then you are missing the Qt dependency for the SVG images.  On Debian and Ubuntu, this is libqt5svg5.  Other Linux distributions may vary on the exact package name.
-
 ### MacOS
 
-1. You need either *XCode* or *XCode command line tools* to install and run brew and to build *ghostwriter* and other Qt applications.
-
-- You can install XCode from Mac App Store
-- You can install XCode command line tools from your terminal typing `xcode-select --install`
-
-2. Install [homebrew](http://brew.sh).  In a terminal:
-
-``` shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-3. Install Qt 5 from brew.
-
-``` shell
-$ brew install qt5
-```
-
-*Note:* If you installed XCode command line tools, Qt will fail building the application with an error like `Project ERROR: Could not resolve SDK Path for 'macosx' Error while parsing file <ghostwriter.pro>. Giving up.`. Please follow the [instructions to build Qt applications without installing XCode](BUILD_MAC.md)
-
-4. run `brew link` 
-
-``` shell
-brew link qt5 --force
-```
-*Note:* This command allows you to use `qmake` from the CLI. You'll need it for the final step.
-
-5. Clone this repository and build *ghostwriter*:
-
-``` shell
-git clone https://github.com/wereturtle/ghostwriter
-cd ghostwriter
-qmake
-make
-```
-
-Make sure you're cloned the repo, not just downloaded the src tarball.
-
-5. If you want *ghostwriter* in your applications folder, from the repo root do:
-
-``` shell
-$ sudo cp -R ./build/release/ghostwriter.app /Applications
-```
-
-6. To use *ghostwriter* from the command line, do:
-
-``` shell
-$ sudo ln -s /Applications/ghostwriter.app/Contents/MacOS/ghostwriter /usr/local/bin
-```
+Please consult the [KDE development guide](https://community.kde.org/Get_Involved/development/Mac) on how to build KDE applications for MacOS in general.
 
 ### FreeBSD
 
@@ -172,14 +102,16 @@ You will also need to install QtWebEngine
 
 Get the sources
 
-    git clone https://github.com/wereturtle/ghostwriter
+    git clone https://invent.kde.org/office/ghostwriter
 
 Build
 
-    cd ghostwriter
-    qmake
-    make
-    sudo make install
+    $ cd ghostwriter
+    $ mkdir build
+    $ cd build
+    $ cmake ..
+    $ make
+    $ sudo make install
 
 ## Command Line Usage
 
@@ -193,17 +125,7 @@ An option to disable GPU acceleration `--disable-gpu` is also available.  Simply
 
     $ ghostwriter --disable-gpu
 
-A scenario where you may consider using software rendering would be if compiling against Qt 6 on Windows, and running the application in full screen mode.  See documented bug under the Windows build instructions above for further details.  Note that the application may inconsistently launch on Windows with GPU acceleration disabled, and it may take several attempts before you can start it successfully.
-
-## Portable Mode
-
-You can download the Windows Portable version of *ghostwriter*, or make your own on any OS.  Simply create a folder named `data` in the same folder as the `ghostwriter.exe` or `ghostwriter` executable file (depending on the OS).  The application will now use settings and themes in this folder.  If you need to migrate existing themes you created while running in non-portable mode, simply copy them from the relevant folder below:
-
-- Windows:  C:\\Users\\\<your_user_name\>\\AppData\\Roaming\\ghostwriter\\themes
-- Linux:  /home/\<your_user_name\>/.config/ghostwriter/themes
-- MacOS:  ~/Library/Application Support/ghostwriter/themes
-
-**Note:**  The MacOS settings location needs to be confirmed.  A full sample application path would also be helpful (instead of listing `~/`).  If you are a hobbyist MacOS developer and if you can confirm where *ghostwriter* stores it's settings, please put in a pull request with your revisions to this README file.
+A scenario where you may consider using software rendering would be if compiling against Qt 6 on Windows, and running the application in full screen mode.  See the documented bug under the Windows build instructions above for further details.  Note that the application may inconsistently launch on Windows with GPU acceleration disabled, and it may take several attempts before you can start it successfully.
 
 ## Additional Markdown Processors
 
@@ -211,8 +133,8 @@ You can download the Windows Portable version of *ghostwriter*, or make your own
 
 ## Contribute
 
-Please read the [contributing guide](https://wereturtle.github.io/ghostwriter/contribute.html) on how to contribute.
+Please read the [contributing guide](https://ghostwriter.kde.org/contribute/) on how to contribute.  Your help would be greatly appreciated!
 
 ## Licensing
 
-The source code for *ghostwriter* is licensed under the [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).  However, various icons and third-party FOSS code (i.e., Hunspell and cmark-gfm) have different licenses compatible with GPLv3.  Please read the COPYING or LICENSE files in the respective folders for the different licenses.
+The source code for *ghostwriter* is licensed under the [GNU General Public License Version 3](http://www.gnu.org/licenses/gpl.html).  However, various icons and third-party FOSS code (i.e., cmark-gfm, MathJax, etc.) have different licenses compatible with GPLv3.  Please read the COPYING or LICENSE files in the respective folders for the different licenses.
