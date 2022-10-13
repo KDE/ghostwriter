@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-11 22:36+0200\n"
+"PO-Revision-Date: 2022-10-12 11:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -110,6 +110,7 @@ msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
 msgstr "Una biblioteca JavaScript per a construir interfícies d'usuari"
 
+# skip-rule: ff-font
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
