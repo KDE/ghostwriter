@@ -41,6 +41,7 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     this->setWindowTitle(tr("Export"));
     
     exporterComboBox = new QComboBox();
+    exporterComboBox->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     QSettings settings;
     QString lastExporterName =
@@ -63,7 +64,8 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     QVariant exporterVariant = exporterComboBox->currentData();
     Exporter *exporter = (Exporter *) exporterVariant.value<void *>();
     fileFormatComboBox = new QComboBox();
-    
+    fileFormatComboBox->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+
     for (const ExportFormat *format : exporter->supportedFormats()) {
         fileFormatComboBox->addItem(format->name(), QVariant::fromValue((void *) format));
     }
