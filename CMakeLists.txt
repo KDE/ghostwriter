@@ -107,7 +107,7 @@ install(
 )
 
 install(
-    FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/org.kde.ghostwriter.metadata.xml
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/org.kde.ghostwriter.metainfo.xml
     DESTINATION ${KDE_INSTALL_METAINFODIR}
 )
 
