@@ -389,38 +389,38 @@ msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "College"
 msgstr "Коледж"
 
-#: src/exportdialog.cpp:41 src/exportdialog.cpp:88
+#: src/exportdialog.cpp:41 src/exportdialog.cpp:90
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/exportdialog.cpp:73
+#: src/exportdialog.cpp:75
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
 msgstr "Кмітлива типографія"
 
-#: src/exportdialog.cpp:76
+#: src/exportdialog.cpp:78
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
 msgstr "Параметри експорту"
 
-#: src/exportdialog.cpp:78
+#: src/exportdialog.cpp:80
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
 msgstr "Перетворювач Markdown"
 
-#: src/exportdialog.cpp:79
+#: src/exportdialog.cpp:81
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
 msgstr "Формат файла"
 
-#: src/exportdialog.cpp:159
+#: src/exportdialog.cpp:161
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
 msgstr "експортування до %1"
 
-#: src/exportdialog.cpp:175
+#: src/exportdialog.cpp:177
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
 msgstr "Помилка під час експортування."
