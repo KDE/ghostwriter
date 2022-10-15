@@ -41,12 +41,9 @@ msgid "%1m"
 msgstr "%1მ"
 
 #: src/appmain.cpp:75
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Welcome to ghostwriter!"
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr "მოგესალმებათ ghostwriter!"
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
 msgctxt "main|"
@@ -111,7 +108,7 @@ msgstr ""
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "2014-%1 ghostwriter -ის გუნდი, ყველა უფლება დაცულია"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
@@ -121,7 +118,7 @@ msgstr "მოგესალმებათ ghostwriter!"
 #: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr ""
+msgstr "(არასავალდებულო) გასახსნელი ფაილი."
 
 #: src/appmain.cpp:155
 msgctxt "main|"
@@ -200,7 +197,7 @@ msgstr "წვდომა აკრძალულია."
 #: src/documentmanager.cpp:433
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
-msgstr ""
+msgstr "დოკუმენტი შეცვლილია."
 
 #: src/documentmanager.cpp:434
 msgctxt "ghostwriter::DocumentManager|"
@@ -226,71 +223,71 @@ msgstr "ფაილის შენახვა"
 #: src/documentmanager.cpp:660
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
-msgstr ""
+msgstr "დოკუმენტი სხვა პროგრამით შეიცვალა."
 
 #: src/documentmanager.cpp:661
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
-msgstr ""
+msgstr "გნებავთ დოკუმენტის თავიდან ჩატვირთვა?"
 
 #: src/documentmanager.cpp:695
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr ""
+msgstr "ფაილის ბილიკი მითითებული არაა"
 
 #: src/documentmanager.cpp:711 src/documentmanager.cpp:750
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr ""
+msgstr "%1-ის კითხვის შეცდომა"
 
 #: src/documentmanager.cpp:732
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
-msgstr ""
+msgstr "%1-ის გახსნა"
 
 #: src/documentmanager.cpp:839
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
-msgstr ""
+msgstr "ფაილი შეიცვალა."
 
 #: src/documentmanager.cpp:841
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr ""
+msgstr "%1 შეიცვალა."
 
 #: src/documentmanager.cpp:850
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
-msgstr ""
+msgstr "გნებავთ თქვენი ცვლილებების შენახვა?"
 
 #: src/documentmanager.cpp:881
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr ""
+msgstr "%1 მხოლოდ კითხვადია."
 
 #: src/documentmanager.cpp:882
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
-msgstr ""
+msgstr "გადავაწერო დაცულ ფაილს?"
 
 #: src/documentmanager.cpp:901
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
-msgstr ""
+msgstr "თავზე გადაწერის შეცდომა."
 
 #: src/documentmanager.cpp:902
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
-msgstr ""
+msgstr "ფაილი სხვა ადგილას შეინახეთ."
 
 #: src/documentmanager.cpp:926 src/documentmanager.cpp:939
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
-msgstr ""
+msgstr "ფალის მარქაფის შეცდომა"
 
 #: src/documentstatisticswidget.cpp:19
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -325,7 +322,7 @@ msgstr "სიტყვები:"
 #: src/documentstatisticswidget.cpp:61
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Characters:"
-msgstr ""
+msgstr "სიმბოლოები:"
 
 #: src/documentstatisticswidget.cpp:62
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -345,17 +342,17 @@ msgstr "გვერდები:"
 #: src/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
-msgstr ""
+msgstr "რთული სიტყვები:"
 
 #: src/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Time:"
-msgstr ""
+msgstr "კითხვის დრო:"
 
 #: src/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Ease:"
-msgstr ""
+msgstr "კითხვის სიადვილე:"
 
 #: src/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -395,12 +392,12 @@ msgstr "გატანა"
 #: src/exportdialog.cpp:75
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
-msgstr ""
+msgstr "ჭკვიანი ტიპოგრაფია"
 
 #: src/exportdialog.cpp:78
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
-msgstr ""
+msgstr "გატანის მორგება"
 
 #: src/exportdialog.cpp:80
 msgctxt "ghostwriter::ExportDialog|"
@@ -416,12 +413,12 @@ msgstr "ფაილის ფორმატი"
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
-msgstr ""
+msgstr "%1 -მდე გატანა"
 
 #: src/exportdialog.cpp:177
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
-msgstr ""
+msgstr "გატანის შეცდომა."
 
 #: src/exporter.cpp:62
 msgctxt "QObject|"
@@ -524,7 +521,7 @@ msgstr ""
 #: src/localedialog.cpp:89
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "ბოდიში!"
 
 #: src/localedialog.cpp:90
 msgctxt "ghostwriter::LocaleDialog|"
@@ -549,7 +546,7 @@ msgstr "გამოსახულებები"
 #: src/mainwindow.cpp:665
 msgctxt "ghostwriter::MainWindow|"
 msgid "All Files"
-msgstr ""
+msgstr "ყველა ფაილი"
 
 #: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
@@ -749,7 +746,7 @@ msgstr ""
 #: src/mainwindow.cpp:1002
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
-msgstr ""
+msgstr "&ამოცანების სია"
 
 #: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
@@ -779,12 +776,12 @@ msgstr ""
 #: src/mainwindow.cpp:1034
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
-msgstr ""
+msgstr "&სესიის სტატისტიკა"
 
 #: src/mainwindow.cpp:1043
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
-msgstr ""
+msgstr "&დოკუმენტის სტატისტიკა"
 
 #: src/mainwindow.cpp:1052
 msgctxt "ghostwriter::MainWindow|"
@@ -794,12 +791,12 @@ msgstr ""
 #: src/mainwindow.cpp:1063
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
-msgstr ""
+msgstr "ფონტის ზომის გაზრდა"
 
 #: src/mainwindow.cpp:1064
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
-msgstr ""
+msgstr "ფონტის ზომის შესრულება"
 
 #: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
@@ -974,7 +971,7 @@ msgstr ""
 #: src/mainwindow.cpp:1307
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
-msgstr ""
+msgstr "![Image](./image.jpg \"სათაური\")"
 
 #: src/mainwindow.cpp:1308
 msgctxt "ghostwriter::MainWindow|"
@@ -1014,7 +1011,7 @@ msgstr "უსახელო"
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
-msgstr ""
+msgstr "მორგება"
 
 #: src/preferencesdialog.cpp:71
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1064,17 +1061,17 @@ msgstr "კვადრატი"
 #: src/preferencesdialog.cpp:208
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "ინტერფეისის სტილი"
 
 #: src/preferencesdialog.cpp:210
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "ფაილის შენახვა"
 
 #: src/preferencesdialog.cpp:216
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Auto save"
-msgstr ""
+msgstr "ავტომატური შენახვა"
 
 #: src/preferencesdialog.cpp:223
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1129,12 +1126,12 @@ msgstr "წინადადება"
 #: src/preferencesdialog.cpp:305
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
-msgstr ""
+msgstr "მიმდინარე ხაზი"
 
 #: src/preferencesdialog.cpp:306
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
-msgstr ""
+msgstr "სამი ხაზი"
 
 #: src/preferencesdialog.cpp:307
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1144,7 +1141,7 @@ msgstr "პარაგრაფი"
 #: src/preferencesdialog.cpp:308
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
-msgstr ""
+msgstr "საბეჭდი მანქანა"
 
 #: src/preferencesdialog.cpp:319
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1174,7 +1171,7 @@ msgstr "სრული"
 #: src/preferencesdialog.cpp:336
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "რედაქტორის სიგანე"
 
 #: src/preferencesdialog.cpp:339
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1244,33 +1241,33 @@ msgstr "აირჩიეთ..."
 #: src/previewoptionsdialog.cpp:114
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr ""
+msgstr "ტექსტის ფონტი:"
 
 #: src/previewoptionsdialog.cpp:140
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr ""
+msgstr "კოდის ფონტი:"
 
 #: src/previewoptionsdialog.cpp:163
 #, qt-format
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "%1 %2pt"
-msgstr ""
+msgstr "%1 %2წრტ"
 
 #: src/sessionstatisticswidget.cpp:37
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Words Written:"
-msgstr ""
+msgstr "დაწერილია სიტყვა:"
 
 #: src/sessionstatisticswidget.cpp:38
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Pages Written:"
-msgstr ""
+msgstr "დაწერილია გვერდი:"
 
 #: src/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr ""
+msgstr "საშუალო სიტყვა/წთ:"
 
 #: src/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1280,7 +1277,7 @@ msgstr "სრული დრო:"
 #: src/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr ""
+msgstr "უქმე დრო:"
 
 #: src/simplefontdialog.cpp:61
 msgctxt "ghostwriter::SimpleFontDialog|"
@@ -1310,7 +1307,7 @@ msgstr ""
 #: src/spelling/spellcheckdecorator.cpp:248
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
-msgstr ""
+msgstr "მართლწერის შემოწმება..."
 
 #: src/spelling/spellcheckdecorator.cpp:276
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1320,7 +1317,7 @@ msgstr "მართლწერა"
 #: src/spelling/spellcheckdecorator.cpp:301
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
-msgstr ""
+msgstr "სიტყვის ლექსიკონში ჩამატება"
 
 #: src/spelling/spellcheckdecorator.cpp:340
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1328,9 +1325,6 @@ msgid "No spelling suggestions found"
 msgstr ""
 
 #: src/spelling/spellcheckdialog.cpp:53
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Spell Check"
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
 msgstr "მართლწერის შემოწმება"
@@ -1379,26 +1373,26 @@ msgstr[1] "%Ln გვერდი"
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%Ln სიტყვა დამატებულია"
+msgstr[1] "%Ln სიტყვა დამატებულია"
 
 #: src/statisticsindicator.cpp:37
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr ""
+msgstr "%1 სიტყვ/წთ"
 
 #: src/statisticsindicator.cpp:38
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 read time"
-msgstr ""
+msgstr "%1:%2 კითხვის დრო"
 
 #: src/statisticsindicator.cpp:41
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
-msgstr ""
+msgstr "%1:%2 წერის დრო"
 
 #: src/themeeditordialog.cpp:77
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1453,7 +1447,7 @@ msgstr "მარქაფი"
 #: src/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
-msgstr ""
+msgstr "აქცენტი"
 
 #: src/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
