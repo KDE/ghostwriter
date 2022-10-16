@@ -39,9 +39,16 @@ LocaleDialog::LocaleDialog
     QVBoxLayout *layout = new QVBoxLayout();
 
     d->languageButton = new KLanguageButton(this);
+    d->languageButton->showLanguageCodes(true);
 
     auto currentLanguageCode = AppSettings::instance()->locale();
     auto languageCodes = AppSettings::instance()->availableTranslations();
+
+    if (currentLanguageCode.isNull() || currentLanguageCode.isEmpty()) {
+        currentLanguageCode = QLocale().name();
+    }
+
+    QString selectedLanguage;
 
     if (languageCodes.isEmpty()) {
         MessageBoxHelper::critical(
@@ -49,24 +56,60 @@ LocaleDialog::LocaleDialog
             tr("No translations are available!"),
             tr("Please reinstall this application for more language options.")
         );
-
-        QLocale defaultLocale;
-        QString languageCode = defaultLocale.name();
-
-        d->languageButton->insertLanguage(languageCode);
     } else {
-        for (auto languageCode : languageCodes) {
-            d->languageButton->insertLanguage(languageCode);
-            QLocale locale(languageCode);
-            QLocale currentLocale(currentLanguageCode);
+        const QLocale currentLocale(currentLanguageCode);
 
-            if (locale == currentLocale) {
-                d->languageButton->setCurrentItem(languageCode);
+        if (QLatin1String("C") != currentLocale.name()) {
+            enum {
+                NoMatch,
+                LanguageMatch,
+                LanguageCountryMatch,
+                PerfectMatch
+            } matchAccuracy = NoMatch;
+
+            for (auto languageCode : languageCodes) {
+                const QLocale locale(languageCode);
+                d->languageButton->insertLanguage(languageCode);
+
+                if ((matchAccuracy < LanguageMatch)
+                        && (locale.language() == currentLocale.language())) {
+                    matchAccuracy = LanguageMatch;
+                    selectedLanguage = languageCode;
+                }
+
+                if ((LanguageMatch == matchAccuracy)
+                        && (locale.country() == currentLocale.country())) {
+                    matchAccuracy = LanguageCountryMatch;
+                    selectedLanguage = languageCode;
+                }
+
+                if ((LanguageCountryMatch == matchAccuracy)
+                        && locale.script() == currentLocale.script()) {
+                    selectedLanguage = languageCode;
+                    matchAccuracy = PerfectMatch;
+                }
+
+                // This case covers local dialects, such as "ca@valencia".
+                // See QTBUG-7100 for details.
+                if (languageCode == currentLanguageCode) {
+                    selectedLanguage = languageCode;
+                    matchAccuracy = PerfectMatch;
+                }
             }
         }
     }
 
-    d->languageButton->showLanguageCodes(true);
+    if (selectedLanguage.isNull()) {
+        selectedLanguage = "en";
+    }
+
+    if (d->languageButton->count() <= 0) {
+        // Insert fall back language.
+        selectedLanguage = "en";
+        d->languageButton->insertLanguage(selectedLanguage);
+    }
+
+    d->languageButton->setCurrentItem(selectedLanguage);
     layout->addWidget(d->languageButton);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
@@ -90,8 +133,7 @@ LocaleDialog::LocaleDialog
                     tr("Could not load translation.")
                 );
             } else {
-                QMessageBox::information
-                (
+                QMessageBox::information(
                     this,
                     QApplication::applicationName(),
                     tr("Please restart the application for changes to take effect.")

@@ -510,7 +510,7 @@ bool AppSettings::setLocale(const QString &locale)
         + QStringLiteral("/LC_MESSAGES/ghostwriter_qt.qm");
 
     const QString fullPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, subPath);
-    
+
     if (fullPath.isEmpty()) {
         return false;
     }
@@ -529,11 +529,14 @@ bool AppSettings::setLocale(const QString &locale)
         delete currentTranslator;
     }
 
+    if (!qApp->installTranslator(translator)) {
+        delete translator;
+        return false;
+    }
+
     currentTranslator = translator;
-
-    qApp->installTranslator(translator);
-
     d->locale = locale;
+
     return true;
 }
 
