@@ -68,6 +68,7 @@ public:
         ;
     }
 
+    QString initialLocale() const;
     QString firstAvailableFont(const QStringList& fontList) const;
 
     bool autoMatchEnabled;
@@ -536,7 +537,6 @@ bool AppSettings::setLocale(const QString &locale)
 
     currentTranslator = translator;
     d->locale = locale;
-
     return true;
 }
 
@@ -752,7 +752,7 @@ AppSettings::AppSettings()
     d->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
     d->darkModeEnabled = appSettings.value(GW_DARK_MODE_KEY, QVariant(true)).toBool();
 
-    d->locale = appSettings.value(GW_LOCALE_KEY, QLocale::system().name()).toString();
+    d->locale = appSettings.value(GW_LOCALE_KEY, d->initialLocale()).toString();
     setLocale(d->locale);
     d->liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
     d->editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
@@ -814,5 +814,21 @@ QString AppSettingsPrivate::firstAvailableFont(const QStringList& fontList) cons
     systemFont.setFixedPitch(true);
     systemFont.setStyleHint(QFont::Monospace);
     return systemFont.family();
+}
+
+QString AppSettingsPrivate::initialLocale() const
+{
+    QString languageCode = QLocale::system().name();
+    QString languages = qEnvironmentVariable("LANGUAGE");
+
+    if (!languages.isNull() && !languages.isEmpty()) {
+        QStringList languageList = languages.split(':');
+
+        if (!languageList.isEmpty()) {
+            languageCode = languageList.first();
+        }
+    }
+
+    return languageCode;
 }
 }
