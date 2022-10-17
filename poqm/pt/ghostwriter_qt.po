@@ -521,27 +521,27 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
 msgstr "Mudar a Língua da Aplicação"
 
-#: src/localedialog.cpp:49
+#: src/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
 msgstr "Não estão disponíveis nenhumas traduções!"
 
-#: src/localedialog.cpp:50
+#: src/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
 msgstr "Por favor, reinstale esta aplicação para obter mais opções de línguas."
 
-#: src/localedialog.cpp:89
+#: src/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
 msgstr "Desculpe!"
 
-#: src/localedialog.cpp:90
+#: src/localedialog.cpp:133
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
 msgstr "Não foi possível carregar a tradução."
 
-#: src/localedialog.cpp:97
+#: src/localedialog.cpp:139
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Por favor reinstale a aplicação para que as alterações façam efeito."
