@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>ghostwriter.desktop</id>
+  <id>org.kde.ghostwriter</id>
   <metadata_license>CC-BY-SA-4.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>ghostwriter</name>
