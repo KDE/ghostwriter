@@ -16,9 +16,6 @@ namespace ghostwriter
 class CmarkGfmAPIPrivate
 {
 public:
-
-    static CmarkGfmAPI *instance;
-
     CmarkGfmAPIPrivate()
     {
         ;
@@ -39,15 +36,16 @@ public:
     QMutex apiMutex;
 };
 
-CmarkGfmAPI *CmarkGfmAPIPrivate::instance = nullptr;
+class CmarkGfmAPIWithPublicConstructor : public CmarkGfmAPI
+{
+public:
+    CmarkGfmAPIWithPublicConstructor() {}
+};
+Q_GLOBAL_STATIC(CmarkGfmAPIWithPublicConstructor, CmarkGfmAPI_instance);
 
 CmarkGfmAPI *CmarkGfmAPI::instance()
 {
-    if (nullptr == CmarkGfmAPIPrivate::instance) {
-        CmarkGfmAPIPrivate::instance = new CmarkGfmAPI();
-    }
-
-    return CmarkGfmAPIPrivate::instance;
+    return CmarkGfmAPI_instance();
 }
 
 CmarkGfmAPI::~CmarkGfmAPI()

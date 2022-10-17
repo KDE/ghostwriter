@@ -45,13 +45,15 @@ public:
      */
     QString renderToHtml(const QString &text, const bool smartTypographyEnabled);
 
-private:
-    QScopedPointer<CmarkGfmAPIPrivate> d_ptr;
-
+protected:
     /**
      * Constructor.
      */
     CmarkGfmAPI();
+
+private:
+    QScopedPointer<CmarkGfmAPIPrivate> d_ptr;
+
 };
 }
 
