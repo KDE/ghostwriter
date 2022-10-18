@@ -109,7 +109,7 @@ SpellCheckDecorator::SpellCheckDecorator(QPlainTextEdit *editor)
 
 SpellCheckDecorator::~SpellCheckDecorator()
 {
-    ;
+    delete d_ptr->speller;
 }
 
 QColor SpellCheckDecorator::errorColor() const

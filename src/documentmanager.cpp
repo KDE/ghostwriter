@@ -504,6 +504,17 @@ void DocumentManager::rename()
     }
 }
 
+bool DocumentManager::saveFile()
+{
+    Q_D(DocumentManager);
+
+    if (d->documentIsDraft()) {
+        return this->saveAs();
+    } else {
+        return this->save();
+    }
+}
+
 bool DocumentManager::save()
 {
     Q_D(DocumentManager);
@@ -536,6 +547,16 @@ bool DocumentManager::saveAs()
         );
 
     if (!filePath.isNull() && !filePath.isEmpty()) {
+        if (d->documentIsDraft()) {
+            QFile draftFile(d->document->filePath());
+            draftFile.remove();
+
+            QString backupFilePath = d->document->filePath() + ".backup";
+            QFile backupFile(backupFilePath);
+            if (backupFile.exists()) {
+                backupFile.remove();
+            }
+        }
         d->setFilePath(filePath);
         d->saveFile();
         return true;

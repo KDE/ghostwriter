@@ -174,7 +174,7 @@ msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
 msgstr ""
 
-#: src/documentmanager.cpp:220 src/documentmanager.cpp:694
+#: src/documentmanager.cpp:220 src/documentmanager.cpp:715
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
@@ -217,76 +217,76 @@ msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
 msgstr ""
 
-#: src/documentmanager.cpp:533
+#: src/documentmanager.cpp:544
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
 msgstr ""
 
-#: src/documentmanager.cpp:660
+#: src/documentmanager.cpp:681
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
 msgstr ""
 
-#: src/documentmanager.cpp:661
+#: src/documentmanager.cpp:682
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
 msgstr ""
 
-#: src/documentmanager.cpp:695
+#: src/documentmanager.cpp:716
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
 msgstr ""
 
-#: src/documentmanager.cpp:711 src/documentmanager.cpp:750
+#: src/documentmanager.cpp:732 src/documentmanager.cpp:771
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
 msgstr ""
 
-#: src/documentmanager.cpp:732
+#: src/documentmanager.cpp:753
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
 msgstr ""
 
-#: src/documentmanager.cpp:839
+#: src/documentmanager.cpp:860
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
 msgstr ""
 
-#: src/documentmanager.cpp:841
+#: src/documentmanager.cpp:862
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
 msgstr ""
 
-#: src/documentmanager.cpp:850
+#: src/documentmanager.cpp:871
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
 msgstr ""
 
-#: src/documentmanager.cpp:881
+#: src/documentmanager.cpp:902
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
 msgstr ""
 
-#: src/documentmanager.cpp:882
+#: src/documentmanager.cpp:903
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
 msgstr ""
 
-#: src/documentmanager.cpp:901
+#: src/documentmanager.cpp:922
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
 msgstr ""
 
-#: src/documentmanager.cpp:902
+#: src/documentmanager.cpp:923
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
 msgstr ""
 
-#: src/documentmanager.cpp:926 src/documentmanager.cpp:939
+#: src/documentmanager.cpp:947 src/documentmanager.cpp:960
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
 msgstr ""
@@ -509,27 +509,27 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
 msgstr ""
 
-#: src/localedialog.cpp:49
+#: src/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
 msgstr ""
 
-#: src/localedialog.cpp:50
+#: src/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
 msgstr ""
 
-#: src/localedialog.cpp:89
+#: src/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
 msgstr ""
 
-#: src/localedialog.cpp:90
+#: src/localedialog.cpp:133
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
 msgstr ""
 
-#: src/localedialog.cpp:97
+#: src/localedialog.cpp:139
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr ""
@@ -1004,7 +1004,7 @@ msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr ""
 
-#: src/markdowndocument.cpp:95 src/markdowndocument.cpp:167
+#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:165
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr ""

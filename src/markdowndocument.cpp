@@ -60,10 +60,7 @@ MarkdownDocument::~MarkdownDocument()
         new QPlainTextDocumentLayout(this);
     this->setDocumentLayout(documentLayout);
 
-    if (nullptr != d->ast) {
-        delete d->ast;
-        d->ast = nullptr;
-    }
+    delete d->ast;
 }
 
 QString MarkdownDocument::displayName() const
@@ -145,6 +142,7 @@ void MarkdownDocument::setMarkdownAST(MarkdownAST *ast)
 {
     Q_D(MarkdownDocument);
 
+    delete d->ast;
     d->ast = ast;
 }
 

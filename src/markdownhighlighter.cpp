@@ -68,7 +68,6 @@ public:
     bool lineMatchesNode(const int line, const MarkdownNode *const node) const;
     int columnInLine(const MarkdownNode *const node, const QString &lineText) const;
     void applyFormattingForNode(const MarkdownNode *const node);
-    void highlightRefLinks(const int pos, const int length);
     void setupHeadingFontSize(bool useLargeHeadings);
 };
 
@@ -565,9 +564,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 format
             );
 
-            if (MarkdownNode::Text == type) {
-                highlightRefLinks(pos, length);
-            } else if (MarkdownNode::TaskListItem == type) {
+            if (MarkdownNode::TaskListItem == type) {
                 format = contextFormat;
                 format.setForeground(colors.link);
 
@@ -675,42 +672,6 @@ int MarkdownHighlighterPrivate::columnInLine(const MarkdownNode *const node, con
     }
 
     return node->position() - offset;
-}
-
-void MarkdownHighlighterPrivate::highlightRefLinks(const int pos, const int length)
-{
-    Q_Q(MarkdownHighlighter);
-
-    QStack<int> bracketPos;
-    bool skipNext = false;
-    QTextCharFormat format = q->format(pos);
-    format.setForeground(colors.link);
-
-    for (int i = pos; i < (pos + length) && (i < q->currentBlock().text().size()); i++) {
-        if (skipNext) {
-            skipNext = false;
-            continue;
-        }
-
-        switch (q->currentBlock().text()[i].toLatin1()) {
-        case '\\':
-            skipNext = true;
-            break;
-        case '[':
-            bracketPos.push(i);
-            break;
-        case ']':
-            if (!bracketPos.isEmpty()) {
-                int start = bracketPos.pop();
-
-                q->setFormat(start, (i - start + 1), format);
-            }
-
-            break;
-        default:
-            break;
-        }
-    }
 }
 
 bool MarkdownHighlighterPrivate::lineMatchesNode(const int line, const MarkdownNode *const node) const
