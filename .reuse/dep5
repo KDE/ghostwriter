@@ -38,7 +38,7 @@ Copyright: 2014 John MacFarlane
            2012 Github, Inc.
            2009 Public Software Group e. V., Berlin, Germany.
            2013 Karl Dubost
-License: AAL and MIT
+License: BSD-2-Clause and MIT
 
 Files: 3rdparty/cmark-gfm/test/spec.txt
 Copyright: 2014 John MacFarlane
@@ -46,7 +46,7 @@ License: CC-BY-SA-4.0
 
 Files: 3rdparty/cmark-gfm/test/*
 Copyright: 2014 John MacFarlane
-License: AAL
+License: BSD-2-Clause
 
 Files: 3rdparty/QtAwesome/*
 Copyright: 2013-2019 Reliable Bits Software by Blommers IT
