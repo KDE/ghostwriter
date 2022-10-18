@@ -654,15 +654,29 @@ void MainWindow::insertImage()
         startingDirectory = QFileInfo(document->filePath()).dir().path();
     }
 
+    QString nameFilters, fileExtensions;
+    const QByteArrayList supportedMimeTypes = QImageWriter::supportedMimeTypes();
+    for (const QByteArray &mimeType : supportedMimeTypes) {
+        QMimeDatabase db;
+        QMimeType mime(db.mimeTypeForName(mimeType));
+        const QString patterns = mime.globPatterns().join(QLatin1Char(' '));
+        QString fileType = mime.comment() + QLatin1String(" (") + patterns + QLatin1String(");;");
+        fileExtensions.append(patterns + QLatin1Char(' '));
+        nameFilters.append(fileType);
+    }
+    // Add GIFs too
+    fileExtensions.append("*.gif");
+    nameFilters.append(" GIF Image (*.gif);;");
+
     QString imagePath =
         QFileDialog::getOpenFileName
         (
             this,
             tr("Insert Image"),
             startingDirectory,
-            QString("%1 (*.jpg *.jpeg *.gif *.png *.bmp);; %2")
-            .arg(tr("Images"))
-            .arg(tr("All Files"))
+            QString("Images (%1);; %2")
+            .arg(fileExtensions)
+            .arg(nameFilters)
         );
 
     if (!imagePath.isNull() && !imagePath.isEmpty()) {
