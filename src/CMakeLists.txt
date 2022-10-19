@@ -85,7 +85,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6 REQUIRED COMPONENTS Qt6Core5Compat)
+    find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
 endif()
 
 find_package(
@@ -131,7 +131,7 @@ target_link_libraries(ghostwriter PRIVATE
 
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_link_libraries(ghostwriter PRIVATE
-        Qt::Qt6Core5Compat
+        Qt::Core5Compat
     )
 endif()
 

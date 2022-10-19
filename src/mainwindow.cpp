@@ -24,6 +24,7 @@
 #include <QSettings>
 #include <QSizePolicy>
 #include <QStatusBar>
+#include <QTextDocumentFragment>
 
 #include <KCoreAddons/KAboutData>
 #include <KXmlGui/KAboutApplicationDialog>
