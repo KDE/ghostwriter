@@ -546,472 +546,468 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Por favor reinstale a aplicação para que as alterações façam efeito."
 
-#: src/mainwindow.cpp:661
+#: src/mainwindow.cpp:688
 msgctxt "ghostwriter::MainWindow|"
 msgid "Insert Image"
 msgstr "Inserir uma Imagem"
 
-#: src/mainwindow.cpp:664
+#: src/mainwindow.cpp:690
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
-msgid "Images"
-msgstr "Imagens"
+msgid "Images (%1);; %2"
+msgstr ""
 
-#: src/mainwindow.cpp:665
-msgctxt "ghostwriter::MainWindow|"
-msgid "All Files"
-msgstr "Todos os Ficheiros"
-
-#: src/mainwindow.cpp:933
+#: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Ficheiro"
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Novo"
 
-#: src/mainwindow.cpp:936
+#: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Abrir"
 
-#: src/mainwindow.cpp:938
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Abrir um &Recente..."
 
-#: src/mainwindow.cpp:939
+#: src/mainwindow.cpp:966
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Reabrir o Ficheiro Fechado"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Limpar o Menu"
 
-#: src/mainwindow.cpp:952
+#: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Gravar"
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:980
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Gravar &Como..."
 
-#: src/mainwindow.cpp:954
+#: src/mainwindow.cpp:981
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "Mudar o Nom&e..."
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "Re&carregar do Disco..."
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Exportar"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:986
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "Sai&r"
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:990
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Editar"
 
-#: src/mainwindow.cpp:964
+#: src/mainwindow.cpp:991
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "&Desfazer"
 
-#: src/mainwindow.cpp:965
+#: src/mainwindow.cpp:992
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "&Refazer"
 
-#: src/mainwindow.cpp:967
+#: src/mainwindow.cpp:994
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "Cor&tar"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:995
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Copiar"
 
-#: src/mainwindow.cpp:969
+#: src/mainwindow.cpp:996
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "Co&lar"
 
-#: src/mainwindow.cpp:970
+#: src/mainwindow.cpp:997
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Copiar o &HTML"
 
-#: src/mainwindow.cpp:972
+#: src/mainwindow.cpp:999
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "&Inserir uma Imagem..."
 
-#: src/mainwindow.cpp:975
+#: src/mainwindow.cpp:1002
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "&Procurar"
 
-#: src/mainwindow.cpp:976
+#: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "Su&bstituir"
 
-#: src/mainwindow.cpp:977
+#: src/mainwindow.cpp:1004
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Procurar o Segui&nte"
 
-#: src/mainwindow.cpp:978
+#: src/mainwindow.cpp:1005
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Procurar o &Anterior"
 
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:1007
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "Verificação &Ortográfica"
 
-#: src/mainwindow.cpp:982
+#: src/mainwindow.cpp:1009
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "For&mato"
 
-#: src/mainwindow.cpp:983
+#: src/mainwindow.cpp:1010
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "&Negrito"
 
-#: src/mainwindow.cpp:984
+#: src/mainwindow.cpp:1011
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "&Itálico"
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:1012
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "&Traçado"
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:1013
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "Comentário de &HTML"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "I&ndentar"
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:1017
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "&Remover a Indentação"
 
-#: src/mainwindow.cpp:992
+#: src/mainwindow.cpp:1019
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "Citação em &Bloco"
 
-#: src/mainwindow.cpp:993
+#: src/mainwindow.cpp:1020
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "Remo&ver a Citação em Bloco"
 
-#: src/mainwindow.cpp:995
+#: src/mainwindow.cpp:1022
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "Lista de Tópicos &*"
 
-#: src/mainwindow.cpp:996
+#: src/mainwindow.cpp:1023
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "Lista de Tópicos &-"
 
-#: src/mainwindow.cpp:997
+#: src/mainwindow.cpp:1024
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "Lista de Tópicos &+"
 
-#: src/mainwindow.cpp:999
+#: src/mainwindow.cpp:1026
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "Lista Numerada 1&."
 
-#: src/mainwindow.cpp:1000
+#: src/mainwindow.cpp:1027
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "Lista Numerada 1&)"
 
-#: src/mainwindow.cpp:1002
+#: src/mainwindow.cpp:1029
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "Lista de &Tarefas"
 
-#: src/mainwindow.cpp:1003
+#: src/mainwindow.cpp:1030
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "&Comutar a Finalização das Tarefas"
 
-#: src/mainwindow.cpp:1006
+#: src/mainwindow.cpp:1033
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Ver"
 
-#: src/mainwindow.cpp:1008
+#: src/mainwindow.cpp:1035
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "Ecrã &Completo"
 
-#: src/mainwindow.cpp:1016
+#: src/mainwindow.cpp:1043
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "&Antevisão em HTML"
 
-#: src/mainwindow.cpp:1024
+#: src/mainwindow.cpp:1051
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "&Estrutura"
 
-#: src/mainwindow.cpp:1034
+#: src/mainwindow.cpp:1061
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "Estatísticas da &Sessão"
 
-#: src/mainwindow.cpp:1043
+#: src/mainwindow.cpp:1070
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "Estatísticas do &Documento"
 
-#: src/mainwindow.cpp:1052
+#: src/mainwindow.cpp:1079
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "&Cábula"
 
-#: src/mainwindow.cpp:1063
+#: src/mainwindow.cpp:1090
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Aumentar o Tamanho do Texto"
 
-#: src/mainwindow.cpp:1064
+#: src/mainwindow.cpp:1091
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Diminuir o Tamanho do Texto"
 
-#: src/mainwindow.cpp:1066
+#: src/mainwindow.cpp:1093
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "&Configuração"
 
-#: src/mainwindow.cpp:1067 src/mainwindow.cpp:1378
+#: src/mainwindow.cpp:1094 src/mainwindow.cpp:1405
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Temas..."
 
-#: src/mainwindow.cpp:1068 src/mainwindow.cpp:1379
+#: src/mainwindow.cpp:1095 src/mainwindow.cpp:1406
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Tipo de Letra..."
 
-#: src/mainwindow.cpp:1069 src/mainwindow.cpp:1380
+#: src/mainwindow.cpp:1096 src/mainwindow.cpp:1407
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Língua da Aplicação..."
 
-#: src/mainwindow.cpp:1070 src/mainwindow.cpp:1381
+#: src/mainwindow.cpp:1097 src/mainwindow.cpp:1408
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Opções da Antevisão..."
 
-#: src/mainwindow.cpp:1071 src/mainwindow.cpp:1382
+#: src/mainwindow.cpp:1098 src/mainwindow.cpp:1409
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Preferências..."
 
-#: src/mainwindow.cpp:1077
+#: src/mainwindow.cpp:1104
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "A&juda"
 
-#: src/mainwindow.cpp:1087
+#: src/mainwindow.cpp:1114
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "Guia de &Referência Rápida"
 
-#: src/mainwindow.cpp:1088
+#: src/mainwindow.cpp:1115
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1136
+#: src/mainwindow.cpp:1163
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Comutar a barra lateral"
 
-#: src/mainwindow.cpp:1193
+#: src/mainwindow.cpp:1220
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Comutar o modo escuro"
 
-#: src/mainwindow.cpp:1212
+#: src/mainwindow.cpp:1239
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "Comutar a Antevisão de HTML em Directo"
 
-#: src/mainwindow.cpp:1232
+#: src/mainwindow.cpp:1259
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Comutar o modo Hemingway"
 
-#: src/mainwindow.cpp:1240
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Comutar o modo sem distracções"
 
-#: src/mainwindow.cpp:1249
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Comutar o modo de ecrã completo"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1299
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Mostrar a Barra Lateral"
 
-#: src/mainwindow.cpp:1289
+#: src/mainwindow.cpp:1316
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Cabeçalho 1"
 
-#: src/mainwindow.cpp:1290
+#: src/mainwindow.cpp:1317
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Cabeçalho 2"
 
-#: src/mainwindow.cpp:1291
+#: src/mainwindow.cpp:1318
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Cabeçalho 3"
 
-#: src/mainwindow.cpp:1292
+#: src/mainwindow.cpp:1319
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Cabeçalho 4"
 
-#: src/mainwindow.cpp:1293
+#: src/mainwindow.cpp:1320
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Cabeçalho 5"
 
-#: src/mainwindow.cpp:1294
+#: src/mainwindow.cpp:1321
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Cabeçalho 6"
 
-#: src/mainwindow.cpp:1295
+#: src/mainwindow.cpp:1322
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Ênfase* _Ênfase_"
 
-#: src/mainwindow.cpp:1296
+#: src/mainwindow.cpp:1323
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Carregado** __Carregado__"
 
-#: src/mainwindow.cpp:1297
+#: src/mainwindow.cpp:1324
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "Lista Numerada 1."
 
-#: src/mainwindow.cpp:1298
+#: src/mainwindow.cpp:1325
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "Lista de Tópicos *"
 
-#: src/mainwindow.cpp:1299
+#: src/mainwindow.cpp:1326
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "Lista de Tópicos +"
 
-#: src/mainwindow.cpp:1300
+#: src/mainwindow.cpp:1327
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "Lista de Tópicos -"
 
-#: src/mainwindow.cpp:1301
+#: src/mainwindow.cpp:1328
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "Citação em Bloco >"
 
-#: src/mainwindow.cpp:1302
+#: src/mainwindow.cpp:1329
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Secção de Código`"
 
-#: src/mainwindow.cpp:1303
+#: src/mainwindow.cpp:1330
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "Bloco de Código ```"
 
-#: src/mainwindow.cpp:1304
+#: src/mainwindow.cpp:1331
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Ligação](http://url.com \"Título\")"
 
-#: src/mainwindow.cpp:1305
+#: src/mainwindow.cpp:1332
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Ligação a Referência][ID]"
 
-#: src/mainwindow.cpp:1306
+#: src/mainwindow.cpp:1333
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Definição da Referência\""
 
-#: src/mainwindow.cpp:1307
+#: src/mainwindow.cpp:1334
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Imagem](./imagem.jpg \"Título\")"
 
-#: src/mainwindow.cpp:1308
+#: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Linha Horizontal"
 
-#: src/mainwindow.cpp:1358
+#: src/mainwindow.cpp:1385
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Estrutura"
 
-#: src/mainwindow.cpp:1359
+#: src/mainwindow.cpp:1386
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Estatísticas da Sessão"
 
-#: src/mainwindow.cpp:1360
+#: src/mainwindow.cpp:1387
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Estatísticas do Documento"
 
-#: src/mainwindow.cpp:1361
+#: src/mainwindow.cpp:1388
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Cábula"
 
-#: src/mainwindow.cpp:1371
+#: src/mainwindow.cpp:1398
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Configuração"
@@ -1614,3 +1610,11 @@ msgstr "Não é possível editar o tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Infelizmente, este é um tema incorporado que não pode ser modificado."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Images"
+#~ msgstr "Imagens"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "All Files"
+#~ msgstr "Todos os Ficheiros"
