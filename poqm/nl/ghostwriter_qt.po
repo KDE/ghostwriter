@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-10 10:28+0200\n"
+"PO-Revision-Date: 2022-10-20 10:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -548,7 +548,7 @@ msgstr "Afbeelding invoegen"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images (%1);; %2"
-msgstr ""
+msgstr "Afbeeldingen (%1);; %2"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"

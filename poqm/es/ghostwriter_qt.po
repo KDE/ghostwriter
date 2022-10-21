@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-10 23:53+0200\n"
+"PO-Revision-Date: 2022-10-20 18:20+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -549,7 +549,7 @@ msgstr "Insertar imagen"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images (%1);; %2"
-msgstr ""
+msgstr "Imágenes (%1);; %2"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"

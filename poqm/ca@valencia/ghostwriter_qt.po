@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-12 11:03+0200\n"
+"PO-Revision-Date: 2022-10-20 12:48+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -134,7 +134,7 @@ msgstr "Us donem la benvinguda a «ghostwriter»"
 #: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr "(Opcional) Fitxer que cal obrir."
+msgstr "(Opcional) Fitxer que s'ha d'obrir."
 
 #: src/appmain.cpp:155
 msgctxt "main|"
@@ -558,7 +558,7 @@ msgstr "Inserix una imatge"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images (%1);; %2"
-msgstr ""
+msgstr "Imatges (%1);; %2"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
@@ -1614,11 +1614,3 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Este és un tema integrat que no es pot editar."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "Imatges"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "All Files"
-#~ msgstr "Tots els fitxers"

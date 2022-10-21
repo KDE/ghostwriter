@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-10 18:46+0300\n"
+"PO-Revision-Date: 2022-10-20 16:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -551,7 +551,7 @@ msgstr "Вставити зображення"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images (%1);; %2"
-msgstr ""
+msgstr "зображення (%1);; %2"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"

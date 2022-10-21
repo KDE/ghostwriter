@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-12 11:03+0200\n"
+"PO-Revision-Date: 2022-10-20 12:48+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -559,7 +559,7 @@ msgstr "Insereix una imatge"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images (%1);; %2"
-msgstr ""
+msgstr "Imatges (%1);; %2"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"

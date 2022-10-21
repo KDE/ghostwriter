@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-11 19:22+0100\n"
+"PO-Revision-Date: 2022-10-20 09:29+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -555,7 +555,7 @@ msgstr "Inserir uma Imagem"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Images (%1);; %2"
-msgstr ""
+msgstr "Imagens (%1);; %2"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
@@ -1610,11 +1610,3 @@ msgstr "Não é possível editar o tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Infelizmente, este é um tema incorporado que não pode ser modificado."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "Imagens"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "All Files"
-#~ msgstr "Todos os Ficheiros"
