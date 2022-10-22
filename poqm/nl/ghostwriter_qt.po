@@ -1010,6 +1010,22 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "zonder titel"
 
+#: src/markdowneditor.cpp:863
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Insert Image"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "Afbeelding invoegen"
+
+#: src/markdowneditor.cpp:866
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Images"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr "Afbeeldingen"
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
@@ -1601,10 +1617,6 @@ msgstr "Kan thema niet bewerken."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Dit is een ingebouwd thema dat niet bewerkt kan worden."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "Afbeeldingen"
 
 #~ msgctxt "ghostwriter::MainWindow|"
 #~ msgid "All Files"

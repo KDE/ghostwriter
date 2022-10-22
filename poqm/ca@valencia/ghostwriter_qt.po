@@ -1022,6 +1022,22 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "sense títol"
 
+#: src/markdowneditor.cpp:863
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Insert Image"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "Inserix una imatge"
+
+#: src/markdowneditor.cpp:866
+#, fuzzy
+#| msgctxt "ghostwriter::DocumentStatisticsWidget|"
+#| msgid "Pages:"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr "Pàgines:"
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"

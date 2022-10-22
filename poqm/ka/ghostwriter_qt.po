@@ -1004,6 +1004,22 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "უსახელო"
 
+#: src/markdowneditor.cpp:863
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Insert Image"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "გამოსახულების დამატება"
+
+#: src/markdowneditor.cpp:866
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Images"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr "გამოსახულებები"
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
@@ -1589,10 +1605,6 @@ msgstr "თემის ჩასწორების შეცდომა."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "გამოსახულებები"
 
 #~ msgctxt "ghostwriter::MainWindow|"
 #~ msgid "All Files"

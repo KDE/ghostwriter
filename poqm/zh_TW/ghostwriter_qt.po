@@ -996,6 +996,16 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr ""
 
+#: src/markdowneditor.cpp:863
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr ""
+
+#: src/markdowneditor.cpp:866
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr ""
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"

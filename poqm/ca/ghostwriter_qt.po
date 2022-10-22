@@ -1023,6 +1023,22 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "sense títol"
 
+#: src/markdowneditor.cpp:863
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Insert Image"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "Insereix una imatge"
+
+#: src/markdowneditor.cpp:866
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Images"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr "Imatges"
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
@@ -1615,10 +1631,6 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Aquest és un tema integrat que no es pot editar."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "Imatges"
 
 #~ msgctxt "ghostwriter::MainWindow|"
 #~ msgid "All Files"

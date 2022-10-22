@@ -1015,6 +1015,22 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "brez naslova"
 
+#: src/markdowneditor.cpp:863
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Insert Image"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "Vstavi sliko"
+
+#: src/markdowneditor.cpp:866
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Images"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr "Slike"
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
@@ -1618,10 +1634,6 @@ msgstr "Ni mogoče urejati teme."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Na žalost je to vgrajena tema, ki je ni mogoče urejati."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "Slike"
 
 #~ msgctxt "ghostwriter::MainWindow|"
 #~ msgid "All Files"

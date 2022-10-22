@@ -1008,6 +1008,22 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "başlıksız"
 
+#: src/markdowneditor.cpp:863
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Insert Image"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "Görsel Ekle"
+
+#: src/markdowneditor.cpp:866
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Images"
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images"
+msgstr "Görseller"
+
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
@@ -1602,10 +1618,6 @@ msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
 "Üzgünüm, bu uygulamayla birlikte gelen ve bu nedenle düzenlenemeyen bir "
 "temadır."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Images"
-#~ msgstr "Görseller"
 
 #~ msgctxt "ghostwriter::MainWindow|"
 #~ msgid "All Files"
