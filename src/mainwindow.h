@@ -67,7 +67,6 @@ private slots:
     void toggleDisplayTimeInFullScreen(bool checked);
     void changeEditorWidth(EditorWidth editorWidth);
     void changeInterfaceStyle(InterfaceStyle style);
-    void insertImage();
     void showQuickReferenceGuide();
     void showWikiPage();
     void changeFocusMode(FocusMode focusMode);

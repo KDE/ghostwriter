@@ -649,73 +649,6 @@ void MainWindow::changeInterfaceStyle(InterfaceStyle style)
     applyTheme();
 }
 
-void MainWindow::insertImage()
-{
-    QString startingDirectory = QString();
-    MarkdownDocument *document = documentManager->document();
-
-    if (!document->isNew()) {
-        startingDirectory = QFileInfo(document->filePath()).dir().path();
-    }
-
-    QMimeDatabase db;
-    QString nameFilters, fileExtensions;
-    const QStringList webMimeTypes({ QStringLiteral("image/apng"),
-        QStringLiteral("image/avif"), QStringLiteral("image/gif"),
-        QStringLiteral("image/svg+xml"), QStringLiteral("image/jpeg"),
-        QStringLiteral("image/png"), QStringLiteral("image/webp") });
-    const QByteArrayList supportedMimeTypes = QImageReader::supportedMimeTypes();
-
-    // Include MIME types that are web-friendly so that
-    // the inserted image can be displayed in the live preview.
-    for (const QString &mimeType : webMimeTypes) {
-        // Only include image MIME types that Qt supports.
-        if (supportedMimeTypes.contains(mimeType.toLatin1())
-                || (QStringLiteral("image/gif") == mimeType)
-                || (QStringLiteral("image/svg+xml") == mimeType)) {
-            QMimeType mime(db.mimeTypeForName(mimeType));
-            const QString patterns = mime.globPatterns().join(QLatin1Char(' '));
-            QString fileType = mime.comment() + QLatin1String(" (") + patterns + QLatin1String(");;");
-            fileExtensions.append(patterns + QLatin1Char(' '));
-            nameFilters.append(fileType);
-        }
-    }
-
-    QString imagePath =
-        QFileDialog::getOpenFileName
-        (
-            this,
-            tr("Insert Image"),
-            startingDirectory,
-            tr("Images (%1);; %2")
-            .arg(fileExtensions)
-            .arg(nameFilters)
-        );
-
-    if (!imagePath.isNull() && !imagePath.isEmpty()) {
-        QFileInfo imgInfo(imagePath);
-        bool isRelativePath = false;
-
-        if (imgInfo.exists()) {
-            if (!document->isNew()) {
-                QFileInfo docInfo(document->filePath());
-
-                if (docInfo.exists()) {
-                    imagePath = docInfo.dir().relativeFilePath(imagePath);
-                    isRelativePath = true;
-                }
-            }
-        }
-
-        if (!isRelativePath) {
-            imagePath = QString("file://") + imagePath;
-        }
-
-        QTextCursor cursor = editor->textCursor();
-        cursor.insertText(QString("![](%1)").arg(imagePath));
-    }
-}
-
 void MainWindow::showQuickReferenceGuide()
 {
     QDesktopServices::openUrl(QUrl("https://ghostwriter.kde.org/documentation"));
@@ -996,7 +929,7 @@ void MainWindow::buildMenuBar()
     editMenu->addAction(createWidgetAction(tr("&Paste"), editor, SLOT(paste()), QKeySequence::Paste));
     editMenu->addAction(createWidgetAction(tr("Copy &HTML"), this, SLOT(copyHtml()), QKeySequence("SHIFT+CTRL+C")));
     editMenu->addSeparator();
-    editMenu->addAction(createWidgetAction(tr("&Insert Image..."), this, SLOT(insertImage())));
+    editMenu->addAction(createWidgetAction(tr("&Insert Image..."), editor, SLOT(insertImage())));
     editMenu->addSeparator();
 
     editMenu->addAction(createWindowAction(tr("&Find"), findReplace, SLOT(showFindView()), QKeySequence::Find));

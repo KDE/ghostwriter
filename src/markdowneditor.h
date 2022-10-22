@@ -276,6 +276,12 @@ public slots:
     bool toggleTaskComplete();
 
     /**
+     * Prompts the user for a file path of an image to insert as a
+     * Markdown image "link".
+     */
+    void insertImage();
+
+    /**
      * Sets whether large heading sizes are enabled.
      */
     void setEnableLargeHeadingSizes(bool enable);

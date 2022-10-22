@@ -6,18 +6,20 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include <algorithm>
 #include <math.h>
-#include <QDebug>
+
 #include <QApplication>
 #include <QChar>
 #include <QColor>
-#include <QDir>
 #include <QDateTime>
+#include <QDir>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QFontMetricsF>
 #include <QGuiApplication>
 #include <QHeaderView>
+#include <QImageReader>
 #include <QImageWriter>
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -29,6 +31,7 @@
 #include <QScrollBar>
 #include <QStandardPaths>
 #include <QString>
+#include <QStringLiteral>
 #include <QTextBoundaryFinder>
 #include <QTimer>
 #include <QUrl>
@@ -47,8 +50,6 @@
 #include "markdowneditor.h"
 #include "markdownhighlighter.h"
 #include "markdownstates.h"
-
-#define GW_TEXT_FADE_FACTOR 1.5
 
 namespace ghostwriter
 {
@@ -157,6 +158,9 @@ public:
 
     const QString lineBreakChar = "↵";
 
+    static QStringList supportedImageFormats;
+    static QStringList imageFileFilters;
+
     MarkdownEditor *q_ptr;
 
     MarkdownDocument *textDocument;
@@ -237,7 +241,17 @@ public:
     bool atCodeBlockEnd(const QTextBlock &block) const;
     bool isBlockquote(const QTextBlock &block) const;
     bool isCodeBlock(const QTextBlock &block) const;
+    
+    static QStringList buildSupportedImageFormats();
+    static QStringList buildImageFileFilters();
+    static bool isSupportedImageType(const QString &mimeType);
 };
+
+QStringList MarkdownEditorPrivate::supportedImageFormats =
+    MarkdownEditorPrivate::buildSupportedImageFormats();
+
+QStringList MarkdownEditorPrivate::imageFileFilters =
+    MarkdownEditorPrivate::buildImageFileFilters();
 
 MarkdownEditor::MarkdownEditor
 (
@@ -847,25 +861,11 @@ void MarkdownEditor::insertFromMimeData(const QMimeData *source)
 
         imagePath += QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz") + ".png";
 
-        QString nameFilters, fileExtensions;
-        const QByteArrayList supportedMimeTypes = QImageWriter::supportedMimeTypes();
-        for (const QByteArray &mimeType : supportedMimeTypes) {
-            QMimeDatabase db;
-            QMimeType mime(db.mimeTypeForName(mimeType));
-            const QString patterns = mime.globPatterns().join(QLatin1Char(' '));
-            QString fileType = mime.comment() + QLatin1String(" (") + patterns + QLatin1String(");;");
-            fileExtensions.append(patterns + QLatin1Char(' '));
-            nameFilters.append(fileType);
-        }
-
         imagePath = QFileDialog::getSaveFileName(
             this,
             tr("Save Image"),
             imagePath,
-            QString("%1 (%2);; %3")
-            .arg(tr("Images"))
-            .arg(fileExtensions)
-            .arg(nameFilters)
+            QStringList(++(d->imageFileFilters.cbegin()), d->imageFileFilters.cend()).join(";;")
         );
 
         if (!imagePath.isNull() && !imagePath.isEmpty()) {
@@ -877,12 +877,14 @@ void MarkdownEditor::insertFromMimeData(const QMimeData *source)
             QFileInfo imgInfo(imagePath);
             bool isRelativePath = false;
 
-            if (imgInfo.exists() && !d->textDocument->isNew()) {
-                QFileInfo docInfo(d->textDocument->filePath());
+            if (imgInfo.exists()) {
+                if (!d->textDocument->isNew()) {
+                    QFileInfo docInfo(d->textDocument->filePath());
 
-                if (docInfo.exists()) {
-                    imagePath = docInfo.dir().relativeFilePath(imagePath);
-                    isRelativePath = true;
+                    if (docInfo.exists()) {
+                        imagePath = docInfo.dir().relativeFilePath(imagePath);
+                        isRelativePath = true;
+                    }
                 }
             }
 
@@ -1425,6 +1427,49 @@ bool MarkdownEditor::toggleTaskComplete()
 
     cursor.endEditBlock();
     return true;
+}
+
+void MarkdownEditor::insertImage()
+{
+    Q_D(MarkdownEditor);
+
+    QString startingDirectory = QString();
+    MarkdownDocument *document = (MarkdownDocument*) this->document();
+
+    if (!document->isNew()) {
+        startingDirectory = QFileInfo(document->filePath()).dir().path();
+    }
+
+    QString imagePath =
+        QFileDialog::getOpenFileName(
+            this,
+            tr("Insert Image"),
+            startingDirectory,
+            d->imageFileFilters.join(";;")
+        );
+
+    if (!imagePath.isNull() && !imagePath.isEmpty()) {
+        QFileInfo imgInfo(imagePath);
+        bool isRelativePath = false;
+
+        if (imgInfo.exists()) {
+            if (!document->isNew()) {
+                QFileInfo docInfo(document->filePath());
+
+                if (docInfo.exists()) {
+                    imagePath = docInfo.dir().relativeFilePath(imagePath);
+                    isRelativePath = true;
+                }
+            }
+        }
+
+        if (!isRelativePath) {
+            imagePath = QString("file://") + imagePath;
+        }
+
+        QTextCursor cursor = this->textCursor();
+        cursor.insertText(QString("![](%1)").arg(imagePath));
+    }
 }
 
 void MarkdownEditor::setEnableLargeHeadingSizes(bool enable)
@@ -2515,5 +2560,60 @@ bool MarkdownEditorPrivate::isBlockquote(const QTextBlock &block) const
 bool MarkdownEditorPrivate::isCodeBlock(const QTextBlock &block) const
 {
     return (MarkdownStateCodeBlock == (MarkdownStateCodeBlock & block.userState()));
+}
+
+QStringList MarkdownEditorPrivate::buildSupportedImageFormats()
+{
+    QStringList result;
+
+    QMimeDatabase db;
+    QString nameFilters, fileExtensions;
+
+    // We use only MIME types that are web-friendly so that
+    // the image can be displayed in the live preview.
+    const QStringList webMimeTypes({
+        QStringLiteral("image/png"),
+        QStringLiteral("image/jpeg"),
+        QStringLiteral("image/webp"),
+        QStringLiteral("image/apng"),
+        QStringLiteral("image/avif")
+    });
+
+    const QByteArrayList supportedMimeTypes = QImageReader::supportedMimeTypes();
+
+    for (auto mimeType : webMimeTypes) {
+        if (supportedMimeTypes.contains(mimeType.toLatin1())) {
+            result.append(mimeType);
+        }
+    }
+
+    // Since QImageReader::supportedMimeTypes does not return GIF and SVG
+    // mime types even though Qt supports them, add them manually.
+    result.append(QStringLiteral("image/gif"));
+    result.append(QStringLiteral("image/svg+xml"));
+
+    return result;
+}
+
+bool MarkdownEditorPrivate::isSupportedImageType(const QString &mimeType)
+{
+    return supportedImageFormats.contains(mimeType);
+}
+
+QStringList MarkdownEditorPrivate::buildImageFileFilters()
+{
+    QMimeDatabase db;
+    QString allFileExtensions = "";
+    QStringList filters;
+
+    for (const QString &mimeType : supportedImageFormats) {
+        QMimeType mime(db.mimeTypeForName(mimeType));
+        const QString patterns = mime.globPatterns().join(QLatin1Char(' '));
+        filters.append(mime.comment() + QLatin1String(" (") + patterns + QLatin1String(")"));
+        allFileExtensions += patterns + QLatin1Char(' ');
+    }
+
+    filters.insert(0, MarkdownEditor::tr("Images (%1)").arg(allFileExtensions.trimmed()));
+    return filters;
 }
 } // namespace ghostwriter
