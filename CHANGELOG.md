@@ -11,6 +11,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Updated file licenses to be compliant with REUSE.
 * Transitioned to KDE Frameworks' Sonnet spell checking library, which provides language detection as a new feature.
+* Transitioned to building with CMake.
+* Images can now be pasted from the clipboard with a prompt to save the image.
+* KDE about dialogs (for both *ghostwriter* and KDE) have been added to the help menu.
+* KDE bug report dialog and donate dialog have been added to the help menu.
+
+### Fixed
+
+* Fixed line break symbol not being painted correctly under Windows.
+* The line break symbol will now only be painted at the end of a hard line break if the text cursor is not at the end of the line.
+* Saving an untitled draft file will prompt the user to "Save As".
+* Upon the user saving an untitled draft to a named file, the original untitled file is deleted to reduce clutter.
+* Fixed crash on link creation under Linux.
+* Fixed several memory leaks related to spell checking and cmark-gfm calls.
+* Width of the drop down combo box in the export dialog is now stretched to 100% to fit all options.
 
 ## [2.2.0] - 2022-09-17
 
