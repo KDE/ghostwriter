@@ -578,7 +578,16 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         // If not in a code block, and the current block ends with two spaces
         // to indicate a line break in Markdown syntax, then draw the line
         // break symbol at the end of the block.
-        if (!d->isCodeBlock(block) && block.text().endsWith("  ")) {
+        // 
+        // Also only draw the line break symbol if the text cursor is not at
+        // the end of the line, since it's rather annoying when typing in the
+        // at the end of a sentence and is in the habit of typing double spaces
+        // after punctuation.
+        //
+        if (!d->isCodeBlock(block)
+                && block.text().endsWith("  ")
+                && (this->textCursor().position()
+                    != (block.position() + block.length() - 1))) {
             // Get position of last space character in the block.
             QTextCursor c(block);
             c.movePosition(QTextCursor::EndOfBlock);
