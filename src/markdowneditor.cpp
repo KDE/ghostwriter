@@ -12,16 +12,22 @@
 #include <QChar>
 #include <QColor>
 #include <QDir>
+#include <QDateTime>
+#include <QFileDialog>
 #include <QFileInfo>
 #include <QFontMetricsF>
 #include <QGuiApplication>
 #include <QHeaderView>
+#include <QImageWriter>
 #include <QMimeData>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QPainter>
 #include <QPainterPath>
 #include <QPixmap>
 #include <QScreen>
 #include <QScrollBar>
+#include <QStandardPaths>
 #include <QString>
 #include <QTextBoundaryFinder>
 #include <QTimer>
@@ -725,6 +731,11 @@ void MarkdownEditor::setupPaperMargins()
     this->setViewportMargins(margin, 20, margin, 0);
 }
 
+bool MarkdownEditor::canInsertFromMimeData(const QMimeData *source) const
+{
+    return source->hasImage() || QPlainTextEdit::canInsertFromMimeData(source);
+}
+
 void MarkdownEditor::dragEnterEvent(QDragEnterEvent *e)
 {
     if (e->mimeData()->hasUrls()) {
@@ -815,6 +826,75 @@ void MarkdownEditor::dropEvent(QDropEvent *e)
         }
     } else {
         QPlainTextEdit::dropEvent(e);
+    }
+}
+
+void MarkdownEditor::insertFromMimeData(const QMimeData *source)
+{
+    Q_D(MarkdownEditor);
+
+    if (source->hasImage()) {
+        QImage image = qvariant_cast<QImage>(source->imageData());
+        QString imagePath, startingDirectory;
+
+        QString documentName = QFileInfo(d->textDocument->filePath()).baseName();
+        if (!d->textDocument->isNew()) {
+            startingDirectory = QFileInfo(d->textDocument->filePath()).dir().path();
+            imagePath = startingDirectory + "/" + documentName + "_";
+        } else {
+            imagePath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/";
+        }
+
+        imagePath += QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz") + ".png";
+
+        QString nameFilters, fileExtensions;
+        const QByteArrayList supportedMimeTypes = QImageWriter::supportedMimeTypes();
+        for (const QByteArray &mimeType : supportedMimeTypes) {
+            QMimeDatabase db;
+            QMimeType mime(db.mimeTypeForName(mimeType));
+            const QString patterns = mime.globPatterns().join(QLatin1Char(' '));
+            QString fileType = mime.comment() + QLatin1String(" (") + patterns + QLatin1String(");;");
+            fileExtensions.append(patterns + QLatin1Char(' '));
+            nameFilters.append(fileType);
+        }
+
+        imagePath = QFileDialog::getSaveFileName(
+            this,
+            tr("Save Image"),
+            imagePath,
+            QString("%1 (%2);; %3")
+            .arg(tr("Images"))
+            .arg(fileExtensions)
+            .arg(nameFilters)
+        );
+
+        if (!imagePath.isNull() && !imagePath.isEmpty()) {
+            // Write the image to the path selected by the user
+            QImageWriter writer;
+            writer.setFileName(imagePath);
+            writer.write(image);
+
+            QFileInfo imgInfo(imagePath);
+            bool isRelativePath = false;
+
+            if (imgInfo.exists() && !d->textDocument->isNew()) {
+                QFileInfo docInfo(d->textDocument->filePath());
+
+                if (docInfo.exists()) {
+                    imagePath = docInfo.dir().relativeFilePath(imagePath);
+                    isRelativePath = true;
+                }
+            }
+
+            if (!isRelativePath) {
+                imagePath = QString("file://") + imagePath;
+            }
+
+            QTextCursor cursor = (this->textCursor());
+            cursor.insertText(QString("![](%1)").arg(imagePath));
+        }
+    } else {
+        QPlainTextEdit::insertFromMimeData(source);
     }
 }
 

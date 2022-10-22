@@ -115,10 +115,12 @@ public:
     void setupPaperMargins();
 
 protected:
+    bool canInsertFromMimeData(const QMimeData *source) const override;
     void dragEnterEvent(QDragEnterEvent *e) override;
     void dragMoveEvent(QDragMoveEvent *e) override;
     void dragLeaveEvent(QDragLeaveEvent *e) override;
     void dropEvent(QDropEvent *e) override;
+    void insertFromMimeData(const QMimeData *source) override;
     void keyPressEvent(QKeyEvent *e) override;
     void mouseDoubleClickEvent(QMouseEvent *e) override;
     void mousePressEvent(QMouseEvent *e) override;
