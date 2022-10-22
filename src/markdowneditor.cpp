@@ -155,7 +155,7 @@ public:
         BlockTypeCode
     } BlockType;
 
-    const QString lineBreakChar = "↵";
+    const QString lineBreakChar = QString::fromUtf8("↵");
 
     // We use only image MIME types that are web-friendly so that any inserted
     // or pasted images can be displayed in the live preview.
