@@ -17,34 +17,34 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QFontMetricsF>
+#include <QGridLayout>
 #include <QGuiApplication>
 #include <QHeaderView>
 #include <QImageReader>
 #include <QImageWriter>
+#include <QLayout>
+#include <QListWidget>
+#include <QMessageBox>
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QPainter>
 #include <QPainterPath>
 #include <QPixmap>
-#include <QScreen>
-#include <QScrollBar>
-#include <QStandardPaths>
-#include <QString>
-#include <QStringLiteral>
-#include <QTextBoundaryFinder>
-#include <QTimer>
-#include <QUrl>
-
-#include <QGridLayout>
-#include <QLayout>
-#include <QListWidget>
 #include <QPlainTextEdit>
 #include <QRegularExpression>
 #include <QResizeEvent>
+#include <QScreen>
+#include <QScrollBar>
 #include <QSize>
+#include <QStandardPaths>
 #include <QString>
+#include <QString>
+#include <QStringLiteral>
+#include <QTextBoundaryFinder>
 #include <QTextCursor>
+#include <QTimer>
+#include <QUrl>
 
 #include "cmarkgfmapi.h"
 #include "markdowneditor.h"
@@ -57,7 +57,7 @@ namespace ghostwriter
 // Need to be in order of decreasing length
 enum MarkupType {
     MarkupType_None = -1,
-    MarkupType_BoldItalic, // Special case used for checking if bold + itallic are both on
+    MarkupType_BoldItalic, // Special case used for checking if bold + italic are both on
     MarkupType_Bold,
     MarkupType_StrikeThrough,
     MarkupType_Italic,
@@ -155,11 +155,16 @@ public:
         BlockTypeCode
     } BlockType;
 
-
     const QString lineBreakChar = "↵";
 
-    static QStringList supportedImageFormats;
-    static QStringList imageFileFilters;
+    // We use only image MIME types that are web-friendly so that any inserted
+    // or pasted images can be displayed in the live preview.
+    static const QStringList webMimeTypes;
+
+    static QStringList imageReadFormats;
+    static QStringList imageWriteFormats;
+    static QString imageOpenFilter;
+    static QString imageSaveFilter;
 
     MarkdownEditor *q_ptr;
 
@@ -228,8 +233,7 @@ public:
     bool handleWhitespaceInEmptyMatch(const QChar whitespace);
     void insertFormattingMarkup(const MarkupType markupType);
     QString priorIndentation();
-    QString priorMarkdownBlockItemStart
-    (
+    QString priorMarkdownBlockItemStart(
         const QRegularExpression &itemRegex,
         QRegularExpressionMatch &match
     );
@@ -242,16 +246,36 @@ public:
     bool isBlockquote(const QTextBlock &block) const;
     bool isCodeBlock(const QTextBlock &block) const;
     
-    static QStringList buildSupportedImageFormats();
-    static QStringList buildImageFileFilters();
-    static bool isSupportedImageType(const QString &mimeType);
+    static QStringList buildImageReaderFormats();
+    static QStringList buildImageWriterFormats();
+    static QString buildImageFilters(
+        const QStringList &mimeTypes,
+        bool includeWildcardImages = false);
 };
 
-QStringList MarkdownEditorPrivate::supportedImageFormats =
-    MarkdownEditorPrivate::buildSupportedImageFormats();
+const QStringList MarkdownEditorPrivate::webMimeTypes = QStringList({
+    QStringLiteral("image/png"),
+    QStringLiteral("image/jpeg"),
+    QStringLiteral("image/webp"),
+    QStringLiteral("image/apng"),
+    QStringLiteral("image/avif"),
+    QStringLiteral("image/gif"),
+    QStringLiteral("image/svg")
+});
 
-QStringList MarkdownEditorPrivate::imageFileFilters =
-    MarkdownEditorPrivate::buildImageFileFilters();
+QStringList MarkdownEditorPrivate::imageReadFormats =
+    MarkdownEditorPrivate::buildImageReaderFormats();
+
+QStringList MarkdownEditorPrivate::imageWriteFormats =
+    MarkdownEditorPrivate::buildImageWriterFormats();
+
+QString MarkdownEditorPrivate::imageOpenFilter =
+    MarkdownEditorPrivate::buildImageFilters(
+        MarkdownEditorPrivate::imageReadFormats, true);
+
+QString MarkdownEditorPrivate::imageSaveFilter =
+    MarkdownEditorPrivate::buildImageFilters(
+        MarkdownEditorPrivate::imageWriteFormats);
 
 MarkdownEditor::MarkdownEditor
 (
@@ -865,14 +889,21 @@ void MarkdownEditor::insertFromMimeData(const QMimeData *source)
             this,
             tr("Save Image"),
             imagePath,
-            QStringList(++(d->imageFileFilters.cbegin()), d->imageFileFilters.cend()).join(";;")
+            d->imageSaveFilter
         );
 
         if (!imagePath.isNull() && !imagePath.isEmpty()) {
             // Write the image to the path selected by the user
             QImageWriter writer;
             writer.setFileName(imagePath);
-            writer.write(image);
+
+            if (!writer.write(image)) {
+                QMessageBox::critical(this,
+                    qApp->applicationName(),
+                    writer.errorString());
+                QPlainTextEdit::insertFromMimeData(source);
+                return;
+            }
 
             QFileInfo imgInfo(imagePath);
             bool isRelativePath = false;
@@ -1445,7 +1476,7 @@ void MarkdownEditor::insertImage()
             this,
             tr("Insert Image"),
             startingDirectory,
-            d->imageFileFilters.join(";;")
+            d->imageOpenFilter
         );
 
     if (!imagePath.isNull() && !imagePath.isEmpty()) {
@@ -2562,58 +2593,64 @@ bool MarkdownEditorPrivate::isCodeBlock(const QTextBlock &block) const
     return (MarkdownStateCodeBlock == (MarkdownStateCodeBlock & block.userState()));
 }
 
-QStringList MarkdownEditorPrivate::buildSupportedImageFormats()
+QStringList MarkdownEditorPrivate::buildImageReaderFormats()
 {
     QStringList result;
 
-    QMimeDatabase db;
-    QString nameFilters, fileExtensions;
-
-    // We use only MIME types that are web-friendly so that
-    // the image can be displayed in the live preview.
-    const QStringList webMimeTypes({
-        QStringLiteral("image/png"),
-        QStringLiteral("image/jpeg"),
-        QStringLiteral("image/webp"),
-        QStringLiteral("image/apng"),
-        QStringLiteral("image/avif")
-    });
-
-    const QByteArrayList supportedMimeTypes = QImageReader::supportedMimeTypes();
+    QList<QByteArray> supportedFormats = QImageReader::supportedMimeTypes();
 
     for (auto mimeType : webMimeTypes) {
-        if (supportedMimeTypes.contains(mimeType.toLatin1())) {
+        if (supportedFormats.contains(mimeType.toLatin1())) {
             result.append(mimeType);
         }
     }
 
-    // Since QImageReader::supportedMimeTypes does not return GIF and SVG
-    // mime types even though Qt supports them, add them manually.
-    result.append(QStringLiteral("image/gif"));
+    // Since QImageReader::supportedMimeTypes does not return the SVG mime
+    // type even though Qt supports reading it and we have included that
+    // module to build, add it manually.
     result.append(QStringLiteral("image/svg+xml"));
 
     return result;
 }
 
-bool MarkdownEditorPrivate::isSupportedImageType(const QString &mimeType)
+QStringList MarkdownEditorPrivate::buildImageWriterFormats()
 {
-    return supportedImageFormats.contains(mimeType);
+    QStringList result;
+
+    QList<QByteArray> supportedFormats = QImageWriter::supportedMimeTypes();
+
+    for (auto mimeType : webMimeTypes) {
+        if (supportedFormats.contains(mimeType.toLatin1())) {
+            result.append(mimeType);
+        }
+    }
+
+    return result;
 }
 
-QStringList MarkdownEditorPrivate::buildImageFileFilters()
+QString MarkdownEditorPrivate::buildImageFilters(
+    const QStringList &mimeTypes,
+    bool includeWildcardImages)
 {
     QMimeDatabase db;
     QString allFileExtensions = "";
     QStringList filters;
 
-    for (const QString &mimeType : supportedImageFormats) {
+    for (const QString &mimeType : mimeTypes) {
         QMimeType mime(db.mimeTypeForName(mimeType));
         const QString patterns = mime.globPatterns().join(QLatin1Char(' '));
         filters.append(mime.comment() + QLatin1String(" (") + patterns + QLatin1String(")"));
-        allFileExtensions += patterns + QLatin1Char(' ');
+
+        if (includeWildcardImages) {
+            allFileExtensions += patterns + QLatin1Char(' ');
+        }
     }
 
-    filters.insert(0, MarkdownEditor::tr("Images (%1)").arg(allFileExtensions.trimmed()));
-    return filters;
+    if (includeWildcardImages) {
+        filters.insert(0, MarkdownEditor::tr("Images (%1)").arg(allFileExtensions.trimmed()));
+    }
+
+    return filters.join(";;");
 }
+
 } // namespace ghostwriter
