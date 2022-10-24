@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-22 16:33+0200\n"
+"PO-Revision-Date: 2022-10-23 18:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1005,20 +1005,15 @@ msgid "Save Image"
 msgstr "Afbeelding opslaan"
 
 #: src/markdowneditor.cpp:1486
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Afbeelding invoegen"
 
 #: src/markdowneditor.cpp:2659
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Images (%1);; %2"
+#, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr "Afbeeldingen (%1);; %2"
+msgstr "Afbeeldingen (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"

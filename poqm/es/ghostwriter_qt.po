@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-22 16:42+0200\n"
+"PO-Revision-Date: 2022-10-23 20:43+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1006,20 +1006,15 @@ msgid "Save Image"
 msgstr "Guardar imagen"
 
 #: src/markdowneditor.cpp:1486
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Insertar imagen"
 
 #: src/markdowneditor.cpp:2659
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Images (%1);; %2"
+#, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr "Imágenes (%1);; %2"
+msgstr "Imágenes (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
