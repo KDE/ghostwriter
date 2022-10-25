@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-20 12:48+0200\n"
+"PO-Revision-Date: 2022-10-23 10:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1012,28 +1012,20 @@ msgid "untitled"
 msgstr "sense títol"
 
 #: src/markdowneditor.cpp:899
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr "Inserix una imatge"
+msgstr "Guarda la imatge"
 
 #: src/markdowneditor.cpp:1486
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Inserix una imatge"
 
 #: src/markdowneditor.cpp:2659
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Images (%1);; %2"
+#, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr "Imatges (%1);; %2"
+msgstr "Imatges (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1627,10 +1619,3 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Este és un tema integrat que no es pot editar."
-
-#, fuzzy
-#~| msgctxt "ghostwriter::DocumentStatisticsWidget|"
-#~| msgid "Pages:"
-#~ msgctxt "ghostwriter::MarkdownEditor|"
-#~ msgid "Images"
-#~ msgstr "Pàgines:"

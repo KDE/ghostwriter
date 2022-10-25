@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -971,12 +971,12 @@ msgstr "კონტური"
 #: src/mainwindow.cpp:1319
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "სესიის სტატისტიკა"
 
 #: src/mainwindow.cpp:1320
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "დოკუმენტის სტატისტიკა"
 
 #: src/mainwindow.cpp:1321
 msgctxt "ghostwriter::MainWindow|"
@@ -994,28 +994,20 @@ msgid "untitled"
 msgstr "უსახელო"
 
 #: src/markdowneditor.cpp:899
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr "გამოსახულების დამატება"
+msgstr "გამოსახულების შენახვა"
 
 #: src/markdowneditor.cpp:1486
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
-msgstr "გამოსახულების დამატება"
+msgstr "გამოსახულების ჩასმა"
 
 #: src/markdowneditor.cpp:2659
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Images"
+#, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr "გამოსახულებები"
+msgstr "გამოსახულებები (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1235,12 +1227,12 @@ msgstr ""
 #: src/previewoptionsdialog.cpp:49
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
-msgstr ""
+msgstr "მინიატურის მორგება"
 
 #: src/previewoptionsdialog.cpp:88
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr ""
+msgstr "Markdown -ის ტიპი"
 
 #: src/previewoptionsdialog.cpp:96 src/previewoptionsdialog.cpp:122
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1341,7 +1333,7 @@ msgstr "მართლწერის შემოწმება"
 #: src/spelling/spellcheckdialog.cpp:152
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
-msgstr ""
+msgstr "მართლწერის შემოწმება დასრულდა!"
 
 #: src/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1486,7 +1478,7 @@ msgstr "შეცდომა"
 #: src/themeeditordialog.cpp:211
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
-msgstr ""
+msgstr "თემის შენახვა შეუძლებელია."
 
 #: src/themerepository.cpp:149
 #, qt-format
@@ -1504,13 +1496,13 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid theme format: %1"
-msgstr ""
+msgstr "თემის არასწორი ფორმატი: %1"
 
 #: src/themerepository.cpp:186 src/themerepository.cpp:195
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid or missing value(s) in %1"
-msgstr ""
+msgstr "ნაკლული ან არარსებული მნისვნელობები %1-ში"
 
 #: src/themerepository.cpp:203
 msgctxt "ghostwriter::ThemeRepository|"
