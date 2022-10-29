@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-20 16:15+0300\n"
+"PO-Revision-Date: 2022-10-23 09:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1003,28 +1003,20 @@ msgid "untitled"
 msgstr "без назви"
 
 #: src/markdowneditor.cpp:899
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr "Вставити зображення"
+msgstr "Зберегти зображення"
 
 #: src/markdowneditor.cpp:1486
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Insert Image"
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Вставити зображення"
 
 #: src/markdowneditor.cpp:2659
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Images (%1);; %2"
+#, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr "зображення (%1);; %2"
+msgstr "зображення (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
