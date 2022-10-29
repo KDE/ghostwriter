@@ -114,6 +114,21 @@ public:
      */
     void setupPaperMargins();
 
+    /**
+     * Implements virtual method to ensure IME windows are positioned correctly
+     * relative to the text cursor position, since painting the text cursor
+     * in the paintEvent() method displaces the IME window.
+     */
+    QVariant inputMethodQuery(Qt::InputMethodQuery query) const override;
+
+    /**
+     * Reimplement these to have the correct cursor width that we are manually
+     * painting (since QPlainTextEdit's cursor width is set to zero to hide it.)
+     */
+    QRect cursorRect(const QTextCursor &cursor) const;
+    QRect cursorRect() const;
+    int cursorWidth() const;
+
 protected:
     bool canInsertFromMimeData(const QMimeData *source) const override;
     void dragEnterEvent(QDragEnterEvent *e) override;

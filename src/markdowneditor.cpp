@@ -155,6 +155,7 @@ public:
         BlockTypeCode
     } BlockType;
 
+    static const int CursorWidth = 2;
     const QString lineBreakChar = QString::fromUtf8("↵");
 
     // We use only image MIME types that are web-friendly so that any inserted
@@ -632,11 +633,8 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         // because we set it to be that in the constructor so that
         // QPlainTextEdit will not draw another cursor underneath this one.)
         //
-        QRect r = cursorRect();
-        r.setWidth(2);
-
         QPainter painter(viewport());
-        painter.fillRect(r, QBrush(d->cursorColor));
+        painter.fillRect(cursorRect(), QBrush(d->cursorColor));
         painter.end();
     }
 }
@@ -776,6 +774,42 @@ void MarkdownEditor::setupPaperMargins()
     }
 
     this->setViewportMargins(margin, 20, margin, 0);
+}
+
+QVariant MarkdownEditor::inputMethodQuery(Qt::InputMethodQuery query) const
+{
+    switch (query)
+    {
+    case Qt::ImCursorRectangle:
+    {
+        QFontMetrics metrics(font());
+        QRect r = cursorRect();
+        r.translate(contentOffset().toPoint());
+        r.adjust(0, metrics.ascent(), 0, metrics.ascent());
+        return r;
+    }
+    default:
+        return QPlainTextEdit::inputMethodQuery(query);
+    }
+}
+
+QRect MarkdownEditor::cursorRect(const QTextCursor &cursor) const
+{
+    QRect r = QPlainTextEdit::cursorRect(cursor);
+    r.setWidth(MarkdownEditorPrivate::CursorWidth);
+    return r;
+}
+
+QRect MarkdownEditor::cursorRect() const
+{
+    QRect r = QPlainTextEdit::cursorRect();
+    r.setWidth(MarkdownEditorPrivate::CursorWidth);
+    return r;
+}
+
+int MarkdownEditor::cursorWidth() const
+{
+    return MarkdownEditorPrivate::CursorWidth;
 }
 
 bool MarkdownEditor::canInsertFromMimeData(const QMimeData *source) const
