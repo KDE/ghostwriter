@@ -1002,17 +1002,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "без назви"
 
-#: src/markdowneditor.cpp:899
+#: src/markdowneditor.cpp:933
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Зберегти зображення"
 
-#: src/markdowneditor.cpp:1486
+#: src/markdowneditor.cpp:1520
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Вставити зображення"
 
-#: src/markdowneditor.cpp:2659
+#: src/markdowneditor.cpp:2693
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"

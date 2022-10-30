@@ -993,17 +993,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "უსახელო"
 
-#: src/markdowneditor.cpp:899
+#: src/markdowneditor.cpp:933
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "გამოსახულების შენახვა"
 
-#: src/markdowneditor.cpp:1486
+#: src/markdowneditor.cpp:1520
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "გამოსახულების ჩასმა"
 
-#: src/markdowneditor.cpp:2659
+#: src/markdowneditor.cpp:2693
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
