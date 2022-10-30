@@ -66,7 +66,6 @@ public:
 
     bool isSetextHeadingState(const int state);
     bool lineMatchesNode(const int line, const MarkdownNode *const node) const;
-    int columnInLine(const MarkdownNode *const node, const QString &lineText) const;
     void applyFormattingForNode(const MarkdownNode *const node);
     void setupHeadingFontSize(bool useLargeHeadings);
 };
@@ -320,7 +319,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
             parentType = current->parent()->type();
         }
 
-        pos = columnInLine(current, q->currentBlock().text());
+        pos = current->position();
         length = current->length();
         type = current->type();
 
@@ -597,81 +596,6 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
 
         q->setCurrentBlockState(state);
     }
-}
-
-int MarkdownHighlighterPrivate::columnInLine(const MarkdownNode *const node, const QString &lineText) const
-{
-    MarkdownNode::NodeType prevType = MarkdownNode::Invalid;
-
-    if (nullptr != node->previous()) {
-        prevType = node->previous()->type();
-    }
-
-    static int offset = 0;
-
-    if (node->isBlockType()) {
-        offset = 0;
-    } else if ((MarkdownNode::Softbreak == prevType)
-            || (MarkdownNode::Linebreak == prevType)) {
-        int pos = 0;
-        QString text = lineText;
-
-        switch (node->type()) {
-        case MarkdownNode::Text:
-            pos = text.indexOf(node->text()[0]);
-
-            if (node->text().startsWith('`')) {
-                int retValue = pos;
-                pos += node->text().length() - node->length();
-                offset = node->position() - pos;
-                return retValue;
-            }
-
-            break;
-        case MarkdownNode::Code:
-            pos = text.indexOf('`');
-
-            for (int i = pos; i < text.length(); i++) {
-                if (text[i] != '`') {
-                    pos = i;
-                    break;
-                }
-            }
-
-            break;
-        case MarkdownNode::Emph:
-        case MarkdownNode::Strong:
-            pos = text.indexOf(QRegularExpression("[*_]"));
-            break;
-        case MarkdownNode::Link:
-            pos = text.indexOf('[');
-            break;
-        case MarkdownNode::Image:
-            pos = text.indexOf('!');
-            break;
-        case MarkdownNode::HtmlInline:
-            pos = text.indexOf('<');
-            break;
-        case MarkdownNode::Strikethrough:
-            pos = text.indexOf('~');
-            break;
-        default:
-            pos = text.indexOf(node->text()[0]);
-            break;
-        }
-
-        offset = node->position() - pos;
-
-        // When characters larger than one byte are intermixed with single-byte
-        // Latin-1 characters, the column number gets shifted by one.
-        // Subtrace one from the offset to account for this.
-        //
-        if (text.toUtf8().length() != text.toLatin1().length()) {
-            offset -= 1;
-        }
-    }
-
-    return node->position() - offset;
 }
 
 bool MarkdownHighlighterPrivate::lineMatchesNode(const int line, const MarkdownNode *const node) const

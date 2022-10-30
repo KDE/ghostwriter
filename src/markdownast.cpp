@@ -78,14 +78,13 @@ void MarkdownAST::setRoot(cmark_node *root)
     QStack<cmark_node *> fromNodes;
     QStack<MarkdownNode *> toNodes;
 
+    d->root->setDataFrom(root);
     fromNodes.push(root);
     toNodes.push(d->root);
 
     while (!fromNodes.isEmpty()) {
         cmark_node *source = fromNodes.pop();
         MarkdownNode *dest = toNodes.pop();
-
-        dest->setDataFrom(source);
 
         // Prep children nodes for cloning.
         MarkdownNode *destParent = dest;
@@ -94,6 +93,7 @@ void MarkdownAST::setRoot(cmark_node *root)
         while (NULL != source) {
             fromNodes.push(source);
             dest = d->arena.allocate();
+            dest->setDataFrom(source);
             destParent->appendChild(dest);
             toNodes.push(dest);
             source = cmark_node_next(source);

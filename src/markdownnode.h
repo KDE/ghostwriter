@@ -224,6 +224,8 @@ private:
     int m_endLine;
     int m_position;
     int m_length;
+    int m_markupIndent;
+    bool m_inBreak; // Line break or soft break
 
     // NOTE: Don't encapsulate any of the following fields
     //       in a union construct, as alignment padding will

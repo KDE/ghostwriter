@@ -4,11 +4,6 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include <QQueue>
-#include <QRegularExpression>
-#include <QSharedPointer>
-#include <QStack>
-
 #include "../3rdparty/cmark-gfm/src/cmark-gfm.h"
 #include "../3rdparty/cmark-gfm/extensions/cmark-gfm-core-extensions.h"
 
@@ -27,6 +22,8 @@ MarkdownNode::MarkdownNode() :
     m_endLine(0),
     m_position(0),
     m_length(0),
+    m_markupIndent(0),
+    m_inBreak(false),
     m_fenceChar('\0'),
     m_headingLevel(0),
     m_listStartNum(0)
@@ -80,6 +77,25 @@ void MarkdownNode::setDataFrom(cmark_node *node)
         m_headingLevel = cmark_node_get_heading_level(node);
         m_text = QString::fromUtf8(cmark_node_get_string_content(node));
         m_text = this->m_text.simplified();
+    } else if ((Linebreak == m_type) || (Softbreak == m_type)) {
+        m_inBreak = true;
+    }
+
+    switch (m_type)
+    {
+    case BlockQuote:
+    case ListItem:
+        m_markupIndent = 2;
+        break;
+    case CodeBlock:
+        m_markupIndent = 4;
+        break;
+    case TaskListItem:
+        m_markupIndent = 6;
+        break;
+    default:
+        m_markupIndent = 0;
+        break;
     }
 }
 
@@ -90,19 +106,31 @@ MarkdownNode *MarkdownNode::parent() const
 
 void MarkdownNode::appendChild(MarkdownNode *node)
 {
-    if (NULL != node) {
+    if (nullptr != node) {
         node->m_parent = this;
 
-        if (NULL == m_firstChild) {
+        if (nullptr == m_firstChild) {
             m_firstChild = node;
             m_lastChild = node;
-            node->m_prev = NULL;
-            node->m_next = NULL;
+            node->m_prev = nullptr;
+            node->m_next = nullptr;
         } else {
             m_lastChild->m_next = node;
             node->m_prev = m_lastChild;
-            node->m_next = NULL;
+            node->m_next = nullptr;
             m_lastChild = node;
+        }
+
+        node->m_markupIndent += m_markupIndent;
+
+        if (m_inBreak
+                || ((nullptr != node->m_prev) && node->m_prev->m_inBreak)) {
+            node->m_position -= m_markupIndent;
+            node->m_inBreak = true;
+
+            if (node->m_position < 0) {
+                node->m_position = 0;
+            }
         }
     }
 }
@@ -147,11 +175,13 @@ QString MarkdownNode::toString() const
         right = 0;
     }
 
-    return QString("> [lines %1 - %2][col %3, len %5] %6 -> %7")
+    return QString("> [lines %1 - %2][col %3, len %5, indent %6, in break %7] %8 -> %9")
            .arg(startLine())
            .arg(endLine())
            .arg(position())
            .arg(length())
+           .arg(m_markupIndent)
+           .arg(m_inBreak ? "true" : "false")
            .arg(toString(m_type))
            .arg(this->text().left(left) + "..." + this->text().right(right));
 }
@@ -202,11 +232,8 @@ bool MarkdownNode::isBlockType() const
 
 bool MarkdownNode::isInlineType() const
 {
-    return
-        (
-            (m_type >= FirstInlineType)
-            && (m_type <= LastInlineType)
-        );
+    return ((m_type >= FirstInlineType)
+            && (m_type <= LastInlineType));
 }
 
 int MarkdownNode::headingLevel() const
@@ -216,22 +243,14 @@ int MarkdownNode::headingLevel() const
 
 bool MarkdownNode::isSetextHeading() const
 {
-    return
-        (
-            (Heading == m_type)
-            &&
-            ((endLine() - startLine() + 1) > 1)
-        );
+    return ((Heading == m_type)
+            && ((endLine() - startLine() + 1) > 1));
 }
 
 bool MarkdownNode::isAtxHeading() const
 {
-    return
-        (
-            (Heading == m_type)
-            &&
-            !isSetextHeading()
-        );
+    return ((Heading == m_type)
+            && !isSetextHeading());
 }
 
 bool MarkdownNode::isInsideBlockquote() const
@@ -256,14 +275,9 @@ bool MarkdownNode::isFencedCodeBlock() const
 
 bool MarkdownNode::isNumberedListItem() const
 {
-    return
-        (
-            (ListItem == m_type)
-            &&
-            (this->parent() != NULL)
-            &&
-            (NumberedList == this->parent()->type())
-        );
+    return ((ListItem == m_type)
+            && (this->parent() != NULL)
+            && (NumberedList == this->parent()->type()));
 }
 
 int MarkdownNode::listItemNumber() const
@@ -283,14 +297,9 @@ int MarkdownNode::listItemNumber() const
 
 bool MarkdownNode::isBulletListItem() const
 {
-    return
-        (
-            (ListItem == m_type)
-            &&
-            (this->parent() != NULL)
-            &&
-            (BulletList == this->parent()->type())
-        );
+    return ((ListItem == m_type)
+            && (this->parent() != NULL)
+            && (BulletList == this->parent()->type()));
 }
 
 MarkdownNode::NodeType MarkdownNode::nodeType(cmark_node *node)

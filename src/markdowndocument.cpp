@@ -142,7 +142,10 @@ void MarkdownDocument::setMarkdownAST(MarkdownAST *ast)
 {
     Q_D(MarkdownDocument);
 
-    delete d->ast;
+    if (nullptr != d->ast) {
+        delete d->ast;
+    }
+
     d->ast = ast;
 }
 

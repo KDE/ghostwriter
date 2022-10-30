@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fixed crash on link creation under Linux.
 * Fixed several memory leaks related to spell checking and cmark-gfm calls.
 * Width of the drop down combo box in the export dialog is now stretched to 100% to fit all options.
+* Issue #460158: Fixed IME window displacement.
+* Fixed syntax highlighting on line breaks, including for Unicode.
 
 ## [2.2.0] - 2022-09-17
 
