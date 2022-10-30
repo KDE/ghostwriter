@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
 
 #: src/abstractstatisticswidget.cpp:16
@@ -988,17 +988,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr ""
 
-#: src/markdowneditor.cpp:899
+#: src/markdowneditor.cpp:933
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr ""
 
-#: src/markdowneditor.cpp:1486
+#: src/markdowneditor.cpp:1520
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr ""
 
-#: src/markdowneditor.cpp:2659
+#: src/markdowneditor.cpp:2693
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
