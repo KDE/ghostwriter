@@ -1007,7 +1007,7 @@ msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Configuració"
 
-#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:165
+#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "sense títol"

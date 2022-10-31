@@ -985,7 +985,7 @@ msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr ""
 
-#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:165
+#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr ""

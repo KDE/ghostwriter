@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2022-10-22 05:29\n"
+"PO-Revision-Date: 2022-10-30 07:49\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -989,7 +989,7 @@ msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr ""
 
-#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:165
+#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr ""
