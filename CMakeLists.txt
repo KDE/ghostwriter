@@ -52,11 +52,22 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/poqm")
     ecm_install_po_files_as_qm(poqm)
 endif()
 
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
+
 set(QTAWESOME_USE_FREE ON)
 add_subdirectory(3rdparty/QtAwesome)
 set(CMARK_TESTS OFF)
 add_subdirectory(3rdparty/cmark-gfm EXCLUDE_FROM_ALL)
 add_subdirectory(src)
+
+if(KF5DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
 
 # Add icon files to the application's source files to have CMake bundle them in the executable.
 set(ICONS_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons)
@@ -110,7 +121,5 @@ install(
     FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/org.kde.ghostwriter.metainfo.xml
     DESTINATION ${KDE_INSTALL_METAINFODIR}
 )
-
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/resources/linux/ghostwriter.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
