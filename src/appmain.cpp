@@ -160,6 +160,8 @@ int main(int argc, char *argv[])
 
     QStringList posArgs = clParser.positionalArguments();
 
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ghostwriter")));
+
     if (posArgs.size() > 0) {
         filePath = posArgs.first();
     }
