@@ -26,7 +26,7 @@ public:
      * Constructor.  Takes unique name (that is, unique within the scope of
      * the application) of the exporter as parameter.
      */
-    Exporter(const QString &name);
+    Exporter(const QString &name, const QString &options);
 
     /**
      * Destructor.
@@ -40,6 +40,16 @@ public:
     QString name() const;
 
     /**
+     * Get the parameters for the exporter.
+     */
+    QString options() const;
+
+    /**
+     * Set the parameters for the exporter.
+     */
+    void setOptions(const QString &options);
+
+    /**
      * Sets the name of the exporter.  The name should be unique among
      * other exporters used in this application.
      */
@@ -51,7 +61,7 @@ public:
      * supportedFormats.  Implementors of this class should add
      * their supported export formats to supportedFormats.
      */
-    const QList<const ExportFormat *> supportedFormats() const;
+    QList<const ExportFormat *> supportedFormats() const;
 
     /**
      * Returns true if smart typography is enabled.
@@ -119,6 +129,8 @@ protected:
     * Use this flag to indicate that tex-based math is supported.
     */
     bool m_mathSupported;
+
+    QString m_options;
 
 private:
     QString m_name;
