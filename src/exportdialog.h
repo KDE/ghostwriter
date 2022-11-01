@@ -14,6 +14,7 @@
 class QFileDialog;
 class QComboBox;
 class QCheckBox;
+class QLineEdit;
 
 namespace ghostwriter
 {
@@ -73,6 +74,7 @@ private:
     QComboBox *fileFormatComboBox;
     QComboBox *exporterComboBox;
     QCheckBox *smartTypographyCheckBox;
+    QLineEdit *paramsLineEdit;
     MarkdownDocument *document;
 };
 } // namespace ghostwriter
