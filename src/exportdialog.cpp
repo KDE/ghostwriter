@@ -21,6 +21,8 @@
 #include <QString>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QLineEdit>
+
 
 #include "exportdialog.h"
 #include "exporter.h"
@@ -28,6 +30,8 @@
 #include "messageboxhelper.h"
 
 #define GW_LAST_EXPORTER_KEY "Export/lastUsedExporter"
+#define GW_LAST_EXPORTER_PARAMS_KEY "Export/lastUsedExporterParams"
+#define GW_LAST_EXPORTER_FORMAT_KEY "Export/lastUsedExporterFormat"
 #define GW_SMART_TYPOGRAPHY_KEY "Export/smartTypographyEnabled"
 
 namespace ghostwriter
@@ -66,8 +70,13 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     fileFormatComboBox = new QComboBox();
     fileFormatComboBox->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
+    int index = 0;
     for (const ExportFormat *format : exporter->supportedFormats()) {
         fileFormatComboBox->addItem(format->name(), QVariant::fromValue((void *) format));
+        if (format->name() == settings.value(GW_LAST_EXPORTER_FORMAT_KEY, 0).toString()) {
+            fileFormatComboBox->setCurrentIndex(index);
+        }
+        index++;
     }
     
     bool smartTypographyEnabled =
@@ -91,7 +100,11 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     buttonBox->addButton(exportButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(QDialogButtonBox::Cancel);
     layout->addWidget(buttonBox);
-    
+
+    paramsLineEdit = new QLineEdit();
+    paramsLineEdit->setText(settings.value(GW_LAST_EXPORTER_PARAMS_KEY, QString()).toString());
+    optionsLayout->addRow(tr("Command line options:"), paramsLineEdit);
+
     connect(exporterComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onExporterChanged(int)));
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
@@ -102,6 +115,8 @@ ExportDialog::~ExportDialog()
     QSettings settings;
     settings.setValue(GW_LAST_EXPORTER_KEY, exporterComboBox->currentText());
     settings.setValue(GW_SMART_TYPOGRAPHY_KEY, smartTypographyCheckBox->isChecked());
+    settings.setValue(GW_LAST_EXPORTER_PARAMS_KEY, paramsLineEdit->text());
+    settings.setValue(GW_LAST_EXPORTER_FORMAT_KEY, fileFormatComboBox->currentText());
 }
 
 void ExportDialog::accept()
@@ -161,6 +176,7 @@ void ExportDialog::accept()
     emit exportStarted(tr("exporting to %1").arg(fileName));
 
     exporter->setSmartTypographyEnabled(smartTypographyCheckBox->isChecked());
+    exporter->setOptions(paramsLineEdit->text());
     exporter->exportToFile
     (
         format,
