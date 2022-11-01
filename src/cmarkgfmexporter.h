@@ -20,12 +20,12 @@ public:
     /**
      * Constructor.
      */
-    CmarkGfmExporter();
+    explicit CmarkGfmExporter(const QString &params);
 
     /**
      * Destructor.
      */
-    ~CmarkGfmExporter();
+    ~CmarkGfmExporter() override;
 
     /**
      * Exports the given Markdown text to HTML, setting the html parameter
