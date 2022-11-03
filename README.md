@@ -66,11 +66,11 @@ Before proceeding, ensure that you have the necessary packages installed for Qt 
 
 For Debian or Ubuntu distributions:
 
-    $ sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev pkg-config libqt5concurrent5 qttools5-dev-tools libkf5coreaddons-dev libkf5kwidgetsaddons-dev libkf5xmlgui-dev libkf5configwidgets-dev libkf5sonnet-dev cmake extra-cmake-modules
+    $ sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev pkg-config libqt5concurrent5 qttools5-dev-tools libkf5coreaddons-dev libkf5kwidgetsaddons-dev libkf5xmlgui-dev libkf5configwidgets-dev libkf5sonnet-dev libkf5doctools5 libkf5doctools-dev cmake extra-cmake-modules
 
 For Fedora:
 
-    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel qt5-linguist kf5-kcoreaddons-devel kf5-kwidgetsaddons-devel kf5-kconfigwidgets-devel kf5-kxmlgui-devel kf5-sonnet-devel cmake extra-cmake-modules
+    $ sudo dnf install qt-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtmultimedia-devel qt5-qtwebengine-devel qt5-linguist kf5-kcoreaddons-devel kf5-kwidgetsaddons-devel kf5-kconfigwidgets-devel kf5-kxmlgui-devel kf5-sonnet-devel kf5-kdoctools kf5-kdoctools-devel cmake extra-cmake-modules
 
 For other Linux flavors, the list will be similar; `cmake` will tell you if you are missing anything.
 
