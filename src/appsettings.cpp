@@ -48,6 +48,7 @@
 #define GW_SIDEBAR_OPEN_KEY "Window/sidebarOpen"
 #define GW_HTML_PREVIEW_OPEN_KEY "Preview/htmlPreviewOpen"
 #define GW_LAST_USED_EXPORTER_KEY "Preview/lastUsedExporter"
+#define GW_LAST_USED_EXPORTER_PARAMS_KEY "Preview/lastUsedExporterParams"
 #define GW_PREVIEW_TEXT_FONT_KEY "Preview/textFont"
 #define GW_PREVIEW_CODE_FONT_KEY "Preview/codeFont"
 
@@ -144,6 +145,7 @@ void AppSettings::store()
     appSettings.setValue(GW_SIDEBAR_OPEN_KEY, QVariant(d->sidebarVisible));
     appSettings.setValue(GW_HTML_PREVIEW_OPEN_KEY, QVariant(d->htmlPreviewVisible));
     appSettings.setValue(GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
+    appSettings.setValue(GW_LAST_USED_EXPORTER_PARAMS_KEY, QVariant(d->currentHtmlExporter->options()));
     appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
     appSettings.setValue(GW_LOCALE_KEY, QVariant(d->locale));
     appSettings.setValue(GW_RESTORE_SESSION_KEY, QVariant(d->restoreSessionEnabled));
@@ -772,6 +774,7 @@ AppSettings::AppSettings()
 
     QString exporterName = appSettings.value(GW_LAST_USED_EXPORTER_KEY).toString();
     d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
+    d->currentHtmlExporter->setOptions(appSettings.value(GW_LAST_USED_EXPORTER_PARAMS_KEY).toString());
 
     if (nullptr == d->currentHtmlExporter) {
         d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
