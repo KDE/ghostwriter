@@ -24,8 +24,6 @@ namespace style {
     enum styles {
         /// solid icons
         stfas,
-        /// regular icons
-        stfar,
 #ifdef FONT_AWESOME_PRO
         /// light icons
         stfal,
