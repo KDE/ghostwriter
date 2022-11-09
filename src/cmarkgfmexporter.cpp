@@ -18,7 +18,7 @@
 
 namespace ghostwriter
 {
-CmarkGfmExporter::CmarkGfmExporter(const QString &params) : Exporter("cmark-gfm", params)
+CmarkGfmExporter::CmarkGfmExporter() : Exporter("cmark-gfm")
 {
     m_supportedFormats.append(ExportFormat::HTML);
 }

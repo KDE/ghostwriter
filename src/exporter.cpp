@@ -16,11 +16,10 @@
 
 namespace ghostwriter
 {
-Exporter::Exporter(const QString &name, const QString &options)
+Exporter::Exporter(const QString &name)
     : m_smartTypographyEnabled(false), 
       m_mathSupported(false),
-      m_name(name),
-      m_options(options){}
+      m_name(name){}
 
 Exporter::~Exporter() = default;
 

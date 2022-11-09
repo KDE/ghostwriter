@@ -20,7 +20,7 @@ public:
     /**
      * Constructor.
      */
-    explicit CmarkGfmExporter(const QString &params);
+    explicit CmarkGfmExporter();
 
     /**
      * Destructor.
