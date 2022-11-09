@@ -59,7 +59,6 @@ public:
     (
         const QString &name,
         const QString &inputFormat,
-        const QString &option,
         int majorVersion,
         int minorVersion
     );
@@ -144,17 +143,17 @@ ExporterFactory::ExporterFactory()
 
         // Check version of Pandoc. Drop support for version 1.
         if (majorVersion >= 2) {
-            d->addPandocExporter("Pandoc", "markdown", "", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
 
             if ((majorVersion > 1) ||
                 ((1 == majorVersion) && (minorVersion >= 14))) {
-                d->addPandocExporter("Pandoc CommonMark", "commonmark", "", majorVersion, minorVersion);
+                d->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
             }
 
-            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", "", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", "", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", "", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc Strict", "markdown_strict", "", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
         }
         else {
             qWarning() << "Version" << pandocVersion << "of pandoc is unsupported.";
@@ -321,7 +320,6 @@ void ExporterFactoryPrivate::addPandocExporter
 (
     const QString &name,
     const QString &inputFormat,
-    const QString &option,
     int majorVersion,
     int minorVersion
 )
@@ -329,7 +327,7 @@ void ExporterFactoryPrivate::addPandocExporter
     Q_UNUSED(majorVersion)
     Q_UNUSED(minorVersion)
 
-    CommandLineExporter *exporter = new CommandLineExporter(name, option);
+    CommandLineExporter *exporter = new CommandLineExporter(name, "");//check empty option
 
     exporter->setSmartTypographyOnArgument("+smart");
     exporter->setSmartTypographyOffArgument("-smart");
