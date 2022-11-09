@@ -61,7 +61,7 @@ public:
      * supportedFormats.  Implementors of this class should add
      * their supported export formats to supportedFormats.
      */
-    const QList<const ExportFormat *> supportedFormats() const;
+    QList<const ExportFormat *> supportedFormats() const;
 
     /**
      * Returns true if smart typography is enabled.

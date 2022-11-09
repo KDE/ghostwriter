@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % English "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title>Ghostwriter User's Manual</title>
+<author><firstname>Megan</firstname><surname>Conkle</surname>
+<contrib>Ghostwriter man page.</contrib>
+<email>megan.conkle@kdemail.net</email></author>
+<date>2022-09-17</date>
+<releaseinfo>2.2.0</releaseinfo>
+<productname>Ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle><command>ghostwriter</command></refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname>ghostwriter</refname>
+<refpurpose>distraction-free text editor for Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command>ghostwriter</command>
+  <arg choice="opt"><replaceable>FILE</replaceable></arg>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title>Description</title>
+  <para>
+    <command>ghostwriter</command> is a Qt text editing application for
+    Markdown that provides an aesthetic, distraction-free writing environment.
+  </para>
+  <para>
+    Create your own custom themes, write in fullscreen mode, or use focus mode
+    to concentrate on just one or more lines.
+  </para>
+  <para>
+    A live HTML preview allows you to view the final formatting as you type.
+    HTML preview and export options are provided by the built-in Markdown processor,
+    cmark-gfm; but you may add more by installing Pandoc, MultiMarkdown,
+    or cmark processors. The application will automatically detect their
+    installation if their locations are in the system's PATH environment variable.
+  </para>
+</refsect1>
+
+<refsect1 id="options"><title>Options</title>
+<variablelist>
+  <varlistentry>
+  <term><option>--disable-gpu</option></term>
+  <listitem>
+<para>Disable GPU acceleration.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title>Reporting bugs</title>
+  <para>You can report bugs and feature requests at <ulink url="https://bugs.kde.org">https://bugs.kde.org</ulink></para>
+</refsect1>
+
+<refsect1>
+<title>See Also</title>
+<simplelist>
+<member>More detailed user documentation about markdown is available from <ulink
+url="https://ghostwriter.kde.org/documentation">https://ghostwriter.kde.org/documentation</ulink>
+</member>
+<member>kf5options(7)</member>
+<member>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"><title>Copyright</title>
+<para>Copyright &copy; 2022 Megan Conkle</para>
+<para>License: GNU General Public Version 3 or later &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</ulink>&gt;</para>
+</refsect1>
+</refentry>
