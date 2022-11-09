@@ -76,7 +76,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
 
     d->previewerComboBox->setCurrentIndex(currentExporterIndex);
 
-    this->connect
+    connect
     (
         d->previewerComboBox,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
@@ -96,7 +96,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     QPushButton *chooseButton = new QPushButton(tr("Choose..."));
     fontLayout->addWidget(chooseButton);
 
-    chooseButton->connect(chooseButton,
+    connect(chooseButton,
         &QPushButton::clicked,
         [this, d, currentTextFont]() {
             bool success = false;
@@ -122,7 +122,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     chooseButton = new QPushButton(tr("Choose..."));
     fontLayout->addWidget(chooseButton);
 
-    chooseButton->connect(chooseButton,
+    connect(chooseButton,
         &QPushButton::clicked,
         [this, d, currentCodeFont]() {
             bool success = false;
@@ -138,6 +138,15 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
         });
 
     optionsLayout->addRow(tr("Code Font:"), fontLayout);
+
+    auto *paramsLineEdit = new QLineEdit();
+    paramsLineEdit->setText(d->appSettings->currentHtmlExporter()->options());
+    optionsLayout->addRow(tr("Command line options:"), paramsLineEdit);
+    connect(paramsLineEdit, &QLineEdit::textChanged, [=](const QString& obj) {
+        Exporter *exporter = d->appSettings->currentHtmlExporter();
+        exporter->setOptions(obj);
+        d->appSettings->setCurrentHtmlExporter(exporter);
+    });
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
     buttonBox->addButton(QDialogButtonBox::Close);

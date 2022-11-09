@@ -47,8 +47,8 @@ const QString CommandLineExporter::OUTPUT_FILE_PATH_VAR = QString("${OUTPUT_FILE
 const QString CommandLineExporter::SMART_TYPOGRAPHY_ARG = QString("${SMART_TYPOGRAPHY_ARG}");
 
 
-CommandLineExporter::CommandLineExporter(const QString &name, const QString &options)
-    : Exporter(name, options),
+CommandLineExporter::CommandLineExporter(const QString &name)
+    : Exporter(name, ""),
       d_ptr(new CommandLineExporterPrivate())
 {
     ;
@@ -199,6 +199,7 @@ bool CommandLineExporterPrivate::executeCommand
     const QString &inputFilePath,
     const QString &textInput,
     const QString &outputFilePath,
+
     const bool smartTypographyEnabled,
     QString &stdoutOutput,
     QString &stderrOutput
@@ -255,6 +256,7 @@ bool CommandLineExporterPrivate::executeCommand
     if (!inputFilePath.isNull() && !inputFilePath.isEmpty()) {
         process.setWorkingDirectory(QFileInfo(inputFilePath).dir().path());
     }
+    expandedCommand += " " + options;
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     process.start(expandedCommand);
