@@ -29,7 +29,7 @@ public:
      * Constructor.  Takes unique name (that is, unique within the scope of
      * the application) of the exporter as parameter.
      */
-    CommandLineExporter(const QString &name);
+    CommandLineExporter(const QString &name, const QString &options);
 
     /**
      * Destructor.

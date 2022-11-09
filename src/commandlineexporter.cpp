@@ -17,14 +17,10 @@ class CommandLineExporterPrivate
 {
 public:
     CommandLineExporterPrivate()
-    {
-        ;
-    }
+    = default;
 
     ~CommandLineExporterPrivate()
-    {
-        ;
-    }
+    = default;
 
     QMap<const ExportFormat *, QString> formatToCommandMap;
     QString smartTypographyOnArgument = "";
@@ -37,27 +33,22 @@ public:
         const QString &inputFilePath,
         const QString &textInput,
         const QString &outputFilePath,
-        const bool smartTypographyEnabled,
+        const QString &options,
+        bool smartTypographyEnabled,
         QString &stdoutOutput,
         QString &stderrOutput
-    );
+    ) const;
 };
 
 const QString CommandLineExporter::OUTPUT_FILE_PATH_VAR = QString("${OUTPUT_FILE_PATH}");
 const QString CommandLineExporter::SMART_TYPOGRAPHY_ARG = QString("${SMART_TYPOGRAPHY_ARG}");
 
 
-CommandLineExporter::CommandLineExporter(const QString &name)
-    : Exporter(name, ""),
-      d_ptr(new CommandLineExporterPrivate())
-{
-    ;
-}
+CommandLineExporter::CommandLineExporter(const QString &name, const QString &options)
+    : Exporter(name, options),
+      d_ptr(new CommandLineExporterPrivate()){}
 
-CommandLineExporter::~CommandLineExporter()
-{
-    ;
-}
+CommandLineExporter::~CommandLineExporter() = default;
 
 void CommandLineExporter::setHtmlRenderCommand(const QString &command)
 {
@@ -130,6 +121,7 @@ void CommandLineExporter::exportToHtml(const QString &text, QString &html)
             QString(),
             text,
             QString(),
+            m_options,
             this->m_smartTypographyEnabled,
             html,
             stderrOutput
@@ -177,6 +169,7 @@ void CommandLineExporter::exportToFile
             inputFilePath,
             text,
             outputFilePath,
+            m_options,
             this->m_smartTypographyEnabled,
             stdoutOutput,
             stderrOutput
@@ -199,11 +192,11 @@ bool CommandLineExporterPrivate::executeCommand
     const QString &inputFilePath,
     const QString &textInput,
     const QString &outputFilePath,
-
+    const QString &options,
     const bool smartTypographyEnabled,
     QString &stdoutOutput,
     QString &stderrOutput
-)
+) const
 {
     QProcess process;
     process.setReadChannel(QProcess::StandardOutput);
@@ -256,7 +249,8 @@ bool CommandLineExporterPrivate::executeCommand
     if (!inputFilePath.isNull() && !inputFilePath.isEmpty()) {
         process.setWorkingDirectory(QFileInfo(inputFilePath).dir().path());
     }
-    expandedCommand += " " + options;
+    expandedCommand = expandedCommand + " " + options;
+
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     process.start(expandedCommand);

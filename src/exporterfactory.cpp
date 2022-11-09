@@ -59,6 +59,7 @@ public:
     (
         const QString &name,
         const QString &inputFormat,
+        const QString &option,
         int majorVersion,
         int minorVersion
     );
@@ -143,17 +144,17 @@ ExporterFactory::ExporterFactory()
 
         // Check version of Pandoc. Drop support for version 1.
         if (majorVersion >= 2) {
-            d->addPandocExporter("Pandoc", "markdown", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc", "markdown", "", majorVersion, minorVersion);
 
             if ((majorVersion > 1) ||
                 ((1 == majorVersion) && (minorVersion >= 14))) {
-                d->addPandocExporter("Pandoc CommonMark", "commonmark", majorVersion, minorVersion);
+                d->addPandocExporter("Pandoc CommonMark", "commonmark", "", majorVersion, minorVersion);
             }
 
-            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", majorVersion, minorVersion);
-            d->addPandocExporter("Pandoc Strict", "markdown_strict", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc GitHub-flavored Markdown", "markdown_github-hard_line_breaks", "", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc PHP Markdown Extra", "markdown_phpextra", "", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc MultiMarkdown", "markdown_mmd", "", majorVersion, minorVersion);
+            d->addPandocExporter("Pandoc Strict", "markdown_strict", "", majorVersion, minorVersion);
         }
         else {
             qWarning() << "Version" << pandocVersion << "of pandoc is unsupported.";
@@ -163,7 +164,7 @@ ExporterFactory::ExporterFactory()
     if (!mmdVersion.isNull()) {
         int majorVersion = mmdVersion.majorVersion();
 
-        exporter = new CommandLineExporter("MultiMarkdown");
+        exporter = new CommandLineExporter("MultiMarkdown", "");
 
         // Smart typography option (--smart) is only available in version 5 and below.
         // The option is was removed and enabled by default in version 6 and above.
@@ -247,7 +248,7 @@ ExporterFactory::ExporterFactory()
     }
 
     if (!cmarkVersion.isNull()) {
-        exporter = new CommandLineExporter("cmark");
+        exporter = new CommandLineExporter("cmark", "");
         exporter->setSmartTypographyOnArgument("--smart");
         exporter->setHtmlRenderCommand(QString("cmark -t html --smart %1")
                                        .arg(CommandLineExporter::SMART_TYPOGRAPHY_ARG));
@@ -320,6 +321,7 @@ void ExporterFactoryPrivate::addPandocExporter
 (
     const QString &name,
     const QString &inputFormat,
+    const QString &option,
     int majorVersion,
     int minorVersion
 )
@@ -327,7 +329,7 @@ void ExporterFactoryPrivate::addPandocExporter
     Q_UNUSED(majorVersion)
     Q_UNUSED(minorVersion)
 
-    CommandLineExporter *exporter = new CommandLineExporter(name);//check empty option
+    CommandLineExporter *exporter = new CommandLineExporter(name, option);
 
     exporter->setSmartTypographyOnArgument("+smart");
     exporter->setSmartTypographyOffArgument("-smart");
