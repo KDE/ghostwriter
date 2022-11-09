@@ -47,8 +47,8 @@ const QString CommandLineExporter::OUTPUT_FILE_PATH_VAR = QString("${OUTPUT_FILE
 const QString CommandLineExporter::SMART_TYPOGRAPHY_ARG = QString("${SMART_TYPOGRAPHY_ARG}");
 
 
-CommandLineExporter::CommandLineExporter(const QString &name)
-    : Exporter(name),
+CommandLineExporter::CommandLineExporter(const QString &name, const QString &options)
+    : Exporter(name, options),
       d_ptr(new CommandLineExporterPrivate())
 {
     ;
