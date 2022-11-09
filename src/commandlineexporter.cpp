@@ -17,10 +17,14 @@ class CommandLineExporterPrivate
 {
 public:
     CommandLineExporterPrivate()
-    = default;
+    {
+        ;
+    }
 
     ~CommandLineExporterPrivate()
-    = default;
+    {
+        ;
+    }
 
     QMap<const ExportFormat *, QString> formatToCommandMap;
     QString smartTypographyOnArgument = "";
@@ -34,7 +38,7 @@ public:
         const QString &textInput,
         const QString &outputFilePath,
         const QString &options,
-        bool smartTypographyEnabled,
+        const bool smartTypographyEnabled,
         QString &stdoutOutput,
         QString &stderrOutput
     ) const;
@@ -46,9 +50,15 @@ const QString CommandLineExporter::SMART_TYPOGRAPHY_ARG = QString("${SMART_TYPOG
 
 CommandLineExporter::CommandLineExporter(const QString &name, const QString &options)
     : Exporter(name, options),
-      d_ptr(new CommandLineExporterPrivate()){}
+      d_ptr(new CommandLineExporterPrivate())
+{
+    ;
+}
 
-CommandLineExporter::~CommandLineExporter() = default;
+CommandLineExporter::~CommandLineExporter()
+{
+    ;
+}
 
 void CommandLineExporter::setHtmlRenderCommand(const QString &command)
 {
@@ -249,7 +259,7 @@ bool CommandLineExporterPrivate::executeCommand
     if (!inputFilePath.isNull() && !inputFilePath.isEmpty()) {
         process.setWorkingDirectory(QFileInfo(inputFilePath).dir().path());
     }
-    expandedCommand = expandedCommand + " " + options;
+    expandedCommand += " " + options;
 
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
