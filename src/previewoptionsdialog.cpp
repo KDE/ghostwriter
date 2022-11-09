@@ -72,7 +72,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
 
     d->previewerComboBox->setCurrentIndex(currentExporterIndex);
 
-    ghostwriter::PreviewOptionsDialog::connect
+    connect
     (
         d->previewerComboBox,
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
@@ -85,14 +85,14 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
 
     auto *fontLayout = new QHBoxLayout();
 
-    auto *currentTextFont = new QLineEdit(ghostwriter::PreviewOptionsDialogPrivate::fontToString(d->appSettings->previewTextFont()));
+    auto *currentTextFont = new QLineEdit(PreviewOptionsDialogPrivate::fontToString(d->appSettings->previewTextFont()));
     currentTextFont->setReadOnly(true);
     fontLayout->addWidget(currentTextFont);
 
     auto *chooseButton = new QPushButton(tr("Choose..."));
     fontLayout->addWidget(chooseButton);
 
-    QPushButton::connect(chooseButton,
+    connect(chooseButton,
         &QPushButton::clicked,
         [this, d, currentTextFont]() {
             bool success = false;
@@ -102,7 +102,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
                 this);
 
             if (success) {
-                currentTextFont->setText(ghostwriter::PreviewOptionsDialogPrivate::fontToString(font));
+                currentTextFont->setText(PreviewOptionsDialogPrivate::fontToString(font));
                 d->appSettings->setPreviewTextFont(font);
             }
         });
@@ -111,14 +111,14 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
 
     fontLayout = new QHBoxLayout();
 
-    auto *currentCodeFont = new QLineEdit(ghostwriter::PreviewOptionsDialogPrivate::fontToString(d->appSettings->previewCodeFont()));
+    auto *currentCodeFont = new QLineEdit(PreviewOptionsDialogPrivate::fontToString(d->appSettings->previewCodeFont()));
     currentCodeFont->setReadOnly(true);
     fontLayout->addWidget(currentCodeFont);
 
     chooseButton = new QPushButton(tr("Choose..."));
     fontLayout->addWidget(chooseButton);
 
-    QPushButton::connect(chooseButton,
+    connect(chooseButton,
         &QPushButton::clicked,
         [this, d, currentCodeFont]() {
             bool success = false;
@@ -128,7 +128,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
                 this);
 
             if (success) {
-                currentCodeFont->setText(ghostwriter::PreviewOptionsDialogPrivate::fontToString(font));
+                currentCodeFont->setText(PreviewOptionsDialogPrivate::fontToString(font));
                 d->appSettings->setPreviewCodeFont(font);
             }
         });
@@ -143,14 +143,14 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     auto *paramsLineEdit = new QLineEdit();
     paramsLineEdit->setText(d->appSettings->currentHtmlExporter()->options());
     optionsLayout->addRow(tr("Command line options:"), paramsLineEdit);
-    QLineEdit::connect(paramsLineEdit, &QLineEdit::textChanged, [=](const QString& obj) {
+    connect(paramsLineEdit, &QLineEdit::textChanged, [=](const QString& obj) {
         Exporter *exporter = d->appSettings->currentHtmlExporter();
         exporter->setOptions(obj);
         d->appSettings->setCurrentHtmlExporter(exporter);
     });
 
 
-    QDialogButtonBox::connect(buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
+    connect(buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
 }
 
 PreviewOptionsDialog::~PreviewOptionsDialog()

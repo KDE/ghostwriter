@@ -249,7 +249,7 @@ bool CommandLineExporterPrivate::executeCommand
     if (!inputFilePath.isNull() && !inputFilePath.isEmpty()) {
         process.setWorkingDirectory(QFileInfo(inputFilePath).dir().path());
     }
-    expandedCommand = expandedCommand + " " + options;
+    expandedCommand += " " + options;
 
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
