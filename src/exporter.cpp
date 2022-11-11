@@ -19,6 +19,7 @@ namespace ghostwriter
 Exporter::Exporter(const QString &name)
     : m_smartTypographyEnabled(false), 
       m_mathSupported(false),
+      m_userOptionsSupported(false),
       m_name(name){}
 
 Exporter::~Exporter() = default;
@@ -57,6 +58,11 @@ bool Exporter::supportsMath() const
 {
     return m_mathSupported;
 }
+
+bool Exporter::supportsUserOptions() const {
+    return m_userOptionsSupported;
+}
+
 
 void Exporter::exportToHtml(const QString &text, QString &html)
 {

@@ -52,7 +52,7 @@ CommandLineExporter::CommandLineExporter(const QString &name)
     : Exporter(name),
       d_ptr(new CommandLineExporterPrivate())
 {
-    ;
+    m_userOptionsSupported= true;
 }
 
 CommandLineExporter::~CommandLineExporter()

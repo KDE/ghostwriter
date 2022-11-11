@@ -81,6 +81,11 @@ public:
     bool supportsMath() const;
 
     /**
+     * Returns true if this exporter supports command-line options, false otherwise.
+     */
+    bool supportsUserOptions() const;
+
+    /**
      * Override this method to transform the given text into HTML for
      * use in the Live HTML Preview.  By default, this method will set the
      * html parameter to have HTML-formatted error text indicating that HTML
@@ -129,6 +134,11 @@ protected:
     * Use this flag to indicate that tex-based math is supported.
     */
     bool m_mathSupported;
+
+    /*
+     * Use this flag to indicate that the exporter supports command-line options.
+     */
+    bool m_userOptionsSupported;
 
     QString m_options;
 

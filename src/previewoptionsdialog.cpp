@@ -38,6 +38,7 @@ public:
     AppSettings *appSettings;
     ExporterFactory *exporterFactory;
     QComboBox *previewerComboBox;
+    QLineEdit *paramsLineEdit;
 };
 
 PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
@@ -82,6 +83,7 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
         static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         [d](int index) {
             d->onExporterChanged(index);
+            d->paramsLineEdit->setDisabled(!d->appSettings->currentHtmlExporter()->supportsUserOptions());
         }
     );
 
@@ -143,15 +145,15 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     buttonBox->addButton(QDialogButtonBox::Close);
     layout->addWidget(buttonBox);
 
-
-    auto *paramsLineEdit = new QLineEdit();
-    paramsLineEdit->setText(d->appSettings->currentHtmlExporter()->options());
-    optionsLayout->addRow(tr("Command line options:"), paramsLineEdit);
-    connect(paramsLineEdit, &QLineEdit::textChanged, [=](const QString& obj) {
+    d->paramsLineEdit = new QLineEdit();
+    d->paramsLineEdit->setText(d->appSettings->currentHtmlExporter()->options());
+    optionsLayout->addRow(tr("Command line options:"), d->paramsLineEdit);
+    connect(d->paramsLineEdit, &QLineEdit::textChanged, [=](const QString& obj) {
         Exporter *exporter = d->appSettings->currentHtmlExporter();
         exporter->setOptions(obj);
         d->appSettings->setCurrentHtmlExporter(exporter);
     });
+    d->paramsLineEdit->setDisabled(!d->appSettings->currentHtmlExporter()->supportsUserOptions());
 
     connect(buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
 }
