@@ -103,6 +103,7 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
 
     paramsLineEdit = new QLineEdit();
     paramsLineEdit->setText(settings.value(GW_LAST_EXPORTER_PARAMS_KEY, QString()).toString());
+    paramsLineEdit->setDisabled(!exporter->supportsUserOptions());
     optionsLayout->addRow(tr("Command line options:"), paramsLineEdit);
 
     connect(exporterComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onExporterChanged(int)));
@@ -217,6 +218,9 @@ void ExportDialog::onExporterChanged(int index)
 
     QSettings settings;
     settings.setValue(GW_LAST_EXPORTER_KEY, exporter->name());
+
+    paramsLineEdit->setDisabled(!exporter->supportsUserOptions());
+
 }
 
 } // namespace ghostwriter
