@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Spanish "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual del usuario de Ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>Página de manual de Ghostwriter.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>2022-09-17</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>Ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>Editor de texto sin distracciones para Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>ARCHIVO</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Descripción</title>
+  <para
+><command
+>ghostwriter</command
+> es una aplicación Qt para la edición de texto en Markdown que proporciona un entorno de escritura estético y libre de distracciones. </para>
+  <para
+>Cree sus propios temas personalizados, escriba en modo de pantalla completa o use el modo de concentración para centrarse en solo una o más líneas. </para>
+  <para
+>Una vista previa HTML en vivo le permite visualizar el formato final a medida que escribe. Las funciones de vista previa y de exportación en HTML las proporciona el procesador de Markdown integrado, cmark-gfm; pero puede añadir más instalando alguno de los procesadores Pandoc, MultiMarkdown o cmark. La aplicación detectará automáticamente su instalación y dónde están situados usando la variable de entorno PATH del sistema. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opciones</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>Desactivar la aceleración de la GPU.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Notificación de fallos</title>
+  <para
+>Puede informar de fallos y solicitar funcionalidades en <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>Consulte también</title>
+<simplelist>
+<member
+>Dispone de documentación más detallada sobre Markdown en <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2022 Megan Conkle</para>
+<para
+>Licencia: Pública General de GNU versión 3 o posterior &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>

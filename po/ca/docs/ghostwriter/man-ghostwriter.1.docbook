@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Catalan  "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual d'usuari del Ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>Pàgina «man» del Ghostwriter.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>17 de setembre de 2022</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>Ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>Editor de text lliure de distraccions per al Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>FITXER</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Descripció</title>
+  <para
+>El <command
+>ghostwriter</command
+> és una aplicació Qt d'edició de text per al Markdown que proporciona un entorn d'escriptura estètic i lliure de distraccions. </para>
+  <para
+>Creeu temes propis personalitzats, escriviu en mode de pantalla completa o utilitzeu el mode de focus per concentrar-vos només en una o més línies. </para>
+  <para
+>Una vista prèvia HTML en directe us permet veure el format final mentre escriviu. Les opcions de previsualització i exportació d'HTML són proporcionades pel processador Markdown integrat «cmark-gfm»; però podeu afegir-ne més instal·lant els processadors Pandoc, MultiMarkdown o «cmark». L'aplicació detectarà automàticament la seva instal·lació si les seves ubicacions es troben a la variable d'entorn PATH del sistema. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opcions</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>Desactiva l'acceleració de la GPU.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Informar dels errors</title>
+  <para
+>Podeu informar dels errors o de peticions de característiques noves a <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>Vegeu també</title>
+<simplelist>
+<member
+>Hi ha documentació d'usuari més detallada disponible a <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2022 Megan Conkle</para>
+<para
+>Llicència: Publica general de GNU versió 3 o posterior &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
