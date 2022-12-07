@@ -27,7 +27,7 @@ jobs:
       run: |
         brew tap kde-mac/kde https://invent.kde.org/packaging/homebrew-kde.git --force-auto-update
         "$(brew --repo kde-mac/kde)/tools/do-caveats.sh"
-        brew install kf5-kcoreaddons kf5-kconfigwidgets kf5-kxmlgui
+        brew install kf5-kcoreaddons kf5-kconfigwidgets kf5-kxmlgui kf5-sonnet
     - name: Install CommonMark Github
       run: brew install cmark-gfm
     - name: Configure ghostwriter qmake
