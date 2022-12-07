@@ -23,17 +23,17 @@ jobs:
       run: |
         brew install qt6 qwt
         brew link qt6 --force
-    - name: Install kf5-kcoreaddons from KDE tap
+    - name: Install kf5 packages from KDE tap
       run: |
         brew tap kde-mac/kde https://invent.kde.org/packaging/homebrew-kde.git --force-auto-update
-        "$(brew --repo kde-mac/kde)/tools/do-caveats.sh"
         brew install kf5-kcoreaddons kf5-kconfigwidgets kf5-kxmlgui kf5-sonnet
+        "$(brew --repo kde-mac/kde)/tools/do-caveats.sh"
     - name: Install CommonMark Github
       run: brew install cmark-gfm
     - name: Configure ghostwriter qmake
       run: |
         qmake -project
-        echo "INCLUDEPATH += . $(brew --prefix)/include/KF5" >> ./ghostwriter.pro
+        echo "INCLUDEPATH += . $(brew --prefix)/include/KF5 $(brew --prefix)/include/KF5/Sonnet" >> ./ghostwriter.pro
         echo "QT += widgets core5compat webenginewidgets concurrent SonnetCore SonnetUi" >> ./ghostwriter.pro
     - name: Build ghostwriter
       run: |
