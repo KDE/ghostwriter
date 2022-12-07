@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: macos-build-qt6
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  macos-build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Homebrew
+      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    - name: Install QT 6, QT Widgets from Brew
+      run: |
+        brew install qt6 qwt
+        brew link qt6 --force
+    - name: Install kf5-kcoreaddons from KDE tap
+      run: |
+        brew tap kde-mac/kde https://invent.kde.org/packaging/homebrew-kde.git --force-auto-update
+        "$(brew --repo kde-mac/kde)/tools/do-caveats.sh"
+        brew install kf5-kcoreaddons
+    - name: Install CommonMark Github
+      run: brew install cmark-gfm
+    - name: Build ghostwriter
+      run: |
+        qmake -project
+        echo "QT += widgets core5compat webenginewidgets concurrent" >> ./ghostwriter.pro
+        qmake
+        make
+    - name: Upload package
+      uses: actions/upload-artifact@v2
+      with:
+        name: ghostwriter
+        path: build/release/ghostwriter.app/
