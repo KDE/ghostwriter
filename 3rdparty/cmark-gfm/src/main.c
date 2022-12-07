@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include "config.h"
+#include <stdbool.h>
 #include "cmark-gfm.h"
 #include "node.h"
 #include "cmark-gfm-extension_api.h"
