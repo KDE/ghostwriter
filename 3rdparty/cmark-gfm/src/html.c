@@ -3,7 +3,7 @@
 #include <string.h>
 #include <assert.h>
 #include "cmark_ctype.h"
-#include "config.h"
+#include <stdbool.h>
 #include "cmark-gfm.h"
 #include "houdini.h"
 #include "scanners.h"
