@@ -34,7 +34,7 @@ jobs:
       run: |
         qmake -project
         echo "INCLUDEPATH += . $(brew --prefix)/include/KF5" >> ./ghostwriter.pro
-        echo "QT += widgets core5compat webenginewidgets concurrent" >> ./ghostwriter.pro
+        echo "QT += widgets core5compat webenginewidgets concurrent SonnetCore SonnetUi" >> ./ghostwriter.pro
     - name: Build ghostwriter
       run: |
         qmake
