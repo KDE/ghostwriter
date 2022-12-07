@@ -35,7 +35,7 @@ jobs:
     - name: Configure ghostwriter qmake
       run: |
         qmake -project
-        echo "INCLUDEPATH += . $(brew --prefix)/include/KF5 $(brew --prefix)/include/KF5/SonnetCore $(brew --prefix)/include/KF5/SonnetUi $(brew --prefix)/include/utf8cpp/" >> ./ghostwriter.pro
+        echo "INCLUDEPATH += . $(brew --prefix)/include/KF5 $(brew --prefix)/include/KF5/SonnetCore $(brew --prefix)/include/KF5/SonnetUi $(brew --prefix)/include/utf8cpp/ $(brew --prefix)/include/utf8cpp $(xcode-select -p)/usr/include/c++/v1/__iterator" >> ./ghostwriter.pro
         echo "QT += widgets core5compat webenginewidgets concurrent testlib" >> ./ghostwriter.pro
     - name: Build ghostwriter
       run: |
