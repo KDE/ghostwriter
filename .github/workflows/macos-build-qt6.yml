@@ -23,6 +23,8 @@ jobs:
       run: |
         brew install qt6 qwt
         brew link qt6 --force
+    - name: Install utf8cpp
+      run: brew install utf8cpp
     - name: Install kf5 packages from KDE tap
       run: |
         brew tap kde-mac/kde https://invent.kde.org/packaging/homebrew-kde.git --force-auto-update
@@ -33,7 +35,7 @@ jobs:
     - name: Configure ghostwriter qmake
       run: |
         qmake -project
-        echo "INCLUDEPATH += . $(brew --prefix)/include/KF5 $(brew --prefix)/include/KF5/SonnetCore $(brew --prefix)/include/KF5/SonnetUi" >> ./ghostwriter.pro
+        echo "INCLUDEPATH += . $(brew --prefix)/include/KF5 $(brew --prefix)/include/KF5/SonnetCore $(brew --prefix)/include/KF5/SonnetUi $(brew --prefix)/include/utf8cpp/" >> ./ghostwriter.pro
         echo "QT += widgets core5compat webenginewidgets concurrent testlib" >> ./ghostwriter.pro
     - name: Build ghostwriter
       run: |
