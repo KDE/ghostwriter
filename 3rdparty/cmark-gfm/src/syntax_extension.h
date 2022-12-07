@@ -3,7 +3,7 @@
 
 #include "cmark-gfm.h"
 #include "cmark-gfm-extension_api.h"
-#include <stdbool.h>
+#include "config.h"
 
 struct cmark_syntax_extension {
   cmark_match_block_func          last_block_matches;
