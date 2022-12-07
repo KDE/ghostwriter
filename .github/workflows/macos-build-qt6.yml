@@ -33,8 +33,8 @@ jobs:
     - name: Build ghostwriter
       run: |
         qmake -project
-        echo "QT += widgets core5compat webenginewidgets concurrent" >> ./ghostwriter.pro
         echo "INCLUDEPATH += . /opt/homebrew/include/KF5" >> ./ghostwriter.pro
+        echo "QT += widgets core5compat webenginewidgets concurrent" >> ./ghostwriter.pro
         qmake
         make
     - name: Upload package
