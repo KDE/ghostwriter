@@ -30,11 +30,13 @@ jobs:
         brew install kf5-kcoreaddons
     - name: Install CommonMark Github
       run: brew install cmark-gfm
-    - name: Build ghostwriter
+    - name: Configure ghostwriter qmake
       run: |
         qmake -project
         echo "INCLUDEPATH += . /opt/homebrew/include/KF5" >> ./ghostwriter.pro
         echo "QT += widgets core5compat webenginewidgets concurrent" >> ./ghostwriter.pro
+    - name: Build ghostwriter
+      run: |
         qmake
         make
     - name: Upload package
