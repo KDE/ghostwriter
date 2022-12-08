@@ -36,6 +36,7 @@ jobs:
       run: |
         qmake -project
         echo "CONFIG += c++17" >> ./ghostwriter.pro
+        echo "DEFINES += APPVERSION='2.2.70' INTERNAL_RELEASE_VERSION='2.2.70'" >> ./ghostwriter.pro
         echo "INCLUDEPATH += . $(brew --prefix)/include/KF5 $(brew --prefix)/include/KF5/SonnetCore $(brew --prefix)/include/KF5/SonnetUi $(brew --prefix)/include/utf8cpp $(xcode-select -p)/SDKs/MacOSX.sdk/usr/include $(xcode-select -p)/usr/include/c++/v1" >> ./ghostwriter.pro
         echo "QT += widgets core5compat webenginewidgets concurrent testlib" >> ./ghostwriter.pro
         echo "QMAKE_LFLAGS += -L$(xcode-select -p)/SDKs/MacOSX.sdk/usr/lib" >> ./ghostwriter.pro
