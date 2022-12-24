@@ -7,6 +7,7 @@
   <name>ghostwriter</name>
   <name xml:lang="ca">ghostwriter</name>
   <name xml:lang="ca-valencia">ghostwriter</name>
+  <name xml:lang="de">Ghostwriter</name>
   <name xml:lang="es">ghostwriter</name>
   <name xml:lang="fr">ghostwriter</name>
   <name xml:lang="id">ghostwriter</name>
@@ -21,9 +22,10 @@
   <summary>Distraction-free text editor for Markdown</summary>
   <summary xml:lang="ca">Editor de text lliure de distraccions per al Markdown</summary>
   <summary xml:lang="ca-valencia">Editor de text lliure de distraccions per a Markdown</summary>
+  <summary xml:lang="de">Ablenkungsfreier Texteditor für Markdown</summary>
   <summary xml:lang="es">Editor de texto sin distracciones para Markdown</summary>
   <summary xml:lang="fr">Éditeur de texte sans distraction pour langage « Markdown »</summary>
-  <summary xml:lang="id">Editor teks bebas gangguan untuk Markdown</summary>
+  <summary xml:lang="id">Penyunting teks bebas gangguan untuk Markdown</summary>
   <summary xml:lang="it">Editor di testo senza distrazioni per Markdown</summary>
   <summary xml:lang="ka">ფოკუსირებული მარკდაუნის რედაქტორი</summary>
   <summary xml:lang="nl">Tekstbewerker zonder afleiding voor Markdown</summary>
@@ -41,9 +43,10 @@
        processors if they are installed.</p>
     <p xml:lang="ca">El «ghostwriter» és un editor de text lliure de distraccions per al Markdown amb una vista prèvia HTML en viu mentre s'escriu, creació de temes, mode d'enfocament, mode de pantalla completa, recompte de paraules en directe i navegació de documents en un entorn d'escriptura estètica. Ve amb el processador «cmark-gfm» del Markdown integrat, i pot integrar-se amb els processadors Pandoc, MultiMarkdown, Discount i «cmark» si estan instal·lats.</p>
     <p xml:lang="ca-valencia">«ghostwriter» és un editor de text lliure de distraccions per a Markdown amb una vista prèvia HTML en viu mentre s'escriu, creació de temes, mode d'enfocament, mode de pantalla completa, recompte de paraules en directe i navegació de documents en un entorn d'escriptura estètica. Ve amb el processador «cmark-gfm» de Markdown integrat, i pot integrar-se amb els processadors Pandoc, MultiMarkdown, Discount i «cmark» si estan instal·lats.</p>
+    <p xml:lang="de">Ghostwriter ist ein ablenkungsfreier Texteditor für Markdown mit einer Echtzeit-HTML-Vorschau während der Eingabe, Themenerstellung, Fokusmodus, Vollbildmodus, Echtzeit-Wortzählung und Dokumentnavigation in einer ästhetischen Schreibumgebung. Er wird mit dem eingebauten Markdown-Prozessor cmark-gfm geliefert und kann mit den Prozessoren Pandoc, MultiMarkdown, Discount und cmark integriert werden, wenn diese installiert sind.</p>
     <p xml:lang="es">ghostwriter es un editor de texto sin distracciones para Markdown que muestra una vista previa HTML en vivo mientras escribe, creación de temas, modo de concentración, modo a pantalla completa, contador de palabras en tiempo real y navegación por el documento en un entorno de escritura estético. Contiene el procesador de texto Markdown «cmark-gfm» y puede integrarse con los procesadores Pandoc, MultiMarkdown, Discount y cmark, si están instalados.</p>
     <p xml:lang="fr">ghostwriter est un éditeur de texte sans distraction pour langage « Markdown » avec un aperçu « HTML » en temps réel durant votre saisie, la création de thèmes, un mode de mise au point, un mode « Plein écran », un comptage de mots en temps réel et une navigation dans un document dans un environnement d’écriture esthétique. Il est fourni avec le module de traitement intégré « cmark-gfm » pour le langage « Markdown ». Il peut s’intégrer avec les modules de traitement « Pandoc », « MultiMarkdown », « Discount » et « cmark » dans la mesure où ceux-ci sont installés.</p>
-    <p xml:lang="id">ghostwriter adalah editor teks bebas gangguan untuk Markdown yang menampilkan pratinjau HTML langsung saat kamu mengetik, pembuatan tema, mode fokus, mode layar penuh, penghitungan kata langsung, dan navigasi dokumen dalam lingkungan penulisan yang estetis. Muncul dengan prosesor Markdown cmark-gfm bawaan, dan dapat berintegrasi dengan prosesor Pandoc, MultiMarkdown, Diskon, dan cmark jika diinstal.</p>
+    <p xml:lang="id">ghostwriter adalah penyunting teks bebas gangguan untuk Markdown yang menampilkan pratinjau HTML langsung saat Anda mengetik, pembuatan tema, mode fokus, mode layar penuh, penghitungan kata langsung, dan navigasi dokumen dalam lingkungan penulisan yang estetis. Muncul dengan prosesor Markdown cmark-gfm bawaan, dan dapat berintegrasi dengan prosesor Pandoc, MultiMarkdown, Discount, dan cmark jika diinstal.</p>
     <p xml:lang="it">ghostwriter è un editor di testo privo di distrazioni per Markdown con un'anteprima HTML in tempo reale durante la digitazione, la creazione di temi, la modalità di messa a fuoco, la modalità a schermo intero, il conteggio delle parole in tempo reale e la navigazione dei documenti in un ambiente di scrittura che privilegia l'estetica. Viene fornito con il processore cmark-gfm Markdown integrato e può integrarsi con i processori Pandoc, MultiMarkdown, Discount e cmark se installati.</p>
     <p xml:lang="nl">ghostwriter is tekstbewerker zonder afleiding voor Markdown met een live HTML voorbeeld terwijl u typt, thema maken, focusmodus, modus volledig scherm, live woorden tellen en documentnavigatie in een esthetische schrijfomgeving. Het komt met de cmark-gfm Markdown processor ingebouwd en kan integreren met Pandoc, MultiMarkdown, Discount en cmark-processors als ze geïnstalleerd zijn.</p>
     <p xml:lang="pt">O Ghostwriter é um editor de texto sem distracções para Markdown, fornecendo uma antevisão de HTML em directo à medida que escreve, o modo de foco, o modo em ecrã completo, um contador de palavras em tempo-real e a navegação do documento num ambiente de escrita estético. Vem com o processador de Markdown 'cmark-gfm' incorporado, podendo integrar-se com o Pandoc, MultiMarkdown, Discount e o 'cmark', caso estejam instalados.</p>
@@ -58,6 +61,7 @@
       <caption>Enjoy a distraction-free writing experience, including a full screen mode and a clean interface</caption>
       <caption xml:lang="ca">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
       <caption xml:lang="ca-valencia">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
+      <caption xml:lang="de">Genießen Sie ablenkungsfreies Schreiben, einschließlich eines Vollbildmodus und einer übersichtlichen Benutzeroberfläche</caption>
       <caption xml:lang="es">Disfrute de una experiencia de escritura sin distracciones, que incluye un modo a pantalla completa y una interfaz limpia</caption>
       <caption xml:lang="fr">Profitez d’une expérience d’écriture sans distraction, y compris un mode « Plein écran » et une interface épurée</caption>
       <caption xml:lang="id">Nikmati pengalaman menulis bebas gangguan, termasuk mode layar penuh dan antarmuka yang bersih</caption>
@@ -76,8 +80,10 @@
   <developer_name>Megan Conkle</developer_name>
   <developer_name xml:lang="ca">Megan Conkle</developer_name>
   <developer_name xml:lang="ca-valencia">Megan Conkle</developer_name>
+  <developer_name xml:lang="de">Megan Conkle</developer_name>
   <developer_name xml:lang="es">Megan Conkle</developer_name>
   <developer_name xml:lang="fr">Megan Conkle</developer_name>
+  <developer_name xml:lang="id">Megan Conkle</developer_name>
   <developer_name xml:lang="it">Megan Conkle</developer_name>
   <developer_name xml:lang="nl">Megan Conkle</developer_name>
   <developer_name xml:lang="pt">Megan Conkle</developer_name>

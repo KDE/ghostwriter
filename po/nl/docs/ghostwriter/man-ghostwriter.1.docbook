@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Dutch "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Gebruikershandleiding van Ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>Ghostwriter man page.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>2022-09-17</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>Ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>Tekstbewerker zonder afleiding voor Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>BESTAND</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Beschrijving</title>
+  <para
+><command
+>ghostwriter</command
+> is een tekstbewerkingsprogramma met Qt voor Markdown die een esthetische, afleidingsvrije schrijfomgeving levert. </para>
+  <para
+>Maak uw eigen aangepaste thema's, schrijf in modus volledig scherm of gebruik modus focus om te concentreren op slechts een of meer tegels. </para>
+  <para
+>Een live HTML voorbeeld biedt u de uiteindelijke formattering te zien terwijl u typt. HTML voorbeeld- en export-opties worden geleverd door de ingebouwde Markdown-processor, cmark-gfm; maar u kunt er meer toevoegen door Pandoc-, MultiMarkdown- of cmark-processors te installeren. De toepassing zal automatisch hun installatie detecteren als hun locaties in de omgevingsvariabele PATH zitten. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opties</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>GPU-versnelling uitschakelen.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Bugs (programmafouten) melden</title>
+  <para
+>U kunt bugs en verzoeken om mogelijkheden rapporteren op <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>Zie ook</title>
+<simplelist>
+<member
+>Meer gedetailleerde gebruikersdocumentatie over markdown is beschikbaar op <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2022 Megan Conkle</para>
+<para
+>Licentie: GNU General Public Version 3 of later &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>

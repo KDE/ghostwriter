@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Інструкція користувача Ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>Сторінка підручника з Ghostwriter.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>17 вересня 2022 року</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>Ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>Ненав'язливий текстовий редактор для Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>ФАЙЛ</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Опис</title>
+  <para
+><command
+>ghostwriter</command
+> — програма для редагування текстів кодом Markdown на основі Qt, естетичне, ненав'язливе середовище для написання текстів. </para>
+  <para
+>Створіть власні нетипові теми, пишіть тексти у повноекранному режимі або скористайтеся режимом фокусування для зосередження на одному або декількох рядках. </para>
+  <para
+>Інтерактивний перегляд HTML надає вам змогу переглядати остаточне форматування під час введення даних. Можливості попереднього перегляду HTML та експортування надає вубдований процесор Markdown, cmark-gfm; але ви можете розширити можливості шляхом встановлення процесорів Pandoc, MultiMarkdown або cmark. Програма автоматично виявить встановлені процесори, якщо їх встановлено до одного з каталогів змінної середовища PATH. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Параметри</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>Вимкнути прискорення за допомогою графічного процесора.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Як повідомити про вади</title>
+  <para
+>Ви можете повідомляти про вади та запити щодо реалізації нових можливостей на сайті <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>Додаткові відомості</title>
+<simplelist>
+<member
+>Докладнішу документацію для користувачів щодо markdown можна знайти на сторінці <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Авторські права</title>
+<para
+>&copy; Megan Conkle, 2022</para>
+<para
+>Ліцензування: GNU General Public Version 3 або пізніша версія &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
