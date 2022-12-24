@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Images can now be pasted from the clipboard with a prompt to save the image.
 * KDE about dialogs (for both *ghostwriter* and KDE) have been added to the help menu.
 * KDE bug report dialog and donate dialog have been added to the help menu.
+* Users can now specify custom Markdown processor command line options for previewing and exporting.
 
 ### Fixed
 
