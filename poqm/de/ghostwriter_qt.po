@@ -136,18 +136,18 @@ msgctxt "QObject|"
 msgid "Export failed"
 msgstr "Exportieren fehlgeschlagen"
 
-#: src/commandlineexporter.cpp:145
+#: src/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
 msgstr "Exportieren fehlgeschlagen: "
 
-#: src/commandlineexporter.cpp:165
+#: src/commandlineexporter.cpp:167
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
 msgstr "Format %1 wird von der aktuellen Auswahl nicht unterstützt."
 
-#: src/commandlineexporter.cpp:188
+#: src/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
 msgstr "Der Befehl kann nicht ausgeführt werden: "
@@ -384,43 +384,48 @@ msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "College"
 msgstr "Hochschule"
 
-#: src/exportdialog.cpp:41 src/exportdialog.cpp:90
+#: src/exportdialog.cpp:45 src/exportdialog.cpp:99
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
 msgstr "Exportieren"
 
-#: src/exportdialog.cpp:75
+#: src/exportdialog.cpp:84
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
 msgstr "Intelligente Typografie"
 
-#: src/exportdialog.cpp:78
+#: src/exportdialog.cpp:87
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
 msgstr "Exportoptionen"
 
-#: src/exportdialog.cpp:80
+#: src/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
 msgstr "Markdown-Konverter"
 
-#: src/exportdialog.cpp:81
+#: src/exportdialog.cpp:90
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
 msgstr "Dateiformat"
 
-#: src/exportdialog.cpp:161
+#: src/exportdialog.cpp:107
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Command line options:"
+msgstr ""
+
+#: src/exportdialog.cpp:177
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
 msgstr "Exportiere nach %1"
 
-#: src/exportdialog.cpp:177
+#: src/exportdialog.cpp:194
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
 msgstr "Exportieren fehlgeschlagen."
 
-#: src/exporter.cpp:62
+#: src/exporter.cpp:72
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
 msgstr ""
@@ -1227,32 +1232,37 @@ msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Customize matched characters..."
 msgstr "Gruppierte Zeichen anpassen ..."
 
-#: src/previewoptionsdialog.cpp:49
+#: src/previewoptionsdialog.cpp:50
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
 msgstr "Einstellungen zur Vorschau"
 
-#: src/previewoptionsdialog.cpp:88
+#: src/previewoptionsdialog.cpp:90
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
 msgstr "Markdown-Art"
 
-#: src/previewoptionsdialog.cpp:96 src/previewoptionsdialog.cpp:122
+#: src/previewoptionsdialog.cpp:98 src/previewoptionsdialog.cpp:124
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
 msgstr "Auswählen ..."
 
-#: src/previewoptionsdialog.cpp:114
+#: src/previewoptionsdialog.cpp:116
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
 msgstr "Schriftart für Text:"
 
-#: src/previewoptionsdialog.cpp:140
+#: src/previewoptionsdialog.cpp:142
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
 msgstr "Schriftart für Quelltext:"
 
-#: src/previewoptionsdialog.cpp:163
+#: src/previewoptionsdialog.cpp:150
+msgctxt "ghostwriter::PreviewOptionsDialog|"
+msgid "Command line options:"
+msgstr ""
+
+#: src/previewoptionsdialog.cpp:176
 #, qt-format
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "%1 %2pt"
