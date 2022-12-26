@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-23 17:15+0100\n"
+"PO-Revision-Date: 2022-12-25 14:01+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -425,7 +425,7 @@ msgstr "Formato do Ficheiro"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opções da linha de comandos:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -1270,7 +1270,7 @@ msgstr "Tipo de Letra do Código:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opções da linha de comandos:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format

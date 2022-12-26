@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-10-23 20:43+0200\n"
+"PO-Revision-Date: 2022-12-25 21:55+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -419,7 +419,7 @@ msgstr "Formato de archivo"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opciones de la línea de órdenes:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -1264,7 +1264,7 @@ msgstr "Tipo de letra para el código:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opciones de la línea de órdenes:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format

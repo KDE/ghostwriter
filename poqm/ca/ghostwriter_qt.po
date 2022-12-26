@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-23 10:07+0200\n"
+"PO-Revision-Date: 2022-12-25 09:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -429,7 +429,7 @@ msgstr "Format del fitxer"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opcions de la línia d'ordres:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -1276,7 +1276,7 @@ msgstr "Tipus de lletra del codi:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opcions de la línia d'ordres:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format
@@ -1630,14 +1630,3 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Aquest és un tema integrat que no es pot editar."
-
-#, fuzzy
-#~| msgctxt "ghostwriter::MainWindow|"
-#~| msgid "Images"
-#~ msgctxt "ghostwriter::MarkdownEditor|"
-#~ msgid "Images"
-#~ msgstr "Imatges"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "All Files"
-#~ msgstr "Tots els fitxers"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-23 09:22+0300\n"
+"PO-Revision-Date: 2022-12-25 08:48+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -417,7 +417,7 @@ msgstr "Формат файла"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Параметри командного рядка:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -1266,7 +1266,7 @@ msgstr "Шрифт коду:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Параметри командного рядка:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format
