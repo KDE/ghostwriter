@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-11-24 17:08+0300\n"
+"PO-Revision-Date: 2022-12-26 21:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -32,7 +32,7 @@ msgstr "Sayfa başına 250 sözcük"
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
-msgstr "%1 sa %2 dk"
+msgstr "%1 sa, %2 dk"
 
 #: src/abstractstatisticswidget.cpp:54
 #, qt-format
@@ -416,7 +416,7 @@ msgstr "Dosya Biçimi"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Komut satırı seçenekleri:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -1261,7 +1261,7 @@ msgstr "Kod Yazitıpı:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Komut satırı seçenekleri:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format
