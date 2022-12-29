@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -48,7 +48,7 @@ msgstr "ghostwriter"
 #: src/appmain.cpp:79
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr ""
+msgstr "Markdown-ის რედაქტორი"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
@@ -861,7 +861,7 @@ msgstr ""
 #: src/mainwindow.cpp:1209
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
-msgstr ""
+msgstr "მთელ ეკრანზე გასვლის რეჟიმის ჩართ/გამორთვა"
 
 #: src/mainwindow.cpp:1232
 msgctxt "ghostwriter::MainWindow|"
@@ -941,22 +941,22 @@ msgstr ""
 #: src/mainwindow.cpp:1263
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
-msgstr ""
+msgstr "``` კოდის ბლოკი"
 
 #: src/mainwindow.cpp:1264
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
-msgstr ""
+msgstr "[ბმული](http://url.com \"სათაური\")"
 
 #: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
-msgstr ""
+msgstr "[მიმართვის ბმული][ID]"
 
 #: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
-msgstr ""
+msgstr "[ID]: http://url.com \"მიმართვის აღწერა\""
 
 #: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
@@ -1102,7 +1102,7 @@ msgstr ""
 #: src/preferencesdialog.cpp:251
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Open last file on startup"
-msgstr ""
+msgstr "ბოლო ფაილის გაშვებისას გახსნა"
 
 #: src/preferencesdialog.cpp:274
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1122,7 +1122,7 @@ msgstr ""
 #: src/preferencesdialog.cpp:297
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Styling"
-msgstr ""
+msgstr "სტილი"
 
 #: src/preferencesdialog.cpp:304
 msgctxt "ghostwriter::PreferencesDialog|"

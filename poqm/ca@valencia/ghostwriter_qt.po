@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-10-23 10:07+0200\n"
+"PO-Revision-Date: 2022-12-25 09:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -428,7 +428,7 @@ msgstr "Format del fitxer"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opcions de la línia d'ordres:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -1275,7 +1275,7 @@ msgstr "Tipus de lletra del codi:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opcions de la línia d'ordres:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format
