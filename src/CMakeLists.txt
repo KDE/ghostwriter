@@ -4,7 +4,7 @@
 
 add_executable(ghostwriter ../resources.qrc)
 
-target_compile_definitions(ghostwriter PRIVATE APPVERSION="${INTERNAL_RELEASE_VERSION}")
+target_compile_definitions(ghostwriter PRIVATE APPVERSION="${RELEASE_SERVICE_VERSION}")
 
 target_include_directories(ghostwriter PUBLIC
     "${PROJECT_BINARY_DIR}"

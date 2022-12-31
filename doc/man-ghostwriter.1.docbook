@@ -4,18 +4,19 @@
 ]>
 <!--
 SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>Ghostwriter User's Manual</title>
+<title>ghostwriter User's Manual</title>
 <author><firstname>Megan</firstname><surname>Conkle</surname>
-<contrib>Ghostwriter man page.</contrib>
+<contrib>ghostwriter man page.</contrib>
 <email>megan.conkle@kdemail.net</email></author>
 <date>2022-09-17</date>
 <releaseinfo>2.2.0</releaseinfo>
-<productname>Ghostwriter</productname>
+<productname>ghostwriter</productname>
 </refentryinfo>
 
 <refmeta>
