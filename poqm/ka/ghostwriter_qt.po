@@ -490,7 +490,7 @@ msgstr[1] ""
 #: src/findreplace.cpp:421
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
-msgstr ""
+msgstr "გადატანილში ძებნა"
 
 #: src/findreplace.cpp:428
 msgctxt "ghostwriter::FindReplace|"

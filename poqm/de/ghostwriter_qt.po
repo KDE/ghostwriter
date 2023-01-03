@@ -1,27 +1,28 @@
 # Alois Spitzbart <spitz234@hotmail.com>, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: l 10n-support\n"
-"PO-Revision-Date: 2022-10-31 18:47+0100\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2022-12-19 10:23+0100\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
-msgstr ""
+msgstr "&lt; 1 Min"
 
 #: src/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1"
-msgstr ""
+msgstr "&lt; 1"
 
 #: src/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -176,7 +177,7 @@ msgstr "Alle"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr ""
+msgstr "Fehler beim Speichern von %1"
 
 #: src/documentmanager.cpp:357
 msgctxt "ghostwriter::DocumentManager|"
@@ -1004,7 +1005,7 @@ msgstr "Unbenannt"
 #: src/markdowneditor.cpp:933
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr ""
+msgstr "Bild speichern"
 
 #: src/markdowneditor.cpp:1520
 msgctxt "ghostwriter::MarkdownEditor|"
@@ -1015,7 +1016,7 @@ msgstr "Bild einfügen"
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr ""
+msgstr "Bilder (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1266,7 +1267,7 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "%1 %2pt"
-msgstr ""
+msgstr "%1 %2pt"
 
 #: src/sessionstatisticswidget.cpp:37
 msgctxt "ghostwriter::SessionStatisticsWidget|"
