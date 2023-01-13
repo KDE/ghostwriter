@@ -1539,7 +1539,7 @@ msgid ""
 "problem persists, please file a bug report."
 msgstr ""
 "El tema especificat no està disponible. Intenteu reiniciar l'aplicació. Si "
-"el problema persistix, ompliu un informe d'error."
+"el problema persistix, empleneu un informe d'error."
 
 #: src/themerepository.cpp:219
 #, qt-format
