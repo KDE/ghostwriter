@@ -75,7 +75,7 @@ msgstr ""
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "სხვა მოხალისეები"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -377,7 +377,7 @@ msgstr "საბავშვო ბაღი"
 #: src/documentstatisticswidget.cpp:152
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Rocket Science"
-msgstr ""
+msgstr "რაკეტების მეცნიერება"
 
 #: src/documentstatisticswidget.cpp:154
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -402,7 +402,7 @@ msgstr "გატანის მორგება"
 #: src/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
-msgstr ""
+msgstr "მარკდაუნის გადამყვანი"
 
 #: src/exportdialog.cpp:90
 msgctxt "ghostwriter::ExportDialog|"
@@ -412,7 +412,7 @@ msgstr "ფაილის ფორმატი"
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "ბრძანების სტრიქონის პარამეტრები:"
 
 #: src/exportdialog.cpp:177
 #, qt-format
@@ -448,7 +448,7 @@ msgstr "რეგულარულ გამოსახულება"
 #: src/findreplace.cpp:113
 msgctxt "ghostwriter::FindReplace|"
 msgid "Highlight matches"
-msgstr ""
+msgstr "დამთხვევების გამოკვეთა"
 
 #: src/findreplace.cpp:121
 msgctxt "ghostwriter::FindReplace|"
@@ -484,8 +484,8 @@ msgstr "ჩანაცვლება:"
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%Ln ჩანაცვლება"
+msgstr[1] "%Ln ჩანაცვლება"
 
 #: src/findreplace.cpp:421
 msgctxt "ghostwriter::FindReplace|"
@@ -511,17 +511,17 @@ msgstr ""
 #: src/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
-msgstr ""
+msgstr "აპლიკაციის ენის დაყენება"
 
 #: src/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "ენა დაყენებული არაა!"
 
 #: src/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
-msgstr ""
+msgstr "მეტი ენის მისაღებად თავიდან დააყენეთ ეს აპლიკაცია."
 
 #: src/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
@@ -531,12 +531,12 @@ msgstr "ბოდიში!"
 #: src/localedialog.cpp:133
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "თარგმანის ჩატვირთვის შეცდომა."
 
 #: src/localedialog.cpp:139
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr ""
+msgstr "ცვლილებების ძალაში შესასვლელად საჭიროა აპლიკაციის გადატვირთვა."
 
 #: src/mainwindow.cpp:893
 msgctxt "ghostwriter::MainWindow|"
@@ -586,7 +586,7 @@ msgstr "&გადარქმევა..."
 #: src/mainwindow.cpp:915
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
-msgstr ""
+msgstr "&დისკიდან თავიდან ჩატვრთვა..."
 
 #: src/mainwindow.cpp:917
 msgctxt "ghostwriter::MainWindow|"
@@ -1257,7 +1257,7 @@ msgstr "კოდის ფონტი:"
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "ბრძანების სტრიქონის პარამეტრები:"
 
 #: src/previewoptionsdialog.cpp:176
 #, qt-format
