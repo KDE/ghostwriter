@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Russian "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Руководство пользователя ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>Man-страница ghostwriter.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>17 сентября 2022 г.</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>редактор Markdown для сосредоточенной работы</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>ФАЙЛ</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Описание</title>
+  <para
+><command
+>ghostwriter</command
+> — текстовый редактор Markdown на основе Qt, предоставляющий лаконичную среду для написания текстов. </para>
+  <para
+>Создавайте пользовательские темы, пишите в полноэкранном режиме или используйте режим фокусировки для сосредоточения на всего одной или же нескольких строках. </para>
+  <para
+>Возможность динамического предварительного просмотра HTML позволяет увидеть, как будет выглядеть итоговое форматирование. Возможности предварительного просмотра HTML и экспорта предоставляются встроенным обработчиком Markdown, cmark-gfm; можно добавить и другие возможности, установив обработчики Pandoc, MultiMarkdown или cmark. Приложение автоматически определит их установку, если расположения этих обработчиков указаны в системной переменной среды PATH. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Опции</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>Отключить аппаратное ускорение графическим процессором.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Сообщение об ошибках</title>
+  <para
+>Сообщайте об ошибках или необходимости новых возможностей по адресу <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>См. также</title>
+<simplelist>
+<member
+>Более подробные сведения о Markdown доступны по адресу <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Авторские права</title>
+<para
+>&copy; Megan Conkle, 2022</para>
+<para
+>Лицензия: стандартная общественная лицензия GNU версии 3 или более поздней версии &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
