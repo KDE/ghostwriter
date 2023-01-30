@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Italian "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manuale utente di ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>Pagina man di ghostwriter.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>17/9/2022</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>editor di testo senza distrazioni per Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>FILE</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Descrizione</title>
+  <para
+><command
+>ghostwriter</command
+> è un'applicazione di modifica del testo Qt per Markdown che fornisce un ambiente di scrittura che privilegia l'estetica e privo di distrazioni. </para>
+  <para
+>Crea i tuoi temi personalizzati, scrivi in modalità a schermo intero o usa la modalità di messa a fuoco per concentrarti solo su una o più righe. </para>
+  <para
+>Un'anteprima HTML in tempo reale consente di visualizzare la formattazione finale durante la digitazione. Le opzioni di anteprima ed esportazione HTML sono fornite dal processore integrato Markdown, cmark-gfm; ma puoi aggiungerne altri installando i processori Pandoc, MultiMarkdown o cmark. L'applicazione rileverà automaticamente la loro installazione se le loro posizioni sono nella variabile di ambiente PATH del sistema. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opzioni</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>Disabilita l'accelerazione GPU.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Segnalazione bug</title>
+  <para
+>Puoi segnalare bug e richiedere funzionalità su <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>Vedi anche</title>
+<simplelist>
+<member
+>Una documentazione utente più dettagliata su markdown è disponibile da <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2022 Megan Conkle</para>
+<para
+>Licenza: GNU General Public Version 3 o successiva &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
