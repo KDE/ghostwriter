@@ -83,15 +83,9 @@ ThemeSelectionDialog::ThemeSelectionDialog
       d_ptr(new ThemeSelectionDialogPrivate(this))
 {
     Q_D(ThemeSelectionDialog);
-    
-    qreal dpr = 1.0;
 
-#if QT_VERSION >= 0x050600
-    dpr = devicePixelRatioF();
-#endif
-
-    d->iconWidth = GW_LIST_WIDGET_ICON_WIDTH * dpr;
-    d->iconHeight = GW_LIST_WIDGET_ICON_HEIGHT * dpr;
+    d->iconWidth = GW_LIST_WIDGET_ICON_WIDTH;
+    d->iconHeight = GW_LIST_WIDGET_ICON_HEIGHT;
 
     d->darkModeEnabled = darkModeEnabled;
 
@@ -367,6 +361,7 @@ void ThemeSelectionDialogPrivate::createNewTheme()
     (
         themeEditorDialog,
         &ThemeEditorDialog::finished,
+        themeEditorDialog,
         [this, themeEditorDialog](int result) {
             Q_UNUSED(result)
             updateTheme(themeEditorDialog->theme());

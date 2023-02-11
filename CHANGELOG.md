@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Width of the drop down combo box in the export dialog is now stretched to 100% to fit all options.
 * Issue #460158: Fixed IME window displacement.
 * Fixed syntax highlighting on line breaks, including for Unicode.
+* Issue #463362: Fixed theme preview thumbnail sizes on HiDPI screens.
 
 ## [2.2.0] - 2022-09-17
 
