@@ -1593,43 +1593,43 @@ msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled %1"
 msgstr "Brez naslova %1"
 
-#: src/themeselectiondialog.cpp:98
+#: src/themeselectiondialog.cpp:92
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Teme"
 
-#: src/themeselectiondialog.cpp:147
+#: src/themeselectiondialog.cpp:141
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
 msgstr "Uredi..."
 
-#: src/themeselectiondialog.cpp:397
+#: src/themeselectiondialog.cpp:392
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
 msgstr "Ni mogoče zbrisati teme."
 
-#: src/themeselectiondialog.cpp:398
+#: src/themeselectiondialog.cpp:393
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
 msgstr "Na žalost je to vgrajena tema, ki je ni mogoče zbrisati."
 
-#: src/themeselectiondialog.cpp:409
+#: src/themeselectiondialog.cpp:404
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
 msgstr "Ali ste prepričani, da želite za stalno zbrisati temo '%1'?"
 
-#: src/themeselectiondialog.cpp:425
+#: src/themeselectiondialog.cpp:420
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
 msgstr "Brisanje teme ni uspelo."
 
-#: src/themeselectiondialog.cpp:453
+#: src/themeselectiondialog.cpp:448
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
 msgstr "Ni mogoče urejati teme."
 
-#: src/themeselectiondialog.cpp:454
+#: src/themeselectiondialog.cpp:449
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Na žalost je to vgrajena tema, ki je ni mogoče urejati."

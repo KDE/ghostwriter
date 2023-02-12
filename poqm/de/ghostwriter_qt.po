@@ -1576,43 +1576,43 @@ msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled %1"
 msgstr "Unbenannt %1"
 
-#: src/themeselectiondialog.cpp:98
+#: src/themeselectiondialog.cpp:92
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Designs"
 
-#: src/themeselectiondialog.cpp:147
+#: src/themeselectiondialog.cpp:141
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
 msgstr "Bearbeiten ..."
 
-#: src/themeselectiondialog.cpp:397
+#: src/themeselectiondialog.cpp:392
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
 msgstr "Löschen von Design ist nicht möglich."
 
-#: src/themeselectiondialog.cpp:398
+#: src/themeselectiondialog.cpp:393
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
 msgstr "Dies ist eingebautes Design und kann nicht gelöscht werden."
 
-#: src/themeselectiondialog.cpp:409
+#: src/themeselectiondialog.cpp:404
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
 msgstr "Möchten Sie wirklich das Design „%1” dauerhaft entfernen?"
 
-#: src/themeselectiondialog.cpp:425
+#: src/themeselectiondialog.cpp:420
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
 msgstr "Das Design kann nicht gelöscht werden."
 
-#: src/themeselectiondialog.cpp:453
+#: src/themeselectiondialog.cpp:448
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
 msgstr "Design kann nicht bearbeitet werden."
 
-#: src/themeselectiondialog.cpp:454
+#: src/themeselectiondialog.cpp:449
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Dies ist eingebautes Design und kann nicht bearbeitet werden."

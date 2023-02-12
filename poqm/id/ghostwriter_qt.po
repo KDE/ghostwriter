@@ -1575,43 +1575,43 @@ msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled %1"
 msgstr "Tidak Berjudul %1"
 
-#: src/themeselectiondialog.cpp:98
+#: src/themeselectiondialog.cpp:92
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Tema"
 
-#: src/themeselectiondialog.cpp:147
+#: src/themeselectiondialog.cpp:141
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
 msgstr "Sunting..."
 
-#: src/themeselectiondialog.cpp:397
+#: src/themeselectiondialog.cpp:392
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
 msgstr "Tidak dapat menghapus tema."
 
-#: src/themeselectiondialog.cpp:398
+#: src/themeselectiondialog.cpp:393
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
 msgstr "Maaf, ini adalah sebuah tema tersemat yang tidak dapat dihapus."
 
-#: src/themeselectiondialog.cpp:409
+#: src/themeselectiondialog.cpp:404
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
 msgstr "Apakah Anda yakin ingin menghapus tema '%1' secara permanen?"
 
-#: src/themeselectiondialog.cpp:425
+#: src/themeselectiondialog.cpp:420
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
 msgstr "Gagal menghapus tema."
 
-#: src/themeselectiondialog.cpp:453
+#: src/themeselectiondialog.cpp:448
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
 msgstr "Tidak dapat menyunting tema."
 
-#: src/themeselectiondialog.cpp:454
+#: src/themeselectiondialog.cpp:449
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Maaf, ini adalah tema tersemat yang tidak dapat disunting."
