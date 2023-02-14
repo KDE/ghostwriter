@@ -1313,7 +1313,7 @@ msgstr "მინიატურა"
 #: src/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr ""
+msgstr "მხოლოდ მონოსიგანური ფონტების ჩვენება"
 
 #: src/spelling/spellcheckdecorator.cpp:248
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1468,7 +1468,7 @@ msgstr ""
 #: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
-msgstr ""
+msgstr "მონიშნული"
 
 #: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
