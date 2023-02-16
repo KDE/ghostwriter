@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-02-07 11:03\n"
+"PO-Revision-Date: 2023-02-15 11:05\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -28,13 +28,13 @@ msgstr ""
 #: src/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "250 words per page"
-msgstr ""
+msgstr "每页250个单词"
 
 #: src/abstractstatisticswidget.cpp:52
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
-msgstr ""
+msgstr "%1 小时 %2 分钟"
 
 #: src/abstractstatisticswidget.cpp:54
 #, qt-format
@@ -45,241 +45,241 @@ msgstr ""
 #: src/appmain.cpp:75
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr ""
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr ""
+msgstr "Markdown 编辑器"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "FocusWriter 开发人员，其 Qt 代码指导了我"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "ReText 开发者，其算法有极大的帮助"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
 msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
-msgstr ""
+msgstr "StretchPlayer 开发人员，他的应用程序向我展示了如何在Qt中制作无框架窗口"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "UberWriter (现为Apostrophe) 开发者提供灵感"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "其它贡献者"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
 msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
-msgstr ""
+msgstr "多年来提供翻译、文档、错误修正或新功能的每个人"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "CommonMark 的 C 参考实现的扩展版本"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "一个用于创建用户界面的 JavaScript 库"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Qt 应用程序字体支持"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "用于数学的 JavaScript 显示引擎"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "版权所有 2014-%1 ghostwriter 团队"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
-msgstr ""
+msgstr "欢迎使用 Ghostwriter！"
 
 #: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr ""
+msgstr "(可选) 要打开的文件"
 
 #: src/appmain.cpp:155
 msgctxt "main|"
 msgid "Disables GPU acceleration."
-msgstr ""
+msgstr "禁用 GPU 加速"
 
 #: src/cmarkgfmexporter.cpp:50
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr ""
+msgstr "cmark-gfm 处理器不支持 %1 格式。"
 
 #: src/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
 msgid "Export failed"
-msgstr ""
+msgstr "导出失败"
 
 #: src/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr ""
+msgstr "导出失败："
 
 #: src/commandlineexporter.cpp:167
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
-msgstr ""
+msgstr "此处理器不支持 %1 格式。"
 
 #: src/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr ""
+msgstr "命令执行失败："
 
 #: src/documentmanager.cpp:54
 msgctxt "ghostwriter::DocumentManager|"
 msgid "untitled"
-msgstr ""
+msgstr "无标题"
 
 #: src/documentmanager.cpp:164
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Markdown"
-msgstr ""
+msgstr "Markdown"
 
 #: src/documentmanager.cpp:165
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Text"
-msgstr ""
+msgstr "文本"
 
 #: src/documentmanager.cpp:166
 msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: src/documentmanager.cpp:220 src/documentmanager.cpp:715
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr ""
+msgstr "保存 %1 时出错"
 
 #: src/documentmanager.cpp:357
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
-msgstr ""
+msgstr "打开文件"
 
 #: src/documentmanager.cpp:370
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
-msgstr ""
+msgstr "无法打开 %1"
 
 #: src/documentmanager.cpp:371
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Permission denied."
-msgstr ""
+msgstr "权限被拒绝。"
 
 #: src/documentmanager.cpp:433
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
-msgstr ""
+msgstr "该文档已被修改。"
 
 #: src/documentmanager.cpp:434
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
-msgstr ""
+msgstr "丢弃修改？"
 
 #: src/documentmanager.cpp:465
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
-msgstr ""
+msgstr "重命名文件"
 
 #: src/documentmanager.cpp:482 src/documentmanager.cpp:495
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr ""
+msgstr "重命名 %1 失败"
 
 #: src/documentmanager.cpp:544
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
-msgstr ""
+msgstr "保存文件"
 
 #: src/documentmanager.cpp:681
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
-msgstr ""
+msgstr "文档已被其他程序修改。"
 
 #: src/documentmanager.cpp:682
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
-msgstr ""
+msgstr "您想要重新加载文档吗？"
 
 #: src/documentmanager.cpp:716
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr ""
+msgstr "未指定文件路径"
 
 #: src/documentmanager.cpp:732 src/documentmanager.cpp:771
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr ""
+msgstr "无法读取 %1"
 
 #: src/documentmanager.cpp:753
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
-msgstr ""
+msgstr "正在打开 %1"
 
 #: src/documentmanager.cpp:860
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
-msgstr ""
+msgstr "文件已被修改。"
 
 #: src/documentmanager.cpp:862
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr ""
+msgstr "%1 已被修改。"
 
 #: src/documentmanager.cpp:871
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
-msgstr ""
+msgstr "您是否想要保存您的更改？"
 
 #: src/documentmanager.cpp:902
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr ""
+msgstr "%1 只读。"
 
 #: src/documentmanager.cpp:903
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
-msgstr ""
+msgstr "覆盖受保护的文件？"
 
 #: src/documentmanager.cpp:922
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
-msgstr ""
+msgstr "覆盖失败。"
 
 #: src/documentmanager.cpp:923
 msgctxt "ghostwriter::DocumentManager|"
@@ -522,252 +522,252 @@ msgstr ""
 #: src/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
-msgstr ""
+msgstr "请重新安装此应用程序以获取更多语言选项。"
 
 #: src/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "对不起！"
 
 #: src/localedialog.cpp:133
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "无法加载翻译。"
 
 #: src/localedialog.cpp:139
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr ""
+msgstr "请重新启动应用程序让更改生效"
 
 #: src/mainwindow.cpp:893
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
-msgstr ""
+msgstr "文件(&F)"
 
 #: src/mainwindow.cpp:895
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
-msgstr ""
+msgstr "新建(&N)"
 
 #: src/mainwindow.cpp:896
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
-msgstr ""
+msgstr "打开(&O)"
 
 #: src/mainwindow.cpp:898
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
-msgstr ""
+msgstr "打开最近使用的(&R)..."
 
 #: src/mainwindow.cpp:899
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
-msgstr ""
+msgstr "重新打开关闭的文件"
 
 #: src/mainwindow.cpp:907
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
-msgstr ""
+msgstr "清除菜单"
 
 #: src/mainwindow.cpp:912
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
-msgstr ""
+msgstr "保存(&S)"
 
 #: src/mainwindow.cpp:913
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
-msgstr ""
+msgstr "另存为(&A)"
 
 #: src/mainwindow.cpp:914
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
-msgstr ""
+msgstr "重命名(&E)"
 
 #: src/mainwindow.cpp:915
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
-msgstr ""
+msgstr "从文件加载(&l)"
 
 #: src/mainwindow.cpp:917
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
-msgstr ""
+msgstr "导出(&E)"
 
 #: src/mainwindow.cpp:919
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
-msgstr ""
+msgstr "退出(&Q)"
 
 #: src/mainwindow.cpp:923
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
-msgstr ""
+msgstr "编辑(&E)"
 
 #: src/mainwindow.cpp:924
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
-msgstr ""
+msgstr "撤销(&U)"
 
 #: src/mainwindow.cpp:925
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
-msgstr ""
+msgstr "重做(&R)"
 
 #: src/mainwindow.cpp:927
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
-msgstr ""
+msgstr "剪切(&T)"
 
 #: src/mainwindow.cpp:928
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
-msgstr ""
+msgstr "复制(&C)"
 
 #: src/mainwindow.cpp:929
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
-msgstr ""
+msgstr "粘贴(&P)"
 
 #: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "复制为 &HTML"
 
 #: src/mainwindow.cpp:932
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
-msgstr ""
+msgstr "插入图像(&I)"
 
 #: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
-msgstr ""
+msgstr "查找(&F)"
 
 #: src/mainwindow.cpp:936
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
-msgstr ""
+msgstr "替换(&L)"
 
 #: src/mainwindow.cpp:937
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
-msgstr ""
+msgstr "查找下一个(&N)"
 
 #: src/mainwindow.cpp:938
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
-msgstr ""
+msgstr "查找上一个(&P)"
 
 #: src/mainwindow.cpp:940
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
-msgstr ""
+msgstr "&拼写检查"
 
 #: src/mainwindow.cpp:942
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
-msgstr ""
+msgstr "格式(&M)"
 
 #: src/mainwindow.cpp:943
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
-msgstr ""
+msgstr "粗体(&B)"
 
 #: src/mainwindow.cpp:944
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
-msgstr ""
+msgstr "斜体(&I)"
 
 #: src/mainwindow.cpp:945
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
-msgstr ""
+msgstr "删除(&K)"
 
 #: src/mainwindow.cpp:946
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
-msgstr ""
+msgstr "&HTML 注释"
 
 #: src/mainwindow.cpp:949
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
-msgstr ""
+msgstr "身份(&N)"
 
 #: src/mainwindow.cpp:950
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
-msgstr ""
+msgstr "减少缩进(&U)"
 
 #: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
-msgstr ""
+msgstr "块引用(&Q)"
 
 #: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr ""
+msgstr "删除块引用(&S)"
 
 #: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
-msgstr ""
+msgstr "&* 项目符号"
 
 #: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
-msgstr ""
+msgstr "&- 项目符号"
 
 #: src/mainwindow.cpp:957
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
-msgstr ""
+msgstr "&+ 项目符号"
 
 #: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
-msgstr ""
+msgstr "1&. 有序列表"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
-msgstr ""
+msgstr "1&) 有序列表"
 
 #: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
-msgstr ""
+msgstr "任务列表(&T)"
 
 #: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr ""
+msgstr "切换任务完成状态(&C)"
 
 #: src/mainwindow.cpp:966
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
-msgstr ""
+msgstr "视图(&V)"
 
 #: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
-msgstr ""
+msgstr "全屏(&F)"
 
 #: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
-msgstr ""
+msgstr "预览HTML(&P)"
 
 #: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
-msgstr ""
+msgstr "大纲(&O)"
 
 #: src/mainwindow.cpp:994
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
-msgstr ""
+msgstr "会话统计(&S)"
 
 #: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
@@ -1023,22 +1023,22 @@ msgstr ""
 #: src/preferencesdialog.cpp:71
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "General"
-msgstr ""
+msgstr "通用"
 
 #: src/preferencesdialog.cpp:72
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Editor"
-msgstr ""
+msgstr "编辑器"
 
 #: src/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
-msgstr ""
+msgstr "拼写检查"
 
 #: src/preferencesdialog.cpp:94
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr ""
+msgstr "匹配的字符"
 
 #: src/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
