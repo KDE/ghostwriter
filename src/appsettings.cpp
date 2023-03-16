@@ -774,10 +774,11 @@ AppSettings::AppSettings()
 
     QString exporterName = appSettings.value(GW_LAST_USED_EXPORTER_KEY).toString();
     d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
-    d->currentHtmlExporter->setOptions(appSettings.value(GW_LAST_USED_EXPORTER_PARAMS_KEY).toString());
 
     if (nullptr == d->currentHtmlExporter) {
         d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
+    } else {
+        d->currentHtmlExporter->setOptions(appSettings.value(GW_LAST_USED_EXPORTER_PARAMS_KEY).toString());
     }
 }
 
