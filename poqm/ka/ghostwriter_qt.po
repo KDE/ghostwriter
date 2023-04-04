@@ -92,7 +92,7 @@ msgstr ""
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "JavaScript-ის ბიბლიოთეკა მომხმარებლის ინტერფეისის ასაგებად"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
@@ -102,7 +102,7 @@ msgstr ""
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "JavaScript-ის ჩვენების ძრავა მათემატიკისთვის"
 
 #: src/appmain.cpp:131
 #, qt-format
@@ -145,7 +145,7 @@ msgstr "გატანის შეცდომა: "
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
-msgstr ""
+msgstr "%1 ფორმატი ამ პროცესორის მიერ მხარდაჭერილი არაა."
 
 #: src/commandlineexporter.cpp:191
 msgctxt "QObject|"
@@ -362,7 +362,7 @@ msgstr ""
 #: src/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Grade Level:"
-msgstr ""
+msgstr "სირთულის დონე:"
 
 #: src/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -428,7 +428,7 @@ msgstr "გატანის შეცდომა."
 #: src/exporter.cpp:72
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
-msgstr ""
+msgstr "HTML-ში გატანა ამ პროცესორის მიერ მხარდაჭერილი არაა."
 
 #: src/findreplace.cpp:97
 msgctxt "ghostwriter::FindReplace|"
@@ -506,7 +506,7 @@ msgstr "%1 ემთხვევა"
 #: src/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr ""
+msgstr "შეცდომა resources/preview.html-ის ჩატვირთვისას"
 
 #: src/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
@@ -711,27 +711,27 @@ msgstr ""
 #: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
-msgstr ""
+msgstr "&* დანიშნული სია"
 
 #: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
-msgstr ""
+msgstr "&- დანიშნული სია"
 
 #: src/mainwindow.cpp:957
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
-msgstr ""
+msgstr "&+ დანიშნული სია"
 
 #: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
-msgstr ""
+msgstr "1&. დანომრილი სია"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
-msgstr ""
+msgstr "1&) დანორილი"
 
 #: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
@@ -741,7 +741,7 @@ msgstr "&ამოცანების სია"
 #: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr ""
+msgstr "ამოცანის &დასრულებულად მონიშვნა"
 
 #: src/mainwindow.cpp:966
 msgctxt "ghostwriter::MainWindow|"
@@ -756,12 +756,12 @@ msgstr "&მთელს ეკრანზე"
 #: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
-msgstr ""
+msgstr "მინიატურა &HTML-ში"
 
 #: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
-msgstr ""
+msgstr "&კონტური"
 
 #: src/mainwindow.cpp:994
 msgctxt "ghostwriter::MainWindow|"
@@ -776,7 +776,7 @@ msgstr "&დოკუმენტის სტატისტიკა"
 #: src/mainwindow.cpp:1012
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
-msgstr ""
+msgstr "&მინიშნებები"
 
 #: src/mainwindow.cpp:1023
 msgctxt "ghostwriter::MainWindow|"
@@ -811,7 +811,7 @@ msgstr "აპლიკაციის ენა..."
 #: src/mainwindow.cpp:1030 src/mainwindow.cpp:1341
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
-msgstr ""
+msgstr "მინიატურის მორგება..."
 
 #: src/mainwindow.cpp:1031 src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
@@ -841,22 +841,22 @@ msgstr "გვერდითი ზოლის ჩართ/გამორთ
 #: src/mainwindow.cpp:1153
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
-msgstr ""
+msgstr "მუქი რეჟიმის გადართვა"
 
 #: src/mainwindow.cpp:1172
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
-msgstr ""
+msgstr "ცოცხალი HTML მინიატურის გადართვა"
 
 #: src/mainwindow.cpp:1192
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
-msgstr ""
+msgstr "ჰემინგუეის რეჟიმის გადართვა"
 
 #: src/mainwindow.cpp:1200
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
-msgstr ""
+msgstr "ყურადღების არა-გაფანტვის რეჟიმის გადართვა"
 
 #: src/mainwindow.cpp:1209
 msgctxt "ghostwriter::MainWindow|"
@@ -871,32 +871,32 @@ msgstr "გვერდითა ზოლის ჩვენება"
 #: src/mainwindow.cpp:1249
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
-msgstr ""
+msgstr "# სათაური 1"
 
 #: src/mainwindow.cpp:1250
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
-msgstr ""
+msgstr "## სათაური 2"
 
 #: src/mainwindow.cpp:1251
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
-msgstr ""
+msgstr "### სათაური 3"
 
 #: src/mainwindow.cpp:1252
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
-msgstr ""
+msgstr "#### სათაური 4"
 
 #: src/mainwindow.cpp:1253
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
-msgstr ""
+msgstr "##### სათაური 5"
 
 #: src/mainwindow.cpp:1254
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
-msgstr ""
+msgstr "###### სათაური 6"
 
 #: src/mainwindow.cpp:1255
 msgctxt "ghostwriter::MainWindow|"
@@ -911,32 +911,32 @@ msgstr ""
 #: src/mainwindow.cpp:1257
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
-msgstr ""
+msgstr "1. დანომრილი სია"
 
 #: src/mainwindow.cpp:1258
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
-msgstr ""
+msgstr "* დანიშნული სია"
 
 #: src/mainwindow.cpp:1259
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
-msgstr ""
+msgstr "+ დანიშნული სია"
 
 #: src/mainwindow.cpp:1260
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
-msgstr ""
+msgstr "- დანიშნული სია"
 
 #: src/mainwindow.cpp:1261
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
-msgstr ""
+msgstr "> ციტატა"
 
 #: src/mainwindow.cpp:1262
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
-msgstr ""
+msgstr "`კოდი`"
 
 #: src/mainwindow.cpp:1263
 msgctxt "ghostwriter::MainWindow|"
@@ -966,7 +966,7 @@ msgstr "![Image](./image.jpg \"სათაური\")"
 #: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
-msgstr ""
+msgstr "--- *** ___ ჰორიზონტალური სახაზავი"
 
 #: src/mainwindow.cpp:1318
 msgctxt "ghostwriter::MainWindow|"
@@ -986,7 +986,7 @@ msgstr "დოკუმენტის სტატისტიკა"
 #: src/mainwindow.cpp:1321
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
-msgstr ""
+msgstr "მინიშნებების გვერდი"
 
 #: src/mainwindow.cpp:1331
 msgctxt "ghostwriter::MainWindow|"
@@ -1037,7 +1037,7 @@ msgstr "მართლწერის შემოწმება"
 #: src/preferencesdialog.cpp:94
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr ""
+msgstr "შესაბამისი სიმბოლოები"
 
 #: src/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1047,12 +1047,12 @@ msgstr "ჩვენება"
 #: src/preferencesdialog.cpp:183
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Show current time in full screen mode"
-msgstr ""
+msgstr "მთელი ეკრანის რეჟიმში დროის ჩვენება"
 
 #: src/preferencesdialog.cpp:189
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Hide menu bar in full screen mode"
-msgstr ""
+msgstr "მთელი ეკრანის რეჟიმში მენიუს დამალვა"
 
 #: src/preferencesdialog.cpp:196
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1082,7 +1082,7 @@ msgstr "ავტომატური შენახვა"
 #: src/preferencesdialog.cpp:223
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Backup file on save"
-msgstr ""
+msgstr "მარქაფი შენახვისას"
 
 #: src/preferencesdialog.cpp:229
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1097,7 +1097,7 @@ msgstr "სესია"
 #: src/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Remember recent files"
-msgstr ""
+msgstr "უახლესი ფაილების დამახსოვრება"
 
 #: src/preferencesdialog.cpp:251
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1112,12 +1112,12 @@ msgstr "ტაბულაცია"
 #: src/preferencesdialog.cpp:280
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Insert spaces for tabs"
-msgstr ""
+msgstr "ტაბულაციის მაგიერ გამოტოვებების ჩასმა"
 
 #: src/preferencesdialog.cpp:295
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Tabulation width"
-msgstr ""
+msgstr "ტაბულაციის სიგანე"
 
 #: src/preferencesdialog.cpp:297
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1192,7 +1192,7 @@ msgstr "დახრილი"
 #: src/preferencesdialog.cpp:351
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Blockquote style"
-msgstr ""
+msgstr "ციტატის სტილი"
 
 #: src/preferencesdialog.cpp:355
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1202,12 +1202,12 @@ msgstr "ქვედა ტირე"
 #: src/preferencesdialog.cpp:366
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Emphasis style"
-msgstr ""
+msgstr "მონიშვნის სტილი"
 
 #: src/preferencesdialog.cpp:368
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Use large headings"
-msgstr ""
+msgstr "დიდი სათაურების გამოყენება"
 
 #: src/preferencesdialog.cpp:374
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1217,12 +1217,12 @@ msgstr "აკრეფა"
 #: src/preferencesdialog.cpp:380
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Cycle bullet point markers"
-msgstr ""
+msgstr "დანისნულ სიაში ციკლური გადასვლა"
 
 #: src/preferencesdialog.cpp:386
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Automatically match characters"
-msgstr ""
+msgstr "სიმბოლოების ავტომატური დამთხვევა"
 
 #: src/preferencesdialog.cpp:392
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1463,7 +1463,7 @@ msgstr "აქცენტი"
 #: src/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
-msgstr ""
+msgstr "სათაური"
 
 #: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1473,7 +1473,7 @@ msgstr "მონიშნული"
 #: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
-msgstr ""
+msgstr "ციტატის ტექსტი"
 
 #: src/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1539,12 +1539,12 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr ""
+msgstr "თემა '%1' უკვე არსებობს.  აირჩეთ სხვა სახელი."
 
 #: src/themerepository.cpp:255
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
-msgstr ""
+msgstr "თემის სახელის გადარქმევის შეცდომა.  გადაამოწმეთ ფაილის წვდომები."
 
 #: src/themerepository.cpp:293
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1552,6 +1552,8 @@ msgid ""
 "Theme could not be saved to disk.  Please check file permissions or try "
 "renaming the theme."
 msgstr ""
+"თემის დისკზე შენახვა შეუძლებელია.  შეამოწმეთ ფაილის წვდომები ან სახელი "
+"გადაარქვით თემას."
 
 #: src/themerepository.cpp:323
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1582,7 +1584,7 @@ msgstr "თემის წაშლის შეცდომა."
 #: src/themeselectiondialog.cpp:393
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
-msgstr ""
+msgstr "უკაცრავად, ეს ჩაშენებული თემაა, რომელსაც ვერ წაშლით."
 
 #: src/themeselectiondialog.cpp:404
 #, qt-format
@@ -1603,7 +1605,7 @@ msgstr "თემის ჩასწორების შეცდომა."
 #: src/themeselectiondialog.cpp:449
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
-msgstr ""
+msgstr "უკაცრავად, ეს ჩაშენებული თემაა, რომელსაც ვერ ჩაასწორებთ."
 
 #~ msgctxt "ghostwriter::MainWindow|"
 #~ msgid "All Files"
