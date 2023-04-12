@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -279,7 +279,21 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
         this
     );
 
-    connect(editor, SIGNAL(textChanged()), htmlPreview, SLOT(updatePreview()));
+    connect(editor,
+        &MarkdownEditor::typingPausedScaled,
+        htmlPreview,
+        &HtmlPreview::updatePreview);
+
+    connect(documentManager,
+        &DocumentManager::documentLoaded,
+        htmlPreview,
+        &HtmlPreview::updatePreview);
+
+    connect(documentManager,
+        &DocumentManager::documentClosed,
+        htmlPreview,
+        &HtmlPreview::updatePreview);
+
     connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
     connect(appSettings, SIGNAL(currentHtmlExporterChanged(Exporter *)), htmlPreview, SLOT(setHtmlExporter(Exporter *)));
 
@@ -356,8 +370,6 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     if (!fileToOpen.isNull() && !fileToOpen.isEmpty()) {
         documentManager->open(fileToOpen);
     }
-
-    spelling->startLiveSpellCheck();
 }
 
 MainWindow::~MainWindow()
@@ -1403,6 +1415,7 @@ void MainWindow::applyTheme()
 
     StyleSheetBuilder styler(colorScheme,
         (InterfaceStyleRounded == appSettings->interfaceStyle()),
+        appSettings->editorFont(),
         appSettings->previewTextFont(),
         appSettings->previewCodeFont());
 

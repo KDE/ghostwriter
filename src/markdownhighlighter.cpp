@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -145,7 +145,7 @@ void MarkdownHighlighter::highlightBlock(const QString &text)
     if ((nullptr != node) && (MarkdownNode::Invalid != node->type())) {
         d->applyFormattingForNode(node);
     } else {
-        setFormat(0, currentBlock().length(), d->colors.foreground);
+        // setFormat(0, currentBlock().length(), d->colors.foreground);
 
         if (currentBlock().text().trimmed().isEmpty()) {
             setCurrentBlockState(MarkdownStateParagraphBreak);
@@ -270,7 +270,6 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
     MarkdownState state = MarkdownStateParagraphBreak;
 
     QTextCharFormat baseFormat = defaultFormat;
-    baseFormat.setForeground(colors.foreground);
 
     unsigned int indent = 0;
     QString text = q->currentBlock().text();
@@ -296,12 +295,6 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
         );
 
         baseFormat.setForeground(colors.blockquoteText);
-    } else {
-        q->setFormat(
-            0,
-            q->currentBlock().length(),
-            baseFormat
-        );
     }
 
     // Do a pre-order traversal of the nodes.
@@ -312,7 +305,10 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
 
     while (!nodes.isEmpty()) {
         const MarkdownNode *current = nodes.pop();
-        QTextCharFormat contextFormat = nodeFormats.pop();
+        QTextCharFormat contextFormat;
+        
+        contextFormat = nodeFormats.pop();
+
         MarkdownNode::NodeType parentType = MarkdownNode::Invalid;
 
         if (nullptr != current->parent()) {

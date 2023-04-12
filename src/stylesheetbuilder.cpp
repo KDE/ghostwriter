@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2020-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2020-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -81,6 +81,7 @@ QString StyleSheetBuilder::m_statIndicatorArrowIconPath = QString();
 
 StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
         const bool roundedCorners,
+        const QFont &editorFont,
         const QFont &previewTextFont,
         const QFont &previewCodeFont)
 {
@@ -89,8 +90,10 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
 
     bool lightMode = (luminance(colors.background) > luminance(colors.foreground));
 
+    m_styleSheetVariables["$editor-font-family"] = sanitizeFontFamily(editorFont);
     m_styleSheetVariables["$body-font-family"] = sanitizeFontFamily(previewTextFont);
     m_styleSheetVariables["$code-font-family"] = sanitizeFontFamily(previewCodeFont);
+    m_styleSheetVariables["$editor-font-size"] = QString("%1pt").arg(editorFont.pointSize());
     m_styleSheetVariables["$body-font-size"] = QString("%1pt").arg(previewTextFont.pointSize());
     m_styleSheetVariables["$code-font-size"] = QString("%1pt").arg(previewCodeFont.pointSize());
 

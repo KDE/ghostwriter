@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
  * SPDX-FileCopyrightText: 2012 Dmitry Shachnev
  *
@@ -222,8 +222,13 @@ public:
     bool typingPausedSignalSent;
     bool typingPausedScaledSignalSent;
 
+    // Flag to track when a document change is due to a setPlainText() call
+    // versus the user editing the document.
+    bool loadingDocument;
+
     void toggleCursorBlink();
     void parseDocument();
+    void parseText(const QString &text);
 
     void handleCarriageReturn();
     bool handleBackspaceKey();
@@ -293,6 +298,7 @@ MarkdownEditor::MarkdownEditor
     d->autoMatchEnabled = true;
     d->bulletPointCyclingEnabled = true;
     d->mouseButtonDown = false;
+    d->loadingDocument = false;
 
     this->setDocument(textDocument);
     this->setAcceptDrops(true);
@@ -637,6 +643,18 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         painter.fillRect(cursorRect(), QBrush(d->cursorColor));
         painter.end();
     }
+}
+
+void MarkdownEditor::setPlainText(const QString &text)
+{
+    Q_D(MarkdownEditor);
+
+    d->parseText(text);
+    d->loadingDocument = true;
+    d->typingHasPaused = true;
+    d->scaledTypingHasPaused = true;
+    QPlainTextEdit::setPlainText(text);
+    d->loadingDocument = false;
 }
 
 QLayout *MarkdownEditor::preferredLayout()
@@ -1645,21 +1663,25 @@ void MarkdownEditor::decreaseFontSize()
     emit fontSizeChanged(fontSize);
 }
 
-void MarkdownEditor::onContentsChanged(int position, int charsAdded, int charsRemoved)
+void MarkdownEditor::onContentsChanged(int position, int charsRemoved, int charsAdded)
 {
     Q_D(MarkdownEditor);
     
     Q_UNUSED(position)
-    Q_UNUSED(charsAdded)
     Q_UNUSED(charsRemoved)
+    Q_UNUSED(charsAdded)
+
+    if (d->loadingDocument) {
+        return;
+    }
 
     d->parseDocument();
 
-    // Don't use the textChanged() or contentsChanged() (no parameters) signals:
+    // Don't use the textChanged() or contentsChanged() (no parameters) signals
     // for checking if the typingResumed() signal needs to be emitted.  These
-    // two signals: are emitted even when the text formatting changes (i.e.,
+    // two signals are emitted even when the text formatting changes (i.e.,
     // when the QSyntaxHighlighter formats the text). Instead, use QTextDocument's
-    // onContentsChanged(int, int, int) signal, which is only emitted when the
+    // contentsChange(int, int, int) signal, which is only emitted when the
     // document text actually changes.
     //
     if (d->typingHasPaused || d->scaledTypingHasPaused) {
@@ -1787,8 +1809,8 @@ void MarkdownEditor::focusText()
 void MarkdownEditor::checkIfTypingPaused()
 {
     Q_D(MarkdownEditor);
-    
-    if (d->typingHasPaused && !d->typingPausedSignalSent) {
+
+    if (!d->loadingDocument && d->typingHasPaused && !d->typingPausedSignalSent) {
         d->typingPausedSignalSent = true;
         emit typingPaused();
     }
@@ -1803,7 +1825,7 @@ void MarkdownEditor::checkIfTypingPausedScaled()
 {
     Q_D(MarkdownEditor);
     
-    if (d->scaledTypingHasPaused && !d->typingPausedScaledSignalSent) {
+    if (!d->loadingDocument && d->scaledTypingHasPaused && !d->typingPausedScaledSignalSent) {
         d->typingPausedScaledSignalSent = true;
         emit typingPausedScaled();
     }
@@ -1863,11 +1885,18 @@ void MarkdownEditorPrivate::toggleCursorBlink()
 void MarkdownEditorPrivate::parseDocument()
 {
     Q_Q(MarkdownEditor);
+
+    parseText(q->document()->toPlainText());
+}
+
+void MarkdownEditorPrivate::parseText(const QString &text)
+{
+    Q_Q(MarkdownEditor);
     
     MarkdownAST *ast =
         CmarkGfmAPI::instance()->parse
         (
-            q->document()->toPlainText(),
+            text,
             false
         );
 

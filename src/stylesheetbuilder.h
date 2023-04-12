@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2020-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2020-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -96,6 +96,11 @@ namespace ghostwriter
  *      scrollbar radius in pixels for rounded interface;
  *      zero for square interface
  *
+ * $editor-font-family
+ *      text editor font family
+ * $editor-font-size
+ *      text editor font point size
+ * 
  * $heading-color
  *      text heading color used in HTML preview
  * $code-color
@@ -138,6 +143,7 @@ public:
      */
     StyleSheetBuilder(const ColorScheme &colors,
         const bool roundedCorners,
+        const QFont &editorFont,
         const QFont& previewTextFont,
         const QFont& previewCodeFont);
 

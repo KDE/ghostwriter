@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -54,6 +54,13 @@ public:
      * cursor color via the "color" style sheet property.
      */
     void paintEvent(QPaintEvent *event) override;
+
+    /**
+     * Overrides setPlainText() to ensure the Markdown parser is invoked
+     * only once and not for each text change as the full document text
+     * is loaded.
+    */
+    void setPlainText(const QString &text);
 
     /**
      * This editor has a preferred layout that is used to center the text
@@ -362,7 +369,7 @@ public slots:
     void decreaseFontSize();
 
 protected slots:
-    void onContentsChanged(int position, int charsAdded, int charsRemoved);
+    void onContentsChanged(int position, int charsRemoved, int charsAdded);
     void onSelectionChanged();
     void focusText();
     void checkIfTypingPaused();
