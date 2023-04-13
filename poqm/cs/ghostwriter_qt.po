@@ -537,457 +537,457 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr ""
 
-#: src/mainwindow.cpp:893
+#: src/mainwindow.cpp:905
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Soubor"
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:907
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Nový"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:908
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Otevřít"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:910
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Otevřít ne&dávné..."
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr ""
 
-#: src/mainwindow.cpp:907
+#: src/mainwindow.cpp:919
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr ""
 
-#: src/mainwindow.cpp:912
+#: src/mainwindow.cpp:924
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Uložit"
 
-#: src/mainwindow.cpp:913
+#: src/mainwindow.cpp:925
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Uložit j&ako..."
 
-#: src/mainwindow.cpp:914
+#: src/mainwindow.cpp:926
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "Př&ejmenovat..."
 
-#: src/mainwindow.cpp:915
+#: src/mainwindow.cpp:927
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "Znovu načíst z dis&ku..."
 
-#: src/mainwindow.cpp:917
+#: src/mainwindow.cpp:929
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Exportovat"
 
-#: src/mainwindow.cpp:919
+#: src/mainwindow.cpp:931
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "U&končit"
 
-#: src/mainwindow.cpp:923
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Upravit"
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:936
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "&Zpět"
 
-#: src/mainwindow.cpp:925
+#: src/mainwindow.cpp:937
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "&Vpřed"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:939
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "Vyjmou&t"
 
-#: src/mainwindow.cpp:928
+#: src/mainwindow.cpp:940
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Kopírovat"
 
-#: src/mainwindow.cpp:929
+#: src/mainwindow.cpp:941
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "V&ložit"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:942
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr ""
 
-#: src/mainwindow.cpp:932
+#: src/mainwindow.cpp:944
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "Vlož&it obrázek..."
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:947
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "Na&jít"
 
-#: src/mainwindow.cpp:936
+#: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "Na&hradit"
 
-#: src/mainwindow.cpp:937
+#: src/mainwindow.cpp:949
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Najít &následující"
 
-#: src/mainwindow.cpp:938
+#: src/mainwindow.cpp:950
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Najít &předchozí"
 
-#: src/mainwindow.cpp:940
+#: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "Kontrola pravopi&su"
 
-#: src/mainwindow.cpp:942
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "For&mát"
 
-#: src/mainwindow.cpp:943
+#: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "T&učné"
 
-#: src/mainwindow.cpp:944
+#: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "K&urzíva"
 
-#: src/mainwindow.cpp:945
+#: src/mainwindow.cpp:957
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "Přeš&krtnuté"
 
-#: src/mainwindow.cpp:946
+#: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr ""
 
-#: src/mainwindow.cpp:949
+#: src/mainwindow.cpp:961
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "Odsa&dit"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "Zr&ušit odsazení"
 
-#: src/mainwindow.cpp:952
+#: src/mainwindow.cpp:964
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr ""
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr ""
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:967
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "&* Seznam s odrážkami"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "&- Seznam s odrážkami"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "&+ Seznam s odrážkami"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr ""
 
-#: src/mainwindow.cpp:960
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr ""
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr ""
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr ""
 
-#: src/mainwindow.cpp:966
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "Po&hled"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:980
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "Na &celou obrazovku"
 
-#: src/mainwindow.cpp:976
+#: src/mainwindow.cpp:988
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr ""
 
-#: src/mainwindow.cpp:984
+#: src/mainwindow.cpp:996
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "&Obrys"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:1006
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr ""
 
-#: src/mainwindow.cpp:1003
+#: src/mainwindow.cpp:1015
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr ""
 
-#: src/mainwindow.cpp:1012
+#: src/mainwindow.cpp:1024
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr ""
 
-#: src/mainwindow.cpp:1023
+#: src/mainwindow.cpp:1035
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Zvětšit velikost písma"
 
-#: src/mainwindow.cpp:1024
+#: src/mainwindow.cpp:1036
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Zmenšit velikost písma"
 
-#: src/mainwindow.cpp:1026
+#: src/mainwindow.cpp:1038
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "Na&stavení"
 
-#: src/mainwindow.cpp:1027 src/mainwindow.cpp:1338
+#: src/mainwindow.cpp:1039 src/mainwindow.cpp:1350
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Motivy..."
 
-#: src/mainwindow.cpp:1028 src/mainwindow.cpp:1339
+#: src/mainwindow.cpp:1040 src/mainwindow.cpp:1351
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Písmo..."
 
-#: src/mainwindow.cpp:1029 src/mainwindow.cpp:1340
+#: src/mainwindow.cpp:1041 src/mainwindow.cpp:1352
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr ""
 
-#: src/mainwindow.cpp:1030 src/mainwindow.cpp:1341
+#: src/mainwindow.cpp:1042 src/mainwindow.cpp:1353
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Možnosti náhledů..."
 
-#: src/mainwindow.cpp:1031 src/mainwindow.cpp:1342
+#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Předvolby..."
 
-#: src/mainwindow.cpp:1037
+#: src/mainwindow.cpp:1049
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "Nápo&věda"
 
-#: src/mainwindow.cpp:1047
+#: src/mainwindow.cpp:1059
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr ""
 
-#: src/mainwindow.cpp:1048
+#: src/mainwindow.cpp:1060
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1096
+#: src/mainwindow.cpp:1108
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Přepnout postranní panel"
 
-#: src/mainwindow.cpp:1153
+#: src/mainwindow.cpp:1165
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr ""
 
-#: src/mainwindow.cpp:1172
+#: src/mainwindow.cpp:1184
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr ""
 
-#: src/mainwindow.cpp:1192
+#: src/mainwindow.cpp:1204
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr ""
 
-#: src/mainwindow.cpp:1200
+#: src/mainwindow.cpp:1212
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr ""
 
-#: src/mainwindow.cpp:1209
+#: src/mainwindow.cpp:1221
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Přepnout na celou obrazovku"
 
-#: src/mainwindow.cpp:1232
+#: src/mainwindow.cpp:1244
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Zobrazit postranní lištu"
 
-#: src/mainwindow.cpp:1249
+#: src/mainwindow.cpp:1261
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Záhlaví 1"
 
-#: src/mainwindow.cpp:1250
+#: src/mainwindow.cpp:1262
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Záhlaví 2"
 
-#: src/mainwindow.cpp:1251
+#: src/mainwindow.cpp:1263
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Záhlaví 3"
 
-#: src/mainwindow.cpp:1252
+#: src/mainwindow.cpp:1264
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Záhlaví 4"
 
-#: src/mainwindow.cpp:1253
+#: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Záhlaví 5"
 
-#: src/mainwindow.cpp:1254
+#: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Záhlaví 6"
 
-#: src/mainwindow.cpp:1255
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr ""
 
-#: src/mainwindow.cpp:1256
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr ""
 
-#: src/mainwindow.cpp:1257
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr ""
 
-#: src/mainwindow.cpp:1258
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Seznam s odrážkami"
 
-#: src/mainwindow.cpp:1259
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Seznam s odrážkami"
 
-#: src/mainwindow.cpp:1260
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Seznam s odrážkami"
 
-#: src/mainwindow.cpp:1261
+#: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr ""
 
-#: src/mainwindow.cpp:1262
+#: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr ""
 
-#: src/mainwindow.cpp:1263
+#: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Blok kódu"
 
-#: src/mainwindow.cpp:1264
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr ""
 
-#: src/mainwindow.cpp:1265
+#: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr ""
 
-#: src/mainwindow.cpp:1266
+#: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr ""
 
-#: src/mainwindow.cpp:1267
+#: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr ""
 
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr ""
 
-#: src/mainwindow.cpp:1318
+#: src/mainwindow.cpp:1330
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Obrys"
 
-#: src/mainwindow.cpp:1319
+#: src/mainwindow.cpp:1331
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr ""
 
-#: src/mainwindow.cpp:1320
+#: src/mainwindow.cpp:1332
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr ""
 
-#: src/mainwindow.cpp:1321
+#: src/mainwindow.cpp:1333
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr ""
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Nastavení"
@@ -997,17 +997,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "nepojmenovaný"
 
-#: src/markdowneditor.cpp:933
+#: src/markdowneditor.cpp:951
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Uložit obrázek"
 
-#: src/markdowneditor.cpp:1520
+#: src/markdowneditor.cpp:1538
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Vložit obrázek"
 
-#: src/markdowneditor.cpp:2693
+#: src/markdowneditor.cpp:2722
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -1314,22 +1314,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Zobrazit pouze písma s pevnou šířkou"
 
-#: src/spelling/spellcheckdecorator.cpp:248
+#: src/spelling/spellcheckdecorator.cpp:245
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Zkontrolovat pravopis..."
 
-#: src/spelling/spellcheckdecorator.cpp:276
+#: src/spelling/spellcheckdecorator.cpp:273
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Pravopis"
 
-#: src/spelling/spellcheckdecorator.cpp:301
+#: src/spelling/spellcheckdecorator.cpp:298
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr ""
 
-#: src/spelling/spellcheckdecorator.cpp:340
+#: src/spelling/spellcheckdecorator.cpp:338
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr ""
