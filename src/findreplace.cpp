@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2020-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2020-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -17,8 +17,8 @@
 #include <QTextCursor>
 #include <QTimer>
 
+#include <3rdparty/QtAwesome/QtAwesome.h>
 #include "findreplace.h"
-#include "../3rdparty/QtAwesome/QtAwesome.h"
 
 #define GW_FIND_REPLACE_MATCH_CASE "FindReplace/matchCase"
 #define GW_FIND_REPLACE_WHOLE_WORD "FindReplace/wholeWord"

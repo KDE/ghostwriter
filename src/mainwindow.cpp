@@ -33,23 +33,23 @@
 #include <KXmlGui/KAboutApplicationDialog>
 #include <KXmlGui/KHelpMenu>
 
-#include "3rdparty/QtAwesome/QtAwesome.h"
+#include <3rdparty/QtAwesome/QtAwesome.h>
 
-#include "library.h"
-#include "exporter.h"
-#include "exporterfactory.h"
-#include "findreplace.h"
-#include "localedialog.h"
-#include "mainwindow.h"
-#include "messageboxhelper.h"
-#include "preferencesdialog.h"
-#include "previewoptionsdialog.h"
-#include "sandboxedwebpage.h"
-#include "simplefontdialog.h"
-#include "stylesheetbuilder.h"
-#include "themeselectiondialog.h"
+#include "export/exporter.h"
+#include "export/exporterfactory.h"
+#include "settings/localedialog.h"
+#include "settings/preferencesdialog.h"
+#include "settings/previewoptionsdialog.h"
+#include "settings/simplefontdialog.h"
+#include "theme/stylesheetbuilder.h"
+#include "theme/themeselectiondialog.h"
 #include "spelling/spellcheckdecorator.h"
 #include "spelling/spellcheckdialog.h"
+
+#include "findreplace.h"
+#include "library.h"
+#include "mainwindow.h"
+#include "messageboxhelper.h"
 
 namespace ghostwriter
 {
@@ -81,7 +81,8 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     QString themeName = appSettings->themeName();
 
     QString err;
-    theme = ThemeRepository::instance()->loadTheme(themeName, err);
+    ThemeRepository themeRepo(appSettings->themeDirectoryPath());
+    theme = themeRepo.loadTheme(themeName, err);
 
     MarkdownDocument *document = new MarkdownDocument();
 

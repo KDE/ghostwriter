@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -10,8 +10,8 @@
 #include <QObject>
 #include <QScopedPointer>
 
-#include "markdowndocument.h"
-#include "markdowneditor.h"
+#include "editor/markdowndocument.h"
+#include "editor/markdowneditor.h"
 
 namespace ghostwriter
 {

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -18,53 +18,54 @@ ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_sources(ghostwriter PRIVATE
-    abstractstatisticswidget.cpp
-    appmain.cpp
-    appsettings.cpp
-    asynctextwriter.cpp
-    bookmark.cpp
-    cmarkgfmapi.cpp
-    cmarkgfmexporter.cpp
-    colorschemepreviewer.cpp
-    commandlineexporter.cpp
-    documentmanager.cpp
-    documentstatistics.cpp
-    documentstatisticswidget.cpp
-    exportdialog.cpp
-    exporter.cpp
-    exporterfactory.cpp
-    exportformat.cpp
-    htmlpreview.cpp
-    library.cpp
-    localedialog.cpp
-    mainwindow.cpp
-    markdowndocument.cpp
-    markdowneditor.cpp
-    markdownhighlighter.cpp
-    markdownast.cpp
-    markdownnode.cpp
-    memoryarena.cpp
-    messageboxhelper.cpp
-    outlinewidget.cpp
-    preferencesdialog.cpp
-    previewoptionsdialog.cpp
-    previewproxy.cpp
-    sandboxedwebpage.cpp
-    sessionstatistics.cpp
-    sessionstatisticswidget.cpp
-    sidebar.cpp
-    simplefontdialog.cpp
-    statisticsindicator.cpp
-    stylesheetbuilder.cpp
-    textblockdata.h
-    theme.cpp
-    themeeditordialog.cpp
-    themerepository.cpp
-    themeselectiondialog.cpp
-    timelabel.cpp
-    findreplace.cpp
+    editor/actions/inlinemarkuptoggle.cpp
+    editor/asynctextwriter.cpp
+    editor/markdowndocument.cpp
+    editor/markdowneditor.cpp
+    editor/markdownhighlighter.cpp
+    editor/textblockdata.h
+    export/cmarkgfmexporter.cpp
+    export/commandlineexporter.cpp
+    export/exportdialog.cpp
+    export/exporter.cpp
+    export/exporterfactory.cpp
+    export/exportformat.cpp
+    markdown/cmarkgfmapi.cpp
+    markdown/markdownast.cpp
+    markdown/markdownnode.cpp
+    markdown/memoryarena.cpp
+    preview/htmlpreview.cpp
+    preview/previewproxy.cpp
+    preview/sandboxedwebpage.cpp
+    settings/appsettings.cpp
+    settings/localedialog.cpp
+    settings/preferencesdialog.cpp
+    settings/previewoptionsdialog.cpp
+    settings/simplefontdialog.cpp
     spelling/spellcheckdecorator.cpp
     spelling/spellcheckdialog.cpp
+    statistics/abstractstatisticswidget.cpp
+    statistics/documentstatistics.cpp
+    statistics/documentstatisticswidget.cpp
+    statistics/sessionstatistics.cpp
+    statistics/sessionstatisticswidget.cpp
+    statistics/statisticsindicator.cpp
+    theme/colorschemepreviewer.cpp
+    theme/stylesheetbuilder.cpp
+    theme/theme.cpp
+    theme/themeeditordialog.cpp
+    theme/themerepository.cpp
+    theme/themeselectiondialog.cpp
+    appmain.cpp
+    bookmark.cpp
+    documentmanager.cpp
+    findreplace.cpp
+    library.cpp
+    mainwindow.cpp
+    messageboxhelper.cpp
+    outlinewidget.cpp
+    sidebar.cpp
+    timelabel.cpp
     ${ghostwriter_QM_LOADER}
 )
 

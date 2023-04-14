@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -18,16 +18,17 @@
 #include <QTextStream>
 #include <QTimer>
 
-#include "asynctextwriter.h"
+#include "editor/asynctextwriter.h"
+#include "editor/markdowndocument.h"
+#include "editor/markdowneditor.h"
+#include "export/exportdialog.h"
+#include "export/exporter.h"
+#include "export/exporterfactory.h"
+#include "theme/themerepository.h"
+
 #include "library.h"
 #include "documentmanager.h"
-#include "exportdialog.h"
-#include "exporter.h"
-#include "exporterfactory.h"
-#include "markdowndocument.h"
-#include "markdowneditor.h"
 #include "messageboxhelper.h"
-#include "themerepository.h"
 
 namespace ghostwriter
 {

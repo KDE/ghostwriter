@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -14,23 +14,24 @@
 #include <QSettings>
 #include <QSplitter>
 
-#include "../3rdparty/QtAwesome/QtAwesome.h"
+#include <3rdparty/QtAwesome/QtAwesome.h>
 
-#include "appsettings.h"
-#include "documentmanager.h"
-#include "documentstatistics.h"
-#include "documentstatisticswidget.h"
-#include "findreplace.h"
-#include "htmlpreview.h"
-#include "outlinewidget.h"
-#include "sessionstatistics.h"
-#include "sessionstatisticswidget.h"
-#include "sidebar.h"
-#include "statisticsindicator.h"
-#include "theme.h"
-#include "themerepository.h"
-#include "timelabel.h"
+#include "preview/htmlpreview.h"
+#include "settings/appsettings.h"
 #include "spelling/spellcheckdecorator.h"
+#include "statistics/documentstatistics.h"
+#include "statistics/documentstatisticswidget.h"
+#include "statistics/sessionstatistics.h"
+#include "statistics/sessionstatisticswidget.h"
+#include "statistics/statisticsindicator.h"
+#include "theme/theme.h"
+#include "theme/themerepository.h"
+
+#include "documentmanager.h"
+#include "findreplace.h"
+#include "outlinewidget.h"
+#include "sidebar.h"
+#include "timelabel.h"
 
 #define MAX_RECENT_FILES 10
 

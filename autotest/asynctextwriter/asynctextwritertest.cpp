@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -13,7 +13,7 @@
 #include <QTextStream>
 #include <QString>
 
-#include "../../src/asynctextwriter.h"
+#include "../../src/editor/asynctextwriter.h"
 
 using namespace ghostwriter;
 

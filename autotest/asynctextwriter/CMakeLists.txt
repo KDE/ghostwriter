@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -19,8 +19,8 @@ qt_standard_project_setup()
 
 add_executable(asynctextwritertest
     asynctextwritertest.cpp
-    ../../src/asynctextwriter.h
-    ../../src/asynctextwriter.cpp
+    ../../src/editor/asynctextwriter.h
+    ../../src/editor/asynctextwriter.cpp
 )
 
 add_test(asynctextwritertest asynctextwritertest)
