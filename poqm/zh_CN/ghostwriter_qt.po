@@ -15,33 +15,6 @@ msgstr ""
 "X-Crowdin-File: /kf5-trunk/messages/ghostwriter/ghostwriter_qt.pot\n"
 "X-Crowdin-File-ID: 40974\n"
 
-#: src/abstractstatisticswidget.cpp:16
-msgctxt "ghostwriter::AbstractStatisticsWidget|"
-msgid "&lt; 1m"
-msgstr "&lt; 1分钟"
-
-#: src/abstractstatisticswidget.cpp:17
-msgctxt "ghostwriter::AbstractStatisticsWidget|"
-msgid "&lt; 1"
-msgstr "&lt; 1"
-
-#: src/abstractstatisticswidget.cpp:18
-msgctxt "ghostwriter::AbstractStatisticsWidget|"
-msgid "250 words per page"
-msgstr "每页250个单词"
-
-#: src/abstractstatisticswidget.cpp:52
-#, qt-format
-msgctxt "ghostwriter::AbstractStatisticsWidget|"
-msgid "%1h %2m"
-msgstr "%1 小时 %2 分钟"
-
-#: src/abstractstatisticswidget.cpp:54
-#, qt-format
-msgctxt "ghostwriter::AbstractStatisticsWidget|"
-msgid "%1m"
-msgstr "%1 分"
-
 #: src/appmain.cpp:75
 msgctxt "main|"
 msgid "ghostwriter"
@@ -127,307 +100,233 @@ msgctxt "main|"
 msgid "Disables GPU acceleration."
 msgstr "禁用 GPU 加速"
 
-#: src/cmarkgfmexporter.cpp:50
-#, qt-format
-msgctxt "QObject|"
-msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr "cmark-gfm 处理器不支持 %1 格式。"
-
-#: src/cmarkgfmexporter.cpp:58
-msgctxt "QObject|"
-msgid "Export failed"
-msgstr "导出失败"
-
-#: src/commandlineexporter.cpp:147
-msgctxt "QObject|"
-msgid "Export failed: "
-msgstr "导出失败："
-
-#: src/commandlineexporter.cpp:167
-#, qt-format
-msgctxt "QObject|"
-msgid "%1 format is not supported by this processor."
-msgstr "此处理器不支持 %1 格式。"
-
-#: src/commandlineexporter.cpp:191
-msgctxt "QObject|"
-msgid "Failed to execute command: "
-msgstr "命令执行失败："
-
-#: src/documentmanager.cpp:54
+#: src/documentmanager.cpp:55
 msgctxt "ghostwriter::DocumentManager|"
 msgid "untitled"
 msgstr "无标题"
 
-#: src/documentmanager.cpp:164
+#: src/documentmanager.cpp:165
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Markdown"
 msgstr "Markdown"
 
-#: src/documentmanager.cpp:165
+#: src/documentmanager.cpp:166
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Text"
 msgstr "文本"
 
-#: src/documentmanager.cpp:166
+#: src/documentmanager.cpp:167
 msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
 msgstr "全部"
 
-#: src/documentmanager.cpp:220 src/documentmanager.cpp:715
+#: src/documentmanager.cpp:221 src/documentmanager.cpp:716
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
 msgstr "保存 %1 时出错"
 
-#: src/documentmanager.cpp:357
+#: src/documentmanager.cpp:358
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
 msgstr "打开文件"
 
-#: src/documentmanager.cpp:370
+#: src/documentmanager.cpp:371
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
 msgstr "无法打开 %1"
 
-#: src/documentmanager.cpp:371
+#: src/documentmanager.cpp:372
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Permission denied."
 msgstr "权限被拒绝。"
 
-#: src/documentmanager.cpp:433
+#: src/documentmanager.cpp:434
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
 msgstr "该文档已被修改。"
 
-#: src/documentmanager.cpp:434
+#: src/documentmanager.cpp:435
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
 msgstr "丢弃修改？"
 
-#: src/documentmanager.cpp:465
+#: src/documentmanager.cpp:466
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
 msgstr "重命名文件"
 
-#: src/documentmanager.cpp:482 src/documentmanager.cpp:495
+#: src/documentmanager.cpp:483 src/documentmanager.cpp:496
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
 msgstr "重命名 %1 失败"
 
-#: src/documentmanager.cpp:544
+#: src/documentmanager.cpp:545
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
 msgstr "保存文件"
 
-#: src/documentmanager.cpp:681
+#: src/documentmanager.cpp:682
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
 msgstr "文档已被其他程序修改。"
 
-#: src/documentmanager.cpp:682
+#: src/documentmanager.cpp:683
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
 msgstr "您想要重新加载文档吗？"
 
-#: src/documentmanager.cpp:716
+#: src/documentmanager.cpp:717
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
 msgstr "未指定文件路径"
 
-#: src/documentmanager.cpp:732 src/documentmanager.cpp:771
+#: src/documentmanager.cpp:733 src/documentmanager.cpp:772
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
 msgstr "无法读取 %1"
 
-#: src/documentmanager.cpp:753
+#: src/documentmanager.cpp:754
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
 msgstr "正在打开 %1"
 
-#: src/documentmanager.cpp:860
+#: src/documentmanager.cpp:861
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
 msgstr "文件已被修改。"
 
-#: src/documentmanager.cpp:862
+#: src/documentmanager.cpp:863
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
 msgstr "%1 已被修改。"
 
-#: src/documentmanager.cpp:871
+#: src/documentmanager.cpp:872
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
 msgstr "您是否想要保存您的更改？"
 
-#: src/documentmanager.cpp:902
+#: src/documentmanager.cpp:903
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
 msgstr "%1 只读。"
 
-#: src/documentmanager.cpp:903
+#: src/documentmanager.cpp:904
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
 msgstr "覆盖受保护的文件？"
 
-#: src/documentmanager.cpp:922
+#: src/documentmanager.cpp:923
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
 msgstr "覆盖失败。"
 
-#: src/documentmanager.cpp:923
+#: src/documentmanager.cpp:924
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
 msgstr "请将文件保存到另一个位置。"
 
-#: src/documentmanager.cpp:947 src/documentmanager.cpp:960
+#: src/documentmanager.cpp:948 src/documentmanager.cpp:961
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
 msgstr "文件备份失败"
 
-#: src/documentstatisticswidget.cpp:19
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Very Easy"
-msgstr "非常简单"
+#: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
+msgctxt "ghostwriter::MarkdownDocument|"
+msgid "untitled"
+msgstr "未命名"
 
-#: src/documentstatisticswidget.cpp:20
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Easy"
-msgstr "简单"
+#: src/editor/markdowneditor.cpp:866
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Save Image"
+msgstr "保存图像"
 
-#: src/documentstatisticswidget.cpp:21
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Standard"
-msgstr "标准"
+#: src/editor/markdowneditor.cpp:1456
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Insert Image"
+msgstr "插入图像"
 
-#: src/documentstatisticswidget.cpp:22
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Difficult"
-msgstr "困难"
+#: src/editor/markdowneditor.cpp:2382
+#, qt-format
+msgctxt "ghostwriter::MarkdownEditor|"
+msgid "Images (%1)"
+msgstr "图像 (%1)"
 
-#: src/documentstatisticswidget.cpp:23
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Very Difficult"
-msgstr "非常困难"
+#: src/export/cmarkgfmexporter.cpp:50
+#, qt-format
+msgctxt "QObject|"
+msgid "%1 format is unsupported by the cmark-gfm processor."
+msgstr "cmark-gfm 处理器不支持 %1 格式。"
 
-#: src/documentstatisticswidget.cpp:60
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Words:"
-msgstr "单词："
+#: src/export/cmarkgfmexporter.cpp:58
+msgctxt "QObject|"
+msgid "Export failed"
+msgstr "导出失败"
 
-#: src/documentstatisticswidget.cpp:61
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Characters:"
-msgstr "字符："
+#: src/export/commandlineexporter.cpp:147
+msgctxt "QObject|"
+msgid "Export failed: "
+msgstr "导出失败："
 
-#: src/documentstatisticswidget.cpp:62
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Sentences:"
-msgstr "句子："
+#: src/export/commandlineexporter.cpp:167
+#, qt-format
+msgctxt "QObject|"
+msgid "%1 format is not supported by this processor."
+msgstr "此处理器不支持 %1 格式。"
 
-#: src/documentstatisticswidget.cpp:63
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Paragraphs:"
-msgstr "段落："
+#: src/export/commandlineexporter.cpp:191
+msgctxt "QObject|"
+msgid "Failed to execute command: "
+msgstr "命令执行失败："
 
-#: src/documentstatisticswidget.cpp:64
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Pages:"
-msgstr "页面："
-
-#: src/documentstatisticswidget.cpp:65
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Complex Words:"
-msgstr "复杂的单词："
-
-#: src/documentstatisticswidget.cpp:66
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Reading Time:"
-msgstr "阅读时间："
-
-#: src/documentstatisticswidget.cpp:67
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Reading Ease:"
-msgstr "阅读简易版："
-
-#: src/documentstatisticswidget.cpp:67
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "LIX Reading Ease"
-msgstr "LIX 阅读简易版"
-
-#: src/documentstatisticswidget.cpp:68
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Grade Level:"
-msgstr "等级："
-
-#: src/documentstatisticswidget.cpp:68
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Coleman-Liau Readability Index (CLI)"
-msgstr "Coleman-Liau 可读性指数 (CLI)"
-
-#: src/documentstatisticswidget.cpp:149
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Kindergarten"
-msgstr "幼儿园"
-
-#: src/documentstatisticswidget.cpp:152
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "Rocket Science"
-msgstr "火箭科学"
-
-#: src/documentstatisticswidget.cpp:154
-msgctxt "ghostwriter::DocumentStatisticsWidget|"
-msgid "College"
-msgstr "大学"
-
-#: src/exportdialog.cpp:45 src/exportdialog.cpp:99
+#: src/export/exportdialog.cpp:45 src/export/exportdialog.cpp:99
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
 msgstr "导出"
 
-#: src/exportdialog.cpp:84
+#: src/export/exportdialog.cpp:84
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
 msgstr "智能图形"
 
-#: src/exportdialog.cpp:87
+#: src/export/exportdialog.cpp:87
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
 msgstr "导出选项"
 
-#: src/exportdialog.cpp:89
+#: src/export/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
 msgstr "Markdown 转换器"
 
-#: src/exportdialog.cpp:90
+#: src/export/exportdialog.cpp:90
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
 msgstr "文件格式"
 
-#: src/exportdialog.cpp:107
+#: src/export/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
 msgstr "命令行选项："
 
-#: src/exportdialog.cpp:177
+#: src/export/exportdialog.cpp:177
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
 msgstr "导出至 %1"
 
-#: src/exportdialog.cpp:194
+#: src/export/exportdialog.cpp:194
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
 msgstr "导出失败"
 
-#: src/exporter.cpp:72
+#: src/export/exporter.cpp:69
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
 msgstr "此处理器不支持导出为 HTML 。"
@@ -504,814 +403,770 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 个匹配项"
 
-#: src/htmlpreview.cpp:162
-msgctxt "ghostwriter::HtmlPreview|"
-msgid "Error loading resources/preview.html"
-msgstr "加载 resources/preview.html 时出错"
-
-#: src/localedialog.cpp:36
-msgctxt "ghostwriter::LocaleDialog|"
-msgid "Set Application Language"
-msgstr "设置应用程序语言"
-
-#: src/localedialog.cpp:56
-msgctxt "ghostwriter::LocaleDialog|"
-msgid "No translations are available!"
-msgstr "没有可用的翻译！"
-
-#: src/localedialog.cpp:57
-msgctxt "ghostwriter::LocaleDialog|"
-msgid "Please reinstall this application for more language options."
-msgstr "请重新安装此应用程序以获取更多语言选项。"
-
-#: src/localedialog.cpp:132
-msgctxt "ghostwriter::LocaleDialog|"
-msgid "Sorry!"
-msgstr "对不起！"
-
-#: src/localedialog.cpp:133
-msgctxt "ghostwriter::LocaleDialog|"
-msgid "Could not load translation."
-msgstr "无法加载翻译。"
-
-#: src/localedialog.cpp:139
-msgctxt "ghostwriter::LocaleDialog|"
-msgid "Please restart the application for changes to take effect."
-msgstr "请重新启动应用程序让更改生效"
-
-#: src/mainwindow.cpp:905
+#: src/mainwindow.cpp:906
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "文件(&F)"
 
-#: src/mainwindow.cpp:907
+#: src/mainwindow.cpp:908
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "新建(&N)"
 
-#: src/mainwindow.cpp:908
+#: src/mainwindow.cpp:909
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "打开(&O)"
 
-#: src/mainwindow.cpp:910
+#: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "打开最近使用的(&R)..."
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:912
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "重新打开关闭的文件"
 
-#: src/mainwindow.cpp:919
+#: src/mainwindow.cpp:920
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "清除菜单"
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:925
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "保存(&S)"
 
-#: src/mainwindow.cpp:925
+#: src/mainwindow.cpp:926
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "另存为(&A)"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:927
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "重命名(&E)"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:928
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "从文件加载(&l)"
 
-#: src/mainwindow.cpp:929
+#: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "导出(&E)"
 
-#: src/mainwindow.cpp:931
+#: src/mainwindow.cpp:932
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "退出(&Q)"
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:936
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "编辑(&E)"
 
-#: src/mainwindow.cpp:936
+#: src/mainwindow.cpp:937
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "撤销(&U)"
 
-#: src/mainwindow.cpp:937
+#: src/mainwindow.cpp:938
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "重做(&R)"
 
-#: src/mainwindow.cpp:939
+#: src/mainwindow.cpp:940
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "剪切(&T)"
 
-#: src/mainwindow.cpp:940
+#: src/mainwindow.cpp:941
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "复制(&C)"
 
-#: src/mainwindow.cpp:941
+#: src/mainwindow.cpp:942
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "粘贴(&P)"
 
-#: src/mainwindow.cpp:942
+#: src/mainwindow.cpp:943
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "复制为 &HTML"
 
-#: src/mainwindow.cpp:944
+#: src/mainwindow.cpp:945
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "插入图像(&I)"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "查找(&F)"
 
-#: src/mainwindow.cpp:948
+#: src/mainwindow.cpp:949
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "替换(&L)"
 
-#: src/mainwindow.cpp:949
+#: src/mainwindow.cpp:950
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "查找下一个(&N)"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:951
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "查找上一个(&P)"
 
-#: src/mainwindow.cpp:952
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "&拼写检查"
 
-#: src/mainwindow.cpp:954
+#: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "格式(&M)"
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "粗体(&B)"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:957
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "斜体(&I)"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "删除(&K)"
 
-#: src/mainwindow.cpp:958
+#: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "&HTML 注释"
 
-#: src/mainwindow.cpp:961
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "身份(&N)"
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "减少缩进(&U)"
 
-#: src/mainwindow.cpp:964
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "块引用(&Q)"
 
-#: src/mainwindow.cpp:965
+#: src/mainwindow.cpp:966
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "删除块引用(&S)"
 
-#: src/mainwindow.cpp:967
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "&* 项目符号"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "&- 项目符号"
 
-#: src/mainwindow.cpp:969
+#: src/mainwindow.cpp:970
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "&+ 项目符号"
 
-#: src/mainwindow.cpp:971
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "1&. 有序列表"
 
-#: src/mainwindow.cpp:972
+#: src/mainwindow.cpp:973
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "1&) 有序列表"
 
-#: src/mainwindow.cpp:974
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "任务列表(&T)"
 
-#: src/mainwindow.cpp:975
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "切换任务完成状态(&C)"
 
-#: src/mainwindow.cpp:978
+#: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "视图(&V)"
 
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:981
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "全屏(&F)"
 
-#: src/mainwindow.cpp:988
+#: src/mainwindow.cpp:989
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "预览HTML(&P)"
 
-#: src/mainwindow.cpp:996
+#: src/mainwindow.cpp:997
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "大纲(&O)"
 
-#: src/mainwindow.cpp:1006
+#: src/mainwindow.cpp:1007
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "会话统计(&S)"
 
-#: src/mainwindow.cpp:1015
+#: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "文档统计 (&D)"
 
-#: src/mainwindow.cpp:1024
+#: src/mainwindow.cpp:1025
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "备忘录 (&C)"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1036
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "增大字体"
 
-#: src/mainwindow.cpp:1036
+#: src/mainwindow.cpp:1037
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "减小字体"
 
-#: src/mainwindow.cpp:1038
+#: src/mainwindow.cpp:1039
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "设置 (&S)"
 
-#: src/mainwindow.cpp:1039 src/mainwindow.cpp:1350
+#: src/mainwindow.cpp:1040 src/mainwindow.cpp:1351
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "主题"
 
-#: src/mainwindow.cpp:1040 src/mainwindow.cpp:1351
+#: src/mainwindow.cpp:1041 src/mainwindow.cpp:1352
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "字体"
 
-#: src/mainwindow.cpp:1041 src/mainwindow.cpp:1352
+#: src/mainwindow.cpp:1042 src/mainwindow.cpp:1353
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "应用程序语言"
 
-#: src/mainwindow.cpp:1042 src/mainwindow.cpp:1353
+#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "预览选项"
 
-#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
+#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "首选项"
 
-#: src/mainwindow.cpp:1049
+#: src/mainwindow.cpp:1050
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "帮助 (&H)"
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1060
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "快速参照模式 (&R)"
 
-#: src/mainwindow.cpp:1060
+#: src/mainwindow.cpp:1061
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1108
+#: src/mainwindow.cpp:1109
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "显示、隐藏侧边栏"
 
-#: src/mainwindow.cpp:1165
+#: src/mainwindow.cpp:1166
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "切换深色主题"
 
-#: src/mainwindow.cpp:1184
+#: src/mainwindow.cpp:1185
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "切换实时 HTML 预览"
 
-#: src/mainwindow.cpp:1204
+#: src/mainwindow.cpp:1205
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "切换休眠模式"
 
-#: src/mainwindow.cpp:1212
+#: src/mainwindow.cpp:1213
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "切换不受干扰模式"
 
-#: src/mainwindow.cpp:1221
+#: src/mainwindow.cpp:1222
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "切换全屏模式"
 
-#: src/mainwindow.cpp:1244
+#: src/mainwindow.cpp:1245
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "显示侧边栏"
 
-#: src/mainwindow.cpp:1261
+#: src/mainwindow.cpp:1262
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# 标题 1"
 
-#: src/mainwindow.cpp:1262
+#: src/mainwindow.cpp:1263
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## 标题 2"
 
-#: src/mainwindow.cpp:1263
+#: src/mainwindow.cpp:1264
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### 标题 3"
 
-#: src/mainwindow.cpp:1264
+#: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### 标题 4"
 
-#: src/mainwindow.cpp:1265
+#: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### 标题 5"
 
-#: src/mainwindow.cpp:1266
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### 标题 6"
 
-#: src/mainwindow.cpp:1267
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr ""
 
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr ""
 
-#: src/mainwindow.cpp:1269
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. 有序列表"
 
-#: src/mainwindow.cpp:1270
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* 无序列表"
 
-#: src/mainwindow.cpp:1271
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ 无序列表"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- 无序列表"
 
-#: src/mainwindow.cpp:1273
+#: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> 块引用"
 
-#: src/mainwindow.cpp:1274
+#: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "` 代码段 `"
 
-#: src/mainwindow.cpp:1275
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` 代码块"
 
-#: src/mainwindow.cpp:1276
+#: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[链接](http://url.com \"标题\")"
 
-#: src/mainwindow.cpp:1277
+#: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[交叉引用][ID]"
 
-#: src/mainwindow.cpp:1278
+#: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"引用定义\""
 
-#: src/mainwindow.cpp:1279
+#: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![图像](./image.jpg \"标题\")"
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr ""
 
-#: src/mainwindow.cpp:1330
+#: src/mainwindow.cpp:1331
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "大纲"
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1332
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "会话统计"
 
-#: src/mainwindow.cpp:1332
+#: src/mainwindow.cpp:1333
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "文档统计"
 
-#: src/mainwindow.cpp:1333
+#: src/mainwindow.cpp:1334
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "备忘录"
 
-#: src/mainwindow.cpp:1343
+#: src/mainwindow.cpp:1344
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "设置"
 
-#: src/markdowndocument.cpp:92 src/markdowndocument.cpp:168
-msgctxt "ghostwriter::MarkdownDocument|"
-msgid "untitled"
-msgstr "未命名"
+#: src/preview/htmlpreview.cpp:162
+msgctxt "ghostwriter::HtmlPreview|"
+msgid "Error loading resources/preview.html"
+msgstr "加载 resources/preview.html 时出错"
 
-#: src/markdowneditor.cpp:951
-msgctxt "ghostwriter::MarkdownEditor|"
-msgid "Save Image"
-msgstr "保存图像"
+#: src/settings/localedialog.cpp:36
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Set Application Language"
+msgstr "设置应用程序语言"
 
-#: src/markdowneditor.cpp:1538
-msgctxt "ghostwriter::MarkdownEditor|"
-msgid "Insert Image"
-msgstr "插入图像"
+#: src/settings/localedialog.cpp:56
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "No translations are available!"
+msgstr "没有可用的翻译！"
 
-#: src/markdowneditor.cpp:2722
-#, qt-format
-msgctxt "ghostwriter::MarkdownEditor|"
-msgid "Images (%1)"
-msgstr "图像 (%1)"
+#: src/settings/localedialog.cpp:57
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Please reinstall this application for more language options."
+msgstr "请重新安装此应用程序以获取更多语言选项。"
 
-#: src/preferencesdialog.cpp:62
+#: src/settings/localedialog.cpp:132
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Sorry!"
+msgstr "对不起！"
+
+#: src/settings/localedialog.cpp:133
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Could not load translation."
+msgstr "无法加载翻译。"
+
+#: src/settings/localedialog.cpp:139
+msgctxt "ghostwriter::LocaleDialog|"
+msgid "Please restart the application for changes to take effect."
+msgstr "请重新启动应用程序让更改生效"
+
+#: src/settings/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
 msgstr "首选项"
 
-#: src/preferencesdialog.cpp:71
+#: src/settings/preferencesdialog.cpp:71
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "General"
 msgstr "通用"
 
-#: src/preferencesdialog.cpp:72
+#: src/settings/preferencesdialog.cpp:72
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Editor"
 msgstr "编辑器"
 
-#: src/preferencesdialog.cpp:73
+#: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "拼写检查"
 
-#: src/preferencesdialog.cpp:94
+#: src/settings/preferencesdialog.cpp:94
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "匹配的字符"
 
-#: src/preferencesdialog.cpp:177
+#: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Display"
 msgstr "显示"
 
-#: src/preferencesdialog.cpp:183
+#: src/settings/preferencesdialog.cpp:183
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Show current time in full screen mode"
 msgstr "在全屏模式下显示当前时间"
 
-#: src/preferencesdialog.cpp:189
+#: src/settings/preferencesdialog.cpp:189
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Hide menu bar in full screen mode"
 msgstr "在全屏模式下隐藏菜单栏"
 
-#: src/preferencesdialog.cpp:196
+#: src/settings/preferencesdialog.cpp:196
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "圆形"
 
-#: src/preferencesdialog.cpp:197
+#: src/settings/preferencesdialog.cpp:197
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "正方形"
 
-#: src/preferencesdialog.cpp:208
+#: src/settings/preferencesdialog.cpp:208
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Interface style"
 msgstr "界面风格"
 
-#: src/preferencesdialog.cpp:210
+#: src/settings/preferencesdialog.cpp:210
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "File Saving"
 msgstr "保存文件"
 
-#: src/preferencesdialog.cpp:216
+#: src/settings/preferencesdialog.cpp:216
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Auto save"
 msgstr "自动保存"
 
-#: src/preferencesdialog.cpp:223
+#: src/settings/preferencesdialog.cpp:223
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Backup file on save"
 msgstr "保存时备份文件"
 
-#: src/preferencesdialog.cpp:229
+#: src/settings/preferencesdialog.cpp:229
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "View untitled drafts..."
 msgstr "查看无标题草稿"
 
-#: src/preferencesdialog.cpp:239
+#: src/settings/preferencesdialog.cpp:239
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Session"
 msgstr "会话"
 
-#: src/preferencesdialog.cpp:245
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Remember recent files"
 msgstr "记住最近的文件"
 
-#: src/preferencesdialog.cpp:251
+#: src/settings/preferencesdialog.cpp:251
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Open last file on startup"
 msgstr "启动时打开最近文件"
 
-#: src/preferencesdialog.cpp:274
+#: src/settings/preferencesdialog.cpp:274
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Tabulation"
 msgstr "制表符"
 
-#: src/preferencesdialog.cpp:280
+#: src/settings/preferencesdialog.cpp:280
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Insert spaces for tabs"
 msgstr "插入空格作为制表符"
 
-#: src/preferencesdialog.cpp:295
+#: src/settings/preferencesdialog.cpp:295
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Tabulation width"
 msgstr "制表符宽度"
 
-#: src/preferencesdialog.cpp:297
+#: src/settings/preferencesdialog.cpp:297
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Styling"
 msgstr "样式"
 
-#: src/preferencesdialog.cpp:304
+#: src/settings/preferencesdialog.cpp:304
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "句子"
 
-#: src/preferencesdialog.cpp:305
+#: src/settings/preferencesdialog.cpp:305
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "当前行"
 
-#: src/preferencesdialog.cpp:306
+#: src/settings/preferencesdialog.cpp:306
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "三行"
 
-#: src/preferencesdialog.cpp:307
+#: src/settings/preferencesdialog.cpp:307
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "段落"
 
-#: src/preferencesdialog.cpp:308
+#: src/settings/preferencesdialog.cpp:308
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "文字批注"
 
-#: src/preferencesdialog.cpp:319
+#: src/settings/preferencesdialog.cpp:319
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Focus mode"
 msgstr "专注模式"
 
-#: src/preferencesdialog.cpp:322
+#: src/settings/preferencesdialog.cpp:322
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "窄"
 
-#: src/preferencesdialog.cpp:323
+#: src/settings/preferencesdialog.cpp:323
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "适中"
 
-#: src/preferencesdialog.cpp:324
+#: src/settings/preferencesdialog.cpp:324
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "宽"
 
-#: src/preferencesdialog.cpp:325
+#: src/settings/preferencesdialog.cpp:325
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "全屏"
 
-#: src/preferencesdialog.cpp:336
+#: src/settings/preferencesdialog.cpp:336
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Editor width"
 msgstr "编辑器宽度"
 
-#: src/preferencesdialog.cpp:339
+#: src/settings/preferencesdialog.cpp:339
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "纯文本"
 
-#: src/preferencesdialog.cpp:340 src/preferencesdialog.cpp:354
+#: src/settings/preferencesdialog.cpp:340
+#: src/settings/preferencesdialog.cpp:354
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "斜体"
 
-#: src/preferencesdialog.cpp:351
+#: src/settings/preferencesdialog.cpp:351
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Blockquote style"
 msgstr "块引用样式"
 
-#: src/preferencesdialog.cpp:355
+#: src/settings/preferencesdialog.cpp:355
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "下划线"
 
-#: src/preferencesdialog.cpp:366
+#: src/settings/preferencesdialog.cpp:366
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Emphasis style"
 msgstr "强调样式"
 
-#: src/preferencesdialog.cpp:368
+#: src/settings/preferencesdialog.cpp:368
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Use large headings"
 msgstr "使用大标题"
 
-#: src/preferencesdialog.cpp:374
+#: src/settings/preferencesdialog.cpp:374
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typing"
 msgstr "输入"
 
-#: src/preferencesdialog.cpp:380
+#: src/settings/preferencesdialog.cpp:380
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Cycle bullet point markers"
 msgstr "圆点标记"
 
-#: src/preferencesdialog.cpp:386
+#: src/settings/preferencesdialog.cpp:386
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Automatically match characters"
 msgstr "自动匹配字符"
 
-#: src/preferencesdialog.cpp:392
+#: src/settings/preferencesdialog.cpp:392
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Customize matched characters..."
 msgstr "自定义匹配的字符"
 
-#: src/previewoptionsdialog.cpp:50
+#: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
 msgstr "预览选项"
 
-#: src/previewoptionsdialog.cpp:90
+#: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
 msgstr ""
 
-#: src/previewoptionsdialog.cpp:98 src/previewoptionsdialog.cpp:124
+#: src/settings/previewoptionsdialog.cpp:99
+#: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
 msgstr "选择"
 
-#: src/previewoptionsdialog.cpp:116
+#: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
 msgstr "文本字体："
 
-#: src/previewoptionsdialog.cpp:142
+#: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
 msgstr "代码字体："
 
-#: src/previewoptionsdialog.cpp:150
+#: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
 msgstr "命令行选项："
 
-#: src/previewoptionsdialog.cpp:176
+#: src/settings/previewoptionsdialog.cpp:177
 #, qt-format
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "%1 %2pt"
 msgstr "%1 %2pt"
 
-#: src/sessionstatisticswidget.cpp:37
-msgctxt "ghostwriter::SessionStatisticsWidget|"
-msgid "Words Written:"
-msgstr "已写词数："
-
-#: src/sessionstatisticswidget.cpp:38
-msgctxt "ghostwriter::SessionStatisticsWidget|"
-msgid "Pages Written:"
-msgstr "已写页数："
-
-#: src/sessionstatisticswidget.cpp:39
-msgctxt "ghostwriter::SessionStatisticsWidget|"
-msgid "Average WPM:"
-msgstr "平均 WPM："
-
-#: src/sessionstatisticswidget.cpp:40
-msgctxt "ghostwriter::SessionStatisticsWidget|"
-msgid "Total Time:"
-msgstr "总时间："
-
-#: src/sessionstatisticswidget.cpp:41
-msgctxt "ghostwriter::SessionStatisticsWidget|"
-msgid "Idle Time:"
-msgstr "空闲时长："
-
-#: src/simplefontdialog.cpp:61
+#: src/settings/simplefontdialog.cpp:61
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Family"
 msgstr ""
 
-#: src/simplefontdialog.cpp:108
+#: src/settings/simplefontdialog.cpp:108
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Size"
 msgstr ""
 
-#: src/simplefontdialog.cpp:111
+#: src/settings/simplefontdialog.cpp:111
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "AaBbCcXxYyZz"
 msgstr ""
 
-#: src/simplefontdialog.cpp:115
+#: src/settings/simplefontdialog.cpp:115
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Preview"
 msgstr ""
 
-#: src/simplefontdialog.cpp:118
+#: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr ""
@@ -1346,177 +1201,324 @@ msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
 msgstr ""
 
-#: src/statisticsindicator.cpp:15
+#: src/statistics/abstractstatisticswidget.cpp:16
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "&lt; 1m"
+msgstr "&lt; 1分钟"
+
+#: src/statistics/abstractstatisticswidget.cpp:17
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "&lt; 1"
+msgstr "&lt; 1"
+
+#: src/statistics/abstractstatisticswidget.cpp:18
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "250 words per page"
+msgstr "每页250个单词"
+
+#: src/statistics/abstractstatisticswidget.cpp:52
+#, qt-format
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "%1h %2m"
+msgstr "%1 小时 %2 分钟"
+
+#: src/statistics/abstractstatisticswidget.cpp:54
+#, qt-format
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "%1m"
+msgstr "%1 分"
+
+#: src/statistics/documentstatisticswidget.cpp:19
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Very Easy"
+msgstr "非常简单"
+
+#: src/statistics/documentstatisticswidget.cpp:20
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Easy"
+msgstr "简单"
+
+#: src/statistics/documentstatisticswidget.cpp:21
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Standard"
+msgstr "标准"
+
+#: src/statistics/documentstatisticswidget.cpp:22
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Difficult"
+msgstr "困难"
+
+#: src/statistics/documentstatisticswidget.cpp:23
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Very Difficult"
+msgstr "非常困难"
+
+#: src/statistics/documentstatisticswidget.cpp:60
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Words:"
+msgstr "单词："
+
+#: src/statistics/documentstatisticswidget.cpp:61
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Characters:"
+msgstr "字符："
+
+#: src/statistics/documentstatisticswidget.cpp:62
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Sentences:"
+msgstr "句子："
+
+#: src/statistics/documentstatisticswidget.cpp:63
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Paragraphs:"
+msgstr "段落："
+
+#: src/statistics/documentstatisticswidget.cpp:64
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Pages:"
+msgstr "页面："
+
+#: src/statistics/documentstatisticswidget.cpp:65
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Complex Words:"
+msgstr "复杂的单词："
+
+#: src/statistics/documentstatisticswidget.cpp:66
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Reading Time:"
+msgstr "阅读时间："
+
+#: src/statistics/documentstatisticswidget.cpp:67
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Reading Ease:"
+msgstr "阅读简易版："
+
+#: src/statistics/documentstatisticswidget.cpp:67
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "LIX Reading Ease"
+msgstr "LIX 阅读简易版"
+
+#: src/statistics/documentstatisticswidget.cpp:68
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Grade Level:"
+msgstr "等级："
+
+#: src/statistics/documentstatisticswidget.cpp:68
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Coleman-Liau Readability Index (CLI)"
+msgstr "Coleman-Liau 可读性指数 (CLI)"
+
+#: src/statistics/documentstatisticswidget.cpp:149
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Kindergarten"
+msgstr "幼儿园"
+
+#: src/statistics/documentstatisticswidget.cpp:152
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "Rocket Science"
+msgstr "火箭科学"
+
+#: src/statistics/documentstatisticswidget.cpp:154
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "College"
+msgstr "大学"
+
+#: src/statistics/sessionstatisticswidget.cpp:37
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Words Written:"
+msgstr "已写词数："
+
+#: src/statistics/sessionstatisticswidget.cpp:38
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Pages Written:"
+msgstr "已写页数："
+
+#: src/statistics/sessionstatisticswidget.cpp:39
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Average WPM:"
+msgstr "平均 WPM："
+
+#: src/statistics/sessionstatisticswidget.cpp:40
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Total Time:"
+msgstr "总时间："
+
+#: src/statistics/sessionstatisticswidget.cpp:41
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "Idle Time:"
+msgstr "空闲时长："
+
+#: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
 msgstr[0] ""
 
-#: src/statisticsindicator.cpp:19
+#: src/statistics/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
 msgstr[0] ""
 
-#: src/statisticsindicator.cpp:23
+#: src/statistics/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
 msgstr[0] ""
 
-#: src/statisticsindicator.cpp:27
+#: src/statistics/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
 msgstr[0] ""
 
-#: src/statisticsindicator.cpp:31
+#: src/statistics/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
 msgstr[0] ""
 
-#: src/statisticsindicator.cpp:35
+#: src/statistics/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
 msgstr[0] ""
 
-#: src/statisticsindicator.cpp:37
+#: src/statistics/statisticsindicator.cpp:37
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
 msgstr ""
 
-#: src/statisticsindicator.cpp:38
+#: src/statistics/statisticsindicator.cpp:38
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 read time"
 msgstr ""
 
-#: src/statisticsindicator.cpp:41
+#: src/statistics/statisticsindicator.cpp:41
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
 msgstr ""
 
-#: src/themeeditordialog.cpp:77
+#: src/theme/themeeditordialog.cpp:81
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
 msgstr ""
 
-#: src/themeeditordialog.cpp:80
+#: src/theme/themeeditordialog.cpp:84
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
 msgstr ""
 
-#: src/themeeditordialog.cpp:164
+#: src/theme/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Element"
 msgstr ""
 
-#: src/themeeditordialog.cpp:165
+#: src/theme/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
 msgstr ""
 
-#: src/themeeditordialog.cpp:166
+#: src/theme/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Dark Mode"
 msgstr ""
 
-#: src/themeeditordialog.cpp:168
+#: src/theme/themeeditordialog.cpp:172
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
 msgstr ""
 
-#: src/themeeditordialog.cpp:169
+#: src/theme/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
 msgstr ""
 
-#: src/themeeditordialog.cpp:170
+#: src/theme/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Selection"
 msgstr ""
 
-#: src/themeeditordialog.cpp:171
+#: src/theme/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Cursor"
 msgstr ""
 
-#: src/themeeditordialog.cpp:172
+#: src/theme/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Markup"
 msgstr ""
 
-#: src/themeeditordialog.cpp:173
+#: src/theme/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
 msgstr ""
 
-#: src/themeeditordialog.cpp:174
+#: src/theme/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
 msgstr ""
 
-#: src/themeeditordialog.cpp:175
+#: src/theme/themeeditordialog.cpp:179
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
 msgstr ""
 
-#: src/themeeditordialog.cpp:176
+#: src/theme/themeeditordialog.cpp:180
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
 msgstr ""
 
-#: src/themeeditordialog.cpp:177
+#: src/theme/themeeditordialog.cpp:181
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Link"
 msgstr ""
 
-#: src/themeeditordialog.cpp:178
+#: src/theme/themeeditordialog.cpp:182
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
 msgstr ""
 
-#: src/themeeditordialog.cpp:211
+#: src/theme/themeeditordialog.cpp:215
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
 msgstr ""
 
-#: src/themerepository.cpp:149
+#: src/theme/themerepository.cpp:138
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
 msgstr ""
 
-#: src/themerepository.cpp:157
+#: src/theme/themerepository.cpp:146
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
 msgstr ""
 
-#: src/themerepository.cpp:167
+#: src/theme/themerepository.cpp:156
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid theme format: %1"
 msgstr ""
 
-#: src/themerepository.cpp:186 src/themerepository.cpp:195
+#: src/theme/themerepository.cpp:175 src/theme/themerepository.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid or missing value(s) in %1"
 msgstr ""
 
-#: src/themerepository.cpp:203
+#: src/theme/themerepository.cpp:192
 msgctxt "ghostwriter::ThemeRepository|"
 msgid ""
 "The specified theme is not available.  Try restarting the application.  If "
 "problem persists, please file a bug report."
 msgstr ""
 
-#: src/themerepository.cpp:219
+#: src/theme/themerepository.cpp:208
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid ""
@@ -1524,78 +1526,78 @@ msgid ""
 "writeable."
 msgstr ""
 
-#: src/themerepository.cpp:239
+#: src/theme/themerepository.cpp:228
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
 msgstr ""
 
-#: src/themerepository.cpp:248
+#: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
 msgstr ""
 
-#: src/themerepository.cpp:255
+#: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
 msgstr ""
 
-#: src/themerepository.cpp:293
+#: src/theme/themerepository.cpp:282
 msgctxt "ghostwriter::ThemeRepository|"
 msgid ""
 "Theme could not be saved to disk.  Please check file permissions or try "
 "renaming the theme."
 msgstr "主题无法保存到磁盘。请检查文件权限或尝试重命名主题。"
 
-#: src/themerepository.cpp:323
+#: src/theme/themerepository.cpp:312
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled 1"
 msgstr "无标题 1"
 
-#: src/themerepository.cpp:333
+#: src/theme/themerepository.cpp:322
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled %1"
 msgstr "无标题 %1"
 
-#: src/themeselectiondialog.cpp:92
+#: src/theme/themeselectiondialog.cpp:96
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "主题"
 
-#: src/themeselectiondialog.cpp:141
+#: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
 msgstr "编辑"
 
-#: src/themeselectiondialog.cpp:392
+#: src/theme/themeselectiondialog.cpp:382
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
 msgstr "无法删除主题"
 
-#: src/themeselectiondialog.cpp:393
+#: src/theme/themeselectiondialog.cpp:383
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
 msgstr "对不起，这是一个内置主题，无法删除。"
 
-#: src/themeselectiondialog.cpp:404
+#: src/theme/themeselectiondialog.cpp:393
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
 msgstr "您确定要永久删除‘%1’主题吗？"
 
-#: src/themeselectiondialog.cpp:420
+#: src/theme/themeselectiondialog.cpp:408
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
 msgstr "删除主题失败"
 
-#: src/themeselectiondialog.cpp:448
+#: src/theme/themeselectiondialog.cpp:435
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
 msgstr "无法编辑主题"
 
-#: src/themeselectiondialog.cpp:449
+#: src/theme/themeselectiondialog.cpp:436
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "对不起，这是一个内置的主题，无法编辑。"
