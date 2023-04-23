@@ -90,7 +90,7 @@ if (QT_MAJOR_VERSION STREQUAL "6")
 endif()
 
 find_package(
-    KF5 ${KF5_MIN_VERSION}
+    KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION}
     REQUIRED
     COMPONENTS
     Sonnet
@@ -121,11 +121,11 @@ target_link_libraries(ghostwriter PRIVATE
     Qt::WebChannel
     Qt::Gui
     Qt::WebEngineWidgets
-    KF5::SonnetCore
-    KF5::SonnetUi
-    KF5::CoreAddons
-    KF5::XmlGui
-    KF5::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::SonnetCore
+    KF${KF_MAJOR_VERSION}::SonnetUi
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
     QtAwesome
     ${CMARK_LIBS}
 )

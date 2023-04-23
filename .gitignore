@@ -1,21 +1,45 @@
-# SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-# C++ objects and libs
+# general
+build/
+/build*/
+*.rej
+*.orig
+*.out
+CMakeLists.txt.user*
+/.clang-format
+/.idea
 
-*.slo
-*.lo
-*.o
-*.a
-*.la
-*.lai
-*.so
-*.dll
-*.dylib
+# kate
+*~
+*-swp
+
+# kdevelop
+*.kdev4
+
+# from kdiff3
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+
+# from dolphin
+.directory
+
+# LSP Server data
+/.clangd
+/.cmake/
+/.cache/
+/compile_commands.json
+/cmake-build*
+.vscode/
+.flatpak/
+.flatpak-builder/
+/_build/
 
 # Qt-es
-
 /.qmake.cache
 /.qmake.stash
 *.pro.user
@@ -33,21 +57,15 @@ Makefile*
 *.idx
 
 # QtCreator
-
 *.autosave
 
-#QtCtreator Qml
+# QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
 
 *.qm
 
-build/
-
 # Mac finder stub
 .DS_Store
 
-# VSCode
 
-.vscode/
-.vscode/*

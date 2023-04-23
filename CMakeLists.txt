@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -16,9 +16,17 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(ghostwriter VERSION ${RELEASE_SERVICE_VERSION} LANGUAGES CXX)
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.90")
+set(KF_MIN_VERSION "5.90")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_MIN_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
+
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 # Append to the module path so modules can be overridden from the command line.
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -33,6 +41,8 @@ include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
 include(ECMPoQmTools)
+include(KDEClangFormat)
+include(KDEGitCommitHooks)
 include(FeatureSummary)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -46,8 +56,8 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/poqm")
     ecm_install_po_files_as_qm(poqm)
 endif()
 
-find_package(KF5DocTools ${KF5_MIN_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -119,3 +129,7 @@ install(
 )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/**/*.cpp src/**/*.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
