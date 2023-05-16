@@ -2,7 +2,12 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-add_executable(ghostwriter ../resources.qrc)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(UI_FILES settings/preferencesdialog.ui)
+
+add_executable(ghostwriter ../resources.qrc ${UI_FILES})
 
 target_compile_definitions(ghostwriter PRIVATE APPVERSION="${RELEASE_SERVICE_VERSION}")
 
@@ -16,7 +21,6 @@ target_include_directories(ghostwriter PUBLIC
 
 ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_sources(ghostwriter PRIVATE
     editor/actions/inlinemarkuptoggle.cpp
     editor/asynctextwriter.cpp
@@ -68,6 +72,7 @@ target_sources(ghostwriter PRIVATE
     timelabel.cpp
     ${ghostwriter_QM_LOADER}
 )
+
 
 if (UNIX)
     find_package(PkgConfig REQUIRED)

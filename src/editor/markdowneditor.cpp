@@ -49,6 +49,13 @@
 
 namespace ghostwriter
 {
+
+namespace
+{
+constexpr auto unbreakableSpace{" "}; // Entity: &nbsp; HTML code: &#160; Unicode: U+00AO
+constexpr auto doubleSpace{"  "};
+constexpr auto unbreakableSpaceIndicator{"_"};
+}
 class MarkdownEditorPrivate
 {
     Q_DECLARE_PUBLIC(MarkdownEditor)
@@ -91,10 +98,12 @@ public:
     bool autoMatchEnabled;
     bool bulletPointCyclingEnabled;
     bool hemingwayModeEnabled;
+    bool showUnbreakableSpaces;
     FocusMode focusMode;
     QBrush fadeColor;
     QColor blockColor;
     QColor whitespaceRenderColor;
+    QColor unbreakableSpaceRenderColor;
     bool insertSpacesForTabs;
     int tabWidth;
     EditorWidth editorWidth;
@@ -235,6 +244,7 @@ MarkdownEditor::MarkdownEditor
     this->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setShowTabsAndSpacesEnabled(false);
+    this->setShowUnbreakableSpaces(false);
 
     // Make sure QPlainTextEdit does not draw a cursor.  (We'll paint it manually.)
     this->setCursorWidth(0);
@@ -496,6 +506,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
 
     while (block.isValid() && !done) {        
         QRectF r = this->blockBoundingRect(block).translated(offset);
+        auto text = block.text();
 
         // If not in a code block, and the current block ends with two spaces
         // to indicate a line break in Markdown syntax, then draw the line
@@ -507,7 +518,7 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
         // after punctuation.
         //
         if (!d->isCodeBlock(block)
-                && block.text().endsWith("  ")
+                && text.endsWith(doubleSpace) 
                 && (this->textCursor().position()
                     != (block.position() + block.length() - 1))) {
             // Get position of last space character in the block.
@@ -534,6 +545,44 @@ void MarkdownEditor::paintEvent(QPaintEvent *event)
             }
 
             painter.drawText(pos, d->lineBreakChar);
+            painter.end();
+        }
+        if (d->showUnbreakableSpaces 
+                && text.contains(unbreakableSpace)) {
+            // unbreakable space
+            QTextCursor c(block);
+            QRect blockRect = this->cursorRect(c);
+            QFontMetrics m(c.charFormat().font());
+
+            auto h = (MarkdownStateMask & block.userState());
+            auto it =  std::find_if(std::begin(MarkdownHeaderStates), std::end(MarkdownHeaderStates), [h](const MarkdownState& state){
+                return state == h;
+            });
+            if(it != std::end(MarkdownHeaderStates)) {
+                auto f = c.charFormat().font();
+                f.setPointSize(f.pointSize() + std::distance(it, std::end(MarkdownHeaderStates)));
+                m = QFontMetrics(f);
+            }
+
+            QRect indicatorRect = m.tightBoundingRect(unbreakableSpaceIndicator);
+
+            int i = 0;
+            QPainter painter(viewport());
+            painter.setFont(c.charFormat().font());
+            painter.setPen(d->unbreakableSpaceRenderColor);
+
+            do {
+                int idx = text.indexOf(unbreakableSpace, i);
+                QPoint pos(blockRect.x() + m.horizontalAdvance(text, idx), blockRect.bottom() - indicatorRect.height());
+
+                if (idx < 0) {
+                    i = text.size(); // finished
+                } else {
+                    painter.drawText(pos, unbreakableSpaceIndicator);
+                    i = idx + 1;
+                }
+
+            } while (i < text.size());
             painter.end();
         }
 
@@ -632,6 +681,7 @@ void MarkdownEditor::setColorScheme
     d->highlighter->setColorScheme(colors);
     d->cursorColor = colors.cursor;
     d->whitespaceRenderColor = colors.listMarkup;
+    d->unbreakableSpaceRenderColor = colors.error;
     d->blockColor = colors.foreground;
     d->blockColor.setAlpha(10);
 
@@ -665,6 +715,13 @@ void MarkdownEditor::setShowTabsAndSpacesEnabled(bool enabled)
     }
 
     d->textDocument->setDefaultTextOption(option);
+}
+
+void MarkdownEditor::setShowUnbreakableSpaces(bool enabled)
+{
+    Q_D(MarkdownEditor);
+
+    d->showUnbreakableSpaces = enabled;
 }
 
 void MarkdownEditor::setupPaperMargins()

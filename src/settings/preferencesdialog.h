@@ -11,6 +11,8 @@
 #include <QObject>
 #include <QScopedPointer>
 
+class Ui_PreferencesDialog;
+
 namespace ghostwriter
 {
 /**
@@ -35,6 +37,7 @@ public:
 
 private:
     QScopedPointer<PreferencesDialogPrivate> d_ptr;
+    Ui_PreferencesDialog *m_ui;
 };
 } // namespace ghostwriter
 

@@ -231,6 +231,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(backupFileChanged(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
     connect(appSettings, SIGNAL(tabWidthChanged(int)), editor, SLOT(setTabulationWidth(int)));
     connect(appSettings, SIGNAL(insertSpacesForTabsChanged(bool)), editor, SLOT(setInsertSpacesForTabs(bool)));
+    connect(appSettings, &AppSettings::showUnbreakableSpaceEnabledChanged, editor, &MarkdownEditor::setShowUnbreakableSpaces);
     connect(appSettings, SIGNAL(useUnderlineForEmphasisChanged(bool)), editor, SLOT(setUseUnderlineForEmphasis(bool)));
     connect(appSettings, SIGNAL(italicizeBlockquotesChanged(bool)), editor, SLOT(setItalicizeBlockquotes(bool)));
     connect(appSettings, SIGNAL(largeHeadingSizesChanged(bool)), editor, SLOT(setEnableLargeHeadingSizes(bool)));
@@ -246,6 +247,8 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
     connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
     connect(appSettings, SIGNAL(previewCodeFontChanged(QFont)), this, SLOT(applyTheme()));
+
+    editor->setShowUnbreakableSpaces(appSettings->showUnbreakableSpaceEnabled());
 
     if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
         this->menuBar()->hide();

@@ -23,38 +23,42 @@
 
 #include "appsettings.h"
 
-#define GW_FAVORITE_STATISTIC_KEY "Session/favoriteStatistic"
-#define GW_RESTORE_SESSION_KEY "Session/restoreSession"
-#define GW_REMEMBER_FILE_HISTORY_KEY "Session/rememberFileHistory"
-#define GW_AUTOSAVE_KEY "Save/autoSave"
-#define GW_BACKUP_FILE_KEY "Save/backupFile"
-#define GW_EDITOR_FONT_KEY "Style/editorFont"
-#define GW_LARGE_HEADINGS_KEY "Style/largeHeadings"
-#define GW_AUTO_MATCH_KEY "Typing/autoMatchEnabled"
-#define GW_AUTO_MATCH_FILTER_KEY "Typing/autoMatchFilter"
-#define GW_BULLET_CYCLING_KEY "Typing/bulletPointCyclingEnabled"
-#define GW_UNDERLINE_ITALICS_KEY "Style/underlineInsteadOfItalics"
-#define GW_FOCUS_MODE_KEY "Style/focusMode"
-#define GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY "Style/hideMenuBarInFullScreenEnabled"
-#define GW_THEME_KEY "Style/theme"
-#define GW_DARK_MODE_KEY "Style/darkModeEnabled"
-#define GW_EDITOR_WIDTH_KEY "Style/editorWidth"
-#define GW_INTERFACE_STYLE_KEY "Style/interfaceStyle"
-#define GW_BLOCKQUOTE_STYLE_KEY "Style/blockquoteStyle"
-#define GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY "Style/displayTimeInFullScreen"
-#define GW_TAB_WIDTH_KEY "Tabs/tabWidth"
-#define GW_SPACES_FOR_TABS_KEY "Tabs/insertSpacesForTabs"
-#define GW_LOCALE_KEY "Application/locale"
-#define GW_LIVE_SPELL_CHECK_KEY "Spelling/liveSpellCheck"
-#define GW_SIDEBAR_OPEN_KEY "Window/sidebarOpen"
-#define GW_HTML_PREVIEW_OPEN_KEY "Preview/htmlPreviewOpen"
-#define GW_LAST_USED_EXPORTER_KEY "Preview/lastUsedExporter"
-#define GW_LAST_USED_EXPORTER_PARAMS_KEY "Preview/lastUsedExporterParams"
-#define GW_PREVIEW_TEXT_FONT_KEY "Preview/textFont"
-#define GW_PREVIEW_CODE_FONT_KEY "Preview/codeFont"
-
 namespace ghostwriter
 {
+namespace constants
+{
+constexpr auto GW_FAVORITE_STATISTIC_KEY{"Session/favoriteStatistic"};
+constexpr auto GW_RESTORE_SESSION_KEY{"Session/restoreSession"};
+constexpr auto GW_REMEMBER_FILE_HISTORY_KEY{"Session/rememberFileHistory"};
+constexpr auto GW_AUTOSAVE_KEY{"Save/autoSave"};
+constexpr auto GW_BACKUP_FILE_KEY{"Save/backupFile"};
+constexpr auto GW_EDITOR_FONT_KEY{"Style/editorFont"};
+constexpr auto GW_LARGE_HEADINGS_KEY{"Style/largeHeadings"};
+constexpr auto GW_AUTO_MATCH_KEY{"Typing/autoMatchEnabled"};
+constexpr auto GW_AUTO_MATCH_FILTER_KEY{"Typing/autoMatchFilter"};
+constexpr auto GW_BULLET_CYCLING_KEY{"Typing/bulletPointCyclingEnabled"};
+constexpr auto GW_UNDERLINE_ITALICS_KEY{"Style/underlineInsteadOfItalics"};
+constexpr auto GW_FOCUS_MODE_KEY{"Style/focusMode"};
+constexpr auto GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY{"Style/hideMenuBarInFullScreenEnabled"};
+constexpr auto GW_THEME_KEY{"Style/theme"};
+constexpr auto GW_DARK_MODE_KEY{"Style/darkModeEnabled"};
+constexpr auto GW_EDITOR_WIDTH_KEY{"Style/editorWidth"};
+constexpr auto GW_INTERFACE_STYLE_KEY{"Style/interfaceStyle"};
+constexpr auto GW_BLOCKQUOTE_STYLE_KEY{"Style/blockquoteStyle"};
+constexpr auto GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY{"Style/displayTimeInFullScreen"};
+constexpr auto GW_UNBREAKABLE_SPACE{"style/showUnbreakableSpace"};
+constexpr auto GW_TAB_WIDTH_KEY{"Tabs/tabWidth"};
+constexpr auto GW_SPACES_FOR_TABS_KEY{"Tabs/insertSpacesForTabs"};
+constexpr auto GW_LOCALE_KEY{"Application/locale"};
+constexpr auto GW_LIVE_SPELL_CHECK_KEY{"Spelling/liveSpellCheck"};
+constexpr auto GW_SIDEBAR_OPEN_KEY{"Window/sidebarOpen"};
+constexpr auto GW_HTML_PREVIEW_OPEN_KEY{"Preview/htmlPreviewOpen"};
+constexpr auto GW_LAST_USED_EXPORTER_KEY{"Preview/lastUsedExporter"};
+constexpr auto GW_LAST_USED_EXPORTER_PARAMS_KEY{"Preview/lastUsedExporterParams"};
+constexpr auto GW_PREVIEW_TEXT_FONT_KEY{"Preview/textFont"};
+constexpr auto GW_PREVIEW_CODE_FONT_KEY{"Preview/codeFont"};
+}
+
 class AppSettingsPrivate
 {
 public:
@@ -104,6 +108,7 @@ public:
     QString themeDirectoryPath;
     QString themeName;
     bool darkModeEnabled;
+    bool showUnbreakableSpaceEnabled;
 };
 
 AppSettings *AppSettingsPrivate::instance = nullptr;
@@ -128,35 +133,36 @@ void AppSettings::store()
 
     QSettings appSettings;
 
-    appSettings.setValue(GW_AUTO_MATCH_FILTER_KEY, QVariant(d->autoMatchedCharFilter));
-    appSettings.setValue(GW_AUTO_MATCH_KEY, QVariant(d->autoMatchEnabled));
-    appSettings.setValue(GW_AUTOSAVE_KEY, QVariant(d->autoSaveEnabled));
-    appSettings.setValue(GW_BACKUP_FILE_KEY, QVariant(d->backupFileEnabled));
-    appSettings.setValue(GW_BULLET_CYCLING_KEY, QVariant(d->bulletPointCyclingEnabled));
-    appSettings.setValue(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d->displayTimeInFullScreenEnabled));
-    appSettings.setValue(GW_EDITOR_WIDTH_KEY, QVariant(d->editorWidth));
-    appSettings.setValue(GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
-    appSettings.setValue(GW_EDITOR_FONT_KEY, QVariant(d->editorFont.toString()));
-    appSettings.setValue(GW_PREVIEW_TEXT_FONT_KEY,     QVariant(d->previewTextFont.toString()));
-    appSettings.setValue(GW_PREVIEW_CODE_FONT_KEY, QVariant(d->previewCodeFont.toString()));
-    appSettings.setValue(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d->hideMenuBarInFullScreenEnabled));
-    appSettings.setValue(GW_INTERFACE_STYLE_KEY, QVariant(d->interfaceStyle));
-    appSettings.setValue(GW_BLOCKQUOTE_STYLE_KEY, QVariant(d->italicizeBlockquotes));
-    appSettings.setValue(GW_LARGE_HEADINGS_KEY, QVariant(d->largeHeadingSizesEnabled));
-    appSettings.setValue(GW_SIDEBAR_OPEN_KEY, QVariant(d->sidebarVisible));
-    appSettings.setValue(GW_HTML_PREVIEW_OPEN_KEY, QVariant(d->htmlPreviewVisible));
-    appSettings.setValue(GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
-    appSettings.setValue(GW_LAST_USED_EXPORTER_PARAMS_KEY, QVariant(d->currentHtmlExporter->options()));
-    appSettings.setValue(GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
-    appSettings.setValue(GW_LOCALE_KEY, QVariant(d->locale));
-    appSettings.setValue(GW_RESTORE_SESSION_KEY, QVariant(d->restoreSessionEnabled));
-    appSettings.setValue(GW_FAVORITE_STATISTIC_KEY, QVariant(d->favoriteStatistic));
-    appSettings.setValue(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d->fileHistoryEnabled));
-    appSettings.setValue(GW_SPACES_FOR_TABS_KEY, QVariant(d->insertSpacesForTabsEnabled));
-    appSettings.setValue(GW_TAB_WIDTH_KEY, QVariant(d->tabWidth));
-    appSettings.setValue(GW_THEME_KEY, QVariant(d->themeName));
-    appSettings.setValue(GW_DARK_MODE_KEY, QVariant(d->darkModeEnabled));
-    appSettings.setValue(GW_UNDERLINE_ITALICS_KEY, QVariant(d->useUnderlineForEmphasis));
+    appSettings.setValue(constants::GW_AUTO_MATCH_FILTER_KEY, QVariant(d->autoMatchedCharFilter));
+    appSettings.setValue(constants::GW_AUTO_MATCH_KEY, QVariant(d->autoMatchEnabled));
+    appSettings.setValue(constants::GW_AUTOSAVE_KEY, QVariant(d->autoSaveEnabled));
+    appSettings.setValue(constants::GW_BACKUP_FILE_KEY, QVariant(d->backupFileEnabled));
+    appSettings.setValue(constants::GW_BULLET_CYCLING_KEY, QVariant(d->bulletPointCyclingEnabled));
+    appSettings.setValue(constants::GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(d->displayTimeInFullScreenEnabled));
+    appSettings.setValue(constants::GW_EDITOR_WIDTH_KEY, QVariant(d->editorWidth));
+    appSettings.setValue(constants::GW_FOCUS_MODE_KEY, QVariant(d->focusMode));
+    appSettings.setValue(constants::GW_EDITOR_FONT_KEY, QVariant(d->editorFont.toString()));
+    appSettings.setValue(constants::GW_PREVIEW_TEXT_FONT_KEY, QVariant(d->previewTextFont.toString()));
+    appSettings.setValue(constants::GW_PREVIEW_CODE_FONT_KEY, QVariant(d->previewCodeFont.toString()));
+    appSettings.setValue(constants::GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(d->hideMenuBarInFullScreenEnabled));
+    appSettings.setValue(constants::GW_INTERFACE_STYLE_KEY, QVariant(d->interfaceStyle));
+    appSettings.setValue(constants::GW_BLOCKQUOTE_STYLE_KEY, QVariant(d->italicizeBlockquotes));
+    appSettings.setValue(constants::GW_LARGE_HEADINGS_KEY, QVariant(d->largeHeadingSizesEnabled));
+    appSettings.setValue(constants::GW_SIDEBAR_OPEN_KEY, QVariant(d->sidebarVisible));
+    appSettings.setValue(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(d->htmlPreviewVisible));
+    appSettings.setValue(constants::GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
+    appSettings.setValue(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY, QVariant(d->currentHtmlExporter->options()));
+    appSettings.setValue(constants::GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
+    appSettings.setValue(constants::GW_LOCALE_KEY, QVariant(d->locale));
+    appSettings.setValue(constants::GW_RESTORE_SESSION_KEY, QVariant(d->restoreSessionEnabled));
+    appSettings.setValue(constants::GW_FAVORITE_STATISTIC_KEY, QVariant(d->favoriteStatistic));
+    appSettings.setValue(constants::GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d->fileHistoryEnabled));
+    appSettings.setValue(constants::GW_SPACES_FOR_TABS_KEY, QVariant(d->insertSpacesForTabsEnabled));
+    appSettings.setValue(constants::GW_TAB_WIDTH_KEY, QVariant(d->tabWidth));
+    appSettings.setValue(constants::GW_THEME_KEY, QVariant(d->themeName));
+    appSettings.setValue(constants::GW_DARK_MODE_KEY, QVariant(d->darkModeEnabled));
+    appSettings.setValue(constants::GW_UNDERLINE_ITALICS_KEY, QVariant(d->useUnderlineForEmphasis));
+    appSettings.setValue(constants::GW_UNBREAKABLE_SPACE, QVariant(d->showUnbreakableSpaceEnabled));
 
     appSettings.sync();
 }
@@ -640,6 +646,20 @@ void AppSettings::setCurrentHtmlExporter(Exporter *exporter)
     emit currentHtmlExporterChanged(exporter);
 }
 
+bool AppSettings::showUnbreakableSpaceEnabled()
+{
+    const Q_D(AppSettings);
+
+    return d->showUnbreakableSpaceEnabled;
+}
+
+void AppSettings::setShowUnbreakableSpaceEnabled(bool enabled)
+{
+    Q_D(AppSettings);
+
+    d->showUnbreakableSpaceEnabled = enabled;
+    emit showUnbreakableSpaceEnabledChanged(d->showUnbreakableSpaceEnabled);
+}
 AppSettings::AppSettings()
     : d_ptr(new AppSettingsPrivate())
 {
@@ -724,43 +744,44 @@ AppSettings::AppSettings()
     //
     QSettings appSettings;
 
-    d->autoSaveEnabled = appSettings.value(GW_AUTOSAVE_KEY, QVariant(true)).toBool();
-    d->backupFileEnabled = appSettings.value(GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
-    d->editorFont.fromString(appSettings.value(GW_EDITOR_FONT_KEY, QVariant(monospaceFont)).toString());
-    d->previewTextFont.fromString(appSettings.value(GW_PREVIEW_TEXT_FONT_KEY, QVariant(variableFont)).toString());
-    d->previewCodeFont.fromString(appSettings.value(GW_PREVIEW_CODE_FONT_KEY, QVariant(monospaceFont)).toString());
-    d->tabWidth = appSettings.value(GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
+    d->autoSaveEnabled = appSettings.value(constants::GW_AUTOSAVE_KEY, QVariant(true)).toBool();
+    d->backupFileEnabled = appSettings.value(constants::GW_BACKUP_FILE_KEY, QVariant(true)).toBool();
+    d->editorFont.fromString(appSettings.value(constants::GW_EDITOR_FONT_KEY, QVariant(monospaceFont)).toString());
+    d->previewTextFont.fromString(appSettings.value(constants::GW_PREVIEW_TEXT_FONT_KEY, QVariant(variableFont)).toString());
+    d->previewCodeFont.fromString(appSettings.value(constants::GW_PREVIEW_CODE_FONT_KEY, QVariant(monospaceFont)).toString());
+    d->tabWidth = appSettings.value(constants::GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
 
     if ((d->tabWidth < MIN_TAB_WIDTH) || (d->tabWidth > MAX_TAB_WIDTH)) {
         d->tabWidth = DEFAULT_TAB_WIDTH;
     }
 
-    d->insertSpacesForTabsEnabled = appSettings.value(GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
-    d->useUnderlineForEmphasis = appSettings.value(GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
-    d->largeHeadingSizesEnabled = appSettings.value(GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
-    d->autoMatchEnabled = appSettings.value(GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
-    d->autoMatchedCharFilter = appSettings.value(GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
-    d->bulletPointCyclingEnabled = appSettings.value(GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
-    d->focusMode = (FocusMode) appSettings.value(GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
+    d->insertSpacesForTabsEnabled = appSettings.value(constants::GW_SPACES_FOR_TABS_KEY, QVariant(false)).toBool();
+    d->useUnderlineForEmphasis = appSettings.value(constants::GW_UNDERLINE_ITALICS_KEY, QVariant(false)).toBool();
+    d->largeHeadingSizesEnabled = appSettings.value(constants::GW_LARGE_HEADINGS_KEY, QVariant(true)).toBool();
+    d->autoMatchEnabled = appSettings.value(constants::GW_AUTO_MATCH_KEY, QVariant(true)).toBool();
+    d->autoMatchedCharFilter = appSettings.value(constants::GW_AUTO_MATCH_FILTER_KEY, QVariant("\"\'([{*_`<")).toString();
+    d->bulletPointCyclingEnabled = appSettings.value(constants::GW_BULLET_CYCLING_KEY, QVariant(true)).toBool();
+    d->focusMode = (FocusMode)appSettings.value(constants::GW_FOCUS_MODE_KEY, QVariant(FocusModeSentence)).toInt();
 
     if ((d->focusMode < FocusModeFirst) || (d->focusMode > FocusModeLast)) {
         d->focusMode = FocusModeSentence;
     }
 
-    d->hideMenuBarInFullScreenEnabled = appSettings.value(GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
-    d->favoriteStatistic = appSettings.value(GW_FAVORITE_STATISTIC_KEY, QVariant(0)).toInt();
-    d->restoreSessionEnabled = appSettings.value(GW_RESTORE_SESSION_KEY, QVariant(true)).toBool();
-    d->fileHistoryEnabled = appSettings.value(GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
-    d->displayTimeInFullScreenEnabled = appSettings.value(GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
-    d->themeName = appSettings.value(GW_THEME_KEY, QVariant("Classic Light")).toString();
-    d->darkModeEnabled = appSettings.value(GW_DARK_MODE_KEY, QVariant(true)).toBool();
+    d->hideMenuBarInFullScreenEnabled = appSettings.value(constants::GW_HIDE_MENU_BAR_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->showUnbreakableSpaceEnabled = appSettings.value(constants::GW_UNBREAKABLE_SPACE, QVariant(false)).toBool();
+    d->favoriteStatistic = appSettings.value(constants::GW_FAVORITE_STATISTIC_KEY, QVariant(0)).toInt();
+    d->restoreSessionEnabled = appSettings.value(constants::GW_RESTORE_SESSION_KEY, QVariant(true)).toBool();
+    d->fileHistoryEnabled = appSettings.value(constants::GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
+    d->displayTimeInFullScreenEnabled = appSettings.value(constants::GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
+    d->themeName = appSettings.value(constants::GW_THEME_KEY, QVariant("Classic Light")).toString();
+    d->darkModeEnabled = appSettings.value(constants::GW_DARK_MODE_KEY, QVariant(true)).toBool();
 
-    d->locale = appSettings.value(GW_LOCALE_KEY, d->initialLocale()).toString();
+    d->locale = appSettings.value(constants::GW_LOCALE_KEY, d->initialLocale()).toString();
     setLocale(d->locale);
-    d->liveSpellCheckEnabled = appSettings.value(GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
-    d->editorWidth = (EditorWidth) appSettings.value(GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
-    d->interfaceStyle = (InterfaceStyle) appSettings.value(GW_INTERFACE_STYLE_KEY, QVariant(InterfaceStyleRounded)).toInt();
-    d->italicizeBlockquotes = appSettings.value(GW_BLOCKQUOTE_STYLE_KEY, QVariant(false)).toBool();
+    d->liveSpellCheckEnabled = appSettings.value(constants::GW_LIVE_SPELL_CHECK_KEY, QVariant(true)).toBool();
+    d->editorWidth = (EditorWidth)appSettings.value(constants::GW_EDITOR_WIDTH_KEY, QVariant(EditorWidthMedium)).toInt();
+    d->interfaceStyle = (InterfaceStyle)appSettings.value(constants::GW_INTERFACE_STYLE_KEY, QVariant(InterfaceStyleRounded)).toInt();
+    d->italicizeBlockquotes = appSettings.value(constants::GW_BLOCKQUOTE_STYLE_KEY, QVariant(false)).toBool();
 
     if ((d->editorWidth < EditorWidthFirst) || (d->editorWidth > EditorWidthLast)) {
         d->editorWidth = EditorWidthMedium;
@@ -770,16 +791,16 @@ AppSettings::AppSettings()
         d->interfaceStyle = InterfaceStyleRounded;
     }
 
-    d->sidebarVisible = appSettings.value(GW_SIDEBAR_OPEN_KEY, QVariant(true)).toBool();
-    d->htmlPreviewVisible = appSettings.value(GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
+    d->sidebarVisible = appSettings.value(constants::GW_SIDEBAR_OPEN_KEY, QVariant(true)).toBool();
+    d->htmlPreviewVisible = appSettings.value(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
 
-    QString exporterName = appSettings.value(GW_LAST_USED_EXPORTER_KEY).toString();
+    QString exporterName = appSettings.value(constants::GW_LAST_USED_EXPORTER_KEY).toString();
     d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
 
     if (nullptr == d->currentHtmlExporter) {
         d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
     } else {
-        d->currentHtmlExporter->setOptions(appSettings.value(GW_LAST_USED_EXPORTER_PARAMS_KEY).toString());
+        d->currentHtmlExporter->setOptions(appSettings.value(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY).toString());
     }
 }
 

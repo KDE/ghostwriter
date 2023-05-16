@@ -106,6 +106,10 @@ public:
      * Sets whether tabs and spaces will be shown.
      */
     void setShowTabsAndSpacesEnabled(bool enabled);
+    /**
+     * Make unbreakable spaces visible
+     */
+    void setShowUnbreakableSpaces(bool enabled);
 
     /**
      * Sets up the margins on the sides of the editor, so that the text

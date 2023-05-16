@@ -7,6 +7,8 @@
 #ifndef MARKDOWN_STATES_H
 #define MARKDOWN_STATES_H
 
+#include <array>
+
 namespace ghostwriter
 {
 /*
@@ -43,6 +45,16 @@ const MarkdownState MarkdownStateBlockquote           = 0x02000000;
 const MarkdownState MarkdownStateCodeBlock            = 0x04000000;
 
 const MarkdownState MarkdownStateMask                 = 0x00FF0000;
+
+
+const std::array<MarkdownState, 6> MarkdownHeaderStates{
+    MarkdownStateAtxHeading1,
+    MarkdownStateAtxHeading2,
+    MarkdownStateAtxHeading3,
+    MarkdownStateAtxHeading4,
+    MarkdownStateAtxHeading5,
+    MarkdownStateAtxHeading6
+};
 } // namespace ghostwriter
 
 #endif // MARKDOWN_STATES_H
