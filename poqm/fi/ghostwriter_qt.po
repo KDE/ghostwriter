@@ -245,17 +245,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "nimetön"
 
-#: src/editor/markdowneditor.cpp:866
+#: src/editor/markdowneditor.cpp:923
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Tallenna kuva"
 
-#: src/editor/markdowneditor.cpp:1456
+#: src/editor/markdowneditor.cpp:1513
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Lisää kuva"
 
-#: src/editor/markdowneditor.cpp:2382
+#: src/editor/markdowneditor.cpp:2439
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -407,457 +407,457 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 osumaa"
 
-#: src/mainwindow.cpp:906
+#: src/mainwindow.cpp:909
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Tiedosto"
 
-#: src/mainwindow.cpp:908
+#: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Uusi"
 
-#: src/mainwindow.cpp:909
+#: src/mainwindow.cpp:912
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Avaa"
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:914
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Avaa &viimeaikainen…"
 
-#: src/mainwindow.cpp:912
+#: src/mainwindow.cpp:915
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Avaa suljettu tiedosto uudelleen"
 
-#: src/mainwindow.cpp:920
+#: src/mainwindow.cpp:923
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Tyhjennä valikko"
 
-#: src/mainwindow.cpp:925
+#: src/mainwindow.cpp:928
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Tallenna"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:929
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Tallenna &nimellä…"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "&Muuta nimeä…"
 
-#: src/mainwindow.cpp:928
+#: src/mainwindow.cpp:931
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "Lataa l&evyltä uudelleen…"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Vie"
 
-#: src/mainwindow.cpp:932
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "&Lopeta"
 
-#: src/mainwindow.cpp:936
+#: src/mainwindow.cpp:939
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Muokkaa"
 
-#: src/mainwindow.cpp:937
+#: src/mainwindow.cpp:940
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "K&umoa"
 
-#: src/mainwindow.cpp:938
+#: src/mainwindow.cpp:941
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "T&ee uudelleen"
 
-#: src/mainwindow.cpp:940
+#: src/mainwindow.cpp:943
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "L&eikkaa"
 
-#: src/mainwindow.cpp:941
+#: src/mainwindow.cpp:944
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Kopioi"
 
-#: src/mainwindow.cpp:942
+#: src/mainwindow.cpp:945
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "&Liitä"
 
-#: src/mainwindow.cpp:943
+#: src/mainwindow.cpp:946
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Kopioi &HTML:ksi"
 
-#: src/mainwindow.cpp:945
+#: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "L&isää kuva…"
 
-#: src/mainwindow.cpp:948
+#: src/mainwindow.cpp:951
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "&Etsi"
 
-#: src/mainwindow.cpp:949
+#: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "K&orvaa"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Etsi &seuraava"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Etsi e&dellinen"
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "&Oikeinkirjoituksen tarkistus"
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "M&uotoile"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "&Lihavointi"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "&Kursivointi"
 
-#: src/mainwindow.cpp:958
+#: src/mainwindow.cpp:961
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "&Yliviivaus"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "&HTML-kommentti"
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "&Sisennä"
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:966
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "&Poista sisennys"
 
-#: src/mainwindow.cpp:965
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "Lainauslo&hko"
 
-#: src/mainwindow.cpp:966
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "&Poista lainauslohko"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "Luetelma (&*)"
 
-#: src/mainwindow.cpp:969
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "Luetelma (&-)"
 
-#: src/mainwindow.cpp:970
+#: src/mainwindow.cpp:973
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "Luetelma (&+)"
 
-#: src/mainwindow.cpp:972
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "Numeroitu luettelo (&1.)"
 
-#: src/mainwindow.cpp:973
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "Numeroitu luettelo (1&))"
 
-#: src/mainwindow.cpp:975
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "&Tehtäväluettelo"
 
-#: src/mainwindow.cpp:976
+#: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "Merkitse tehtävät tehdyiksi/keskeneräisiksi"
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Näytä"
 
-#: src/mainwindow.cpp:981
+#: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "K&oko näyttö"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:992
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "&Esikatsele HTML:nä"
 
-#: src/mainwindow.cpp:997
+#: src/mainwindow.cpp:1000
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "&Jäsennys"
 
-#: src/mainwindow.cpp:1007
+#: src/mainwindow.cpp:1010
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "&Istuntotilastot"
 
-#: src/mainwindow.cpp:1016
+#: src/mainwindow.cpp:1019
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "&Tiedostotilastot"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:1028
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "L&unttilappu"
 
-#: src/mainwindow.cpp:1036
+#: src/mainwindow.cpp:1039
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Suurenna fonttikokoa"
 
-#: src/mainwindow.cpp:1037
+#: src/mainwindow.cpp:1040
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Pienennä fonttikokoa"
 
-#: src/mainwindow.cpp:1039
+#: src/mainwindow.cpp:1042
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "&Asetukset"
 
-#: src/mainwindow.cpp:1040 src/mainwindow.cpp:1351
+#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Teemat…"
 
-#: src/mainwindow.cpp:1041 src/mainwindow.cpp:1352
+#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Fontti…"
 
-#: src/mainwindow.cpp:1042 src/mainwindow.cpp:1353
+#: src/mainwindow.cpp:1045 src/mainwindow.cpp:1356
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Sovelluksen kieli…"
 
-#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
+#: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Esikatseluvalinnat…"
 
-#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
+#: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Valinnat…"
 
-#: src/mainwindow.cpp:1050
+#: src/mainwindow.cpp:1053
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "&Ohje"
 
-#: src/mainwindow.cpp:1060
+#: src/mainwindow.cpp:1063
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "Nopea &viitekäsikirja"
 
-#: src/mainwindow.cpp:1061
+#: src/mainwindow.cpp:1064
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1109
+#: src/mainwindow.cpp:1112
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Näytä tai piilota sivupaneeli"
 
-#: src/mainwindow.cpp:1166
+#: src/mainwindow.cpp:1169
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Vaihda vaalean ja tumman tilan välillä"
 
-#: src/mainwindow.cpp:1185
+#: src/mainwindow.cpp:1188
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "Näytä tai piilota HTML-esikatselu"
 
-#: src/mainwindow.cpp:1205
+#: src/mainwindow.cpp:1208
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Vaihda tavallisen ja Hemingway-tilan välillä"
 
-#: src/mainwindow.cpp:1213
+#: src/mainwindow.cpp:1216
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Vaihda tavallisen ja häiriöttömän tilan välillä"
 
-#: src/mainwindow.cpp:1222
+#: src/mainwindow.cpp:1225
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Vaihda tavallisen ja koko näytön tilan välillä"
 
-#: src/mainwindow.cpp:1245
+#: src/mainwindow.cpp:1248
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Näytä sivupaneeli"
 
-#: src/mainwindow.cpp:1262
+#: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Otsikko 1"
 
-#: src/mainwindow.cpp:1263
+#: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Otsikko 2"
 
-#: src/mainwindow.cpp:1264
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Otsikko 3"
 
-#: src/mainwindow.cpp:1265
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Otsikko 4"
 
-#: src/mainwindow.cpp:1266
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Otsikko 5"
 
-#: src/mainwindow.cpp:1267
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Otsikko 6"
 
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Korostus* _Korostus_"
 
-#: src/mainwindow.cpp:1269
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Vahvennus** __Vahvennus__"
 
-#: src/mainwindow.cpp:1270
+#: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. Numeroitu luettelo"
 
-#: src/mainwindow.cpp:1271
+#: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Luetelma"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Luetelma"
 
-#: src/mainwindow.cpp:1273
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Luetelma"
 
-#: src/mainwindow.cpp:1274
+#: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> Lainauslohko"
 
-#: src/mainwindow.cpp:1275
+#: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Kooditeksti`"
 
-#: src/mainwindow.cpp:1276
+#: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Koodilohko"
 
-#: src/mainwindow.cpp:1277
+#: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Linkki] (http://url.fi \"Otsikko\")"
 
-#: src/mainwindow.cpp:1278
+#: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Viitelinkki][ID]"
 
-#: src/mainwindow.cpp:1279
+#: src/mainwindow.cpp:1282
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Viitemääritelmä\""
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1283
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Kuva](./image.jpg \"Otsikko\")"
 
-#: src/mainwindow.cpp:1281
+#: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Vaakaviiva"
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1334
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Jäsennys"
 
-#: src/mainwindow.cpp:1332
+#: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Istuntotilastot"
 
-#: src/mainwindow.cpp:1333
+#: src/mainwindow.cpp:1336
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Tiedostotilastot"
 
-#: src/mainwindow.cpp:1334
+#: src/mainwindow.cpp:1337
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Lunttilappu"
 
-#: src/mainwindow.cpp:1344
+#: src/mainwindow.cpp:1347
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Asetukset"
@@ -897,221 +897,86 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Käynnistä sovellus uudestaan, jotta muutokset tulisivat voimaan."
 
-#: src/settings/preferencesdialog.cpp:62
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Preferences"
-msgstr "Valinnat"
-
-#: src/settings/preferencesdialog.cpp:71
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "General"
-msgstr "Perusasetukset"
-
-#: src/settings/preferencesdialog.cpp:72
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Editor"
-msgstr "Muokkain"
-
-#: src/settings/preferencesdialog.cpp:73
+#: src/settings/preferencesdialog.cpp:70
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Oikeinkirjoituksen tarkistus"
 
-#: src/settings/preferencesdialog.cpp:94
+#: src/settings/preferencesdialog.cpp:85
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Osuvat merkit"
 
-#: src/settings/preferencesdialog.cpp:177
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Display"
-msgstr "Näkymä"
-
-#: src/settings/preferencesdialog.cpp:183
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Show current time in full screen mode"
-msgstr "Näytä koko näytön tilassa kellonaika"
-
-#: src/settings/preferencesdialog.cpp:189
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Hide menu bar in full screen mode"
-msgstr "Piilota koko näytön tilassa valikkorivi"
-
-#: src/settings/preferencesdialog.cpp:196
+#: src/settings/preferencesdialog.cpp:174
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Pyöristetty"
 
-#: src/settings/preferencesdialog.cpp:197
+#: src/settings/preferencesdialog.cpp:175
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Kulmikas"
 
-#: src/settings/preferencesdialog.cpp:208
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Interface style"
-msgstr "Käyttöliittymätyyli"
-
-#: src/settings/preferencesdialog.cpp:210
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "File Saving"
-msgstr "Tiedoston tallennus"
-
-#: src/settings/preferencesdialog.cpp:216
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Auto save"
-msgstr "Automaattitallennus"
-
-#: src/settings/preferencesdialog.cpp:223
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Backup file on save"
-msgstr "Varmuuskopioi tiedosto tallennettaessa"
-
-#: src/settings/preferencesdialog.cpp:229
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "View untitled drafts..."
-msgstr "Näytä nimettömät luonnokset…"
-
-#: src/settings/preferencesdialog.cpp:239
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Session"
-msgstr "Istunto"
-
-#: src/settings/preferencesdialog.cpp:245
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Remember recent files"
-msgstr "Muista äskettäiset tiedostot"
-
-#: src/settings/preferencesdialog.cpp:251
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Open last file on startup"
-msgstr "Avaa käynnistettäessä viimeisin tiedosto"
-
-#: src/settings/preferencesdialog.cpp:274
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Tabulation"
-msgstr "Sarkaus"
-
-#: src/settings/preferencesdialog.cpp:280
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Insert spaces for tabs"
-msgstr "Lisää sarkaimina välilyöntejä"
-
-#: src/settings/preferencesdialog.cpp:295
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Tabulation width"
-msgstr "Sarkausleveys"
-
-#: src/settings/preferencesdialog.cpp:297
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Styling"
-msgstr "Tyyli"
-
-#: src/settings/preferencesdialog.cpp:304
+#: src/settings/preferencesdialog.cpp:214
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Virke"
 
-#: src/settings/preferencesdialog.cpp:305
+#: src/settings/preferencesdialog.cpp:215
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Nykyinen rivi"
 
-#: src/settings/preferencesdialog.cpp:306
+#: src/settings/preferencesdialog.cpp:216
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Kolme riviä"
 
-#: src/settings/preferencesdialog.cpp:307
+#: src/settings/preferencesdialog.cpp:217
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Kappale"
 
-#: src/settings/preferencesdialog.cpp:308
+#: src/settings/preferencesdialog.cpp:218
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Kirjoituskone"
 
-#: src/settings/preferencesdialog.cpp:319
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Focus mode"
-msgstr "Keskittymistila"
-
-#: src/settings/preferencesdialog.cpp:322
+#: src/settings/preferencesdialog.cpp:226
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Kapea"
 
-#: src/settings/preferencesdialog.cpp:323
+#: src/settings/preferencesdialog.cpp:227
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Keskikokoinen"
 
-#: src/settings/preferencesdialog.cpp:324
+#: src/settings/preferencesdialog.cpp:228
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Leveä"
 
-#: src/settings/preferencesdialog.cpp:325
+#: src/settings/preferencesdialog.cpp:229
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Täysi"
 
-#: src/settings/preferencesdialog.cpp:336
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Editor width"
-msgstr "Muokkaimen leveys"
-
-#: src/settings/preferencesdialog.cpp:339
+#: src/settings/preferencesdialog.cpp:236
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Tavallinen"
 
-#: src/settings/preferencesdialog.cpp:340
-#: src/settings/preferencesdialog.cpp:354
+#: src/settings/preferencesdialog.cpp:237
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Kursiivi"
 
-#: src/settings/preferencesdialog.cpp:351
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Blockquote style"
-msgstr "Lainauslohkon tyyli"
-
-#: src/settings/preferencesdialog.cpp:355
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Alleviivaus"
-
-#: src/settings/preferencesdialog.cpp:366
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Emphasis style"
-msgstr "Korostustapa"
-
-#: src/settings/preferencesdialog.cpp:368
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Use large headings"
-msgstr "Käytä suuria otsikoita"
-
-#: src/settings/preferencesdialog.cpp:374
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Typing"
-msgstr "Kirjoitetaan"
-
-#: src/settings/preferencesdialog.cpp:380
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Cycle bullet point markers"
-msgstr "Vaihda luetelmamerkkejä"
-
-#: src/settings/preferencesdialog.cpp:386
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Automatically match characters"
-msgstr "Sovita merkit automaattisesti"
-
-#: src/settings/preferencesdialog.cpp:392
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Customize matched characters..."
-msgstr "Mukauta osuvia merkkejä…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1615,3 +1480,111 @@ msgstr "Teemaa ei voi muokata."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Tätä sisään rakennettua teemaa ei valitettavasti voi muokata."
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Preferences"
+#~ msgstr "Valinnat"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "General"
+#~ msgstr "Perusasetukset"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Editor"
+#~ msgstr "Muokkain"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Display"
+#~ msgstr "Näkymä"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Show current time in full screen mode"
+#~ msgstr "Näytä koko näytön tilassa kellonaika"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Hide menu bar in full screen mode"
+#~ msgstr "Piilota koko näytön tilassa valikkorivi"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Interface style"
+#~ msgstr "Käyttöliittymätyyli"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "File Saving"
+#~ msgstr "Tiedoston tallennus"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Auto save"
+#~ msgstr "Automaattitallennus"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Backup file on save"
+#~ msgstr "Varmuuskopioi tiedosto tallennettaessa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "View untitled drafts..."
+#~ msgstr "Näytä nimettömät luonnokset…"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Session"
+#~ msgstr "Istunto"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Remember recent files"
+#~ msgstr "Muista äskettäiset tiedostot"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Open last file on startup"
+#~ msgstr "Avaa käynnistettäessä viimeisin tiedosto"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Tabulation"
+#~ msgstr "Sarkaus"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Insert spaces for tabs"
+#~ msgstr "Lisää sarkaimina välilyöntejä"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Tabulation width"
+#~ msgstr "Sarkausleveys"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Styling"
+#~ msgstr "Tyyli"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Focus mode"
+#~ msgstr "Keskittymistila"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Editor width"
+#~ msgstr "Muokkaimen leveys"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Blockquote style"
+#~ msgstr "Lainauslohkon tyyli"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Emphasis style"
+#~ msgstr "Korostustapa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Use large headings"
+#~ msgstr "Käytä suuria otsikoita"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Typing"
+#~ msgstr "Kirjoitetaan"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Cycle bullet point markers"
+#~ msgstr "Vaihda luetelmamerkkejä"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Automatically match characters"
+#~ msgstr "Sovita merkit automaattisesti"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Customize matched characters..."
+#~ msgstr "Mukauta osuvia merkkejä…"

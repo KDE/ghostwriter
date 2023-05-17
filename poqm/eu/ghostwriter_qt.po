@@ -248,17 +248,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "izengabea"
 
-#: src/editor/markdowneditor.cpp:866
+#: src/editor/markdowneditor.cpp:923
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Gorde irudia"
 
-#: src/editor/markdowneditor.cpp:1456
+#: src/editor/markdowneditor.cpp:1513
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Txertatu irudia"
 
-#: src/editor/markdowneditor.cpp:2382
+#: src/editor/markdowneditor.cpp:2439
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -412,462 +412,462 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 parekide"
 
-#: src/mainwindow.cpp:906
+#: src/mainwindow.cpp:909
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Fitxategia"
 
-#: src/mainwindow.cpp:908
+#: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Berria"
 
-#: src/mainwindow.cpp:909
+#: src/mainwindow.cpp:912
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Ireki"
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:914
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Ireki a&zken aldikoa..."
 
-#: src/mainwindow.cpp:912
+#: src/mainwindow.cpp:915
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Berrireki itxitako fitxategia"
 
-#: src/mainwindow.cpp:920
+#: src/mainwindow.cpp:923
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Garbitu menua"
 
-#: src/mainwindow.cpp:925
+#: src/mainwindow.cpp:928
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Gorde"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:929
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Gorde &honela..."
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "B&errizendatu..."
 
-#: src/mainwindow.cpp:928
+#: src/mainwindow.cpp:931
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "Bir&zamatu diskotik..."
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Esportatu"
 
-#: src/mainwindow.cpp:932
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "&Irten"
 
-#: src/mainwindow.cpp:936
+#: src/mainwindow.cpp:939
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Editatu"
 
-#: src/mainwindow.cpp:937
+#: src/mainwindow.cpp:940
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "&Desegin"
 
-#: src/mainwindow.cpp:938
+#: src/mainwindow.cpp:941
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "Be&rregin"
 
-#: src/mainwindow.cpp:940
+#: src/mainwindow.cpp:943
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "&Ebaki"
 
-#: src/mainwindow.cpp:941
+#: src/mainwindow.cpp:944
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Kopiatu"
 
-#: src/mainwindow.cpp:942
+#: src/mainwindow.cpp:945
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "&Itsatsi"
 
-#: src/mainwindow.cpp:943
+#: src/mainwindow.cpp:946
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Kopiatu &HTML"
 
-#: src/mainwindow.cpp:945
+#: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "&Txertatu irudia..."
 
-#: src/mainwindow.cpp:948
+#: src/mainwindow.cpp:951
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "&Bilatu"
 
-#: src/mainwindow.cpp:949
+#: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "Or&deztu"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Bilatu &hurrengoa"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Bilatu a&urrekoa"
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "O&rtografia zuzenketa"
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "For&matua"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "&Lodia"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "&Etzana"
 
-#: src/mainwindow.cpp:958
+#: src/mainwindow.cpp:961
 #, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "Marratua"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr ""
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:965
 #, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "Koska"
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:966
 #, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "&Kendu koska"
 
-#: src/mainwindow.cpp:965
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr ""
 
-#: src/mainwindow.cpp:966
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr ""
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "&* Buletdun zerrenda"
 
-#: src/mainwindow.cpp:969
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "&- Buletdun zerrenda"
 
-#: src/mainwindow.cpp:970
+#: src/mainwindow.cpp:973
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "&+ Buletdun zerrenda"
 
-#: src/mainwindow.cpp:972
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "1&. Zenbakitutako zerrenda"
 
-#: src/mainwindow.cpp:973
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "1&) Zenbakitutako zerrenda"
 
-#: src/mainwindow.cpp:975
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "&Zeregin-zerrenda"
 
-#: src/mainwindow.cpp:976
+#: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr ""
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "Ikus&pegia"
 
-#: src/mainwindow.cpp:981
+#: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "&Pantaila osoa"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:992
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "Aurrei&kusi HTML"
 
-#: src/mainwindow.cpp:997
+#: src/mainwindow.cpp:1000
 #, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "Ingerada"
 
-#: src/mainwindow.cpp:1007
+#: src/mainwindow.cpp:1010
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "&Saioaren estatistikak"
 
-#: src/mainwindow.cpp:1016
+#: src/mainwindow.cpp:1019
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "&Dokumentuaren estatistikak"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:1028
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "A&marru-orria"
 
-#: src/mainwindow.cpp:1036
+#: src/mainwindow.cpp:1039
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Handiagotu letra-tipoaren neurria"
 
-#: src/mainwindow.cpp:1037
+#: src/mainwindow.cpp:1040
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Txikiagotu letra-tipoaren neurria"
 
-#: src/mainwindow.cpp:1039
+#: src/mainwindow.cpp:1042
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "E&zarpenak"
 
-#: src/mainwindow.cpp:1040 src/mainwindow.cpp:1351
+#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Gaiak..."
 
-#: src/mainwindow.cpp:1041 src/mainwindow.cpp:1352
+#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Letra-tipoa..."
 
-#: src/mainwindow.cpp:1042 src/mainwindow.cpp:1353
+#: src/mainwindow.cpp:1045 src/mainwindow.cpp:1356
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Aplikazioaren hizkuntza..."
 
-#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
+#: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Aurreikusteko aukerak..."
 
-#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
+#: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Hobespenak..."
 
-#: src/mainwindow.cpp:1050
+#: src/mainwindow.cpp:1053
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "&Laguntza"
 
-#: src/mainwindow.cpp:1060
+#: src/mainwindow.cpp:1063
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr ""
 
-#: src/mainwindow.cpp:1061
+#: src/mainwindow.cpp:1064
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wikia"
 
-#: src/mainwindow.cpp:1109
+#: src/mainwindow.cpp:1112
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Txandakatu alboko-barra"
 
-#: src/mainwindow.cpp:1166
+#: src/mainwindow.cpp:1169
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Txandakatu modu iluna"
 
-#: src/mainwindow.cpp:1185
+#: src/mainwindow.cpp:1188
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr ""
 
-#: src/mainwindow.cpp:1205
+#: src/mainwindow.cpp:1208
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Txandakatu Hemingway modua"
 
-#: src/mainwindow.cpp:1213
+#: src/mainwindow.cpp:1216
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Txandakatu distrakziorik gabeko modua"
 
-#: src/mainwindow.cpp:1222
+#: src/mainwindow.cpp:1225
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Txandakatu pantaila-osoko modua"
 
-#: src/mainwindow.cpp:1245
+#: src/mainwindow.cpp:1248
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Erakutsi alboko-barra"
 
-#: src/mainwindow.cpp:1262
+#: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Goiburua 1"
 
-#: src/mainwindow.cpp:1263
+#: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Goiburua 2"
 
-#: src/mainwindow.cpp:1264
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Goiburua 3"
 
-#: src/mainwindow.cpp:1265
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Goiburua 4"
 
-#: src/mainwindow.cpp:1266
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Goiburua 5"
 
-#: src/mainwindow.cpp:1267
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Goiburua 6"
 
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Enfasia* _Enfasia_"
 
-#: src/mainwindow.cpp:1269
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Sendoa** __Sendoa__"
 
-#: src/mainwindow.cpp:1270
+#: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. Zenbakitutako zerrenda"
 
-#: src/mainwindow.cpp:1271
+#: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Buletdun zerrenda"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Buletdun zerrenda"
 
-#: src/mainwindow.cpp:1273
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Buletdun zerrenda"
 
-#: src/mainwindow.cpp:1274
+#: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> Bloke-aipua"
 
-#: src/mainwindow.cpp:1275
+#: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Kode-tartea`"
 
-#: src/mainwindow.cpp:1276
+#: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Kode-blokea"
 
-#: src/mainwindow.cpp:1277
+#: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Esteka](http://url.com \"Titulua\")"
 
-#: src/mainwindow.cpp:1278
+#: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Erreferentzia esteka][ID]"
 
-#: src/mainwindow.cpp:1279
+#: src/mainwindow.cpp:1282
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Erreferentziaren definizioa\""
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1283
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Irudia](./irudia.jpg \"Titulua\")"
 
-#: src/mainwindow.cpp:1281
+#: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Zuzen horizontala"
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1334
 #, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Ingerada"
 
-#: src/mainwindow.cpp:1332
+#: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Saioaren estatistikak"
 
-#: src/mainwindow.cpp:1333
+#: src/mainwindow.cpp:1336
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Dokumentuaren estatistikak"
 
-#: src/mainwindow.cpp:1334
+#: src/mainwindow.cpp:1337
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Amarru-orria"
 
-#: src/mainwindow.cpp:1344
+#: src/mainwindow.cpp:1347
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Ezarpenak"
@@ -907,222 +907,86 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Mesedez, berrabiatu aplikazioa aldaketak indarrean jar daitezen."
 
-#: src/settings/preferencesdialog.cpp:62
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Preferences"
-msgstr "Hobespenak"
-
-#: src/settings/preferencesdialog.cpp:71
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "General"
-msgstr "Orokorra"
-
-#: src/settings/preferencesdialog.cpp:72
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Editor"
-msgstr "Editorea"
-
-#: src/settings/preferencesdialog.cpp:73
+#: src/settings/preferencesdialog.cpp:70
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Ortografia zuzenketa"
 
-#: src/settings/preferencesdialog.cpp:94
+#: src/settings/preferencesdialog.cpp:85
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr ""
 
-#: src/settings/preferencesdialog.cpp:177
-#, fuzzy
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Display"
-msgstr "Bistaratu"
-
-#: src/settings/preferencesdialog.cpp:183
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Show current time in full screen mode"
-msgstr "Erakutsi uneko ordua pantaila-osoko moduan"
-
-#: src/settings/preferencesdialog.cpp:189
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Hide menu bar in full screen mode"
-msgstr "Ezkutatu menu-barra pantaila-osoko moduan"
-
-#: src/settings/preferencesdialog.cpp:196
+#: src/settings/preferencesdialog.cpp:174
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Biribildua"
 
-#: src/settings/preferencesdialog.cpp:197
+#: src/settings/preferencesdialog.cpp:175
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Karratua"
 
-#: src/settings/preferencesdialog.cpp:208
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Interface style"
-msgstr "Interfazearen estiloa"
-
-#: src/settings/preferencesdialog.cpp:210
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "File Saving"
-msgstr "Fitxategia gordetzea"
-
-#: src/settings/preferencesdialog.cpp:216
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Auto save"
-msgstr "Gorde automatikoki"
-
-#: src/settings/preferencesdialog.cpp:223
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Backup file on save"
-msgstr "Gordetzean egin fitxategiaren babeskopia"
-
-#: src/settings/preferencesdialog.cpp:229
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "View untitled drafts..."
-msgstr "Ikusi izenik gabeko zirriborroak..."
-
-#: src/settings/preferencesdialog.cpp:239
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Session"
-msgstr "Saioa"
-
-#: src/settings/preferencesdialog.cpp:245
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Remember recent files"
-msgstr "Gogoratu azken aldiko fitxategiak"
-
-#: src/settings/preferencesdialog.cpp:251
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Open last file on startup"
-msgstr "Ireki azken fitxategia abiatzean"
-
-#: src/settings/preferencesdialog.cpp:274
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Tabulation"
-msgstr "Tabulazioa"
-
-#: src/settings/preferencesdialog.cpp:280
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Insert spaces for tabs"
-msgstr "Txertatu zuriuneak tabulazioetarako"
-
-#: src/settings/preferencesdialog.cpp:295
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Tabulation width"
-msgstr "Tabulazioaren zabalera"
-
-#: src/settings/preferencesdialog.cpp:297
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Styling"
-msgstr "Estiloa"
-
-#: src/settings/preferencesdialog.cpp:304
+#: src/settings/preferencesdialog.cpp:214
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Esaldia"
 
-#: src/settings/preferencesdialog.cpp:305
+#: src/settings/preferencesdialog.cpp:215
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Uneko lerroa"
 
-#: src/settings/preferencesdialog.cpp:306
+#: src/settings/preferencesdialog.cpp:216
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Hiru lerro"
 
-#: src/settings/preferencesdialog.cpp:307
+#: src/settings/preferencesdialog.cpp:217
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Paragrafoa"
 
-#: src/settings/preferencesdialog.cpp:308
+#: src/settings/preferencesdialog.cpp:218
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Idazmakina"
 
-#: src/settings/preferencesdialog.cpp:319
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Focus mode"
-msgstr "Fokuaren modua"
-
-#: src/settings/preferencesdialog.cpp:322
+#: src/settings/preferencesdialog.cpp:226
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Estua"
 
-#: src/settings/preferencesdialog.cpp:323
+#: src/settings/preferencesdialog.cpp:227
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Ertaina"
 
-#: src/settings/preferencesdialog.cpp:324
+#: src/settings/preferencesdialog.cpp:228
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Zabala"
 
-#: src/settings/preferencesdialog.cpp:325
+#: src/settings/preferencesdialog.cpp:229
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Osoa"
 
-#: src/settings/preferencesdialog.cpp:336
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Editor width"
-msgstr "Editorearen zabalera"
-
-#: src/settings/preferencesdialog.cpp:339
+#: src/settings/preferencesdialog.cpp:236
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Soila"
 
-#: src/settings/preferencesdialog.cpp:340
-#: src/settings/preferencesdialog.cpp:354
+#: src/settings/preferencesdialog.cpp:237
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Etzana"
 
-#: src/settings/preferencesdialog.cpp:351
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Blockquote style"
-msgstr ""
-
-#: src/settings/preferencesdialog.cpp:355
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Azpimarra"
-
-#: src/settings/preferencesdialog.cpp:366
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Emphasis style"
-msgstr "Enfasi-estiloa"
-
-#: src/settings/preferencesdialog.cpp:368
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Use large headings"
-msgstr "Erabili izenburu handiak"
-
-#: src/settings/preferencesdialog.cpp:374
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Typing"
-msgstr "Tekleatzen"
-
-#: src/settings/preferencesdialog.cpp:380
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Cycle bullet point markers"
-msgstr ""
-
-#: src/settings/preferencesdialog.cpp:386
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Automatically match characters"
-msgstr ""
-
-#: src/settings/preferencesdialog.cpp:392
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Customize matched characters..."
-msgstr ""
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1623,3 +1487,96 @@ msgstr ""
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Preferences"
+#~ msgstr "Hobespenak"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "General"
+#~ msgstr "Orokorra"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Editor"
+#~ msgstr "Editorea"
+
+#, fuzzy
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Display"
+#~ msgstr "Bistaratu"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Show current time in full screen mode"
+#~ msgstr "Erakutsi uneko ordua pantaila-osoko moduan"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Hide menu bar in full screen mode"
+#~ msgstr "Ezkutatu menu-barra pantaila-osoko moduan"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Interface style"
+#~ msgstr "Interfazearen estiloa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "File Saving"
+#~ msgstr "Fitxategia gordetzea"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Auto save"
+#~ msgstr "Gorde automatikoki"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Backup file on save"
+#~ msgstr "Gordetzean egin fitxategiaren babeskopia"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "View untitled drafts..."
+#~ msgstr "Ikusi izenik gabeko zirriborroak..."
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Session"
+#~ msgstr "Saioa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Remember recent files"
+#~ msgstr "Gogoratu azken aldiko fitxategiak"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Open last file on startup"
+#~ msgstr "Ireki azken fitxategia abiatzean"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Tabulation"
+#~ msgstr "Tabulazioa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Insert spaces for tabs"
+#~ msgstr "Txertatu zuriuneak tabulazioetarako"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Tabulation width"
+#~ msgstr "Tabulazioaren zabalera"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Styling"
+#~ msgstr "Estiloa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Focus mode"
+#~ msgstr "Fokuaren modua"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Editor width"
+#~ msgstr "Editorearen zabalera"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Emphasis style"
+#~ msgstr "Enfasi-estiloa"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Use large headings"
+#~ msgstr "Erabili izenburu handiak"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Typing"
+#~ msgstr "Tekleatzen"

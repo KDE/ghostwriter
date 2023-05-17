@@ -245,17 +245,17 @@ msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "без названия"
 
-#: src/editor/markdowneditor.cpp:866
+#: src/editor/markdowneditor.cpp:923
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Сохранить изображение"
 
-#: src/editor/markdowneditor.cpp:1456
+#: src/editor/markdowneditor.cpp:1513
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Вставить изображение"
 
-#: src/editor/markdowneditor.cpp:2382
+#: src/editor/markdowneditor.cpp:2439
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -408,457 +408,457 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 совпадений"
 
-#: src/mainwindow.cpp:906
+#: src/mainwindow.cpp:909
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Файл"
 
-#: src/mainwindow.cpp:908
+#: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Создать"
 
-#: src/mainwindow.cpp:909
+#: src/mainwindow.cpp:912
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Открыть"
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:914
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Открыть &недавние..."
 
-#: src/mainwindow.cpp:912
+#: src/mainwindow.cpp:915
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Повторно открыть закрытый файл"
 
-#: src/mainwindow.cpp:920
+#: src/mainwindow.cpp:923
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Очистить меню"
 
-#: src/mainwindow.cpp:925
+#: src/mainwindow.cpp:928
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Сохранить"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:929
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Сохранить &как..."
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "&Переименовать..."
 
-#: src/mainwindow.cpp:928
+#: src/mainwindow.cpp:931
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "П&ерезагрузить с диска..."
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "&Экспорт"
 
-#: src/mainwindow.cpp:932
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "&Выход"
 
-#: src/mainwindow.cpp:936
+#: src/mainwindow.cpp:939
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Правка"
 
-#: src/mainwindow.cpp:937
+#: src/mainwindow.cpp:940
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "&Отменить"
 
-#: src/mainwindow.cpp:938
+#: src/mainwindow.cpp:941
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "&Повторить"
 
-#: src/mainwindow.cpp:940
+#: src/mainwindow.cpp:943
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "Вы&резать"
 
-#: src/mainwindow.cpp:941
+#: src/mainwindow.cpp:944
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Копировать"
 
-#: src/mainwindow.cpp:942
+#: src/mainwindow.cpp:945
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "&Вставить"
 
-#: src/mainwindow.cpp:943
+#: src/mainwindow.cpp:946
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Копировать &HTML"
 
-#: src/mainwindow.cpp:945
+#: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "&Вставить изображение..."
 
-#: src/mainwindow.cpp:948
+#: src/mainwindow.cpp:951
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "&Найти"
 
-#: src/mainwindow.cpp:949
+#: src/mainwindow.cpp:952
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "&Заменить"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Найти &следующее"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Найти пред&ыдущее"
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "&Проверка орфографии"
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "Фор&мат"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:959
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "Полу&жирный"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "&Курсив"
 
-#: src/mainwindow.cpp:958
+#: src/mainwindow.cpp:961
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "За&чёркнутый"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "Комментарий &HTML"
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "&Добавить отступ"
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:966
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "&Убрать отступ"
 
-#: src/mainwindow.cpp:965
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "&Цитата"
 
-#: src/mainwindow.cpp:966
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "&Убрать цитирование"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "&* Маркированный список"
 
-#: src/mainwindow.cpp:969
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "&- Маркированный список"
 
-#: src/mainwindow.cpp:970
+#: src/mainwindow.cpp:973
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "&+ Маркированный список"
 
-#: src/mainwindow.cpp:972
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "1&. Нумерованный список"
 
-#: src/mainwindow.cpp:973
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "1&) Нумерованный список"
 
-#: src/mainwindow.cpp:975
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "Список &задач"
 
-#: src/mainwindow.cpp:976
+#: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "&Переключить состояние выполнения задач(и)"
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Вид"
 
-#: src/mainwindow.cpp:981
+#: src/mainwindow.cpp:984
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "&Полноэкранный режим"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:992
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "&Предпросмотр в HTML"
 
-#: src/mainwindow.cpp:997
+#: src/mainwindow.cpp:1000
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "&Структура"
 
-#: src/mainwindow.cpp:1007
+#: src/mainwindow.cpp:1010
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "С&татистика сеанса"
 
-#: src/mainwindow.cpp:1016
+#: src/mainwindow.cpp:1019
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "Статистика &документа"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:1028
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "&Шпаргалка"
 
-#: src/mainwindow.cpp:1036
+#: src/mainwindow.cpp:1039
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Увеличить размер шрифта"
 
-#: src/mainwindow.cpp:1037
+#: src/mainwindow.cpp:1040
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Уменьшить размер шрифта"
 
-#: src/mainwindow.cpp:1039
+#: src/mainwindow.cpp:1042
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "&Настройка"
 
-#: src/mainwindow.cpp:1040 src/mainwindow.cpp:1351
+#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Темы..."
 
-#: src/mainwindow.cpp:1041 src/mainwindow.cpp:1352
+#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Шрифт..."
 
-#: src/mainwindow.cpp:1042 src/mainwindow.cpp:1353
+#: src/mainwindow.cpp:1045 src/mainwindow.cpp:1356
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Язык приложения..."
 
-#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
+#: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Параметры предпросмотра..."
 
-#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
+#: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Параметры..."
 
-#: src/mainwindow.cpp:1050
+#: src/mainwindow.cpp:1053
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "&Справка"
 
-#: src/mainwindow.cpp:1060
+#: src/mainwindow.cpp:1063
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "&Краткая справка"
 
-#: src/mainwindow.cpp:1061
+#: src/mainwindow.cpp:1064
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Вики"
 
-#: src/mainwindow.cpp:1109
+#: src/mainwindow.cpp:1112
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Переключить боковую панель"
 
-#: src/mainwindow.cpp:1166
+#: src/mainwindow.cpp:1169
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Переключить тёмный режим"
 
-#: src/mainwindow.cpp:1185
+#: src/mainwindow.cpp:1188
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "Переключить динамический предпросмотр HTML"
 
-#: src/mainwindow.cpp:1205
+#: src/mainwindow.cpp:1208
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Переключить режим Хемингуэя"
 
-#: src/mainwindow.cpp:1213
+#: src/mainwindow.cpp:1216
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Переключить режим концентрации"
 
-#: src/mainwindow.cpp:1222
+#: src/mainwindow.cpp:1225
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Переключить полноэкранный режим"
 
-#: src/mainwindow.cpp:1245
+#: src/mainwindow.cpp:1248
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Показать боковую панель"
 
-#: src/mainwindow.cpp:1262
+#: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Заголовок 1"
 
-#: src/mainwindow.cpp:1263
+#: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Заголовок 2"
 
-#: src/mainwindow.cpp:1264
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Заголовок 3"
 
-#: src/mainwindow.cpp:1265
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Заголовок 4"
 
-#: src/mainwindow.cpp:1266
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Заголовок 5"
 
-#: src/mainwindow.cpp:1267
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Заголовок 6"
 
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Выделение* _Выделение_"
 
-#: src/mainwindow.cpp:1269
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Полужирный** __Полужирный__"
 
-#: src/mainwindow.cpp:1270
+#: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. Нумерованный список"
 
-#: src/mainwindow.cpp:1271
+#: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Маркированный список"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Маркированный список"
 
-#: src/mainwindow.cpp:1273
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Маркированный список"
 
-#: src/mainwindow.cpp:1274
+#: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> Цитата"
 
-#: src/mainwindow.cpp:1275
+#: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Код`"
 
-#: src/mainwindow.cpp:1276
+#: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Блок кода"
 
-#: src/mainwindow.cpp:1277
+#: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Ссылка](http://url.com \"Заголовок\")"
 
-#: src/mainwindow.cpp:1278
+#: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Ссылка внутри документа][Идентификатор]"
 
-#: src/mainwindow.cpp:1279
+#: src/mainwindow.cpp:1282
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[Идентификатор]: http://url.com \"Определение ссылки\""
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1283
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Изображение](./image.jpg \"Заголовок\")"
 
-#: src/mainwindow.cpp:1281
+#: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Горизонтальная линейка"
 
-#: src/mainwindow.cpp:1331
+#: src/mainwindow.cpp:1334
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Структура"
 
-#: src/mainwindow.cpp:1332
+#: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Статистика сеанса"
 
-#: src/mainwindow.cpp:1333
+#: src/mainwindow.cpp:1336
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Статистика документа"
 
-#: src/mainwindow.cpp:1334
+#: src/mainwindow.cpp:1337
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Шпаргалка"
 
-#: src/mainwindow.cpp:1344
+#: src/mainwindow.cpp:1347
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Настройка"
@@ -900,221 +900,86 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Чтобы изменения вступили в силу, необходимо перезапустить приложение."
 
-#: src/settings/preferencesdialog.cpp:62
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Preferences"
-msgstr "Параметры"
-
-#: src/settings/preferencesdialog.cpp:71
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "General"
-msgstr "Основные"
-
-#: src/settings/preferencesdialog.cpp:72
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Editor"
-msgstr "Редактор"
-
-#: src/settings/preferencesdialog.cpp:73
+#: src/settings/preferencesdialog.cpp:70
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Проверка орфографии"
 
-#: src/settings/preferencesdialog.cpp:94
+#: src/settings/preferencesdialog.cpp:85
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Сопоставляемые символы"
 
-#: src/settings/preferencesdialog.cpp:177
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Display"
-msgstr "Отображение"
-
-#: src/settings/preferencesdialog.cpp:183
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Show current time in full screen mode"
-msgstr "Показывать текущее время в полноэкранном режиме"
-
-#: src/settings/preferencesdialog.cpp:189
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Hide menu bar in full screen mode"
-msgstr "Скрывать строку меню в полноэкранном режиме"
-
-#: src/settings/preferencesdialog.cpp:196
+#: src/settings/preferencesdialog.cpp:174
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Округлый"
 
-#: src/settings/preferencesdialog.cpp:197
+#: src/settings/preferencesdialog.cpp:175
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Квадратный"
 
-#: src/settings/preferencesdialog.cpp:208
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Interface style"
-msgstr "Стиль интерфейса"
-
-#: src/settings/preferencesdialog.cpp:210
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "File Saving"
-msgstr "Сохранение файлов"
-
-#: src/settings/preferencesdialog.cpp:216
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Auto save"
-msgstr "Автосохранение"
-
-#: src/settings/preferencesdialog.cpp:223
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Backup file on save"
-msgstr "Создавать резервную копию файла при сохранении"
-
-#: src/settings/preferencesdialog.cpp:229
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "View untitled drafts..."
-msgstr "Просмотреть безымянные черновики…"
-
-#: src/settings/preferencesdialog.cpp:239
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Session"
-msgstr "Сеанс"
-
-#: src/settings/preferencesdialog.cpp:245
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Remember recent files"
-msgstr "Запоминать недавние файлы"
-
-#: src/settings/preferencesdialog.cpp:251
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Open last file on startup"
-msgstr "Открывать последний файл при запуске"
-
-#: src/settings/preferencesdialog.cpp:274
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Tabulation"
-msgstr "Табуляция"
-
-#: src/settings/preferencesdialog.cpp:280
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Insert spaces for tabs"
-msgstr "Использовать пробелы для отступов"
-
-#: src/settings/preferencesdialog.cpp:295
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Tabulation width"
-msgstr "Ширина табуляции"
-
-#: src/settings/preferencesdialog.cpp:297
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Styling"
-msgstr "Оформление"
-
-#: src/settings/preferencesdialog.cpp:304
+#: src/settings/preferencesdialog.cpp:214
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Предложение"
 
-#: src/settings/preferencesdialog.cpp:305
+#: src/settings/preferencesdialog.cpp:215
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Текущая строка"
 
-#: src/settings/preferencesdialog.cpp:306
+#: src/settings/preferencesdialog.cpp:216
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Три строки"
 
-#: src/settings/preferencesdialog.cpp:307
+#: src/settings/preferencesdialog.cpp:217
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: src/settings/preferencesdialog.cpp:308
+#: src/settings/preferencesdialog.cpp:218
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Печатная машинка"
 
-#: src/settings/preferencesdialog.cpp:319
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Focus mode"
-msgstr "Режим фокусировки"
-
-#: src/settings/preferencesdialog.cpp:322
+#: src/settings/preferencesdialog.cpp:226
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Узкий"
 
-#: src/settings/preferencesdialog.cpp:323
+#: src/settings/preferencesdialog.cpp:227
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Средний"
 
-#: src/settings/preferencesdialog.cpp:324
+#: src/settings/preferencesdialog.cpp:228
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Широкий"
 
-#: src/settings/preferencesdialog.cpp:325
+#: src/settings/preferencesdialog.cpp:229
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Полный"
 
-#: src/settings/preferencesdialog.cpp:336
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Editor width"
-msgstr "Ширина редактора"
-
-#: src/settings/preferencesdialog.cpp:339
+#: src/settings/preferencesdialog.cpp:236
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Обычный"
 
-#: src/settings/preferencesdialog.cpp:340
-#: src/settings/preferencesdialog.cpp:354
+#: src/settings/preferencesdialog.cpp:237
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Курсив"
 
-#: src/settings/preferencesdialog.cpp:351
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Blockquote style"
-msgstr "Стиль цитат"
-
-#: src/settings/preferencesdialog.cpp:355
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Подчёркнутый"
-
-#: src/settings/preferencesdialog.cpp:366
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Emphasis style"
-msgstr "Стиль выделения"
-
-#: src/settings/preferencesdialog.cpp:368
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Use large headings"
-msgstr "Использовать большие заголовки"
-
-#: src/settings/preferencesdialog.cpp:374
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Typing"
-msgstr "Набор текста"
-
-#: src/settings/preferencesdialog.cpp:380
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Cycle bullet point markers"
-msgstr "Циклический переход между позициями маркированного списка"
-
-#: src/settings/preferencesdialog.cpp:386
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Automatically match characters"
-msgstr "Автоматически сопоставлять символы"
-
-#: src/settings/preferencesdialog.cpp:392
-msgctxt "ghostwriter::PreferencesDialog|"
-msgid "Customize matched characters..."
-msgstr "Настроить сопоставляемые символы…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1626,3 +1491,111 @@ msgstr "Не удалось изменить тему."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Это встроенная тема — её нельзя изменить."
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Preferences"
+#~ msgstr "Параметры"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "General"
+#~ msgstr "Основные"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Editor"
+#~ msgstr "Редактор"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Display"
+#~ msgstr "Отображение"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Show current time in full screen mode"
+#~ msgstr "Показывать текущее время в полноэкранном режиме"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Hide menu bar in full screen mode"
+#~ msgstr "Скрывать строку меню в полноэкранном режиме"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Interface style"
+#~ msgstr "Стиль интерфейса"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "File Saving"
+#~ msgstr "Сохранение файлов"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Auto save"
+#~ msgstr "Автосохранение"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Backup file on save"
+#~ msgstr "Создавать резервную копию файла при сохранении"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "View untitled drafts..."
+#~ msgstr "Просмотреть безымянные черновики…"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Session"
+#~ msgstr "Сеанс"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Remember recent files"
+#~ msgstr "Запоминать недавние файлы"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Open last file on startup"
+#~ msgstr "Открывать последний файл при запуске"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Tabulation"
+#~ msgstr "Табуляция"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Insert spaces for tabs"
+#~ msgstr "Использовать пробелы для отступов"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Tabulation width"
+#~ msgstr "Ширина табуляции"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Styling"
+#~ msgstr "Оформление"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Focus mode"
+#~ msgstr "Режим фокусировки"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Editor width"
+#~ msgstr "Ширина редактора"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Blockquote style"
+#~ msgstr "Стиль цитат"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Emphasis style"
+#~ msgstr "Стиль выделения"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Use large headings"
+#~ msgstr "Использовать большие заголовки"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Typing"
+#~ msgstr "Набор текста"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Cycle bullet point markers"
+#~ msgstr "Циклический переход между позициями маркированного списка"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Automatically match characters"
+#~ msgstr "Автоматически сопоставлять символы"
+
+#~ msgctxt "ghostwriter::PreferencesDialog|"
+#~ msgid "Customize matched characters..."
+#~ msgstr "Настроить сопоставляемые символы…"
