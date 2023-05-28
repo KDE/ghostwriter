@@ -1,6 +1,9 @@
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
+"PO-Revision-Date: 2023-05-26 23:55-0700\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -483,6 +486,7 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/findreplace.cpp:421
 msgctxt "ghostwriter::FindReplace|"
@@ -1347,36 +1351,42 @@ msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statisticsindicator.cpp:37
 #, qt-format
