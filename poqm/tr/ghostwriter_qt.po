@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-26 21:53+0300\n"
+"PO-Revision-Date: 2023-05-28 21:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -100,7 +100,7 @@ msgstr "(İsteğe bağlı) Açılacak dosya."
 #: src/appmain.cpp:155
 msgctxt "main|"
 msgid "Disables GPU acceleration."
-msgstr "GPU ivmelendirmesini devre dışı bırakır"
+msgstr "GPU ivmelendirmesini devre dışı bırakır."
 
 #: src/documentmanager.cpp:55
 msgctxt "ghostwriter::DocumentManager|"
@@ -189,13 +189,13 @@ msgstr "Bir dosya yolu belirtilmedi"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr "%1, okunamadı"
+msgstr "%1 okunamadı"
 
 #: src/documentmanager.cpp:754
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
-msgstr "%1, açılıyor"
+msgstr "%1 açılıyor"
 
 #: src/documentmanager.cpp:861
 msgctxt "ghostwriter::DocumentManager|"
@@ -206,7 +206,7 @@ msgstr "Dosya değiştirildi."
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr "%1, değiştirildi"
+msgstr "%1 değiştirildi"
 
 #: src/documentmanager.cpp:872
 msgctxt "ghostwriter::DocumentManager|"
@@ -274,7 +274,7 @@ msgstr "Dışa aktarma başarısız"
 #: src/export/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr "Dışa aktarma başarısız:"
+msgstr "Dışa aktarma başarısız: "
 
 #: src/export/commandlineexporter.cpp:167
 #, qt-format
@@ -285,7 +285,7 @@ msgstr "%1 biçimi, bu işlemci tarafından desteklenmiyor"
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr "Komut yürütülemedi:"
+msgstr "Komut yürütülemedi: "
 
 #: src/export/exportdialog.cpp:45 src/export/exportdialog.cpp:99
 msgctxt "ghostwriter::ExportDialog|"
@@ -321,7 +321,7 @@ msgstr "Komut satırı seçenekleri:"
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
-msgstr "%1 olarak dışa aktarılıyor"
+msgstr "%1 konumuna dışa aktarılıyor"
 
 #: src/export/exportdialog.cpp:194
 msgctxt "ghostwriter::ExportDialog|"
@@ -444,7 +444,7 @@ msgstr "&Kaydet"
 #: src/mainwindow.cpp:929
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
-msgstr "&Farklı Kaydet"
+msgstr "&Farklı Kaydet..."
 
 #: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
@@ -985,7 +985,7 @@ msgstr "Önizleme Seçenekleri"
 #: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr "Markdown Türü"
+msgstr "Markdown çeşnisi"
 
 #: src/settings/previewoptionsdialog.cpp:99
 #: src/settings/previewoptionsdialog.cpp:125
@@ -996,12 +996,12 @@ msgstr "Seç..."
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr "Metin Yazıtipi:"
+msgstr "Metin yazıtipi:"
 
 #: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr "Kod Yazitıpı:"
+msgstr "Kod yazitıpi:"
 
 #: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1204,7 +1204,7 @@ msgstr "Yazılan Sayfa:"
 #: src/statistics/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr "Ortalama Sözcük/Dakika:"
+msgstr "Sözcük/Dakika:"
 
 #: src/statistics/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1484,232 +1484,3 @@ msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
 "Üzgünüm, bu uygulamayla birlikte gelen ve bu nedenle düzenlenemeyen bir "
 "temadır."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Tercihler"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Genel"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Düzenleyici"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Görünüm"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Tam ekran kipinde geçerli zamanı göster"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Tam ekran kipinde menü çubuğunu gizle"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Arayüz bicemi"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Dosya Kaydetme"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Otomatik kaydet"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Kaydederken dosyayı yedekle"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Başlıksız taslakları görüntüle..."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Oturum"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Son kullanılan dosyaları hatırla"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Başlangıçta son kullanılan dosyayı aç"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Sekmeleme"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Sekmeler için boşluklar ekle"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Sekmeleme genişliği"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Biçemleme"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Odak kipi"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Düzenleyici genişliği"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Blockquote style"
-#~ msgstr "Blok alıntı biçemi"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Vurgu biçemi"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Büyük başlıklar kullan"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Yazma"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Cycle bullet point markers"
-#~ msgstr "Madde imlerini çevir"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Automatically match characters"
-#~ msgstr "Karakterleri kendiliğinden eşleştir"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Customize matched characters..."
-#~ msgstr "Eşleştirilen karakterleri özelleştir..."
-
-#~| msgctxt "ghostwriter::MainWindow|"
-#~| msgid "Images"
-#~ msgctxt "ghostwriter::MarkdownEditor|"
-#~ msgid "Images"
-#~ msgstr "Görseller"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "All Files"
-#~ msgstr "Tüm Dosyalar"
-
-#~ msgctxt "ghostwriter::LocaleDialog|"
-#~ msgid "The translations folder is missing."
-#~ msgstr "Çeviriler klasörü eksik."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and "
-#~ "redistribute this software under the terms of the <a href=\"http://www."
-#~ "gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</"
-#~ "p><p>Visit the official website at <a href=\"http://github.com/wereturtle/"
-#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special "
-#~ "thanks and credit for reused code goes to</p><p><a href=\"mailto:"
-#~ "graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://"
-#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, author "
-#~ "of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/"
-#~ "><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
-#~ "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
-#~ "\">StretchPlayer</a><br/><p>I am also deeply indebted to <a href=\"mailto:"
-#~ "w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href="
-#~ "\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the "
-#~ "inspiration he provided in creating such a beautiful Markdown editing "
-#~ "tool.</p>"
-#~ msgstr ""
-#~ "<p>Telif hakkı &copy; 2014-2022 wereturtle</b><p>Bu yazılımı, <a href="
-#~ "\"http://www.gnu.org/licenses/gpl.html\">GNU Genel Kamu Lisansı 3. Sürüm</"
-#~ "a> altında kullanabilir ve dağıtabilirsiniz.</p><p><a href=\"http://"
-#~ "github.com/wereturtle/ghostwriter\">http://github.com/wereturtle/"
-#~ "ghostwriter</a> adresindeki resmi siteyi ziyaret edin.</p><p>Kod yeniden "
-#~ "kullanımı için özel teşekkürler:</p><p><a href=\"mailto:graeme@gottcode."
-#~ "org\">Graeme Gott</a>, <a href=\"http://gottcode.org/focuswriter/"
-#~ "\">FocusWriter</a>'ın yazarı<br/>Dmitry Shachnev, <a href=\"http://"
-#~ "sourceforge.net/p/retext/home/ReText/\">Retext</a>'in yazarı<br/><a href="
-#~ "\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, <a href="
-#~ "\"http://www.teuton.org/~gabriel/stretchplayer/\">StretchPlayer</a>'ın "
-#~ "yazarı<br/><p>Ayrıca, <a href=\"http://uberwriter.wolfvollprecht.de/"
-#~ "\">UberWriter</a>'ın yazarı olan <a href=\"mailto:w.vollprecht@gmail.com"
-#~ "\">Wolf Vollprecht</a>'e bu kadar güzel bir Markdown düzenleme aracı "
-#~ "yarattığı ve verdiği ilhamdan dolayı en içten teşekkürlerimi sunarım.</p>"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About %1"
-#~ msgstr "%1 Hakkında"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&About"
-#~ msgstr "&Hakkında"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About &Qt"
-#~ msgstr "&Qt Hakkında"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Live spellcheck enabled"
-#~ msgstr "Canlı yazım denetimi etkin"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Language"
-#~ msgstr "Dil"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Dictionary"
-#~ msgstr "Sözlük"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Check Spelling"
-#~ msgstr "Yazımı Denetle"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Add"
-#~ msgstr "&Ekle"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Ignore"
-#~ msgstr "&Yok Say"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "I&gnore All"
-#~ msgstr "&Tümünü Yok Say"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Change"
-#~ msgstr "&Değiştir"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "C&hange All"
-#~ msgstr "Tü&münü Değiştir"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Not in dictionary:"
-#~ msgstr "Sözlükte yok:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Change to:"
-#~ msgstr "Şuna değiştir:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Checking spelling..."
-#~ msgstr "Yazım denetleniyor..."
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Cancel"
-#~ msgstr "İptal"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Please wait"
-#~ msgstr "Lütfen bekleyin"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Continue checking at beginning of file?"
-#~ msgstr "Denetim, dosyanın başından sürdürülsün mü?"
