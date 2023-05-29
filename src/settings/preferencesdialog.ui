@@ -112,6 +112,20 @@
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="currentBackupFolderText">
+            <property name="text">
+             <string>&amp;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="selectBackupFolderButton">
+            <property name="text">
+             <string>&amp;Select Backup Folder Location…</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
