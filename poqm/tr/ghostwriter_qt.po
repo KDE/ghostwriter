@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-26 21:53+0300\n"
+"PO-Revision-Date: 2023-05-28 21:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -1241,7 +1241,7 @@ msgstr "Önizleme Seçenekleri"
 #: src/previewoptionsdialog.cpp:90
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr "Markdown Türü"
+msgstr "Markdown çeşnisi"
 
 #: src/previewoptionsdialog.cpp:98 src/previewoptionsdialog.cpp:124
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1251,12 +1251,12 @@ msgstr "Seç..."
 #: src/previewoptionsdialog.cpp:116
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr "Metin Yazıtipi:"
+msgstr "Metin yazıtipi:"
 
 #: src/previewoptionsdialog.cpp:142
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr "Kod Yazitıpı:"
+msgstr "Kod yazitıpi:"
 
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1282,7 +1282,7 @@ msgstr "Yazılan Sayfa:"
 #: src/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr "Ortalama Sözcük/Dakika:"
+msgstr "Dakikada Sözcük:"
 
 #: src/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
