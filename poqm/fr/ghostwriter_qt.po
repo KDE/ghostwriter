@@ -1,4 +1,4 @@
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
