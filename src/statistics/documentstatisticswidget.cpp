@@ -62,7 +62,7 @@ DocumentStatisticsWidget::DocumentStatisticsWidget(QWidget *parent)
     d->sentenceCountLabel = addStatisticLabel(tr("Sentences:"), "0");
     d->paragraphCountLabel = addStatisticLabel(tr("Paragraphs:"), "0");
     d->pageCountLabel = addStatisticLabel(tr("Pages:"), LESS_THAN_ONE_STR, PAGE_STATISTIC_INFO_TOOLTIP_STR);
-    d->complexWordsLabel = addStatisticLabel(tr("Complex Words:"), "0%");
+    d->complexWordsLabel = addStatisticLabel(tr("Complex Words:"), tr("0%"));
     d->readingTimeLabel = addStatisticLabel(tr("Reading Time:"), LESS_THAN_ONE_MINUTE_STR);
     d->lixReadingEaseLabel = addStatisticLabel(tr("Reading Ease:"), d->VERY_EASY_READING_EASE_STR, tr("LIX Reading Ease"));
     d->cliLabel = addStatisticLabel(tr("Grade Level:"), "0", tr("Coleman-Liau Readability Index (CLI)"));

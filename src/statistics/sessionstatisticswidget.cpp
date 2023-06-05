@@ -38,7 +38,7 @@ SessionStatisticsWidget::SessionStatisticsWidget(QWidget *parent) :
     d->pageCountLabel = addStatisticLabel(tr("Pages Written:"), LESS_THAN_ONE_STR, PAGE_STATISTIC_INFO_TOOLTIP_STR);
     d->wpmLabel = addStatisticLabel(tr("Average WPM:"), "0");
     d->writingTimeLabel = addStatisticLabel(tr("Total Time:"), LESS_THAN_ONE_MINUTE_STR);
-    d->idleTimePercentageLabel = addStatisticLabel(tr("Idle Time:"), "100%");
+    d->idleTimePercentageLabel = addStatisticLabel(tr("Idle Time:"), tr("100%"));
 }
 
 SessionStatisticsWidget::~SessionStatisticsWidget()

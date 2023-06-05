@@ -4,8 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include <QHBoxLayout>
 #include <QApplication>
+#include <QHBoxLayout>
+#include <QLocale>
 
 #include "abstractstatisticswidget.h"
 
@@ -37,7 +38,7 @@ void AbstractStatisticsWidget::setStringValueForLabel(QLabel *label, const QStri
 
 void AbstractStatisticsWidget::setPercentageValueForLabel(QLabel *label, int percentage)
 {
-    label->setText(QString("<b>%L1%</b>").arg(percentage));
+    label->setText(tr("<b>%L1%</b>").arg(percentage));
 }
 
 void AbstractStatisticsWidget::setTimeValueForLabel(QLabel *label, unsigned long minutes)
