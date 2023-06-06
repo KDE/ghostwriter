@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-05-28 21:09+0300\n"
+"PO-Revision-Date: 2023-06-06 05:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -191,7 +191,7 @@ msgstr "Dosya Aç"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
-msgstr "%1, açılamadı"
+msgstr "%1 açılamadı"
 
 #: src/documentmanager.cpp:371
 msgctxt "ghostwriter::DocumentManager|"
@@ -217,7 +217,7 @@ msgstr "Dosyayı Yeniden Adlandır"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr "%1, yeniden adlandırılamadı."
+msgstr "%1 yeniden adlandırılamadı."
 
 #: src/documentmanager.cpp:544
 msgctxt "ghostwriter::DocumentManager|"
@@ -401,7 +401,7 @@ msgstr "Akıllı Tipografi"
 #: src/exportdialog.cpp:87
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
-msgstr "Dışa Aktar Seçenekleri"
+msgstr "Dışa Aktarma Seçenekleri"
 
 #: src/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
