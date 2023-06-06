@@ -1083,28 +1083,33 @@ msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
 msgstr "La verificació ortogràfica ha finalitzat!"
 
-#: src/statistics/abstractstatisticswidget.cpp:16
+#: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
 msgstr "&lt; 1m"
 
-#: src/statistics/abstractstatisticswidget.cpp:17
+#: src/statistics/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1"
 msgstr "&lt; 1"
 
-#: src/statistics/abstractstatisticswidget.cpp:18
+#: src/statistics/abstractstatisticswidget.cpp:19
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "250 words per page"
 msgstr "250 paraules per pàgina"
 
-#: src/statistics/abstractstatisticswidget.cpp:52
+#: src/statistics/abstractstatisticswidget.cpp:41
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "<b>%L1%</b>"
+msgstr ""
+
+#: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
 msgstr "%1h %2m"
 
-#: src/statistics/abstractstatisticswidget.cpp:54
+#: src/statistics/abstractstatisticswidget.cpp:55
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
@@ -1164,6 +1169,11 @@ msgstr "Pàgines:"
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
 msgstr "Paraules complexes:"
+
+#: src/statistics/documentstatisticswidget.cpp:65
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "0%"
+msgstr ""
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1229,6 +1239,11 @@ msgstr "Temps total:"
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
 msgstr "Temps d'inactivitat:"
+
+#: src/statistics/sessionstatisticswidget.cpp:41
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "100%"
+msgstr ""
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"

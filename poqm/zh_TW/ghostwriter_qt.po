@@ -1064,28 +1064,33 @@ msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
 msgstr "拼字檢查完成！"
 
-#: src/statistics/abstractstatisticswidget.cpp:16
+#: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
 msgstr "&lt; 1 分"
 
-#: src/statistics/abstractstatisticswidget.cpp:17
+#: src/statistics/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1"
 msgstr "&lt; 1"
 
-#: src/statistics/abstractstatisticswidget.cpp:18
+#: src/statistics/abstractstatisticswidget.cpp:19
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "250 words per page"
 msgstr "一頁 250 個詞"
 
-#: src/statistics/abstractstatisticswidget.cpp:52
+#: src/statistics/abstractstatisticswidget.cpp:41
+msgctxt "ghostwriter::AbstractStatisticsWidget|"
+msgid "<b>%L1%</b>"
+msgstr ""
+
+#: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
 msgstr "%1 小時 %2 分"
 
-#: src/statistics/abstractstatisticswidget.cpp:54
+#: src/statistics/abstractstatisticswidget.cpp:55
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
@@ -1145,6 +1150,11 @@ msgstr "頁面："
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
 msgstr "複雜的詞："
+
+#: src/statistics/documentstatisticswidget.cpp:65
+msgctxt "ghostwriter::DocumentStatisticsWidget|"
+msgid "0%"
+msgstr ""
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1210,6 +1220,11 @@ msgstr "總計時間："
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
 msgstr "閒置時間："
+
+#: src/statistics/sessionstatisticswidget.cpp:41
+msgctxt "ghostwriter::SessionStatisticsWidget|"
+msgid "100%"
+msgstr ""
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
