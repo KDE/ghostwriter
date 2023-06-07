@@ -1,14 +1,14 @@
 # Translation of ghostwriter_qt.po to Catalan
-# Copyright (C) 2022 This_file_is_part_of_KDE
+# Copyright (C) 2022-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2022-12-25 09:34+0100\n"
+"PO-Revision-Date: 2023-06-06 08:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1102,7 +1102,7 @@ msgstr "250 paraules per pàgina"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1174,7 +1174,7 @@ msgstr "Paraules complexes:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1244,7 +1244,7 @@ msgstr "Temps d'inactivitat:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1512,111 +1512,3 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Aquest és un tema integrat que no es pot editar."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Preferències"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Editor"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Visualització"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Mostra l'hora actual en el mode de pantalla completa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Oculta la barra de menús en mode de pantalla completa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Estil de la interfície"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Desament de fitxers"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Desa automàticament"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Fitxer de còpia de seguretat en desar"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Visualitza els esborranys sense títol..."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Sessió"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Recorda els fitxers recents"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Obre l'últim fitxer en iniciar"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Tabulació"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Insereix espais en lloc de tabuladors"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Amplada de la tabulació"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Estil"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Mode del focus"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Amplada de l'editor"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Blockquote style"
-#~ msgstr "Estil del bloc de cita"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Estil d'èmfasi"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Utilitza encapçalaments grans"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Mecanografia"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Cycle bullet point markers"
-#~ msgstr "Circula entre els marcadors de punts de pics"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Automatically match characters"
-#~ msgstr "Coincideix automàticament els caràcters"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Customize matched characters..."
-#~ msgstr "Personalitza els caràcters coincidents..."

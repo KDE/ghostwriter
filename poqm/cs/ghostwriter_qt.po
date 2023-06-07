@@ -1479,39 +1479,3 @@ msgstr ""
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Předvolby"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Obecné"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Editor"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Zobrazení"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Automatické ukládání"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Sezení"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Otevřít poslední soubor při spuštění"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Styl"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Psaní"

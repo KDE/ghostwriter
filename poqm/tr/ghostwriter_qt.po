@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-05-28 21:09+0300\n"
+"PO-Revision-Date: 2023-06-06 05:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -137,7 +137,7 @@ msgstr "Dosya Aç"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
-msgstr "%1, açılamadı"
+msgstr "%1 açılamadı"
 
 #: src/documentmanager.cpp:372
 msgctxt "ghostwriter::DocumentManager|"
@@ -163,7 +163,7 @@ msgstr "Dosyayı Yeniden Adlandır"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr "%1, yeniden adlandırılamadı."
+msgstr "%1 yeniden adlandırılamadı."
 
 #: src/documentmanager.cpp:545
 msgctxt "ghostwriter::DocumentManager|"
@@ -300,7 +300,7 @@ msgstr "Akıllı Tipografi"
 #: src/export/exportdialog.cpp:87
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
-msgstr "Dışa Aktar Seçenekleri"
+msgstr "Dışa Aktarma Seçenekleri"
 
 #: src/export/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
@@ -1087,7 +1087,7 @@ msgstr "Sayfa başına 250 sözcük"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%​%L1</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1159,7 +1159,7 @@ msgstr "Karmaşık Sözcük:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "%​0"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1229,7 +1229,7 @@ msgstr "Boştaki Süre:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "%​100"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
