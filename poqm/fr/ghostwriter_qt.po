@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2023-04-01 08:59+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"PO-Revision-Date: 2023-06-07 11:15+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr "%1 m"
 #: src/appmain.cpp:75
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr ""
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:79
 msgctxt "main|"
@@ -207,7 +207,7 @@ msgstr ""
 #: src/documentmanager.cpp:465
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
-msgstr ""
+msgstr "Renommer un fichier"
 
 #: src/documentmanager.cpp:482 src/documentmanager.cpp:495
 #, qt-format
@@ -382,7 +382,7 @@ msgstr ""
 #: src/documentstatisticswidget.cpp:154
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "College"
-msgstr ""
+msgstr "Université"
 
 #: src/exportdialog.cpp:45 src/exportdialog.cpp:99
 msgctxt "ghostwriter::ExportDialog|"
@@ -407,7 +407,7 @@ msgstr ""
 #: src/exportdialog.cpp:90
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
-msgstr ""
+msgstr "Format de fichier"
 
 #: src/exportdialog.cpp:107
 msgctxt "ghostwriter::ExportDialog|"
@@ -433,7 +433,7 @@ msgstr ""
 #: src/findreplace.cpp:97
 msgctxt "ghostwriter::FindReplace|"
 msgid "Match case"
-msgstr ""
+msgstr "Respecter la casse"
 
 #: src/findreplace.cpp:102
 msgctxt "ghostwriter::FindReplace|"
@@ -468,7 +468,7 @@ msgstr "Remplacer"
 #: src/findreplace.cpp:135
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace All"
-msgstr ""
+msgstr "Tout remplacer"
 
 #: src/findreplace.cpp:165
 msgctxt "ghostwriter::FindReplace|"
@@ -575,7 +575,7 @@ msgstr "Enregi&strer"
 #: src/mainwindow.cpp:913
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
-msgstr ""
+msgstr "Enregistrer &sous..."
 
 #: src/mainwindow.cpp:914
 msgctxt "ghostwriter::MainWindow|"
@@ -630,7 +630,7 @@ msgstr "Co&ller"
 #: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "Copier en &HTML"
 
 #: src/mainwindow.cpp:932
 msgctxt "ghostwriter::MainWindow|"
@@ -650,7 +650,7 @@ msgstr "Rem&placer"
 #: src/mainwindow.cpp:937
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
-msgstr ""
+msgstr "Rechercher le suiva&nt"
 
 #: src/mainwindow.cpp:938
 msgctxt "ghostwriter::MainWindow|"
@@ -735,7 +735,7 @@ msgstr ""
 #: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
-msgstr ""
+msgstr "Liste de &tâches"
 
 #: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
@@ -870,7 +870,7 @@ msgstr ""
 #: src/mainwindow.cpp:1249
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
-msgstr ""
+msgstr "# En-tête 1"
 
 #: src/mainwindow.cpp:1250
 msgctxt "ghostwriter::MainWindow|"
@@ -1000,7 +1000,7 @@ msgstr "sans titre"
 #: src/markdowneditor.cpp:933
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr ""
+msgstr "Enregistrer une image"
 
 #: src/markdowneditor.cpp:1520
 msgctxt "ghostwriter::MarkdownEditor|"
@@ -1011,12 +1011,12 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr ""
+msgstr "Images (%1)"
 
 #: src/preferencesdialog.cpp:62
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 #: src/preferencesdialog.cpp:71
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1031,7 +1031,7 @@ msgstr "Éditeur"
 #: src/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
-msgstr ""
+msgstr "Vérification orthographique"
 
 #: src/preferencesdialog.cpp:94
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1071,7 +1071,7 @@ msgstr ""
 #: src/preferencesdialog.cpp:210
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "Enregistrement de fichiers"
 
 #: src/preferencesdialog.cpp:216
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1106,7 +1106,7 @@ msgstr ""
 #: src/preferencesdialog.cpp:274
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "Tabulation"
 
 #: src/preferencesdialog.cpp:280
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1121,7 +1121,7 @@ msgstr ""
 #: src/preferencesdialog.cpp:297
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Styling"
-msgstr ""
+msgstr "Mise en forme"
 
 #: src/preferencesdialog.cpp:304
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1136,7 +1136,7 @@ msgstr ""
 #: src/preferencesdialog.cpp:306
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
-msgstr ""
+msgstr "Trois lignes"
 
 #: src/preferencesdialog.cpp:307
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1146,12 +1146,12 @@ msgstr "Paragraphe"
 #: src/preferencesdialog.cpp:308
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
-msgstr ""
+msgstr "Machine à écrire"
 
 #: src/preferencesdialog.cpp:319
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Focus mode"
-msgstr ""
+msgstr "Mode de focus"
 
 #: src/preferencesdialog.cpp:322
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1246,12 +1246,12 @@ msgstr "Sélectionner..."
 #: src/previewoptionsdialog.cpp:116
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr ""
+msgstr "Police de texte :"
 
 #: src/previewoptionsdialog.cpp:142
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr ""
+msgstr "Police de code :"
 
 #: src/previewoptionsdialog.cpp:150
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1287,7 +1287,7 @@ msgstr ""
 #: src/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr ""
+msgstr "Temps d'inactivité :"
 
 #: src/simplefontdialog.cpp:61
 msgctxt "ghostwriter::SimpleFontDialog|"
@@ -1384,7 +1384,7 @@ msgstr[0] ""
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr ""
+msgstr "%1 wpm"
 
 #: src/statisticsindicator.cpp:38
 #, qt-format
@@ -1401,12 +1401,12 @@ msgstr ""
 #: src/themeeditordialog.cpp:77
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
-msgstr ""
+msgstr "Modifier un thème"
 
 #: src/themeeditordialog.cpp:80
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
-msgstr ""
+msgstr "Nom du thème"
 
 #: src/themeeditordialog.cpp:164
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1416,7 +1416,7 @@ msgstr "Élément"
 #: src/themeeditordialog.cpp:165
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
-msgstr ""
+msgstr "Mode clair"
 
 #: src/themeeditordialog.cpp:166
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1426,12 +1426,12 @@ msgstr "Mode sombre"
 #: src/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
-msgstr ""
+msgstr "Premier plan"
 
 #: src/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
-msgstr ""
+msgstr "Arrière-plan"
 
 #: src/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1461,12 +1461,12 @@ msgstr "En-tête"
 #: src/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
-msgstr ""
+msgstr "Accentuation"
 
 #: src/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
-msgstr ""
+msgstr "Bloc de texte"
 
 #: src/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1549,7 +1549,7 @@ msgstr ""
 #: src/themerepository.cpp:323
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled 1"
-msgstr ""
+msgstr "Sans titre 1"
 
 #: src/themerepository.cpp:333
 #, qt-format
