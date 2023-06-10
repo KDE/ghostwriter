@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2022-12-25 14:01+0000\n"
+"PO-Revision-Date: 2023-06-09 23:18+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -1096,7 +1096,7 @@ msgstr "250 palavras por página"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1168,7 +1168,7 @@ msgstr "Palavras Complexas:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1238,7 +1238,7 @@ msgstr "Tempo Inactivo:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1507,111 +1507,3 @@ msgstr "Não é possível editar o tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Infelizmente, este é um tema incorporado que não pode ser modificado."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Preferências"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Geral"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Editor"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Visualização"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Mostrar a hora actual no modo de ecrã completo"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Esconder o menu no modo de ecrã completo"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Estilo de interface"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Gravação do Ficheiro"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Gravação automática"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Salvaguardar o ficheiro ao gravar"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Ver os rascunhos sem nome..."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Sessão"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Recordar os ficheiros recentes"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Abrir o último ficheiro no arranque"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Tabulação"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Inserir espaços nas tabulações"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Tamanho da tabulação"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Estilo"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Modo do foco"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Largura do editor"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Blockquote style"
-#~ msgstr "Estilo de citação em bloco"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Estilo de ênfase"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Usar cabeçalhos grandes"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Escrita"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Cycle bullet point markers"
-#~ msgstr "Circular os marcadores de pontos dos tópicos"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Automatically match characters"
-#~ msgstr "Corresponder automaticamente os caracteres"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Customize matched characters..."
-#~ msgstr "Personalizar os caracteres correspondentes..."
