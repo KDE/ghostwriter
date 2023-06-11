@@ -1,8 +1,8 @@
-# Vincenzo Reale <smart2128vr@gmail.com>, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-25 15:35+0100\n"
+"PO-Revision-Date: 2023-06-06 15:37+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appmain.cpp:75
@@ -1089,7 +1089,7 @@ msgstr "250 parole per pagina"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1161,7 +1161,7 @@ msgstr "Parole complesse:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1231,7 +1231,7 @@ msgstr "Tempo di inattività:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
