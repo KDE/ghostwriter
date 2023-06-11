@@ -74,6 +74,7 @@ private:
     QComboBox *fileFormatComboBox;
     QComboBox *exporterComboBox;
     QCheckBox *smartTypographyCheckBox;
+    QCheckBox *openOnExportCheckBox;
     QLineEdit *paramsLineEdit;
     MarkdownDocument *document;
 };

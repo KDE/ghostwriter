@@ -33,6 +33,7 @@
 #define GW_LAST_EXPORTER_PARAMS_KEY "Export/lastUsedExporterParams"
 #define GW_LAST_EXPORTER_FORMAT_KEY "Export/lastUsedExporterFormat"
 #define GW_SMART_TYPOGRAPHY_KEY "Export/smartTypographyEnabled"
+#define GW_OPEN_ON_EXPORT_KEY "Export/openOnExport"
 
 namespace ghostwriter
 {
@@ -84,11 +85,16 @@ ExportDialog::ExportDialog(MarkdownDocument *document, QWidget *parent)
     smartTypographyCheckBox = new QCheckBox(tr("Smart Typography"));
     smartTypographyCheckBox->setChecked(smartTypographyEnabled);
 
+    bool openOnExport = settings.value(GW_OPEN_ON_EXPORT_KEY, true).toBool();
+    openOnExportCheckBox = new QCheckBox(tr("Open on Export"));
+    openOnExportCheckBox->setChecked(openOnExport);
+
     QGroupBox *optionsGroupBox = new QGroupBox(tr("Export Options"));
     QFormLayout *optionsLayout = new QFormLayout();
     optionsLayout->addRow(tr("Markdown Converter"), exporterComboBox);
     optionsLayout->addRow(tr("File Format"), fileFormatComboBox);
     optionsLayout->addRow(smartTypographyCheckBox);
+    optionsLayout->addRow(openOnExportCheckBox);
     optionsGroupBox->setLayout(optionsLayout);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -116,6 +122,7 @@ ExportDialog::~ExportDialog()
     QSettings settings;
     settings.setValue(GW_LAST_EXPORTER_KEY, exporterComboBox->currentText());
     settings.setValue(GW_SMART_TYPOGRAPHY_KEY, smartTypographyCheckBox->isChecked());
+    settings.setValue(GW_OPEN_ON_EXPORT_KEY, openOnExportCheckBox->isChecked());
     settings.setValue(GW_LAST_EXPORTER_PARAMS_KEY, paramsLineEdit->text());
     settings.setValue(GW_LAST_EXPORTER_FORMAT_KEY, fileFormatComboBox->currentText());
 }
@@ -193,7 +200,8 @@ void ExportDialog::accept()
     if (!err.isNull()) {
         MessageBoxHelper::critical(this, tr("Export failed."), err);
     } else {
-        QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+        if (openOnExportCheckBox->isChecked())
+            QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
     }
 
     QDialog::accept();
