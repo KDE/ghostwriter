@@ -288,43 +288,51 @@ msgctxt "QObject|"
 msgid "Failed to execute command: "
 msgstr "Nie udało się wykonać polecenia: "
 
-#: src/export/exportdialog.cpp:45 src/export/exportdialog.cpp:99
+#: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
 msgstr "Wyeksportuj"
 
-#: src/export/exportdialog.cpp:84
+#: src/export/exportdialog.cpp:85
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
 msgstr "Sprytna typografia"
 
-#: src/export/exportdialog.cpp:87
+#: src/export/exportdialog.cpp:89
+#, fuzzy
+#| msgctxt "ghostwriter::ExportDialog|"
+#| msgid "Export"
+msgctxt "ghostwriter::ExportDialog|"
+msgid "Open on Export"
+msgstr "Wyeksportuj"
+
+#: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
 msgstr "Ustawienia eksportowania"
 
-#: src/export/exportdialog.cpp:89
+#: src/export/exportdialog.cpp:94
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
 msgstr "Przekształcanie Markdown"
 
-#: src/export/exportdialog.cpp:90
+#: src/export/exportdialog.cpp:95
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
 msgstr "Format pliku"
 
-#: src/export/exportdialog.cpp:107
+#: src/export/exportdialog.cpp:113
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
 msgstr "Ustawienia wiersza poleceń:"
 
-#: src/export/exportdialog.cpp:177
+#: src/export/exportdialog.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
 msgstr "eksportowanie do %1"
 
-#: src/export/exportdialog.cpp:194
+#: src/export/exportdialog.cpp:201
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
 msgstr "Nie udało się wyeksportować."
