@@ -294,12 +294,9 @@ msgid "Smart Typography"
 msgstr ""
 
 #: src/export/exportdialog.cpp:89
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr "Exportovat"
+msgstr ""
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
