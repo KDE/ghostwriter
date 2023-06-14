@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-07 12:01+0200\n"
+"PO-Revision-Date: 2023-06-13 09:51+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appmain.cpp:75
@@ -296,7 +296,7 @@ msgstr ""
 #: src/export/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr ""
+msgstr "Otevřít k exportu"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
