@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-12 10:09+0200\n"
+"PO-Revision-Date: 2023-06-25 15:09+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -721,7 +721,7 @@ msgstr "Modus donker omschakelen"
 #: src/mainwindow.cpp:1188
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
-msgstr "Live vooruitblik va HTML omschakelen"
+msgstr "Live vooruitblik van HTML omschakelen"
 
 #: src/mainwindow.cpp:1208
 msgctxt "ghostwriter::MainWindow|"
