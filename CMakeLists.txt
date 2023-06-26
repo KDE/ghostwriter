@@ -18,14 +18,6 @@ project(ghostwriter VERSION ${RELEASE_SERVICE_VERSION} LANGUAGES CXX)
 set(QT_MIN_VERSION "5.15.2")
 set(KF_MIN_VERSION "5.90")
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_MIN_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
-
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 # Append to the module path so modules can be overridden from the command line.
@@ -44,6 +36,14 @@ include(ECMPoQmTools)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(FeatureSummary)
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_MIN_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -68,7 +68,7 @@ set(CMARK_TESTS OFF)
 add_subdirectory(3rdparty/cmark-gfm EXCLUDE_FROM_ALL)
 add_subdirectory(src)
 
-if(KF5DocTools_FOUND)
+if(KF${QT_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()

@@ -14,7 +14,7 @@
 #include <QTranslator>
 #include <QWindow>
 
-#include <KCoreAddons/KAboutData>
+#include <KAboutData>
 
 #include "settings/appsettings.h"
 #include "mainwindow.h"

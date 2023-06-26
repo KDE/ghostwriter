@@ -29,9 +29,9 @@
 #include <QStatusBar>
 #include <QTextDocumentFragment>
 
-#include <KCoreAddons/KAboutData>
-#include <KXmlGui/KAboutApplicationDialog>
-#include <KXmlGui/KHelpMenu>
+#include <KAboutApplicationDialog>
+#include <KAboutData>
+#include <KHelpMenu>
 
 #include <3rdparty/QtAwesome/QtAwesome.h>
 

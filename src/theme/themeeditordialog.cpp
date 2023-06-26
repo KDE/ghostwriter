@@ -15,7 +15,7 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 
-#include <KWidgetsAddons/KColorButton>
+#include <KColorButton>
 
 #include "../settings/appsettings.h"
 #include "themeeditordialog.h"

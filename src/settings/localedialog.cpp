@@ -9,7 +9,7 @@
 #include <QDir>
 #include <QVBoxLayout>
 
-#include <KConfigWidgets/KLanguageButton>
+#include <KLanguageButton>
 
 #include "localedialog.h"
 #include "appsettings.h"

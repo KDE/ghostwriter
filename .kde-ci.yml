@@ -2,10 +2,18 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['@all']
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'frameworks/sonnet': '@stable'
     'frameworks/kcoreaddons': '@stable'
     'frameworks/kxmlgui': '@stable'
     'frameworks/kconfigwidgets': '@stable'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+  'require':
+    'frameworks/extra-cmake-modules': '@latest-kf6'
+    'frameworks/sonnet': '@latest-kf6'
+    'frameworks/kcoreaddons': '@latest-kf6'
+    'frameworks/kxmlgui': '@latest-kf6'
+    'frameworks/kconfigwidgets': '@latest-kf6'
