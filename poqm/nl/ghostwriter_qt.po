@@ -1,8 +1,8 @@
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-25 13:47+0100\n"
+"PO-Revision-Date: 2023-06-25 15:06+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: src/abstractstatisticswidget.cpp:16
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -852,7 +852,7 @@ msgstr "Modus donker omschakelen"
 #: src/mainwindow.cpp:1172
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
-msgstr "Live vooruitblik va HTML omschakelen"
+msgstr "Live vooruitblik van HTML omschakelen"
 
 #: src/mainwindow.cpp:1192
 msgctxt "ghostwriter::MainWindow|"
