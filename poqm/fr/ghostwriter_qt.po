@@ -3,15 +3,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2023-06-18 20:42+0200\n"
-"Last-Translator: Thomas Vergnaud <thomas.vergnaud@mailo.eu>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-06-27 19:56+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/abstractstatisticswidget.cpp:16
@@ -106,7 +106,7 @@ msgstr ""
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Prise en charge de la police « Awesome » pour les applications sous Qt"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
@@ -127,7 +127,7 @@ msgstr "Bienvenue à Ghostwriter !"
 #: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr ""
+msgstr "(Optionnel) Fichier à ouvrir"
 
 #: src/appmain.cpp:155
 msgctxt "main|"
@@ -848,32 +848,32 @@ msgstr "Wiki"
 #: src/mainwindow.cpp:1096
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Afficher / Masquer la barre latérale"
 
 #: src/mainwindow.cpp:1153
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
-msgstr ""
+msgstr "Basculer ou non en mode sombre"
 
 #: src/mainwindow.cpp:1172
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
-msgstr ""
+msgstr "Afficher / Masquer l'aperçu « HTML » en temps réel"
 
 #: src/mainwindow.cpp:1192
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
-msgstr ""
+msgstr "Basculer ou non en mode « Hemingway »"
 
 #: src/mainwindow.cpp:1200
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
-msgstr ""
+msgstr "Basculer ou non en mode « Sans distraction »"
 
 #: src/mainwindow.cpp:1209
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
-msgstr ""
+msgstr "Basculer ou non en mode plein écran"
 
 #: src/mainwindow.cpp:1232
 msgctxt "ghostwriter::MainWindow|"
@@ -1059,7 +1059,7 @@ msgstr "Affichage"
 #: src/preferencesdialog.cpp:183
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Show current time in full screen mode"
-msgstr ""
+msgstr "Afficher le temps actuel en mode « Plein écran »"
 
 #: src/preferencesdialog.cpp:189
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1229,17 +1229,17 @@ msgstr "Dactylographie"
 #: src/preferencesdialog.cpp:380
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Cycle bullet point markers"
-msgstr ""
+msgstr "Faire défiler les marques de puces"
 
 #: src/preferencesdialog.cpp:386
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Automatically match characters"
-msgstr ""
+msgstr "Faire correspondre automatiquement les caractères"
 
 #: src/preferencesdialog.cpp:392
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Customize matched characters..."
-msgstr ""
+msgstr "Personnaliser les caractères correspondants..."
 
 #: src/previewoptionsdialog.cpp:50
 msgctxt "ghostwriter::PreviewOptionsDialog|"
