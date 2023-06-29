@@ -13,7 +13,6 @@
     "comment-format": [
       true,
       "check-space"
-//      "check-uppercase"
     ],
     "curly": [
       true,
