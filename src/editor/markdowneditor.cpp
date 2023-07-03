@@ -1123,6 +1123,27 @@ void MarkdownEditor::strikethrough()
     toggle(this);
 }
 
+void MarkdownEditor::insertCodeFences()
+{
+    QTextCursor cursor = this->textCursor();
+    QString text;
+
+    if (cursor.block().position() != cursor.position()) {
+        text = "\n";
+    }
+
+    if (cursor.hasSelection()) {
+        QString selText = cursor.selectedText();
+        text += QString("```\n" + selText + "\n```\n");
+        cursor.insertText(text);
+    } else {
+        text += QString("```\n\n```\n");
+        cursor.insertText(text);
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, 5);
+        this->setTextCursor(cursor);
+    }
+}
+
 void MarkdownEditor::insertComment()
 {
     QTextCursor cursor = this->textCursor();
