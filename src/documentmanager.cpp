@@ -5,6 +5,7 @@
  */
 
 #include <QApplication>
+#include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
@@ -12,8 +13,8 @@
 #include <QFileSystemWatcher>
 #include <QMessageBox>
 #include <QPair>
-#include <QString>
 #include <QStandardPaths>
+#include <QString>
 #include <QTextDocument>
 #include <QTextStream>
 #include <QTimer>
@@ -55,6 +56,7 @@ public:
     const QString draftName = DocumentManager::tr("untitled");
 
     QString draftLocation;
+    QString backupLocation;
 
     DocumentManager *q_ptr;
     MarkdownDocument *document;
@@ -326,6 +328,19 @@ void DocumentManager::setDraftLocation(const QString &directory)
     }
 
     d->draftLocation = draftDir.absolutePath();
+}
+
+void DocumentManager::setBackupLocation(const QString &directory)
+{
+    Q_D(DocumentManager);
+
+    QDir backupDir(directory);
+
+    if (!backupDir.exists()) {
+        backupDir.mkpath(backupDir.path());
+    }
+
+    d->backupLocation = backupDir.absolutePath();
 }
 
 void DocumentManager::setFileHistoryEnabled(bool enabled)
@@ -938,7 +953,21 @@ bool DocumentManagerPrivate::checkPermissionsBeforeSave()
 
 void DocumentManagerPrivate::backupFile(const QString &filePath) const
 {
-    QString backupFilePath = filePath + ".backup";
+    QFile f(filePath);
+    QFileInfo fileInfo(f.fileName());
+    QString fileName(fileInfo.fileName());
+
+    QString backupFilePath = this->backupLocation + QDir::separator() + fileName + ".backup";
+
+    QDir backupDir(this->backupLocation);
+
+    if (!backupDir.exists()) {
+        if (!backupDir.mkpath(this->backupLocation)) {
+            MessageBoxHelper::critical(this->editor, DocumentManager::tr("File backup failed"), DocumentManager::tr("Error creating backup location!"));
+            return;
+        }
+    }
+
     QFile backupFile(backupFilePath);
 
     if (backupFile.exists()) {

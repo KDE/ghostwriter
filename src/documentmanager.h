@@ -143,6 +143,12 @@ public slots:
     void setDraftLocation(const QString &directory);
 
     /**
+     * Sets backup directory location where backup files (i.e., .backup
+     * files) will be saved.
+     */
+    void setBackupLocation(const QString &directory);
+
+    /**
      * Prompts the user for a file path, and loads the document with the
      * file contents at the selected path.
      */

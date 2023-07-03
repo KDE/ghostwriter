@@ -120,6 +120,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     documentManager->setAutoSaveEnabled(appSettings->autoSaveEnabled());
     documentManager->setFileBackupEnabled(appSettings->backupFileEnabled());
     documentManager->setDraftLocation(appSettings->draftLocation());
+    documentManager->setBackupLocation(appSettings->backupLocation());
     documentManager->setFileHistoryEnabled(appSettings->fileHistoryEnabled());
     setWindowTitle(documentManager->document()->displayName() + "[*] - " + qAppName());
     connect(documentManager, SIGNAL(documentDisplayNameChanged(QString)), this, SLOT(changeDocumentDisplayName(QString)));
@@ -229,6 +230,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
 
     connect(appSettings, SIGNAL(autoSaveChanged(bool)), documentManager, SLOT(setAutoSaveEnabled(bool)));
     connect(appSettings, SIGNAL(backupFileChanged(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
+    connect(appSettings, SIGNAL(backupLocationChanged(QString)), documentManager, SLOT(setBackupLocation(QString)));
     connect(appSettings, SIGNAL(tabWidthChanged(int)), editor, SLOT(setTabulationWidth(int)));
     connect(appSettings, SIGNAL(insertSpacesForTabsChanged(bool)), editor, SLOT(setInsertSpacesForTabs(bool)));
     connect(appSettings, &AppSettings::showUnbreakableSpaceEnabledChanged, editor, &MarkdownEditor::setShowUnbreakableSpaces);

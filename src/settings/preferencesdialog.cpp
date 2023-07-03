@@ -6,8 +6,10 @@
 
 #include <QCheckBox>
 #include <QComboBox>
+#include <QDebug>
 #include <QDesktopServices>
 #include <QDialogButtonBox>
+#include <QFileDialog>
 #include <QFormLayout>
 #include <QGroupBox>
 #include <QLineEdit>
@@ -187,6 +189,20 @@ void PreferencesDialogPrivate::initializeGeneralTab()
 
     q->connect(ui->openDraftDirButton, &QPushButton::clicked, [this]() {
         QDesktopServices::openUrl(QUrl(appSettings->draftLocation()));
+    });
+
+    ui->currentBackupFolderText->setText(appSettings->backupLocation());
+
+    q->connect(ui->selectBackupFolderButton, &QPushButton::clicked, [this, ui]() {
+        QString originalDir = appSettings->backupLocation();
+        QFileDialog backFileDialog(q_ptr);
+        backFileDialog.setFilter(QDir::Hidden | QDir::AllEntries);
+
+        QString dir =
+            backFileDialog.getExistingDirectory(NULL, tr("Select Backup Directory"), originalDir, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+
+        ui->currentBackupFolderText->setText(dir);
+        appSettings->setBackupLocation(dir + QDir::separator());
     });
 
     ui->rememberHistoryCheckBox->setChecked(appSettings->fileHistoryEnabled());

@@ -42,6 +42,10 @@ public:
     QString themeDirectoryPath() const;
     QString draftLocation() const;
 
+    QString backupLocation() const;
+    Q_SLOT void setBackupLocation(QString backupLocation);
+    Q_SIGNAL void backupLocationChanged(QString backupLocation);
+
     bool autoSaveEnabled() const;
     Q_SLOT void setAutoSaveEnabled(bool enabled);
     Q_SIGNAL void autoSaveChanged(bool enabled);

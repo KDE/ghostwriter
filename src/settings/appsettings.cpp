@@ -57,6 +57,7 @@ constexpr auto GW_LAST_USED_EXPORTER_KEY{"Preview/lastUsedExporter"};
 constexpr auto GW_LAST_USED_EXPORTER_PARAMS_KEY{"Preview/lastUsedExporterParams"};
 constexpr auto GW_PREVIEW_TEXT_FONT_KEY{"Preview/textFont"};
 constexpr auto GW_PREVIEW_CODE_FONT_KEY{"Preview/codeFont"};
+constexpr auto GW_BACKUP_LOCATION_KEY{"Backup/location"};
 }
 
 class AppSettingsPrivate
@@ -81,6 +82,7 @@ public:
     bool autoSaveEnabled;
     bool backupFileEnabled;
     QString draftLocation;
+    QString backupLocation;
     bool bulletPointCyclingEnabled;
     bool displayTimeInFullScreenEnabled;
     int favoriteStatistic;
@@ -163,6 +165,7 @@ void AppSettings::store()
     appSettings.setValue(constants::GW_DARK_MODE_KEY, QVariant(d->darkModeEnabled));
     appSettings.setValue(constants::GW_UNDERLINE_ITALICS_KEY, QVariant(d->useUnderlineForEmphasis));
     appSettings.setValue(constants::GW_UNBREAKABLE_SPACE, QVariant(d->showUnbreakableSpaceEnabled));
+    appSettings.setValue(constants::GW_BACKUP_LOCATION_KEY, QVariant(d->backupLocation));
 
     appSettings.sync();
 }
@@ -209,6 +212,21 @@ QString AppSettings::draftLocation() const
     Q_D(const AppSettings);
 
     return d->draftLocation;
+}
+
+void AppSettings::setBackupLocation(QString backupLocation)
+{
+    Q_D(AppSettings);
+
+    d->backupLocation = backupLocation;
+    emit backupLocationChanged(backupLocation);
+}
+
+QString AppSettings::backupLocation() const
+{
+    Q_D(const AppSettings);
+
+    return d->backupLocation;
 }
 
 QFont AppSettings::editorFont() const
@@ -750,6 +768,12 @@ AppSettings::AppSettings()
     d->previewTextFont.fromString(appSettings.value(constants::GW_PREVIEW_TEXT_FONT_KEY, QVariant(variableFont)).toString());
     d->previewCodeFont.fromString(appSettings.value(constants::GW_PREVIEW_CODE_FONT_KEY, QVariant(monospaceFont)).toString());
     d->tabWidth = appSettings.value(constants::GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
+
+    d->backupLocation =
+        appSettings
+            .value(constants::GW_BACKUP_LOCATION_KEY,
+                   QVariant(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QDir::separator() + "backups" + QDir::separator()))
+            .toString();
 
     if ((d->tabWidth < MIN_TAB_WIDTH) || (d->tabWidth > MAX_TAB_WIDTH)) {
         d->tabWidth = DEFAULT_TAB_WIDTH;
