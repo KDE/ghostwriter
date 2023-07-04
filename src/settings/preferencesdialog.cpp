@@ -293,3 +293,5 @@ QWidget *PreferencesDialogPrivate::initializeSpellCheckTab()
     return (QWidget *)tab;
 }
 } // namespace ghostwriter
+
+#include "preferencesdialog.moc"
