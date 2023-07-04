@@ -107,142 +107,148 @@ msgctxt "main|"
 msgid "Disables GPU acceleration."
 msgstr "Onemogoči grafično pospeševanje."
 
-#: src/documentmanager.cpp:55
+#: src/documentmanager.cpp:56
 msgctxt "ghostwriter::DocumentManager|"
 msgid "untitled"
 msgstr "brez naslova"
 
-#: src/documentmanager.cpp:165
+#: src/documentmanager.cpp:167
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Markdown"
 msgstr "Markdown"
 
-#: src/documentmanager.cpp:166
+#: src/documentmanager.cpp:168
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Text"
 msgstr "Besedilo"
 
-#: src/documentmanager.cpp:167
+#: src/documentmanager.cpp:169
 msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
 msgstr "Vse"
 
-#: src/documentmanager.cpp:221 src/documentmanager.cpp:716
+#: src/documentmanager.cpp:223 src/documentmanager.cpp:731
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
 msgstr "Napaka pri shranjevanju %1"
 
-#: src/documentmanager.cpp:358
+#: src/documentmanager.cpp:373
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/documentmanager.cpp:371
+#: src/documentmanager.cpp:386
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
 msgstr "Ni bilo mogoče odpreti %1"
 
-#: src/documentmanager.cpp:372
+#: src/documentmanager.cpp:387
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Permission denied."
 msgstr "Dovoljenje zavrnjeno."
 
-#: src/documentmanager.cpp:434
+#: src/documentmanager.cpp:449
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
 msgstr "Dokument je bil spremenjen."
 
-#: src/documentmanager.cpp:435
+#: src/documentmanager.cpp:450
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
 msgstr "Naj zavržem spremembe?"
 
-#: src/documentmanager.cpp:466
+#: src/documentmanager.cpp:481
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
 msgstr "Preimenuj datoteko"
 
-#: src/documentmanager.cpp:483 src/documentmanager.cpp:496
+#: src/documentmanager.cpp:498 src/documentmanager.cpp:511
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
 msgstr "Preimenovanje %1 ni uspelo"
 
-#: src/documentmanager.cpp:545
+#: src/documentmanager.cpp:560
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
 msgstr "Shrani datoteko"
 
-#: src/documentmanager.cpp:682
+#: src/documentmanager.cpp:697
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
 msgstr "Dokument je bil spremenjen z nekim drugim programom."
 
-#: src/documentmanager.cpp:683
+#: src/documentmanager.cpp:698
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
 msgstr "Ali želite ponovno naložiti dokument?"
 
-#: src/documentmanager.cpp:717
+#: src/documentmanager.cpp:732
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
 msgstr "Ni določena pot datoteke"
 
-#: src/documentmanager.cpp:733 src/documentmanager.cpp:772
+#: src/documentmanager.cpp:748 src/documentmanager.cpp:787
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
 msgstr "Ni bilo mogoče brati %1"
 
-#: src/documentmanager.cpp:754
+#: src/documentmanager.cpp:769
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
 msgstr "odpiranje %1"
 
-#: src/documentmanager.cpp:861
+#: src/documentmanager.cpp:876
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
 msgstr "Datoteka je bila spremenjena."
 
-#: src/documentmanager.cpp:863
+#: src/documentmanager.cpp:878
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
 msgstr "%1 je bila spremenjena."
 
-#: src/documentmanager.cpp:872
+#: src/documentmanager.cpp:887
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
 msgstr "Ali bi želeli shraniti vaše spremembe?"
 
-#: src/documentmanager.cpp:903
+#: src/documentmanager.cpp:918
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
 msgstr "%1 je samo za branje."
 
-#: src/documentmanager.cpp:904
+#: src/documentmanager.cpp:919
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
 msgstr "Naj prepišem zaščiteno datoteko?"
 
-#: src/documentmanager.cpp:923
+#: src/documentmanager.cpp:938
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
 msgstr "Prepis ni uspel."
 
-#: src/documentmanager.cpp:924
+#: src/documentmanager.cpp:939
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
 msgstr "Shranite datoteko na drugo lokacijo."
 
-#: src/documentmanager.cpp:948 src/documentmanager.cpp:961
+#: src/documentmanager.cpp:966 src/documentmanager.cpp:977
+#: src/documentmanager.cpp:990
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
 msgstr "Izdelava varovalne kopije ni uspela"
+
+#: src/documentmanager.cpp:966
+msgctxt "ghostwriter::DocumentManager|"
+msgid "Error creating backup location!"
+msgstr ""
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -254,12 +260,12 @@ msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Shrani sliko"
 
-#: src/editor/markdowneditor.cpp:1513
+#: src/editor/markdowneditor.cpp:1534
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Vstavi sliko"
 
-#: src/editor/markdowneditor.cpp:2439
+#: src/editor/markdowneditor.cpp:2460
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -418,457 +424,465 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 ujemanj"
 
-#: src/mainwindow.cpp:909
+#: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "Datoteka"
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:913
 msgctxt "ghostwriter::MainWindow|"
 msgid "&New"
 msgstr "&Nova"
 
-#: src/mainwindow.cpp:912
+#: src/mainwindow.cpp:914
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Open"
 msgstr "&Odpri"
 
-#: src/mainwindow.cpp:914
+#: src/mainwindow.cpp:916
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
 msgstr "Odpri nedavne..."
 
-#: src/mainwindow.cpp:915
+#: src/mainwindow.cpp:917
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
 msgstr "Ponovno odprli zaprto datoteko"
 
-#: src/mainwindow.cpp:923
+#: src/mainwindow.cpp:925
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
 msgstr "Počisti meni"
 
-#: src/mainwindow.cpp:928
+#: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Save"
 msgstr "&Shrani"
 
-#: src/mainwindow.cpp:929
+#: src/mainwindow.cpp:931
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
 msgstr "Shrani kot..."
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:932
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
 msgstr "Pr&eimenuj..."
 
-#: src/mainwindow.cpp:931
+#: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
 msgstr "Ponovno naloži z diska..."
 
-#: src/mainwindow.cpp:933
+#: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Export"
 msgstr "Izvozi"
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:937
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Quit"
 msgstr "Zapusti"
 
-#: src/mainwindow.cpp:939
+#: src/mainwindow.cpp:941
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "Ur&edi"
 
-#: src/mainwindow.cpp:940
+#: src/mainwindow.cpp:942
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Undo"
 msgstr "Prekliči"
 
-#: src/mainwindow.cpp:941
+#: src/mainwindow.cpp:943
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Redo"
 msgstr "Uveljavi"
 
-#: src/mainwindow.cpp:943
+#: src/mainwindow.cpp:945
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cu&t"
 msgstr "Izreži"
 
-#: src/mainwindow.cpp:944
+#: src/mainwindow.cpp:946
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Copy"
 msgstr "&Kopiraj"
 
-#: src/mainwindow.cpp:945
+#: src/mainwindow.cpp:947
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Paste"
 msgstr "&Prilepi"
 
-#: src/mainwindow.cpp:946
+#: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
 msgstr "Kopiraj &HTML"
 
-#: src/mainwindow.cpp:948
+#: src/mainwindow.cpp:950
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
 msgstr "Vstavi sliko..."
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Find"
 msgstr "Najdi"
 
-#: src/mainwindow.cpp:952
+#: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
 msgstr "Zamenjaj"
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Next"
 msgstr "Najdi &naslednje"
 
-#: src/mainwindow.cpp:954
+#: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
 msgstr "Najdi prejšnje"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
 msgstr "Črkuj"
 
-#: src/mainwindow.cpp:958
+#: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
 msgid "For&mat"
 msgstr "For&mat"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:961
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Bold"
 msgstr "Krepko"
 
-#: src/mainwindow.cpp:960
+#: src/mainwindow.cpp:962
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Italic"
 msgstr "Ležeče"
 
-#: src/mainwindow.cpp:961
+#: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "Prečrtano"
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:964
+#, fuzzy
+#| msgctxt "ghostwriter::PreviewOptionsDialog|"
+#| msgid "Code Font:"
+msgctxt "ghostwriter::MainWindow|"
+msgid "&Code Fences"
+msgstr "Pisava kode:"
+
+#: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
 msgstr "&HTML komentar"
 
-#: src/mainwindow.cpp:965
+#: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
 msgstr "Zamik"
 
-#: src/mainwindow.cpp:966
+#: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
 msgstr "Odzamik"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
 msgstr "&Citirani odstavek"
 
-#: src/mainwindow.cpp:969
+#: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
 msgstr "&Odstrani citatno postavitev"
 
-#: src/mainwindow.cpp:971
+#: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
 msgstr "&* Seznam"
 
-#: src/mainwindow.cpp:972
+#: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
 msgstr "&- Seznam"
 
-#: src/mainwindow.cpp:973
+#: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
 msgstr "&+ Seznam"
 
-#: src/mainwindow.cpp:975
+#: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
 msgstr "1&. Oštevilčen seznam"
 
-#: src/mainwindow.cpp:976
+#: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
 msgstr "1&) Oštevilčen seznam"
 
-#: src/mainwindow.cpp:978
+#: src/mainwindow.cpp:981
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
 msgstr "Seznam nalog"
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
 msgstr "Preklop končanih opravil"
 
-#: src/mainwindow.cpp:982
+#: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "Pogled"
 
-#: src/mainwindow.cpp:984
+#: src/mainwindow.cpp:987
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Full Screen"
 msgstr "Celotni zaslon"
 
-#: src/mainwindow.cpp:992
+#: src/mainwindow.cpp:995
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
 msgstr "&Predogled v HTML"
 
-#: src/mainwindow.cpp:1000
+#: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
 msgstr "Oris"
 
-#: src/mainwindow.cpp:1010
+#: src/mainwindow.cpp:1013
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
 msgstr "&Statistika seje"
 
-#: src/mainwindow.cpp:1019
+#: src/mainwindow.cpp:1022
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
 msgstr "Statistika &dokumenta"
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1031
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
 msgstr "Plonk listek"
 
-#: src/mainwindow.cpp:1039
+#: src/mainwindow.cpp:1042
 msgctxt "ghostwriter::MainWindow|"
 msgid "Increase Font Size"
 msgstr "Povečaj velikost pisave"
 
-#: src/mainwindow.cpp:1040
+#: src/mainwindow.cpp:1043
 msgctxt "ghostwriter::MainWindow|"
 msgid "Decrease Font Size"
 msgstr "Pomanjšaj velikost pisave"
 
-#: src/mainwindow.cpp:1042
+#: src/mainwindow.cpp:1045
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "Na&stavitve"
 
-#: src/mainwindow.cpp:1043 src/mainwindow.cpp:1354
+#: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
 msgstr "Teme..."
 
-#: src/mainwindow.cpp:1044 src/mainwindow.cpp:1355
+#: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
 msgstr "Pisave..."
 
-#: src/mainwindow.cpp:1045 src/mainwindow.cpp:1356
+#: src/mainwindow.cpp:1048 src/mainwindow.cpp:1359
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
 msgstr "Jezik aplikacije..."
 
-#: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
+#: src/mainwindow.cpp:1049 src/mainwindow.cpp:1360
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
 msgstr "Možnosti predogleda..."
 
-#: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
+#: src/mainwindow.cpp:1050 src/mainwindow.cpp:1361
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
 msgstr "Preference..."
 
-#: src/mainwindow.cpp:1053
+#: src/mainwindow.cpp:1056
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "Pomoč"
 
-#: src/mainwindow.cpp:1063
+#: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
 msgstr "Hitri priročnik"
 
-#: src/mainwindow.cpp:1064
+#: src/mainwindow.cpp:1067
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
 msgstr "Wiki"
 
-#: src/mainwindow.cpp:1112
+#: src/mainwindow.cpp:1115
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
 msgstr "Preklopi stransko letvico"
 
-#: src/mainwindow.cpp:1169
+#: src/mainwindow.cpp:1172
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
 msgstr "Preklopi v temni način"
 
-#: src/mainwindow.cpp:1188
+#: src/mainwindow.cpp:1191
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
 msgstr "Preklopi sprotni HTML predogled"
 
-#: src/mainwindow.cpp:1208
+#: src/mainwindow.cpp:1211
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
 msgstr "Preklopi Hemingwayev način"
 
-#: src/mainwindow.cpp:1216
+#: src/mainwindow.cpp:1219
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
 msgstr "Preklopi način brez motenj"
 
-#: src/mainwindow.cpp:1225
+#: src/mainwindow.cpp:1228
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
 msgstr "Preklopi celozaslonski način"
 
-#: src/mainwindow.cpp:1248
+#: src/mainwindow.cpp:1251
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
 msgstr "Prikaži stransko letvico"
 
-#: src/mainwindow.cpp:1265
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Heading 1"
 
-#: src/mainwindow.cpp:1266
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Heading 2"
 
-#: src/mainwindow.cpp:1267
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Heading 3"
 
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Heading 4"
 
-#: src/mainwindow.cpp:1269
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Heading 5"
 
-#: src/mainwindow.cpp:1270
+#: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Heading 6"
 
-#: src/mainwindow.cpp:1271
+#: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Emphasis* _Emphasis_"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Strong** __Strong__"
 
-#: src/mainwindow.cpp:1273
+#: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. Oštevilčen seznam"
 
-#: src/mainwindow.cpp:1274
+#: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Seznam"
 
-#: src/mainwindow.cpp:1275
+#: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Seznam"
 
-#: src/mainwindow.cpp:1276
+#: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Seznam"
 
-#: src/mainwindow.cpp:1277
+#: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> Citirani odstavek"
 
-#: src/mainwindow.cpp:1278
+#: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "»Razpon kode«"
 
-#: src/mainwindow.cpp:1279
+#: src/mainwindow.cpp:1282
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Blok kode"
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1283
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Povezava](http://url.com \"Naslov\")"
 
-#: src/mainwindow.cpp:1281
+#: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Povezava na sklic][ID]"
 
-#: src/mainwindow.cpp:1282
+#: src/mainwindow.cpp:1285
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Definicija sklica\""
 
-#: src/mainwindow.cpp:1283
+#: src/mainwindow.cpp:1286
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Slika](./image.jpg \"Naslov\")"
 
-#: src/mainwindow.cpp:1284
+#: src/mainwindow.cpp:1287
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Vodoravna črta"
 
-#: src/mainwindow.cpp:1334
+#: src/mainwindow.cpp:1337
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Oris"
 
-#: src/mainwindow.cpp:1335
+#: src/mainwindow.cpp:1338
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Statistika seje"
 
-#: src/mainwindow.cpp:1336
+#: src/mainwindow.cpp:1339
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Statistika dokumenta"
 
-#: src/mainwindow.cpp:1337
+#: src/mainwindow.cpp:1340
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Plonk listek"
 
-#: src/mainwindow.cpp:1347
+#: src/mainwindow.cpp:1350
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Nastavitve"
@@ -908,83 +922,88 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Ponovno zaženite aplikacijo za uveljavljanje sprememb."
 
-#: src/settings/preferencesdialog.cpp:70
+#: src/settings/preferencesdialog.cpp:72
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Črkovanje"
 
-#: src/settings/preferencesdialog.cpp:85
+#: src/settings/preferencesdialog.cpp:87
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Ustrezni znaki"
 
-#: src/settings/preferencesdialog.cpp:174
+#: src/settings/preferencesdialog.cpp:176
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Zaokroženo"
 
-#: src/settings/preferencesdialog.cpp:175
+#: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Kvadrat"
 
-#: src/settings/preferencesdialog.cpp:214
+#: src/settings/preferencesdialog.cpp:202
+msgctxt "ghostwriter::PreferencesDialogPrivate|"
+msgid "Select Backup Directory"
+msgstr ""
+
+#: src/settings/preferencesdialog.cpp:230
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Stavek"
 
-#: src/settings/preferencesdialog.cpp:215
+#: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Trenutna vrstica"
 
-#: src/settings/preferencesdialog.cpp:216
+#: src/settings/preferencesdialog.cpp:232
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Tri vrstice"
 
-#: src/settings/preferencesdialog.cpp:217
+#: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Odstavek"
 
-#: src/settings/preferencesdialog.cpp:218
+#: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Pisalni stroj"
 
-#: src/settings/preferencesdialog.cpp:226
+#: src/settings/preferencesdialog.cpp:242
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Ozko"
 
-#: src/settings/preferencesdialog.cpp:227
+#: src/settings/preferencesdialog.cpp:243
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Srednje"
 
-#: src/settings/preferencesdialog.cpp:228
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Široko"
 
-#: src/settings/preferencesdialog.cpp:229
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Celo"
 
-#: src/settings/preferencesdialog.cpp:236
+#: src/settings/preferencesdialog.cpp:252
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Preprosto"
 
-#: src/settings/preferencesdialog.cpp:237
-#: src/settings/preferencesdialog.cpp:244
+#: src/settings/preferencesdialog.cpp:253
+#: src/settings/preferencesdialog.cpp:260
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Poševno"
 
-#: src/settings/preferencesdialog.cpp:245
+#: src/settings/preferencesdialog.cpp:261
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Podčrtano"
