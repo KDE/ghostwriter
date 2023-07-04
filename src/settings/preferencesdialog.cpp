@@ -31,6 +31,7 @@ namespace ghostwriter
 
 class PreferencesDialogPrivate : public QObject
 {
+    Q_OBJECT
     Q_DECLARE_PUBLIC(PreferencesDialog)
 
 public:
