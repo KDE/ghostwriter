@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-06-12 06:20+0200\n"
+"PO-Revision-Date: 2023-07-04 07:26+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -248,7 +248,7 @@ msgstr "Izdelava varovalne kopije ni uspela"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Napaka ob kreiranju lokacije za varnostne kopije!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -570,12 +570,9 @@ msgid "Stri&kethrough"
 msgstr "Prečrtano"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Pisava kode:"
+msgstr "Ločilniki kode"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -922,88 +919,88 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Ponovno zaženite aplikacijo za uveljavljanje sprememb."
 
-#: src/settings/preferencesdialog.cpp:72
+#: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Črkovanje"
 
-#: src/settings/preferencesdialog.cpp:87
+#: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Ustrezni znaki"
 
-#: src/settings/preferencesdialog.cpp:176
+#: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Zaokroženo"
 
-#: src/settings/preferencesdialog.cpp:177
+#: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Kvadrat"
 
-#: src/settings/preferencesdialog.cpp:202
+#: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Izberite imenik varnostnih kopij"
 
-#: src/settings/preferencesdialog.cpp:230
+#: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Stavek"
 
-#: src/settings/preferencesdialog.cpp:231
+#: src/settings/preferencesdialog.cpp:232
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Trenutna vrstica"
 
-#: src/settings/preferencesdialog.cpp:232
+#: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Tri vrstice"
 
-#: src/settings/preferencesdialog.cpp:233
+#: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Odstavek"
 
-#: src/settings/preferencesdialog.cpp:234
+#: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Pisalni stroj"
 
-#: src/settings/preferencesdialog.cpp:242
+#: src/settings/preferencesdialog.cpp:243
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Ozko"
 
-#: src/settings/preferencesdialog.cpp:243
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Srednje"
 
-#: src/settings/preferencesdialog.cpp:244
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Široko"
 
-#: src/settings/preferencesdialog.cpp:245
+#: src/settings/preferencesdialog.cpp:246
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Celo"
 
-#: src/settings/preferencesdialog.cpp:252
+#: src/settings/preferencesdialog.cpp:253
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Preprosto"
 
-#: src/settings/preferencesdialog.cpp:253
-#: src/settings/preferencesdialog.cpp:260
+#: src/settings/preferencesdialog.cpp:254
+#: src/settings/preferencesdialog.cpp:261
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Poševno"
 
-#: src/settings/preferencesdialog.cpp:261
+#: src/settings/preferencesdialog.cpp:262
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Podčrtano"

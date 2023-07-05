@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-25 15:09+0200\n"
+"PO-Revision-Date: 2023-07-04 21:37+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -245,7 +245,7 @@ msgstr "Maken reservebestand is mislukt"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Fout bij aanmaken van locatie voor reservekopieën!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -565,12 +565,9 @@ msgid "Stri&kethrough"
 msgstr "&Doorstrepen"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Lettertype voor code:"
+msgstr "Hekken in &code"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -917,88 +914,88 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "De toepassing opnieuw starten o wijzigingen effect te laten hebben."
 
-#: src/settings/preferencesdialog.cpp:72
+#: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Spellingcontrole"
 
-#: src/settings/preferencesdialog.cpp:87
+#: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Overeenkomende tekens"
 
-#: src/settings/preferencesdialog.cpp:176
+#: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Afgerond"
 
-#: src/settings/preferencesdialog.cpp:177
+#: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Vierkant"
 
-#: src/settings/preferencesdialog.cpp:202
+#: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Map voor reservekopieën selecteren"
 
-#: src/settings/preferencesdialog.cpp:230
+#: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Zin"
 
-#: src/settings/preferencesdialog.cpp:231
+#: src/settings/preferencesdialog.cpp:232
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Huidige regel"
 
-#: src/settings/preferencesdialog.cpp:232
+#: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Drie lijnen"
 
-#: src/settings/preferencesdialog.cpp:233
+#: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Paragraaf"
 
-#: src/settings/preferencesdialog.cpp:234
+#: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Schrijfmachine"
 
-#: src/settings/preferencesdialog.cpp:242
+#: src/settings/preferencesdialog.cpp:243
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Smal"
 
-#: src/settings/preferencesdialog.cpp:243
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Gemiddeld"
 
-#: src/settings/preferencesdialog.cpp:244
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Breed"
 
-#: src/settings/preferencesdialog.cpp:245
+#: src/settings/preferencesdialog.cpp:246
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Volledig"
 
-#: src/settings/preferencesdialog.cpp:252
+#: src/settings/preferencesdialog.cpp:253
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Normaal"
 
-#: src/settings/preferencesdialog.cpp:253
-#: src/settings/preferencesdialog.cpp:260
+#: src/settings/preferencesdialog.cpp:254
+#: src/settings/preferencesdialog.cpp:261
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Cursief"
 
-#: src/settings/preferencesdialog.cpp:261
+#: src/settings/preferencesdialog.cpp:262
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Onderstrepen"

@@ -922,88 +922,88 @@ msgid "Please restart the application for changes to take effect."
 msgstr ""
 "Należy ponownie uruchomić aplikację, aby te zmiany zostały uwzględnione."
 
-#: src/settings/preferencesdialog.cpp:72
+#: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Sprawdzanie pisowni"
 
-#: src/settings/preferencesdialog.cpp:87
+#: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Dopasowane znaki"
 
-#: src/settings/preferencesdialog.cpp:176
+#: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Zaokrąglone"
 
-#: src/settings/preferencesdialog.cpp:177
+#: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Kwadrat"
 
-#: src/settings/preferencesdialog.cpp:202
+#: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
 msgstr ""
 
-#: src/settings/preferencesdialog.cpp:230
+#: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Zdanie"
 
-#: src/settings/preferencesdialog.cpp:231
+#: src/settings/preferencesdialog.cpp:232
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Bieżący wiersz"
 
-#: src/settings/preferencesdialog.cpp:232
+#: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Trzy wiersze"
 
-#: src/settings/preferencesdialog.cpp:233
+#: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Akapit"
 
-#: src/settings/preferencesdialog.cpp:234
+#: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Maszyna do pisania"
 
-#: src/settings/preferencesdialog.cpp:242
+#: src/settings/preferencesdialog.cpp:243
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Wąska"
 
-#: src/settings/preferencesdialog.cpp:243
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Średni"
 
-#: src/settings/preferencesdialog.cpp:244
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Szeroka"
 
-#: src/settings/preferencesdialog.cpp:245
+#: src/settings/preferencesdialog.cpp:246
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Pełny"
 
-#: src/settings/preferencesdialog.cpp:252
+#: src/settings/preferencesdialog.cpp:253
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Zwykły"
 
-#: src/settings/preferencesdialog.cpp:253
-#: src/settings/preferencesdialog.cpp:260
+#: src/settings/preferencesdialog.cpp:254
+#: src/settings/preferencesdialog.cpp:261
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Kursywa"
 
-#: src/settings/preferencesdialog.cpp:261
+#: src/settings/preferencesdialog.cpp:262
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Podkreślenie"

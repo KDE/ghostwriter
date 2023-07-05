@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2023-06-12 10:17+0200\n"
+"PO-Revision-Date: 2023-07-04 10:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -256,7 +256,7 @@ msgstr "Ha fallat la còpia de seguretat del fitxer"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Error en crear la ubicació de la còpia de seguretat!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -576,12 +576,9 @@ msgid "Stri&kethrough"
 msgstr "Ba&rrat"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Tipus de lletra del codi:"
+msgstr "Tanques de &codi"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -930,88 +927,88 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "Reinicieu l'aplicació perquè els canvis tinguin efecte."
 
-#: src/settings/preferencesdialog.cpp:72
+#: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
 msgstr "Verificació de l'ortografia"
 
-#: src/settings/preferencesdialog.cpp:87
+#: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
 msgstr "Caràcters coincidents"
 
-#: src/settings/preferencesdialog.cpp:176
+#: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
 msgstr "Arrodonit"
 
-#: src/settings/preferencesdialog.cpp:177
+#: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Quadrat"
 
-#: src/settings/preferencesdialog.cpp:202
+#: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Selecció del directori de còpies de seguretat"
 
-#: src/settings/preferencesdialog.cpp:230
+#: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
 msgstr "Frase"
 
-#: src/settings/preferencesdialog.cpp:231
+#: src/settings/preferencesdialog.cpp:232
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
 msgstr "Línia actual"
 
-#: src/settings/preferencesdialog.cpp:232
+#: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
 msgstr "Tres línies"
 
-#: src/settings/preferencesdialog.cpp:233
+#: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Paràgraf"
 
-#: src/settings/preferencesdialog.cpp:234
+#: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
 msgstr "Màquina d'escriure"
 
-#: src/settings/preferencesdialog.cpp:242
+#: src/settings/preferencesdialog.cpp:243
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
 msgstr "Estret"
 
-#: src/settings/preferencesdialog.cpp:243
+#: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Mitjà"
 
-#: src/settings/preferencesdialog.cpp:244
+#: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
 msgstr "Ample"
 
-#: src/settings/preferencesdialog.cpp:245
+#: src/settings/preferencesdialog.cpp:246
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Complet"
 
-#: src/settings/preferencesdialog.cpp:252
+#: src/settings/preferencesdialog.cpp:253
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Normal"
 
-#: src/settings/preferencesdialog.cpp:253
-#: src/settings/preferencesdialog.cpp:260
+#: src/settings/preferencesdialog.cpp:254
+#: src/settings/preferencesdialog.cpp:261
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: src/settings/preferencesdialog.cpp:261
+#: src/settings/preferencesdialog.cpp:262
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Subratllat"
