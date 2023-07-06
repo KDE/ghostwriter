@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -70,7 +70,7 @@ msgstr "JavaScript-ის ბიბლიოთეკა მომხმარ�
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "ფონტების კარგი მხარდაჭერა Qt-ის აპლიკაციებისთვის"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
@@ -239,7 +239,7 @@ msgstr "ფალის მარქაფის შეცდომა"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "მარქაფის მდებარეობის შექმნის შეცდომა!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -266,7 +266,7 @@ msgstr "გამოსახულებები (%1)"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr ""
+msgstr "%1 ფორმატი მხარდაუჭერელია cmark-gfm პროცესორის მიერ."
 
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
@@ -559,12 +559,9 @@ msgid "Stri&kethrough"
 msgstr "&ხაზის გადასმა"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "კოდის ფონტი:"
+msgstr "&კოდის ღობეები"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -934,7 +931,7 @@ msgstr "კვადრატი"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "აირჩიეთ მარქაფის საქაღალდე"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1077,7 +1074,7 @@ msgstr "სიტყვის ლექსიკონში ჩამატე�
 #: src/spelling/spellcheckdecorator.cpp:338
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
-msgstr ""
+msgstr "მართლწერის შეთავაზებების გარეშე"
 
 #: src/spelling/spellcheckdialog.cpp:53
 msgctxt "ghostwriter::SpellCheckDialog|"
@@ -1406,7 +1403,7 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
-msgstr ""
+msgstr "თემის ფაილის წასაკითხად გახსნის შეცდომა: %1"
 
 #: src/theme/themerepository.cpp:156
 #, qt-format
@@ -1426,6 +1423,8 @@ msgid ""
 "The specified theme is not available.  Try restarting the application.  If "
 "problem persists, please file a bug report."
 msgstr ""
+"მითითებული თემა ხელმისაწვდომი არაა.  სცადეთ, გადატვირთოთ აპლიკაცია.  თუ "
+"პრობლემა არ გაქრება, მოგვწერეთ ამ შეცდომის შესახებ."
 
 #: src/theme/themerepository.cpp:208
 #, qt-format
@@ -1434,12 +1433,13 @@ msgid ""
 "Could not delete theme at %1. Please try setting the file permissions to be "
 "writeable."
 msgstr ""
+"%1-ზე თემის წაშლა შეუძლებელია. სცადეთ, ფაილზე ჩაწერადობის წვდომა დააყენოთ."
 
 #: src/theme/themerepository.cpp:228
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' უკვე არსებობს.   სხვა სახელი აირჩიეთ."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
@@ -1496,7 +1496,7 @@ msgstr "უკაცრავად, ეს ჩაშენებული თ�
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr ""
+msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, სამუდამოდ წაშალოთ '%1' თემა?"
 
 #: src/theme/themeselectiondialog.cpp:408
 msgctxt "ghostwriter::ThemeSelectionDialog|"
