@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-12 14:08+0200\n"
+"PO-Revision-Date: 2023-07-04 16:22+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -245,7 +245,7 @@ msgstr "Backup del file non riuscito"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Errore durante la creazione della posizione di backup!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -565,12 +565,9 @@ msgid "Stri&kethrough"
 msgstr "&Barrato"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Carattere del codice:"
+msgstr "&Contenitori di codice"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -940,7 +937,7 @@ msgstr "Squadrato"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Seleziona la cartella di backup"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
