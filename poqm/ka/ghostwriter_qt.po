@@ -26,12 +26,12 @@ msgstr "Markdown-ის რედაქტორი"
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "FocusWriter-ის პროგრამისტი, რომლის Qt-ის კოდმა ბევრი რამ მასწავლა"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "ReText-ის პროგრამისტი, რომლის ალგორითმების გარეშე ვერაფერს ვიზამდი"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -39,11 +39,13 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"StretchPlayer-ის პროგრამისტი, რომლის აპლიკაციებმა Qt-ში უჩარჩოო ფანჯრების "
+"ხატვა მასწავლა"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "UberWriter-ის (ახლა Apostrophe) პროგრამისტი, რომელმაც მოტივაცია მომცა"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
@@ -56,11 +58,13 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"ყველა, ვინც მოგვაწოდა თარგმანები, დოკუმენტაცია და დაგვეხმარა შეცდომების "
+"გასწორებასი"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "CommonMark-ის C-ში განხორციელების გაფართოებული ვერსია"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
@@ -586,7 +590,7 @@ msgstr "ბლოკის &ბრჭყალებში ჩასმა"
 #: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr ""
+msgstr "&ბლოკის ბრჭყალის მოცილება"
 
 #: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
@@ -706,7 +710,7 @@ msgstr "&დახმარება"
 #: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
-msgstr ""
+msgstr "მომხმარებლის სახელმძღვანელო"
 
 #: src/mainwindow.cpp:1067
 msgctxt "ghostwriter::MainWindow|"
@@ -1191,7 +1195,7 @@ msgstr "კითხვის სიადვილე:"
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "LIX Reading Ease"
-msgstr ""
+msgstr "LIX კითხვის სიადვილე"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1201,7 +1205,7 @@ msgstr "სირთულის დონე:"
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Coleman-Liau Readability Index (CLI)"
-msgstr ""
+msgstr "კოლმან-ლიუს კითხვადობის ინდექსი (CLI)"
 
 #: src/statistics/documentstatisticswidget.cpp:149
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1397,7 +1401,7 @@ msgstr "თემის შენახვა შეუძლებელია.
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
-msgstr ""
+msgstr "მითითებული თემა ფაილურ სისტემაში არ არსებობს: %1"
 
 #: src/theme/themerepository.cpp:146
 #, qt-format
