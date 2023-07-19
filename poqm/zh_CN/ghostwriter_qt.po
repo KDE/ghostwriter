@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-07-03 11:39\n"
+"PO-Revision-Date: 2023-07-18 11:15\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/ghostwriter/ghostwriter_qt.pot\n"
-"X-Crowdin-File-ID: 40974\n"
+"X-Crowdin-File: /kf5-stable/messages/ghostwriter/ghostwriter_qt.pot\n"
+"X-Crowdin-File-ID: 41883\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -560,12 +560,9 @@ msgid "Stri&kethrough"
 msgstr "删除(&K)"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "代码字体："
+msgstr ""
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
