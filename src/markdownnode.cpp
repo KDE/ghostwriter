@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include <cstdint>
+
 #include "../3rdparty/cmark-gfm/src/cmark-gfm.h"
 #include "../3rdparty/cmark-gfm/extensions/cmark-gfm-core-extensions.h"
 
