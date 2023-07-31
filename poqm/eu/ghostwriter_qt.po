@@ -1,14 +1,14 @@
 # Translation for ghostwriter_qt.po to Euskara/Basque (eu).
 # Copyright (C) 2023 This file is copyright:
-# This file is distributed under the same license as the original file.
+# This file is distributed under the same license as the ghostwriter package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-11 18:27+0100\n"
+"Project-Id-Version: ghostwriter\n"
+"PO-Revision-Date: 2023-07-30 16:05+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -32,12 +32,12 @@ msgstr "«Markdown» Editore bat"
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "«FocusWriter»ren garatzailea, haren Qt kodea mentore izan dut"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "«ReText»en garatzailea, haren algoritmoek izugarri lagundu dute"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -45,11 +45,14 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"«StretchPlayer»ren garatzailea, haren aplikazioek erakutsi zidaten «Qt»rekin "
+"markorik gabeko leihoak egiten"
 
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"«UberWriter»ren (egun «Apostrophe») garatzailea, inspirazioa emateagatik"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
@@ -68,7 +71,7 @@ msgstr ""
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "«CommonMark»en C erreferentzia inplementazioaren bertsio hedatua"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
@@ -78,12 +81,12 @@ msgstr "Erabiltzaile-interfazeak sortzeko JavaScript liburutegiak"
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Qt aplikazioetarako «Awesome» letra-tipoaren euskarria"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "«JavaScript»ekin egindako matematika azaltzeko motor bat"
 
 #: src/appmain.cpp:131
 #, qt-format
@@ -190,10 +193,10 @@ msgid "No file path specified"
 msgstr "Ez da fitxategiaren bide-izenik adierazi"
 
 #: src/documentmanager.cpp:748 src/documentmanager.cpp:787
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr "Ezin izan irakurri <filename>%1</filename> fitxategia."
+msgstr "Ezin izan du %1 irakurri"
 
 #: src/documentmanager.cpp:769
 #, qt-format
@@ -221,7 +224,7 @@ msgstr "Zure aldaketak gorde nahi zenituzke?"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr ""
+msgstr "%1, bakarrik irakurtzeko da."
 
 #: src/documentmanager.cpp:919
 msgctxt "ghostwriter::DocumentManager|"
@@ -247,7 +250,7 @@ msgstr "Fitxategiaren babeskopiak huts egin du"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Errorea babes-kopiarako kokalekua sortzerakoan!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -274,7 +277,7 @@ msgstr "Irudiak (%1)"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr ""
+msgstr "«cmark-gfm» prozesatzaileak ez du onartzen %1 formatua."
 
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
@@ -308,12 +311,9 @@ msgid "Smart Typography"
 msgstr "Tipografia adimentsua"
 
 #: src/export/exportdialog.cpp:89
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr "Esportatu"
+msgstr "Ireki esportatzean"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
@@ -352,7 +352,6 @@ msgid "Export to HTML is not supported with this processor."
 msgstr "Prozesatzaile honek ez du HTMLra esportatzeko euskarririk."
 
 #: src/findreplace.cpp:97
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Match case"
 msgstr "Bereizi maiuskulak"
@@ -406,11 +405,10 @@ msgstr "Ordeztu honekin:"
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ordezkapen %Ln"
+msgstr[1] "%Ln ordezkapen"
 
 #: src/findreplace.cpp:421
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
 msgstr "Bilaketa zirkularra"
@@ -421,7 +419,7 @@ msgid "No results"
 msgstr "Emaitzarik gabe"
 
 #: src/findreplace.cpp:470
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 parekide"
@@ -567,45 +565,39 @@ msgid "&Italic"
 msgstr "&Etzana"
 
 #: src/mainwindow.cpp:963
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
-msgstr "Marratua"
+msgstr "&Marratua"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Kodearen letra-tipoa:"
+msgstr "&kode-hesiak"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
-msgstr ""
+msgstr "&HTML iruzkina"
 
 #: src/mainwindow.cpp:968
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
-msgstr "Koska"
+msgstr "&Koskatu"
 
 #: src/mainwindow.cpp:969
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Unindent"
-msgstr "&Kendu koska"
+msgstr "Kend&u koska"
 
 #: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
-msgstr ""
+msgstr "Blokearen &aipua"
 
 #: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr ""
+msgstr "Erant&zi blokearen aipua"
 
 #: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
@@ -640,7 +632,7 @@ msgstr "&Zeregin-zerrenda"
 #: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr ""
+msgstr "Txandakatu &osatutako ataza(k)"
 
 #: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
@@ -658,10 +650,9 @@ msgid "&Preview in HTML"
 msgstr "Aurrei&kusi HTML"
 
 #: src/mainwindow.cpp:1003
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
-msgstr "Ingerada"
+msgstr "&Eskema"
 
 #: src/mainwindow.cpp:1013
 msgctxt "ghostwriter::MainWindow|"
@@ -726,7 +717,7 @@ msgstr "&Laguntza"
 #: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
-msgstr ""
+msgstr "E&rreferentzia azkarreko gida"
 
 #: src/mainwindow.cpp:1067
 msgctxt "ghostwriter::MainWindow|"
@@ -746,7 +737,7 @@ msgstr "Txandakatu modu iluna"
 #: src/mainwindow.cpp:1191
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
-msgstr ""
+msgstr "Txandakatu zuzeneko HTML aurreikuspegia"
 
 #: src/mainwindow.cpp:1211
 msgctxt "ghostwriter::MainWindow|"
@@ -869,10 +860,9 @@ msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Zuzen horizontala"
 
 #: src/mainwindow.cpp:1337
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
-msgstr "Ingerada"
+msgstr "Eskema"
 
 #: src/mainwindow.cpp:1338
 msgctxt "ghostwriter::MainWindow|"
@@ -897,7 +887,7 @@ msgstr "Ezarpenak"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr ""
+msgstr "Errorea «resources/preview.html» zamatzean"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
@@ -937,7 +927,7 @@ msgstr "Ortografia zuzenketa"
 #: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr ""
+msgstr "Bat datozen karaktereak"
 
 #: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -952,7 +942,7 @@ msgstr "Karratua"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Hautatu babes-kopiaren direktorioa"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1125,7 +1115,7 @@ msgstr "250 hitz orrialdeko"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%%L1</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1197,7 +1187,7 @@ msgstr "Hitz konplexuak:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "% 0"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1222,7 +1212,7 @@ msgstr "Gradu maila:"
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Coleman-Liau Readability Index (CLI)"
-msgstr ""
+msgstr "Coleman-Liau irakurgarritasun-indizea (CLI)"
 
 #: src/statistics/documentstatisticswidget.cpp:149
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1252,7 +1242,7 @@ msgstr "Idatzitako orriak:"
 #: src/statistics/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr ""
+msgstr "H/m batezbeste:"
 
 #: src/statistics/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1260,75 +1250,74 @@ msgid "Total Time:"
 msgstr "Denbora osoa:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
-#, fuzzy
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr "Inaktibo-denbora"
+msgstr "Jarduerarik gabeko denbora:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "% 100"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hitz %Ln"
+msgstr[1] "%Ln hitz"
 
 #: src/statistics/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Karaktere %Ln"
+msgstr[1] "%Ln karaktere"
 
 #: src/statistics/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Perpausa %Ln"
+msgstr[1] "%Ln perpausa"
 
 #: src/statistics/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Paragrafo %Ln"
+msgstr[1] "%Ln paragrafo"
 
 #: src/statistics/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Orrialde %Ln"
+msgstr[1] "%Ln orrialde"
 
 #: src/statistics/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hitz %Ln gehitu da"
+msgstr[1] "%Ln hitz gehitu dira"
 
 #: src/statistics/statisticsindicator.cpp:37
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr ""
+msgstr "%1 h/m"
 
 #: src/statistics/statisticsindicator.cpp:38
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 read time"
-msgstr ""
+msgstr "%1:%2 irakurtzeko denbora"
 
 #: src/statistics/statisticsindicator.cpp:41
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
-msgstr ""
+msgstr "%1:%2 idazteko denbora"
 
 #: src/theme/themeeditordialog.cpp:81
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1413,31 +1402,31 @@ msgstr "Errorea"
 #: src/theme/themeeditordialog.cpp:215
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
-msgstr ""
+msgstr "Ez da gaia gordetzeko gai."
 
 #: src/theme/themerepository.cpp:138
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
-msgstr ""
+msgstr "Zehaztutako gaia ez da existitzen fitxategi-sisteman: %1"
 
 #: src/theme/themerepository.cpp:146
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
-msgstr ""
+msgstr "Ezin izan du gai-fitxategia irakurtzeko ireki: %1"
 
 #: src/theme/themerepository.cpp:156
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid theme format: %1"
-msgstr ""
+msgstr "Gai-formatu baliogabea: %1"
 
 #: src/theme/themerepository.cpp:175 src/theme/themerepository.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid or missing value(s) in %1"
-msgstr ""
+msgstr "%1(e)an balio ez du(te)n edo falta d(ir)en balioa(k) dago/daude"
 
 #: src/theme/themerepository.cpp:192
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1445,6 +1434,8 @@ msgid ""
 "The specified theme is not available.  Try restarting the application.  If "
 "problem persists, please file a bug report."
 msgstr ""
+"Zehaztutako gaia ez dago erabilgarri. Saia zaitez aplikazioa berrabiatzen. "
+"Arazoak bere horretan jarraitzen badu, mesedez, bete akats-txosten bat."
 
 #: src/theme/themerepository.cpp:208
 #, qt-format
@@ -1453,23 +1444,26 @@ msgid ""
 "Could not delete theme at %1. Please try setting the file permissions to be "
 "writeable."
 msgstr ""
+"Ezin da %1(e)ko gaia ezabatu. Mesedez, saia zaitez, idazgarria izateko, "
+"fitxategiaren baimenak aldatzen."
 
 #: src/theme/themerepository.cpp:228
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' dagoeneko existitzen da. Mesedez, aukeratu beste izen bat."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' gaia dagoeneko existitzen da. Mesedez, aukeratu beste izen bat."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
 msgstr ""
+"Gaia berrizendatzea huts egin du. Mesedez egiaztatu fitxategiaren baimenak."
 
 #: src/theme/themerepository.cpp:282
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1477,6 +1471,8 @@ msgid ""
 "Theme could not be saved to disk.  Please check file permissions or try "
 "renaming the theme."
 msgstr ""
+"Gaia ezin izan du diskoan gorde. Mesedez, egiaztatu fitxategiaren baimenak "
+"edo saia zaitez gaia berrizendatzen."
 
 #: src/theme/themerepository.cpp:312
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1502,33 +1498,33 @@ msgstr "Editatu..."
 #: src/theme/themeselectiondialog.cpp:382
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
-msgstr ""
+msgstr "Ezin du gaia ezabatu."
 
 #: src/theme/themeselectiondialog.cpp:383
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
-msgstr ""
+msgstr "Barkatu, hau, ezabatu ezin daitekeen barneratutako gai bat da."
 
 #: src/theme/themeselectiondialog.cpp:393
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr ""
+msgstr "Ziur zaude '%1' gaia betiko ezabatu nahi duzula?"
 
 #: src/theme/themeselectiondialog.cpp:408
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr ""
+msgstr "Gaia ezabatzea huts egin du."
 
 #: src/theme/themeselectiondialog.cpp:435
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
-msgstr ""
+msgstr "Gaia ezin da editatu."
 
 #: src/theme/themeselectiondialog.cpp:436
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
-msgstr ""
+msgstr "Barkatu, hau, editatu ezin daitekeen barneratutako gai bat da."
 
 #~ msgctxt "ghostwriter::PreferencesDialog|"
 #~ msgid "Preferences"
