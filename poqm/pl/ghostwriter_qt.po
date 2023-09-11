@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-09 10:04+0200\n"
+"PO-Revision-Date: 2023-09-10 11:00+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -244,7 +244,7 @@ msgstr "Nie udało się utworzyć kopii zapasowej"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Nie udało się utworzyć miejsca kopii zapasowej!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -305,12 +305,9 @@ msgid "Smart Typography"
 msgstr "Sprytna typografia"
 
 #: src/export/exportdialog.cpp:89
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr "Wyeksportuj"
+msgstr "Otwórz po wyeksportowaniu"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
@@ -569,12 +566,9 @@ msgid "Stri&kethrough"
 msgstr "Prze&kreślenie"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Czcionka kodu:"
+msgstr "Siatki &kodu"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -945,7 +939,7 @@ msgstr "Kwadrat"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Wybierz katalog kopii zapasowej"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1118,7 +1112,7 @@ msgstr "250 słów na stronę"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1190,7 +1184,7 @@ msgstr "Złożone słowa:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1260,7 +1254,7 @@ msgstr "Czas bezczynności:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
