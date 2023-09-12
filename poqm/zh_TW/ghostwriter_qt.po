@@ -1,8 +1,8 @@
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-15 04:21+0900\n"
+"PO-Revision-Date: 2023-09-12 02:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -239,7 +239,7 @@ msgstr "檔案備份失敗"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "建立備份位置時發生錯誤！"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -558,12 +558,9 @@ msgid "Stri&kethrough"
 msgstr "刪除線(&K)"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "程式碼字型："
+msgstr "程式碼區塊(&C)"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -933,7 +930,7 @@ msgstr "方形"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "選擇備份目錄"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
