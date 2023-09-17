@@ -1,9 +1,9 @@
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# SPDX-FileCopyrightText: 2023 Xavier BESNARD <xavier.besnard@neuf.fr>
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2023-06-27 19:56+0200\n"
+"PO-Revision-Date: 2023-09-15 20:09+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appmain.cpp:75
@@ -248,7 +248,7 @@ msgstr "Échec de la sauvegarde du fichier"
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Erreur lors de la création de l'emplacement de sauvegarde !"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -409,7 +409,7 @@ msgstr[1] "%Ln remplacement(s)"
 #: src/findreplace.cpp:421
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
-msgstr ""
+msgstr "Rechercher les retours à la ligne"
 
 #: src/findreplace.cpp:428
 msgctxt "ghostwriter::FindReplace|"
@@ -568,12 +568,9 @@ msgid "Stri&kethrough"
 msgstr "&Barré"
 
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Police de code :"
+msgstr "Police de &code"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
@@ -598,7 +595,7 @@ msgstr "Bloc de &citation"
 #: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr ""
+msgstr "Enlever les bloc&s de citations"
 
 #: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
@@ -633,7 +630,7 @@ msgstr "Liste de &tâches"
 #: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr ""
+msgstr "Basculer les tâ&ches terminées"
 
 #: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
@@ -946,7 +943,7 @@ msgstr "Carré"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Sélectionner un dossier de sauvegarde"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
