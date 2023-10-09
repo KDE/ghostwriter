@@ -1,4 +1,3 @@
-# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
