@@ -354,7 +354,7 @@ msgstr "L'exportació ha fallat."
 #: src/export/exporter.cpp:69
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
-msgstr "L'exportació a HTML no és compatible amb este processador."
+msgstr "L'exportació cap a HTML no és compatible amb este processador."
 
 #: src/findreplace.cpp:97
 msgctxt "ghostwriter::FindReplace|"
