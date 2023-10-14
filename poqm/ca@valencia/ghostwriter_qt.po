@@ -344,7 +344,7 @@ msgstr "Opcions de la línia d'ordres:"
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
-msgstr "s'està exportant a %1"
+msgstr "s'està exportant cap a %1"
 
 #: src/export/exportdialog.cpp:201
 msgctxt "ghostwriter::ExportDialog|"
