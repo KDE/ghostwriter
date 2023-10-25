@@ -75,7 +75,7 @@ msgstr ""
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
-"Una versió ampliada de la implementació de referència del C de CommonMark"
+"Una versió ampliada de la implementació de referència de C de CommonMark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
