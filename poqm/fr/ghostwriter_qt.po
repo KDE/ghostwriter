@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2023-09-15 20:09+0200\n"
+"PO-Revision-Date: 2023-10-28 18:45+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -27,12 +27,13 @@ msgstr "Un éditeur Markdown"
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr "Développeur de FocusWriter, dont le code Qt m’a guidé"
+msgstr "Développeur du logiciel FocusWriter, dont le code en Qt m’a guidé."
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr "Développeur de ReText, dont les algorithmes m’ont immensément aidé"
+msgstr ""
+"Développeur du logiciel ReText, dont les algorithmes m’ont immensément aidé."
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -40,8 +41,8 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
-"Développeur de StretchPlayer, dont l’application m’a montré comment faire "
-"des fenêtres sans cadre en Qt"
+"Développeur du logiciel StretchPlayer, dont l’application m’a montré comment "
+"faire des fenêtres sans cadre en Qt."
 
 #: src/appmain.cpp:101
 msgctxt "main|"
@@ -68,18 +69,19 @@ msgstr ""
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
-"Une version étendue de l’implémentation de référence en C de CommonMark"
+"Une version étendue de l’implémentation de référence en C de CommonMark."
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
 msgstr ""
-"Une bibliothèque JavaScript pour la construction d’interfaces utilisateur"
+"Une bibliothèque en JavaScript pour la construction d’interfaces utilisateur."
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr "Prise en charge de la police « Awesome » pour les applications sous Qt"
+msgstr ""
+"Prise en charge de la police « Awesome » pour les applications sous Qt."
 
 #: src/appmain.cpp:126
 msgctxt "main|"
@@ -275,7 +277,7 @@ msgstr "Images (%1)"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr "Le format %1 n’est pas pris en charge par le processeur cmark-gfm."
+msgstr "Le format %1 n’est pas pris en charge par le processeur « cmark-gfm »."
 
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
@@ -885,7 +887,7 @@ msgstr "Configuration"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr "Erreur au moment de charger resources/preview.html"
+msgstr "Erreur au moment de charger la page « resources/preview.html »"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
@@ -1203,7 +1205,7 @@ msgstr "Facilité de lecture :"
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "LIX Reading Ease"
-msgstr "Facilité de lecture LIX"
+msgstr "Facilité de lecture « LIX »"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
