@@ -29,7 +29,6 @@
   <name xml:lang="sv">ghostwriter</name>
   <name xml:lang="tr">ghostwriter</name>
   <name xml:lang="uk">ghostwriter</name>
-  <name xml:lang="x-test">xxghostwriterxx</name>
   <name xml:lang="zh-TW">ghostwriter</name>
   <summary>Distraction-free text editor for Markdown</summary>
   <summary xml:lang="ca">Editor de text lliure de distraccions per al Markdown</summary>
@@ -54,7 +53,6 @@
   <summary xml:lang="sv">Störningsfri texteditor för Markdown</summary>
   <summary xml:lang="tr">Markdown için, dikkat dağıtmayan bir metin düzenleyici</summary>
   <summary xml:lang="uk">Ненав'язливий текстовий редактор для Markdown</summary>
-  <summary xml:lang="x-test">xxDistraction-free text editor for Markdownxx</summary>
   <summary xml:lang="zh-CN">不受干扰的 Markdown 编辑器</summary>
   <summary xml:lang="zh-TW">不分散注意力的 Markdown 用文字編輯器</summary>
   <description>
@@ -86,7 +84,6 @@
     <p xml:lang="sv">ghostwriter är en distraktionsfri texteditor för Markdown med omedelbar HTML-förhandsvisning när du skriver, skapande av teman, fokusläge, fullskärmsläge, omedelbar ordräkning och dokumentnavigering i en estetisk skrivmiljö. Den levereras med cmark-gfm Markdown-processorn inbyggd, och kan integreras med Pandoc-, MultiMarkdown-, Discount- och cmark-processorer om de är installerade.</p>
     <p xml:lang="tr">ghostwriter; Markdown için, siz yazdıkça canlı bir HTML önizlemesi, tema oluşturma, odak kipi, tam ekran kipi, canlı sözcük sayımı ve estetik bir yazım ortamında belgede dolaşma sunan bir dikkat dağıtmayan metin düzenleyicidir. cmark-gfm Markdown işleyicisi ile birlikte gelir ve eğer kurulularsa Pandoc, MultiMarkDown, Discount ve cmark işlemcileriyle tümleşebilir.</p>
     <p xml:lang="uk">ghostwriter — ненав'язливий текстовий редактор для Markdown із інтерактивним попереднім переглядом HTML, створенням тем, режимом фокусування, повноекранним режимом, інтерактивним обліком слів та навігацією документом в естетичному середовищі для написання текстів. Редактор постачається з вбудованим обробником Markdown cmark-gfm і можливістю інтеграції із процесорами Pandoc, MultiMarkdown, Discount та cmark, якщо їх встановлено.</p>
-    <p xml:lang="x-test">xxghostwriter is a distraction-free text editor for Markdown featuring a live HTML preview as you type, theme creation, focus mode, fullscreen mode, live word count, and document navigation in an aesthetic writing environment. It comes with the cmark-gfm Markdown processor built in, and can integrate with Pandoc, MultiMarkdown, Discount, and cmark processors if they are installed.xx</p>
     <p xml:lang="zh-CN">ghostwriter是一个无干扰的 Markdown 文本编辑器，其特点是当你类型的主题创建时实时的 HTML 预览。 聚焦模式，全屏模式，实时单词计数，以及在审美写入环境中的文档导航。 它带有已安装的 cmark-gfm Markdown 处理器，可以与 Pandoc、MultiMarkdown、Discount 和 cmark 处理器集成。</p>
     <p xml:lang="zh-TW">ghostwriter 是一個不分散注意力的 Markdown 用文字編輯器，包含隨著您打字而更新的即時 HTML 預覽、主題創建功能、專注模式、全螢幕模式、隨時更新的字詞計數、文件瀏覽等功能，提供一個很有美感的書寫環境。它內建 cmark-gfm Markdown 處理器，並且有安裝的時候可與 Pandoc、MultiMarkdown、Discount 與 cmark 等處理器進行整合。</p>
   </description>
@@ -116,7 +113,6 @@
       <caption xml:lang="sv">Njut av en distraktionsfri skrivupplevelse, inklusive ett fullskärmsläge och ett rent gränssnitt</caption>
       <caption xml:lang="tr">Bir tam ekran kipi ve temiz bir arayüz içeren bu dikkat dağıtmayan yazım deneyiminin keyfini çıkarın</caption>
       <caption xml:lang="uk">Насолоджуйтеся ненав'язливим засобом написання текстів із можливістю користуватися повноекранним режимом і простим інтерфейсом</caption>
-      <caption xml:lang="x-test">xxEnjoy a distraction-free writing experience, including a full screen mode and a clean interfacexx</caption>
       <caption xml:lang="zh-CN">享受无干扰的写作体验，包括全屏模式和干净的界面</caption>
       <caption xml:lang="zh-TW">享受不會分散您的注意力的寫作體驗，包含全螢幕模式與一個乾淨的介面</caption>
     </screenshot>
@@ -149,7 +145,6 @@
   <developer_name xml:lang="sv">Megan Conkle</developer_name>
   <developer_name xml:lang="tr">Megan Conkle</developer_name>
   <developer_name xml:lang="uk">Megan Conkle</developer_name>
-  <developer_name xml:lang="x-test">xxMegan Conklexx</developer_name>
   <developer_name xml:lang="zh-TW">Megan Conkle</developer_name>
   <provides>
     <binary>ghostwriter</binary>
