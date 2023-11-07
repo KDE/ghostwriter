@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-24 21:41+0300\n"
+"PO-Revision-Date: 2023-09-27 17:54+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -563,13 +563,11 @@ msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
 msgstr "&Yliviivaus"
 
+# Ei ole aavistustakaan, mitä tämä on! Guuglaamallakin löytyy vain joitakin tekstimuokkaimia.
 #: src/mainwindow.cpp:964
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr "Koodifontti:"
+msgstr "Koodi&aidat:"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
