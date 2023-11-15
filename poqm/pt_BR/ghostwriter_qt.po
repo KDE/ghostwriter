@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-08 15:20-0300\n"
+"PO-Revision-Date: 2023-11-14 11:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -937,7 +937,7 @@ msgstr "Quadrado"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr "Selecionar diretório de backup"
+msgstr "Selecionar pasta de backup"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
