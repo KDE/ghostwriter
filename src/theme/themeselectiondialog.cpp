@@ -134,7 +134,7 @@ ThemeSelectionDialog::ThemeSelectionDialog
 
     d->buildThemeList(currentThemeName);
 
-    QCheckBox *darkModeCheckbox = new QCheckBox("Preview in dark mode", this);
+    QCheckBox *darkModeCheckbox = new QCheckBox(tr("Preview in dark mode"), this);
     darkModeCheckbox->setChecked(darkModeEnabled);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
