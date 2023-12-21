@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-13 07:00+0300\n"
+"PO-Revision-Date: 2023-12-20 13:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -217,7 +217,7 @@ msgstr "Değişikliklerinizi kaydetmek ister misiniz?"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr "%1, saltokunur"
+msgstr "%1 saltokunur"
 
 #: src/documentmanager.cpp:919
 msgctxt "ghostwriter::DocumentManager|"
@@ -232,7 +232,7 @@ msgstr "Üzerine yazma başarısız."
 #: src/documentmanager.cpp:939
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
-msgstr "Lütfen, dosyayı başka bir konuma kaydedin."
+msgstr "Lütfen dosyayı başka bir konuma kaydedin."
 
 #: src/documentmanager.cpp:966 src/documentmanager.cpp:977
 #: src/documentmanager.cpp:990
@@ -895,7 +895,7 @@ msgstr "Kullanılabilir çeviri yok!"
 #: src/settings/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
-msgstr "Daha çok dil seçeneği için, lütfen bu uygulamayı yeniden kurun."
+msgstr "Daha çok dil seçeneği için lütfen bu uygulamayı yeniden kurun."
 
 #: src/settings/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
@@ -1073,7 +1073,7 @@ msgstr "Yazım Denetimi"
 #: src/spelling/spellcheckdecorator.cpp:298
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
-msgstr "Sözcüğü, sözlüğe ekle"
+msgstr "Sözcüğü sözlüğe ekle"
 
 #: src/spelling/spellcheckdecorator.cpp:338
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1175,7 +1175,7 @@ msgstr "Sayfa:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
-msgstr "Karmaşık Sözcük:"
+msgstr "Karmaşık sözcük:"
 
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1185,12 +1185,12 @@ msgstr "%​0"
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Time:"
-msgstr "Okuma Süresi:"
+msgstr "Okuma süresi:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Ease:"
-msgstr "Okuma Kolaylığı:"
+msgstr "Okuma kolaylığı:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1200,7 +1200,7 @@ msgstr "LIX Okuma Kolaylığı"
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Grade Level:"
-msgstr "Sınıf Düzeyi:"
+msgstr "Sınıf düzeyi:"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1225,12 +1225,12 @@ msgstr "Üniversite"
 #: src/statistics/sessionstatisticswidget.cpp:37
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Words Written:"
-msgstr "Yazılan Sözcük:"
+msgstr "Yazılan sözcük:"
 
 #: src/statistics/sessionstatisticswidget.cpp:38
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Pages Written:"
-msgstr "Yazılan Sayfa:"
+msgstr "Yazılan sayfa:"
 
 #: src/statistics/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1240,12 +1240,12 @@ msgstr "Sözcük/Dakika:"
 #: src/statistics/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Total Time:"
-msgstr "Toplam Süre:"
+msgstr "Toplam süre:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr "Boştaki Süre:"
+msgstr "Boştaki süre:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1401,13 +1401,13 @@ msgstr "Tema kaydedilemedi."
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
-msgstr "Belirtilen tema, dosya sisteminde yok: %1"
+msgstr "Belirtilen tema dosya sisteminde yok: %1"
 
 #: src/theme/themerepository.cpp:146
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
-msgstr "Tema dosyası, okuma için açılamadı: %1"
+msgstr "Tema dosyası okumak için açılamadı: %1"
 
 #: src/theme/themerepository.cpp:156
 #, qt-format
@@ -1427,8 +1427,8 @@ msgid ""
 "The specified theme is not available.  Try restarting the application.  If "
 "problem persists, please file a bug report."
 msgstr ""
-"Belirtilen tema, kullanılamıyor. Uygulamayı yeniden başlatmayı deneyin. "
-"Sorun sürerse bir hata kaydı açın."
+"Belirtilen tema kullanılamıyor. Uygulamayı yeniden başlatmayı deneyin. Sorun "
+"sürerse bir hata kaydı açın."
 
 #: src/theme/themerepository.cpp:208
 #, qt-format
@@ -1437,25 +1437,25 @@ msgid ""
 "Could not delete theme at %1. Please try setting the file permissions to be "
 "writeable."
 msgstr ""
-"%1 konumundaki tema silinemedi. Dosya izinlerini, yazılabilir olarak "
+"%1 konumundaki tema silinemedi. Dosya izinlerini yazılabilir olarak "
 "ayarlamayı deneyin."
 
 #: src/theme/themerepository.cpp:228
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr "'%1', halihazırda var. Lütfen başka bir tema seçin."
+msgstr "'%1' halihazırda var. Lütfen başka bir tema seçin."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr "'%1' teması, halihazırda var. Lütfen başka bir ad seçin."
+msgstr "'%1' teması halihazırda var. Lütfen başka bir ad seçin."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
-msgstr "Tema, yeniden adlandırılamadı. Lütfen dosya izinlerini denetleyin."
+msgstr "Tema yeniden adlandırılamadı. Lütfen dosya izinlerini denetleyin."
 
 #: src/theme/themerepository.cpp:282
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1463,7 +1463,7 @@ msgid ""
 "Theme could not be saved to disk.  Please check file permissions or try "
 "renaming the theme."
 msgstr ""
-"Tema, diske kaydedilemedi. Lütfen dosya izinlerini denetleyin veya temayı "
+"Tema diske kaydedilemedi. Lütfen dosya izinlerini denetleyin veya temayı "
 "yeniden adlandırmayı deneyin."
 
 #: src/theme/themerepository.cpp:312
