@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2023 Xavier BESNARD <xavier.besnard@neuf.fr>
+# SPDX-FileCopyrightText: 2023 Xavier Besnard <xavier.besnard@kde.org>
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2023.
 msgid ""
 msgstr ""
