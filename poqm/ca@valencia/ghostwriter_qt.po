@@ -1013,6 +1013,183 @@ msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Subratllat"
 
+#: src/settings/preferencesdialog.ui:14
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Preferences..."
+msgctxt "PreferencesDialog|"
+msgid "Preferences"
+msgstr "Preferències..."
+
+#: src/settings/preferencesdialog.ui:24
+msgctxt "PreferencesDialog|"
+msgid "General"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:30
+msgctxt "PreferencesDialog|"
+msgid "Display"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:36
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Toggle full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Show current time in full screen mode"
+msgstr "Canvia al mode de pantalla completa"
+
+#: src/settings/preferencesdialog.ui:43
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Toggle full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Hide menu bar in full screen mode"
+msgstr "Canvia al mode de pantalla completa"
+
+#: src/settings/preferencesdialog.ui:50
+msgctxt "PreferencesDialog|"
+msgid "Show &Unbreakable Space"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:59
+msgctxt "PreferencesDialog|"
+msgid "Interface style"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:90
+msgctxt "PreferencesDialog|"
+msgid "File Saving"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:96
+msgctxt "PreferencesDialog|"
+msgid "&Auto save"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:103
+msgctxt "PreferencesDialog|"
+msgid "&Backup file on save"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:110
+msgctxt "PreferencesDialog|"
+msgid "&View untitled drafts…"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:117
+msgctxt "PreferencesDialog|"
+msgid "&"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:124
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
+#| msgid "Select Backup Directory"
+msgctxt "PreferencesDialog|"
+msgid "&Select Backup Folder Location…"
+msgstr "Seleccioneu el directori de còpies de seguretat"
+
+#: src/settings/preferencesdialog.ui:147
+msgctxt "PreferencesDialog|"
+msgid "Session"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:153
+msgctxt "PreferencesDialog|"
+msgid "&Remember recent files"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:160
+msgctxt "PreferencesDialog|"
+msgid "&Open last file on startup"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:184
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Edit"
+msgctxt "PreferencesDialog|"
+msgid "Editor"
+msgstr "&Edita"
+
+#: src/settings/preferencesdialog.ui:190
+msgctxt "PreferencesDialog|"
+msgid "Tabulation"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:196
+msgctxt "PreferencesDialog|"
+msgid "&Insert spaces for tabs"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:205
+msgctxt "PreferencesDialog|"
+msgid "Tabulation width"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:243
+#, fuzzy
+#| msgctxt "ghostwriter::SpellCheckDecorator|"
+#| msgid "Spelling"
+msgctxt "PreferencesDialog|"
+msgid "Styling"
+msgstr "Ortografia"
+
+#: src/settings/preferencesdialog.ui:251
+msgctxt "PreferencesDialog|"
+msgid "Focus mode"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:264
+msgctxt "PreferencesDialog|"
+msgid "Editor width"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:277
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Block &Quote"
+msgctxt "PreferencesDialog|"
+msgid "Blockquote style"
+msgstr "&Cita de bloc"
+
+#: src/settings/preferencesdialog.ui:290
+#, fuzzy
+#| msgctxt "ghostwriter::ThemeEditorDialog|"
+#| msgid "Emphasis"
+msgctxt "PreferencesDialog|"
+msgid "Emphasis style"
+msgstr "Èmfasi"
+
+#: src/settings/preferencesdialog.ui:305
+msgctxt "PreferencesDialog|"
+msgid "&Use large headings"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:328
+msgctxt "PreferencesDialog|"
+msgid "Typing"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:334
+msgctxt "PreferencesDialog|"
+msgid "C&ycle bullet point markers"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:341
+msgctxt "PreferencesDialog|"
+msgid "&Automatically match characters"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:348
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Matched Characters"
+msgctxt "PreferencesDialog|"
+msgid "Customize &matched characters…"
+msgstr "Caràcters coincidents"
+
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
@@ -1497,6 +1674,14 @@ msgstr "Sense títol %1"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Temes"
+
+#: src/theme/themeselectiondialog.cpp:137
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Preview in HTML"
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Preview in dark mode"
+msgstr "&Vista prèvia en HTML"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"

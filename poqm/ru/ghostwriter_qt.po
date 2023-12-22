@@ -1008,6 +1008,237 @@ msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Подчёркнутый"
 
+#: src/settings/preferencesdialog.ui:14
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Preferences"
+msgctxt "PreferencesDialog|"
+msgid "Preferences"
+msgstr "Параметры"
+
+#: src/settings/preferencesdialog.ui:24
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "General"
+msgctxt "PreferencesDialog|"
+msgid "General"
+msgstr "Основные"
+
+#: src/settings/preferencesdialog.ui:30
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Display"
+msgctxt "PreferencesDialog|"
+msgid "Display"
+msgstr "Отображение"
+
+#: src/settings/preferencesdialog.ui:36
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Show current time in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Show current time in full screen mode"
+msgstr "Показывать текущее время в полноэкранном режиме"
+
+#: src/settings/preferencesdialog.ui:43
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Hide menu bar in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Hide menu bar in full screen mode"
+msgstr "Скрывать строку меню в полноэкранном режиме"
+
+#: src/settings/preferencesdialog.ui:50
+msgctxt "PreferencesDialog|"
+msgid "Show &Unbreakable Space"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:59
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Interface style"
+msgctxt "PreferencesDialog|"
+msgid "Interface style"
+msgstr "Стиль интерфейса"
+
+#: src/settings/preferencesdialog.ui:90
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "File Saving"
+msgctxt "PreferencesDialog|"
+msgid "File Saving"
+msgstr "Сохранение файлов"
+
+#: src/settings/preferencesdialog.ui:96
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Auto save"
+msgctxt "PreferencesDialog|"
+msgid "&Auto save"
+msgstr "Автосохранение"
+
+#: src/settings/preferencesdialog.ui:103
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Backup file on save"
+msgctxt "PreferencesDialog|"
+msgid "&Backup file on save"
+msgstr "Создавать резервную копию файла при сохранении"
+
+#: src/settings/preferencesdialog.ui:110
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "View untitled drafts..."
+msgctxt "PreferencesDialog|"
+msgid "&View untitled drafts…"
+msgstr "Просмотреть безымянные черновики…"
+
+#: src/settings/preferencesdialog.ui:117
+msgctxt "PreferencesDialog|"
+msgid "&"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:124
+msgctxt "PreferencesDialog|"
+msgid "&Select Backup Folder Location…"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:147
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Session"
+msgctxt "PreferencesDialog|"
+msgid "Session"
+msgstr "Сеанс"
+
+#: src/settings/preferencesdialog.ui:153
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Remember recent files"
+msgctxt "PreferencesDialog|"
+msgid "&Remember recent files"
+msgstr "Запоминать недавние файлы"
+
+#: src/settings/preferencesdialog.ui:160
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Open last file on startup"
+msgctxt "PreferencesDialog|"
+msgid "&Open last file on startup"
+msgstr "Открывать последний файл при запуске"
+
+#: src/settings/preferencesdialog.ui:184
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor"
+msgctxt "PreferencesDialog|"
+msgid "Editor"
+msgstr "Редактор"
+
+#: src/settings/preferencesdialog.ui:190
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation"
+msgstr "Табуляция"
+
+#: src/settings/preferencesdialog.ui:196
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Insert spaces for tabs"
+msgctxt "PreferencesDialog|"
+msgid "&Insert spaces for tabs"
+msgstr "Использовать пробелы для отступов"
+
+#: src/settings/preferencesdialog.ui:205
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation width"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation width"
+msgstr "Ширина табуляции"
+
+#: src/settings/preferencesdialog.ui:243
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Styling"
+msgctxt "PreferencesDialog|"
+msgid "Styling"
+msgstr "Оформление"
+
+#: src/settings/preferencesdialog.ui:251
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Focus mode"
+msgctxt "PreferencesDialog|"
+msgid "Focus mode"
+msgstr "Режим фокусировки"
+
+#: src/settings/preferencesdialog.ui:264
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor width"
+msgctxt "PreferencesDialog|"
+msgid "Editor width"
+msgstr "Ширина редактора"
+
+#: src/settings/preferencesdialog.ui:277
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Blockquote style"
+msgctxt "PreferencesDialog|"
+msgid "Blockquote style"
+msgstr "Стиль цитат"
+
+#: src/settings/preferencesdialog.ui:290
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Emphasis style"
+msgctxt "PreferencesDialog|"
+msgid "Emphasis style"
+msgstr "Стиль выделения"
+
+#: src/settings/preferencesdialog.ui:305
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Use large headings"
+msgctxt "PreferencesDialog|"
+msgid "&Use large headings"
+msgstr "Использовать большие заголовки"
+
+#: src/settings/preferencesdialog.ui:328
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Typing"
+msgctxt "PreferencesDialog|"
+msgid "Typing"
+msgstr "Набор текста"
+
+#: src/settings/preferencesdialog.ui:334
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Cycle bullet point markers"
+msgctxt "PreferencesDialog|"
+msgid "C&ycle bullet point markers"
+msgstr "Циклический переход между позициями маркированного списка"
+
+#: src/settings/preferencesdialog.ui:341
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Automatically match characters"
+msgctxt "PreferencesDialog|"
+msgid "&Automatically match characters"
+msgstr "Автоматически сопоставлять символы"
+
+#: src/settings/preferencesdialog.ui:348
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Customize matched characters..."
+msgctxt "PreferencesDialog|"
+msgid "Customize &matched characters…"
+msgstr "Настроить сопоставляемые символы…"
+
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
@@ -1498,6 +1729,14 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Темы"
 
+#: src/theme/themeselectiondialog.cpp:137
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Preview in HTML"
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Preview in dark mode"
+msgstr "&Предпросмотр в HTML"
+
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
@@ -1533,111 +1772,3 @@ msgstr "Не удалось изменить тему."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Это встроенная тема — её нельзя изменить."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Параметры"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Основные"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Редактор"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Отображение"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Показывать текущее время в полноэкранном режиме"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Скрывать строку меню в полноэкранном режиме"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Стиль интерфейса"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Сохранение файлов"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Автосохранение"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Создавать резервную копию файла при сохранении"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Просмотреть безымянные черновики…"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Сеанс"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Запоминать недавние файлы"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Открывать последний файл при запуске"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Табуляция"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Использовать пробелы для отступов"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Ширина табуляции"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Оформление"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Режим фокусировки"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Ширина редактора"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Blockquote style"
-#~ msgstr "Стиль цитат"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Стиль выделения"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Использовать большие заголовки"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Набор текста"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Cycle bullet point markers"
-#~ msgstr "Циклический переход между позициями маркированного списка"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Automatically match characters"
-#~ msgstr "Автоматически сопоставлять символы"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Customize matched characters..."
-#~ msgstr "Настроить сопоставляемые символы…"

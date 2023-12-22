@@ -1000,6 +1000,240 @@ msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Onderstrepen"
 
+#: src/settings/preferencesdialog.ui:14
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Preferences"
+msgctxt "PreferencesDialog|"
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: src/settings/preferencesdialog.ui:24
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "General"
+msgctxt "PreferencesDialog|"
+msgid "General"
+msgstr "Algemeen"
+
+#: src/settings/preferencesdialog.ui:30
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Display"
+msgctxt "PreferencesDialog|"
+msgid "Display"
+msgstr "Weergave"
+
+#: src/settings/preferencesdialog.ui:36
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Show current time in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Show current time in full screen mode"
+msgstr "Huidige tijd in modus volledig scherm tonen"
+
+#: src/settings/preferencesdialog.ui:43
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Hide menu bar in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Hide menu bar in full screen mode"
+msgstr "Menubalk verbergen in modus volledig scherm"
+
+#: src/settings/preferencesdialog.ui:50
+msgctxt "PreferencesDialog|"
+msgid "Show &Unbreakable Space"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:59
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Interface style"
+msgctxt "PreferencesDialog|"
+msgid "Interface style"
+msgstr "Interfacestijl"
+
+#: src/settings/preferencesdialog.ui:90
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "File Saving"
+msgctxt "PreferencesDialog|"
+msgid "File Saving"
+msgstr "Opslaan van bestand"
+
+#: src/settings/preferencesdialog.ui:96
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Auto save"
+msgctxt "PreferencesDialog|"
+msgid "&Auto save"
+msgstr "Automatisch opslaan"
+
+#: src/settings/preferencesdialog.ui:103
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Backup file on save"
+msgctxt "PreferencesDialog|"
+msgid "&Backup file on save"
+msgstr "Backup-bestand bij opslaan"
+
+#: src/settings/preferencesdialog.ui:110
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "View untitled drafts..."
+msgctxt "PreferencesDialog|"
+msgid "&View untitled drafts…"
+msgstr "Concepten zonder titel bekijken"
+
+#: src/settings/preferencesdialog.ui:117
+msgctxt "PreferencesDialog|"
+msgid "&"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:124
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
+#| msgid "Select Backup Directory"
+msgctxt "PreferencesDialog|"
+msgid "&Select Backup Folder Location…"
+msgstr "Map voor reservekopieën selecteren"
+
+#: src/settings/preferencesdialog.ui:147
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Session"
+msgctxt "PreferencesDialog|"
+msgid "Session"
+msgstr "Sessie"
+
+#: src/settings/preferencesdialog.ui:153
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Remember recent files"
+msgctxt "PreferencesDialog|"
+msgid "&Remember recent files"
+msgstr "Recente bestanden onthouden"
+
+#: src/settings/preferencesdialog.ui:160
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Open last file on startup"
+msgctxt "PreferencesDialog|"
+msgid "&Open last file on startup"
+msgstr "Laatste bestand bij opstarten openen"
+
+#: src/settings/preferencesdialog.ui:184
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor"
+msgctxt "PreferencesDialog|"
+msgid "Editor"
+msgstr "Bewerker"
+
+#: src/settings/preferencesdialog.ui:190
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation"
+msgstr "Tabulatie"
+
+#: src/settings/preferencesdialog.ui:196
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Insert spaces for tabs"
+msgctxt "PreferencesDialog|"
+msgid "&Insert spaces for tabs"
+msgstr "Spaties voor tabs invoegen"
+
+#: src/settings/preferencesdialog.ui:205
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation width"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation width"
+msgstr "Tabulatie breedte"
+
+#: src/settings/preferencesdialog.ui:243
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Styling"
+msgctxt "PreferencesDialog|"
+msgid "Styling"
+msgstr "De stijl"
+
+#: src/settings/preferencesdialog.ui:251
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Focus mode"
+msgctxt "PreferencesDialog|"
+msgid "Focus mode"
+msgstr "Focusmodus"
+
+#: src/settings/preferencesdialog.ui:264
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor width"
+msgctxt "PreferencesDialog|"
+msgid "Editor width"
+msgstr "Breedte van bewerker"
+
+#: src/settings/preferencesdialog.ui:277
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Blockquote style"
+msgctxt "PreferencesDialog|"
+msgid "Blockquote style"
+msgstr "Stijl van blockquote"
+
+#: src/settings/preferencesdialog.ui:290
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Emphasis style"
+msgctxt "PreferencesDialog|"
+msgid "Emphasis style"
+msgstr "Stijl van accentuering"
+
+#: src/settings/preferencesdialog.ui:305
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Use large headings"
+msgctxt "PreferencesDialog|"
+msgid "&Use large headings"
+msgstr "Grote koppen gebruiken"
+
+#: src/settings/preferencesdialog.ui:328
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Typing"
+msgctxt "PreferencesDialog|"
+msgid "Typing"
+msgstr "Bezig met typen"
+
+#: src/settings/preferencesdialog.ui:334
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Cycle bullet point markers"
+msgctxt "PreferencesDialog|"
+msgid "C&ycle bullet point markers"
+msgstr "Punt-opsommingstekens doorlopen"
+
+#: src/settings/preferencesdialog.ui:341
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Automatically match characters"
+msgctxt "PreferencesDialog|"
+msgid "&Automatically match characters"
+msgstr "Automatisch tekens overeen laten komen"
+
+#: src/settings/preferencesdialog.ui:348
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Customize matched characters..."
+msgctxt "PreferencesDialog|"
+msgid "Customize &matched characters…"
+msgstr "Overeenkomende tekens aanpassen..."
+
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
@@ -1484,6 +1718,14 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Thema's"
 
+#: src/theme/themeselectiondialog.cpp:137
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Preview in HTML"
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Preview in dark mode"
+msgstr "&Voorbeeld in HTML"
+
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
@@ -1519,114 +1761,6 @@ msgstr "Kan thema niet bewerken."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Dit is een ingebouwd thema dat niet bewerkt kan worden."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Voorkeuren"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Algemeen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Bewerker"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Weergave"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Huidige tijd in modus volledig scherm tonen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Menubalk verbergen in modus volledig scherm"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Interfacestijl"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Opslaan van bestand"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Automatisch opslaan"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Backup-bestand bij opslaan"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Concepten zonder titel bekijken"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Sessie"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Recente bestanden onthouden"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Laatste bestand bij opstarten openen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Tabulatie"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Spaties voor tabs invoegen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Tabulatie breedte"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "De stijl"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Focusmodus"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Breedte van bewerker"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Blockquote style"
-#~ msgstr "Stijl van blockquote"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Stijl van accentuering"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Grote koppen gebruiken"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Bezig met typen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Cycle bullet point markers"
-#~ msgstr "Punt-opsommingstekens doorlopen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Automatically match characters"
-#~ msgstr "Automatisch tekens overeen laten komen"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Customize matched characters..."
-#~ msgstr "Overeenkomende tekens aanpassen..."
 
 #~| msgctxt "ghostwriter::MainWindow|"
 #~| msgid "Images"

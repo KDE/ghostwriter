@@ -1003,6 +1003,240 @@ msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Підкреслення"
 
+#: src/settings/preferencesdialog.ui:14
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Preferences"
+msgctxt "PreferencesDialog|"
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: src/settings/preferencesdialog.ui:24
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "General"
+msgctxt "PreferencesDialog|"
+msgid "General"
+msgstr "Загальне"
+
+#: src/settings/preferencesdialog.ui:30
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Display"
+msgctxt "PreferencesDialog|"
+msgid "Display"
+msgstr "Показ"
+
+#: src/settings/preferencesdialog.ui:36
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Show current time in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Show current time in full screen mode"
+msgstr "Показувати поточний час у повноекранному режимі"
+
+#: src/settings/preferencesdialog.ui:43
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Hide menu bar in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Hide menu bar in full screen mode"
+msgstr "Приховувати смужку меню у повноекранному режимі"
+
+#: src/settings/preferencesdialog.ui:50
+msgctxt "PreferencesDialog|"
+msgid "Show &Unbreakable Space"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:59
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Interface style"
+msgctxt "PreferencesDialog|"
+msgid "Interface style"
+msgstr "Стиль інтерфейсу"
+
+#: src/settings/preferencesdialog.ui:90
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "File Saving"
+msgctxt "PreferencesDialog|"
+msgid "File Saving"
+msgstr "Збереження файлів"
+
+#: src/settings/preferencesdialog.ui:96
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Auto save"
+msgctxt "PreferencesDialog|"
+msgid "&Auto save"
+msgstr "Автозбереження"
+
+#: src/settings/preferencesdialog.ui:103
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Backup file on save"
+msgctxt "PreferencesDialog|"
+msgid "&Backup file on save"
+msgstr "Створювати резервні копії файлів при збереженні"
+
+#: src/settings/preferencesdialog.ui:110
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "View untitled drafts..."
+msgctxt "PreferencesDialog|"
+msgid "&View untitled drafts…"
+msgstr "Переглянути чернетки без назв…"
+
+#: src/settings/preferencesdialog.ui:117
+msgctxt "PreferencesDialog|"
+msgid "&"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:124
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
+#| msgid "Select Backup Directory"
+msgctxt "PreferencesDialog|"
+msgid "&Select Backup Folder Location…"
+msgstr "Виберіть каталог резервних копій"
+
+#: src/settings/preferencesdialog.ui:147
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Session"
+msgctxt "PreferencesDialog|"
+msgid "Session"
+msgstr "Сеанс"
+
+#: src/settings/preferencesdialog.ui:153
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Remember recent files"
+msgctxt "PreferencesDialog|"
+msgid "&Remember recent files"
+msgstr "Запам'ятовувати нещодавні файли"
+
+#: src/settings/preferencesdialog.ui:160
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Open last file on startup"
+msgctxt "PreferencesDialog|"
+msgid "&Open last file on startup"
+msgstr "Відкривати попередній файл під час запуску"
+
+#: src/settings/preferencesdialog.ui:184
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor"
+msgctxt "PreferencesDialog|"
+msgid "Editor"
+msgstr "Редактор"
+
+#: src/settings/preferencesdialog.ui:190
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation"
+msgstr "Табуляція"
+
+#: src/settings/preferencesdialog.ui:196
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Insert spaces for tabs"
+msgctxt "PreferencesDialog|"
+msgid "&Insert spaces for tabs"
+msgstr "Вставляти пробіли для табуляцій"
+
+#: src/settings/preferencesdialog.ui:205
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation width"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation width"
+msgstr "Ширина табуляції"
+
+#: src/settings/preferencesdialog.ui:243
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Styling"
+msgctxt "PreferencesDialog|"
+msgid "Styling"
+msgstr "Стилізація"
+
+#: src/settings/preferencesdialog.ui:251
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Focus mode"
+msgctxt "PreferencesDialog|"
+msgid "Focus mode"
+msgstr "Режим фокусування"
+
+#: src/settings/preferencesdialog.ui:264
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor width"
+msgctxt "PreferencesDialog|"
+msgid "Editor width"
+msgstr "Ширина редактора"
+
+#: src/settings/preferencesdialog.ui:277
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Blockquote style"
+msgctxt "PreferencesDialog|"
+msgid "Blockquote style"
+msgstr "Стиль цитування"
+
+#: src/settings/preferencesdialog.ui:290
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Emphasis style"
+msgctxt "PreferencesDialog|"
+msgid "Emphasis style"
+msgstr "Стиль виокремлення"
+
+#: src/settings/preferencesdialog.ui:305
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Use large headings"
+msgctxt "PreferencesDialog|"
+msgid "&Use large headings"
+msgstr "Великі заголовки"
+
+#: src/settings/preferencesdialog.ui:328
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Typing"
+msgctxt "PreferencesDialog|"
+msgid "Typing"
+msgstr "Набирання"
+
+#: src/settings/preferencesdialog.ui:334
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Cycle bullet point markers"
+msgctxt "PreferencesDialog|"
+msgid "C&ycle bullet point markers"
+msgstr "Циклічний перехід позначками у списку"
+
+#: src/settings/preferencesdialog.ui:341
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Automatically match characters"
+msgctxt "PreferencesDialog|"
+msgid "&Automatically match characters"
+msgstr "Автоматична відповідність символів"
+
+#: src/settings/preferencesdialog.ui:348
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Customize matched characters..."
+msgctxt "PreferencesDialog|"
+msgid "Customize &matched characters…"
+msgstr "Налаштувати відповідні символи…"
+
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
@@ -1500,6 +1734,14 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Теми"
 
+#: src/theme/themeselectiondialog.cpp:137
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Preview in HTML"
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Preview in dark mode"
+msgstr "&Перегляд в HTML"
+
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
@@ -1535,114 +1777,6 @@ msgstr "Не вдалося виконати редагування теми."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Вибачте, це вбудована тема, яку не може бути редаговано."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Налаштування"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Загальне"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Редактор"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Показ"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Показувати поточний час у повноекранному режимі"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Приховувати смужку меню у повноекранному режимі"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Стиль інтерфейсу"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Збереження файлів"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Автозбереження"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Створювати резервні копії файлів при збереженні"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Переглянути чернетки без назв…"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Сеанс"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Запам'ятовувати нещодавні файли"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Відкривати попередній файл під час запуску"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Табуляція"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Вставляти пробіли для табуляцій"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Ширина табуляції"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Стилізація"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Режим фокусування"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Ширина редактора"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Blockquote style"
-#~ msgstr "Стиль цитування"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Стиль виокремлення"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Великі заголовки"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Набирання"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Cycle bullet point markers"
-#~ msgstr "Циклічний перехід позначками у списку"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Automatically match characters"
-#~ msgstr "Автоматична відповідність символів"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Customize matched characters..."
-#~ msgstr "Налаштувати відповідні символи…"
 
 #, fuzzy
 #~| msgctxt "ghostwriter::MainWindow|"

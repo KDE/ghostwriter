@@ -1005,6 +1005,232 @@ msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
 msgstr "Azpimarra"
 
+#: src/settings/preferencesdialog.ui:14
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Preferences"
+msgctxt "PreferencesDialog|"
+msgid "Preferences"
+msgstr "Hobespenak"
+
+#: src/settings/preferencesdialog.ui:24
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "General"
+msgctxt "PreferencesDialog|"
+msgid "General"
+msgstr "Orokorra"
+
+#: src/settings/preferencesdialog.ui:30
+#, fuzzy
+msgctxt "PreferencesDialog|"
+msgid "Display"
+msgstr "Bistaratu"
+
+#: src/settings/preferencesdialog.ui:36
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Show current time in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Show current time in full screen mode"
+msgstr "Erakutsi uneko ordua pantaila-osoko moduan"
+
+#: src/settings/preferencesdialog.ui:43
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Hide menu bar in full screen mode"
+msgctxt "PreferencesDialog|"
+msgid "&Hide menu bar in full screen mode"
+msgstr "Ezkutatu menu-barra pantaila-osoko moduan"
+
+#: src/settings/preferencesdialog.ui:50
+msgctxt "PreferencesDialog|"
+msgid "Show &Unbreakable Space"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:59
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Interface style"
+msgctxt "PreferencesDialog|"
+msgid "Interface style"
+msgstr "Interfazearen estiloa"
+
+#: src/settings/preferencesdialog.ui:90
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "File Saving"
+msgctxt "PreferencesDialog|"
+msgid "File Saving"
+msgstr "Fitxategia gordetzea"
+
+#: src/settings/preferencesdialog.ui:96
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Auto save"
+msgctxt "PreferencesDialog|"
+msgid "&Auto save"
+msgstr "Gorde automatikoki"
+
+#: src/settings/preferencesdialog.ui:103
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Backup file on save"
+msgctxt "PreferencesDialog|"
+msgid "&Backup file on save"
+msgstr "Gordetzean egin fitxategiaren babeskopia"
+
+#: src/settings/preferencesdialog.ui:110
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "View untitled drafts..."
+msgctxt "PreferencesDialog|"
+msgid "&View untitled drafts…"
+msgstr "Ikusi izenik gabeko zirriborroak..."
+
+#: src/settings/preferencesdialog.ui:117
+msgctxt "PreferencesDialog|"
+msgid "&"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:124
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
+#| msgid "Select Backup Directory"
+msgctxt "PreferencesDialog|"
+msgid "&Select Backup Folder Location…"
+msgstr "Hautatu babes-kopiaren direktorioa"
+
+#: src/settings/preferencesdialog.ui:147
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Session"
+msgctxt "PreferencesDialog|"
+msgid "Session"
+msgstr "Saioa"
+
+#: src/settings/preferencesdialog.ui:153
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Remember recent files"
+msgctxt "PreferencesDialog|"
+msgid "&Remember recent files"
+msgstr "Gogoratu azken aldiko fitxategiak"
+
+#: src/settings/preferencesdialog.ui:160
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Open last file on startup"
+msgctxt "PreferencesDialog|"
+msgid "&Open last file on startup"
+msgstr "Ireki azken fitxategia abiatzean"
+
+#: src/settings/preferencesdialog.ui:184
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor"
+msgctxt "PreferencesDialog|"
+msgid "Editor"
+msgstr "Editorea"
+
+#: src/settings/preferencesdialog.ui:190
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation"
+msgstr "Tabulazioa"
+
+#: src/settings/preferencesdialog.ui:196
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Insert spaces for tabs"
+msgctxt "PreferencesDialog|"
+msgid "&Insert spaces for tabs"
+msgstr "Txertatu zuriuneak tabulazioetarako"
+
+#: src/settings/preferencesdialog.ui:205
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Tabulation width"
+msgctxt "PreferencesDialog|"
+msgid "Tabulation width"
+msgstr "Tabulazioaren zabalera"
+
+#: src/settings/preferencesdialog.ui:243
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Styling"
+msgctxt "PreferencesDialog|"
+msgid "Styling"
+msgstr "Estiloa"
+
+#: src/settings/preferencesdialog.ui:251
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Focus mode"
+msgctxt "PreferencesDialog|"
+msgid "Focus mode"
+msgstr "Fokuaren modua"
+
+#: src/settings/preferencesdialog.ui:264
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Editor width"
+msgctxt "PreferencesDialog|"
+msgid "Editor width"
+msgstr "Editorearen zabalera"
+
+#: src/settings/preferencesdialog.ui:277
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Block &Quote"
+msgctxt "PreferencesDialog|"
+msgid "Blockquote style"
+msgstr "Blokearen &aipua"
+
+#: src/settings/preferencesdialog.ui:290
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Emphasis style"
+msgctxt "PreferencesDialog|"
+msgid "Emphasis style"
+msgstr "Enfasi-estiloa"
+
+#: src/settings/preferencesdialog.ui:305
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Use large headings"
+msgctxt "PreferencesDialog|"
+msgid "&Use large headings"
+msgstr "Erabili izenburu handiak"
+
+#: src/settings/preferencesdialog.ui:328
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Typing"
+msgctxt "PreferencesDialog|"
+msgid "Typing"
+msgstr "Tekleatzen"
+
+#: src/settings/preferencesdialog.ui:334
+msgctxt "PreferencesDialog|"
+msgid "C&ycle bullet point markers"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:341
+msgctxt "PreferencesDialog|"
+msgid "&Automatically match characters"
+msgstr ""
+
+#: src/settings/preferencesdialog.ui:348
+#, fuzzy
+#| msgctxt "ghostwriter::PreferencesDialog|"
+#| msgid "Matched Characters"
+msgctxt "PreferencesDialog|"
+msgid "Customize &matched characters…"
+msgstr "Bat datozen karaktereak"
+
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
@@ -1490,6 +1716,14 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Gaiak"
 
+#: src/theme/themeselectiondialog.cpp:137
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Preview in HTML"
+msgctxt "ghostwriter::ThemeSelectionDialog|"
+msgid "Preview in dark mode"
+msgstr "Aurrei&kusi HTML"
+
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
@@ -1525,96 +1759,3 @@ msgstr "Gaia ezin da editatu."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Barkatu, hau, editatu ezin daitekeen barneratutako gai bat da."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Preferences"
-#~ msgstr "Hobespenak"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "General"
-#~ msgstr "Orokorra"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor"
-#~ msgstr "Editorea"
-
-#, fuzzy
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Display"
-#~ msgstr "Bistaratu"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Show current time in full screen mode"
-#~ msgstr "Erakutsi uneko ordua pantaila-osoko moduan"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Hide menu bar in full screen mode"
-#~ msgstr "Ezkutatu menu-barra pantaila-osoko moduan"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Interface style"
-#~ msgstr "Interfazearen estiloa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "File Saving"
-#~ msgstr "Fitxategia gordetzea"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Auto save"
-#~ msgstr "Gorde automatikoki"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Backup file on save"
-#~ msgstr "Gordetzean egin fitxategiaren babeskopia"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "View untitled drafts..."
-#~ msgstr "Ikusi izenik gabeko zirriborroak..."
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Session"
-#~ msgstr "Saioa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Remember recent files"
-#~ msgstr "Gogoratu azken aldiko fitxategiak"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Open last file on startup"
-#~ msgstr "Ireki azken fitxategia abiatzean"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation"
-#~ msgstr "Tabulazioa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Insert spaces for tabs"
-#~ msgstr "Txertatu zuriuneak tabulazioetarako"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Tabulation width"
-#~ msgstr "Tabulazioaren zabalera"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Styling"
-#~ msgstr "Estiloa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Focus mode"
-#~ msgstr "Fokuaren modua"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Editor width"
-#~ msgstr "Editorearen zabalera"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Emphasis style"
-#~ msgstr "Enfasi-estiloa"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Use large headings"
-#~ msgstr "Erabili izenburu handiak"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Typing"
-#~ msgstr "Tekleatzen"
