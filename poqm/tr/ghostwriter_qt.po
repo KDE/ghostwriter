@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-20 13:01+0300\n"
+"PO-Revision-Date: 2023-12-22 10:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -999,181 +999,154 @@ msgid "Underline"
 msgstr "Altı çizili"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preferences..."
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr "Tercihler..."
+msgstr "Tercihler"
 
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: src/settings/preferencesdialog.ui:30
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr ""
+msgstr "Görüntü"
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Tam ekran kipini aç/kapat"
+msgstr "Tam ekran kipinde şu anki zamanı &göster"
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Tam ekran kipini aç/kapat"
+msgstr "Tam ekran kipinde menü çubuğunu &gizle"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "&Kesilemez boşlukları göster"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "Arayüz biçemi"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "Dosya Kaydetme"
 
 #: src/settings/preferencesdialog.ui:96
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr ""
+msgstr "K&endiliğinden kaydet"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "Kaydederken dosya &yedeğini al"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr ""
+msgstr "Başlıksız Taslakları &Görüntüle…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "Yedek Dizini Seç"
+msgstr "Yedek Klasörü Konumunu &Seç"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
 msgid "Session"
-msgstr ""
+msgstr "Oturum"
 
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "Son kullanılan dosyaları &anımsa"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr ""
+msgstr "Başlangıçta son kullanılan d&osyayı aç"
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Edit"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr "Dü&zen"
+msgstr "Düzenleyici"
 
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "Sekmelendirme"
 
 #: src/settings/preferencesdialog.ui:196
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr ""
+msgstr "Sekmelendirme için &boşluklar ekle"
 
 #: src/settings/preferencesdialog.ui:205
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
-msgstr ""
+msgstr "Sekmelendirme genişliği"
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::SpellCheckDecorator|"
-#| msgid "Spelling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr "Yazım Denetimi"
+msgstr "Biçemlendirme"
 
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr ""
+msgstr "Odak kipi"
 
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "Düzenleyici genişliği"
 
 #: src/settings/preferencesdialog.ui:277
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr "&Blok Alıntı"
+msgstr "Blok alıntı biçemi"
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Vurgu"
+msgstr "Vurgu biçemi"
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr ""
+msgstr "Büyük başlıklar &kullan"
 
 #: src/settings/preferencesdialog.ui:328
 msgctxt "PreferencesDialog|"
 msgid "Typing"
-msgstr ""
+msgstr "Yazma"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr ""
+msgstr "Madde imlerini sürekli dö&ndür"
 
 #: src/settings/preferencesdialog.ui:341
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr ""
+msgstr "Karakterleri kendiliğinden &eşleştir"
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Matched Characters"
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Eşleşen Karakterler"
+msgstr "Eşleşen Ka&rakterleri Özelleştir…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1660,12 +1633,9 @@ msgid "Themes"
 msgstr "Temalar"
 
 #: src/theme/themeselectiondialog.cpp:137
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "HTML &Olarak Önizle"
+msgstr "Koyu kipte önizle"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
