@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-12-20 11:25\n"
+"PO-Revision-Date: 2023-12-23 08:03\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -996,12 +996,9 @@ msgid "Underline"
 msgstr "下划线"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preferences..."
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr "首选项"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
@@ -1014,20 +1011,14 @@ msgid "Display"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "切换全屏模式"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "切换全屏模式"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
@@ -1085,12 +1076,9 @@ msgid "&Open last file on startup"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Edit"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr "编辑(&E)"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
@@ -1108,12 +1096,9 @@ msgid "Tabulation width"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::SpellCheckDecorator|"
-#| msgid "Spelling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr "拼写"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
@@ -1126,20 +1111,14 @@ msgid "Editor width"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:277
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr "块引用(&Q)"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "强调"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
@@ -1162,12 +1141,9 @@ msgid "&Automatically match characters"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Matched Characters"
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "匹配的字符"
+msgstr ""
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1643,12 +1619,9 @@ msgid "Themes"
 msgstr "主题"
 
 #: src/theme/themeselectiondialog.cpp:137
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "预览HTML(&P)"
+msgstr ""
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
