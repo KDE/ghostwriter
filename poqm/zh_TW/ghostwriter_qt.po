@@ -2,16 +2,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-09-12 02:11+0900\n"
+"PO-Revision-Date: 2023-12-29 20:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -994,238 +994,154 @@ msgid "Underline"
 msgstr "底線"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Preferences"
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
 msgstr "偏好設定"
 
 #: src/settings/preferencesdialog.ui:24
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "General"
 msgctxt "PreferencesDialog|"
 msgid "General"
 msgstr "一般"
 
 #: src/settings/preferencesdialog.ui:30
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Display"
 msgctxt "PreferencesDialog|"
 msgid "Display"
 msgstr "顯示"
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Show current time in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "全螢幕模式時顯示目前時間"
+msgstr "全螢幕模式時顯示目前時間(&S)"
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Hide menu bar in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "全螢幕模式時隱藏選單列"
+msgstr "全螢幕模式時隱藏選單列(&H)"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "顯示不換行空格(&U)"
 
 #: src/settings/preferencesdialog.ui:59
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Interface style"
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
 msgstr "使用者介面風格"
 
 #: src/settings/preferencesdialog.ui:90
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "File Saving"
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
 msgstr "檔案儲存"
 
 #: src/settings/preferencesdialog.ui:96
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Auto save"
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr "自動儲存"
+msgstr "自動儲存(&A)"
 
 #: src/settings/preferencesdialog.ui:103
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Backup file on save"
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr "儲存時備份檔案"
+msgstr "儲存時備份檔案(&B)"
 
 #: src/settings/preferencesdialog.ui:110
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "View untitled drafts..."
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "檢視未命名草稿…"
+msgstr "檢視未命名草稿(&V)…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "選擇備份目錄"
+msgstr "選擇備份目錄(&S)…"
 
 #: src/settings/preferencesdialog.ui:147
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Session"
 msgctxt "PreferencesDialog|"
 msgid "Session"
 msgstr "工作階段"
 
 #: src/settings/preferencesdialog.ui:153
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Remember recent files"
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr "記住最近使用的檔案"
+msgstr "記住最近使用的檔案(&R)…"
 
 #: src/settings/preferencesdialog.ui:160
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Open last file on startup"
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr "啟動時開啟上次的檔案"
+msgstr "啟動時開啟上次的檔案(&O)"
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
 msgstr "編輯器"
 
 #: src/settings/preferencesdialog.ui:190
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
 msgstr "定位符"
 
 #: src/settings/preferencesdialog.ui:196
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Insert spaces for tabs"
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr "Tab 插入空白而非定位符"
+msgstr "Tab 插入空格而非定位符(&I)"
 
 #: src/settings/preferencesdialog.ui:205
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation width"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
 msgstr "定位符寬度"
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Styling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
 msgstr "風格"
 
 #: src/settings/preferencesdialog.ui:251
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Focus mode"
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
 msgstr "專注模式"
 
 #: src/settings/preferencesdialog.ui:264
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor width"
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
 msgstr "編輯器寬度"
 
 #: src/settings/preferencesdialog.ui:277
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Blockquote style"
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
 msgstr "區塊引言風格"
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Emphasis style"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
 msgstr "強調風格"
 
 #: src/settings/preferencesdialog.ui:305
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Use large headings"
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr "使用大標頭"
+msgstr "使用大標頭(&U)"
 
 #: src/settings/preferencesdialog.ui:328
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Typing"
 msgctxt "PreferencesDialog|"
 msgid "Typing"
 msgstr "打字"
 
 #: src/settings/preferencesdialog.ui:334
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Cycle bullet point markers"
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr "循環無序清單項目符號"
+msgstr "循環無序清單項目符號(&Y)"
 
 #: src/settings/preferencesdialog.ui:341
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Automatically match characters"
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr "自動配對字元"
+msgstr "自動配對字元(&A)"
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Customize matched characters..."
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "自訂相符字元…"
+msgstr "自訂配對字元(&M)…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1701,12 +1617,9 @@ msgid "Themes"
 msgstr "主題"
 
 #: src/theme/themeselectiondialog.cpp:137
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "用 HTML 預覽(&P)"
+msgstr "用暗色模式預覽"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
