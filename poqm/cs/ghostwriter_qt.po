@@ -994,12 +994,9 @@ msgid "Underline"
 msgstr "Podtržené"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preferences..."
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr "Předvolby..."
+msgstr "Předvolby"
 
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
@@ -1012,20 +1009,14 @@ msgid "Display"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Přepnout na celou obrazovku"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Přepnout na celou obrazovku"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
@@ -1063,12 +1054,9 @@ msgid "&"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "Vyberte záložní adresář"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1086,12 +1074,9 @@ msgid "&Open last file on startup"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Edit"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr "&Upravit"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
@@ -1109,12 +1094,9 @@ msgid "Tabulation width"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::SpellCheckDecorator|"
-#| msgid "Spelling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr "Pravopis"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
@@ -1132,12 +1114,9 @@ msgid "Blockquote style"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Důraz"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
