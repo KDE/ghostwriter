@@ -66,7 +66,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 >ghostwriter</command
 > és una aplicació Qt d'edició de text per al Markdown que proporciona un entorn d'escriptura estètic i lliure de distraccions. </para>
   <para
->Creeu temes propis personalitzats, escriviu en mode de pantalla completa o utilitzeu el mode de focus per concentrar-vos només en una o més línies. </para>
+>Creeu temes propis personalitzats, escriviu en mode de pantalla completa o utilitzeu el mode de focus per a concentrar-vos només en una o més línies. </para>
   <para
 >Una vista prèvia HTML en directe us permet veure el format final mentre escriviu. Les opcions de previsualització i exportació d'HTML són proporcionades pel processador Markdown integrat «cmark-gfm»; però podeu afegir-ne més instal·lant els processadors Pandoc, MultiMarkdown o «cmark». L'aplicació detectarà automàticament la seva instal·lació si les seves ubicacions es troben a la variable d'entorn PATH del sistema. </para>
 </refsect1>
