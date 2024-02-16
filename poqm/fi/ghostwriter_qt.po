@@ -1,8 +1,8 @@
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
+# Tommi Nieminen <translator@legisign.org>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-09-27 17:54+0300\n"
+"PO-Revision-Date: 2024-01-18 17:57+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1001,89 +1001,59 @@ msgid "Underline"
 msgstr "Alleviivaus"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Preferences"
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr "Valinnat"
+msgstr "Asetukset"
 
 #: src/settings/preferencesdialog.ui:24
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "General"
 msgctxt "PreferencesDialog|"
 msgid "General"
 msgstr "Perusasetukset"
 
 #: src/settings/preferencesdialog.ui:30
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Display"
 msgctxt "PreferencesDialog|"
 msgid "Display"
 msgstr "Näkymä"
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Show current time in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Näytä koko näytön tilassa kellonaika"
+msgstr "&Näytä koko näytön tilassa kellonaika"
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Hide menu bar in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Piilota koko näytön tilassa valikkorivi"
+msgstr "Piilota koko näytön tilassa &valikkorivi"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Näytä &sitovat tyhjemerkit"
 
 #: src/settings/preferencesdialog.ui:59
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Interface style"
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
 msgstr "Käyttöliittymätyyli"
 
 #: src/settings/preferencesdialog.ui:90
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "File Saving"
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr "Tiedoston tallennus"
+msgstr "Tiedoston tallentaminen"
 
 #: src/settings/preferencesdialog.ui:96
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Auto save"
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr "Automaattitallennus"
+msgstr "&Automaattitallennus"
 
 #: src/settings/preferencesdialog.ui:103
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Backup file on save"
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr "Varmuuskopioi tiedosto tallennettaessa"
+msgstr "&Varmuuskopioi tiedosto tallennettaessa"
 
 #: src/settings/preferencesdialog.ui:110
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "View untitled drafts..."
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "Näytä nimettömät luonnokset…"
+msgstr "&Näytä nimettömät luonnokset…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
@@ -1091,148 +1061,94 @@ msgid "&"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "Valitse varmuuskopiokansio"
+msgstr "&Valitse varmuuskopiokansion sijainti…"
 
 #: src/settings/preferencesdialog.ui:147
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Session"
 msgctxt "PreferencesDialog|"
 msgid "Session"
 msgstr "Istunto"
 
 #: src/settings/preferencesdialog.ui:153
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Remember recent files"
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr "Muista äskettäiset tiedostot"
+msgstr "&Muista äskettäiset tiedostot"
 
 #: src/settings/preferencesdialog.ui:160
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Open last file on startup"
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr "Avaa käynnistettäessä viimeisin tiedosto"
+msgstr "&Avaa käynnistettäessä viimeisin tiedosto"
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
 msgstr "Muokkain"
 
 #: src/settings/preferencesdialog.ui:190
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
 msgstr "Sarkaus"
 
 #: src/settings/preferencesdialog.ui:196
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Insert spaces for tabs"
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr "Lisää sarkaimina välilyöntejä"
+msgstr "Lisää sarkaimina &välilyöntejä"
 
 #: src/settings/preferencesdialog.ui:205
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation width"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
 msgstr "Sarkausleveys"
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Styling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
 msgstr "Tyyli"
 
 #: src/settings/preferencesdialog.ui:251
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Focus mode"
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
 msgstr "Keskittymistila"
 
 #: src/settings/preferencesdialog.ui:264
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor width"
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
 msgstr "Muokkaimen leveys"
 
 #: src/settings/preferencesdialog.ui:277
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Blockquote style"
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
 msgstr "Lainauslohkon tyyli"
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Emphasis style"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
 msgstr "Korostustapa"
 
 #: src/settings/preferencesdialog.ui:305
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Use large headings"
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr "Käytä suuria otsikoita"
+msgstr "Käytä &suuria otsikoita"
 
 #: src/settings/preferencesdialog.ui:328
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Typing"
 msgctxt "PreferencesDialog|"
 msgid "Typing"
-msgstr "Kirjoitetaan"
+msgstr "Kirjoittaminen"
 
 #: src/settings/preferencesdialog.ui:334
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Cycle bullet point markers"
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr "Vaihda luetelmamerkkejä"
+msgstr "Kierrätä &luetelmamerkkejä"
 
 #: src/settings/preferencesdialog.ui:341
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Automatically match characters"
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr "Sovita merkit automaattisesti"
+msgstr "S&ovita merkit automaattisesti"
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Customize matched characters..."
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Mukauta osuvia merkkejä…"
+msgstr "&Mukauta osuvia merkkejä…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1717,12 +1633,9 @@ msgid "Themes"
 msgstr "Teemat"
 
 #: src/theme/themeselectiondialog.cpp:137
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "&Esikatsele HTML:nä"
+msgstr "Esikatsele tummassa tilassa"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
