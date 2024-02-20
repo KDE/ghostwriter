@@ -1,14 +1,14 @@
 # Translation for ghostwriter_qt.po to Euskara/Basque (eu).
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023-2024 This file is copyright:
 # This file is distributed under the same license as the ghostwriter package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiekaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2023-08-01 13:09+0200\n"
+"PO-Revision-Date: 2024-02-19 22:01+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -1006,230 +1006,154 @@ msgid "Underline"
 msgstr "Azpimarra"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Preferences"
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
 msgstr "Hobespenak"
 
 #: src/settings/preferencesdialog.ui:24
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "General"
 msgctxt "PreferencesDialog|"
 msgid "General"
 msgstr "Orokorra"
 
 #: src/settings/preferencesdialog.ui:30
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr "Bistaratu"
+msgstr "Azaldu"
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Show current time in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Erakutsi uneko ordua pantaila-osoko moduan"
+msgstr "Erakut&si uneko ordua pantaila-osoko moduan"
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Hide menu bar in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Ezkutatu menu-barra pantaila-osoko moduan"
+msgstr "E&zkutatu menu-barra pantaila-osoko moduan"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Erakutsi zuriune apurtezina"
 
 #: src/settings/preferencesdialog.ui:59
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Interface style"
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
 msgstr "Interfazearen estiloa"
 
 #: src/settings/preferencesdialog.ui:90
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "File Saving"
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
 msgstr "Fitxategia gordetzea"
 
 #: src/settings/preferencesdialog.ui:96
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Auto save"
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr "Gorde automatikoki"
+msgstr "Gorde &automatikoki"
 
 #: src/settings/preferencesdialog.ui:103
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Backup file on save"
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr "Gordetzean egin fitxategiaren babeskopia"
+msgstr "Gordetzean egin fitxategiaren &babeskopia"
 
 #: src/settings/preferencesdialog.ui:110
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "View untitled drafts..."
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "Ikusi izenik gabeko zirriborroak..."
+msgstr "&Begiratu zirriborro izengabeak..."
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "Hautatu babes-kopiaren direktorioa"
+msgstr "&Hautatu babes-kopiaren kokalekua..."
 
 #: src/settings/preferencesdialog.ui:147
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Session"
 msgctxt "PreferencesDialog|"
 msgid "Session"
 msgstr "Saioa"
 
 #: src/settings/preferencesdialog.ui:153
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Remember recent files"
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr "Gogoratu azken aldiko fitxategiak"
+msgstr "Gogo&ratu azken aldiko fitxategiak"
 
 #: src/settings/preferencesdialog.ui:160
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Open last file on startup"
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr "Ireki azken fitxategia abiatzean"
+msgstr "&Ireki azken fitxategia abiatzean"
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
 msgstr "Editorea"
 
 #: src/settings/preferencesdialog.ui:190
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
 msgstr "Tabulazioa"
 
 #: src/settings/preferencesdialog.ui:196
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Insert spaces for tabs"
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr "Txertatu zuriuneak tabulazioetarako"
+msgstr "&Txertatu zuriuneak tabulazioen ordez"
 
 #: src/settings/preferencesdialog.ui:205
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation width"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
 msgstr "Tabulazioaren zabalera"
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Styling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
 msgstr "Estiloa"
 
 #: src/settings/preferencesdialog.ui:251
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Focus mode"
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr "Fokuaren modua"
+msgstr "Fokuratze modua"
 
 #: src/settings/preferencesdialog.ui:264
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor width"
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
 msgstr "Editorearen zabalera"
 
 #: src/settings/preferencesdialog.ui:277
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr "Blokearen &aipua"
+msgstr "Bloke-aipu estiloa"
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Emphasis style"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Enfasi-estiloa"
+msgstr "Enfasi estiloa"
 
 #: src/settings/preferencesdialog.ui:305
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Use large headings"
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr "Erabili izenburu handiak"
+msgstr "&Erabili izenburu handiak"
 
 #: src/settings/preferencesdialog.ui:328
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Typing"
 msgctxt "PreferencesDialog|"
 msgid "Typing"
-msgstr "Tekleatzen"
+msgstr "Tekleatzea"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr ""
+msgstr "T&xandakatu puntu garrantzitsuen markatzaileak"
 
 #: src/settings/preferencesdialog.ui:341
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr ""
+msgstr "Karaktereak &automatikoki parekatu"
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Matched Characters"
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Bat datozen karaktereak"
+msgstr "Neurrira ipini &parekatutako karaktereak..."
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1717,12 +1641,9 @@ msgid "Themes"
 msgstr "Gaiak"
 
 #: src/theme/themeselectiondialog.cpp:137
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "Aurrei&kusi HTML"
+msgstr "Aurreikusi modu ilunean"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
