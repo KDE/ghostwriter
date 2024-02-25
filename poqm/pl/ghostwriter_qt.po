@@ -1,8 +1,8 @@
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-09-10 11:00+0200\n"
+"PO-Revision-Date: 2024-02-24 17:17+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -1003,238 +1003,154 @@ msgid "Underline"
 msgstr "Podkreślenie"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Preferences"
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
 msgstr "Ustawienia"
 
 #: src/settings/preferencesdialog.ui:24
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "General"
 msgctxt "PreferencesDialog|"
 msgid "General"
 msgstr "Ogólne"
 
 #: src/settings/preferencesdialog.ui:30
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Display"
 msgctxt "PreferencesDialog|"
 msgid "Display"
 msgstr "Wyświetlanie"
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Show current time in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Pokaż bieżący czas w trybie całego ekranu"
+msgstr "Pokaż bieżący cza&s w trybie całego ekranu"
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Hide menu bar in full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Ukryj pasek menu w trybie całego ekranu"
+msgstr "&Ukryj pasek menu w trybie całego ekranu"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "&Pokaż niełamliwe odstępy"
 
 #: src/settings/preferencesdialog.ui:59
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Interface style"
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
 msgstr "Wygląd interfejsu"
 
 #: src/settings/preferencesdialog.ui:90
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "File Saving"
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
 msgstr "Zapisywanie pliku"
 
 #: src/settings/preferencesdialog.ui:96
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Auto save"
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr "Samozapisywanie"
+msgstr "S&amozapisywanie"
 
 #: src/settings/preferencesdialog.ui:103
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Backup file on save"
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr "Kopia zapasowa pliku przy jego zapisywaniu"
+msgstr "&Kopia zapasowa pliku przy jego zapisywaniu"
 
 #: src/settings/preferencesdialog.ui:110
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "View untitled drafts..."
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "Obejrzyj nienazwane szkice..."
+msgstr "&Obejrzyj nienazwane szkice..."
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "Wybierz katalog kopii zapasowej"
+msgstr "W&skaż katalog kopii zapasowej…"
 
 #: src/settings/preferencesdialog.ui:147
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Session"
 msgctxt "PreferencesDialog|"
 msgid "Session"
 msgstr "Posiedzenie"
 
 #: src/settings/preferencesdialog.ui:153
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Remember recent files"
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr "Zapamiętaj ostatnie pliki"
+msgstr "&Zapamiętaj ostatnie pliki"
 
 #: src/settings/preferencesdialog.ui:160
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Open last file on startup"
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr "Otwórz ostatnio używany plik po uruchomieniu"
+msgstr "&Otwórz ostatnio używany plik po uruchomieniu"
 
 #: src/settings/preferencesdialog.ui:184
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
 msgstr "Edytor"
 
 #: src/settings/preferencesdialog.ui:190
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
 msgstr "Tabulacja"
 
 #: src/settings/preferencesdialog.ui:196
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Insert spaces for tabs"
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr "Wstaw odstępy zamiast tabulatorów"
+msgstr "Wstaw odstępy zam&iast tabulatorów"
 
 #: src/settings/preferencesdialog.ui:205
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Tabulation width"
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
 msgstr "Szerokość tabulacji"
 
 #: src/settings/preferencesdialog.ui:243
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Styling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
 msgstr "Wygląd"
 
 #: src/settings/preferencesdialog.ui:251
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Focus mode"
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
 msgstr "Tryb skupienia"
 
 #: src/settings/preferencesdialog.ui:264
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor width"
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
 msgstr "Szerokość edytora"
 
 #: src/settings/preferencesdialog.ui:277
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Blockquote style"
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
 msgstr "Zapis cytowaniem bloków"
 
 #: src/settings/preferencesdialog.ui:290
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Emphasis style"
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
 msgstr "Wygląd nacisku w tekście"
 
 #: src/settings/preferencesdialog.ui:305
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Use large headings"
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr "Użyj dużych nagłówków"
+msgstr "&Użyj dużych nagłówków"
 
 #: src/settings/preferencesdialog.ui:328
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Typing"
 msgctxt "PreferencesDialog|"
 msgid "Typing"
 msgstr "Pisze"
 
 #: src/settings/preferencesdialog.ui:334
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Cycle bullet point markers"
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr "Krąż po znakach wypunktowania"
+msgstr "Krąż po znakach w&ypunktowania"
 
 #: src/settings/preferencesdialog.ui:341
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Automatically match characters"
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr "Sam dopasowuj znaki"
+msgstr "S&am dopasowuj znaki"
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Customize matched characters..."
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Dostosuj dopasowane znaki..."
+msgstr "&Dostosuj dopasowane znaki..."
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1727,12 +1643,9 @@ msgid "Themes"
 msgstr "Wyglądy"
 
 #: src/theme/themeselectiondialog.cpp:137
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "&Podgląd w HTMLu"
+msgstr "Podgląd w trybie ciemnym"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
