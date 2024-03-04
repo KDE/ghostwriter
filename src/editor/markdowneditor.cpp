@@ -775,6 +775,7 @@ QVariant MarkdownEditor::inputMethodQuery(Qt::InputMethodQuery query) const
         QFontMetrics metrics(font());
         QRect r = cursorRect();
         r.translate(contentOffset().toPoint());
+        r.translate(viewportMargins().left(), 0);
         r.adjust(0, metrics.ascent(), 0, metrics.ascent());
         return r;
     }
