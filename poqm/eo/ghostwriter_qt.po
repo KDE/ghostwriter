@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ghostwriter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"PO-Revision-Date: 2024-03-24 10:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -27,17 +27,17 @@ msgstr "ghostwriter"
 #: src/appmain.cpp:79
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr ""
+msgstr "Redaktilo de markdown"
 
 #: src/appmain.cpp:86
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "FocusWriter-programisto, kies Qt-kodo gvidis min"
 
 #: src/appmain.cpp:91
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "ReText-programisto, kies algoritmoj ege helpis"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -49,12 +49,12 @@ msgstr ""
 #: src/appmain.cpp:101
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "UberWriter (nun Apostrophe) programisto, por provizi inspiron"
 
 #: src/appmain.cpp:105
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Aliaj Kontribuantoj"
 
 #: src/appmain.cpp:106
 msgctxt "main|"
@@ -66,43 +66,43 @@ msgstr ""
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "Plilongigita versio de la C referenca efektivigo de CommonMark"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "JavaScript-biblioteko por konstrui uzantinterfacojn"
 
 #: src/appmain.cpp:121
 msgctxt "main|"
 msgid "Font Awesome support for Qt applications"
-msgstr ""
+msgstr "Tiparo Awesome subteno por Qt-aplikoj"
 
 #: src/appmain.cpp:126
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "JavaScript-montra motoro por matematiko"
 
 #: src/appmain.cpp:131
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Kopirajto 2014-%1 La teamo de fantomverkistoj"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
-msgstr ""
+msgstr "Bonvenon al ghostwriter!"
 
 #: src/appmain.cpp:152
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr ""
+msgstr "(Laŭvola) Dosiero por malfermi."
 
 #: src/appmain.cpp:155
 msgctxt "main|"
 msgid "Disables GPU acceleration."
-msgstr ""
+msgstr "Malebligas GPU-akcelon."
 
 #: src/documentmanager.cpp:56
 msgctxt "ghostwriter::DocumentManager|"
@@ -128,7 +128,7 @@ msgstr "Ĉiuj"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr ""
+msgstr "Eraro dum konservado de %1"
 
 #: src/documentmanager.cpp:373
 msgctxt "ghostwriter::DocumentManager|"
@@ -165,7 +165,7 @@ msgstr "Alinomi dosieron"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr ""
+msgstr "Malsukcesis renomi %1"
 
 #: src/documentmanager.cpp:560
 msgctxt "ghostwriter::DocumentManager|"
@@ -175,23 +175,23 @@ msgstr "Konservi dosieron"
 #: src/documentmanager.cpp:697
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
-msgstr ""
+msgstr "La dokumento estis modifita de alia programo."
 
 #: src/documentmanager.cpp:698
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
-msgstr ""
+msgstr "Ĉu vi ŝatus reŝargi la dokumenton?"
 
 #: src/documentmanager.cpp:732
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr ""
+msgstr "Neniu dosiera vojo specifita"
 
 #: src/documentmanager.cpp:748 src/documentmanager.cpp:787
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr ""
+msgstr "Ne eblis legi %1"
 
 #: src/documentmanager.cpp:769
 #, qt-format
@@ -202,13 +202,13 @@ msgstr "malfermas %1"
 #: src/documentmanager.cpp:876
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
-msgstr ""
+msgstr "Dosiero estis modifita."
 
 #: src/documentmanager.cpp:878
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr ""
+msgstr "%1 estis modifita."
 
 #: src/documentmanager.cpp:887
 msgctxt "ghostwriter::DocumentManager|"
@@ -219,33 +219,33 @@ msgstr "Ĉu vi deziras konservi viajn ŝanĝojn ?"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr ""
+msgstr "%1 estas nur legata."
 
 #: src/documentmanager.cpp:919
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
-msgstr ""
+msgstr "Ĉu anstataŭigi protektitan dosieron?"
 
 #: src/documentmanager.cpp:938
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
-msgstr ""
+msgstr "Anstataŭigo malsukcesis."
 
 #: src/documentmanager.cpp:939
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
-msgstr ""
+msgstr "Bonvolu konservi dosieron al alia loko."
 
 #: src/documentmanager.cpp:966 src/documentmanager.cpp:977
 #: src/documentmanager.cpp:990
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
-msgstr ""
+msgstr "Dosiera sekurkopio malsukcesis"
 
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location!"
-msgstr ""
+msgstr "Eraro dum kreado de rezerva loko!"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -272,7 +272,7 @@ msgstr "Bildoj (%1)"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr ""
+msgstr "La formato %1 ne estas subtenata de la procesoro cmark-gfm."
 
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
@@ -282,18 +282,18 @@ msgstr "Eksporto malsukcesis"
 #: src/export/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr ""
+msgstr "Eksporto malsukcesis:"
 
 #: src/export/commandlineexporter.cpp:167
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
-msgstr ""
+msgstr "%1 formato ne estas subtenata de ĉi tiu procesoro."
 
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr ""
+msgstr "Malsukcesis plenumi komandon:"
 
 #: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
 msgctxt "ghostwriter::ExportDialog|"
@@ -303,12 +303,12 @@ msgstr "Eksporti"
 #: src/export/exportdialog.cpp:85
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
-msgstr ""
+msgstr "Inteligenta Tipografio"
 
 #: src/export/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr ""
+msgstr "Malfermi ĉe Eksporto"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
@@ -318,7 +318,7 @@ msgstr "Eksporto Opcioj"
 #: src/export/exportdialog.cpp:94
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
-msgstr ""
+msgstr "Markdown Konvertilo"
 
 #: src/export/exportdialog.cpp:95
 msgctxt "ghostwriter::ExportDialog|"
@@ -328,23 +328,23 @@ msgstr "Dosierformato"
 #: src/export/exportdialog.cpp:113
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opcioj de komandlinio:"
 
 #: src/export/exportdialog.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
-msgstr ""
+msgstr "eksportante al %1"
 
 #: src/export/exportdialog.cpp:201
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
-msgstr ""
+msgstr "Eksporto malsukcesis."
 
 #: src/export/exporter.cpp:69
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
-msgstr ""
+msgstr "Eksporto al HTML ne estas subtenata kun ĉi tiu procesoro."
 
 #: src/findreplace.cpp:97
 msgctxt "ghostwriter::FindReplace|"
@@ -354,7 +354,7 @@ msgstr "Kongrui usklecon"
 #: src/findreplace.cpp:102
 msgctxt "ghostwriter::FindReplace|"
 msgid "Whole word"
-msgstr ""
+msgstr "Tuta vorto"
 
 #: src/findreplace.cpp:108
 msgctxt "ghostwriter::FindReplace|"
@@ -364,12 +364,12 @@ msgstr "Regula esprimo"
 #: src/findreplace.cpp:113
 msgctxt "ghostwriter::FindReplace|"
 msgid "Highlight matches"
-msgstr ""
+msgstr "Elstarigi kongruojn"
 
 #: src/findreplace.cpp:121
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find previous"
-msgstr ""
+msgstr "Trovi antaŭan"
 
 #: src/findreplace.cpp:126
 msgctxt "ghostwriter::FindReplace|"
@@ -401,6 +401,7 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/findreplace.cpp:421
 msgctxt "ghostwriter::FindReplace|"
@@ -416,7 +417,7 @@ msgstr "Neniuj rezultoj"
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
-msgstr ""
+msgstr "%1 kongruoj"
 
 #: src/mainwindow.cpp:911
 msgctxt "ghostwriter::MainWindow|"
@@ -436,17 +437,17 @@ msgstr "&Malfermi"
 #: src/mainwindow.cpp:916
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
-msgstr ""
+msgstr "Malfe&rmi Lastatempajn..."
 
 #: src/mainwindow.cpp:917
 msgctxt "ghostwriter::MainWindow|"
 msgid "Reopen Closed File"
-msgstr ""
+msgstr "Remalfermi Fermitan Dosieron"
 
 #: src/mainwindow.cpp:925
 msgctxt "ghostwriter::MainWindow|"
 msgid "Clear Menu"
-msgstr ""
+msgstr "Viŝi Menuon"
 
 #: src/mainwindow.cpp:930
 msgctxt "ghostwriter::MainWindow|"
@@ -461,12 +462,12 @@ msgstr "Konservi &kiel..."
 #: src/mainwindow.cpp:932
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
-msgstr ""
+msgstr "Ali&nomi..."
 
 #: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
-msgstr ""
+msgstr "Re&ŝargi de Disko..."
 
 #: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
@@ -511,12 +512,12 @@ msgstr "Al&glui"
 #: src/mainwindow.cpp:948
 msgctxt "ghostwriter::MainWindow|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "Kopii &HTML"
 
 #: src/mainwindow.cpp:950
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
-msgstr ""
+msgstr "Enmet&i bildon..."
 
 #: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
@@ -526,7 +527,7 @@ msgstr "&Trovi"
 #: src/mainwindow.cpp:954
 msgctxt "ghostwriter::MainWindow|"
 msgid "Rep&lace"
-msgstr ""
+msgstr "Anstataŭi&gi"
 
 #: src/mainwindow.cpp:955
 msgctxt "ghostwriter::MainWindow|"
@@ -536,12 +537,12 @@ msgstr "Trovi sekva&n"
 #: src/mainwindow.cpp:956
 msgctxt "ghostwriter::MainWindow|"
 msgid "Find &Previous"
-msgstr ""
+msgstr "Trovi &Antaŭan"
 
 #: src/mainwindow.cpp:958
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Spell check"
-msgstr ""
+msgstr "&Literuma kontrolo"
 
 #: src/mainwindow.cpp:960
 msgctxt "ghostwriter::MainWindow|"
@@ -561,22 +562,22 @@ msgstr "Kurs&iva"
 #: src/mainwindow.cpp:963
 msgctxt "ghostwriter::MainWindow|"
 msgid "Stri&kethrough"
-msgstr ""
+msgstr "Trastre&kado"
 
 #: src/mainwindow.cpp:964
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Code Fences"
-msgstr ""
+msgstr "&Kodaj Bariloj"
 
 #: src/mainwindow.cpp:965
 msgctxt "ghostwriter::MainWindow|"
 msgid "&HTML Comment"
-msgstr ""
+msgstr "&HTML-komento"
 
 #: src/mainwindow.cpp:968
 msgctxt "ghostwriter::MainWindow|"
 msgid "I&ndent"
-msgstr ""
+msgstr "I&ndent"
 
 #: src/mainwindow.cpp:969
 msgctxt "ghostwriter::MainWindow|"
@@ -586,47 +587,47 @@ msgstr "&Maldeŝovo"
 #: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
-msgstr ""
+msgstr "Bloki &Citaĵo"
 
 #: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Strip Block Quote"
-msgstr ""
+msgstr "&Strip-Bloko-Citaĵo"
 
 #: src/mainwindow.cpp:974
 msgctxt "ghostwriter::MainWindow|"
 msgid "&* Bullet List"
-msgstr ""
+msgstr "&* Kuglolisto"
 
 #: src/mainwindow.cpp:975
 msgctxt "ghostwriter::MainWindow|"
 msgid "&- Bullet List"
-msgstr ""
+msgstr "&- Kuglo-Listo"
 
 #: src/mainwindow.cpp:976
 msgctxt "ghostwriter::MainWindow|"
 msgid "&+ Bullet List"
-msgstr ""
+msgstr "&+ Kuglo-Listo"
 
 #: src/mainwindow.cpp:978
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&. Numbered List"
-msgstr ""
+msgstr "1&. Numerita Listo"
 
 #: src/mainwindow.cpp:979
 msgctxt "ghostwriter::MainWindow|"
 msgid "1&) Numbered List"
-msgstr ""
+msgstr "1&) Nombrita Listo"
 
 #: src/mainwindow.cpp:981
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Task List"
-msgstr ""
+msgstr "&Tasko-Listo"
 
 #: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr ""
+msgstr "Baskuligi Taskon(j)n &Pletigite"
 
 #: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
@@ -641,27 +642,27 @@ msgstr "&Plenekrane"
 #: src/mainwindow.cpp:995
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Preview in HTML"
-msgstr ""
+msgstr "&Antaŭrigardo en HTML"
 
 #: src/mainwindow.cpp:1003
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Outline"
-msgstr ""
+msgstr "&Skizo"
 
 #: src/mainwindow.cpp:1013
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Session Statistics"
-msgstr ""
+msgstr "&Seanca Statistiko"
 
 #: src/mainwindow.cpp:1022
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Document Statistics"
-msgstr ""
+msgstr "&Dokumenta Statistiko"
 
 #: src/mainwindow.cpp:1031
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Cheat Sheet"
-msgstr ""
+msgstr "&Trompilo"
 
 #: src/mainwindow.cpp:1042
 msgctxt "ghostwriter::MainWindow|"
@@ -681,7 +682,7 @@ msgstr "&Agordoj"
 #: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
-msgstr ""
+msgstr "Etosoj..."
 
 #: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
@@ -691,12 +692,12 @@ msgstr "Tiparo..."
 #: src/mainwindow.cpp:1048 src/mainwindow.cpp:1359
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
-msgstr ""
+msgstr "Aplika lingvo..."
 
 #: src/mainwindow.cpp:1049 src/mainwindow.cpp:1360
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
-msgstr ""
+msgstr "Antaŭrigardaj opcioj..."
 
 #: src/mainwindow.cpp:1050 src/mainwindow.cpp:1361
 msgctxt "ghostwriter::MainWindow|"
@@ -711,147 +712,147 @@ msgstr "&Helpo"
 #: src/mainwindow.cpp:1066
 msgctxt "ghostwriter::MainWindow|"
 msgid "Quick &Reference Guide"
-msgstr ""
+msgstr "Rapida &Referenca Gvidilo"
 
 #: src/mainwindow.cpp:1067
 msgctxt "ghostwriter::MainWindow|"
 msgid "Wiki"
-msgstr ""
+msgstr "Vikio"
 
 #: src/mainwindow.cpp:1115
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Baskuligi flankbreton"
 
 #: src/mainwindow.cpp:1172
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle dark mode"
-msgstr ""
+msgstr "Baskuligi malhelan reĝimon"
 
 #: src/mainwindow.cpp:1191
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Live HTML Preview"
-msgstr ""
+msgstr "Baskuligi Vivan HTML-Antaŭrigardon"
 
 #: src/mainwindow.cpp:1211
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Hemingway mode"
-msgstr ""
+msgstr "Baskuligi Hemingway-reĝimon"
 
 #: src/mainwindow.cpp:1219
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle distraction free mode"
-msgstr ""
+msgstr "Baskuligi reĝimon sen distraĵoj"
 
 #: src/mainwindow.cpp:1228
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle full screen mode"
-msgstr ""
+msgstr "Baskuligi plenekranan reĝimon"
 
 #: src/mainwindow.cpp:1251
 msgctxt "ghostwriter::MainWindow|"
 msgid "Show Sidebar"
-msgstr ""
+msgstr "Montri Flankbreton"
 
 #: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
-msgstr ""
+msgstr "# Titolo 1"
 
 #: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
-msgstr ""
+msgstr "## Titolo 2"
 
 #: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
-msgstr ""
+msgstr "### Titolo 3"
 
 #: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
-msgstr ""
+msgstr "#### Titolo 4"
 
 #: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
-msgstr ""
+msgstr "##### Titolo 5"
 
 #: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
-msgstr ""
+msgstr "###### Titolo 6"
 
 #: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
-msgstr ""
+msgstr "*Emfazo* _Emfazo_"
 
 #: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
-msgstr ""
+msgstr "**Forta** __Forta__"
 
 #: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
-msgstr ""
+msgstr "1. Nombrita Listo"
 
 #: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
-msgstr ""
+msgstr "* Kuglo-Listo"
 
 #: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
-msgstr ""
+msgstr "+ Kuglo-Listo"
 
 #: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
-msgstr ""
+msgstr "- Kuglo-Listo"
 
 #: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
-msgstr ""
+msgstr "> Bloka Citaĵo"
 
 #: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
-msgstr ""
+msgstr "`Koda Intervalo`"
 
 #: src/mainwindow.cpp:1282
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
-msgstr ""
+msgstr "``` Kodbloko"
 
 #: src/mainwindow.cpp:1283
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
-msgstr ""
+msgstr "[Ligo](http://url.com \"Titolo\")"
 
 #: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
-msgstr ""
+msgstr "[Referenca ligilo][ID]"
 
 #: src/mainwindow.cpp:1285
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
-msgstr ""
+msgstr "[ID]: http://url.com \"Referenca Difino\""
 
 #: src/mainwindow.cpp:1286
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
-msgstr ""
+msgstr "![Bildo](./image.jpg \"Titolo\")"
 
 #: src/mainwindow.cpp:1287
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
-msgstr ""
+msgstr "--- *** ___ Horizontala Regulo"
 
 #: src/mainwindow.cpp:1337
 msgctxt "ghostwriter::MainWindow|"
@@ -861,17 +862,17 @@ msgstr "Skemo"
 #: src/mainwindow.cpp:1338
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "Seanca Statistiko"
 
 #: src/mainwindow.cpp:1339
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "Dokumentaj Statistikoj"
 
 #: src/mainwindow.cpp:1340
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
-msgstr ""
+msgstr "Trompfolio"
 
 #: src/mainwindow.cpp:1350
 msgctxt "ghostwriter::MainWindow|"
@@ -881,37 +882,37 @@ msgstr "Agordoj"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr ""
+msgstr "Eraro dum ŝargo de resources/preview.html"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
-msgstr ""
+msgstr "Agordi Apliklingvon"
 
 #: src/settings/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Neniuj tradukoj haveblas!"
 
 #: src/settings/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
-msgstr ""
+msgstr "Bonvolu reinstali ĉi tiun aplikaĵon por pliaj lingvaj elektoj."
 
 #: src/settings/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr ""
+msgstr "Pardonu!"
 
 #: src/settings/localedialog.cpp:133
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Ne eblis ŝargi tradukon."
 
 #: src/settings/localedialog.cpp:139
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr ""
+msgstr "Bonvolu rekomenci la aplikaĵon por ke ŝanĝoj ekvalidu."
 
 #: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -921,7 +922,7 @@ msgstr "Literumkontrolo"
 #: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr ""
+msgstr "Kongruaj Signoj"
 
 #: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -936,7 +937,7 @@ msgstr "Kvadrato"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Elekti Rezervan Dosierujon"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -951,7 +952,7 @@ msgstr "Nuna Linio"
 #: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
-msgstr ""
+msgstr "Tri Linioj"
 
 #: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1017,42 +1018,42 @@ msgstr "Montri"
 #: src/settings/preferencesdialog.ui:36
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr ""
+msgstr "&Montri la aktualan horon en plenekrana reĝimo"
 
 #: src/settings/preferencesdialog.ui:43
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr ""
+msgstr "&Kaŝi menubreton en plenekrana reĝimo"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Montri &Nerompeblan Spacon"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "Interfaco-stilo"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "Dosiera Konservado"
 
 #: src/settings/preferencesdialog.ui:96
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr ""
+msgstr "&Aŭtomata konservado"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "Sekurkopii &dosieron dum konservado"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr ""
+msgstr "&Vidi sentitolajn skizojn…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
@@ -1062,7 +1063,7 @@ msgstr "&"
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr ""
+msgstr "&Selekti Rezervan Dosierujon…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1072,12 +1073,12 @@ msgstr "Seanco"
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "Memo&ri lastatempajn dosierojn"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr ""
+msgstr "Malfermi lastan d&osieron dum ekfunkciigo"
 
 #: src/settings/preferencesdialog.ui:184
 msgctxt "PreferencesDialog|"
@@ -1087,17 +1088,17 @@ msgstr "Redaktilo"
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "Tabulado"
 
 #: src/settings/preferencesdialog.ui:196
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr ""
+msgstr "Enmet&i spacojn por langetoj"
 
 #: src/settings/preferencesdialog.ui:205
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
-msgstr ""
+msgstr "Larĝo de tabulado"
 
 #: src/settings/preferencesdialog.ui:243
 msgctxt "PreferencesDialog|"
@@ -1107,27 +1108,27 @@ msgstr "Stilado"
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr ""
+msgstr "Fokusa reĝimo"
 
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "Larĝo de redaktilo"
 
 #: src/settings/preferencesdialog.ui:277
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr ""
+msgstr "Blokcita stilo"
 
 #: src/settings/preferencesdialog.ui:290
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr ""
+msgstr "Emfaza stilo"
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr ""
+msgstr "&Uzi grandajn titolojn"
 
 #: src/settings/preferencesdialog.ui:328
 msgctxt "PreferencesDialog|"
@@ -1137,17 +1138,17 @@ msgstr "Tajpado"
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr ""
+msgstr "C&ikligi kuglosignajn markilojn"
 
 #: src/settings/preferencesdialog.ui:341
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr ""
+msgstr "&Aŭtomate kongrui kun signoj"
 
 #: src/settings/preferencesdialog.ui:348
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr ""
+msgstr "Proprigi &kongruajn signojn…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1157,7 +1158,7 @@ msgstr "Antaŭrigardaj Opcioj"
 #: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr ""
+msgstr "Markdown-Gusto"
 
 #: src/settings/previewoptionsdialog.cpp:99
 #: src/settings/previewoptionsdialog.cpp:125
@@ -1168,17 +1169,17 @@ msgstr "Elekti..."
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr ""
+msgstr "Teksta Tiparo:"
 
 #: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr ""
+msgstr "Koda Tiparo:"
 
 #: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Opcioj de komandlinio:"
 
 #: src/settings/previewoptionsdialog.cpp:177
 #, qt-format
@@ -1199,7 +1200,7 @@ msgstr "Grandeco"
 #: src/settings/simplefontdialog.cpp:111
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "AaBbCcXxYyZz"
-msgstr ""
+msgstr "AaBbCcXxYyZz"
 
 #: src/settings/simplefontdialog.cpp:115
 msgctxt "ghostwriter::SimpleFontDialog|"
@@ -1214,7 +1215,7 @@ msgstr "Montri nur unuspacigitajn tiparojn"
 #: src/spelling/spellcheckdecorator.cpp:245
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
-msgstr ""
+msgstr "Kontroli literumadon..."
 
 #: src/spelling/spellcheckdecorator.cpp:273
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1224,12 +1225,12 @@ msgstr "Literumo"
 #: src/spelling/spellcheckdecorator.cpp:298
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
-msgstr ""
+msgstr "Aldoni vorton al vortaro"
 
 #: src/spelling/spellcheckdecorator.cpp:338
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
-msgstr ""
+msgstr "Neniuj literumaj sugestoj trovitaj"
 
 #: src/spelling/spellcheckdialog.cpp:53
 msgctxt "ghostwriter::SpellCheckDialog|"
@@ -1239,27 +1240,27 @@ msgstr "Literumkontrolo"
 #: src/spelling/spellcheckdialog.cpp:152
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
-msgstr ""
+msgstr "Literuma kontrolo estas kompleta!"
 
 #: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
-msgstr ""
+msgstr "&lt; 1 m"
 
 #: src/statistics/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1"
-msgstr ""
+msgstr "&lt; 1"
 
 #: src/statistics/abstractstatisticswidget.cpp:19
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "250 words per page"
-msgstr ""
+msgstr "250 vortoj po paĝo"
 
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1296,7 +1297,7 @@ msgstr "Malfacila"
 #: src/statistics/documentstatisticswidget.cpp:23
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Very Difficult"
-msgstr ""
+msgstr "Tre Malfacila"
 
 #: src/statistics/documentstatisticswidget.cpp:60
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1316,7 +1317,7 @@ msgstr "Frazoj:"
 #: src/statistics/documentstatisticswidget.cpp:63
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Paragraphs:"
-msgstr ""
+msgstr "Alineoj:"
 
 #: src/statistics/documentstatisticswidget.cpp:64
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1326,7 +1327,7 @@ msgstr "Paĝoj:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
-msgstr ""
+msgstr "Kompleksaj Vortoj:"
 
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1336,27 +1337,27 @@ msgstr "0%"
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Time:"
-msgstr ""
+msgstr "Tempo de Legado:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Ease:"
-msgstr ""
+msgstr "Legfacileco:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "LIX Reading Ease"
-msgstr ""
+msgstr "LIX Legado Facileco"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Grade Level:"
-msgstr ""
+msgstr "Grada Nivelo:"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Coleman-Liau Readability Index (CLI)"
-msgstr ""
+msgstr "Coleman-Liau-Indekso de Legeblo (CLI)"
 
 #: src/statistics/documentstatisticswidget.cpp:149
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1366,7 +1367,7 @@ msgstr "Infanĝardeno"
 #: src/statistics/documentstatisticswidget.cpp:152
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Rocket Science"
-msgstr ""
+msgstr "Raketo-Scienco"
 
 #: src/statistics/documentstatisticswidget.cpp:154
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1376,17 +1377,17 @@ msgstr "Kolegio"
 #: src/statistics/sessionstatisticswidget.cpp:37
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Words Written:"
-msgstr ""
+msgstr "Vortoj Skribitaj:"
 
 #: src/statistics/sessionstatisticswidget.cpp:38
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Pages Written:"
-msgstr ""
+msgstr "Paĝoj skribitaj:"
 
 #: src/statistics/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr ""
+msgstr "Meza WPM:"
 
 #: src/statistics/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1396,7 +1397,7 @@ msgstr "Suma Tempo:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr ""
+msgstr "Neaktiva Tempo:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
@@ -1408,54 +1409,60 @@ msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statistics/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statistics/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statistics/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statistics/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statistics/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/statistics/statisticsindicator.cpp:37
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr ""
+msgstr "%1 ppm"
 
 #: src/statistics/statisticsindicator.cpp:38
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 read time"
-msgstr ""
+msgstr "%1:%2 legotempo"
 
 #: src/statistics/statisticsindicator.cpp:41
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
-msgstr ""
+msgstr "%1:%2 skriba tempo"
 
 #: src/theme/themeeditordialog.cpp:81
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1465,7 +1472,7 @@ msgstr "Redakti etoson"
 #: src/theme/themeeditordialog.cpp:84
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
-msgstr ""
+msgstr "Etosnomo"
 
 #: src/theme/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1510,12 +1517,12 @@ msgstr "Marklingvo"
 #: src/theme/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
-msgstr ""
+msgstr "Akcento"
 
 #: src/theme/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
-msgstr ""
+msgstr "Titolo"
 
 #: src/theme/themeeditordialog.cpp:179
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1525,7 +1532,7 @@ msgstr "Emfazo"
 #: src/theme/themeeditordialog.cpp:180
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
-msgstr ""
+msgstr "Bloko Teksto"
 
 #: src/theme/themeeditordialog.cpp:181
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1540,31 +1547,31 @@ msgstr "Eraro"
 #: src/theme/themeeditordialog.cpp:215
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
-msgstr ""
+msgstr "Ne eblas konservi etoson."
 
 #: src/theme/themerepository.cpp:138
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
-msgstr ""
+msgstr "La specifita etoso ne ekzistas en la dosiersistemo: %1"
 
 #: src/theme/themerepository.cpp:146
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
-msgstr ""
+msgstr "Ne eblis malfermi etosieron por legado: %1"
 
 #: src/theme/themerepository.cpp:156
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid theme format: %1"
-msgstr ""
+msgstr "Nevalida etosoformato: %1"
 
 #: src/theme/themerepository.cpp:175 src/theme/themerepository.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid or missing value(s) in %1"
-msgstr ""
+msgstr "Nevalidaj aŭ mankantaj valoroj en %1"
 
 #: src/theme/themerepository.cpp:192
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1585,18 +1592,18 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' jam ekzistas. Bonvolu elekti alian nomon."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' etoso jam ekzistas. Bonvolu elekti alian nomon."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
-msgstr ""
+msgstr "Malsukcesis renomi la etoson. Bonvolu kontroli dosierpermesojn."
 
 #: src/theme/themerepository.cpp:282
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1608,7 +1615,7 @@ msgstr ""
 #: src/theme/themerepository.cpp:312
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled 1"
-msgstr ""
+msgstr "Sentitola 1"
 
 #: src/theme/themerepository.cpp:322
 #, qt-format
@@ -1624,7 +1631,7 @@ msgstr "Etosoj"
 #: src/theme/themeselectiondialog.cpp:137
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr ""
+msgstr "Antaŭrigardo en malhela reĝimo"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
@@ -1634,30 +1641,30 @@ msgstr "Redakti..."
 #: src/theme/themeselectiondialog.cpp:382
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
-msgstr ""
+msgstr "Ne povas forigi etoson."
 
 #: src/theme/themeselectiondialog.cpp:383
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
-msgstr ""
+msgstr "Pardonu, ĉi tio estas enkonstruita etoso, kiu ne povas esti forigita."
 
 #: src/theme/themeselectiondialog.cpp:393
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr ""
+msgstr "Ĉu vi certas, ke vi volas konstante forigi la '%1'-etoson?"
 
 #: src/theme/themeselectiondialog.cpp:408
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr ""
+msgstr "Malsukcesis forigi etoson."
 
 #: src/theme/themeselectiondialog.cpp:435
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
-msgstr ""
+msgstr "Ne povas redakti etoson."
 
 #: src/theme/themeselectiondialog.cpp:436
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
-msgstr ""
+msgstr "Pardonu, ĉi tio estas enkonstruita etoso ne redaktebla."
