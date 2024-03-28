@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ghostwriter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
+"PO-Revision-Date: 2024-03-27 19:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -627,7 +627,7 @@ msgstr "&Tasko-Listo"
 #: src/mainwindow.cpp:982
 msgctxt "ghostwriter::MainWindow|"
 msgid "Toggle Task(s) &Complete"
-msgstr "Baskuligi Taskon(j)n &Pletigite"
+msgstr "Baskuligi Tasko(j)n &Pletigite"
 
 #: src/mainwindow.cpp:985
 msgctxt "ghostwriter::MainWindow|"
