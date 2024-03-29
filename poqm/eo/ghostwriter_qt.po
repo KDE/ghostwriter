@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ghostwriter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-03-27 19:34+0100\n"
+"PO-Revision-Date: 2024-03-28 08:18+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -587,7 +587,7 @@ msgstr "&Maldeŝovo"
 #: src/mainwindow.cpp:971
 msgctxt "ghostwriter::MainWindow|"
 msgid "Block &Quote"
-msgstr "Bloki &Citaĵo"
+msgstr "Blok-&Citaĵo"
 
 #: src/mainwindow.cpp:972
 msgctxt "ghostwriter::MainWindow|"
