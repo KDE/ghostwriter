@@ -26,6 +26,7 @@
   <name xml:lang="ru">ghostwriter</name>
   <name xml:lang="sk">ghostwriter</name>
   <name xml:lang="sl">ghostwriter</name>
+  <name xml:lang="sv">ghostwriter</name>
   <name xml:lang="tr">ghostwriter</name>
   <name xml:lang="uk">ghostwriter</name>
   <name xml:lang="x-test">xxghostwriterxx</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="pt-BR">Editor de texto livre de distrações para Markdown</summary>
   <summary xml:lang="ru">Редактор Markdown для сосредоточенной работы</summary>
   <summary xml:lang="sl">Urejevalnik besedil brez motenj za Markdown</summary>
+  <summary xml:lang="sv">Distraktionsfri texteditor för Markdown</summary>
   <summary xml:lang="tr">Markdown için dikkat dağıtmayan bir metin düzenleyicisi</summary>
   <summary xml:lang="uk">Ненав'язливий текстовий редактор для Markdown</summary>
   <summary xml:lang="x-test">xxDistraction-free text editor for Markdownxx</summary>
@@ -81,6 +83,7 @@
     <p xml:lang="pt-BR">ghostwriter é um editor de texto livre de distrações para Markdown apresentando uma visualização HTML ao vivo enquanto você digita, criação de tema, modo de foco, modo de tela cheia, contagem de palavras ao vivo e navegação de documentos em um ambiente de escrita estética. Ele vem com o processador cmark-gfm Markdown integrado e pode se integrar aos processadores Pandoc, MultiMarkdown, Discount e cmark, se estiverem instalados.</p>
     <p xml:lang="ru">ghostwriter — текстовый редактор Markdown с динамическим предварительным просмотром HTML, созданием тем, режимом фокусировки, полноэкранным режимом, интерактивным подсчётом слов и навигацией по документу в лаконичной среде для написания текстов. Редактор поставляется со встроенным обработчиком Markdown cmark-gfm и поддерживает интеграцию с обработчиками Pandoc, MultiMarkdown, Discount и cmark (если они установлены).</p>
     <p xml:lang="sl">ghostwriter je urejevalnik, ki vsebuje v sprotni predogled HTML medtem ko tipkate, ustvarjanje teme, osredotočen način, način celotnega zaslona, sprotno štetje število besed in krmarjenje po dokumentu v estetskem pisalnem okolju. Prihaja z vgrajenim procesorjem Markdovna cmark-gfm in se lahko integrira s programi Pandoc, MultiMarkdown, Discount, in cmark, če so nameščeni.</p>
+    <p xml:lang="sv">ghostwriter är en distraktionsfri texteditor för Markdown med en HTML-förhandsvisning i realtid när du skriver, skapande av teman, fokuserat läge, fullskärmsläge, ordräkning i realtid och dokumentnavigering i en estetisk skrivmiljö. Den levereras med den inbyggda cmark-gfm Markdown-processorn och kan integreras med Pandoc-, MultiMarkdown-, Discount- och cmark-processorer om de är installerade.</p>
     <p xml:lang="tr">ghostwriter; Markdown için siz yazdıkça canlı bir HTML önizlemesi, tema oluşturma, odak kipi, tam ekran kipi, canlı sözcük sayımı ve estetik bir yazım ortamında belgede dolaşma sunan bir dikkat dağıtmayan metin düzenleyicisidir. cmark-gfm Markdown işleyicisi ile birlikte gelir ve eğer kurulularsa Pandoc, MultiMarkDown, Discount ve cmark işlemcileriyle tümleşebilir.</p>
     <p xml:lang="uk">ghostwriter — ненав'язливий текстовий редактор для Markdown із інтерактивним попереднім переглядом HTML, створенням тем, режимом фокусування, повноекранним режимом, інтерактивним обліком слів та навігацією документом в естетичному середовищі для написання текстів. Редактор постачається з вбудованим обробником Markdown cmark-gfm і можливістю інтеграції із процесорами Pandoc, MultiMarkdown, Discount та cmark, якщо їх встановлено.</p>
     <p xml:lang="x-test">xxghostwriter is a distraction-free text editor for Markdown featuring a live HTML preview as you type, theme creation, focus mode, fullscreen mode, live word count, and document navigation in an aesthetic writing environment. It comes with the cmark-gfm Markdown processor built in, and can integrate with Pandoc, MultiMarkdown, Discount, and cmark processors if they are installed.xx</p>
@@ -110,6 +113,7 @@
       <caption xml:lang="pt-BR">Desfrute de uma experiência de escrita livre de distrações, incluindo um modo de tela cheia e uma interface limpa</caption>
       <caption xml:lang="ru">Всё для сосредоточенной работы с кодом, включая поддержку полноэкранного режима и лаконичный интерфейс </caption>
       <caption xml:lang="sl">Uživajte v pisanju brez motenj vključno s celozaslonskim načinom in čistim vmesnikom</caption>
+      <caption xml:lang="sv">Njut av en distraktionsfri skrivupplevelse, inklusive fullskärmsläge och ett rent gränssnitt</caption>
       <caption xml:lang="tr">Bir tam ekran kipi ve temiz bir arayüz içeren bu dikkat dağıtmayan yazım deneyiminin keyfini çıkarın</caption>
       <caption xml:lang="uk">Насолоджуйтеся ненав'язливим засобом написання текстів із можливістю користуватися повноекранним режимом і простим інтерфейсом</caption>
       <caption xml:lang="x-test">xxEnjoy a distraction-free writing experience, including a full screen mode and a clean interfacexx</caption>
@@ -142,6 +146,7 @@
   <developer_name xml:lang="ru">Megan Conkle</developer_name>
   <developer_name xml:lang="sk">Megan Conkle</developer_name>
   <developer_name xml:lang="sl">Megan Conkle</developer_name>
+  <developer_name xml:lang="sv">Megan Conkle</developer_name>
   <developer_name xml:lang="tr">Megan Conkle</developer_name>
   <developer_name xml:lang="uk">Megan Conkle</developer_name>
   <developer_name xml:lang="x-test">xxMegan Conklexx</developer_name>
