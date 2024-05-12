@@ -68,8 +68,8 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
-"Tothom que ha proporcionat les traduccions, documentació, correccions "
-"d'errors o característiques noves durant anys"
+"Tothom que ha proporcionat les traduccions, documentació, esmenes d'errors o "
+"característiques noves durant anys"
 
 #: src/appmain.cpp:111
 msgctxt "main|"
@@ -447,7 +447,7 @@ msgstr "O&bri"
 #: src/mainwindow.cpp:916
 msgctxt "ghostwriter::MainWindow|"
 msgid "Open &Recent..."
-msgstr "Obri'n un de &recent..."
+msgstr "Obri'n un de &recent…"
 
 #: src/mainwindow.cpp:917
 msgctxt "ghostwriter::MainWindow|"
@@ -467,17 +467,17 @@ msgstr "Guar&da"
 #: src/mainwindow.cpp:931
 msgctxt "ghostwriter::MainWindow|"
 msgid "Save &As..."
-msgstr "Anomena i gu&arda..."
+msgstr "Anomena i gu&arda…"
 
 #: src/mainwindow.cpp:932
 msgctxt "ghostwriter::MainWindow|"
 msgid "R&ename..."
-msgstr "Ca&nvia el nom..."
+msgstr "Ca&nvia el nom…"
 
 #: src/mainwindow.cpp:933
 msgctxt "ghostwriter::MainWindow|"
 msgid "Re&load from Disk..."
-msgstr "To&rna a carregar des del disc..."
+msgstr "To&rna a carregar des del disc…"
 
 #: src/mainwindow.cpp:935
 msgctxt "ghostwriter::MainWindow|"
@@ -527,7 +527,7 @@ msgstr "Copia l'&HTML"
 #: src/mainwindow.cpp:950
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Insert Image..."
-msgstr "&Inserix una imatge..."
+msgstr "&Inserix una imatge…"
 
 #: src/mainwindow.cpp:953
 msgctxt "ghostwriter::MainWindow|"
@@ -693,27 +693,27 @@ msgstr "Con&figuració"
 #: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
 msgctxt "ghostwriter::MainWindow|"
 msgid "Themes..."
-msgstr "Temes..."
+msgstr "Temes…"
 
 #: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
 msgctxt "ghostwriter::MainWindow|"
 msgid "Font..."
-msgstr "Tipus de lletra..."
+msgstr "Tipus de lletra…"
 
 #: src/mainwindow.cpp:1048 src/mainwindow.cpp:1359
 msgctxt "ghostwriter::MainWindow|"
 msgid "Application Language..."
-msgstr "Idioma de l'aplicació..."
+msgstr "Idioma de l'aplicació…"
 
 #: src/mainwindow.cpp:1049 src/mainwindow.cpp:1360
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preview Options..."
-msgstr "Opcions de la vista prèvia..."
+msgstr "Opcions de la vista prèvia…"
 
 #: src/mainwindow.cpp:1050 src/mainwindow.cpp:1361
 msgctxt "ghostwriter::MainWindow|"
 msgid "Preferences..."
-msgstr "Preferències..."
+msgstr "Preferències…"
 
 #: src/mainwindow.cpp:1056
 msgctxt "ghostwriter::MainWindow|"
@@ -1177,7 +1177,7 @@ msgstr "Variant de Markdown"
 #: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
-msgstr "Seleccioneu..."
+msgstr "Seleccioneu…"
 
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1228,7 +1228,7 @@ msgstr "Mostra només els tipus de lletra monoespai"
 #: src/spelling/spellcheckdecorator.cpp:245
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
-msgstr "Verifica l'ortografia..."
+msgstr "Verifica l'ortografia…"
 
 #: src/spelling/spellcheckdecorator.cpp:273
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1656,7 +1656,7 @@ msgstr "Vista prèvia en mode fosc"
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
-msgstr "Edita..."
+msgstr "Edita…"
 
 #: src/theme/themeselectiondialog.cpp:382
 msgctxt "ghostwriter::ThemeSelectionDialog|"
