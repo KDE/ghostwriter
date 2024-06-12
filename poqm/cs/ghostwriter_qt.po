@@ -1,16 +1,16 @@
-# Vit Pelcak <vit@pelcak.org>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Vit Pelcak <vit@pelcak.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-04 16:49+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-06-05 09:13+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appmain.cpp:75
@@ -1001,47 +1001,47 @@ msgstr "Předvolby"
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: src/settings/preferencesdialog.ui:30
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr ""
+msgstr "Zobrazení"
 
 #: src/settings/preferencesdialog.ui:36
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr ""
+msgstr "Zobrazit aktuální čas v celoobrazovkovém režimu"
 
 #: src/settings/preferencesdialog.ui:43
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr ""
+msgstr "Skrýt l&ištu nabídky v celoobrazovkovém zobrazení"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Zobrazit neza&lomitelné mezery"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "Styl rozhraní"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "Ukládání souborů"
 
 #: src/settings/preferencesdialog.ui:96
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr ""
+msgstr "&Automatické ukládání"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "Vy&tvořit zálohu při uložení"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
@@ -1051,7 +1051,7 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
@@ -1061,27 +1061,27 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
 msgid "Session"
-msgstr ""
+msgstr "Sezení"
 
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "Zapamatovat si nedávné soubory"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr ""
+msgstr "&Otevřít poslední soubor při spuštění"
 
 #: src/settings/preferencesdialog.ui:184
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "Tabulátor"
 
 #: src/settings/preferencesdialog.ui:196
 msgctxt "PreferencesDialog|"
@@ -1096,7 +1096,7 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:243
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr ""
+msgstr "Styl"
 
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
@@ -1106,7 +1106,7 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "Šířka editoru"
 
 #: src/settings/preferencesdialog.ui:277
 msgctxt "PreferencesDialog|"
@@ -1116,7 +1116,7 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:290
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr ""
+msgstr "Styl důrazu"
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
@@ -1126,7 +1126,7 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:328
 msgctxt "PreferencesDialog|"
 msgid "Typing"
-msgstr ""
+msgstr "Psaní"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
@@ -1618,7 +1618,7 @@ msgstr "Motivy"
 #: src/theme/themeselectiondialog.cpp:137
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr ""
+msgstr "Náhled v tmavém režimu"
 
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
