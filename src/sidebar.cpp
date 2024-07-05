@@ -107,25 +107,14 @@ Sidebar::~Sidebar()
     ;
 }
 
-void Sidebar::addTab(
-    const QChar &glyphIcon,
-    QWidget *widget,
-    const QString &tooltip,
-    const QString &objectName
-)
+void Sidebar::addTab(const QIcon &icon, QWidget *widget, const QString &tooltip, const QString &objectName)
 {
     Q_D(Sidebar);
 
-    this->insertTab(d->tabs->count(), glyphIcon, widget, tooltip, objectName);
+    this->insertTab(d->tabs->count(), icon, widget, tooltip, objectName);
 }
 
-void Sidebar::insertTab(
-    int index,
-    const QChar &glyphIcon,
-    QWidget *widget,
-    const QString &tooltip,
-    const QString &objectName
-)
+void Sidebar::insertTab(int index, const QIcon &icon, QWidget *widget, const QString &tooltip, const QString &objectName)
 {
     Q_D(Sidebar);
 
@@ -135,7 +124,8 @@ void Sidebar::insertTab(
         index = d->tabs->count();
     }
 
-    QPushButton *button = new QPushButton(glyphIcon, this);
+    QPushButton *button = new QPushButton(this);
+    button->setIcon(icon);
     button->setCheckable(true);
     button->setToolTip(tooltip);
 
@@ -246,28 +236,14 @@ bool Sidebar::autoHideEnabled() const
     return d->autoHideEnabled;
 }
 
-QPushButton *Sidebar::addButton(
-    const QChar &glyphIcon,
-    const QString &tooltip,
-    const QString &objectName
-)
+QPushButton *Sidebar::addButton(const QIcon &icon, const QString &tooltip, const QString &objectName)
 {
     Q_D(Sidebar);
 
-    return this->insertButton(
-        d->buttons->count(),
-        glyphIcon,
-        tooltip,
-        objectName
-    );
+    return this->insertButton(d->buttons->count(), icon, tooltip, objectName);
 }
 
-QPushButton *Sidebar::insertButton(
-    int index,
-    const QChar &glyphIcon,
-    const QString &tooltip,
-    const QString &objectName
-)
+QPushButton *Sidebar::insertButton(int index, const QIcon &icon, const QString &tooltip, const QString &objectName)
 {
     Q_D(Sidebar);
 
@@ -277,7 +253,8 @@ QPushButton *Sidebar::insertButton(
         index = d->buttons->count();
     }
 
-    QPushButton *button = new QPushButton(glyphIcon, this);
+    QPushButton *button = new QPushButton(this);
+    button->setIcon(icon);
     button->setFocusPolicy(Qt::NoFocus);
     button->setCheckable(false);
     button->setToolTip(tooltip);

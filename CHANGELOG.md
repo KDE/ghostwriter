@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* Added more icons to menu actions.
+
+### Removed
+
+* Replaced QtFontAwesome usage with SVG icons due to corner case where Qt could
+  not find the Font Awesome fonts when Qt was built from scratch.
+
+## [23.08.5]
+
 ### Fixed
 
 * Added syntax highlighting and live spell check performance improvements.

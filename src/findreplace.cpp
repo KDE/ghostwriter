@@ -17,7 +17,6 @@
 #include <QTextCursor>
 #include <QTimer>
 
-#include <3rdparty/QtAwesome/QtAwesome.h>
 #include "findreplace.h"
 
 #define GW_FIND_REPLACE_MATCH_CASE "FindReplace/matchCase"
@@ -35,8 +34,7 @@ public:
     FindReplacePrivate(FindReplace *q_ptr)
         : q_ptr(q_ptr)
     {
-        this->awesome = new QtAwesome(q_ptr);
-        this->awesome->initFontAwesome();
+        ;
     }
 
     ~FindReplacePrivate()
@@ -53,7 +51,6 @@ public:
     
     FindReplace *q_ptr;
 
-    QtAwesome *awesome;
     QGridLayout *layout;
     QPlainTextEdit *editor;
     QPushButton *matchCaseButton;
@@ -64,6 +61,7 @@ public:
     QPushButton *findPrevButton;
     QPushButton *replaceButton;
     QPushButton *replaceAllButton;
+    QPushButton *closeButton;
 
     QLineEdit *findField;
     QLineEdit *replaceField;
@@ -96,7 +94,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     d->matchCaseButton->setChecked(settings.value(GW_FIND_REPLACE_MATCH_CASE, false).toBool());
     d->matchCaseButton->setToolTip(tr("Match case"));
 
-    d->wholeWordButton = new QPushButton(QChar(fa::quoteleft), this);
+    d->wholeWordButton = new QPushButton("\"", this);
     d->wholeWordButton->setCheckable(true);
     d->wholeWordButton->setChecked(settings.value(GW_FIND_REPLACE_WHOLE_WORD, false).toBool());
     d->wholeWordButton->setToolTip(tr("Whole word"));
@@ -107,7 +105,7 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
     d->regularExpressionButton->setChecked(settings.value(GW_FIND_REPLACE_REGEX, false).toBool());
     d->regularExpressionButton->setToolTip(tr("Regular expression"));
 
-    d->highlightMatchesButton = new QPushButton(QChar(fa::highlighter));
+    d->highlightMatchesButton = new QPushButton("_", this);
     d->highlightMatchesButton->setCheckable(true);
     d->highlightMatchesButton->setChecked(settings.value(GW_FIND_REPLACE_HIGHLIGHT_MATCHES, false).toBool());
     d->highlightMatchesButton->setToolTip(tr("Highlight matches"));
@@ -117,12 +115,12 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
             d->highlightMatches(checked);
         });
 
-    d->findPrevButton = new QPushButton(QChar(fa::arrowup), this);
+    d->findPrevButton = new QPushButton(tr("Find Prev"), this);
     d->findPrevButton->setToolTip(tr("Find previous"));
     d->findPrevButton->setCheckable(false);
     d->findPrevButton->setFlat(false);
     connect(d->findPrevButton, SIGNAL(pressed()), this, SLOT(findPrevious()));
-    d->findNextButton = new QPushButton(QChar(fa::arrowdown));
+    d->findNextButton = new QPushButton(tr("Find Next"), this);
     d->findNextButton->setToolTip(tr("Find next"));
     d->findNextButton->setCheckable(false);
     d->findNextButton->setFlat(false);
@@ -145,19 +143,17 @@ FindReplace::FindReplace(QPlainTextEdit *editor, QWidget *parent)
 
     d->statusLabel = new QLabel();
 
-    QPushButton *closeButton = new QPushButton(QChar(fa::timescircle), this);
-    closeButton->setObjectName("findReplaceCloseButton");
-        
-    this->connect(closeButton,
-        &QPushButton::clicked,
-        [d]() {
-            d->closeFindReplace();
-        }
-    );
+    d->closeButton = new QPushButton(tr("Close"), this);
+    d->closeButton->setToolTip(tr("Close"));
+    d->closeButton->setObjectName("findReplaceCloseButton");
+
+    this->connect(d->closeButton, &QPushButton::clicked, [d]() {
+        d->closeFindReplace();
+    });
 
     d->layout = new QGridLayout();
 
-    d->layout->addWidget(closeButton, 0, 0, 1, 1, Qt::AlignLeft | Qt::AlignTop);
+    d->layout->addWidget(d->closeButton, 0, 0, 1, 1, Qt::AlignLeft | Qt::AlignTop);
     d->layout->addWidget(d->matchCaseButton, 0, 1, 1, 1, Qt::AlignLeft);
     d->layout->addWidget(d->wholeWordButton, 0, 2, 1, 1, Qt::AlignLeft);
     d->layout->addWidget(d->regularExpressionButton, 0, 3, 1, 1, Qt::AlignLeft);
@@ -222,6 +218,78 @@ FindReplace::~FindReplace()
     settings.setValue(GW_FIND_REPLACE_WHOLE_WORD, d->wholeWordButton->isChecked());
     settings.setValue(GW_FIND_REPLACE_REGEX, d->regularExpressionButton->isChecked());
     settings.setValue(GW_FIND_REPLACE_HIGHLIGHT_MATCHES, d->highlightMatchesButton->isChecked());
+}
+
+void FindReplace::setRegexSearchIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->regularExpressionButton->setText("");
+    d->regularExpressionButton->setIcon(icon);
+}
+
+void FindReplace::setMatchCaseIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->matchCaseButton->setText("");
+    d->matchCaseButton->setIcon(icon);
+}
+
+void FindReplace::setWholeWordIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->wholeWordButton->setText("");
+    d->wholeWordButton->setIcon(icon);
+}
+
+void FindReplace::setHighlightMatchesIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->highlightMatchesButton->setText("");
+    d->highlightMatchesButton->setIcon(icon);
+}
+
+void FindReplace::setFindNextIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->findNextButton->setText("");
+    d->findNextButton->setIcon(icon);
+}
+
+void FindReplace::setFindPreviousIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->findPrevButton->setText("");
+    d->findPrevButton->setIcon(icon);
+}
+
+void FindReplace::setReplaceIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->replaceButton->setText("");
+    d->replaceButton->setIcon(icon);
+}
+
+void FindReplace::setReplaceAllIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->replaceAllButton->setText("");
+    d->replaceAllButton->setIcon(icon);
+}
+
+void FindReplace::setCloseIcon(const QIcon &icon)
+{
+    Q_D(FindReplace);
+
+    d->closeButton->setText("");
+    d->closeButton->setIcon(icon);
 }
 
 bool FindReplace::focusNextPrevChild(bool next)

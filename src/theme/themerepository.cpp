@@ -472,7 +472,7 @@ bool ThemeRepositoryPrivate::loadColor(const QJsonObject &obj, const QString &ke
 {
     QJsonValue value = obj.value(key);
 
-    if (value.isUndefined() || !value.isString() || !QColor::isValidColor(value.toString())) {
+    if (value.isUndefined() || !value.isString() || !QColor::isValidColorName(value.toString())) {
         color = QColor::Invalid;
         return false;
     }

@@ -18,56 +18,13 @@
 #include <QTemporaryFile>
 #include <QVariant>
 
-#include <3rdparty/QtAwesome/QtAwesome.h>
+#include "chromecolors.h"
 #include "stylesheetbuilder.h"
-
+#include "theme/svgicontheme.h"
 
 namespace ghostwriter
 {
-static const QColor InfoColor("#03A9F4");
-static const QColor SuccessColor("#4CAF50");
-static const QColor WarningColor("#FFEB3B");
-static const QColor ErrorColor("#F44336");
-
-/**
- * Returns the luminance of a color on a scale of 0.0 (dark) to
- * 1.0 (light).  Luminance is based on how light or dark a color
- * appears to the human eye.
- */
-static double luminance(const QColor &color);
-
-/**
- * Returns the contrast ratio between two colors.
- */
-static double contrast(const QColor &rgb1, const QColor &rgb2);
-
-/**
- * Returns a new color based on the foreground color, such that the new color
- * is lightened or darkened to achieve the desired contrast ratio against the
- * given background color.
- */
-static QColor shadeToContrastRatio
-(
-    const QColor &foreground,
-    const QColor &background,
-    double contrastRatio
-);
-
-/**
- * Returns a mix of two colors.  The weight is a percentage (0-100) of color1
- * that will be used.  In other words, a weight of more 50% indicates that more
- * of color1 will be used, and a weight of less than 50% indicates that more of
- * color2 will be used.  The default weight is 50%, which indicates that equal
- * amounts of both colors will be used.
- */
-static QColor mix
-(
-    const QColor &color1,
-    const QColor &color2,
-    int weight = 50
-);
-
-/**
+/*
  * Returns the font family name of the given font with bracketed text removed.
  */
 static QString sanitizeFontFamily(const QFont &font)
@@ -79,16 +36,15 @@ static QString sanitizeFontFamily(const QFont &font)
 
 QString StyleSheetBuilder::m_statIndicatorArrowIconPath = QString();
 
-StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
-        const bool roundedCorners,
-        const QFont &editorFont,
-        const QFont &previewTextFont,
-        const QFont &previewCodeFont)
+StyleSheetBuilder::StyleSheetBuilder(const ChromeColors &colors,
+                                     const SvgIconTheme *iconTheme,
+                                     const bool roundedCorners,
+                                     const QFont &editorFont,
+                                     const QFont &previewTextFont,
+                                     const QFont &previewCodeFont)
 {
     QString styleSheet;
     QTextStream stream(&styleSheet);
-
-    bool lightMode = (luminance(colors.background) > luminance(colors.foreground));
 
     m_styleSheetVariables["$editor-font-family"] = sanitizeFontFamily(editorFont);
     m_styleSheetVariables["$body-font-family"] = sanitizeFontFamily(previewTextFont);
@@ -105,120 +61,41 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
         m_styleSheetVariables["$default-border-radius"] = "0";
     }
 
-    m_styleSheetVariables["$background-color"] = colors.background;
-    m_styleSheetVariables["$accent-color"] = colors.link;
-    m_styleSheetVariables["$accent-fill-color"] = mix(colors.link, colors.background, 25);
-    m_styleSheetVariables["$label-color"] = colors.foreground;
-    m_styleSheetVariables["$text-color"] = colors.foreground;
-
-    m_styleSheetVariables["$selected-text-fg-color"] = colors.foreground;
-    m_styleSheetVariables["$selected-text-bg-color"] = colors.selection;
-
-    m_styleSheetVariables["$link-color"] = colors.link.name();
-    m_styleSheetVariables["$heading-color"] = colors.headingText;
-    m_styleSheetVariables["$code-color"] = colors.codeText;
-    m_styleSheetVariables["$block-quote-color"] = colors.blockquoteText;
-    m_styleSheetVariables["$separator-color"] = colors.emphasisMarkup;
-
-    m_styleSheetVariables["$info-color"] = mix(InfoColor, colors.foreground, 85);
-    m_styleSheetVariables["$info-fill-color"] = mix(InfoColor, colors.background, 25);
-    m_styleSheetVariables["$error-color"] = mix(ErrorColor, colors.foreground, 85);
-    m_styleSheetVariables["$error-fill-color"] = mix(ErrorColor, colors.background, 25);
-    m_styleSheetVariables["$warning-color"] = mix(WarningColor, colors.foreground, 85);
-    m_styleSheetVariables["$warning-fill-color"] = mix(WarningColor, colors.background, 25);
-    m_styleSheetVariables["$success-color"] = mix(SuccessColor, colors.foreground, 85);
-    m_styleSheetVariables["$success-fill-color"] = mix(SuccessColor, colors.background, 25);
-
-    QColor chromeColor;
-    QColor selectedFgColor = colors.foreground;
-
-    // If light mode color scheme...
-    if (lightMode) {
-
-        // Slightly blend the new UI chrome color with the editor background
-        // color to help it match better.
-        //
-        chromeColor = mix(chromeColor, colors.background, 86);
-
-        // Create a UI chrome color based on a lightened editor text color,
-        // such that the new color achieves a lower contrast ratio.
-        //
-        chromeColor =
-            shadeToContrastRatio(
-                colors.foreground,
-                colors.background,
-                4.5
-            );
-        m_styleSheetVariables["$fill-color"] = shadeToContrastRatio(colors.background, chromeColor, 3.0);
-
-        // If the text selection background color is very dark, then make the
-        // text selection foreground color light to ensure sufficient contrast.
-        //
-        if (luminance(colors.selection) < 0.5) {
-            selectedFgColor = colors.background;
-        }        
-    }
-    // Else if the dark mode color scheme...
-    else {
-        chromeColor =
-            shadeToContrastRatio(
-                colors.foreground,
-                colors.background,
-                5.5
-            );
-        m_styleSheetVariables["$fill-color"] = shadeToContrastRatio(colors.background, chromeColor, 4.5);
-
-        // If the text selection background color is very light, then make sure
-        // the text selection foreground color is dark to ensure sufficient
-        // contrast.
-        //
-        if (luminance(colors.selection) >= 0.5) {
-            selectedFgColor = colors.background;
-        }
-    }
-
-    m_styleSheetVariables["$secondary-background-color"] = mix(chromeColor, colors.background, 5);
-    m_styleSheetVariables["$secondary-fill-color"] = mix(chromeColor, colors.background, 40);
-    m_styleSheetVariables["$tertiary-fill-color"] = mix(chromeColor, colors.background, 10);
-    m_styleSheetVariables["$secondary-label-color"] = chromeColor;
-    m_styleSheetVariables["$placeholder-text-color"] = colors.foreground;
-    m_styleSheetVariables["$selection-fg-color"] = selectedFgColor;
-    m_styleSheetVariables["$secondary-separator-color"] = mix(chromeColor, colors.background, 20);
-    m_styleSheetVariables["$grid-color"] = mix(chromeColor, colors.background, 20);
-
-    for (QString key : m_styleSheetVariables.keys()) {
-        if (key.endsWith("-color")) {
-            QColor baseColor = m_styleSheetVariables.value(key).value<QColor>();
-
-            if (lightMode) {
-                m_styleSheetVariables[key + "-pressed"] = baseColor.darker(107);
-                m_styleSheetVariables[key + "-active"] = baseColor.darker(103);
-                m_styleSheetVariables[key + "-hover"] = baseColor.lighter(103);
-
-                if (key.endsWith("fill-color")) {
-                    m_styleSheetVariables[key + "-disabled"] = baseColor.lighter(105);
-                } else {
-                    m_styleSheetVariables[key + "-disabled"] = baseColor.lighter(125);
-                }
-            } else {
-                m_styleSheetVariables[key + "-pressed"] = baseColor.darker(120);
-                m_styleSheetVariables[key + "-active"] = baseColor.darker(110);
-                m_styleSheetVariables[key + "-hover"] = baseColor.lighter(150);
-                m_styleSheetVariables[key + "-disabled"] = baseColor.darker(200);
-            }
-        }
-    }
+    addColor(colors, "$background-color", ChromeColors::Background);
+    addColor(colors, "$accent-color", ChromeColors::Accent);
+    addColor(colors, "$accent-fill-color", ChromeColors::AccentFill);
+    addColor(colors, "$label-color", ChromeColors::Label);
+    addColor(colors, "$secondary-label-color", ChromeColors::SecondaryLabel);
+    addColor(colors, "$text-color", ChromeColors::Text);
+    addColor(colors, "$selected-text-fg-color", ChromeColors::SelectedTextFg);
+    addColor(colors, "$selected-text-bg-color", ChromeColors::SelectedTextBg);
+    addColor(colors, "$selection-fg-color", ChromeColors::SelectionFg);
+    addColor(colors, "$placeholder-text-color", ChromeColors::PlaceholderText);
+    addColor(colors, "$link-color", ChromeColors::Link);
+    addColor(colors, "$heading-color", ChromeColors::Heading);
+    addColor(colors, "$code-color", ChromeColors::Code);
+    addColor(colors, "$block-quote-color", ChromeColors::BlockQuote);
+    addColor(colors, "$separator-color", ChromeColors::Separator);
+    addColor(colors, "$secondary-separator-color", ChromeColors::SecondarySeparator);
+    addColor(colors, "$grid-color", ChromeColors::Grid);
+    addColor(colors, "$info-color", ChromeColors::Info);
+    addColor(colors, "$info-fill-color", ChromeColors::InfoFill);
+    addColor(colors, "$error-color", ChromeColors::Error);
+    addColor(colors, "$error-fill-color", ChromeColors::ErrorFill);
+    addColor(colors, "$warning-color", ChromeColors::Warning);
+    addColor(colors, "$warning-fill-color", ChromeColors::WarningFill);
+    addColor(colors, "$success-color", ChromeColors::Success);
+    addColor(colors, "$success-fill-color", ChromeColors::SuccessFill);
+    addColor(colors, "$fill-color", ChromeColors::Fill);
+    addColor(colors, "$secondary-fill-color", ChromeColors::SecondaryFill);
+    addColor(colors, "$tertiary-fill-color", ChromeColors::TertiaryFill);
+    addColor(colors, "$secondary-background-color", ChromeColors::SecondaryBackground);
 
     // Remove previous cache/temporary files.
     clearCache();
 
     // Refresh statistics indicator drop-down arrow icon.
-    this->m_awesome = new QtAwesome();
-    this->m_awesome->initFontAwesome();
-
-    QVariantMap options;
-    options.insert("color", chromeColor);
-    QIcon statIndicatorIcon = this->m_awesome->icon(style::stfas, fa::chevroncircleup, options);
+    QIcon statIndicatorIcon = iconTheme->icon("status-bar-menu-arrow");
 
     QTemporaryFile tempIconFile(QDir::tempPath() + "/XXXXXX.png");
     tempIconFile.setAutoRemove(false);
@@ -234,10 +111,7 @@ StyleSheetBuilder::StyleSheetBuilder(const ColorScheme &colors,
 
 StyleSheetBuilder::~StyleSheetBuilder()
 {
-    if (nullptr != this->m_awesome) {
-        delete this->m_awesome;
-        this->m_awesome = nullptr;
-    }
+    ;
 }
 
 void StyleSheetBuilder::clearCache()
@@ -254,7 +128,13 @@ void StyleSheetBuilder::clearCache()
 
 QString StyleSheetBuilder::widgetStyleSheet()
 {
-    return compileStyleSheet(":/resources/widgets.qss");
+    QString styleSheet = compileStyleSheet(":/resources/widgets.qss");
+    QFile styleSheetFile("widgets.qss");
+    styleSheetFile.open(QIODevice::WriteOnly | QIODevice::Text);
+    QTextStream stream(&styleSheetFile);
+    stream << styleSheet;
+    styleSheetFile.close();
+    return styleSheet;
 }
 
 QString StyleSheetBuilder::htmlPreviewStyleSheet()
@@ -353,134 +233,19 @@ QString StyleSheetBuilder::compileStyleSheet(const QString &path) const
     return compiled;
 }
 
-double channelLuminance(const float colorChannel)
+void StyleSheetBuilder::addColor(const ChromeColors &colors, const QString &variableName, ChromeColors::ColorElem elem)
 {
-    double result;
+    m_styleSheetVariables[variableName] = colors.color(elem);
+    m_styleSheetVariables[variableName + "-pressed"] = colors.color(elem, ChromeColors::PressedState);
+    m_styleSheetVariables[variableName + "-active"] = colors.color(elem, ChromeColors::ActiveState);
+    m_styleSheetVariables[variableName + "-hover"] = colors.color(elem, ChromeColors::HoverState);
+    m_styleSheetVariables[variableName + "-disabled"] = colors.color(elem, ChromeColors::DisabledState);
 
-    if (colorChannel <= 0.03928) {
-        result = colorChannel / 12.92;
+    if (variableName.endsWith("fill-color")) {
+        m_styleSheetVariables[variableName + "-disabled"] = colors.color(elem).lighter(105);
     } else {
-        result = pow((colorChannel + 0.055) / 1.055, 2.4);
+        m_styleSheetVariables[variableName + "-disabled"] = colors.color(elem).lighter(125);
     }
-
-    return result;
-}
-
-double luminance(const QColor &color)
-{
-    double r, g, b;
-
-    // // Ensure color is non-zero.
-    // if (c == QColor(Qt::black)) {
-    //     c.setRgb(1, 1, 1);
-    // }
-
-    r = channelLuminance(color.redF());
-    g = channelLuminance(color.greenF());
-    b = channelLuminance(color.blueF());
-
-    return (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
-}
-
-double contrast(const QColor &rgb1, const QColor &rgb2)
-{
-    double lum1 = luminance(rgb1);
-    double lum2 = luminance(rgb2);
-    double brightest = lum2;
-    double darkest = lum1;
-
-    if (lum1 > lum2) {
-        brightest = lum1;
-        darkest = lum2;
-    }
-
-    return (brightest + 0.05) / (darkest + 0.05);
-}
-
-QColor shadeToContrastRatio
-(
-    const QColor &foreground,
-    const QColor &background,
-    double contrastRatio
-)
-{
-    double fgBrightness = luminance(foreground);
-    double bgBrightness = luminance(background);
-    int step = 64;
-    
-    // If the foreground color is brighter than the background color,
-    // then set the HSV brightness step value to go darker rather than
-    // lighter.
-    //
-    if (fgBrightness > bgBrightness) {
-        step = -step;
-    }
-
-    QColor result = foreground;
-    double actualContrastRatio = contrast(foreground, background);
-
-    while ((actualContrastRatio > contrastRatio) 
-            && (((step > 0) && (result.value() <= (255 - step)))
-                || ((step < 0) && (result.value() >= -step)))) {
-        result.setHsv(result.hue(), result.saturation(),
-            result.value() + step);
-        actualContrastRatio = contrast(result, background);
-
-        if (actualContrastRatio < contrastRatio) {
-            // Oops!  Went too far!  Back up a step!
-            result.setHsv(result.hue(), result.saturation(),
-                result.value() - step);
-            actualContrastRatio = contrast(result, background);
-            
-            // Make smaller steps toward target ratio from here.
-            if (abs(step) > 1) {
-                step /= 2;
-            }
-            else {
-                // Can't go any further. Done!
-                break;
-            }
-        }
-    }
-
-    return result;
-}
-
-/**
- * Returns a mix of the two channel colors, with the first color parameter
- * weighted by the given value (0.0-1.0).
- */
-static inline int mixColorChannel(int c1, int c2, double weight)
-{
-    return (int)((c1 * weight) + (c2 * (1.0 - weight)));
-}
-
-QColor mix
-(
-    const QColor &color1,
-    const QColor &color2,
-    int weight
-)
-{
-    if ((weight < 0) || weight > 100) {
-        qCritical() << "mix(): weight value must be between 0 and 100."
-                    << "Value provided:" << weight;
-
-        if (weight < 0) {
-            weight = 0;
-        } else {
-            weight = 100;
-        }
-    }
-
-    QColor blendedColor(0, 0, 0);
-    double normalizedWeight = ((double) weight) / 100.0;
-
-    blendedColor.setRed(mixColorChannel(color1.red(), color2.red(), normalizedWeight));
-    blendedColor.setGreen(mixColorChannel(color1.green(), color2.green(), normalizedWeight));
-    blendedColor.setBlue(mixColorChannel(color1.blue(), color2.blue(), normalizedWeight));
-
-    return blendedColor;
 }
 
 } // namespace ghostwriter

@@ -12,6 +12,7 @@
 #include <QScopedPointer>
 #include <QString>
 
+#include "chromecolors.h"
 #include <editor/colorscheme.h>
 
 namespace ghostwriter
@@ -22,8 +23,6 @@ namespace ghostwriter
 class ThemePrivate;
 class Theme
 {
-    Q_DECLARE_PRIVATE(Theme)
-
 public:
     /**
      * Constructor.
@@ -116,9 +115,18 @@ public:
      */
     void setLightColorScheme(const ColorScheme &colors);
 
-private:
-    QScopedPointer<ThemePrivate> d_ptr;
+    /**
+     * Returns UI chrome colors derived from the light mode color scheme.
+     */
+    const ChromeColors lightChromeColors() const;
 
+    /**
+     * Returns UI chrome colors derived from the dark mode color scheme.
+     */
+    const ChromeColors darkChromeColors() const;
+
+private:
+    QScopedPointer<ThemePrivate> d;
 };
 } // namespace ghostwriter
 

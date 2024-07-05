@@ -436,7 +436,7 @@ QString MarkdownNode::toString(NodeType nodeType) const
     case MarkdownNode::FootnoteReference:
         return "FootnoteReference";
     default:
-        return QString("%1").arg(static_cast<std::uint32_t>(nodeType));
+        return QString("Unknown (%1)").arg(int(nodeType));
     }
 }
 } // namespace ghostwriter

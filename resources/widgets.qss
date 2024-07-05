@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2022-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,65 +8,117 @@
 /*  Scrollbars                                                                */
 /******************************************************************************/
 
-QMainWindow QAbstractScrollArea::corner {
+ghostwriter--MarkdownEditor QAbstractScrollArea::corner,
+ghostwriter--HtmlPreview QAbstractScrollArea::corner,
+ghostwriter--Sidebar QAbstractScrollArea::corner {
     background: transparent;
 }
 
-QMainWindow QAbstractScrollArea {
+ghostwriter--MarkdownEditor QAbstractScrollArea,
+ghostwriter--HtmlPreview QAbstractScrollArea,
+ghostwriter--Sidebar QAbstractScrollArea {
     padding: 3px 3px 0px 3px;
     margin: 0
 }
 
-QMainWindow QScrollBar::horizontal,
-QMainWindow QScrollBar::vertical {
+ghostwriter--Sidebar MarkdownEditor::horizontal,
+ghostwriter--Sidebar HtmlPreview::horizontal,
+ghostwriter--Sidebar QScrollBar::horizontal {
+    height: 16px;
     margin: 5px;
     border: 0;
     background: transparent;
 }
 
-QMainWindow QScrollBar::horizontal {
-    height: 16px;
-}
-
-QMainWindow QScrollBar::vertical {
+ghostwriter--MarkdownEditor QScrollBar::vertical,
+ghostwriter--HtmlPreview QScrollBar::vertical,
+ghostwriter--Sidebar QScrollBar::vertical {
     width: 16px;
+    margin: 5px;
+    border: 0;
+    background: transparent;
 }
 
-QMainWindow QScrollBar::horizontal:hover,
-QMainWindow QScrollBar::vertical:hover {
+
+ghostwriter--MarkdownEditor QScrollBar::horizontal:hover,
+ghostwriter--HtmlPreview QScrollBar::horizontal:hover,
+ghostwriter--Sidebar QScrollBar::horizontal:hover {
     background-color: $tertiary-fill-color;
     border-radius: $scrollbar-border-radius;
 }
 
-QMainWindow QScrollBar::handle:horizontal,
-QMainWindow QScrollBar::handle:vertical {
+ghostwriter--MarkdownEditor QScrollBar::vertical:hover,
+ghostwriter--HtmlPreview QScrollBar::vertical:hover,
+ghostwriter--Sidebar QScrollBar::vertical:hover {
+    background-color: $tertiary-fill-color;
+    border-radius: $scrollbar-border-radius;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:horizontal,
+ghostwriter--HtmlPreview QScrollBar::handle:horizontal,
+ghostwriter--Sidebar QScrollBar::handle:horizontal {
+    min-width: 50px;
+    border: 0;
+    background: $secondary-fill-color;
+    border-radius: $scrollbar-border-radius;
+
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:horizontal,
+ghostwriter--HtmlPreview QScrollBar::handle:horizontal,
+ghostwriter--Sidebar QScrollBar::handle:horizontal {
+    min-width: 50px;
     border: 0;
     background: $secondary-fill-color;
     border-radius: $scrollbar-border-radius;
 }
 
-QMainWindow QScrollBar::handle:horizontal {
-    min-width: 50px;
-}
-
-QMainWindow QScrollBar::handle:vertical {
+ghostwriter--MarkdownEditor QScrollBar::handle:vertical,
+ghostwriter--HtmlPreview QScrollBar::handle:vertical,
+ghostwriter--Sidebar QScrollBar::handle:vertical {
     min-height: 50px;
+    border: 0;
+    background: $secondary-fill-color;
+    border-radius: $scrollbar-border-radius;
 }
 
-QMainWindow QScrollBar::handle:horizontal:hover,
-QMainWindow QScrollBar::handle:vertical:hover {
+ghostwriter--MarkdownEditor QScrollBar::handle:horizontal:hover,
+ghostwriter--HtmlPreview QScrollBar::handle:horizontal:hover,
+ghostwriter--Sidebar QScrollBar::handle:horizontal:hover {
     background: $accent-color;
 }
 
-QMainWindow QScrollBar::add-line,
-QMainWindow QScrollBar::sub-line,
-QMainWindow QScrollBar::add-page,
-QMainWindow QScrollBar::sub-page,
-QMainWindow QScrollBar::down-arrow,
-QMainWindow QScrollBar::right-arrow {
+ghostwriter--MarkdownEditor QScrollBar::handle:vertical:hover,
+ghostwriter--HtmlPreview QScrollBar::handle:vertical:hover,
+ghostwriter--Sidebar QScrollBar::handle:vertical:hover {
+    background: $accent-color;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::add-line,
+ghostwriter--HtmlPreview QScrollBar::add-line,
+ghostwriter--Sidebar QScrollBar::add-line,
+ghostwriter--MarkdownEditor QScrollBar::sub-line,
+ghostwriter--HtmlPreview QScrollBar::sub-line,
+ghostwriter--Sidebar QScrollBar::sub-line,
+ghostwriter--MarkdownEditor QScrollBar::add-page,
+ghostwriter--HtmlPreview QScrollBar::add-page,
+ghostwriter--Sidebar QScrollBar::add-page,
+ghostwriter--MarkdownEditor QScrollBar::sub-page,
+ghostwriter--HtmlPreview QScrollBar::sub-page,
+ghostwriter--Sidebar QScrollBar::sub-page,
+ghostwriter--MarkdownEditor QScrollBar::down-arrow,
+ghostwriter--HtmlPreview QScrollBar::down-arrow,
+ghostwriter--Sidebar QScrollBar::down-arrow,
+ghostwriter--MarkdownEditor QScrollBar::right-arrow,
+ghostwriter--HtmlPreview QScrollBar::right-arrow,
+ghostwriter--Sidebar QScrollBar::right-arrow {
     background: transparent;
     border: 0
 }
+
+/******************************************************************************/
+/*  Menu Bar                                                                  */
+/******************************************************************************/
 
 QMainWindow QMenuBar {
     color: $label-color;
@@ -115,13 +167,59 @@ QMainWindow QMenu::item,
 QMenuBar QMenu::item {
     background-color: transparent;
     padding: 5px 10px 5px 10px;
-    margin: 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+QMainWindow QMenu::indicator,
+QMenuBar QMenu::indicator {
+    width: 16px;
+    height: 16px;
+    background-color: $fill-color;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+QMainWindow QMenu::indicator::unchecked,
+QMenuBar QMenu::indicator::unchecked {
+    width: 16px;
+    height: 16px;
+    background-color: $fill-color;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $label-color;
+    margin: 0px 5px 0px 5px;
+}
+
+QMainWindow QMenu::indicator::checked,
+QMenuBar QMenu::indicator::checked {
+    width: 16px;
+    height: 16px;
+    background-color: $selected-text-bg-color;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $selected-text-fg-color;
+    margin: 0px 5px 0px 5px;
 }
 
 QMainWindow QMenu::item:selected,
 QMenuBar QMenu::item::selected {
     background-color: $selected-text-bg-color;
     color: $selected-text-fg-color;
+}
+
+QMainWindow QMenu::icon,
+QMenuBar QMenu::icon {
+    border-radius: 2px;
+    border-width: 0px;
+    padding: 1px 3px 1px 3px;
+    margin: 0px 3px 0px 3px;
+}
+
+QMainWindow QMenu::icon::checked,
+QMenuBar QMenu::icon::checked {
+    background-color: $fill-color-hover;
 }
 
 /******************************************************************************/
@@ -193,20 +291,15 @@ ghostwriter--Sidebar QPushButton[checkable="true"] {
     border-style: solid;
     border-color: transparent;
     border-radius: 0px;
-    font-size: 16px;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Font Awesome Solid */
-}
-
-/* Cheat Sheet activity bar tab's icon uses a different font. */
-ghostwriter--Sidebar #cheatSheetTab {
-    font-family: "Font Awesome 5 Brands";
-    font-weight: 400; /* Font Awesome Brands (Regular) */
 }
 
 ghostwriter--Sidebar QPushButton:checked {
     border-color: $accent-color;
     color: $label-color;
+    background-color: $tertiary-fill-color;
+}
+
+ghostwriter--Sidebar QPushButton:hover {
     background-color: $tertiary-fill-color;
 }
 
@@ -227,17 +320,16 @@ ghostwriter--Sidebar QPushButton[checkable="false"] {
     color: $secondary-label-color;
     width: 40px;
     height: 40px;
-    font-size: 16px;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Font Awesome Solid */
 }
 
-ghostwriter--Sidebar QPushButton:hover {
+ghostwriter--Sidebar QPushButton[checkable="false"]:hover {
     color: $label-color;
+    background-color: $tertiary-fill-color;
 }
 
-ghostwriter--Sidebar QPushButton:pressed {
-    color: $label-color-pressed;
+ghostwriter--Sidebar QPushButton[checkable="false"]:pressed {
+    color: $label-color;
+    background-color: transparent;
 }
 
 /* Stacked widgets inside sidebar pane */
@@ -300,7 +392,7 @@ QStatusBar QLabel {
     color: $secondary-label-color;
 }
 
-QStatusBar QPushButton {
+QStatusBar QToolButton {
     padding: 5 5 5 5;
     margin: 0;
     border: 0;
@@ -310,41 +402,22 @@ QStatusBar QPushButton {
     font-size: 16px;
     width: 32px;
     height: 16px;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Font Awesome Solid */
 }
 
-QStatusBar QPushButton:hover,
-QStatusBar QPushButton:checked:hover {
+QStatusBar QToolButton:hover,
+QStatusBar QToolButton:checked:hover {
     background-color: $fill-color-hover;
 }
 
-QStatusBar QPushButton:pressed,
-QStatusBar QPushButton:checked:pressed {
+QStatusBar QToolButton:pressed,
+QStatusBar QToolButton:checked:pressed {
     color: $secondary-label-color-pressed;
     background-color: $fill-color-pressed;
 }
 
-QStatusBar QPushButton:flat,
-        QStatusBar QPushButton:checked {
+QStatusBar QToolButton:flat,
+QStatusBar QToolButton:checked {
     background-color: $fill-color;
-}
-
-QStatusBar QPushButton#showSidebarButton {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Font Awesome Solid */
-    font-size: 16px;
-    background-color: transparent;
-}
-
-QStatusBar QPushButton#showSidebarButton:hover {
-    color: $label-color-hover;
-    background-color: transparent;
-}
-
-QStatusBar QPushButton#showSidebarButton:pressed {
-    color: $label-color-pressed;
-    background-color: transparent;
 }
 
 QStatusBar QComboBox {
@@ -451,9 +524,6 @@ ghostwriter--FindReplace QPushButton:disabled {
 ghostwriter--FindReplace QPushButton[checkable="true"] {
     color: $secondary-label-color;
     background-color: transparent;
-    font-size: 16px;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Font Awesome Solid */
     min-width: 32px;
     height: 16px;
 }
@@ -517,9 +587,7 @@ ghostwriter--FindReplace QPushButton#replaceAllButton {
 ghostwriter--FindReplace QPushButton#findReplaceCloseButton {
     padding: 0;
     margin: 0;
-    font-size: 14px;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900; /* Font Awesome Solid */
+    icon-size: 16px;
 }
 
 ghostwriter--FindReplace QLineEdit {

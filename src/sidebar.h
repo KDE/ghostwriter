@@ -49,12 +49,7 @@ public:
      * different style needs to be applied to the tab (such as the font of the
      * glyph icon) from the other tabs within the style sheet.
      */
-    void addTab(
-        const QChar &glyphIcon,
-        QWidget *widget,
-        const QString &tooltip = QString(),
-        const QString &objectName = QString()
-    );
+    void addTab(const QIcon &icon, QWidget *widget, const QString &tooltip = QString(), const QString &objectName = QString());
 
     /**
      * Inserts a new tab at the given tab index with the given glyph icon
@@ -66,13 +61,7 @@ public:
      * different style needs to be applied to the tab (such as the font of the
      * glyph icon) from the other tabs within the style sheet.
      */
-    void insertTab(
-        int index,
-        const QChar &glyphIcon,
-        QWidget *widget,
-        const QString &tooltip = QString(),
-        const QString &objectName = QString()
-    );
+    void insertTab(int index, const QIcon &icon, QWidget *widget, const QString &tooltip = QString(), const QString &objectName = QString());
 
     /**
      * Removes the tab and its corresponding widget at the given index.
@@ -96,11 +85,7 @@ public:
      * different style needs to be applied to the button (such as the font of
      * the glyph icon) from the other buttons within the style sheet.
      */
-    QPushButton *addButton(
-        const QChar &glyphIcon,
-        const QString &tooltip = QString(),
-        const QString &objectName = QString()
-    );
+    QPushButton *addButton(const QIcon &icon, const QString &tooltip = QString(), const QString &objectName = QString());
 
     /**
      * Inserts an action button with the given glyph icon at the given index at
@@ -112,12 +97,7 @@ public:
      * different style needs to be applied to the button (such as the font of
      * the glyph icon) from the other buttons within the style sheet.
      */
-    QPushButton *insertButton(
-        int index,
-        const QChar &glyphIcon,
-        const QString &tooltip = QString(),
-        const QString &objectName = QString()
-    );
+    QPushButton *insertButton(int index, const QIcon &icon, const QString &tooltip = QString(), const QString &objectName = QString());
 
     /**
      * Removes the action button at the given button index from the button

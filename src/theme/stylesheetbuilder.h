@@ -10,8 +10,8 @@
 #include <QFont>
 #include <QString>
 
-#include <3rdparty/QtAwesome/QtAwesome.h>
-#include <editor/colorscheme.h>
+#include "chromecolors.h"
+#include "svgicontheme.h"
 
 namespace ghostwriter
 {
@@ -141,11 +141,12 @@ public:
     /**
      * Constructor.
      */
-    StyleSheetBuilder(const ColorScheme &colors,
-        const bool roundedCorners,
-        const QFont &editorFont,
-        const QFont& previewTextFont,
-        const QFont& previewCodeFont);
+    StyleSheetBuilder(const ChromeColors &colors,
+                      const SvgIconTheme *iconTheme,
+                      const bool roundedCorners,
+                      const QFont &editorFont,
+                      const QFont &previewTextFont,
+                      const QFont &previewCodeFont);
 
     /**
      * Destructor.
@@ -171,11 +172,11 @@ public:
 private:
     static QString m_statIndicatorArrowIconPath;
 
-    QtAwesome *m_awesome;
     QMap<QString, QVariant> m_styleSheetVariables;
 
     QString stringValueOf(const QString &variableName) const;
     QString compileStyleSheet(const QString &path) const;
+    void addColor(const ChromeColors &colors, const QString &variableName, ChromeColors::ColorElem elem);
 };
 } // namespace ghostwriter
 

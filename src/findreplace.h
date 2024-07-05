@@ -35,6 +35,16 @@ public:
      */
     ~FindReplace();
 
+    void setRegexSearchIcon(const QIcon &icon);
+    void setMatchCaseIcon(const QIcon &icon);
+    void setWholeWordIcon(const QIcon &icon);
+    void setHighlightMatchesIcon(const QIcon &icon);
+    void setFindNextIcon(const QIcon &icon);
+    void setFindPreviousIcon(const QIcon &icon);
+    void setReplaceIcon(const QIcon &icon);
+    void setReplaceAllIcon(const QIcon &icon);
+    void setCloseIcon(const QIcon &icon);
+
     /**
      * PRIVATE USE ONLY.
      * 

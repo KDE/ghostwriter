@@ -14,11 +14,11 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QtWebEngineWidgets>
 #else
-#include <QWebEngineView>
+#include <QtWebEngineWidgets/QWebEngineView>
 #endif
 
-#include <export/exporter.h>
-#include <editor/markdowndocument.h>
+#include "editor/markdowndocument.h"
+#include "export/exporter.h"
 
 namespace ghostwriter
 {

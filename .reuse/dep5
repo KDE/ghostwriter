@@ -1,27 +1,33 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ghostwriter
 Upstream-Contact: Megan Conkle <megan.conkle@kdemail.net>
-Source: https://github.com/wereturtle/ghostwriter
+Source: https://invent.kde.org/office/ghostwriter
 
-Files: translations/*
-       .github/*.md
+Files: .github/*.md
        .release-it.json
        *.md
        autotest/README.md
-       debian/*
        resources/*
 Copyright: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+           2022-present KDE
 License: GPL-3.0-or-later
 
 Files: translations/*
 Copyright: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+           2022-present KDE
 License: GPL-3.0-or-later
 
-Files: resources/icons/*
+Files: resources/icons/*ghostwriter.png
+       resources/icons/sc-apps-ghostwriter.svg
        resources/windows/ghostwriter.ico
        resources/mac/ghostwriter.icns
 Copyright: Megan Conkle <megan.conkle@kdemail.net>
 License: CC-BY-SA-4.0
+
+Files: resources/icons/kdeapp.svg
+Copyright: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+           2022-present KDE
+License: LGPL-3.0-or-later
 
 Files: 3rdparty/MathJax/*
 Copyright: 2018 The MathJax Consortium
@@ -48,14 +54,76 @@ Files: 3rdparty/cmark-gfm/test/*
 Copyright: 2014 John MacFarlane
 License: BSD-2-Clause
 
-Files: 3rdparty/QtAwesome/*
-Copyright: 2013-2019 Reliable Bits Software by Blommers IT
-Author: Rick Blommers <rick@blommersit.nl>
-License: MIT
-
-Files: 3rdparty/QtAwesome/fonts/*
+Files: icons/block-quote.svg
+       icons/bug-report.svg
+       icons/cheat-sheet.svg
+       icons/checkbox-checked.svg
+       icons/checkbox-unchecked.svg
+       icons/clear.svg
+       icons/close.svg
+       icons/comment.svg
+       icons/copy.svg
+       icons/cut.svg
+       icons/dark-mode.svg
+       icons/distraction-free-mode.svg
+       icons/document-statistics.svg
+       icons/documentation.svg
+       icons/donate.svg
+       icons/emphasis.svg
+       icons/exclamation-circle.svg
+       icons/exclamation-triangle.svg
+       icons/export.svg
+       icons/find.svg
+       icons/find-next.svg
+       icons/find-previous.svg
+       icons/font.svg
+       icons/full-screen.svg
+       icons/hemingway-mode.svg
+       icons/highlight-matches.svg
+       icons/indent.svg
+       icons/insert-image.svg
+       icons/language.svg
+       icons/live-preview.svg
+       icons/new-file.svg
+       icons/open-file.svg
+       icons/open-recent.svg
+       icons/ordered-list.svg
+       icons/outline.svg
+       icons/paste.svg
+       icons/preferences.svg
+       icons/reload.svg
+       icons/rename-file.svg
+       icons/revert.svg
+       icons/session-statistics.svg
+       icons/settings.svg
+       icons/spell-check.svg
+       icons/status-bar-menu-arrow.svg
+       icons/strikethrough.svg
+       icons/strong.svg
+       icons/task-complete.svg
+       icons/task-list.svg
+       icons/theme.svg
+       icons/undo.svg
+       icons/unindent.svg
+       icons/unordered-list.svg
+       icons/whats-this.svg
+       icons/whole-word.svg
+       icons/zoom-in.svg
+       icons/zoom-out.svg
 Copyright: Fonticons, Inc. <https://fontawesome.com>
 License: OFL-1.1
+
+Files: icons/code-block.svg
+       icons/deselect.svg
+       icons/find-replace.svg
+       icons/regex-search.svg
+       icons/save.svg
+       icons/save-as.svg
+       icons/select-all.svg
+       icons/show-sidebar.svg
+       icons/whole-word.svg
+Copyright: Google, Inc. <https://google.com>
+License: Apache-2.0
 
 Files: 3rdparty/react/*
 Copyright: 2013-present Facebook, Inc.

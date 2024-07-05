@@ -77,8 +77,7 @@ LocaleDialog::LocaleDialog
                     selectedLanguage = languageCode;
                 }
 
-                if ((LanguageMatch == matchAccuracy)
-                        && (locale.country() == currentLocale.country())) {
+                if ((LanguageMatch == matchAccuracy) && (locale.territory() == currentLocale.territory())) {
                     matchAccuracy = LanguageCountryMatch;
                     selectedLanguage = languageCode;
                 }

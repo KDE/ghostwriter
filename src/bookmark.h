@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -61,6 +61,18 @@ public:
     QDateTime lastRead() const;
 
     /**
+     * Returns true if the bookmark's file permissions is readable, false
+     * otherwise.
+     */
+    bool isReadable() const;
+
+    /**
+     * Returns true if the bookmark's file permissions is writeable, false
+     * otherwise.
+     */
+    bool isWriteable() const;
+
+    /**
      * Returns true if the bookmark's file path exists, false otherwise.
      */
     bool isValid() const;
@@ -86,11 +98,17 @@ public:
      */
     bool operator!=(const Bookmark &other) const;
 
+    /**
+     * Returns a pretty-print formatted string containing both the bookmark's
+     * file path and its cursor position.
+     */
+    QString toString() const;
+
 private:
     QScopedPointer<BookmarkPrivate> d;
 };
 
-typedef QList<Bookmark> Bookmarks;
+typedef QList<Bookmark> BookmarkList;
 
 } // namespace ghostwriter
 

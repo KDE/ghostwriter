@@ -1,10 +1,9 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-
 #include <QApplication>
 #include <QClipboard>
 #include <QDesktopServices>
@@ -14,26 +13,29 @@
 #include <QFont>
 #include <QFontDialog>
 #include <QGridLayout>
+#include <QIODevice>
 #include <QIcon>
 #include <QImageReader>
-#include <QIODevice>
 #include <QLabel>
 #include <QLocale>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QPushButton>
 #include <QScrollBar>
 #include <QSettings>
 #include <QSizePolicy>
 #include <QStatusBar>
+#include <QStyleFactory>
 #include <QTextDocumentFragment>
+#include <QToolButton>
+#include <QWhatsThis>
 
-#include <KAboutApplicationDialog>
 #include <KAboutData>
+#include <KActionCollection>
 #include <KHelpMenu>
-
-#include <3rdparty/QtAwesome/QtAwesome.h>
+#include <KStandardAction>
 
 #include "export/exporter.h"
 #include "export/exporterfactory.h"
@@ -51,8 +53,16 @@
 #include "mainwindow.h"
 #include "messageboxhelper.h"
 
+#define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
+#define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
+#define GW_SPLITTER_GEOMETRY_KEY "Window/splitterGeometry"
+
+#define MAX_RECENT_FILES (AppActions::OpenLeastRecent - AppActions::OpenMostRecent + 1)
+
 namespace ghostwriter
 {
+using namespace std::placeholders;
+
 enum SidebarTabIndex {
     FirstSidebarTab,
     OutlineSidebarTab = FirstSidebarTab,
@@ -62,293 +72,61 @@ enum SidebarTabIndex {
     LastSidebarTab = CheatSheetSidebarTab
 };
 
-#define GW_MAIN_WINDOW_GEOMETRY_KEY "Window/mainWindowGeometry"
-#define GW_MAIN_WINDOW_STATE_KEY "Window/mainWindowState"
-#define GW_SPLITTER_GEOMETRY_KEY "Window/splitterGeometry"
-
 MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     : QMainWindow(parent)
 {
-    QString fileToOpen;
-    this->focusModeEnabled = false;
-    this->awesome = new QtAwesome(qApp);
-    this->awesome->initFontAwesome();
-    this->setObjectName("mainWindow");
-    this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    Bookmark fileToOpen(filePath);
 
+    focusModeEnabled = false;
     appSettings = AppSettings::instance();
 
-    QString themeName = appSettings->themeName();
+    loadTheme();
+    m_actionCollection = new KActionCollection(this);
+    m_actions = new AppActions(actionCollection(), primaryIconTheme, this);
 
-    QString err;
-    ThemeRepository themeRepo(appSettings->themeDirectoryPath());
-    theme = themeRepo.loadTheme(themeName, err);
+    setupGui();
+    setupActions();
 
-    MarkdownDocument *document = new MarkdownDocument();
-
-    editor = new MarkdownEditor(document, theme.lightColorScheme(), this);
-    editor->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
-    editor->setFont(appSettings->editorFont().family(), appSettings->editorFont().pointSize());
-    editor->setUseUnderlineForEmphasis(appSettings->useUnderlineForEmphasis());
-    editor->setEnableLargeHeadingSizes(appSettings->largeHeadingSizesEnabled());
-    editor->setAutoMatchEnabled(appSettings->autoMatchEnabled());
-    editor->setBulletPointCyclingEnabled(appSettings->bulletPointCyclingEnabled());
-    editor->setPlainText("");
-    editor->setEditorWidth((EditorWidth) appSettings->editorWidth());
-    editor->setEditorCorners((InterfaceStyle) appSettings->interfaceStyle());
-    editor->setItalicizeBlockquotes(appSettings->italicizeBlockquotes());
-    editor->setTabulationWidth(appSettings->tabWidth());
-    editor->setInsertSpacesForTabs(appSettings->insertSpacesForTabsEnabled());
-
-    connect(editor,
-        &MarkdownEditor::fontSizeChanged,
-        this,
-        &MainWindow::onFontSizeChanged
-    );
-    this->setFocusProxy(editor);
-
-    spelling = new SpellCheckDecorator(editor);
-    connect(appSettings,
-        &AppSettings::spellCheckSettingsChanged,
-        spelling,
-        &SpellCheckDecorator::settingsChanged
-    );
-
-    buildSidebar();
-
-    documentManager = new DocumentManager(editor, this);
-    documentManager->setAutoSaveEnabled(appSettings->autoSaveEnabled());
-    documentManager->setFileBackupEnabled(appSettings->backupFileEnabled());
-    documentManager->setDraftLocation(appSettings->draftLocation());
-    documentManager->setBackupLocation(appSettings->backupLocation());
-    documentManager->setFileHistoryEnabled(appSettings->fileHistoryEnabled());
     setWindowTitle(documentManager->document()->displayName() + "[*] - " + qAppName());
-    connect(documentManager, SIGNAL(documentDisplayNameChanged(QString)), this, SLOT(changeDocumentDisplayName(QString)));
-    connect(documentManager, SIGNAL(documentModifiedChanged(bool)), this, SLOT(setWindowModified(bool)));
-    connect(documentManager, SIGNAL(operationStarted(QString)), this, SLOT(onOperationStarted(QString)));
-    connect(documentManager, SIGNAL(operationUpdate(QString)), this, SLOT(onOperationStarted(QString)));
-    connect(documentManager, SIGNAL(operationFinished()), this, SLOT(onOperationFinished()));
-    connect(documentManager, SIGNAL(documentClosed()), this, SLOT(refreshRecentFiles()));
 
-    editor->setAutoMatchEnabled('\"', appSettings->autoMatchCharEnabled('\"'));
-    editor->setAutoMatchEnabled('\'', appSettings->autoMatchCharEnabled('\''));
-    editor->setAutoMatchEnabled('(', appSettings->autoMatchCharEnabled('('));
-    editor->setAutoMatchEnabled('[', appSettings->autoMatchCharEnabled('['));
-    editor->setAutoMatchEnabled('{', appSettings->autoMatchCharEnabled('{'));
-    editor->setAutoMatchEnabled('*', appSettings->autoMatchCharEnabled('*'));
-    editor->setAutoMatchEnabled('_', appSettings->autoMatchCharEnabled('_'));
-    editor->setAutoMatchEnabled('`', appSettings->autoMatchCharEnabled('`'));
-    editor->setAutoMatchEnabled('<', appSettings->autoMatchCharEnabled('<'));
-
-    Library library;
-    Bookmarks recentFiles;
-    Bookmark fileBookmark(filePath);
-
-    if (appSettings->fileHistoryEnabled()) {
-        recentFiles = library.recentFiles(MAX_RECENT_FILES + 2);
-
-        if (fileBookmark.isValid()) {
-            recentFiles.removeAll(fileBookmark);
-        }
+    // If the file specified as a command line argument does not exist, then
+    // create it.
+    if (!fileToOpen.isValid() && !fileToOpen.isNull()) {
+        QFile file(fileToOpen.filePath());
+        file.open(QIODevice::WriteOnly);
+        file.close();
     }
 
-    if (!filePath.isNull() && !filePath.isEmpty()) {
-        fileToOpen = filePath;
+    if (appSettings->restoreSessionEnabled()) {
+        if (!fileToOpen.isValid()) {
+            Bookmark lastOpened = Library().lastOpened();
 
-        // If the file passed as a command line argument does not exist, then
-        // create it.
-        if (!QFileInfo(fileToOpen).exists()) {
-            QFile file(fileToOpen);
-            file.open(QIODevice::WriteOnly);
-            file.close();
-        }
-    }
-
-    if (fileToOpen.isNull()
-            && appSettings->fileHistoryEnabled()
-            && appSettings->restoreSessionEnabled()) {
-        QString lastFile;
-
-        if (!recentFiles.isEmpty()) {
-            lastFile = recentFiles.first().filePath();
-        }
-
-        if (!lastFile.isNull()) {
-            fileToOpen = lastFile;
-            recentFiles.removeAll(lastFile);
-        }
-    }
-
-    for (int i = 0; i < MAX_RECENT_FILES; i++) {
-        recentFilesActions[i] = new QAction(this);
-
-        this->connect
-        (
-            recentFilesActions[i],
-            &QAction::triggered,
-            this,
-            [this, i]() {
-
-                if (nullptr != recentFilesActions[i]) {
-                    // Use the action's data for access to the actual file path, since
-                    // KDE Plasma will add a keyboard accelerator to the action's text
-                    // by inserting an ampersand (&) into it.
-                    //
-                    documentManager->open(recentFilesActions[i]->data().toString());
-                    refreshRecentFiles();
-                }
+            if (lastOpened.isValid()) {
+                fileToOpen = lastOpened;
             }
-        );
-
-        if (i < recentFiles.size()) {
-            recentFilesActions[i]->setText(recentFiles.at(i).filePath());
-
-            // Use the action's data for access to the actual file path, since
-            // KDE Plasma will add a keyboard accelerator to the action's text
-            // by inserting an ampersand (&) into it.
-            //
-            recentFilesActions[i]->setData(recentFiles.at(i).filePath());
-
-            recentFilesActions[i]->setVisible(true);
-        } else {
-            recentFilesActions[i]->setVisible(false);
         }
     }
 
-    // Set dimensions for the main window.  This is best done before
-    // building the status bar, so that we can determine whether the full
-    // screen button should be checked.
-    //
-    QSettings windowSettings;
+    connect(appSettings, &AppSettings::autoSaveChanged, documentManager, &DocumentManager::setAutoSaveEnabled);
+    connect(appSettings, &AppSettings::backupFileChanged, documentManager, &DocumentManager::setFileBackupEnabled);
+    connect(appSettings, &AppSettings::backupLocationChanged, documentManager, &DocumentManager::setBackupLocation);
+    connect(appSettings, &AppSettings::focusModeChanged, this, &MainWindow::changeFocusMode);
+    connect(appSettings, &AppSettings::hideMenuBarInFullScreenChanged, this, &MainWindow::toggleHideMenuBarInFullScreen);
+    connect(appSettings, &AppSettings::fileHistoryChanged, this, &MainWindow::toggleFileHistoryEnabled);
+    connect(appSettings, &AppSettings::displayTimeInFullScreenChanged, this, &MainWindow::toggleDisplayTimeInFullScreen);
+    connect(appSettings, &AppSettings::editorWidthChanged, this, &MainWindow::changeEditorWidth);
+    connect(appSettings, &AppSettings::interfaceStyleChanged, this, &MainWindow::changeInterfaceStyle);
+    connect(appSettings, &AppSettings::previewTextFontChanged, this, &MainWindow::applyTheme);
+    connect(appSettings, &AppSettings::previewCodeFontChanged, this, &MainWindow::applyTheme);
 
-    if (windowSettings.contains(GW_MAIN_WINDOW_GEOMETRY_KEY)) {
-        restoreGeometry(windowSettings.value(GW_MAIN_WINDOW_GEOMETRY_KEY).toByteArray());
-        restoreState(windowSettings.value(GW_MAIN_WINDOW_STATE_KEY).toByteArray());
-    } else {
-        this->adjustSize();
-    }
+    connect(documentManager, &DocumentManager::documentLoaded, documentManager, [this]() {
+        sessionStats->startNewSession(documentStats->wordCount());
+        refreshRecentFiles();
+    });
 
-    connect(appSettings, SIGNAL(autoSaveChanged(bool)), documentManager, SLOT(setAutoSaveEnabled(bool)));
-    connect(appSettings, SIGNAL(backupFileChanged(bool)), documentManager, SLOT(setFileBackupEnabled(bool)));
-    connect(appSettings, SIGNAL(backupLocationChanged(QString)), documentManager, SLOT(setBackupLocation(QString)));
-    connect(appSettings, SIGNAL(tabWidthChanged(int)), editor, SLOT(setTabulationWidth(int)));
-    connect(appSettings, SIGNAL(insertSpacesForTabsChanged(bool)), editor, SLOT(setInsertSpacesForTabs(bool)));
-    connect(appSettings, &AppSettings::showUnbreakableSpaceEnabledChanged, editor, &MarkdownEditor::setShowUnbreakableSpaces);
-    connect(appSettings, SIGNAL(useUnderlineForEmphasisChanged(bool)), editor, SLOT(setUseUnderlineForEmphasis(bool)));
-    connect(appSettings, SIGNAL(italicizeBlockquotesChanged(bool)), editor, SLOT(setItalicizeBlockquotes(bool)));
-    connect(appSettings, SIGNAL(largeHeadingSizesChanged(bool)), editor, SLOT(setEnableLargeHeadingSizes(bool)));
-    connect(appSettings, SIGNAL(autoMatchChanged(bool)), editor, SLOT(setAutoMatchEnabled(bool)));
-    connect(appSettings, SIGNAL(autoMatchCharChanged(QChar, bool)), editor, SLOT(setAutoMatchEnabled(QChar, bool)));
-    connect(appSettings, SIGNAL(bulletPointCyclingChanged(bool)), editor, SLOT(setBulletPointCyclingEnabled(bool)));
-    connect(appSettings, SIGNAL(autoMatchChanged(bool)), editor, SLOT(setAutoMatchEnabled(bool)));
-    connect(appSettings, SIGNAL(focusModeChanged(FocusMode)), this, SLOT(changeFocusMode(FocusMode)));
-    connect(appSettings, SIGNAL(hideMenuBarInFullScreenChanged(bool)), this, SLOT(toggleHideMenuBarInFullScreen(bool)));
-    connect(appSettings, SIGNAL(fileHistoryChanged(bool)), this, SLOT(toggleFileHistoryEnabled(bool)));
-    connect(appSettings, SIGNAL(displayTimeInFullScreenChanged(bool)), this, SLOT(toggleDisplayTimeInFullScreen(bool)));
-    connect(appSettings, SIGNAL(editorWidthChanged(EditorWidth)), this, SLOT(changeEditorWidth(EditorWidth)));
-    connect(appSettings, SIGNAL(interfaceStyleChanged(InterfaceStyle)), this, SLOT(changeInterfaceStyle(InterfaceStyle)));
-    connect(appSettings, SIGNAL(previewTextFontChanged(QFont)), this, SLOT(applyTheme()));
-    connect(appSettings, SIGNAL(previewCodeFontChanged(QFont)), this, SLOT(applyTheme()));
-
-    editor->setShowUnbreakableSpaces(appSettings->showUnbreakableSpaceEnabled());
-
-    if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
-        this->menuBar()->hide();
-    }
-
-    this->connect
-    (
-        documentManager,
-        &DocumentManager::documentLoaded,
-        [this]() {
-            this->sessionStats->startNewSession(this->documentStats->wordCount());
-            refreshRecentFiles();
-        }
-    );
-
-    this->connect
-    (
-        documentManager,
-        &DocumentManager::documentClosed,
-        [this]() {
-            this->sessionStats->startNewSession(0);
-        }
-    );
-
-    // Note that the parent widget for this new window must be NULL, so that
-    // it will hide beneath other windows when it is deactivated.
-    //
-    htmlPreview = new HtmlPreview
-    (
-        documentManager->document(),
-        appSettings->currentHtmlExporter(),
-        this
-    );
-
-    connect(editor,
-        &MarkdownEditor::typingPausedScaled,
-        htmlPreview,
-        &HtmlPreview::updatePreview);
-
-    connect(documentManager,
-        &DocumentManager::documentLoaded,
-        htmlPreview,
-        &HtmlPreview::updatePreview);
-
-    connect(documentManager,
-        &DocumentManager::documentClosed,
-        htmlPreview,
-        &HtmlPreview::updatePreview);
-
-    connect(outlineWidget, SIGNAL(headingNumberNavigated(int)), htmlPreview, SLOT(navigateToHeading(int)));
-    connect(appSettings, SIGNAL(currentHtmlExporterChanged(Exporter *)), htmlPreview, SLOT(setHtmlExporter(Exporter *)));
-
-    htmlPreview->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
-    htmlPreview->setObjectName("htmlpreview");
-    htmlPreview->setVisible(appSettings->htmlPreviewVisible());
-
-    this->findReplace = new FindReplace(this->editor, this);
-    statusBarWidgets.append(this->findReplace);
-    this->findReplace->setVisible(false);
-
-    buildMenuBar();
-    buildStatusBar();
-
-    sidebar->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
-
-    splitter = new QSplitter(this);
-    splitter->addWidget(sidebar);
-    splitter->addWidget(editor);
-    splitter->addWidget(htmlPreview);
-    splitter->setChildrenCollapsible(false);
-    splitter->setStretchFactor(0, 0);
-    splitter->setStretchFactor(1, 2);
-    splitter->setStretchFactor(2, 1);
-
-    // Set default sizes for splitter.
-    QList<int> sizes;
-    int sidebarWidth = this->width() * 0.2;
-    int otherWidth = (this->width() - sidebarWidth) / 2;
-    sizes.append(sidebarWidth);
-    sizes.append(otherWidth);
-    sizes.append(otherWidth);
-
-    splitter->setSizes(sizes);
-
-    // If previous splitter geometry was stored, load it.
-    if (windowSettings.contains(GW_SPLITTER_GEOMETRY_KEY)) {
-        this->splitter->restoreState(windowSettings.value(GW_SPLITTER_GEOMETRY_KEY).toByteArray());
-    }
-
-    this->connect(splitter,
-        &QSplitter::splitterMoved,
-        [this](int pos, int index) {
-            Q_UNUSED(pos)
-            Q_UNUSED(index)
-            adjustEditor();
-        });
-
-    this->setCentralWidget(splitter);
+    connect(documentManager, &DocumentManager::documentClosed, documentManager, [this]() {
+        sessionStats->startNewSession(0);
+    });
 
     qApp->installEventFilter(this);
 
@@ -372,15 +150,26 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     // Show the theme right away before loading any files.
     qApp->processEvents();
 
-    // Load file from command line or last session.
-    if (!fileToOpen.isNull() && !fileToOpen.isEmpty()) {
-        documentManager->open(fileToOpen);
+    // Load file from command line or last session if valid, otherwise create
+    // an untitled document.
+    if (fileToOpen.isValid()) {
+        documentManager->openFileAt(fileToOpen);
+    } else {
+        documentManager->createUntitled();
     }
 }
 
 MainWindow::~MainWindow()
 {
-    ;
+    if (primaryIconTheme) {
+        delete primaryIconTheme;
+        primaryIconTheme = nullptr;
+    }
+
+    if (secondaryIconTheme) {
+        delete secondaryIconTheme;
+        secondaryIconTheme = nullptr;
+    }
 }
 
 QSize MainWindow::sizeHint() const
@@ -458,11 +247,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             this->menuBar()->hide();
         } else if (QEvent::MouseMove == event->type()) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            if ((mouseEvent->globalPos().y()) <= 0 && !this->menuBar()->isVisible()) {
-#else
-            if ((mouseEvent->globalPosition().y()) <= 0 && !this->menuBar()->isVisible()) {
-#endif
+
+            if ((mouseEvent->globalPosition().y() <= 0) && !this->menuBar()->isVisible()) {
                 this->menuBar()->show();
             }
         } else if ((this == obj) 
@@ -510,16 +296,11 @@ void MainWindow::changeTheme()
     ThemeSelectionDialog *themeDialog = new ThemeSelectionDialog(theme.name(), appSettings->darkModeEnabled(), this);
     themeDialog->setAttribute(Qt::WA_DeleteOnClose);
 
-    this->connect
-    (
-        themeDialog,
-        &ThemeSelectionDialog::finished,
-        [this, themeDialog](int result) {
-            Q_UNUSED(result)
-            this->theme = themeDialog->theme();
-            applyTheme();
-        }
-    );
+    this->connect(themeDialog, &ThemeSelectionDialog::finished, themeDialog, [this, themeDialog](int result) {
+        Q_UNUSED(result)
+        this->theme = themeDialog->theme();
+        applyTheme();
+    });
 
     themeDialog->open();
 }
@@ -527,18 +308,14 @@ void MainWindow::changeTheme()
 void MainWindow::openPreferencesDialog()
 {
     PreferencesDialog *preferencesDialog = new PreferencesDialog(this);
+    preferencesDialog->setAttribute(Qt::WA_DeleteOnClose);
     preferencesDialog->show();
 }
 
 void MainWindow::toggleHtmlPreview(bool checked)
 {
-    htmlPreviewMenuAction->blockSignals(true);
-
-    htmlPreviewMenuAction->setChecked(checked);
     htmlPreview->setVisible(checked);
     htmlPreview->updatePreview();
-
-    htmlPreviewMenuAction->blockSignals(false);
     appSettings->setHtmlPreviewVisible(checked);
     this->update();
     adjustEditor();
@@ -574,14 +351,6 @@ void MainWindow::toggleFocusMode(bool checked)
 void MainWindow::toggleFullScreen(bool checked)
 {
     static bool lastStateWasMaximized = false;
-
-    this->fullScreenMenuAction->blockSignals(true);
-    this->fullScreenMenuAction->setChecked(checked);
-    this->fullScreenMenuAction->blockSignals(false);
-
-    this->fullScreenButton->blockSignals(true);
-    this->fullScreenButton->setChecked(checked);
-    this->fullScreenButton->blockSignals(false);
 
     if (this->isFullScreen() || !checked) {
         if (appSettings->displayTimeInFullScreenEnabled()) {
@@ -688,32 +457,38 @@ void MainWindow::refreshRecentFiles()
 {
     if (appSettings->fileHistoryEnabled()) {
         Library library;
-        Bookmarks recentFiles = library.recentFiles(MAX_RECENT_FILES + 1);
-        MarkdownDocument *document = documentManager->document();
+        BookmarkList recentFiles = library.recentFiles(MAX_RECENT_FILES);
 
-        if (!document->isNew()) {
-            recentFiles.removeAll(document->filePath());
+        for (int i = 0; i < recentFilesActions.size(); i++) {
+            QAction *action = recentFilesActions.at(i);
+
+            if (i < recentFiles.size()) {
+                QString path = recentFiles.at(i).filePath();
+                action->setText(path);
+                action->setData(path);
+                action->setVisible(true);
+            } else {
+                action->setText("");
+                action->setData(QVariant());
+                action->setVisible(false);
+            }
         }
 
-        for (int i = 0; (i < MAX_RECENT_FILES) && (i < recentFiles.size()); i++) {
-            recentFilesActions[i]->setText(recentFiles.at(i).filePath());
-            recentFilesActions[i]->setData(recentFiles.at(i).filePath());
-            recentFilesActions[i]->setVisible(true);
-        }
-
-        for (int i = recentFiles.size(); i < MAX_RECENT_FILES; i++) {
-            recentFilesActions[i]->setVisible(false);
-        }
+        appAction(AppActions::ReopenLastClosed)->setEnabled(!recentFiles.isEmpty());
+    } else {
+        appAction(AppActions::ReopenLastClosed)->setEnabled(false);
     }
 }
 
 void MainWindow::clearRecentFileHistory()
 {
     Library library;
-    library.clear();
+    library.clearHistory();
 
-    for (int i = 0; i < MAX_RECENT_FILES; i++) {
-        recentFilesActions[i]->setVisible(false);
+    for (auto action : recentFilesActions) {
+        action->setText("");
+        action->setData(QVariant());
+        action->setVisible(false);
     }
 }
 
@@ -772,6 +547,7 @@ void MainWindow::onFontSizeChanged(int size)
 void MainWindow::onSetLocale()
 {
     LocaleDialog *dialog = new LocaleDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
 }
 
@@ -804,7 +580,7 @@ void MainWindow::copyHtml()
 void MainWindow::showPreviewOptions()
 {
     static PreviewOptionsDialog *dialog = new PreviewOptionsDialog(this);
-    
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setModal(false);
     dialog->show();
 }
@@ -834,19 +610,9 @@ void MainWindow::onAboutToShowMenuBarMenu()
 
 void MainWindow::onSidebarVisibilityChanged(bool visible)
 {
-    if (visible) {
-        toggleSidebarButton->setText(QChar(fa::chevronleft));
-    } else {
-        toggleSidebarButton->setText(QChar(fa::chevronright));
-    }
-
     if (!visible) {
         editor->setFocus();
     }
-
-    this->showSidebarAction->blockSignals(true);
-    this->showSidebarAction->setChecked(visible);
-    this->showSidebarAction->blockSignals(false);
 
     this->adjustEditor();
 }
@@ -869,233 +635,507 @@ void MainWindow::toggleSidebarVisible(bool visible)
     adjustEditor();
 }
 
-QAction* MainWindow::createWindowAction
-(
-    const QString &text,
-    QObject *receiver,
-    const char *member,
-    const QKeySequence &shortcut
-)
+KActionCollection *MainWindow::actionCollection() const
 {
-    QAction* action = new QAction(text, this);
-    action->setShortcut(shortcut);
-    action->setShortcutContext(Qt::WindowShortcut);
-    
-    connect(action, SIGNAL(triggered(bool)), receiver, member);
-    this->addAction(action);
-
-    return action;
+    return m_actionCollection;
 }
 
-QAction* MainWindow::createWidgetAction
-(
-    const QString &text,
-    QWidget *receiver,
-    const char *member,
-    const QKeySequence &shortcut
-)
+QMenu *MainWindow::addMenuBarMenu(const QString &name)
 {
-    QAction* action = new QAction(text, receiver);
-    action->setShortcut(shortcut);
-    action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
-    
-    connect(action, SIGNAL(triggered(bool)), receiver, member);
-    receiver->addAction(action);
+    QMenu *menu = new QMenu(name, this);
+    connect(menu, &QMenu::aboutToShow, this, &MainWindow::onAboutToShowMenuBarMenu);
+    connect(menu, &QMenu::aboutToHide, this, &MainWindow::onAboutToHideMenuBarMenu);
+    menuBar()->addMenu(menu);
 
-    return action;
+    return menu;
 }
 
-void MainWindow::buildMenuBar()
+QAction *MainWindow::appAction(AppActions::ActionType actionType) const
 {
+    auto action = m_actions->get(actionType);
 
-    QMenu *fileMenu = this->menuBar()->addMenu(tr("&File"));
-
-    fileMenu->addAction(createWindowAction(tr("&New"), documentManager, SLOT(close()), QKeySequence::New));
-    fileMenu->addAction(createWindowAction(tr("&Open"), documentManager, SLOT(open()), QKeySequence::Open));
-
-    QMenu *recentFilesMenu = new QMenu(tr("Open &Recent..."), fileMenu);
-    recentFilesMenu->addAction(createWindowAction(tr("Reopen Closed File"), documentManager, SLOT(reopenLastClosedFile()), QKeySequence("SHIFT+CTRL+T")));
-    recentFilesMenu->addSeparator();
-
-    for (int i = 0; i < MAX_RECENT_FILES; i++) {
-        recentFilesMenu->addAction(recentFilesActions[i]);
+    if (nullptr) {
+        qCritical() << "Unknown action type:" << actionType;
     }
 
-    recentFilesMenu->addSeparator();
-    recentFilesMenu->addAction(createWindowAction(tr("Clear Menu"), this, SLOT(clearRecentFileHistory())));
-
-    fileMenu->addMenu(recentFilesMenu);
-
-    fileMenu->addSeparator();
-    fileMenu->addAction(createWindowAction(tr("&Save"), documentManager, SLOT(saveFile()), QKeySequence::Save));
-    fileMenu->addAction(createWindowAction(tr("Save &As..."), documentManager, SLOT(saveAs()), QKeySequence::SaveAs));
-    fileMenu->addAction(createWindowAction(tr("R&ename..."), documentManager, SLOT(rename())));
-    fileMenu->addAction(createWindowAction(tr("Re&load from Disk..."), documentManager, SLOT(reload())));
-    fileMenu->addSeparator();
-    fileMenu->addAction(createWindowAction(tr("&Export"), documentManager, SLOT(exportFile()), QKeySequence("CTRL+E")));
-    fileMenu->addSeparator();
-    QAction *quitAction = createWindowAction(tr("&Quit"), this, SLOT(quitApplication()), QKeySequence::Quit);
-    quitAction->setMenuRole(QAction::QuitRole);
-    fileMenu->addAction(quitAction);
-
-    QMenu *editMenu = this->menuBar()->addMenu(tr("&Edit"));
-    editMenu->addAction(createWidgetAction(tr("&Undo"), editor, SLOT(undo()), QKeySequence::Undo));
-    editMenu->addAction(createWidgetAction(tr("&Redo"), editor, SLOT(redo()), QKeySequence::Redo));
-    editMenu->addSeparator();
-    editMenu->addAction(createWidgetAction(tr("Cu&t"), editor, SLOT(cut()), QKeySequence::Cut));
-    editMenu->addAction(createWidgetAction(tr("&Copy"), editor, SLOT(copy()), QKeySequence::Copy));
-    editMenu->addAction(createWidgetAction(tr("&Paste"), editor, SLOT(paste()), QKeySequence::Paste));
-    editMenu->addAction(createWidgetAction(tr("Copy &HTML"), this, SLOT(copyHtml()), QKeySequence("SHIFT+CTRL+C")));
-    editMenu->addSeparator();
-    editMenu->addAction(createWidgetAction(tr("&Insert Image..."), editor, SLOT(insertImage())));
-    editMenu->addSeparator();
-
-    editMenu->addAction(createWindowAction(tr("&Find"), findReplace, SLOT(showFindView()), QKeySequence::Find));
-    editMenu->addAction(createWindowAction(tr("Rep&lace"), findReplace, SLOT(showReplaceView()), QKeySequence::Replace));
-    editMenu->addAction(createWindowAction(tr("Find &Next"), findReplace, SLOT(findNext()), QKeySequence::FindNext));
-    editMenu->addAction(createWindowAction(tr("Find &Previous"), findReplace, SLOT(findPrevious()), QKeySequence::FindPrevious));
-    editMenu->addSeparator();
-    editMenu->addAction(createWindowAction(tr("&Spell check"), this, SLOT(runSpellCheck())));
-
-    QMenu *formatMenu = this->menuBar()->addMenu(tr("For&mat"));
-    formatMenu->addAction(createWidgetAction(tr("&Bold"), editor, SLOT(bold()), QKeySequence::Bold));
-    formatMenu->addAction(createWidgetAction(tr("&Italic"), editor, SLOT(italic()), QKeySequence::Italic));
-    formatMenu->addAction(createWidgetAction(tr("Stri&kethrough"), editor, SLOT(strikethrough()), QKeySequence("Ctrl+K")));
-    formatMenu->addAction(createWidgetAction(tr("&Code Fences"), editor, SLOT(insertCodeFences()), QKeySequence("Ctrl+G")));
-    formatMenu->addAction(createWidgetAction(tr("&HTML Comment"), editor, SLOT(insertComment()), QKeySequence("Ctrl+/")));
-    formatMenu->addSeparator();
-
-    formatMenu->addAction(createWidgetAction(tr("I&ndent"), editor, SLOT(indentText()), QKeySequence("Tab")));
-    formatMenu->addAction(createWidgetAction(tr("&Unindent"), editor, SLOT(unindentText()), QKeySequence("Shift+Tab")));
-    formatMenu->addSeparator();
-    formatMenu->addAction(createWidgetAction(tr("Block &Quote"), editor, SLOT(createBlockquote()), QKeySequence("Ctrl+.")));
-    formatMenu->addAction(createWidgetAction(tr("&Strip Block Quote"), editor, SLOT(removeBlockquote()), QKeySequence("Ctrl+,")));
-    formatMenu->addSeparator();
-    formatMenu->addAction(createWidgetAction(tr("&* Bullet List"), editor, SLOT(createBulletListWithAsteriskMarker()), QKeySequence("Ctrl+8")));
-    formatMenu->addAction(createWidgetAction(tr("&- Bullet List"), editor, SLOT(createBulletListWithMinusMarker()), QKeySequence("Ctrl+Shift+-")));
-    formatMenu->addAction(createWidgetAction(tr("&+ Bullet List"), editor, SLOT(createBulletListWithPlusMarker()), QKeySequence("Ctrl+Shift+=")));
-    formatMenu->addSeparator();
-    formatMenu->addAction(createWidgetAction(tr("1&. Numbered List"), editor, SLOT(createNumberedListWithPeriodMarker()), QKeySequence("Ctrl+1")));
-    formatMenu->addAction(createWidgetAction(tr("1&) Numbered List"), editor, SLOT(createNumberedListWithParenthesisMarker()), QKeySequence("Ctrl+0")));
-    formatMenu->addSeparator();
-    formatMenu->addAction(createWidgetAction(tr("&Task List"), editor, SLOT(createTaskList()), QKeySequence("Ctrl+T")));
-    formatMenu->addAction(createWidgetAction(tr("Toggle Task(s) &Complete"), editor, SLOT(toggleTaskComplete()), QKeySequence("Ctrl+D")));
-
-
-    QMenu *viewMenu = this->menuBar()->addMenu(tr("&View"));
-
-    fullScreenMenuAction = new QAction(tr("&Full Screen"), this);
-    fullScreenMenuAction->setCheckable(true);
-    fullScreenMenuAction->setChecked(this->isFullScreen());
-    fullScreenMenuAction->setShortcut(QKeySequence("F11"));
-    fullScreenMenuAction->setShortcutContext(Qt::WindowShortcut);
-    connect(fullScreenMenuAction, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
-    viewMenu->addAction(fullScreenMenuAction);
-    
-    htmlPreviewMenuAction = createWindowAction(tr("&Preview in HTML"), this, SLOT(toggleHtmlPreview(bool)), QKeySequence("CTRL+P"));
-    htmlPreviewMenuAction->setCheckable(true);
-    htmlPreviewMenuAction->setChecked(appSettings->htmlPreviewVisible());
-    viewMenu->addAction(htmlPreviewMenuAction);
-
-    this->addAction(showSidebarAction);
-    viewMenu->addAction(showSidebarAction);
-
-    QAction *showSidebarTabAction = viewMenu->addAction(tr("&Outline"),
-        this,
-        [this]() {
-            sidebar->setVisible(true);
-            sidebar->setCurrentTabIndex(OutlineSidebarTab);
-        },
-        QKeySequence("CTRL+J"));
-    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarTabAction);
-    
-    showSidebarTabAction = viewMenu->addAction(tr("&Session Statistics"),
-        this,
-        [this]() {
-            sidebar->setVisible(true);
-            sidebar->setCurrentTabIndex(SessionStatsSidebarTab);
-        });
-    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarTabAction);
-
-    showSidebarTabAction = viewMenu->addAction(tr("&Document Statistics"),
-        this,
-        [this]() {
-            sidebar->setVisible(true);
-            sidebar->setCurrentTabIndex(DocumentStatsSidebarTab);
-        });
-    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarTabAction);
-
-    showSidebarTabAction = viewMenu->addAction(tr("&Cheat Sheet"),
-        this,
-        [this]() {
-            sidebar->setVisible(true);
-            sidebar->setCurrentTabIndex(CheatSheetSidebarTab);
-        },
-        QKeySequence::HelpContents);
-    showSidebarTabAction->setShortcutContext(Qt::WindowShortcut);
-    this->addAction(showSidebarTabAction);
-    
-    viewMenu->addSeparator();
-    viewMenu->addAction(createWidgetAction(tr("Increase Font Size"), editor, SLOT(increaseFontSize()), QKeySequence("CTRL+=")));
-    viewMenu->addAction(createWidgetAction(tr("Decrease Font Size"), editor, SLOT(decreaseFontSize()), QKeySequence("CTRL+-")));
-
-    QMenu *settingsMenu = this->menuBar()->addMenu(tr("&Settings"));
-    settingsMenu->addAction(createWindowAction(tr("Themes..."), this, SLOT(changeTheme())));
-    settingsMenu->addAction(createWindowAction(tr("Font..."), this, SLOT(changeFont())));
-    settingsMenu->addAction(createWindowAction(tr("Application Language..."), this, SLOT(onSetLocale())));
-    settingsMenu->addAction(createWindowAction(tr("Preview Options..."), this, SLOT(showPreviewOptions())));
-    QAction *preferencesAction = createWindowAction(tr("Preferences..."), this, SLOT(openPreferencesDialog()));
-    preferencesAction->setMenuRole(QAction::PreferencesRole);
-    settingsMenu->addAction(preferencesAction);
-
-    KHelpMenu *kHelpMenu = new KHelpMenu(this, KAboutData::applicationData(), false);
-
-    QMenu *helpMenu = this->menuBar()->addMenu(tr("&Help"));
-    helpMenu->addAction(createWindowAction(
-        kHelpMenu->action(KHelpMenu::menuAboutApp)->text(), kHelpMenu, SLOT(aboutApplication())));
-    helpMenu->addAction(createWindowAction(
-        kHelpMenu->action(KHelpMenu::menuAboutKDE)->text(), kHelpMenu, SLOT(aboutKDE())));
-    helpMenu->addAction(createWindowAction(
-        kHelpMenu->action(KHelpMenu::menuReportBug)->text(), kHelpMenu, SLOT(reportBug())));
-    helpMenu->addAction(createWindowAction(
-        kHelpMenu->action(KHelpMenu::menuDonate)->text(), kHelpMenu, SLOT(donate())));
-    helpMenu->addSeparator();
-    helpMenu->addAction(createWindowAction(tr("Quick &Reference Guide"), this, SLOT(showQuickReferenceGuide())));
-    helpMenu->addAction(createWindowAction(tr("Wiki"), this, SLOT(showWikiPage())));
-
-    this->menuBar()->addMenu(helpMenu);
-
-    connect(fileMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
-    connect(fileMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
-    connect(editMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
-    connect(editMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
-    connect(formatMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
-    connect(formatMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
-    connect(viewMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
-    connect(viewMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
-    connect(settingsMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
-    connect(settingsMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
-    connect(helpMenu, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowMenuBarMenu()));
-    connect(helpMenu, SIGNAL(aboutToHide()), this, SLOT(onAboutToHideMenuBarMenu()));
+    return action;
 }
 
-void MainWindow::buildStatusBar()
+void MainWindow::loadTheme()
+{
+    QString err;
+    QString themeName = appSettings->themeName();
+    ThemeRepository themeRepo(appSettings->themeDirectoryPath());
+
+    theme = themeRepo.loadTheme(themeName, err);
+
+    if (!theme.name().isEmpty()) {
+        appSettings->setThemeName(theme.name());
+    }
+
+    ColorScheme colorScheme;
+
+    if (appSettings->darkModeEnabled()) {
+        colorScheme = theme.darkColorScheme();
+    } else {
+        colorScheme = theme.lightColorScheme();
+    }
+
+    ChromeColors chromeColors(colorScheme);
+
+    primaryIconTheme = new SvgIconTheme(":/icons");
+    primaryIconTheme->setColor(QIcon::Normal, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::NormalState));
+    primaryIconTheme->setColor(QIcon::Active, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::ActiveState));
+    primaryIconTheme->setColor(QIcon::Selected, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::PressedState));
+    primaryIconTheme->setColor(QIcon::Disabled, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::DisabledState));
+
+    secondaryIconTheme = new SvgIconTheme(":/icons");
+    secondaryIconTheme->setColor(QIcon::Normal, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::NormalState));
+    secondaryIconTheme->setColor(QIcon::Active, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::NormalState));
+    secondaryIconTheme->setColor(QIcon::Selected, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::PressedState));
+    secondaryIconTheme->setColor(QIcon::Disabled, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::DisabledState));
+}
+
+void MainWindow::setupActions()
+{
+    // File Menu Actions
+
+    m_actions->connect(AppActions::New, documentManager, &DocumentManager::createUntitled);
+    m_actions->connect(AppActions::Open, documentManager, &DocumentManager::open);
+
+    auto reopenLastAction = appAction(AppActions::ReopenLastClosed);
+
+    // Get open recent files actions.
+    for (int i = AppActions::OpenMostRecent; i <= AppActions::OpenLeastRecent; i++) {
+        int index = i - AppActions::OpenMostRecent;
+        bool enableReopenLast = false;
+        auto action = appAction((AppActions::ActionType)i);
+
+        Library library;
+        BookmarkList recentFiles = library.recentFiles();
+
+        if (recentFiles.length() > index) {
+            auto filePath = recentFiles.at(index).filePath();
+            action->setText(filePath);
+            action->setData(filePath);
+            action->setVisible(true);
+            enableReopenLast = true;
+        } else {
+            action->setVisible(false);
+        }
+
+        reopenLastAction->setEnabled(enableReopenLast);
+        recentFilesActions.append(action);
+
+        m_actions->connect((AppActions::ActionType)i, this, [this, action](bool checked) {
+            Q_UNUSED(checked)
+
+            if (action->data().isValid()) {
+                // Use the action's data for access to the actual file
+                // path, since KDE Plasma will add a keyboard
+                // accelerator to the action's text by inserting an
+                // ampersand (&) into it.
+                //
+                Library library;
+                Bookmark location = library.lookup(action->data().toString());
+
+                if (location.isNull()) {
+                    location = Bookmark(action->data().toString());
+                }
+
+                documentManager->openFileAt(location);
+                refreshRecentFiles();
+            }
+        });
+    }
+
+    m_actions->connect(AppActions::ClearRecentFilesList, this, &MainWindow::clearRecentFileHistory);
+    m_actions->connect(AppActions::Save, documentManager, &DocumentManager::saveFile);
+    m_actions->connect(AppActions::SaveAs, documentManager, &DocumentManager::saveAs);
+    m_actions->connect(AppActions::RenameFile, documentManager, &DocumentManager::rename);
+    m_actions->connect(AppActions::Reload, documentManager, &DocumentManager::reload);
+    m_actions->connect(AppActions::Export, documentManager, &DocumentManager::exportFile);
+    m_actions->connect(AppActions::Quit, this, &MainWindow::quitApplication);
+
+    // Edit Menu Actions
+
+    m_actions->connect(AppActions::Undo, editor, &MarkdownEditor::undo);
+    m_actions->connect(AppActions::Redo, editor, &MarkdownEditor::redo);
+    m_actions->connect(AppActions::Cut, editor, &MarkdownEditor::cut);
+    m_actions->connect(AppActions::Copy, editor, &MarkdownEditor::copy);
+    m_actions->connect(AppActions::Paste, editor, &MarkdownEditor::paste);
+    m_actions->connect(AppActions::CopyHTML, this, &MainWindow::copyHtml);
+    m_actions->connect(AppActions::SelectAll, editor, &MarkdownEditor::selectAll);
+    m_actions->connect(AppActions::Deselect, editor, &MarkdownEditor::deselectText);
+    m_actions->connect(AppActions::InsertImage, editor, &MarkdownEditor::insertImage);
+    // TODO: add Deselect method to editor.
+    m_actions->connect(AppActions::Find, findReplace, &FindReplace::showFindView);
+    m_actions->connect(AppActions::Replace, findReplace, &FindReplace::showReplaceView);
+    m_actions->connect(AppActions::FindNext, findReplace, &FindReplace::findNext);
+    m_actions->connect(AppActions::FindPrev, findReplace, &FindReplace::findPrevious);
+    m_actions->connect(AppActions::Spelling, this, &MainWindow::runSpellCheck);
+
+    // Format Menu Actions
+
+    m_actions->connect(AppActions::Strong, editor, &MarkdownEditor::bold);
+    m_actions->connect(AppActions::Emphasis, editor, &MarkdownEditor::italic);
+    m_actions->connect(AppActions::Strikethrough, editor, &MarkdownEditor::strikethrough);
+    m_actions->connect(AppActions::InsertHTMLComment, editor, &MarkdownEditor::insertComment);
+    m_actions->connect(AppActions::IndentText, editor, &MarkdownEditor::indentText);
+    m_actions->connect(AppActions::UnindentText, editor, &MarkdownEditor::unindentText);
+    m_actions->connect(AppActions::CodeFences, editor, &MarkdownEditor::insertCodeFences);
+    m_actions->connect(AppActions::BlockQuote, editor, &MarkdownEditor::createBlockquote);
+    m_actions->connect(AppActions::StripBlockQuote, editor, &MarkdownEditor::removeBlockquote);
+    m_actions->connect(AppActions::BulletListAsterisk, editor, &MarkdownEditor::createBulletListWithAsteriskMarker);
+    m_actions->connect(AppActions::BulletListMinus, editor, &MarkdownEditor::createBulletListWithMinusMarker);
+    m_actions->connect(AppActions::BulletListPlus, editor, &MarkdownEditor::createBulletListWithPlusMarker);
+    m_actions->connect(AppActions::NumberedListPeriod, editor, &MarkdownEditor::createNumberedListWithPeriodMarker);
+    m_actions->connect(AppActions::NumberedListParenthesis, editor, &MarkdownEditor::createNumberedListWithParenthesisMarker);
+    m_actions->connect(AppActions::TaskList, editor, &MarkdownEditor::createTaskList);
+    m_actions->connect(AppActions::TaskComplete, editor, &MarkdownEditor::toggleTaskComplete);
+
+    // View Menu Actions
+
+    appAction(AppActions::FullScreen)->setChecked(isFullScreen());
+    m_actions->connect(AppActions::FullScreen, this, &MainWindow::toggleFullScreen);
+    appAction(AppActions::DistractionFreeMode)->setChecked(false);
+    m_actions->connect(AppActions::DistractionFreeMode, this, &MainWindow::toggleFocusMode);
+    appAction(AppActions::Preview)->setChecked(appSettings->htmlPreviewVisible());
+    m_actions->connect(AppActions::Preview, this, &MainWindow::toggleHtmlPreview);
+    m_actions->connect(AppActions::HemingwayMode, this, &MainWindow::toggleHemingwayMode);
+    appAction(AppActions::DarkMode)->setChecked(appSettings->darkModeEnabled());
+    m_actions->connect(AppActions::DarkMode, this, [this](bool enabled) {
+        appSettings->setDarkModeEnabled(enabled);
+        applyTheme();
+    });
+    appAction(AppActions::ShowSidebar)->setChecked(appSettings->sidebarVisible());
+    m_actions->connect(AppActions::ShowSidebar, this, &MainWindow::toggleSidebarVisible);
+    m_actions->connect(AppActions::ShowOutline, this, [this]() {
+        sidebar->setVisible(true);
+        sidebar->setCurrentTabIndex(OutlineSidebarTab);
+    });
+    m_actions->connect(AppActions::ShowSessionStatistics, this, [this]() {
+        sidebar->setVisible(true);
+        sidebar->setCurrentTabIndex(SessionStatsSidebarTab);
+    });
+    m_actions->connect(AppActions::ShowDocumentStatistics, this, [this]() {
+        sidebar->setVisible(true);
+        sidebar->setCurrentTabIndex(DocumentStatsSidebarTab);
+    });
+    m_actions->connect(AppActions::ShowCheatSheet, this, [this]() {
+        sidebar->setVisible(true);
+        sidebar->setCurrentTabIndex(CheatSheetSidebarTab);
+    });
+    m_actions->connect(AppActions::ZoomIn, editor, &MarkdownEditor::increaseFontSize);
+    m_actions->connect(AppActions::ZoomOut, editor, &MarkdownEditor::decreaseFontSize);
+
+    // Settings Menu Actions
+
+    m_actions->connect(AppActions::ChangeTheme, this, &MainWindow::changeTheme);
+    m_actions->connect(AppActions::ChangeFont, this, &MainWindow::changeFont);
+    m_actions->connect(AppActions::SwitchApplicationLanguage, this, &MainWindow::onSetLocale);
+    m_actions->connect(AppActions::PreviewOptions, this, &MainWindow::showPreviewOptions);
+    m_actions->connect(AppActions::Preferences, this, &MainWindow::openPreferencesDialog);
+
+    // Help Menu Actions
+
+    m_helpMenu = new KHelpMenu(this);
+    m_actions->connect(AppActions::AboutApp, m_helpMenu, &KHelpMenu::aboutApplication);
+    m_actions->connect(AppActions::AboutKDE, m_helpMenu, &KHelpMenu::aboutKDE);
+    m_actions->connect(AppActions::HelpContents, this, &MainWindow::showQuickReferenceGuide);
+    m_actions->connect(AppActions::ReportBug, m_helpMenu, &KHelpMenu::reportBug);
+    m_actions->connect(AppActions::Donate, m_helpMenu, &KHelpMenu::donate);
+    m_actions->connect(AppActions::WhatsThis, this, &QWhatsThis::enterWhatsThisMode);
+}
+
+void MainWindow::setupGui()
+{
+    setObjectName("mainWindow");
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    MarkdownDocument *document = new MarkdownDocument();
+
+    editor = new MarkdownEditor(document, theme.lightColorScheme(), this);
+    editor->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
+    editor->setFont(appSettings->editorFont().family(), appSettings->editorFont().pointSize());
+    editor->setUseUnderlineForEmphasis(appSettings->useUnderlineForEmphasis());
+    editor->setEnableLargeHeadingSizes(appSettings->largeHeadingSizesEnabled());
+    editor->setAutoMatchEnabled(appSettings->autoMatchEnabled());
+    editor->setBulletPointCyclingEnabled(appSettings->bulletPointCyclingEnabled());
+    editor->setPlainText("");
+    editor->setEditorWidth((EditorWidth)appSettings->editorWidth());
+    editor->setEditorCorners((InterfaceStyle)appSettings->interfaceStyle());
+    editor->setItalicizeBlockquotes(appSettings->italicizeBlockquotes());
+    editor->setTabulationWidth(appSettings->tabWidth());
+    editor->setInsertSpacesForTabs(appSettings->insertSpacesForTabsEnabled());
+    editor->setShowUnbreakableSpaces(appSettings->showUnbreakableSpaceEnabled());
+
+    editor->setAutoMatchEnabled('\"', appSettings->autoMatchCharEnabled('\"'));
+    editor->setAutoMatchEnabled('\'', appSettings->autoMatchCharEnabled('\''));
+    editor->setAutoMatchEnabled('(', appSettings->autoMatchCharEnabled('('));
+    editor->setAutoMatchEnabled('[', appSettings->autoMatchCharEnabled('['));
+    editor->setAutoMatchEnabled('{', appSettings->autoMatchCharEnabled('{'));
+    editor->setAutoMatchEnabled('*', appSettings->autoMatchCharEnabled('*'));
+    editor->setAutoMatchEnabled('_', appSettings->autoMatchCharEnabled('_'));
+    editor->setAutoMatchEnabled('`', appSettings->autoMatchCharEnabled('`'));
+    editor->setAutoMatchEnabled('<', appSettings->autoMatchCharEnabled('<'));
+    connect(appSettings, &AppSettings::tabWidthChanged, editor, &MarkdownEditor::setTabulationWidth);
+    connect(appSettings, &AppSettings::insertSpacesForTabsChanged, editor, &MarkdownEditor::setInsertSpacesForTabs);
+    connect(appSettings, &AppSettings::showUnbreakableSpaceEnabledChanged, editor, &MarkdownEditor::setShowUnbreakableSpaces);
+    connect(appSettings, &AppSettings::useUnderlineForEmphasisChanged, editor, &MarkdownEditor::setUseUnderlineForEmphasis);
+    connect(appSettings, &AppSettings::italicizeBlockquotesChanged, editor, &MarkdownEditor::setItalicizeBlockquotes);
+    connect(appSettings, &AppSettings::largeHeadingSizesChanged, editor, &MarkdownEditor::setEnableLargeHeadingSizes);
+    connect(appSettings, &AppSettings::autoMatchChanged, editor, QOverload<bool>::of(&MarkdownEditor::setAutoMatchEnabled));
+    connect(appSettings, &AppSettings::autoMatchCharChanged, editor, QOverload<QChar, bool>::of(&MarkdownEditor::setAutoMatchEnabled));
+    connect(appSettings, &AppSettings::bulletPointCyclingChanged, editor, &MarkdownEditor::setBulletPointCyclingEnabled);
+
+    connect(editor, &MarkdownEditor::fontSizeChanged, this, &MainWindow::onFontSizeChanged);
+    setFocusProxy(editor);
+
+    documentManager = new DocumentManager(editor, this);
+    documentManager->setAutoSaveEnabled(appSettings->autoSaveEnabled());
+    documentManager->setFileBackupEnabled(appSettings->backupFileEnabled());
+    documentManager->setDraftLocation(appSettings->draftLocation());
+    documentManager->setBackupLocation(appSettings->backupLocation());
+    documentManager->setFileHistoryEnabled(appSettings->fileHistoryEnabled());
+    documentManager->setRestoreSessionEnabled(appSettings->restoreSessionEnabled());
+    connect(documentManager, &DocumentManager::documentDisplayNameChanged, this, &MainWindow::changeDocumentDisplayName);
+    connect(documentManager, &DocumentManager::documentModifiedChanged, this, &MainWindow::setWindowModified);
+    connect(documentManager, &DocumentManager::operationStarted, this, &MainWindow::onOperationStarted);
+    connect(documentManager, &DocumentManager::operationUpdate, this, &MainWindow::onOperationStarted);
+    connect(documentManager, &DocumentManager::operationFinished, this, &MainWindow::onOperationFinished);
+    connect(documentManager, &DocumentManager::sessionHistoryChanged, this, &MainWindow::refreshRecentFiles);
+
+    spelling = new SpellCheckDecorator(editor);
+    connect(appSettings, &AppSettings::spellCheckSettingsChanged, spelling, &SpellCheckDecorator::settingsChanged);
+
+    findReplace = new FindReplace(editor, this);
+    statusBarWidgets.append(findReplace);
+    findReplace->setVisible(false);
+    findReplace->setMatchCaseIcon(primaryIconTheme->icon("match-case"));
+    findReplace->setWholeWordIcon(primaryIconTheme->icon("whole-word"));
+    findReplace->setRegexSearchIcon(primaryIconTheme->icon("regex-search"));
+    findReplace->setHighlightMatchesIcon(primaryIconTheme->icon("highlight-matches"));
+    findReplace->setFindNextIcon(primaryIconTheme->icon("find-next"));
+    findReplace->setFindPreviousIcon(primaryIconTheme->icon("find-previous"));
+    findReplace->setCloseIcon(primaryIconTheme->icon("close"));
+
+    setupSidebar();
+    setupMenuBar();
+    setupStatusBar();
+
+    // Note that the parent widget for this new window must be NULL, so that
+    // it will hide beneath other windows when it is deactivated.
+    //
+    htmlPreview = new HtmlPreview(documentManager->document(), appSettings->currentHtmlExporter(), this);
+
+    connect(editor, &MarkdownEditor::typingPausedScaled, htmlPreview, &HtmlPreview::updatePreview);
+
+    connect(documentManager, &DocumentManager::documentLoaded, htmlPreview, &HtmlPreview::updatePreview);
+
+    connect(documentManager, &DocumentManager::documentClosed, htmlPreview, &HtmlPreview::updatePreview);
+
+    connect(outlineWidget, &OutlineWidget::headingNumberNavigated, htmlPreview, &HtmlPreview::navigateToHeading);
+    connect(appSettings, &AppSettings::currentHtmlExporterChanged, htmlPreview, &HtmlPreview::setHtmlExporter);
+
+    htmlPreview->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
+    htmlPreview->setObjectName("htmlpreview");
+    htmlPreview->setVisible(appSettings->htmlPreviewVisible());
+
+    // Set dimensions for the main window.  This is best done before
+    // building the status bar, so that we can determine whether the full
+    // screen button should be checked.
+    //
+    QSettings windowSettings;
+
+    if (windowSettings.contains(GW_MAIN_WINDOW_GEOMETRY_KEY)) {
+        restoreGeometry(windowSettings.value(GW_MAIN_WINDOW_GEOMETRY_KEY).toByteArray());
+        restoreState(windowSettings.value(GW_MAIN_WINDOW_STATE_KEY).toByteArray());
+    } else {
+        adjustSize();
+    }
+
+    splitter = new QSplitter(this);
+    splitter->addWidget(sidebar);
+    splitter->addWidget(editor);
+    splitter->addWidget(htmlPreview);
+    splitter->setChildrenCollapsible(false);
+    splitter->setStretchFactor(0, 0);
+    splitter->setStretchFactor(1, 2);
+    splitter->setStretchFactor(2, 1);
+
+    // Set default sizes for splitter.
+    QList<int> sizes;
+    int sidebarWidth = width() * 0.2;
+    int otherWidth = (width() - sidebarWidth) / 2;
+    sizes.append(sidebarWidth);
+    sizes.append(otherWidth);
+    sizes.append(otherWidth);
+
+    splitter->setSizes(sizes);
+
+    // If previous splitter geometry was stored, load it.
+    if (windowSettings.contains(GW_SPLITTER_GEOMETRY_KEY)) {
+        splitter->restoreState(windowSettings.value(GW_SPLITTER_GEOMETRY_KEY).toByteArray());
+    }
+
+    connect(splitter, &QSplitter::splitterMoved, splitter, [this](int pos, int index) {
+        Q_UNUSED(pos)
+        Q_UNUSED(index)
+        adjustEditor();
+    });
+
+    setCentralWidget(splitter);
+}
+
+void MainWindow::setupMenuBar()
+{
+    QMenu *menu;
+
+    // File Menu
+
+    menu = addMenuBarMenu(tr("&File"));
+    menu->addAction(appAction(AppActions::New));
+    menu->addAction(appAction(AppActions::Open));
+
+    QAction *openRecentAction = appAction(AppActions::OpenRecent);
+    QMenu *submenu = menu->addMenu(openRecentAction->icon(), openRecentAction->text());
+    connect(submenu, &QMenu::aboutToShow, this, &MainWindow::onAboutToShowMenuBarMenu);
+    connect(submenu, &QMenu::aboutToHide, this, &MainWindow::onAboutToHideMenuBarMenu);
+
+    submenu->addAction(appAction(AppActions::ReopenLastClosed));
+    submenu->addSeparator();
+
+    for (int i = AppActions::OpenMostRecent; i <= AppActions::OpenLeastRecent; i++) {
+        submenu->addAction(appAction((AppActions::ActionType)i));
+    }
+
+    submenu->addSeparator();
+    submenu->addAction(appAction(AppActions::ClearRecentFilesList));
+
+    menu->addAction(appAction(AppActions::Save));
+    menu->addAction(appAction(AppActions::SaveAs));
+    menu->addAction(appAction(AppActions::RenameFile));
+    menu->addAction(appAction(AppActions::Reload));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::Export));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::Quit));
+
+    // Edit Menu
+
+    menu = addMenuBarMenu(tr("&Edit"));
+    menu->addAction(appAction(AppActions::Undo));
+    menu->addAction(appAction(AppActions::Redo));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::Cut));
+    menu->addAction(appAction(AppActions::Copy));
+    menu->addAction(appAction(AppActions::Paste));
+    menu->addAction(appAction(AppActions::CopyHTML));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::SelectAll));
+    menu->addAction(appAction(AppActions::Deselect));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::InsertImage));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::Find));
+    menu->addAction(appAction(AppActions::Replace));
+    menu->addAction(appAction(AppActions::FindNext));
+    menu->addAction(appAction(AppActions::FindPrev));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::Spelling));
+
+    // Format Menu
+
+    menu = addMenuBarMenu("&Format");
+    menu->addAction(appAction(AppActions::Strong));
+    menu->addAction(appAction(AppActions::Emphasis));
+    menu->addAction(appAction(AppActions::Strikethrough));
+    menu->addAction(appAction(AppActions::InsertHTMLComment));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::IndentText));
+    menu->addAction(appAction(AppActions::UnindentText));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::CodeFences));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::BlockQuote));
+    menu->addAction(appAction(AppActions::StripBlockQuote));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::BulletListAsterisk));
+    menu->addAction(appAction(AppActions::BulletListMinus));
+    menu->addAction(appAction(AppActions::BulletListPlus));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::NumberedListPeriod));
+    menu->addAction(appAction(AppActions::NumberedListParenthesis));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::TaskList));
+    menu->addAction(appAction(AppActions::TaskComplete));
+
+    // View Menu
+
+    menu = addMenuBarMenu(tr("&View"));
+    menu->addAction(appAction(AppActions::FullScreen));
+    menu->addAction(appAction(AppActions::DistractionFreeMode));
+    menu->addAction(appAction(AppActions::Preview));
+    menu->addAction(appAction(AppActions::HemingwayMode));
+    menu->addAction(appAction(AppActions::DarkMode));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::ShowSidebar));
+    menu->addAction(appAction(AppActions::ShowOutline));
+    menu->addAction(appAction(AppActions::ShowSessionStatistics));
+    menu->addAction(appAction(AppActions::ShowDocumentStatistics));
+    menu->addAction(appAction(AppActions::ShowCheatSheet));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::ZoomIn));
+    menu->addAction(appAction(AppActions::ZoomOut));
+
+    // Settings Menu
+
+    menu = addMenuBarMenu(tr("&Settings"));
+    menu->addAction(appAction(AppActions::ChangeTheme));
+    menu->addAction(appAction(AppActions::ChangeFont));
+    menu->addAction(appAction(AppActions::SwitchApplicationLanguage));
+    menu->addAction(appAction(AppActions::PreviewOptions));
+    menu->addAction(appAction(AppActions::Preferences));
+
+    // Help Menu
+
+    menu = addMenuBarMenu(tr("&Help"));
+    menu->addAction(appAction(AppActions::HelpContents));
+    menu->addAction(appAction(AppActions::WhatsThis));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::ReportBug));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::Donate));
+    menu->addSeparator();
+    menu->addAction(appAction(AppActions::AboutApp));
+    menu->addAction(appAction(AppActions::AboutKDE));
+
+    // Refresh the recent files list with the latest and greatest.
+    if (appSettings->fileHistoryEnabled()) {
+        refreshRecentFiles();
+    }
+
+    // Hide menu bar in full screen mode if enabled to do so.
+    if (isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
+        menuBar()->hide();
+    }
+}
+
+void MainWindow::setupStatusBar()
 {
     QGridLayout *statusBarLayout = new QGridLayout();
     statusBarLayout->setSpacing(0);
     statusBarLayout->setContentsMargins(0, 0, 0, 0);
 
-    statusBarLayout->addWidget(this->findReplace, 0, 0, 1, 3);
+    statusBarLayout->addWidget(findReplace, 0, 0, 1, 3);
 
     // Divide the status bar into thirds for placing widgets.
-    QFrame *leftWidget = new QFrame(this->statusBar());
+    QFrame *leftWidget = new QFrame(statusBar());
     leftWidget->setObjectName("leftStatusBarWidget");
-    QFrame *midWidget = new QFrame(this->statusBar());
+    QFrame *midWidget = new QFrame(statusBar());
     midWidget->setObjectName("midStatusBarWidget");
-    QFrame *rightWidget = new QFrame(this->statusBar());
+    QFrame *rightWidget = new QFrame(statusBar());
     rightWidget->setObjectName("rightStatusBarWidget");
 
     QHBoxLayout *leftLayout = new QHBoxLayout(leftWidget);
@@ -1109,33 +1149,21 @@ void MainWindow::buildStatusBar()
     rightLayout->setContentsMargins(0,0,0,0);
 
     // Add left-most widgets to status bar.
-    toggleSidebarButton = new QPushButton(QChar(fa::chevronright));
-    toggleSidebarButton->setObjectName("showSidebarButton");
-    toggleSidebarButton->setFocusPolicy(Qt::NoFocus);
-    toggleSidebarButton->setToolTip(tr("Toggle sidebar"));
-    toggleSidebarButton->setCheckable(false);
-    toggleSidebarButton->setChecked(false);
+    QToolButton *button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::ShowSidebar));
+    button->setIcon(primaryIconTheme->icon("show-sidebar"));
+    button->setObjectName("showSidebarButton");
+    button->setFocusPolicy(Qt::NoFocus);
 
-    leftLayout->addWidget(toggleSidebarButton, 0, Qt::AlignLeft);
-    statusBarWidgets.append(toggleSidebarButton);
+    leftLayout->addWidget(button, 0, Qt::AlignLeft);
+    statusBarWidgets.append(button);
 
-    if (appSettings->sidebarVisible()) {
-        toggleSidebarButton->setText(QChar(fa::chevronleft));
-    }
-
-    this->connect(toggleSidebarButton,
-        &QPushButton::clicked,
-        [this]() {
-            toggleSidebarVisible(!sidebar->isVisible());
-        }
-    );
-    
     timeIndicator = new TimeLabel(this);
     leftLayout->addWidget(timeIndicator, 0, Qt::AlignLeft);
     leftWidget->setContentsMargins(0, 0, 0, 0);
     statusBarWidgets.append(timeIndicator);
 
-    if (!this->isFullScreen() || appSettings->displayTimeInFullScreenEnabled()) {
+    if (!isFullScreen() || appSettings->displayTimeInFullScreenEnabled()) {
         timeIndicator->hide();
     }
 
@@ -1156,10 +1184,7 @@ void MainWindow::buildStatusBar()
         statisticsIndicator->setCurrentIndex(0);
     }
 
-    this->connect(statisticsIndicator,
-        QOverload<int>::of(&QComboBox::currentIndexChanged),
-        appSettings,
-        &AppSettings::setFavoriteStatistic);
+    connect(statisticsIndicator, QOverload<int>::of(&QComboBox::currentIndexChanged), appSettings, &AppSettings::setFavoriteStatistic);
 
     midLayout->addWidget(statisticsIndicator, 0, Qt::AlignCenter);
     midWidget->setContentsMargins(0, 0, 0, 0);
@@ -1167,71 +1192,43 @@ void MainWindow::buildStatusBar()
     statusBarWidgets.append(statisticsIndicator);
 
     // Add right-most widgets to status bar.
-    QPushButton *button = new QPushButton(QChar(fa::moon));
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::DarkMode));
+    button->setIcon(secondaryIconTheme->icon("dark-mode"));
     button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Toggle dark mode"));
-    button->setCheckable(true);
-    button->setChecked(appSettings->darkModeEnabled());
-
-    this->connect
-    (
-        button,
-        &QPushButton::toggled,
-        [this](bool enabled) {
-            appSettings->setDarkModeEnabled(enabled);
-            applyTheme();
-        }
-    );
 
     rightLayout->addWidget(button, 0, Qt::AlignRight);
     statusBarWidgets.append(button);
 
-    button = new QPushButton(QChar(fa::code));
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::Preview));
+    button->setIcon(secondaryIconTheme->icon("live-preview"));
+    button->setIconSize(QSize(16, 16));
     button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Toggle Live HTML Preview"));
-    button->setCheckable(true);
-    button->setChecked(appSettings->htmlPreviewVisible());
-    connect(button, SIGNAL(toggled(bool)), this, SLOT(toggleHtmlPreview(bool)));
     rightLayout->addWidget(button, 0, Qt::AlignRight);
     statusBarWidgets.append(button);
 
-    this->connect
-    (
-        this->htmlPreviewMenuAction,
-        &QAction::toggled,
-        [button](bool checked) {
-            button->blockSignals(true);
-            button->setChecked(checked);
-            button->blockSignals(false);
-        }
-    );
-
-    button = new QPushButton(QChar(fa::backspace));
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::HemingwayMode));
+    button->setIcon(secondaryIconTheme->icon("hemingway-mode"));
     button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Toggle Hemingway mode"));
-    button->setCheckable(true);
-    connect(button, SIGNAL(toggled(bool)), this, SLOT(toggleHemingwayMode(bool)));
     rightLayout->addWidget(button, 0, Qt::AlignRight);
     statusBarWidgets.append(button);
 
-    button = new QPushButton(QChar(fa::headphonesalt));
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::DistractionFreeMode));
+    button->setIcon(secondaryIconTheme->icon("distraction-free-mode"));
     button->setFocusPolicy(Qt::NoFocus);
-    button->setToolTip(tr("Toggle distraction free mode"));
-    button->setCheckable(true);
-    connect(button, SIGNAL(toggled(bool)), this, SLOT(toggleFocusMode(bool)));
     rightLayout->addWidget(button, 0, Qt::AlignRight);
     statusBarWidgets.append(button);
 
-    button = new QPushButton(QChar(fa::expand));
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::FullScreen));
+    button->setIcon(secondaryIconTheme->icon("full-screen"));
     button->setFocusPolicy(Qt::NoFocus);
     button->setObjectName("fullscreenButton");
-    button->setToolTip(tr("Toggle full screen mode"));
-    button->setCheckable(true);
-    button->setChecked(this->isFullScreen());
-    connect(button, SIGNAL(toggled(bool)), this, SLOT(toggleFullScreen(bool)));
     rightLayout->addWidget(button, 0, Qt::AlignRight);
     statusBarWidgets.append(button);
-    this->fullScreenButton = button;
 
     rightWidget->setContentsMargins(0, 0, 0, 0);
     statusBarLayout->addWidget(rightWidget, 1, 2, 1, 1, Qt::AlignRight);
@@ -1242,24 +1239,12 @@ void MainWindow::buildStatusBar()
     container->setContentsMargins(0, 0, 2, 0);
     container->setStyleSheet("#statusBarWidgetContainer { border: 0; margin: 0; padding: 0 }");
 
-    this->statusBar()->addWidget(container, 1);
-    this->statusBar()->setSizeGripEnabled(false);
+    statusBar()->addWidget(container, 1);
+    statusBar()->setSizeGripEnabled(false);
 }
 
-void MainWindow::buildSidebar()
+void MainWindow::setupSidebar()
 {
-    this->showSidebarAction = new QAction(tr("Show Sidebar"), this);
-    showSidebarAction->setCheckable(true);
-    showSidebarAction->setChecked(appSettings->sidebarVisible());
-    showSidebarAction->setShortcut(QKeySequence("CTRL+SPACE"));
-    showSidebarAction->setShortcutContext(Qt::WindowShortcut);
-    
-    connect(this->showSidebarAction,
-        &QAction::toggled,
-        [this](bool visible) {
-            this->toggleSidebarVisible(visible);
-        });
-
     cheatSheetWidget = new QListWidget(this);
 
     cheatSheetWidget->setSelectionMode(QAbstractItemView::NoSelection);
@@ -1316,71 +1301,64 @@ void MainWindow::buildSidebar()
             documentStatsWidget, &DocumentStatisticsWidget::setLixReadingEase);
     connect(documentStats, &DocumentStatistics::readabilityIndexChanged,
             documentStatsWidget, &DocumentStatisticsWidget::setReadabilityIndex);
-    connect(editor, SIGNAL(textSelected(QString, int, int)), documentStats, SLOT(onTextSelected(QString, int, int)));
-    connect(editor, SIGNAL(textDeselected()), documentStats, SLOT(onTextDeselected()));
+    connect(editor, &MarkdownEditor::textSelected, documentStats, &DocumentStatistics::onTextSelected);
+    connect(editor, &MarkdownEditor::textDeselected, documentStats, &DocumentStatistics::onTextDeselected);
 
     sessionStats = new SessionStatistics(this);
-    connect(documentStats, SIGNAL(totalWordCountChanged(int)), sessionStats, SLOT(onDocumentWordCountChanged(int)));
-    connect(sessionStats, SIGNAL(wordCountChanged(int)), sessionStatsWidget, SLOT(setWordCount(int)));
-    connect(sessionStats, SIGNAL(pageCountChanged(int)), sessionStatsWidget, SLOT(setPageCount(int)));
-    connect(sessionStats, SIGNAL(wordsPerMinuteChanged(int)), sessionStatsWidget, SLOT(setWordsPerMinute(int)));
-    connect(sessionStats, SIGNAL(writingTimeChanged(int)), sessionStatsWidget, SLOT(setWritingTime(int)));
-    connect(sessionStats, SIGNAL(idleTimePercentageChanged(int)), sessionStatsWidget, SLOT(setIdleTime(int)));
-    connect(editor, SIGNAL(typingPaused()), sessionStats, SLOT(onTypingPaused()));
-    connect(editor, SIGNAL(typingResumed()), sessionStats, SLOT(onTypingResumed()));
+    connect(documentStats, &DocumentStatistics::totalWordCountChanged, sessionStats, &SessionStatistics::onDocumentWordCountChanged);
+    connect(sessionStats, &SessionStatistics::wordCountChanged, sessionStatsWidget, &SessionStatisticsWidget::setWordCount);
+    connect(sessionStats, &SessionStatistics::pageCountChanged, sessionStatsWidget, &SessionStatisticsWidget::setPageCount);
+    connect(sessionStats, &SessionStatistics::wordsPerMinuteChanged, sessionStatsWidget, &SessionStatisticsWidget::setWordsPerMinute);
+    connect(sessionStats, &SessionStatistics::writingTimeChanged, sessionStatsWidget, &SessionStatisticsWidget::setWritingTime);
+    connect(sessionStats, &SessionStatistics::idleTimePercentageChanged, sessionStatsWidget, &SessionStatisticsWidget::setIdleTime);
+    connect(editor, &MarkdownEditor::typingPaused, sessionStats, &SessionStatistics::onTypingPaused);
+    connect(editor, &MarkdownEditor::typingResumed, sessionStats, &SessionStatistics::onTypingResumed);
 
     sidebar = new Sidebar(this);
     sidebar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sidebar->setMinimumWidth(0.1 * QGuiApplication::primaryScreen()->availableSize().width());
     sidebar->setMaximumWidth(0.5 * QGuiApplication::primaryScreen()->availableSize().width());
 
-    sidebar->addTab(QChar(fa::hashtag), outlineWidget, tr("Outline"));
-    sidebar->addTab(QChar(fa::tachometeralt), sessionStatsWidget, tr("Session Statistics"));
-    sidebar->addTab(QChar(fa::chartbar), documentStatsWidget, tr("Document Statistics"));
-    sidebar->addTab(QChar(fa::markdown), cheatSheetWidget, tr("Cheat Sheet"), "cheatSheetTab");
+    sidebar->addTab(primaryIconTheme->icon("outline"), outlineWidget, tr("Outline"));
+    sidebar->addTab(primaryIconTheme->icon("session-statistics"), sessionStatsWidget, tr("Session Statistics"));
+    sidebar->addTab(primaryIconTheme->icon("document-statistics"), documentStatsWidget, tr("Document Statistics"));
+    sidebar->addTab(primaryIconTheme->icon("cheat-sheet"), cheatSheetWidget, tr("Cheat Sheet"), "cheatSheetTab");
 
     int tabIndex = QSettings().value("sidebarCurrentTab", (int)FirstSidebarTab).toInt();
 
-    if (tabIndex < 0 || tabIndex >= sidebar->tabCount()) {
+    if ((tabIndex < 0) || (tabIndex >= sidebar->tabCount())) {
         tabIndex = (int) FirstSidebarTab;
     }
 
     sidebar->setCurrentTabIndex(tabIndex);
 
-    QPushButton *button = sidebar->addButton(QChar(fa::cog), tr("Settings"));
-    this->connect
-    (
-        button,
-        &QPushButton::clicked,
-        [this, button]() {
-            QMenu *popupMenu = new QMenu(button);
-            popupMenu->addAction(tr("Themes..."), this, SLOT(changeTheme()));
-            popupMenu->addAction(tr("Font..."), this, SLOT(changeFont()));
-            popupMenu->addAction(tr("Application Language..."), this, SLOT(onSetLocale()));
-            popupMenu->addAction(tr("Preview Options..."), this, SLOT(showPreviewOptions()));
-            popupMenu->addAction(tr("Preferences..."),
-                this,
-                SLOT(openPreferencesDialog()))->setMenuRole(QAction::PreferencesRole);
-            popupMenu->popup(button->mapToGlobal(QPoint(button->width() / 2,
-                -(button->height() / 2) - 10)));
-        }
-    );
+    QPushButton *button = sidebar->addButton(primaryIconTheme->icon("settings"), tr("Settings"));
+    connect(button, &QPushButton::clicked, button, [this, button]() {
+        static QMenu *popupMenu = nullptr;
 
-    this->connect(this->sidebar,
-        &Sidebar::visibilityChanged,
-        this,
-        &MainWindow::onSidebarVisibilityChanged);
-    
-    if (!this->sidebarHiddenForResize
-            && !this->focusModeEnabled
-            && appSettings->sidebarVisible()) {
-        this->sidebar->setAutoHideEnabled(false);
-        this->sidebar->setVisible(true);
+        if (nullptr == popupMenu) {
+            popupMenu = new QMenu(button);
+        }
+
+        popupMenu->addAction(appAction(AppActions::ChangeTheme));
+        popupMenu->addAction(appAction(AppActions::ChangeFont));
+        popupMenu->addAction(appAction(AppActions::SwitchApplicationLanguage));
+        popupMenu->addAction(appAction(AppActions::PreviewOptions));
+        popupMenu->addAction(appAction(AppActions::Preferences));
+        popupMenu->popup(button->mapToGlobal(QPoint(button->width() / 2, -(button->height() / 2) - 10)));
+    });
+
+    if (!sidebarHiddenForResize && !focusModeEnabled && appSettings->sidebarVisible()) {
+        sidebar->setAutoHideEnabled(false);
+        sidebar->setVisible(true);
+    } else {
+        sidebar->setAutoHideEnabled(true);
+        sidebar->setVisible(false);
     }
-    else {
-        this->sidebar->setAutoHideEnabled(true);
-        this->sidebar->setVisible(false);
-    }
+
+    connect(sidebar, &Sidebar::visibilityChanged, this, &MainWindow::onSidebarVisibilityChanged);
+
+    sidebar->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
 }
 
 void MainWindow::adjustEditor()
@@ -1395,17 +1373,17 @@ void MainWindow::adjustEditor()
     // It should not take up more than 50% of the window space
     // left after the sidebar is accounted for.
     //
-    if (this->sidebar->isVisible()) {
-        sidebarWidth = this->sidebar->width();
+    if (sidebar->isVisible()) {
+        sidebarWidth = sidebar->width();
     }
 
-    this->htmlPreview->setMaximumWidth((width - sidebarWidth) / 2);
+    htmlPreview->setMaximumWidth((width - sidebarWidth) / 2);
 
     // Resize the editor's margins.
-    this->editor->setupPaperMargins();
+    editor->setupPaperMargins();
 
     // Scroll to cursor position.
-    this->editor->centerCursor();
+    editor->centerCursor();
 }
 
 void MainWindow::applyTheme()
@@ -1420,16 +1398,29 @@ void MainWindow::applyTheme()
         colorScheme = theme.darkColorScheme();
     }
 
-    StyleSheetBuilder styler(colorScheme,
-        (InterfaceStyleRounded == appSettings->interfaceStyle()),
-        appSettings->editorFont(),
-        appSettings->previewTextFont(),
-        appSettings->previewCodeFont());
+    ChromeColors chromeColors(colorScheme);
+
+    primaryIconTheme->setColor(QIcon::Normal, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::NormalState));
+    primaryIconTheme->setColor(QIcon::Active, chromeColors.color(ChromeColors::Label, ChromeColors::NormalState));
+    primaryIconTheme->setColor(QIcon::Selected, chromeColors.color(ChromeColors::Label, ChromeColors::NormalState));
+    primaryIconTheme->setColor(QIcon::Disabled, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::DisabledState));
+
+    secondaryIconTheme->setColor(QIcon::Normal, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::NormalState));
+    secondaryIconTheme->setColor(QIcon::Active, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::ActiveState));
+    secondaryIconTheme->setColor(QIcon::Selected, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::PressedState));
+    secondaryIconTheme->setColor(QIcon::Disabled, chromeColors.color(ChromeColors::SecondaryLabel, ChromeColors::DisabledState));
+
+    StyleSheetBuilder styler(chromeColors,
+                             secondaryIconTheme,
+                             (InterfaceStyleRounded == appSettings->interfaceStyle()),
+                             appSettings->editorFont(),
+                             appSettings->previewTextFont(),
+                             appSettings->previewCodeFont());
 
     editor->setColorScheme(colorScheme);
     spelling->setErrorColor(colorScheme.error);
 
-    // Do not call this->setStyleSheet().  Calling it more than once in a run
+    // Do not call MainWindow::setStyleSheet().  Calling it more than once
     // (i.e., when changing a theme) causes a crash in Qt 5.11.  Instead,
     // change the main window's style sheet via qApp.
     //
@@ -1458,13 +1449,8 @@ void MainWindow::applyTheme()
 
 void MainWindow::runSpellCheck()
 {
-    SpellCheckDialog *dialog = new SpellCheckDialog(this->editor);
-    connect(
-        dialog,
-        &SpellCheckDialog::finished,
-        this->spelling,
-        &SpellCheckDecorator::rehighlight
-    );
+    SpellCheckDialog *dialog = new SpellCheckDialog(editor);
+    connect(dialog, &SpellCheckDialog::finished, spelling, &SpellCheckDecorator::rehighlight);
 
     dialog->show();
 }

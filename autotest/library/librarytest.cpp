@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2022-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -25,7 +25,6 @@ public:
 
 typedef QList<BookmarkInputData> BookmarkInputs;
 
-
 Q_DECLARE_METATYPE(BookmarkInputData)
 Q_DECLARE_METATYPE(Bookmark)
 
@@ -45,7 +44,8 @@ class LibraryTest: public QObject
     Q_OBJECT
 
 private:
-    void populateRecentHistory(const BookmarkInputs &inputs);
+    void populateFileHistory(const BookmarkInputs &inputs);
+    void populateLastOpened(const BookmarkInputData &input);
 
 private slots:
     void initTestCase();
@@ -59,15 +59,21 @@ private slots:
     void addRecent();
     void removeRecent_data();
     void removeRecent();
+    void lastOpened_data();
+    void lastOpened();
+    void setLastOpened_data();
+    void setLastOpened();
+    void updateLastOpened_data();
+    void updateLastOpened();
     void sync_data();
     void sync();
     void lookup_data();
     void lookup();
-    void clear_data();
-    void clear();
+    void clearHistory_data();
+    void clearHistory();
 };
 
-void LibraryTest::populateRecentHistory(const BookmarkInputs &inputs)
+void LibraryTest::populateFileHistory(const BookmarkInputs &inputs)
 {    
     // Create a settings file with valid bookmark data.
     QSettings settings;
@@ -80,14 +86,26 @@ void LibraryTest::populateRecentHistory(const BookmarkInputs &inputs)
         
         settings.setArrayIndex(i);
         settings.setValue("filePath", path);
-        settings.setValue
-        (
-            "cursorPosition",
-            pos
-        );
+        settings.setValue("cursorPosition", pos);
     }
 
     settings.endArray();
+    settings.sync();
+}
+
+void LibraryTest::populateLastOpened(const BookmarkInputData &input)
+{
+    // Create a settings file with valid bookmark data.
+    QSettings settings;
+
+    settings.beginGroup("LastOpenedFile");
+
+    if (!input.filePath.isNull()) {
+        settings.setValue("filePath", input.filePath);
+    }
+
+    settings.setValue("cursorPosition", input.cursorPosition);
+    settings.endGroup();
     settings.sync();
 }
 
@@ -130,60 +148,26 @@ void LibraryTest::cleanupTestCase()
 void LibraryTest::cleanup()
 {
     QSettings settings;
+    settings.remove("ActiveFile");
     settings.remove("FileHistory");
 }
 
 void LibraryTest::recentFiles_data()
 {
     QTest::addColumn<BookmarkInputs>("inputs");
-    QTest::addColumn<Bookmarks>("expected");
+    QTest::addColumn<BookmarkList>("expected");
 
-    QTest::newRow("nominal: no recent files")
-        << BookmarkInputs()
-        << Bookmarks()
-        ;
+    QTest::newRow("nominal: no recent files") << BookmarkInputs() << BookmarkList();
 
-    QTest::newRow("nominal: all valid bookmarks")
-        << BookmarkInputs({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        << Bookmarks({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        ;
+    QTest::newRow("nominal: all valid bookmarks") << BookmarkInputs({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}})
+                                                  << BookmarkList({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}});
 
     QTest::newRow("robustness: some bookmarks invalid")
-        << BookmarkInputs({
-                { "foo.txt", 300 },
-                { "./valid1.txt", 20 },
-                { "./bar.txt", 400 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 },
-                { "baz.txt", 17 }
-            })
-        << Bookmarks({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        ;
-    
-    QTest::newRow("robustness: bookmark with invalid cursor position")
-        << BookmarkInputs({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", -78 },
-                { "valid3.txt", 40 }
-            })
-        << Bookmarks({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 0 },
-                { "valid3.txt", 40 }
-            })
-        ;
+        << BookmarkInputs({{"foo.txt", 300}, {"./valid1.txt", 20}, {"./bar.txt", 400}, {"valid2.txt", 80}, {"valid3.txt", 40}, {"baz.txt", 17}})
+        << BookmarkList({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}});
+
+    QTest::newRow("robustness: bookmark with invalid cursor position") << BookmarkInputs({{"./valid1.txt", 20}, {"valid2.txt", -78}, {"valid3.txt", 40}})
+                                                                       << BookmarkList({{"./valid1.txt", 20}, {"valid2.txt", 0}, {"valid3.txt", 40}});
 }
 
 /**
@@ -213,20 +197,20 @@ void LibraryTest::recentFiles_data()
 void LibraryTest::recentFiles()
 {
     QFETCH(BookmarkInputs, inputs);
-    QFETCH(Bookmarks, expected);
+    QFETCH(BookmarkList, expected);
 
     if (!inputs.isEmpty()) {
-        populateRecentHistory(inputs);
+        populateFileHistory(inputs);
     }
 
     Library library;
-    Bookmarks recentFiles = library.recentFiles();
+    BookmarkList recentFiles = library.recentFiles();
 
-    QCOMPARE(expected.size(), recentFiles.size());
-    
+    QCOMPARE(recentFiles.size(), expected.size());
+
     for (int i = 0; i < recentFiles.size(); i++) {
-        QCOMPARE(expected.at(i).filePath(), recentFiles.at(i).filePath());
-        QCOMPARE(expected.at(i).cursorPosition(), recentFiles.at(i).cursorPosition());
+        QCOMPARE(recentFiles.at(i).filePath(), expected.at(i).filePath());
+        QCOMPARE(recentFiles.at(i).cursorPosition(), expected.at(i).cursorPosition());
         QVERIFY(recentFiles.at(i).isValid());
     }
 }
@@ -235,51 +219,17 @@ void LibraryTest::recentFilesMax_data()
 {
     QTest::addColumn<int>("max");
     QTest::addColumn<BookmarkInputs>("inputs");
-    QTest::addColumn<Bookmarks>("expected");
-    
-    QTest::newRow("nominal: max equal to total bookmarks")
-        << 3
-        << BookmarkInputs({
-                {"./valid1.txt", 20},
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        << Bookmarks({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        ;
+    QTest::addColumn<BookmarkList>("expected");
+
+    QTest::newRow("nominal: max equal to total bookmarks") << 3 << BookmarkInputs({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}})
+                                                           << BookmarkList({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}});
 
     QTest::newRow("nominal: max less than total bookmarks")
-        << 3
-        << BookmarkInputs({
-                {"./valid1.txt", 20},
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 },
-                { "valid4.txt", 60 },
-                { "valid5.txt", 120 }
-            })
-        << Bookmarks({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        ;
-    
-    QTest::newRow("robustness: max greater than total bookmarks")
-        << 5
-        << BookmarkInputs({
-                {"./valid1.txt", 20},
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        << Bookmarks({
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            })
-        ;
+        << 3 << BookmarkInputs({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}, {"valid4.txt", 60}, {"valid5.txt", 120}})
+        << BookmarkList({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}});
+
+    QTest::newRow("robustness: max greater than total bookmarks") << 5 << BookmarkInputs({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}})
+                                                                  << BookmarkList({{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}});
 }
 
 /**
@@ -306,18 +256,18 @@ void LibraryTest::recentFilesMax()
 {
     QFETCH(int, max);
     QFETCH(BookmarkInputs, inputs);
-    QFETCH(Bookmarks, expected);
+    QFETCH(BookmarkList, expected);
 
-    populateRecentHistory(inputs);
+    populateFileHistory(inputs);
 
     Library library;
-    Bookmarks recentFiles = library.recentFiles(max);
+    BookmarkList recentFiles = library.recentFiles(max);
 
-    QCOMPARE(expected.size(), recentFiles.size());
-    
+    QCOMPARE(recentFiles.size(), expected.size());
+
     for (int i = 0; i < recentFiles.size() - max; i++) {
-        QCOMPARE(expected.at(i).filePath(), recentFiles.at(i).filePath());
-        QCOMPARE(expected.at(i).cursorPosition(), recentFiles.at(i).cursorPosition());
+        QCOMPARE(recentFiles.at(i).filePath(), expected.at(i).filePath());
+        QCOMPARE(recentFiles.at(i).cursorPosition(), expected.at(i).cursorPosition());
         QVERIFY(recentFiles.at(i).isValid());
     }
 }
@@ -327,81 +277,36 @@ void LibraryTest::addRecent_data()
     QTest::addColumn<int>("method");
     QTest::addColumn<BookmarkInputs>("existing");
     QTest::addColumn<BookmarkInputData>("added");
-    QTest::addColumn<Bookmarks>("expected");
+    QTest::addColumn<BookmarkList>("expected");
 
     for (int i = 1; i <= 2; i++) {
         char title[120];
 
         sprintf(title, "method %d: nominal: add new valid bookmark to empty history", i);
 
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs { }
-            << BookmarkInputData { "./valid1.txt", 5000 }
-            << Bookmarks { { "./valid1.txt", 5000 } }
-            ;
-        
+        QTest::newRow(title) << i << BookmarkInputs{} << BookmarkInputData{"./valid1.txt", 5000} << BookmarkList{{"./valid1.txt", 5000}};
+
         sprintf(title, "method %d: nominal: add new valid bookmark to existing history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            << BookmarkInputData { "./valid4.txt", 5000 }
-            << Bookmarks {
-                    { "./valid4.txt", 5000 },
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}} << BookmarkInputData{"./valid4.txt", 5000}
+                             << BookmarkList{{"./valid4.txt", 5000}, {"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}};
+
         sprintf(title, "method %d: nominal: update bookmark in history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            << BookmarkInputData { "./valid2.txt", 2700 }
-            << Bookmarks {
-                    { "./valid2.txt", 2700 },
-                    {"./valid1.txt", 20},
-                    { "valid3.txt", 40 }
-                }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}} << BookmarkInputData{"./valid2.txt", 2700}
+                             << BookmarkList{{"./valid2.txt", 2700}, {"./valid1.txt", 20}, {"valid3.txt", 40}};
+
         sprintf(title, "method %d: robustness: add bookmark where file does not exist in history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs { }
-            << BookmarkInputData { "foo.txt", 3000 }
-            << Bookmarks { }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{} << BookmarkInputData{"foo.txt", 3000} << BookmarkList{};
+
         sprintf(title, "method %d: robustness: add bookmark with negative cursor position to history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs { }
-            << BookmarkInputData { "valid1.txt", -3000 }
-            << Bookmarks { { "valid1.txt", 0 } }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{} << BookmarkInputData{"valid1.txt", -3000} << BookmarkList{{"valid1.txt", 0}};
+
         sprintf(title, "method %d: robustness: add null bookmark to history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs { }
-            << BookmarkInputData { QString(), -3000 }
-            << Bookmarks { }
-            ;
+
+        QTest::newRow(title) << i << BookmarkInputs{} << BookmarkInputData{QString(), -3000} << BookmarkList{};
     }
 }
 
@@ -446,10 +351,10 @@ void LibraryTest::addRecent()
     QFETCH(int, method);
     QFETCH(BookmarkInputs, existing);
     QFETCH(BookmarkInputData, added);
-    QFETCH(Bookmarks, expected);
+    QFETCH(BookmarkList, expected);
 
-    populateRecentHistory(existing);
-    
+    populateFileHistory(existing);
+
     Library library;
 
     if (1 == method) {
@@ -465,13 +370,13 @@ void LibraryTest::addRecent()
             added.cursorPosition);
     }
 
-    Bookmarks recentFiles = library.recentFiles();
+    BookmarkList recentFiles = library.recentFiles();
 
-    QCOMPARE(expected.size(), recentFiles.size());
-    
+    QCOMPARE(recentFiles.size(), expected.size());
+
     for (int i = 0; i < recentFiles.size(); i++) {
-        QCOMPARE(expected.at(i).filePath(), recentFiles.at(i).filePath());
-        QCOMPARE(expected.at(i).cursorPosition(), recentFiles.at(i).cursorPosition());
+        QCOMPARE(recentFiles.at(i).filePath(), expected.at(i).filePath());
+        QCOMPARE(recentFiles.at(i).cursorPosition(), expected.at(i).cursorPosition());
         QVERIFY(recentFiles.at(i).isValid());
     }
 }
@@ -481,86 +386,34 @@ void LibraryTest::removeRecent_data()
     QTest::addColumn<int>("method");
     QTest::addColumn<BookmarkInputs>("existing");
     QTest::addColumn<QString>("removed");
-    QTest::addColumn<Bookmarks>("expected");
+    QTest::addColumn<BookmarkList>("expected");
 
     for (int i = 1; i <= 2; i++) {
         char title[120];
 
         sprintf(title, "method %d: nominal: remove valid bookmark from empty history", i);
 
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs { }
-            << "./valid1.txt"
-            << Bookmarks { }
-            ;
-        
+        QTest::newRow(title) << i << BookmarkInputs{} << "./valid1.txt" << BookmarkList{};
+
         sprintf(title, "method %d: nominal: remove valid bookmark from existing history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            << "./valid2.txt"
-            << Bookmarks {
-                    {"./valid1.txt", 20},
-                    { "valid3.txt", 40 }
-                }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}} << "./valid2.txt"
+                             << BookmarkList{{"./valid1.txt", 20}, {"valid3.txt", 40}};
+
         sprintf(title, "method %d: robustness: remove valid bookmark that does not exist in history", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            << "./valid5.txt"
-            << Bookmarks {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}} << "./valid5.txt"
+                             << BookmarkList{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}};
+
         sprintf(title, "method %d: robustness: remove invalid bookmark", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            << "foo.txt"
-            << Bookmarks {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            ;
-        
+
+        QTest::newRow(title) << i << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}} << "foo.txt"
+                             << BookmarkList{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}};
+
         sprintf(title, "method %d: robustness: remove null bookmark", i);
-        
-        QTest::newRow(title)
-            << i
-            << BookmarkInputs {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            << QString()
-            << Bookmarks {
-                    {"./valid1.txt", 20},
-                    { "valid2.txt", 80 },
-                    { "valid3.txt", 40 }
-                }
-            ;
+
+        QTest::newRow(title) << i << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}} << QString()
+                             << BookmarkList{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}};
     }
 }
 
@@ -599,10 +452,10 @@ void LibraryTest::removeRecent()
     QFETCH(int, method);
     QFETCH(BookmarkInputs, existing);
     QFETCH(QString, removed);
-    QFETCH(Bookmarks, expected);
+    QFETCH(BookmarkList, expected);
 
-    populateRecentHistory(existing);
-    
+    populateFileHistory(existing);
+
     Library library;
 
     if (1 == method) {
@@ -621,15 +474,218 @@ void LibraryTest::removeRecent()
     library.sync();
 
     // Force fresh read from disk.
-    Bookmarks recentFiles = Library().recentFiles();
+    BookmarkList recentFiles = Library().recentFiles();
 
-    QCOMPARE(expected.size(), recentFiles.size());
-    
+    QCOMPARE(recentFiles.size(), expected.size());
+
     for (int i = 0; i < recentFiles.size(); i++) {
-        QCOMPARE(expected.at(i).filePath(), recentFiles.at(i).filePath());
-        QCOMPARE(expected.at(i).cursorPosition(), recentFiles.at(i).cursorPosition());
-        QCOMPARE(expected.at(i).isValid(), recentFiles.at(i).isValid());
-        QCOMPARE(expected.at(i).isNull(), recentFiles.at(i).isNull());
+        QCOMPARE(recentFiles.at(i).filePath(), expected.at(i).filePath());
+        QCOMPARE(recentFiles.at(i).cursorPosition(), expected.at(i).cursorPosition());
+        QCOMPARE(recentFiles.at(i).isValid(), expected.at(i).isValid());
+        QCOMPARE(recentFiles.at(i).isNull(), expected.at(i).isNull());
+    }
+}
+
+void LibraryTest::lastOpened_data()
+{
+    QTest::addColumn<BookmarkInputData>("lastOpened");
+    QTest::addColumn<Bookmark>("expected");
+
+    QTest::newRow("nominal: last opened file exists") << BookmarkInputData{"./valid1.txt", 20} << Bookmark("./valid1.txt", 20);
+
+    QTest::newRow("robustness: last opened file does not exist") << BookmarkInputData{"./invalid.txt", 30} << Library::UNTITLED;
+
+    QTest::newRow("robustness: last opened file name is empty string") << BookmarkInputData{"", 0} << Library::UNTITLED;
+
+    QTest::newRow("robustness: last opened file key is missing") << BookmarkInputData{QString(), 0} << Library::UNTITLED;
+}
+
+/**
+ * OBJECTIVE:
+ *      Call lastOpened() to retrieve the last opened file.
+ *
+ * INPUTS:
+ *      1. An existing last opened file in the settings file.
+ *      2. A non-existant last opened file in the settings file.
+ *      3. An empty string for the last opened file in the settings file.
+ *      4. The last opened file path key missing from the settings file.
+ *
+ * EXPECTED RESULTS:
+ *      1. Call to lastOpened() returns the bookmark for the last opened file
+ *         in the settings file.
+ *      2. Call to lastOpened() returns a null bookmark.
+ *      3. Call to lastOpened() returns a null bookmark.
+ *      4. Call to lastOpened() returns a null bookmark.
+ */
+void LibraryTest::lastOpened()
+{
+    QFETCH(BookmarkInputData, lastOpened);
+    QFETCH(Bookmark, expected);
+
+    populateLastOpened(lastOpened);
+
+    Library library;
+
+    QCOMPARE(library.lastOpened().filePath(), expected.filePath());
+    QCOMPARE(library.lastOpened().cursorPosition(), expected.cursorPosition());
+    QCOMPARE(library.lastOpened().isValid(), expected.isValid());
+    QCOMPARE(library.lastOpened().isNull(), expected.isNull());
+}
+
+void LibraryTest::setLastOpened_data()
+{
+    QTest::addColumn<BookmarkInputData>("initial");
+    QTest::addColumn<Bookmark>("input");
+    QTest::addColumn<Bookmark>("expectedLastOpened");
+    QTest::addColumn<Bookmark>("expectedRecent");
+
+    QTest::newRow("nominal: last opened file overwritten with new existing one")
+        << BookmarkInputData{"./valid1.txt", 20} << Bookmark("./valid2.txt", 500) << Bookmark("./valid2.txt", 500) << Bookmark("./valid1.txt", 20);
+
+    QTest::newRow("nominal: new last opened file set to null bookmark")
+        << BookmarkInputData{"./valid1.txt", 20} << Library::UNTITLED << Library::UNTITLED << Bookmark("./valid1.txt", 20);
+
+    QTest::newRow("robustness: new last opened file set to nonexistant file")
+        << BookmarkInputData{"./valid1.txt", 20} << Bookmark("./invalid.txt", 8) << Bookmark("./valid1.txt", 20) << Bookmark();
+
+    QTest::newRow("robustness: initial last opened file empty, new last opened file exists")
+        << BookmarkInputData{"", 20} << Bookmark("./valid3.txt", 8) << Bookmark("./valid3.txt", 8) << Bookmark();
+}
+
+/**
+ * OBJECTIVE:
+ *      Call setLastOpened() to set the last opened file.
+ *
+ * INPUTS:
+ *      1. An existing last opened file overwriting the previous existing value.
+ *      2. A last opened file bookmark that is null.
+ *      3. A last opened file that does not exist.
+ *      4. An existing last opened file overwriting the previous empty value.
+ *
+ * EXPECTED RESULTS:
+ *      1. Call to setLastOpened() sets the last opened file to the one
+ *         specified, and adds the previous value to the recent files history.
+ *      2. Call to setLastOpened() sets the last opened file to null, and adds
+ *         the previous value to the recent files history.
+ *      3. Call to setLastOpened() does not change the last opened file and
+ *         does not add it to the recent files history.
+ *      4. Call to setLastOpened() sets the last opened file to the one
+ *         specified, but does not add the previous value to the recent file
+ *         history.
+ */
+void LibraryTest::setLastOpened()
+{
+    QFETCH(BookmarkInputData, initial);
+    QFETCH(Bookmark, input);
+    QFETCH(Bookmark, expectedLastOpened);
+    QFETCH(Bookmark, expectedRecent);
+
+    populateLastOpened(initial);
+
+    {
+        Library library;
+        library.setLastOpened(input);
+        // Force sync to disk on scope exit.
+    }
+
+    {
+        Library library;
+
+        QCOMPARE(library.lastOpened().filePath(), expectedLastOpened.filePath());
+        QCOMPARE(library.lastOpened().cursorPosition(), expectedLastOpened.cursorPosition());
+        QCOMPARE(library.lastOpened().isValid(), expectedLastOpened.isValid());
+        QCOMPARE(library.lastOpened().isNull(), expectedLastOpened.isNull());
+
+        BookmarkList recent = library.recentFiles(1);
+
+        if (!expectedRecent.isNull()) {
+            QCOMPARE(recent.size(), 1);
+            QCOMPARE(recent.first().filePath(), expectedRecent.filePath());
+            QCOMPARE(recent.first().cursorPosition(), expectedRecent.cursorPosition());
+            QCOMPARE(recent.first().isValid(), expectedRecent.isValid());
+            QCOMPARE(recent.first().isNull(), expectedRecent.isNull());
+        } else {
+            QCOMPARE(recent.size(), 0);
+        }
+    }
+}
+
+void LibraryTest::updateLastOpened_data()
+{
+    QTest::addColumn<BookmarkInputData>("initial");
+    QTest::addColumn<Bookmark>("input");
+    QTest::addColumn<Bookmark>("expectedLastOpened");
+    QTest::addColumn<Bookmark>("expectedRecent");
+
+    QTest::newRow("nominal: last opened file overwritten with new existing one")
+        << BookmarkInputData{"./valid1.txt", 20} << Bookmark("./valid2.txt", 500) << Bookmark("./valid2.txt", 500) << Bookmark("./valid1.txt", 20);
+
+    QTest::newRow("nominal: new last opened file set to null bookmark")
+        << BookmarkInputData{"./valid1.txt", 20} << Library::UNTITLED << Library::UNTITLED << Bookmark("./valid1.txt", 20);
+
+    QTest::newRow("robustness: new last opened file set to nonexistant file")
+        << BookmarkInputData{"./valid1.txt", 20} << Bookmark("./invalid.txt", 8) << Bookmark("./valid1.txt", 20) << Bookmark();
+
+    QTest::newRow("robustness: initial last opened file empty, new last opened file exists")
+        << BookmarkInputData{"", 20} << Bookmark("./valid3.txt", 8) << Bookmark("./valid3.txt", 8) << Bookmark();
+}
+
+/**
+ * OBJECTIVE:
+ *      Call updateLastOpened() to set the last opened file.
+ *
+ * INPUTS:
+ *      1. An existing last opened file overwriting the previous existing value.
+ *      2. A last opened file bookmark that is null.
+ *      3. A last opened file that does not exist.
+ *      4. An existing last opened file overwriting the previous empty value.
+ *
+ * EXPECTED RESULTS:
+ *      1. Call to updateLastOpened() sets the last opened file to the one
+ *         specified, but does not add the previous value to the recent files
+ *         history.
+ *      2. Call to updateLastOpened() sets the last opened file to null, but
+ *         does not add the previous value to the recent files history.
+ *      3. Call to updateLastOpened() does not change the last opened file and
+ *         does not add it to the recent files history.
+ *      4. Call to updateLastOpened() sets the last opened file to the one
+ *         specified, but does not add the previous value to the recent file
+ *         history.
+ */
+void LibraryTest::updateLastOpened()
+{
+    QFETCH(BookmarkInputData, initial);
+    QFETCH(Bookmark, input);
+    QFETCH(Bookmark, expectedLastOpened);
+    QFETCH(Bookmark, expectedRecent);
+
+    populateLastOpened(initial);
+
+    {
+        Library library;
+        library.setLastOpened(input);
+        // Force sync to disk on scope exit.
+    }
+
+    {
+        Library library;
+
+        QCOMPARE(library.lastOpened().filePath(), expectedLastOpened.filePath());
+        QCOMPARE(library.lastOpened().cursorPosition(), expectedLastOpened.cursorPosition());
+        QCOMPARE(library.lastOpened().isValid(), expectedLastOpened.isValid());
+        QCOMPARE(library.lastOpened().isNull(), expectedLastOpened.isNull());
+
+        BookmarkList recent = library.recentFiles(1);
+
+        if (!expectedRecent.isNull()) {
+            QCOMPARE(recent.size(), 1);
+            QCOMPARE(recent.first().filePath(), expectedRecent.filePath());
+            QCOMPARE(recent.first().cursorPosition(), expectedRecent.cursorPosition());
+            QCOMPARE(recent.first().isValid(), expectedRecent.isValid());
+            QCOMPARE(recent.first().isNull(), expectedRecent.isNull());
+        } else {
+            QCOMPARE(recent.size(), 0);
+        }
     }
 }
 
@@ -637,48 +693,18 @@ void LibraryTest::sync_data()
 {
     QTest::addColumn<BookmarkInputs>("existing");
     QTest::addColumn<BookmarkInputs>("added");
-    QTest::addColumn<Bookmarks>("expected");
-    
-    QTest::newRow("nominal: store empty recent bookmarks list")
-        << BookmarkInputs { }
-        << BookmarkInputs { }
-        << Bookmarks { }
-        ;
+    QTest::addColumn<BookmarkList>("expected");
+
+    QTest::newRow("nominal: store empty recent bookmarks list") << BookmarkInputs{} << BookmarkInputs{} << BookmarkList{};
 
     QTest::newRow("nominal: store new bookmarks added to empty history")
-        << BookmarkInputs { }
-        << BookmarkInputs {
-                { "valid3.txt", 40 },
-                { "valid2.txt", 80 },
-                {"./valid1.txt", 20}
-            }
-        << Bookmarks {
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            }
-        ;
+        << BookmarkInputs{} << BookmarkInputs{{"valid3.txt", 40}, {"valid2.txt", 80}, {"./valid1.txt", 20}}
+        << BookmarkList{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}};
 
     QTest::newRow("nominal: store new bookmarks added to existing history")
-        << BookmarkInputs {
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            }
-        << BookmarkInputs {
-                { "valid6.txt", 140 },
-                { "valid5.txt", 180 },
-                {"./valid4.txt", 120}
-            }
-        << Bookmarks {
-                { "./valid4.txt", 120 },
-                { "valid5.txt", 180 },
-                { "valid6.txt", 140 },
-                { "./valid1.txt", 20 },
-                { "valid2.txt", 80 },
-                { "valid3.txt", 40 }
-            }
-        ;
+        << BookmarkInputs{{"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}}
+        << BookmarkInputs{{"valid6.txt", 140}, {"valid5.txt", 180}, {"./valid4.txt", 120}}
+        << BookmarkList{{"./valid4.txt", 120}, {"valid5.txt", 180}, {"valid6.txt", 140}, {"./valid1.txt", 20}, {"valid2.txt", 80}, {"valid3.txt", 40}};
 }
 
 /**
@@ -706,10 +732,10 @@ void LibraryTest::sync()
 {
     QFETCH(BookmarkInputs, existing);
     QFETCH(BookmarkInputs, added);
-    QFETCH(Bookmarks, expected);
+    QFETCH(BookmarkList, expected);
 
-    populateRecentHistory(existing);
-    
+    populateFileHistory(existing);
+
     Library library;
 
     for (BookmarkInputData b : added) {
@@ -720,13 +746,13 @@ void LibraryTest::sync()
     library.sync();
 
     // Force fresh read from disk.
-    Bookmarks recentFiles = Library().recentFiles();
+    BookmarkList recentFiles = Library().recentFiles();
 
     QCOMPARE(expected.size(), recentFiles.size());
     
     for (int i = 0; i < recentFiles.size(); i++) {
-        QCOMPARE(expected.at(i).filePath(), recentFiles.at(i).filePath());
-        QCOMPARE(expected.at(i).cursorPosition(), recentFiles.at(i).cursorPosition());
+        QCOMPARE(recentFiles.at(i).filePath(), expected.at(i).filePath());
+        QCOMPARE(recentFiles.at(i).cursorPosition(), expected.at(i).cursorPosition());
         QVERIFY(recentFiles.at(i).isValid());
     }
 }
@@ -811,20 +837,20 @@ void LibraryTest::lookup()
     QFETCH(BookmarkInputs, existing);
     QFETCH(Bookmark, expected);
 
-    populateRecentHistory(existing);
-    
+    populateFileHistory(existing);
+
     Library library;
 
     Bookmark bookmark = library.lookup(inputFilePath);
-    
-    QCOMPARE(expected.filePath(), bookmark.filePath());
-    QCOMPARE(expected.cursorPosition(), bookmark.cursorPosition());
-    QCOMPARE(expected.isValid(), bookmark.isValid());
-    QCOMPARE(expected.isNull(), bookmark.isNull());
-    QCOMPARE(expected.lastRead(), bookmark.lastRead());
+
+    QCOMPARE(bookmark.filePath(), expected.filePath());
+    QCOMPARE(bookmark.cursorPosition(), expected.cursorPosition());
+    QCOMPARE(bookmark.isValid(), expected.isValid());
+    QCOMPARE(bookmark.isNull(), expected.isNull());
+    QCOMPARE(bookmark.lastRead(), expected.lastRead());
 }
 
-void LibraryTest::clear_data()
+void LibraryTest::clearHistory_data()
 {
     QTest::addColumn<BookmarkInputs>("existing");
     
@@ -843,7 +869,7 @@ void LibraryTest::clear_data()
 
 /**
  * OBJECTIVE:
- *      Call clear() to remove all bookmarks from the recent
+ *      Call clearHistory() to remove all bookmarks from the recent
  *      files history.
  *
  * INPUTS:
@@ -854,19 +880,19 @@ void LibraryTest::clear_data()
  *      1. Call to recentFiles() returns an empty list.
  *      1. Call to recentFiles() returns an empty list.
  */
-void LibraryTest::clear()
+void LibraryTest::clearHistory()
 {
     QFETCH(BookmarkInputs, existing);
 
-    populateRecentHistory(existing);
-    
+    populateFileHistory(existing);
+
     Library library;
 
-    library.clear();
+    library.clearHistory();
     library.sync(); // Force write to disk.
     
     // Fetch recent files fresh from the disk.
-    Bookmarks recentFiles = Library().recentFiles();
+    BookmarkList recentFiles = Library().recentFiles();
 
     QVERIFY(recentFiles.isEmpty());
 }

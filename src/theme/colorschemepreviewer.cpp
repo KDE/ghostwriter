@@ -12,8 +12,6 @@
 #include <QStaticText>
 #include <QTextEdit>
 
-#include <3rdparty/QtAwesome/QtAwesome.h>
-
 #include "colorschemepreviewer.h"
 
 namespace ghostwriter
@@ -24,10 +22,7 @@ class ColorSchemePreviewerPrivate
 public:
     ColorSchemePreviewerPrivate()
     {
-        if (nullptr == this->awesome) {
-            this->awesome = new QtAwesome();
-            this->awesome->initFontAwesome();
-        }
+        ;
     }
 
     ~ColorSchemePreviewerPrivate()
@@ -35,12 +30,9 @@ public:
         ;
     }
 
-    static QtAwesome *awesome;
     QIcon thumbnailPreviewIcon;
     static const QString loremIpsum;
 };
-
-QtAwesome *ColorSchemePreviewerPrivate::awesome = nullptr;
 
 const QString ColorSchemePreviewerPrivate::loremIpsum =
     "<p><h2><strong>"
@@ -113,25 +105,25 @@ ColorSchemePreviewer::ColorSchemePreviewer
     textEdit.render(&painter);
 
     if (!valid || builtIn) {
-        QString symbol = QChar(fa::lock);
+        // QString symbol = QChar(fa::lock);
         QColor color = colors.foreground;
 
         if (!valid) {
-            symbol = QChar(fa::exclamationtriangle);
+            // symbol = QChar(fa::exclamationtriangle);
             color = colors.error;
         }
 
-        QFont font(d->awesome->font(style::stfas, 16));
-        font.setPixelSize(22);
+        // QFont font(d->awesome->font(style::stfas, 16));
+        // font.setPixelSize(22);
 
-        QFontMetricsF metrics(font);
-        int x = width - metrics.boundingRect(symbol).width() - 2;
-        int y = 2;
+        // QFontMetricsF metrics(font);
+        // int x = width - metrics.boundingRect(symbol).width() - 2;
+        // int y = 2;
 
-        painter.setFont(font);
-        painter.setBrush(Qt::NoBrush);
-        painter.setPen(color);
-        painter.drawStaticText(x, y, QStaticText(symbol));
+        // painter.setFont(font);
+        // painter.setBrush(Qt::NoBrush);
+        // painter.setPen(color);
+        // painter.drawStaticText(x, y, QStaticText(symbol));
     }
 
     painter.end();

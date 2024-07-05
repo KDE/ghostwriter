@@ -1,12 +1,11 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2014 Aurélien Gâteau <agateau@kde.org>
  * SPDX-FileCopyrightText: 2015 Alex Merry <alex.merry@kde.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
 #include <QApplication>
 #include <QDebug>
 #include <QDir>
@@ -769,11 +768,35 @@ AppSettings::AppSettings()
     d->previewCodeFont.fromString(appSettings.value(constants::GW_PREVIEW_CODE_FONT_KEY, QVariant(monospaceFont)).toString());
     d->tabWidth = appSettings.value(constants::GW_TAB_WIDTH_KEY, QVariant(DEFAULT_TAB_WIDTH)).toInt();
 
-    d->backupLocation =
-        appSettings
-            .value(constants::GW_BACKUP_LOCATION_KEY,
-                   QVariant(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QDir::separator() + "backups" + QDir::separator()))
-            .toString();
+    QString defaultBackupLocation = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QDir::separator() + "backups" + QDir::separator();
+
+    d->backupLocation = appSettings.value(constants::GW_BACKUP_LOCATION_KEY, defaultBackupLocation).toString();
+
+    if (d->backupLocation.isEmpty()) {
+        d->backupLocation = defaultBackupLocation;
+    }
+
+    QFileInfo backupDirInfo(d->backupLocation);
+    d->backupLocation = backupDirInfo.absoluteFilePath();
+
+    if (backupDirInfo.exists()) {
+        if (!backupDirInfo.isDir()) {
+            qCritical() << "Backup file location must be a directory:" << d->backupLocation;
+            d->backupLocation = defaultBackupLocation;
+        } else if (!backupDirInfo.isWritable()) {
+            qCritical() << "Backup file location is not writeable:" << d->backupLocation;
+            d->backupLocation = defaultBackupLocation;
+        }
+    } else {
+        QDir backupDir(d->backupLocation);
+
+        if (!backupDir.mkpath(d->backupLocation)) {
+            qCritical() << "Could not create backup file directory:" << d->backupLocation;
+            d->backupLocation = defaultBackupLocation;
+        }
+    }
+
+    qInfo() << "Backup files will be stored in" << d->backupLocation;
 
     if ((d->tabWidth < MIN_TAB_WIDTH) || (d->tabWidth > MAX_TAB_WIDTH)) {
         d->tabWidth = DEFAULT_TAB_WIDTH;
@@ -819,12 +842,19 @@ AppSettings::AppSettings()
     d->htmlPreviewVisible = appSettings.value(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
 
     QString exporterName = appSettings.value(constants::GW_LAST_USED_EXPORTER_KEY).toString();
-    d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
 
-    if (nullptr == d->currentHtmlExporter) {
-        d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
+    if (!exporterName.isEmpty()) {
+        d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
+    }
+
+    if (d->currentHtmlExporter) {
+        auto lastExportOptions = appSettings.value(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY).toString();
+
+        if (!lastExportOptions.isEmpty()) {
+            d->currentHtmlExporter->setOptions(lastExportOptions);
+        }
     } else {
-        d->currentHtmlExporter->setOptions(appSettings.value(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY).toString());
+        d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
     }
 }
 

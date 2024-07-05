@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -300,6 +300,11 @@ public slots:
      * Unindents the current line or selected lines.
      */
     void unindentText();
+
+    /**
+     * Deselects selected text.
+     */
+    void deselectText();
 
     /**
      * Formats current task list item or selected task list items

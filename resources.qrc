@@ -1,11 +1,5 @@
-<!--
-SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
-
-SPDX-License-Identifier: GPL-3.0-or-later
--->
 <RCC>
     <qresource prefix="/">
-        <!-- <file>resources/images/ghostwriter.svg</file> -->
         <file>resources/preview.css</file>
         <file>resources/preview.html</file>
         <file>resources/widgets.qss</file>

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
+﻿# SPDX-FileCopyrightText: 2022-2024 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -6,6 +6,29 @@ cmake_minimum_required(VERSION 3.16)
 if (POLICY CMP0063)
     cmake_policy(SET CMP0063 NEW)
 endif()
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING
+            "Default build type: Release" FORCE)
+endif()
+
+if (NOT BUILD_TESTING)
+    set (BUILD_TESTING OFF)
+endif()
+
+message("Generating makefile for ${CMAKE_BUILD_TYPE} build...")
+
+# KF6 only
+set(QT_MAJOR_VERSION 6)
+set(QT_MIN_VERSION "6.5.0")
+set(KF_MAJOR_VERSION 6)
+set(KF_DEP_VERSION "6.0.0")
+set(KF_MIN_VERSION "6.0.0")
+
+# use C++20 like KF6 itself
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # KDE Application Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "24")
@@ -15,10 +38,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(ghostwriter VERSION ${RELEASE_SERVICE_VERSION} LANGUAGES CXX)
 
-set(QT_MIN_VERSION "5.15.2")
-set(KF_MIN_VERSION "5.90")
-
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
+
 
 # Append to the module path so modules can be overridden from the command line.
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -37,17 +58,6 @@ include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(FeatureSummary)
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_MIN_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
@@ -62,8 +72,6 @@ set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-set(QTAWESOME_USE_FREE ON)
-add_subdirectory(3rdparty/QtAwesome)
 set(CMARK_TESTS OFF)
 add_subdirectory(3rdparty/cmark-gfm EXCLUDE_FROM_ALL)
 add_subdirectory(src)
@@ -89,6 +97,11 @@ set(ICON_FILES
 ecm_add_app_icon(ICONS_SOURCES ICONS ${ICON_FILES})
 target_sources(ghostwriter PRIVATE ${ICONS_SOURCES})
 
+if(BUILD_TESTING)
+   add_subdirectory(autotest)
+endif()
+
+
 # See https://cmake.org/cmake/help/v3.15/prop_tgt/MACOSX_BUNDLE_INFO_PLIST.html
 if(APPLE)
     string(TIMESTAMP CURRENT_YEAR "%Y")
@@ -111,6 +124,7 @@ if(APPLE)
 endif()
 
 install(TARGETS ghostwriter ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES ghostwriterui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/ghostwriter)
 
 ecm_install_icons(
     ICONS ${ICON_FILES}

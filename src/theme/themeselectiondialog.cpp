@@ -18,8 +18,6 @@
 #include <QString>
 #include <QStringList>
 
-#include <3rdparty/QtAwesome/QtAwesome.h>
-
 #include "../messageboxhelper.h"
 
 #include "settings/appsettings.h"
@@ -43,8 +41,6 @@ public:
           repo(AppSettings::instance()->themeDirectoryPath())
     {
         currentTheme = repo.defaultTheme();
-        awesome = new QtAwesome(q_ptr);
-        awesome->initFontAwesome();
     }
 
     ~ThemeSelectionDialogPrivate()
@@ -53,7 +49,6 @@ public:
     }
 
     ThemeSelectionDialog *q_ptr;
-    QtAwesome *awesome;
 
     ThemeRepository repo;
     bool darkModeEnabled;
@@ -138,10 +133,8 @@ ThemeSelectionDialog::ThemeSelectionDialog
     darkModeCheckbox->setChecked(darkModeEnabled);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(Qt::Horizontal, this);
-    QPushButton *newThemeButton = new QPushButton(QChar(fa::plus));
-    newThemeButton->setFont(d->awesome->font(style::stfas, newThemeButton->font().pointSize()));
-    QPushButton *deleteThemeButton = new QPushButton(QChar(fa::minus));
-    deleteThemeButton->setFont(d->awesome->font(style::stfas, deleteThemeButton->font().pointSize()));
+    QPushButton *newThemeButton = new QPushButton("+");
+    QPushButton *deleteThemeButton = new QPushButton("-");
     QPushButton *editThemeButton = new QPushButton(tr("Edit..."));
 
     buttonBox->addButton(newThemeButton, QDialogButtonBox::ActionRole);

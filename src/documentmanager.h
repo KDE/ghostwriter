@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -12,6 +12,8 @@
 
 #include "editor/markdowndocument.h"
 #include "editor/markdowneditor.h"
+
+#include "bookmark.h"
 
 namespace ghostwriter
 {
@@ -60,9 +62,14 @@ public:
     bool fileBackupEnabled() const;
 
     /**
-     * Gets whether tracking the recent file history is enabled.
+     * Sets whether tracking the recent file history is enabled.
      */
     void setFileHistoryEnabled(bool enabled);
+
+    /**
+     * Sets whether tracking the session's opened files is enabled.
+     */
+    void setRestoreSessionEnabled(bool enabled);
 
 signals:
     /**
@@ -123,6 +130,12 @@ signals:
      */
     void documentClosed();
 
+    /**
+     * Emitted when the last opened document file path or position,
+     * or the recent files history changed.
+     */
+    void sessionHistoryChanged();
+
 public slots:
 
     /**
@@ -152,13 +165,17 @@ public slots:
      * Prompts the user for a file path, and loads the document with the
      * file contents at the selected path.
      */
-    void open(const QString &filePath = QString());
+    void open();
 
     /**
-     * Reopens the last closed file, if any is available in the document
-     * history.
+     * Loads the document with the file contents at the given path.
      */
-    void reopenLastClosedFile();
+    void openFileAt(const Bookmark &location);
+
+    /**
+     * Creates an untitled document.
+     */
+    void createUntitled();
 
     /**
      * Reloads document from disk contents.  This method does nothing if
@@ -198,9 +215,9 @@ public slots:
     bool saveAs();
 
     /**
-     * Closes the current file, clearing the editor of text and leaving
-     * only an untitled "new" document in its place.  Note that isNew()
-     * will return true after this method is called.
+     * Closes the current file, clearing the editor of text. Note that unlike
+     * createNew() and open()/openAt(), this method will NOT store last
+     * open file session history.
      */
     bool close();
 

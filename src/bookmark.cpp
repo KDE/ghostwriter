@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2014-2022 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -72,6 +72,16 @@ QDateTime Bookmark::lastRead() const
     return QFileInfo(d->filePath).lastRead();
 }
 
+bool Bookmark::isReadable() const
+{
+    return QFileInfo(d->filePath).isReadable();
+}
+
+bool Bookmark::isWriteable() const
+{
+    return QFileInfo(d->filePath).isWritable();
+}
+
 bool Bookmark::isValid() const
 {
     if (isNull()) {
@@ -85,7 +95,7 @@ bool Bookmark::isValid() const
 
 bool Bookmark::isNull() const
 {
-    return (d->filePath.isNull());
+    return (d->filePath.isEmpty());
 }
 
 Bookmark& Bookmark::operator=(const Bookmark &other)
@@ -103,6 +113,11 @@ bool Bookmark::operator==(const Bookmark &other) const
 bool Bookmark::operator!=(const Bookmark &other) const
 {
     return (other.d->filePath != this->d->filePath);
+}
+
+QString Bookmark::toString() const
+{
+    return QString("%1:%2").arg(filePath()).arg(cursorPosition());
 }
 
 } // namespace ghostwriter

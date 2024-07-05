@@ -1,5 +1,5 @@
-/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+﻿/*
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -15,12 +15,27 @@
 #include <QWindow>
 
 #include <KAboutData>
+#include <KToolTipHelper>
 
-#include "settings/appsettings.h"
+#include "logging.h"
 #include "mainwindow.h"
+#include "settings/appsettings.h"
 
 int main(int argc, char *argv[])
 {
+    // Set up customized logging.
+    qSetMessagePattern(
+        "[%{time process} %{pid} %{appname} %{if-category} %{category}%{endif}] "
+        "%{if-debug}DEBUG   %{endif}"
+        "%{if-info}INFO    %{endif}"
+        "%{if-warning}WARNING %{endif}"
+        "%{if-critical}CRITICAL%{endif}"
+        "%{if-fatal}FATAL   %{endif}"
+        "%{if-debug}  %{function}():%{endif}"
+        "  %{message}"
+        "%{if-debug} (%{file}:%{line})%{endif}");
+    qInstallMessageHandler(ghostwriter::logMessage);
+
     bool disableGPU = false;
 
     // Unfortunately, we must preparse the arguments for the --disable-gpu
@@ -63,11 +78,13 @@ int main(int argc, char *argv[])
 
     // Disable icons in menus for now, since matching their colors to the
     // current theme is not supported yet.
-    QCoreApplication::setAttribute(Qt::AA_DontShowIconsInMenus, true);
+    // QCoreApplication::setAttribute(Qt::AA_DontShowIconsInMenus, true);
 
     QApplication app(argc, argv);
 
-#if QT_VERSION >= 0x050700 && defined(Q_OS_LINUX)
+    qApp->installEventFilter(KToolTipHelper::instance());
+
+#if defined(Q_OS_LINUX)
     QGuiApplication::setDesktopFileName("ghostwriter");
 #endif
 
@@ -112,16 +129,7 @@ int main(int argc, char *argv[])
             "An extended version of the C reference implementation of CommonMark"),
         QString(),
         "https://github.com/github/cmark-gfm");
-    aboutData.addComponent("React", 
-        QCoreApplication::translate("main",
-            "A JavaScript library for building user interfaces"),
-        QString(),
-        "https://reactjs.org");
-    aboutData.addComponent("QtAwesome", 
-        QCoreApplication::translate("main",
-            "Font Awesome support for Qt applications"),
-        QString(),
-        "https://github.com/gamecreature/QtAwesome");
+    aboutData.addComponent("React", QCoreApplication::translate("main", "A JavaScript library for building user interfaces"), QString(), "https://reactjs.org");
     aboutData.addComponent("MathJax", 
         QCoreApplication::translate("main",
             "A JavaScript display engine for mathematics"),
@@ -168,7 +176,6 @@ int main(int argc, char *argv[])
 
     // Note: --disable-gpu option was already processed. We added it here
     //       only so it is displayed in the help output.
-
     ghostwriter::MainWindow window(filePath);
 
     window.show();

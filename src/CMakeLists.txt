@@ -7,7 +7,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(UI_FILES settings/preferencesdialog.ui)
 
-add_executable(ghostwriter ../resources.qrc ${UI_FILES})
+add_executable(ghostwriter ../resources.qrc ../icons.qrc ${UI_FILES})
 
 target_compile_definitions(ghostwriter PRIVATE APPVERSION="${RELEASE_SERVICE_VERSION}")
 
@@ -16,7 +16,6 @@ target_include_directories(ghostwriter PUBLIC
     "${PROJECT_SOURCE_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}"
     "${CMAKE_CURRENT_BINARY_DIR}/../3rdparty/cmark-gfm/src"
-    "${PROJECT_SOURCE_DIR}/3rdparty/QtAwesome"
 )
 
 ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
@@ -54,17 +53,21 @@ target_sources(ghostwriter PRIVATE
     statistics/sessionstatistics.cpp
     statistics/sessionstatisticswidget.cpp
     statistics/statisticsindicator.cpp
+    theme/chromecolors.cpp
     theme/colorschemepreviewer.cpp
     theme/stylesheetbuilder.cpp
+    theme/svgicontheme.cpp
     theme/theme.cpp
     theme/themeeditordialog.cpp
     theme/themerepository.cpp
     theme/themeselectiondialog.cpp
+    appactions.cpp
     appmain.cpp
     bookmark.cpp
     documentmanager.cpp
     findreplace.cpp
     library.cpp
+    logging.cpp
     mainwindow.cpp
     messageboxhelper.cpp
     outlinewidget.cpp
@@ -81,13 +84,13 @@ if (UNIX)
 endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
-    Core
     Concurrent
-    Widgets
+    Core
+    Gui
     Svg
     WebChannel
-    Gui
     WebEngineWidgets
+    Widgets
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
@@ -98,11 +101,11 @@ find_package(
     KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION}
     REQUIRED
     COMPONENTS
-    Sonnet
-    CoreAddons
-    XmlGui
     ConfigWidgets
+    CoreAddons
+    Sonnet
     WidgetsAddons
+    XmlGui
 )
 
 # For whatever reason, MSVC has issues statically linking with cmark-gfm.
@@ -119,27 +122,25 @@ else()
 endif()
 
 target_link_libraries(ghostwriter PRIVATE
-    Qt::Core
     Qt::Concurrent
-    Qt::Widgets
+    Qt::Core
+    Qt::Gui
     Qt::Svg
     Qt::WebChannel
-    Qt::Gui
     Qt::WebEngineWidgets
+    Qt::Widgets
+    KF${KF_MAJOR_VERSION}::ConfigCore
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::SonnetCore
     KF${KF_MAJOR_VERSION}::SonnetUi
-    KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::ConfigWidgets
-    QtAwesome
     ${CMARK_LIBS}
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(ghostwriter PRIVATE
-        Qt::Core5Compat
-    )
-endif()
+target_link_libraries(ghostwriter PRIVATE
+    Qt::Core5Compat
+)
 
 set_target_properties(ghostwriter PROPERTIES
     WIN32_EXECUTABLE ON
