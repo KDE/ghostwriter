@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added more icons to menu actions.
 * Ported to Qt6.
 
+### Fixed
+
+* Issue #485691: ghostwriter not longer crashes on launch after the port to Qt6.
+
 ### Removed
 
 * Replaced QtFontAwesome usage with SVG icons due to corner case where Qt could
