@@ -13,27 +13,554 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/appmain.cpp:75
+#: src/appactions.cpp:74
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Reopen Closed File"
+msgctxt "ghostwriter::AppActions|"
+msgid "Reopen Last Closed File"
+msgstr "Gesloten bestand heropenen"
+
+#: src/appactions.cpp:74
+msgctxt "ghostwriter::AppActions|"
+msgid "Ctrl+Shift+T"
+msgstr ""
+
+#: src/appactions.cpp:87
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "* Bullet List"
+msgctxt "ghostwriter::AppActions|"
+msgid "Clear List"
+msgstr "* Opsomming"
+
+#: src/appactions.cpp:91
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Re&load from Disk..."
+msgctxt "ghostwriter::AppActions|"
+msgid "Reload from Disk..."
+msgstr "Her&laden vanaf schijf..."
+
+#: src/appactions.cpp:92
+#, fuzzy
+#| msgctxt "ghostwriter::ExportDialog|"
+#| msgid "Export"
+msgctxt "ghostwriter::AppActions|"
+msgid "Export"
+msgstr "Exporteren"
+
+#: src/appactions.cpp:92
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+E"
+msgstr ""
+
+#: src/appactions.cpp:102
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Copy &HTML"
+msgctxt "ghostwriter::AppActions|"
+msgid "Copy &HTML"
+msgstr "&HTML kopiëren"
+
+#: src/appactions.cpp:102
+msgctxt "ghostwriter::AppActions|"
+msgid "SHIFT+CTRL+C"
+msgstr ""
+
+#: src/appactions.cpp:105
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Insert Image..."
+msgctxt "ghostwriter::AppActions|"
+msgid "&Insert Image..."
+msgstr "Afbeelding &invoegen..."
+
+#: src/appactions.cpp:114
+msgctxt "ghostwriter::AppActions|"
+msgid "Strong"
+msgstr ""
+
+#: src/appactions.cpp:115
+#, fuzzy
+#| msgctxt "ghostwriter::ThemeEditorDialog|"
+#| msgid "Emphasis"
+msgctxt "ghostwriter::AppActions|"
+msgid "Emphasis"
+msgstr "Accentuering"
+
+#: src/appactions.cpp:116
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Stri&kethrough"
+msgctxt "ghostwriter::AppActions|"
+msgid "Strikethrough"
+msgstr "&Doorstrepen"
+
+#: src/appactions.cpp:116
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+K"
+msgstr ""
+
+#: src/appactions.cpp:117
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&HTML Comment"
+msgctxt "ghostwriter::AppActions|"
+msgid "HTML Comment"
+msgstr "&HTML commentaar"
+
+#: src/appactions.cpp:117
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+/"
+msgstr ""
+
+#: src/appactions.cpp:118
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "I&ndent"
+msgctxt "ghostwriter::AppActions|"
+msgid "Indent"
+msgstr "I&nspringen"
+
+#: src/appactions.cpp:118
+msgctxt "ghostwriter::AppActions|"
+msgid "Tab"
+msgstr ""
+
+#: src/appactions.cpp:119
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Unindent"
+msgctxt "ghostwriter::AppActions|"
+msgid "Unindent"
+msgstr "&Insprong verwijderen"
+
+#: src/appactions.cpp:119
+msgctxt "ghostwriter::AppActions|"
+msgid "SHIFT+Tab"
+msgstr ""
+
+#: src/appactions.cpp:120
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Code Fences"
+msgctxt "ghostwriter::AppActions|"
+msgid "&Code Fences"
+msgstr "Hekken in &code"
+
+#: src/appactions.cpp:120
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+G"
+msgstr ""
+
+#: src/appactions.cpp:122
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Block &Quote"
+msgctxt "ghostwriter::AppActions|"
+msgid "Block Quote"
+msgstr "Block &Quote"
+
+#: src/appactions.cpp:122
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+SHIFT+."
+msgstr ""
+
+#: src/appactions.cpp:123
+msgctxt "ghostwriter::AppActions|"
+msgid "Formats the current line or selected lines as a block quote."
+msgstr ""
+
+#: src/appactions.cpp:125
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Formats the current line or selected lines as a block quote, or if already a "
+"block quote, as a nested block quote."
+msgstr ""
+
+#: src/appactions.cpp:128
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Strip Block Quote"
+msgctxt "ghostwriter::AppActions|"
+msgid "Strip Block Quote"
+msgstr "Block Quote &strippen"
+
+#: src/appactions.cpp:128
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+SHIFT+,"
+msgstr ""
+
+#: src/appactions.cpp:129
+msgctxt "ghostwriter::AppActions|"
+msgid "Strips the current line or selected lines of block quote formatting."
+msgstr ""
+
+#: src/appactions.cpp:131
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Strips the current line or selected lines of block quote formatting. If the "
+"block is nested, only the outermost layer of block quote formatting will be "
+"stripped."
+msgstr ""
+
+#: src/appactions.cpp:135
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "* Bullet List"
+msgctxt "ghostwriter::AppActions|"
+msgid "* Bullet List"
+msgstr "* Opsomming"
+
+#: src/appactions.cpp:135
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+8"
+msgstr ""
+
+#: src/appactions.cpp:137
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Formats the current line or selected lines as a bullet point list with an "
+"asterisk (*)."
+msgstr ""
+
+#: src/appactions.cpp:140
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "- Bullet List"
+msgctxt "ghostwriter::AppActions|"
+msgid "- Bullet List"
+msgstr "- Opsomming"
+
+#: src/appactions.cpp:140
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+-"
+msgstr ""
+
+#: src/appactions.cpp:142
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Formats the current line or selected lines as a bullet point list with a "
+"minus sign (-)."
+msgstr ""
+
+#: src/appactions.cpp:145
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "+ Bullet List"
+msgctxt "ghostwriter::AppActions|"
+msgid "+ Bullet List"
+msgstr "+ Opsomming"
+
+#: src/appactions.cpp:145
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL++"
+msgstr ""
+
+#: src/appactions.cpp:147
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Formats the current line or selected lines as a bullet point list with a "
+"plus sign (+)."
+msgstr ""
+
+#: src/appactions.cpp:150
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "1. Numbered List"
+msgctxt "ghostwriter::AppActions|"
+msgid "1. Numbered List"
+msgstr "1. Genummerde lijst"
+
+#: src/appactions.cpp:150
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+1"
+msgstr ""
+
+#: src/appactions.cpp:152 src/appactions.cpp:165
+msgctxt "ghostwriter::AppActions|"
+msgid "Formats the current line or selected lines as a numbered list."
+msgstr ""
+
+#: src/appactions.cpp:155
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"<p>Formats the current line or selected lines as a numbered list.</"
+"p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
+msgstr ""
+
+#: src/appactions.cpp:163
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "1&) Numbered List"
+msgctxt "ghostwriter::AppActions|"
+msgid "1) Numbered List"
+msgstr "1&) Genummerde lijst"
+
+#: src/appactions.cpp:163
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+0"
+msgstr ""
+
+#: src/appactions.cpp:168
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"<p>Formats the current line or selected lines as a numbered list.</"
+"p><p>Example:</p><p>1) item one<br/>2) item two<br/>3) item three<br/></"
+"p><p>Note that this numbering format is not supported by all Markdown "
+"processors and is not part of CommonMark.</p>"
+msgstr ""
+
+#: src/appactions.cpp:178
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "&Task List"
+msgctxt "ghostwriter::AppActions|"
+msgid "Task List"
+msgstr "&Takenlijst"
+
+#: src/appactions.cpp:178
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+T"
+msgstr ""
+
+#: src/appactions.cpp:179
+msgctxt "ghostwriter::AppActions|"
+msgid "Formats the current line or selected lines as a task list."
+msgstr ""
+
+#: src/appactions.cpp:181
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"<p>Formats the current line or selected lines as a task list.</p><p>Example:"
+"</p><p>- [ ] item one<br/>- [ ] item two<br/>- [ ] item three<br/></"
+"p><p>Note that task lists are not supported by all Markdown processors and "
+"are not part of CommonMark.</p>"
+msgstr ""
+
+#: src/appactions.cpp:191
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Toggle Task(s) &Complete"
+msgctxt "ghostwriter::AppActions|"
+msgid "Toggle Task(s) Complete"
+msgstr "Ta()ak(en) &voltooid omschakelen"
+
+#: src/appactions.cpp:191
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+D"
+msgstr ""
+
+#: src/appactions.cpp:193
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Toggle the current task item or selected task items as complete or "
+"incomplete."
+msgstr ""
+
+#: src/appactions.cpp:196
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"<p>Toggle the state of the current task item or selected task items from a "
+"task list as complete or incomplete.</p><p>Applying this action to an "
+"incomplete task item in a task list will result in placing an 'x' between "
+"its brackets, like so:</p><p>- [x] item one<br/></p><p>Likewise, applying "
+"this action to an completed task item in a task list will result in removing "
+"its 'x' between its brackets, like so:</p><p>- [ ] item one<br/></p><p>Note "
+"that task lists are not supported by all Markdown processors and are not "
+"part of CommonMark.</p>"
+msgstr ""
+
+#: src/appactions.cpp:216
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Toggle distraction free mode"
+msgctxt "ghostwriter::AppActions|"
+msgid "Distraction-Free Mode"
+msgstr "Modus vrij van afleiding omschakelen"
+
+#: src/appactions.cpp:216
+msgctxt "ghostwriter::AppActions|"
+msgid "SHIFT+F11"
+msgstr ""
+
+#: src/appactions.cpp:218
+#, fuzzy
+#| msgctxt "ghostwriter::SimpleFontDialog|"
+#| msgid "Preview"
+msgctxt "ghostwriter::AppActions|"
+msgid "Live Preview"
+msgstr "Voorbeeld"
+
+#: src/appactions.cpp:218
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+P"
+msgstr ""
+
+#: src/appactions.cpp:220
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Toggle Hemingway mode"
+msgctxt "ghostwriter::AppActions|"
+msgid "Hemingway Mode"
+msgstr "Modus Hemingway omschakelen"
+
+#: src/appactions.cpp:220
+msgctxt "ghostwriter::AppActions|"
+msgid "SHIFT+Backspace"
+msgstr ""
+
+#: src/appactions.cpp:221
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Toggle Hemingway mode"
+msgctxt "ghostwriter::AppActions|"
+msgid "Toggles Hemingway mode."
+msgstr "Modus Hemingway omschakelen"
+
+#: src/appactions.cpp:223
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"Hemingway mode disables the backspace and delete keys to help you resist the "
+"temptation to edit your document as you write."
+msgstr ""
+
+#: src/appactions.cpp:226
+#, fuzzy
+#| msgctxt "ghostwriter::ThemeEditorDialog|"
+#| msgid "Dark Mode"
+msgctxt "ghostwriter::AppActions|"
+msgid "Dark Mode"
+msgstr "Donkere modus"
+
+#: src/appactions.cpp:227
+msgctxt "ghostwriter::AppActions|"
+msgid "Enables/disables the current theme's dark color scheme."
+msgstr ""
+
+#: src/appactions.cpp:229
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"<p>Enables/disables the current theme's dark color scheme.</p><p>If the "
+"current theme does not support a dark color scheme, then this option will "
+"have no effect.</p>"
+msgstr ""
+
+#: src/appactions.cpp:233
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Show Sidebar"
+msgctxt "ghostwriter::AppActions|"
+msgid "Show Sidebar"
+msgstr "Zijbalk tonen"
+
+#: src/appactions.cpp:233
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+Space"
+msgstr ""
+
+#: src/appactions.cpp:235
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Outline"
+msgctxt "ghostwriter::AppActions|"
+msgid "Outline"
+msgstr "Outline"
+
+#: src/appactions.cpp:235
+msgctxt "ghostwriter::AppActions|"
+msgid "CTRL+J"
+msgstr ""
+
+#: src/appactions.cpp:236
+msgctxt "ghostwriter::AppActions|"
+msgid "Shows the document outline."
+msgstr ""
+
+#: src/appactions.cpp:238
+msgctxt "ghostwriter::AppActions|"
+msgid ""
+"<p>Shows the document outline.</p><p>Use the mouse plus left click on a "
+"heading in the document, or else the up and down arrows on the keyboard plus "
+"the ENTER key, to jump to different locations within the current document.</"
+"p>"
+msgstr ""
+
+#: src/appactions.cpp:243
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Session Statistics"
+msgctxt "ghostwriter::AppActions|"
+msgid "Session Statistics"
+msgstr "Sessiestatistieken"
+
+#: src/appactions.cpp:245
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Document Statistics"
+msgctxt "ghostwriter::AppActions|"
+msgid "Document Statistics"
+msgstr "Statistieken van het document"
+
+#: src/appactions.cpp:247
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Cheat Sheet"
+msgctxt "ghostwriter::AppActions|"
+msgid "Cheat Sheet"
+msgstr "Spiek briefje"
+
+#: src/appactions.cpp:248
+msgctxt "ghostwriter::AppActions|"
+msgid "Shows a quick reference guide for Markdown in the sidebar."
+msgstr ""
+
+#: src/appactions.cpp:255
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Themes..."
+msgctxt "ghostwriter::AppActions|"
+msgid "Theme..."
+msgstr "Thema's..."
+
+#: src/appactions.cpp:256
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Font..."
+msgctxt "ghostwriter::AppActions|"
+msgid "Font..."
+msgstr "Lettertype..."
+
+#: src/appactions.cpp:258
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Preview Options..."
+msgctxt "ghostwriter::AppActions|"
+msgid "Preview Options..."
+msgstr "Voorbeeldopties..."
+
+#: src/appmain.cpp:92
 msgctxt "main|"
 msgid "ghostwriter"
 msgstr "ghostwriter"
 
-#: src/appmain.cpp:79
+#: src/appmain.cpp:96
 msgctxt "main|"
 msgid "A markdown editor"
 msgstr "Een bewerker van Markdown"
 
-#: src/appmain.cpp:86
+#: src/appmain.cpp:103
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
 msgstr "Ontwikkelaar van FocusWriter, wiens Qt-code een mentor voor mij was"
 
-#: src/appmain.cpp:91
+#: src/appmain.cpp:108
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
 msgstr "Ontwikkelaar van ReText, wiens algoritmen enorm hielpen"
 
-#: src/appmain.cpp:96
+#: src/appmain.cpp:113
 msgctxt "main|"
 msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
@@ -42,18 +569,18 @@ msgstr ""
 "Ontwikkelaar van StretchPlayer, wiens toepassing mij toonde hoe vensters "
 "zonder frame in Qt gemaakt worden"
 
-#: src/appmain.cpp:101
+#: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
 "Ontwikkelaar van UberWriter (nu Apostrophe), voor het leveren van inspiratie"
 
-#: src/appmain.cpp:105
+#: src/appmain.cpp:122
 msgctxt "main|"
 msgid "Other Contributors"
 msgstr "Anderen die bijdroegen"
 
-#: src/appmain.cpp:106
+#: src/appmain.cpp:123
 msgctxt "main|"
 msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
@@ -62,44 +589,39 @@ msgstr ""
 "Iedereen die vertalingen, documentatie, reparaties van bugs of nieuwe "
 "functies gedurende de jaren leverde"
 
-#: src/appmain.cpp:111
+#: src/appmain.cpp:128
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
 "Een uitgebreide versie van de C referentie implementatie van CommonMark"
 
-#: src/appmain.cpp:116
+#: src/appmain.cpp:132
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
 msgstr "Een JavaScript bibliotheek voor het bouwen van gebruikersinterfaces"
 
-#: src/appmain.cpp:121
-msgctxt "main|"
-msgid "Font Awesome support for Qt applications"
-msgstr "Enorme ondersteuning van fonts voor Qt toepassingen"
-
-#: src/appmain.cpp:126
+#: src/appmain.cpp:134
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
 msgstr "Een JavaScript engine voor tonen van wiskundige formules"
 
-#: src/appmain.cpp:131
+#: src/appmain.cpp:139
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
 msgstr "Copyright 2014-%1 het team van ghostwriter"
 
-#: src/appmain.cpp:149
+#: src/appmain.cpp:157
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
 msgstr "Welkom bij ghostwriter!"
 
-#: src/appmain.cpp:152
+#: src/appmain.cpp:160
 msgctxt "main|"
 msgid "(Optional) File to open."
 msgstr "(Optioneel) Te openen bestand."
 
-#: src/appmain.cpp:155
+#: src/appmain.cpp:163
 msgctxt "main|"
 msgid "Disables GPU acceleration."
 msgstr "Schakelt GPU versnelling uit."
@@ -109,150 +631,166 @@ msgctxt "ghostwriter::DocumentManager|"
 msgid "untitled"
 msgstr "zonder titel"
 
-#: src/documentmanager.cpp:167
+#: src/documentmanager.cpp:168
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Markdown"
 msgstr "Markdown"
 
-#: src/documentmanager.cpp:168
+#: src/documentmanager.cpp:169
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Text"
 msgstr "Tekst"
 
-#: src/documentmanager.cpp:169
+#: src/documentmanager.cpp:170
 msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
 msgstr "Alles"
 
-#: src/documentmanager.cpp:223 src/documentmanager.cpp:731
+#: src/documentmanager.cpp:215 src/documentmanager.cpp:710
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
 msgstr "Fout bij opslaan van %1"
 
-#: src/documentmanager.cpp:373
+#: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: src/documentmanager.cpp:386
+#: src/documentmanager.cpp:377
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
 msgstr "Kan %1 niet openen"
 
-#: src/documentmanager.cpp:387
+#: src/documentmanager.cpp:377
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Permission denied."
 msgstr "Toegang geweigerd"
 
-#: src/documentmanager.cpp:449
+#: src/documentmanager.cpp:430
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
 msgstr "Het document is gewijzigd."
 
-#: src/documentmanager.cpp:450
+#: src/documentmanager.cpp:431
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
 msgstr "Wijzigingen verwerpen?"
 
-#: src/documentmanager.cpp:481
+#: src/documentmanager.cpp:462
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
 msgstr "Bestand hernoemen"
 
-#: src/documentmanager.cpp:498 src/documentmanager.cpp:511
+#: src/documentmanager.cpp:475 src/documentmanager.cpp:483
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
 msgstr "Hernoemen van %1 is mislukt"
 
-#: src/documentmanager.cpp:560
+#: src/documentmanager.cpp:535
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: src/documentmanager.cpp:697
+#: src/documentmanager.cpp:667
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
 msgstr "Het document is door een andere toepassing gewijzigd."
 
-#: src/documentmanager.cpp:698
+#: src/documentmanager.cpp:668
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
 msgstr "Wilt u het document opnieuw laden?"
 
-#: src/documentmanager.cpp:732
+#: src/documentmanager.cpp:711
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
 msgstr "Geen bestandspad gespecificeerd"
 
-#: src/documentmanager.cpp:748 src/documentmanager.cpp:787
+#: src/documentmanager.cpp:725 src/documentmanager.cpp:758
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
 msgstr "Kon %1 niet lezen"
 
-#: src/documentmanager.cpp:769
+#: src/documentmanager.cpp:745
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
 msgstr "%1 wordt geopend"
 
-#: src/documentmanager.cpp:876
+#: src/documentmanager.cpp:833
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
 msgstr "Bestand is gewijzigd."
 
-#: src/documentmanager.cpp:878
+#: src/documentmanager.cpp:835
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
 msgstr "%1 is gewijzigd."
 
-#: src/documentmanager.cpp:887
+#: src/documentmanager.cpp:844
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
 msgstr "Wilt u uw wijzigingen opslaan?"
 
-#: src/documentmanager.cpp:918
+#: src/documentmanager.cpp:875
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
 msgstr "%1 is alleen-lezen."
 
-#: src/documentmanager.cpp:919
+#: src/documentmanager.cpp:876
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
 msgstr "Beschermd bestand overschrijven?"
 
-#: src/documentmanager.cpp:938
+#: src/documentmanager.cpp:895
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
 msgstr "Overschrijven is mislukt."
 
-#: src/documentmanager.cpp:939
+#: src/documentmanager.cpp:896
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
 msgstr "Gaarne bestand naar een andere locatie opslaan."
 
-#: src/documentmanager.cpp:966 src/documentmanager.cpp:977
-#: src/documentmanager.cpp:990
+#: src/documentmanager.cpp:924
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
 msgstr "Maken reservebestand is mislukt"
 
-#: src/documentmanager.cpp:966
+#: src/documentmanager.cpp:925
+#, fuzzy
+#| msgctxt "ghostwriter::DocumentManager|"
+#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
-msgid "Error creating backup location!"
+msgid "Error creating backup location: %d"
 msgstr "Fout bij aanmaken van locatie voor reservekopieën!"
+
+#: src/documentmanager.cpp:934
+#, fuzzy, qt-format
+#| msgctxt "ghostwriter::DocumentManager|"
+#| msgid "File backup failed"
+msgctxt "ghostwriter::DocumentManager|"
+msgid "File backup failed: Could not replace %1"
+msgstr "Maken reservebestand is mislukt"
+
+#: src/documentmanager.cpp:944
+#, qt-format
+msgctxt "ghostwriter::DocumentManager|"
+msgid "File backup failed: Could not copy %1 to %2"
+msgstr ""
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "zonder titel"
 
-#: src/editor/markdowneditor.cpp:924
+#: src/editor/markdowneditor.cpp:916
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
 msgstr "Afbeelding opslaan"
@@ -346,535 +884,246 @@ msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
 msgstr "Exporteren naar HTML wordt niet ondersteund met deze processor."
 
-#: src/findreplace.cpp:97
+#: src/findreplace.cpp:95
 msgctxt "ghostwriter::FindReplace|"
 msgid "Match case"
 msgstr "Hoofd- kleine lettergevoelig"
 
-#: src/findreplace.cpp:102
+#: src/findreplace.cpp:100
 msgctxt "ghostwriter::FindReplace|"
 msgid "Whole word"
 msgstr "Geheel woord"
 
-#: src/findreplace.cpp:108
+#: src/findreplace.cpp:106
 msgctxt "ghostwriter::FindReplace|"
 msgid "Regular expression"
 msgstr "Reguliere expressie"
 
-#: src/findreplace.cpp:113
+#: src/findreplace.cpp:111
 msgctxt "ghostwriter::FindReplace|"
 msgid "Highlight matches"
 msgstr "Overeenkomsten accentueren"
 
-#: src/findreplace.cpp:121
+#: src/findreplace.cpp:118
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Find &Previous"
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find Prev"
+msgstr "&Vorige zoeken"
+
+#: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find previous"
 msgstr "Vorige zoeken"
 
-#: src/findreplace.cpp:126
+#: src/findreplace.cpp:123
+#, fuzzy
+#| msgctxt "ghostwriter::MainWindow|"
+#| msgid "Find &Next"
+msgctxt "ghostwriter::FindReplace|"
+msgid "Find Next"
+msgstr "Vol&gende zoeken"
+
+#: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find next"
 msgstr "Volgende zoeken"
 
-#: src/findreplace.cpp:131
+#: src/findreplace.cpp:129
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace"
 msgstr "Vervangen"
 
-#: src/findreplace.cpp:135
+#: src/findreplace.cpp:133
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace All"
 msgstr "Alles vervangen"
 
-#: src/findreplace.cpp:165
+#: src/findreplace.cpp:146 src/findreplace.cpp:147
+msgctxt "ghostwriter::FindReplace|"
+msgid "Close"
+msgstr ""
+
+#: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find:"
 msgstr "Zoeken:"
 
-#: src/findreplace.cpp:171
+#: src/findreplace.cpp:167
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
 msgstr "Vervangen door:"
 
-#: src/findreplace.cpp:371
+#: src/findreplace.cpp:439
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
 msgstr[0] "%Ln vervanging(en)"
 msgstr[1] "%Ln vervanging(en)"
 
-#: src/findreplace.cpp:421
+#: src/findreplace.cpp:489
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
 msgstr "Regelafbreking in zoektekst"
 
-#: src/findreplace.cpp:428
+#: src/findreplace.cpp:496
 msgctxt "ghostwriter::FindReplace|"
 msgid "No results"
 msgstr "Geen resultaten"
 
-#: src/findreplace.cpp:470
+#: src/findreplace.cpp:538
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
 msgstr "%1 overeenkomsten"
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:997
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Bestand"
 
-#: src/mainwindow.cpp:913
-msgctxt "ghostwriter::MainWindow|"
-msgid "&New"
-msgstr "&Nieuw"
-
-#: src/mainwindow.cpp:914
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Open"
-msgstr "&Openen"
-
-#: src/mainwindow.cpp:916
-msgctxt "ghostwriter::MainWindow|"
-msgid "Open &Recent..."
-msgstr "&Recent openen..."
-
-#: src/mainwindow.cpp:917
-msgctxt "ghostwriter::MainWindow|"
-msgid "Reopen Closed File"
-msgstr "Gesloten bestand heropenen"
-
-#: src/mainwindow.cpp:925
-msgctxt "ghostwriter::MainWindow|"
-msgid "Clear Menu"
-msgstr "Menu wissen"
-
-#: src/mainwindow.cpp:930
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Save"
-msgstr "Op&slaan"
-
-#: src/mainwindow.cpp:931
-msgctxt "ghostwriter::MainWindow|"
-msgid "Save &As..."
-msgstr "Opslaan &als..."
-
-#: src/mainwindow.cpp:932
-msgctxt "ghostwriter::MainWindow|"
-msgid "R&ename..."
-msgstr "H&ernoemen..."
-
-#: src/mainwindow.cpp:933
-msgctxt "ghostwriter::MainWindow|"
-msgid "Re&load from Disk..."
-msgstr "Her&laden vanaf schijf..."
-
-#: src/mainwindow.cpp:935
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Export"
-msgstr "&Exporteren"
-
-#: src/mainwindow.cpp:937
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Quit"
-msgstr "A&fsluiten"
-
-#: src/mainwindow.cpp:941
+#: src/mainwindow.cpp:1027
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "B&ewerken"
 
-#: src/mainwindow.cpp:942
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Undo"
-msgstr "&Ongedaan maken"
-
-#: src/mainwindow.cpp:943
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Redo"
-msgstr "Opnie&uw"
-
-#: src/mainwindow.cpp:945
-msgctxt "ghostwriter::MainWindow|"
-msgid "Cu&t"
-msgstr "Kni&ppen"
-
-#: src/mainwindow.cpp:946
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Copy"
-msgstr "&Kopiëren"
-
-#: src/mainwindow.cpp:947
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Paste"
-msgstr "&Plakken"
-
-#: src/mainwindow.cpp:948
-msgctxt "ghostwriter::MainWindow|"
-msgid "Copy &HTML"
-msgstr "&HTML kopiëren"
-
-#: src/mainwindow.cpp:950
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Insert Image..."
-msgstr "Afbeelding &invoegen..."
-
-#: src/mainwindow.cpp:953
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Find"
-msgstr "&Zoeken"
-
-#: src/mainwindow.cpp:954
-msgctxt "ghostwriter::MainWindow|"
-msgid "Rep&lace"
-msgstr "&Vervangen"
-
-#: src/mainwindow.cpp:955
-msgctxt "ghostwriter::MainWindow|"
-msgid "Find &Next"
-msgstr "Vol&gende zoeken"
-
-#: src/mainwindow.cpp:956
-msgctxt "ghostwriter::MainWindow|"
-msgid "Find &Previous"
-msgstr "&Vorige zoeken"
-
-#: src/mainwindow.cpp:958
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Spell check"
-msgstr "&Spellingcontrole"
-
-#: src/mainwindow.cpp:960
-msgctxt "ghostwriter::MainWindow|"
-msgid "For&mat"
-msgstr "Op&maak"
-
-#: src/mainwindow.cpp:961
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Bold"
-msgstr "&Vet"
-
-#: src/mainwindow.cpp:962
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Italic"
-msgstr "Curs&ief"
-
-#: src/mainwindow.cpp:963
-msgctxt "ghostwriter::MainWindow|"
-msgid "Stri&kethrough"
-msgstr "&Doorstrepen"
-
-#: src/mainwindow.cpp:964
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Code Fences"
-msgstr "Hekken in &code"
-
-#: src/mainwindow.cpp:965
-msgctxt "ghostwriter::MainWindow|"
-msgid "&HTML Comment"
-msgstr "&HTML commentaar"
-
-#: src/mainwindow.cpp:968
-msgctxt "ghostwriter::MainWindow|"
-msgid "I&ndent"
-msgstr "I&nspringen"
-
-#: src/mainwindow.cpp:969
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Unindent"
-msgstr "&Insprong verwijderen"
-
-#: src/mainwindow.cpp:971
-msgctxt "ghostwriter::MainWindow|"
-msgid "Block &Quote"
-msgstr "Block &Quote"
-
-#: src/mainwindow.cpp:972
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Strip Block Quote"
-msgstr "Block Quote &strippen"
-
-#: src/mainwindow.cpp:974
-msgctxt "ghostwriter::MainWindow|"
-msgid "&* Bullet List"
-msgstr "&* Opsomming"
-
-#: src/mainwindow.cpp:975
-msgctxt "ghostwriter::MainWindow|"
-msgid "&- Bullet List"
-msgstr "&- Opsomming"
-
-#: src/mainwindow.cpp:976
-msgctxt "ghostwriter::MainWindow|"
-msgid "&+ Bullet List"
-msgstr "&+ Opsomming"
-
-#: src/mainwindow.cpp:978
-msgctxt "ghostwriter::MainWindow|"
-msgid "1&. Numbered List"
-msgstr "1&. Genummerde lijst"
-
-#: src/mainwindow.cpp:979
-msgctxt "ghostwriter::MainWindow|"
-msgid "1&) Numbered List"
-msgstr "1&) Genummerde lijst"
-
-#: src/mainwindow.cpp:981
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Task List"
-msgstr "&Takenlijst"
-
-#: src/mainwindow.cpp:982
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle Task(s) &Complete"
-msgstr "Ta()ak(en) &voltooid omschakelen"
-
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:1076
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Beeld"
 
-#: src/mainwindow.cpp:987
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Full Screen"
-msgstr "&Volledig scherm"
-
-#: src/mainwindow.cpp:995
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Preview in HTML"
-msgstr "&Voorbeeld in HTML"
-
-#: src/mainwindow.cpp:1003
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Outline"
-msgstr "&Outline"
-
-#: src/mainwindow.cpp:1013
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Session Statistics"
-msgstr "&Sessiestatistieken"
-
-#: src/mainwindow.cpp:1022
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Document Statistics"
-msgstr "Statistieken van het &document"
-
-#: src/mainwindow.cpp:1031
-msgctxt "ghostwriter::MainWindow|"
-msgid "&Cheat Sheet"
-msgstr "&Spiek briefje"
-
-#: src/mainwindow.cpp:1042
-msgctxt "ghostwriter::MainWindow|"
-msgid "Increase Font Size"
-msgstr "Tekengrootte groter maken"
-
-#: src/mainwindow.cpp:1043
-msgctxt "ghostwriter::MainWindow|"
-msgid "Decrease Font Size"
-msgstr "Tekengrootte kleiner maken"
-
-#: src/mainwindow.cpp:1045
+#: src/mainwindow.cpp:1094
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "In&stellingen"
 
-#: src/mainwindow.cpp:1046 src/mainwindow.cpp:1357
-msgctxt "ghostwriter::MainWindow|"
-msgid "Themes..."
-msgstr "Thema's..."
-
-#: src/mainwindow.cpp:1047 src/mainwindow.cpp:1358
-msgctxt "ghostwriter::MainWindow|"
-msgid "Font..."
-msgstr "Lettertype..."
-
-#: src/mainwindow.cpp:1048 src/mainwindow.cpp:1359
-msgctxt "ghostwriter::MainWindow|"
-msgid "Application Language..."
-msgstr "Taal van toepassing..."
-
-#: src/mainwindow.cpp:1049 src/mainwindow.cpp:1360
-msgctxt "ghostwriter::MainWindow|"
-msgid "Preview Options..."
-msgstr "Voorbeeldopties..."
-
-#: src/mainwindow.cpp:1050 src/mainwindow.cpp:1361
-msgctxt "ghostwriter::MainWindow|"
-msgid "Preferences..."
-msgstr "Voorkeuren..."
-
-#: src/mainwindow.cpp:1056
+#: src/mainwindow.cpp:1103
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "&Help"
 
-#: src/mainwindow.cpp:1066
-msgctxt "ghostwriter::MainWindow|"
-msgid "Quick &Reference Guide"
-msgstr "Snelle &referentiegids"
-
-#: src/mainwindow.cpp:1067
-msgctxt "ghostwriter::MainWindow|"
-msgid "Wiki"
-msgstr "Wiki"
-
-#: src/mainwindow.cpp:1115
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle sidebar"
-msgstr "Zijbalk omschakelen"
-
-#: src/mainwindow.cpp:1172
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle dark mode"
-msgstr "Modus donker omschakelen"
-
-#: src/mainwindow.cpp:1191
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle Live HTML Preview"
-msgstr "Live vooruitblik van HTML omschakelen"
-
-#: src/mainwindow.cpp:1211
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle Hemingway mode"
-msgstr "Modus Hemingway omschakelen"
-
-#: src/mainwindow.cpp:1219
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle distraction free mode"
-msgstr "Modus vrij van afleiding omschakelen"
-
-#: src/mainwindow.cpp:1228
-msgctxt "ghostwriter::MainWindow|"
-msgid "Toggle full screen mode"
-msgstr "Omschakelen naar volledig scherm of terug"
-
-#: src/mainwindow.cpp:1251
-msgctxt "ghostwriter::MainWindow|"
-msgid "Show Sidebar"
-msgstr "Zijbalk tonen"
-
-#: src/mainwindow.cpp:1268
+#: src/mainwindow.cpp:1253
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
 msgstr "# Kop 1"
 
-#: src/mainwindow.cpp:1269
+#: src/mainwindow.cpp:1254
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
 msgstr "## Kop 2"
 
-#: src/mainwindow.cpp:1270
+#: src/mainwindow.cpp:1255
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
 msgstr "### Kop 3"
 
-#: src/mainwindow.cpp:1271
+#: src/mainwindow.cpp:1256
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
 msgstr "#### Kop 4"
 
-#: src/mainwindow.cpp:1272
+#: src/mainwindow.cpp:1257
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
 msgstr "##### Kop 5"
 
-#: src/mainwindow.cpp:1273
+#: src/mainwindow.cpp:1258
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
 msgstr "###### Kop 6"
 
-#: src/mainwindow.cpp:1274
+#: src/mainwindow.cpp:1259
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
 msgstr "*Accentuering* _Accentuering_"
 
-#: src/mainwindow.cpp:1275
+#: src/mainwindow.cpp:1260
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
 msgstr "**Krachtig** __Krachtig__"
 
-#: src/mainwindow.cpp:1276
+#: src/mainwindow.cpp:1261
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
 msgstr "1. Genummerde lijst"
 
-#: src/mainwindow.cpp:1277
+#: src/mainwindow.cpp:1262
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
 msgstr "* Opsomming"
 
-#: src/mainwindow.cpp:1278
+#: src/mainwindow.cpp:1263
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
 msgstr "+ Opsomming"
 
-#: src/mainwindow.cpp:1279
+#: src/mainwindow.cpp:1264
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
 msgstr "- Opsomming"
 
-#: src/mainwindow.cpp:1280
+#: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
 msgstr "> Block Quote"
 
-#: src/mainwindow.cpp:1281
+#: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
 msgstr "`Omspannen van code`"
 
-#: src/mainwindow.cpp:1282
+#: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
 msgstr "``` Codeblok"
 
-#: src/mainwindow.cpp:1283
+#: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
 msgstr "[Koppeling](http://url.com \"Titel\")"
 
-#: src/mainwindow.cpp:1284
+#: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
 msgstr "[Referentie koppeling][ID]"
 
-#: src/mainwindow.cpp:1285
+#: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
 msgstr "[ID]: http://url.com \"Referentie definitie\""
 
-#: src/mainwindow.cpp:1286
+#: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
 msgstr "![Afbeelding](./image.jpg \"Titel\")"
 
-#: src/mainwindow.cpp:1287
+#: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
 msgstr "--- *** ___ Horizontale regel"
 
-#: src/mainwindow.cpp:1337
+#: src/mainwindow.cpp:1322
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
 msgstr "Outline"
 
-#: src/mainwindow.cpp:1338
+#: src/mainwindow.cpp:1323
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
 msgstr "Sessiestatistieken"
 
-#: src/mainwindow.cpp:1339
+#: src/mainwindow.cpp:1324
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
 msgstr "Statistieken van het document"
 
-#: src/mainwindow.cpp:1340
+#: src/mainwindow.cpp:1325
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
 msgstr "Spiek briefje"
 
-#: src/mainwindow.cpp:1350
+#: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Instellingen"
@@ -899,17 +1148,17 @@ msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
 msgstr "Deze toepassing opnieuw installeren voor meer taalopties."
 
-#: src/settings/localedialog.cpp:132
+#: src/settings/localedialog.cpp:131
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
 msgstr "Sorry!"
 
-#: src/settings/localedialog.cpp:133
+#: src/settings/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
 msgstr "Kon vertaling niet laden."
 
-#: src/settings/localedialog.cpp:139
+#: src/settings/localedialog.cpp:138
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
 msgstr "De toepassing opnieuw starten o wijzigingen effect te laten hebben."
@@ -1629,51 +1878,215 @@ msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled %1"
 msgstr "Zonder titel %1"
 
-#: src/theme/themeselectiondialog.cpp:96
+#: src/theme/themeselectiondialog.cpp:91
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
 msgstr "Thema's"
 
-#: src/theme/themeselectiondialog.cpp:137
+#: src/theme/themeselectiondialog.cpp:132
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
 msgstr "Voorbeeld in donkere modus"
 
-#: src/theme/themeselectiondialog.cpp:145
+#: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
 msgstr "Bewerken..."
 
-#: src/theme/themeselectiondialog.cpp:382
+#: src/theme/themeselectiondialog.cpp:375
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
 msgstr "Kan thema niet verwijderen."
 
-#: src/theme/themeselectiondialog.cpp:383
+#: src/theme/themeselectiondialog.cpp:376
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
 msgstr "Dit is een ingebouwd thema dat niet verwijderd kan worden."
 
-#: src/theme/themeselectiondialog.cpp:393
+#: src/theme/themeselectiondialog.cpp:386
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
 msgstr "Wilt u werkelijk het thema '%1' permanent verwijderen?"
 
-#: src/theme/themeselectiondialog.cpp:408
+#: src/theme/themeselectiondialog.cpp:401
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
 msgstr "Thema verwijderen is mislukt."
 
-#: src/theme/themeselectiondialog.cpp:435
+#: src/theme/themeselectiondialog.cpp:428
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
 msgstr "Kan thema niet bewerken."
 
-#: src/theme/themeselectiondialog.cpp:436
+#: src/theme/themeselectiondialog.cpp:429
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Dit is een ingebouwd thema dat niet bewerkt kan worden."
+
+#~ msgctxt "main|"
+#~ msgid "Font Awesome support for Qt applications"
+#~ msgstr "Enorme ondersteuning van fonts voor Qt toepassingen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&New"
+#~ msgstr "&Nieuw"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Open"
+#~ msgstr "&Openen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Open &Recent..."
+#~ msgstr "&Recent openen..."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Clear Menu"
+#~ msgstr "Menu wissen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Save"
+#~ msgstr "Op&slaan"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Save &As..."
+#~ msgstr "Opslaan &als..."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "R&ename..."
+#~ msgstr "H&ernoemen..."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Export"
+#~ msgstr "&Exporteren"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Quit"
+#~ msgstr "A&fsluiten"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Undo"
+#~ msgstr "&Ongedaan maken"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Redo"
+#~ msgstr "Opnie&uw"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Cu&t"
+#~ msgstr "Kni&ppen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Copy"
+#~ msgstr "&Kopiëren"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Paste"
+#~ msgstr "&Plakken"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Find"
+#~ msgstr "&Zoeken"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Rep&lace"
+#~ msgstr "&Vervangen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Spell check"
+#~ msgstr "&Spellingcontrole"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "For&mat"
+#~ msgstr "Op&maak"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Bold"
+#~ msgstr "&Vet"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Italic"
+#~ msgstr "Curs&ief"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&* Bullet List"
+#~ msgstr "&* Opsomming"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&- Bullet List"
+#~ msgstr "&- Opsomming"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&+ Bullet List"
+#~ msgstr "&+ Opsomming"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "1&. Numbered List"
+#~ msgstr "1&. Genummerde lijst"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Full Screen"
+#~ msgstr "&Volledig scherm"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Preview in HTML"
+#~ msgstr "&Voorbeeld in HTML"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Outline"
+#~ msgstr "&Outline"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Session Statistics"
+#~ msgstr "&Sessiestatistieken"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Document Statistics"
+#~ msgstr "Statistieken van het &document"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "&Cheat Sheet"
+#~ msgstr "&Spiek briefje"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Increase Font Size"
+#~ msgstr "Tekengrootte groter maken"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Decrease Font Size"
+#~ msgstr "Tekengrootte kleiner maken"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Application Language..."
+#~ msgstr "Taal van toepassing..."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Preferences..."
+#~ msgstr "Voorkeuren..."
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Quick &Reference Guide"
+#~ msgstr "Snelle &referentiegids"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Wiki"
+#~ msgstr "Wiki"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Toggle sidebar"
+#~ msgstr "Zijbalk omschakelen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Toggle dark mode"
+#~ msgstr "Modus donker omschakelen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Toggle Live HTML Preview"
+#~ msgstr "Live vooruitblik van HTML omschakelen"
+
+#~ msgctxt "ghostwriter::MainWindow|"
+#~ msgid "Toggle full screen mode"
+#~ msgstr "Omschakelen naar volledig scherm of terug"
 
 #~| msgctxt "ghostwriter::MainWindow|"
 #~| msgid "Images"
