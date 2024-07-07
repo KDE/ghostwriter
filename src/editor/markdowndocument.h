@@ -13,10 +13,16 @@
 #include <QTextBlock>
 #include <QTextDocument>
 
+#include <functional>
+#include <tuple>
+
 #include "../markdown/markdownast.h"
 
 namespace ghostwriter
 {
+
+// TODO: Update AsyncTextWriter to use QSaveFile.
+
 /**
  * Text document that maintains timestamp, read-only state, and new vs.
  * saved status. 
@@ -25,18 +31,40 @@ class MarkdownDocumentPrivate;
 class MarkdownDocument : public QTextDocument
 {
     Q_OBJECT
-    Q_DECLARE_PRIVATE(MarkdownDocument)
 
 public:
     /**
-     * Constructor.
+     * Creates a new, untitled document.
      */
-    MarkdownDocument(QObject *parent = nullptr);
+    static MarkdownDocument *create();
 
     /**
-     * Constructor.
+     * Creates a draft document with a temporary file in the given draft
+     * directory path backing its contents.
+     *
+     * This method will return null if an error occurs, in which case
+     * errorString will be set to the relevant error message. Otherwise,
+     * errorString will be empty.
      */
-    MarkdownDocument(const QString &text, QObject *parent = nullptr);
+    static MarkdownDocument *create(const QString &draftDirPath, QString &err);
+
+    /**
+     * Loads a document at the given file path.
+     *
+     * This method will return null if an error occurs, in which case
+     * errorString will be set to the relevant error message. Otherwise,
+     * errorString will be empty.
+     */
+    static MarkdownDocument *load(const QString &filePath, QString &err);
+
+    /**
+     * Loads a draft document backed by the given temporary file path.
+     *
+     * This method will return null if an error occurs, in which case
+     * errorString will be set to the relevant error message. Otherwise,
+     * errorString will be empty.
+     */
+    static MarkdownDocument *recover(const QString &filePath, QString &err);
 
     /**
      * Destructor.
@@ -55,14 +83,30 @@ public:
     QString filePath() const;
 
     /**
-     * Sets the document file path.
-     */
-    void setFilePath(const QString &path);
-
-    /**
-     * Returns true if the document is new with no file path.
+     * Returns true if the document is new with no file path or else an
+     * untitled draft that is backed by a temporary file path, false otherwise.
      */
     bool isNew() const;
+
+    /**
+     * Returns true if the document is an untitled draft backed by a temporary
+     * file path, false otherwise.
+     */
+    bool isDraft() const;
+
+    /**
+     * Returns true if the document has a backup file from before the start
+     * of the session to which it can revert, false otherwise.
+     */
+    bool hasBackup() const;
+
+    /**
+     * Returns true if there is a conflict with the file contents in memory
+     * vs. the contents on disk, false otherwise. This method should be
+     * called to see if the file should be reloaded from disk or else
+     * overwritten by what is in memory.
+     */
+    bool hasConflict() const;
 
     /**
      * Returns true if the document has read only permissions.
@@ -70,43 +114,58 @@ public:
     bool isReadOnly() const;
 
     /**
-     * Sets whether the document has read only permissions.
+     * Gets the last modification time of the document, which is useful when
+     * comparing the last modified time of the file represented on disk.
      */
-    void setReadOnly(bool readOnly);
-
-    /**
-     * Gets the timestamp of the document, which is useful when comparing
-     * the last modified time of the file represented on disk.
-     */
-    QDateTime timestamp() const;
-
-    /**
-     * Sets a timestamp to the document, which is useful when comparing
-     * the last modified time of the file represented on disk.
-     */
-    void setTimestamp(const QDateTime &timestamp);
+    QDateTime lastModified() const;
 
     MarkdownAST *markdownAST() const;
     void setMarkdownAST(MarkdownAST *ast);
 
+    bool rename();
+
     /**
-     * Overrides base class clear() method to send cleared() signal.
+     * Saves the document to disk.
      */
-    void clear() override;
+    void save();
+
+    /**
+     * Saves the document to disk at the given location.
+     */
+    void saveAs(const QString &filePath);
+
+    /**
+     * Revert to the backup on disk prior to opening the document and
+     * editing/auto-saving it.
+     */
+    std::tuple<bool, QString> revert();
+
+    QString errorString();
 
 signals:
-    /**
-     * Emitted when the file path changes.
-     */
-    void filePathChanged();
-
-    /**
-     * Emitted when the contents of the document is cleared.
-     */
-    void cleared();
+    void saveComplete(bool ok, const QString message = QString());
 
 private:
-    QScopedPointer<MarkdownDocumentPrivate> d_ptr;
+    void setDraft(bool draft);
+    void setFilePath(const QString &filePath);
+
+    typedef enum { CreateDraft, ReloadDraft, OpenExisting } Mode;
+
+    /*
+     * Constructor. Creates a new, untitled document.
+     */
+    MarkdownDocument();
+
+    /*
+     * Constructor. Creates or Loads a document with the given path.  If
+     * draft is set to true, a draft document backed by the given file
+     * path will be created if it does not already exist, or else loaded
+     * if it does.
+     */
+    MarkdownDocument(const QString &text);
+
+private:
+    QScopedPointer<MarkdownDocumentPrivate> d;
 };
 } // namespace ghostwriter
 
