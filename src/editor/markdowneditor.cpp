@@ -1889,13 +1889,8 @@ void MarkdownEditorPrivate::parseDocument()
 void MarkdownEditorPrivate::parseText(const QString &text)
 {
     Q_Q(MarkdownEditor);
-    
-    MarkdownAST *ast =
-        CmarkGfmAPI::instance()->parse
-        (
-            text,
-            false
-        );
+
+    MarkdownAST *ast = CmarkGfmAPI::instance()->parse(text, false);
 
     // Note:  MarkdownDocument is responsible for freeing memory
     // allocated for the AST.

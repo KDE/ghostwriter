@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2020-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2020-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -73,11 +73,8 @@ MarkdownAST *CmarkGfmAPI::parse(const QString &text, const bool smartTypographyE
     cmark_parser_attach_syntax_extension(parser, d->tagfilterExt);
     cmark_parser_attach_syntax_extension(parser, d->tasklistExt);
 
-    // Use Latin1 instead of UTF-8 since the column numbers and even
-    // the nodes returned in the AST are shifted or missing when
-    // UTF-8 characters longer than 1 byte are encountered.
-    //
-    cmark_parser_feed(parser, text.toLatin1().data(), text.toLatin1().length());
+    QByteArray bytes = text.toUtf8();
+    cmark_parser_feed(parser, bytes.data(), bytes.size());
 
     cmark_node *root = cmark_parser_finish(parser);
     MarkdownAST *ast = new MarkdownAST(root);

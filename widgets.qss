@@ -1,0 +1,604 @@
+/*
+ * SPDX-FileCopyrightText: 2022-2024 Megan Conkle <megan.conkle@kdemail.net>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/******************************************************************************/
+/*  Scrollbars                                                                */
+/******************************************************************************/
+
+ghostwriter--MarkdownEditor QAbstractScrollArea::corner,
+ghostwriter--HtmlPreview QAbstractScrollArea::corner,
+ghostwriter--Sidebar QAbstractScrollArea::corner {
+    background: transparent;
+}
+
+ghostwriter--MarkdownEditor QAbstractScrollArea,
+ghostwriter--HtmlPreview QAbstractScrollArea,
+ghostwriter--Sidebar QAbstractScrollArea {
+    padding: 3px 3px 0px 3px;
+    margin: 0
+}
+
+ghostwriter--Sidebar MarkdownEditor::horizontal,
+ghostwriter--Sidebar HtmlPreview::horizontal,
+ghostwriter--Sidebar QScrollBar::horizontal {
+    height: 16px;
+    margin: 5px;
+    border: 0;
+    background: transparent;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::vertical,
+ghostwriter--HtmlPreview QScrollBar::vertical,
+ghostwriter--Sidebar QScrollBar::vertical {
+    width: 16px;
+    margin: 5px;
+    border: 0;
+    background: transparent;
+}
+
+
+ghostwriter--MarkdownEditor QScrollBar::horizontal:hover,
+ghostwriter--HtmlPreview QScrollBar::horizontal:hover,
+ghostwriter--Sidebar QScrollBar::horizontal:hover {
+    background-color: #f1e8dd;
+    border-radius: 3px;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::vertical:hover,
+ghostwriter--HtmlPreview QScrollBar::vertical:hover,
+ghostwriter--Sidebar QScrollBar::vertical:hover {
+    background-color: #f1e8dd;
+    border-radius: 3px;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:horizontal,
+ghostwriter--HtmlPreview QScrollBar::handle:horizontal,
+ghostwriter--Sidebar QScrollBar::handle:horizontal {
+    min-width: 50px;
+    border: 0;
+    background: #cabfb8;
+    border-radius: 3px;
+
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:horizontal,
+ghostwriter--HtmlPreview QScrollBar::handle:horizontal,
+ghostwriter--Sidebar QScrollBar::handle:horizontal {
+    min-width: 50px;
+    border: 0;
+    background: #cabfb8;
+    border-radius: 3px;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:vertical,
+ghostwriter--HtmlPreview QScrollBar::handle:vertical,
+ghostwriter--Sidebar QScrollBar::handle:vertical {
+    min-height: 50px;
+    border: 0;
+    background: #cabfb8;
+    border-radius: 3px;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:horizontal:hover,
+ghostwriter--HtmlPreview QScrollBar::handle:horizontal:hover,
+ghostwriter--Sidebar QScrollBar::handle:horizontal:hover {
+    background: #2b99a7;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::handle:vertical:hover,
+ghostwriter--HtmlPreview QScrollBar::handle:vertical:hover,
+ghostwriter--Sidebar QScrollBar::handle:vertical:hover {
+    background: #2b99a7;
+}
+
+ghostwriter--MarkdownEditor QScrollBar::add-line,
+ghostwriter--HtmlPreview QScrollBar::add-line,
+ghostwriter--Sidebar QScrollBar::add-line,
+ghostwriter--MarkdownEditor QScrollBar::sub-line,
+ghostwriter--HtmlPreview QScrollBar::sub-line,
+ghostwriter--Sidebar QScrollBar::sub-line,
+ghostwriter--MarkdownEditor QScrollBar::add-page,
+ghostwriter--HtmlPreview QScrollBar::add-page,
+ghostwriter--Sidebar QScrollBar::add-page,
+ghostwriter--MarkdownEditor QScrollBar::sub-page,
+ghostwriter--HtmlPreview QScrollBar::sub-page,
+ghostwriter--Sidebar QScrollBar::sub-page,
+ghostwriter--MarkdownEditor QScrollBar::down-arrow,
+ghostwriter--HtmlPreview QScrollBar::down-arrow,
+ghostwriter--Sidebar QScrollBar::down-arrow,
+ghostwriter--MarkdownEditor QScrollBar::right-arrow,
+ghostwriter--HtmlPreview QScrollBar::right-arrow,
+ghostwriter--Sidebar QScrollBar::right-arrow {
+    background: transparent;
+    border: 0
+}
+
+/******************************************************************************/
+/*  Menu Bar                                                                  */
+/******************************************************************************/
+
+QMainWindow QMenuBar {
+    color: #3a3434;
+    background-color: #fff6ea;
+    font-size: 10pt;
+    spacing: 2px;
+    border: 0px;
+    border-bottom: 1px;
+    border-color: #e4dad1;
+    border-style: solid;
+    padding: 1px 0px 1px 0px;
+}
+
+QMainWindow QMenuBar::item {
+    padding: 2px 7px 2px 7px;
+    border: 0px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+QMainWindow QMenuBar::item:selected {
+    background-color: #d2cbc1;
+}
+
+QMainWindow QMenuBar::item:hover {
+    background-color: #d8d1c6;
+}
+
+QMainWindow QMenuBar::item:pressed {
+    background-color: #c4bdb4;
+}
+
+/******************************************************************************/
+/*  Popup menus                                                               */
+/******************************************************************************/
+
+QMainWindow QMenu,
+QMenuBar QMenu {
+    color: #3a3434;
+    background-color: #f8efe3;
+    border: 0px;
+    padding: 7px 0px 7px 0px;
+}
+
+QMainWindow QMenu::item,
+QMenuBar QMenu::item {
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+QMainWindow QMenu::indicator,
+QMenuBar QMenu::indicator {
+    width: 16px;
+    height: 16px;
+    background-color: #d2cbc1;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+QMainWindow QMenu::indicator::unchecked,
+QMenuBar QMenu::indicator::unchecked {
+    width: 16px;
+    height: 16px;
+    background-color: #d2cbc1;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #3a3434;
+    margin: 0px 5px 0px 5px;
+}
+
+QMainWindow QMenu::indicator::checked,
+QMenuBar QMenu::indicator::checked {
+    width: 16px;
+    height: 16px;
+    background-color: #86a4a7;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff6ea;
+    margin: 0px 5px 0px 5px;
+}
+
+QMainWindow QMenu::item:selected,
+QMenuBar QMenu::item::selected {
+    background-color: #86a4a7;
+    color: #fff6ea;
+}
+
+QMainWindow QMenu::icon,
+QMenuBar QMenu::icon {
+    border-radius: 2px;
+    border-width: 0px;
+    padding: 1px 3px 1px 3px;
+    margin: 0px 3px 0px 3px;
+}
+
+QMainWindow QMenu::icon::checked,
+QMenuBar QMenu::icon::checked {
+    background-color: #d8d1c6;
+}
+
+/******************************************************************************/
+/*  Editor                                                                    */
+/******************************************************************************/
+
+QMainWindow QPlainTextEdit {
+    border: 0;
+    margin: 0;
+    padding: 5px;
+    background-color: #fff6ea;
+    color: #3a3434;
+    selection-color: #fff6ea;
+    selection-background-color: #86a4a7;
+    font-family: Noto Sans;
+    font-size: 10pt;
+}
+
+QMainWindow QSplitter::handle {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #e4dad1;
+}
+
+QMainWindow QSplitter::handle:vertical {
+    height: 1px;
+}
+
+QMainWindow QSplitter::handle:horizontal {
+    width: 1px;
+}
+
+/******************************************************************************/
+/*  Sidebar and Activity Bar                                                  */
+/******************************************************************************/
+
+/* Sidebar */
+QMainWindow ghostwriter--Sidebar,
+QSplitter ghostwriter--Sidebar {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #fff6ea;
+}
+
+ghostwriter--Sidebar QStackedWidget {
+    border: 0;
+    padding: 1;
+    margin: 0;
+    background-color: #fff6ea;
+    border-width: 0px;
+}
+
+/* Activity bar tabs */
+ghostwriter--Sidebar QPushButton[checkable="true"] {
+    icon-size: 22px;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: #7b6e6e;
+    border-width: 0px;
+    border-left-width: 3px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0px;
+}
+
+ghostwriter--Sidebar QPushButton:checked {
+    border-color: #2b99a7;
+    color: #3a3434;
+    background-color: #f1e8dd;
+}
+
+ghostwriter--Sidebar QPushButton:hover {
+    background-color: #f1e8dd;
+}
+
+ghostwriter--Sidebar QPushButton:checked:hover {
+    border-color: #2b99a7;
+    color: #3a3434;
+    background-color: #f1e8dd;
+}
+
+/* Activity bar buttons */
+ghostwriter--Sidebar QPushButton[checkable="false"] {
+    icon-size: 22px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #7b6e6e;
+    width: 40px;
+    height: 40px;
+}
+
+ghostwriter--Sidebar QPushButton[checkable="false"]:hover {
+    color: #3a3434;
+    background-color: #f1e8dd;
+}
+
+ghostwriter--Sidebar QPushButton[checkable="false"]:pressed {
+    color: #3a3434;
+    background-color: transparent;
+}
+
+/* Stacked widgets inside sidebar pane */
+
+ghostwriter--Sidebar QListWidget {
+    outline: none;
+    border: 0;
+    padding: 1;
+    background-color: #fff6ea;
+    color: #3a3434;
+    font-size: 11pt;
+    font-weight: normal
+}
+
+ghostwriter--Sidebar QListWidget::item {
+    border: 0;
+    padding: 1 0 1 0;
+    margin: 0;
+    background-color: #fff6ea;
+    color: #3a3434;
+    font-weight: normal
+}
+
+ghostwriter--Sidebar QListWidget::item:selected {
+    border-radius: 0px;
+    color: #fff6ea;
+    background-color: #86a4a7;
+}
+
+ghostwriter--Sidebar QLabel {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 11pt;
+    color: #3a3434;
+}
+
+/******************************************************************************/
+/* Status bar                                                                 */
+/******************************************************************************/
+
+QStatusBar {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #e4dad1;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    background: #fff6ea;
+    color: #7b6e6e;
+}
+
+QStatusBar QLabel {
+    font-size: 11pt;
+    margin: 0px;
+    padding: 5px;
+    border: 0;
+    background: transparent;
+    color: #7b6e6e;
+}
+
+QStatusBar QToolButton {
+    padding: 5 5 5 5;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    color: #7b6e6e;
+    background-color: transparent;
+    font-size: 16px;
+    width: 32px;
+    height: 16px;
+}
+
+QStatusBar QToolButton:hover,
+QStatusBar QToolButton:checked:hover {
+    background-color: #d8d1c6;
+}
+
+QStatusBar QToolButton:pressed,
+QStatusBar QToolButton:checked:pressed {
+    color: #736767;
+    background-color: #c4bdb4;
+}
+
+QStatusBar QToolButton:flat,
+QStatusBar QToolButton:checked {
+    background-color: #d2cbc1;
+}
+
+QStatusBar QComboBox {
+    height: 22px;
+    border: 0px;
+    margin: 0;
+    padding: 0;
+    color: #7b6e6e;
+    background-color: #fff6ea;
+    font-size: 11pt;
+}
+
+QStatusBar QComboBox:hover {
+    border-bottom: 2px solid #2b99a7;
+}
+
+QStatusBar QListView {
+    padding: 7px 0px 7px 0px;
+    margin: 0px;
+    color: #3a3434;
+    background-color: #fff6ea;
+}
+
+QStatusBar QListView::item {
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    margin: 0px;
+}
+
+QStatusBar QListView::item:selected {
+    background-color: #86a4a7;
+    color: #fff6ea;
+}
+
+QStatusBar QComboBox::drop-down {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+}
+
+QStatusBar QComboBox::down-arrow {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 14px;
+    width: 14px;
+    image: url(/tmp/dgCYgP.png)
+}
+
+QStatusBar QComboBox::drop-down:hover {
+    border-radius: 10px;
+    background-color: #d8d1c6;
+}
+
+QStatusBar #leftStatusBarWidget,
+QStatusBar #midStatusBarWidget,
+QStatusBar #rightStatusBarWidget {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/******************************************************************************/
+/* Find and Replace Pane                                                      */
+/******************************************************************************/
+
+ghostwriter--FindReplace QLabel {
+    font-size: 11pt;
+    margin: 0px;
+    padding: 5px;
+    border: 0;
+    background: transparent;
+    color: #7b6e6e;
+}
+
+ghostwriter--FindReplace QPushButton {
+    font-size: 16px;
+    padding: 5 5 5 5;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    color: #7b6e6e;
+    background-color: transparent;
+    min-width: 16px;
+}
+
+ghostwriter--FindReplace QPushButton:pressed {
+    color: #363131;
+    background-color: transparent;
+}
+
+ghostwriter--FindReplace QPushButton:hover {
+    color: #3c3636;
+    background-color: transparent;
+}
+
+ghostwriter--FindReplace QPushButton:disabled {
+    color: #9a8a8a;
+    background-color: transparent;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"] {
+    color: #7b6e6e;
+    background-color: transparent;
+    min-width: 32px;
+    height: 16px;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"]:disabled,
+ghostwriter--FindReplace QPushButton:flat:disabled {
+    color: #9a8a8a;
+    background-color: #dcd5ca;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"]:hover,
+ghostwriter--FindReplace QPushButton:checked:hover {
+    background-color: #7f7272;
+    background-color: #d8d1c6;
+}
+
+ghostwriter--FindReplace QPushButton[checkable="true"]:pressed,
+ghostwriter--FindReplace QPushButton:checked:pressed {
+    color: #736767;
+    background-color: #c4bdb4;
+}
+
+ghostwriter--FindReplace QPushButton:checked {
+    background-color: #d2cbc1;
+}
+
+ghostwriter--FindReplace QPushButton:flat {
+    color: #7b6e6e;
+    background-color: #d2cbc1;
+    font-weight: bold;
+}
+
+ghostwriter--FindReplace QPushButton:flat:hover {
+    color: #7f7272;
+    background-color: #d8d1c6;
+}
+
+ghostwriter--FindReplace QPushButton:flat:pressed {
+    color: #736767;
+    background-color: #c4bdb4;
+}
+
+ghostwriter--FindReplace QPushButton:flat:disabled {
+    color: #9a8a8a;
+    background-color: #dcd5ca;
+}
+
+ghostwriter--FindReplace QPushButton#matchCaseButton,
+ghostwriter--FindReplace QPushButton#regexButton {
+    font-size: 16px;
+    font-family: default;
+    font-weight: bold;
+} 
+
+ghostwriter--FindReplace QPushButton#replaceButton,
+ghostwriter--FindReplace QPushButton#replaceAllButton {
+    font-size: 11pt;
+    font-family: default;
+}
+
+ghostwriter--FindReplace QPushButton#findReplaceCloseButton {
+    padding: 0;
+    margin: 0;
+    icon-size: 16px;
+}
+
+ghostwriter--FindReplace QLineEdit {
+    color: #3a3434;
+    background-color: #f1e8dd;
+    border: 0px;
+    border-radius: 3px;
+    selection-color: #fff6ea;
+    selection-background-color: #86a4a7;
+}
+
+ghostwriter--FindReplace QLineEdit:focus {
+    border: 1px solid #eae1d7;
+}

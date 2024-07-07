@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -68,7 +68,16 @@ public:
     bool isSetextHeadingState(const int state);
     bool lineMatchesNode(const int line, const MarkdownNode *const node) const;
     void applyFormattingForNode(const MarkdownNode *const node);
-    void setupHeadingFontSize(bool useLargeHeadings);
+
+    // NOTE: cmark-gfm returns column numbers and string lengths that are
+    // actually byte number positions and number of bytes rather than UTF-8
+    // character positions and character counts.  These methods will do the
+    // necessary conversions between the MarkdownNode's position and length
+    // and the current text block's character position and length.
+    //
+    int asciiToUtf8Pos(int pos) const;
+    int asciiLenToUtf8Len(int start, // Must be value returned by asciiToUtf8Pos
+                          int length) const;
 };
 
 MarkdownHighlighter::MarkdownHighlighter
@@ -265,8 +274,9 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
     Q_Q(MarkdownHighlighter);
     
     MarkdownNode::NodeType type = node->type();
-    int pos = node->position();
-    int length = node->length();
+
+    int pos = asciiToUtf8Pos(node->position());
+    int length = asciiLenToUtf8Len(pos, node->length());
     int currentLine = q->currentBlock().blockNumber() + 1;
     MarkdownState state = MarkdownStateParagraphBreak;
 
@@ -326,8 +336,8 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
             parentType = current->parent()->type();
         }
 
-        pos = current->position();
-        length = current->length();
+        pos = asciiToUtf8Pos(current->position());
+        length = asciiLenToUtf8Len(pos, current->length());
         type = current->type();
 
         if (lineMatchesNode(currentLine, current)) {
@@ -604,6 +614,60 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
 
         q->setCurrentBlockState(state);
     }
+}
+
+int MarkdownHighlighterPrivate::asciiToUtf8Pos(int pos) const
+{
+    Q_Q(const MarkdownHighlighter);
+
+    QString text = q->currentBlock().text();
+    int current = 0;
+
+    if (pos < 0) {
+        return 0;
+    }
+
+    for (int i = 0; i < text.length(); i++) {
+        if (current == pos) {
+            return i;
+        }
+
+        QByteArray bytes = QString(text.at(i)).toUtf8();
+        current += bytes.size();
+    }
+
+    return current;
+}
+
+int MarkdownHighlighterPrivate::asciiLenToUtf8Len(int start, int length) const
+{
+    Q_Q(const MarkdownHighlighter);
+
+    QString text = q->currentBlock().text();
+    int count = 0;
+
+    if (text.length() <= 0) {
+        return 0;
+    }
+
+    if ((start < 0) || (start >= text.length())) {
+        return 0;
+    }
+
+    if (length < 0) {
+        return 0;
+    }
+
+    for (int i = start; i < text.length(); i++) {
+        QByteArray bytes = QString(text.at(i)).toUtf8();
+        count += bytes.size();
+
+        if (count >= length) {
+            return i - start + 1;
+        }
+    }
+
+    return text.length() - start + 1;
 }
 
 bool MarkdownHighlighterPrivate::lineMatchesNode(const int line, const MarkdownNode *const node) const

@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2020-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2020-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -78,7 +78,7 @@ void MarkdownNode::setDataFrom(cmark_node *node)
     } else if (Heading == m_type) {
         m_headingLevel = cmark_node_get_heading_level(node);
         m_text = QString::fromUtf8(cmark_node_get_string_content(node));
-        m_text = this->m_text.simplified();
+        m_text = m_text.simplified();
     } else if ((Linebreak == m_type) || (Softbreak == m_type)) {
         m_inBreak = true;
     }

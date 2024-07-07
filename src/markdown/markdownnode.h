@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2020-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2020-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -131,15 +131,24 @@ public:
     NodeType type() const;
 
     /**
-     * Returns the column position of this node
-     * from the original Markdown text, starting
-     * at a value of 0.
+     * Returns the column position of this node from the original Markdown text,
+     * starting at a value of 0. For line breaks, -1 may be returned.
+     *
+     * NOTE: cmark-gfm returns column numbers that are actually byte number
+     * positions rather than UTF-8 character positions.  The value returned
+     * by this method MUST be converted into the UTF-8 character position
+     * before use.
      */
     int position() const;
 
     /**
-     * Returns the length of the text represented
-     * by this node from the original Markdown text.
+     * Returns the length of the text represented by this node from the original
+     * Markdown text.
+     *
+     * NOTE: cmark-gfm returns column numbers and string lengths that are
+     * actually byte number positions and number of bytes rather than UTF-8
+     * character positions and character counts.  The value returned
+     * by this method MUST be converted into the UTF-8 length before use.
      */
     int length() const;
 

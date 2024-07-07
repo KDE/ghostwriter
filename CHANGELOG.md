@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+* Issue #487636: Unicode characters at the start or end of formatted text are now correctly highlighted.
+* Issue #482078: First character on a new line within a list is no longer highlighted as markup text.
+* Issue #475234: ghostwriter now remembers its font settings between sessions.
 * Issue #485691: ghostwriter not longer crashes on launch after the port to Qt6.
 
 ### Removed
