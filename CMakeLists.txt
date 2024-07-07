@@ -124,7 +124,6 @@ if(APPLE)
 endif()
 
 install(TARGETS ghostwriter ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES ghostwriterui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/ghostwriter)
 
 ecm_install_icons(
     ICONS ${ICON_FILES}
