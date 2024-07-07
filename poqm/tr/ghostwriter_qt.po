@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-22 10:38+0300\n"
+"PO-Revision-Date: 2024-07-07 01:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: src/appmain.cpp:75
 msgctxt "main|"
@@ -64,7 +64,7 @@ msgstr ""
 #: src/appmain.cpp:111
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr "CommonMark'ın C başvuru uygulamasının genişletilmiş bir sürümü"
+msgstr "CommonMark’ın C başvuru uygulamasının genişletilmiş bir sürümü"
 
 #: src/appmain.cpp:116
 msgctxt "main|"
@@ -85,12 +85,12 @@ msgstr "Matematik için bir JavaScript görüntüleme işletkesi"
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr "Telif hakkı 2014-%1 ghostwriter takımı"
+msgstr "Telif hakkı 2014–%1 ghostwriter takımı"
 
 #: src/appmain.cpp:149
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
-msgstr "ghostwriter'a hoş geldiniz!"
+msgstr "ghostwriter’a hoş geldiniz!"
 
 #: src/appmain.cpp:152
 msgctxt "main|"
@@ -126,7 +126,7 @@ msgstr "Tümü"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr "%1 kaydedilirken hata"
+msgstr "%1 kaydedilirken hata oluştu."
 
 #: src/documentmanager.cpp:373
 msgctxt "ghostwriter::DocumentManager|"
@@ -137,7 +137,7 @@ msgstr "Dosya Aç"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
-msgstr "%1 açılamadı"
+msgstr "%1 açılamadı."
 
 #: src/documentmanager.cpp:387
 msgctxt "ghostwriter::DocumentManager|"
@@ -183,13 +183,13 @@ msgstr "Belgeyi yeniden yüklemek ister misiniz?"
 #: src/documentmanager.cpp:732
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr "Bir dosya yolu belirtilmedi"
+msgstr "Bir dosya yolu belirtilmedi."
 
 #: src/documentmanager.cpp:748 src/documentmanager.cpp:787
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr "%1 okunamadı"
+msgstr "%1 okunamadı."
 
 #: src/documentmanager.cpp:769
 #, qt-format
@@ -238,7 +238,7 @@ msgstr "Lütfen dosyayı başka bir konuma kaydedin."
 #: src/documentmanager.cpp:990
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
-msgstr "Dosya yedeklemesi başarısız"
+msgstr "Dosya yedeklemesi başarısız."
 
 #: src/documentmanager.cpp:966
 msgctxt "ghostwriter::DocumentManager|"
@@ -342,7 +342,7 @@ msgstr "Dışa aktarma başarısız."
 #: src/export/exporter.cpp:69
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
-msgstr "Bu işlemci ile HTML'ye dışa aktarma desteklenmiyor."
+msgstr "Bu işlemci ile HTML’ye dışa aktarma desteklenmiyor."
 
 #: src/findreplace.cpp:97
 msgctxt "ghostwriter::FindReplace|"
@@ -1162,7 +1162,7 @@ msgstr "Markdown çeşnisi"
 #: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
-msgstr "Seç..."
+msgstr "Seç…"
 
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1213,7 +1213,7 @@ msgstr "Yalnızca eş aralıklı yazıtiplerini göster"
 #: src/spelling/spellcheckdecorator.cpp:245
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
-msgstr "Yazımı denetle..."
+msgstr "Yazımı Denetle…"
 
 #: src/spelling/spellcheckdecorator.cpp:273
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1355,7 +1355,7 @@ msgstr "Sınıf düzeyi:"
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Coleman-Liau Readability Index (CLI)"
-msgstr "Coleman-Liau Okunabilirlik İndeksi (CLI)"
+msgstr "Coleman–Liau Okunabilirlik İndeksi (CLI)"
 
 #: src/statistics/documentstatisticswidget.cpp:149
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1594,13 +1594,13 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr "'%1' halihazırda var. Lütfen başka bir tema seçin."
+msgstr "“%1” halihazırda var. Lütfen başka bir tema seçin."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr "'%1' teması halihazırda var. Lütfen başka bir ad seçin."
+msgstr "“%1” teması halihazırda var. Lütfen başka bir ad seçin."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1640,7 +1640,7 @@ msgstr "Koyu kipte önizle"
 #: src/theme/themeselectiondialog.cpp:145
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
-msgstr "Düzenle..."
+msgstr "Düzenle…"
 
 #: src/theme/themeselectiondialog.cpp:382
 msgctxt "ghostwriter::ThemeSelectionDialog|"
@@ -1657,7 +1657,7 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr "'%1' temasını kalıcı olarak silmek istediğinizden emin misiniz?"
+msgstr "“%1” temasını kalıcı olarak silmek istediğinizden emin misiniz?"
 
 #: src/theme/themeselectiondialog.cpp:408
 msgctxt "ghostwriter::ThemeSelectionDialog|"
