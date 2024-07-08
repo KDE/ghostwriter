@@ -16,12 +16,9 @@ msgstr ""
 "X-Crowdin-File-ID: 40974\n"
 
 #: src/appactions.cpp:74
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Reopen Closed File"
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "重新打开关闭的文件"
+msgstr ""
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -29,28 +26,19 @@ msgid "Ctrl+Shift+T"
 msgstr ""
 
 #: src/appactions.cpp:87
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "* 无序列表"
+msgstr ""
 
 #: src/appactions.cpp:91
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Re&load from Disk..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "从文件加载(&l)"
+msgstr ""
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
-msgstr "导出"
+msgstr ""
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
@@ -58,12 +46,9 @@ msgid "CTRL+E"
 msgstr ""
 
 #: src/appactions.cpp:102
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Copy &HTML"
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
-msgstr "复制为 &HTML"
+msgstr ""
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
@@ -71,12 +56,9 @@ msgid "SHIFT+CTRL+C"
 msgstr ""
 
 #: src/appactions.cpp:105
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Insert Image..."
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr "插入图像(&I)"
+msgstr ""
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
@@ -84,20 +66,14 @@ msgid "Strong"
 msgstr ""
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
-msgstr "强调"
+msgstr ""
 
 #: src/appactions.cpp:116
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Stri&kethrough"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "删除(&K)"
+msgstr ""
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
@@ -105,12 +81,9 @@ msgid "CTRL+K"
 msgstr ""
 
 #: src/appactions.cpp:117
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&HTML Comment"
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr "&HTML 注释"
+msgstr ""
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
@@ -118,12 +91,9 @@ msgid "CTRL+/"
 msgstr ""
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "身份(&N)"
+msgstr ""
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
@@ -131,12 +101,9 @@ msgid "Tab"
 msgstr ""
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "减少缩进(&U)"
+msgstr ""
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
@@ -144,12 +111,9 @@ msgid "SHIFT+Tab"
 msgstr ""
 
 #: src/appactions.cpp:120
-#, fuzzy
-#| msgctxt "ghostwriter::PreviewOptionsDialog|"
-#| msgid "Code Font:"
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr "代码字体："
+msgstr ""
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -157,12 +121,9 @@ msgid "CTRL+G"
 msgstr ""
 
 #: src/appactions.cpp:122
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "块引用(&Q)"
+msgstr ""
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
@@ -182,12 +143,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:128
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Strip Block Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "删除块引用(&S)"
+msgstr ""
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
@@ -208,12 +166,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
-msgstr "* 无序列表"
+msgstr ""
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
@@ -228,12 +183,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
-msgstr "- 无序列表"
+msgstr ""
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
@@ -248,12 +200,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
-msgstr "+ 无序列表"
+msgstr ""
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
@@ -268,12 +217,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:150
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1. Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
-msgstr "1. 有序列表"
+msgstr ""
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
@@ -293,12 +239,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:163
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1&) Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "1&) 有序列表"
+msgstr ""
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
@@ -315,12 +258,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:178
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Task List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "任务列表(&T)"
+msgstr ""
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
@@ -342,12 +282,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:191
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Task(s) &Complete"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "切换任务完成状态(&C)"
+msgstr ""
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
@@ -375,12 +312,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:216
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle distraction free mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "切换不受干扰模式"
+msgstr ""
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
@@ -388,12 +322,9 @@ msgid "SHIFT+F11"
 msgstr ""
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "预览"
+msgstr ""
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
@@ -401,12 +332,9 @@ msgid "CTRL+P"
 msgstr ""
 
 #: src/appactions.cpp:220
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "切换休眠模式"
+msgstr ""
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
@@ -414,12 +342,9 @@ msgid "SHIFT+Backspace"
 msgstr ""
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "切换休眠模式"
+msgstr ""
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -429,12 +354,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
-msgstr "深色模式"
+msgstr ""
 
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
@@ -450,12 +372,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:233
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Show Sidebar"
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
-msgstr "显示侧边栏"
+msgstr ""
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
@@ -463,12 +382,9 @@ msgid "CTRL+Space"
 msgstr ""
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr "大纲"
+msgstr ""
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
@@ -490,28 +406,19 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:243
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Session Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
-msgstr "会话统计"
+msgstr ""
 
 #: src/appactions.cpp:245
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Document Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
-msgstr "文档统计"
+msgstr ""
 
 #: src/appactions.cpp:247
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Cheat Sheet"
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr "备忘录"
+msgstr ""
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
@@ -519,28 +426,19 @@ msgid "Shows a quick reference guide for Markdown in the sidebar."
 msgstr ""
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "主题"
+msgstr ""
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "字体"
+msgstr ""
 
 #: src/appactions.cpp:258
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preview Options..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr "预览选项"
+msgstr ""
 
 #: src/appmain.cpp:92
 msgctxt "main|"
@@ -765,12 +663,10 @@ msgid "Error creating backup location: %d"
 msgstr ""
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "文件备份失败"
+msgstr ""
 
 #: src/documentmanager.cpp:944
 #, qt-format
@@ -793,7 +689,7 @@ msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "插入图像"
 
-#: src/editor/markdowneditor.cpp:2461
+#: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -898,12 +794,9 @@ msgid "Highlight matches"
 msgstr "突出显示匹配文本"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "查找上一个(&P)"
+msgstr ""
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
@@ -911,12 +804,9 @@ msgid "Find previous"
 msgstr "查找上一个"
 
 #: src/findreplace.cpp:123
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Next"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr "查找下一个(&N)"
+msgstr ""
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
@@ -1904,167 +1794,3 @@ msgstr "无法编辑主题"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "对不起，这是一个内置的主题，无法编辑。"
-
-#~ msgctxt "main|"
-#~ msgid "Font Awesome support for Qt applications"
-#~ msgstr "Qt 应用程序字体支持"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&New"
-#~ msgstr "新建(&N)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Open"
-#~ msgstr "打开(&O)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Open &Recent..."
-#~ msgstr "打开最近使用的(&R)..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Clear Menu"
-#~ msgstr "清除菜单"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Save"
-#~ msgstr "保存(&S)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Save &As..."
-#~ msgstr "另存为(&A)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "R&ename..."
-#~ msgstr "重命名(&E)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Export"
-#~ msgstr "导出(&E)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Quit"
-#~ msgstr "退出(&Q)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Undo"
-#~ msgstr "撤销(&U)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Redo"
-#~ msgstr "重做(&R)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Cu&t"
-#~ msgstr "剪切(&T)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Copy"
-#~ msgstr "复制(&C)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Paste"
-#~ msgstr "粘贴(&P)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Find"
-#~ msgstr "查找(&F)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Rep&lace"
-#~ msgstr "替换(&L)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Spell check"
-#~ msgstr "&拼写检查"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "For&mat"
-#~ msgstr "格式(&M)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Bold"
-#~ msgstr "粗体(&B)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Italic"
-#~ msgstr "斜体(&I)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&* Bullet List"
-#~ msgstr "&* 项目符号"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&- Bullet List"
-#~ msgstr "&- 项目符号"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&+ Bullet List"
-#~ msgstr "&+ 项目符号"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "1&. Numbered List"
-#~ msgstr "1&. 有序列表"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Full Screen"
-#~ msgstr "全屏(&F)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Preview in HTML"
-#~ msgstr "预览HTML(&P)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Outline"
-#~ msgstr "大纲(&O)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Session Statistics"
-#~ msgstr "会话统计(&S)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Document Statistics"
-#~ msgstr "文档统计 (&D)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Cheat Sheet"
-#~ msgstr "备忘录 (&C)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Increase Font Size"
-#~ msgstr "增大字体"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Decrease Font Size"
-#~ msgstr "减小字体"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Application Language..."
-#~ msgstr "应用程序语言"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Preferences..."
-#~ msgstr "首选项"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Quick &Reference Guide"
-#~ msgstr "快速参照模式 (&R)"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Wiki"
-#~ msgstr "Wiki"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle sidebar"
-#~ msgstr "显示、隐藏侧边栏"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle dark mode"
-#~ msgstr "切换深色主题"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle Live HTML Preview"
-#~ msgstr "切换实时 HTML 预览"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle full screen mode"
-#~ msgstr "切换全屏模式"

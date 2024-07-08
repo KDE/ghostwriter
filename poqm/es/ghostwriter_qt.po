@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2024-07-07 01:12+0200\n"
+"PO-Revision-Date: 2024-07-07 12:38+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -167,6 +167,9 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Quita la línea actual o las líneas seleccionadas del formato de cita en "
+"bloque. Si el bloque está anidado, solo se quitará la capa más externa de la "
+"cita en bloque."
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
@@ -184,6 +187,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
+"Formatea la línea actual o las líneas seleccionadas como una lista de "
+"viñetas con asteriscos (*)."
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
@@ -201,6 +206,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Formatea la lista actual o las líneas seleccionadas como una lista de "
+"viñetas con signos menos (-)."
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
@@ -218,6 +225,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Formatea la lista actual o las líneas seleccionadas como una lista de "
+"viñetas con signos más (+)."
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
@@ -233,6 +242,7 @@ msgstr "Ctrl+1"
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
 msgstr ""
+"Formatea la lista actual o las líneas seleccionadas como una lista numerada."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -240,6 +250,9 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Formatea la lista actual o las líneas seleccionadas como una lista "
+"numerada.</p><p>Ejemplo:</p><p>1. primer elemento<br/>2. segundo elemento<br/"
+">3. tercer elemento<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
@@ -259,6 +272,11 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Formatea la lista actual o las líneas seleccionadas como una lista "
+"numerada.</p><p>Ejemplo:</p><p>1) primer elemento<br/>2) segundo elemento<br/"
+">3) tercer elemento<br/></p><p>Tenga en cuenta que este formato de "
+"numeración no es compatible con todos los procesadores de Markdown y no es "
+"parte de CommonMark.</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
@@ -274,6 +292,7 @@ msgstr "Ctrl+T"
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
 msgstr ""
+"Formatea la lista actual o las líneas seleccionadas como una lista de tareas."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -283,6 +302,11 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Formatea la lista actual o las líneas seleccionadas como una lista de "
+"tareas.</p><p>Ejemplo:</p><p>- [ ] primer elemento<br/>- [ ] segundo "
+"elemento<br/>- [ ] tercer elemento<br/></p><p>Tenga en cuenta que las listas "
+"de tareas no son compatibles con todos los procesadores de Markdown y no son "
+"parte de CommonMark.</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
@@ -300,6 +324,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Conmuta el estado de terminación del elemento de tarea actual o de los "
+"elementos seleccionados entre completo o incompleto."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -313,6 +339,14 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Conmuta el estado de terminación del elemento de tarea actual o de los "
+"elementos seleccionados entre completo o incompleto.</p><p>Al aplicar esta "
+"acción a un elemento incompleto de una lista de tareas, se insertará una «x» "
+"entre sus corchetes:</p><p>- [x] primer elemento<br/>Del mismo modo, al "
+"aplicar esta acción a un elemento completo de una lista de tareas, se "
+"eliminará la «x» de sus corchetes:</p><p>- [ ] primer elemento<br/></"
+"p><p>Tenga en cuenta que las listas de tareas no son compatibles con todos "
+"los procesadores de Markdown y no son parte de CommonMark.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
@@ -355,6 +389,8 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"El modo Hemingway desactiva las teclas de retroceso y de borrado para "
+"ayudarle a resistir la tentación de editar el documento mientras escribe."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
@@ -364,7 +400,7 @@ msgstr "Modo oscuro"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Activa o desactiva el esquema de color oscuro del tema actual."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -373,6 +409,9 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Activa o desactiva el esquema de color oscuro del tema actual.</p><p>Esta "
+"opción no tendrá efecto si el tema actual no permite usar un esquema de "
+"color oscuro.</p>"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
@@ -407,6 +446,10 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Muestra la estructura del documento.</p><p>Use el ratón más un clic "
+"izquierdo en una cabecera del documento, o bien las teclas arriba y abajo "
+"más la tecla «Intro», para saltar a diferentes posiciones del documento "
+"actual.</p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
@@ -702,7 +745,7 @@ msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Insertar imagen"
 
-#: src/editor/markdowneditor.cpp:2461
+#: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
