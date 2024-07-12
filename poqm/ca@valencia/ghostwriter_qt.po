@@ -1,14 +1,14 @@
 # Translation of ghostwriter_qt.po to Catalan (Valencian)
-# Copyright (C) 2022-2023 This_file_is_part_of_KDE
+# Copyright (C) 2022-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2023-12-22 15:54+0100\n"
+"PO-Revision-Date: 2024-07-09 11:55+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,51 +20,36 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Reopen Closed File"
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "Torna a obrir un fitxer tancat"
+msgstr "Torna a obrir l'últim fitxer tancat"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Maj+T"
 
 #: src/appactions.cpp:87
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "* Llista de pics"
+msgstr "Neteja la llista"
 
 #: src/appactions.cpp:91
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Re&load from Disk..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "To&rna a carregar des del disc…"
+msgstr "Torna a carregar des del disc…"
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
-msgstr "Exportació"
+msgstr "Exporta"
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "Ctrl+E"
 
 #: src/appactions.cpp:102
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Copy &HTML"
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
 msgstr "Copia l'&HTML"
@@ -72,12 +57,9 @@ msgstr "Copia l'&HTML"
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "Maj+Ctrl+C"
 
 #: src/appactions.cpp:105
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Insert Image..."
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
 msgstr "&Inserix una imatge…"
@@ -85,72 +67,55 @@ msgstr "&Inserix una imatge…"
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "Fort"
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
 msgstr "Èmfasi"
 
 #: src/appactions.cpp:116
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Stri&kethrough"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "Ba&rrat"
+msgstr "Barrat"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "Ctrl+K"
 
 #: src/appactions.cpp:117
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&HTML Comment"
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr "Comentari d'&HTML"
+msgstr "Comentari HTML"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "Ctrl+/"
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "Sag&nat"
+msgstr "Sagna"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Tabulació"
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "&Sense sagnat"
+msgstr "Sense sagnar"
 
+# skip-rule: kct-tab
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "«Maj+Tab»"
 
 #: src/appactions.cpp:120
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Code Fences"
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
 msgstr "Tanques de &codi"
@@ -158,25 +123,24 @@ msgstr "Tanques de &codi"
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "Ctrl+G"
 
 #: src/appactions.cpp:122
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "&Cita de bloc"
+msgstr "Cita de bloc"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "Ctrl+Maj+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una cita de "
+"bloc."
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -184,24 +148,25 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una cita de "
+"bloc, o si ja és una cita de bloc, com una cita de bloc imbricada."
 
 #: src/appactions.cpp:128
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Strip Block Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "&Elimina la cita de bloc"
+msgstr "Elimina la cita de bloc"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "Ctrl+Maj+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
 msgstr ""
+"Elimina la línia actual o les línies seleccionades del format de cita de "
+"bloc."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -210,11 +175,11 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Elimina la línia actual o les línies seleccionades del format de cita de "
+"bloc. Si el bloc està imbricat, només s'eliminarà la capa més externa del "
+"format de cita de bloc."
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
 msgstr "* Llista de pics"
@@ -222,7 +187,7 @@ msgstr "* Llista de pics"
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "Ctrl+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
@@ -230,11 +195,10 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una llista de "
+"pics amb un asteric (*)."
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
 msgstr "- Llista de pics"
@@ -242,7 +206,7 @@ msgstr "- Llista de pics"
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "Ctrl+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -250,11 +214,10 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una llista de "
+"pics amb un signe menys (-)."
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
 msgstr "+ Llista de pics"
@@ -262,7 +225,7 @@ msgstr "+ Llista de pics"
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "Ctrl++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -270,11 +233,10 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una llista de "
+"pics amb un signe més (+)."
 
 #: src/appactions.cpp:150
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1. Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
 msgstr "1. Llista numerada"
@@ -282,12 +244,14 @@ msgstr "1. Llista numerada"
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "Ctrl+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una llista "
+"numerada."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -295,19 +259,19 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Dona format a la línia actual o les línies seleccionades com una llista "
+"numerada.</p><p>Exemple:</p><p>1. element u<br/>2. element dos<br/>3. "
+"element tres<br/></p>"
 
 #: src/appactions.cpp:163
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1&) Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "Llista numerada 1&)"
+msgstr "1) Llista numerada"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "Ctrl+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -317,24 +281,28 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Dona format a la línia actual o les línies seleccionades com una llista "
+"numerada.</p><p>Exemple:</p><p>1) element u<br/>2) element dos<br/>3) "
+"element tres<br/></p><p>Cal tindre en compte que este format de numeració no "
+"està implementat en tots els processadors de Markdown i no forma part del "
+"CommonMark.</p>"
 
 #: src/appactions.cpp:178
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Task List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "Llista de &tasques"
+msgstr "Llista de tasques"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "Ctrl+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
 msgstr ""
+"Dona format a la línia actual o les línies seleccionades com una llista de "
+"tasques."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -344,19 +312,21 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Dona format a la línia actual o les línies seleccionades com una llista "
+"de tasques.</p><p>Exemple:</p><p>[ ] element u<br/>[ ] element dos<br/>[ ] "
+"element tres<br/></p><p>Cal tindre en compte que les llistes de tasques no "
+"estan implementades en tots els processadors de Markdown i no formen part "
+"del CommonMark.</p>"
 
 #: src/appactions.cpp:191
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Task(s) &Complete"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "Canvia les tasques &completades"
+msgstr "Canvia les tasques completades"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "Ctrl+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
@@ -364,6 +334,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Canvia l'element de tasca actual o els elements de tasca seleccionats com a "
+"complets o incomplets."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -377,53 +349,50 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Canvia l'element de tasca actual o els elements de tasca seleccionats com "
+"a complets o incomplets.</p><p>Aplicar esta acció a un element de tasca "
+"incomplet en una llista de tasques donarà com a resultat col·locar una «x» "
+"entre els seus parèntesis, així:</p><p>- [x] element u<br/></p><p>De la "
+"mateixa manera, aplicar esta acció a un element de tasca completat en una "
+"llista de tasques resultarà en eliminar la seua «x» entre els seus "
+"parèntesis, així:</p><p>- [ ] element u<br/></p><p>Cal tindre present que "
+"les llistes de tasques no són compatibles amb tots els processadors de "
+"Markdown i no formen part del CommonMark.</p>"
 
 #: src/appactions.cpp:216
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle distraction free mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "Canvia el mode lliure de distracció"
+msgstr "Mode lliure de distracció"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "Maj+F11"
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Vista prèvia"
+msgstr "Vista prèvia en directe"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "Ctrl+P"
 
 #: src/appactions.cpp:220
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "Canvia el mode Hemingway"
+msgstr "Mode Hemingway"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "Maj+Retrocés"
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Canvia el mode Hemingway"
+msgstr "Canvia el mode Hemingway."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -431,11 +400,10 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"El mode Hemingway desactiva les tecles de retrocés i suprimir per a ajudar-"
+"vos a resistir la temptació d'editar el document mentre l'escriviu."
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
 msgstr "Mode fosc"
@@ -443,7 +411,7 @@ msgstr "Mode fosc"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Activa o desactiva l'esquema de color fosc del tema actual."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -452,11 +420,11 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Activa o desactiva l'esquema de color fosc del tema actual.</p><p>Si el "
+"tema actual no admet un esquema de color fosc, esta opció no tindrà cap "
+"efecte.</p>"
 
 #: src/appactions.cpp:233
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Show Sidebar"
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
 msgstr "Mostra la barra lateral"
@@ -464,12 +432,9 @@ msgstr "Mostra la barra lateral"
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "Ctrl+Espai"
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
 msgstr "Esquema"
@@ -477,12 +442,12 @@ msgstr "Esquema"
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "Ctrl+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Mostra l'esquema del document."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -492,27 +457,22 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Mostra l'esquema del document.</p><p>Utilitzeu el ratolí i el clic "
+"esquerre del ratolí sobre una capçalera del document, o bé les fletxes amunt "
+"i avall del teclat i la tecla «Retorn», per saltar fins a ubicacions "
+"diferents dins del document actual.</p>"
 
 #: src/appactions.cpp:243
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Session Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
 msgstr "Estadístiques de la sessió"
 
 #: src/appactions.cpp:245
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Document Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
 msgstr "Estadístiques del document"
 
 #: src/appactions.cpp:247
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Cheat Sheet"
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
 msgstr "Full de trucs"
@@ -520,28 +480,19 @@ msgstr "Full de trucs"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "Mostra una guia de referència ràpida de Markdown en la barra lateral."
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Temes…"
+msgstr "Tema…"
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "Tipus de lletra…"
+msgstr "Lletra…"
 
 #: src/appactions.cpp:258
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preview Options..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
 msgstr "Opcions de la vista prèvia…"
@@ -773,26 +724,24 @@ msgid "File backup failed"
 msgstr "Ha fallat la còpia de seguretat del fitxer"
 
 #: src/documentmanager.cpp:925
-#, fuzzy
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "S'ha produït un error en crear la ubicació de la còpia de seguretat!"
+msgstr ""
+"S'ha produït un error en crear la ubicació de la còpia de seguretat: %d"
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "Ha fallat la còpia de seguretat del fitxer"
+msgstr ""
+"Ha fallat la còpia de seguretat del fitxer: no s'ha pogut substituir %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
 msgstr ""
+"Ha fallat la còpia de seguretat del fitxer: no s'ha pogut copiar %1 a %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -914,12 +863,9 @@ msgid "Highlight matches"
 msgstr "Ressalta les coincidències"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "Busca l'an&terior"
+msgstr "Busca l'anterior"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
@@ -927,12 +873,9 @@ msgid "Find previous"
 msgstr "Busca l'anterior"
 
 #: src/findreplace.cpp:123
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Next"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr "Busca la següe&nt"
+msgstr "Busca la següent"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
@@ -952,7 +895,7 @@ msgstr "Substituïx-ho tot"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
@@ -1429,12 +1372,12 @@ msgstr "Seleccioneu…"
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr "Tipus de lletra del text:"
+msgstr "Lletra del text:"
 
 #: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr "Tipus de lletra del codi:"
+msgstr "Lletra del codi:"
 
 #: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1470,7 +1413,7 @@ msgstr "Vista prèvia"
 #: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr "Mostra només els tipus de lletra monoespai"
+msgstr "Mostra només les lletres monoespai"
 
 #: src/spelling/spellcheckdecorator.cpp:245
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1935,169 +1878,3 @@ msgstr "No s'ha pogut editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Este és un tema integrat que no es pot editar."
-
-# skip-rule: ff-font
-#~ msgctxt "main|"
-#~ msgid "Font Awesome support for Qt applications"
-#~ msgstr "Implementació de Font Awesome per a les aplicacions Qt"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&New"
-#~ msgstr "&Nou"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Open"
-#~ msgstr "O&bri"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Open &Recent..."
-#~ msgstr "Obri'n un de &recent…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Clear Menu"
-#~ msgstr "Neteja el menú"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Save"
-#~ msgstr "Guar&da"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Save &As..."
-#~ msgstr "Anomena i gu&arda…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "R&ename..."
-#~ msgstr "Ca&nvia el nom…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Export"
-#~ msgstr "&Exporta"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Quit"
-#~ msgstr "I&x"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Undo"
-#~ msgstr "&Desfés"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Redo"
-#~ msgstr "&Refés"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Cu&t"
-#~ msgstr "Re&talla"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Copy"
-#~ msgstr "&Copia"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Paste"
-#~ msgstr "A&pega"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Find"
-#~ msgstr "Bu&sca"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Rep&lace"
-#~ msgstr "Su&bstituïx"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Spell check"
-#~ msgstr "&Verificació de l'ortografia"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "For&mat"
-#~ msgstr "For&mat"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Bold"
-#~ msgstr "&Negreta"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Italic"
-#~ msgstr "&Cursiva"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&* Bullet List"
-#~ msgstr "Llista de pics &*"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&- Bullet List"
-#~ msgstr "Llista de pics &-"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&+ Bullet List"
-#~ msgstr "Llista de pics &+"
-
-# skip-rule: punctuation-period-no
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "1&. Numbered List"
-#~ msgstr "Llista numerada 1&."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Full Screen"
-#~ msgstr "&Pantalla completa"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Preview in HTML"
-#~ msgstr "&Vista prèvia en HTML"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Outline"
-#~ msgstr "C&ontorn"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Session Statistics"
-#~ msgstr "Estadístiques de la &sessió"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Document Statistics"
-#~ msgstr "Estadístiques del &document"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Cheat Sheet"
-#~ msgstr "Full de tru&cs"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Increase Font Size"
-#~ msgstr "Augmenta la mida del tipus de lletra"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Decrease Font Size"
-#~ msgstr "Disminuïx la mida del tipus de lletra"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Application Language..."
-#~ msgstr "Idioma de l'aplicació…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Preferences..."
-#~ msgstr "Preferències…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Quick &Reference Guide"
-#~ msgstr "Guia de &referència ràpida"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Wiki"
-#~ msgstr "Wiki"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle sidebar"
-#~ msgstr "Mostra o oculta la barra lateral"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle dark mode"
-#~ msgstr "Canvia el mode fosc"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle Live HTML Preview"
-#~ msgstr "Canvia la vista prèvia HTML en directe"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle full screen mode"
-#~ msgstr "Canvia al mode de pantalla completa"
