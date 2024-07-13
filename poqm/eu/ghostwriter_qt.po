@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2024-07-09 00:00+0200\n"
+"PO-Revision-Date: 2024-07-12 11:25+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -333,7 +333,6 @@ msgstr ""
 "osatu edo ez osatu gisa."
 
 #: src/appactions.cpp:196
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "<p>Toggle the state of the current task item or selected task items from a "
@@ -346,8 +345,14 @@ msgid ""
 "part of CommonMark.</p>"
 msgstr ""
 "<p>Txandakatu zeregin-zerrenda bateko uneko zeregin elementua edo "
-"hautatutako zeregin-elementuak osatu edo ez osatu gisa.</p><p>Osatu gabeko "
-"zeregin-elementu bati ekintza hau ezartzen bazaio"
+"hautatutako zeregin-elementuak osatu edo ez osatu gisa.</p><p>Zeregin-"
+"zerrenda batean osatu gabeko zeregin-elementu bati ekintza hori ezartzeak, "
+"bere kortxeteen artean 'x' bat jartzea eragingo du, horrela:</p><p>- [x] bat "
+"elementua<br/></p><p>Era berean, zeregin-zerrenda batean osatutako zeregin-"
+"elementu bati ekintza hori ezartzeak, bere kortxeteen barneko 'x' kentzea "
+"eragingo du, horrela:</p><p>- [ ] bat elementua<br/></p><p>Kontuan izan "
+"Markdown prozesatzaile guztiek ez dituztela zeregin-zerrendak onartzen eta "
+"ez direla «CommonMark»en zati.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
