@@ -29,6 +29,7 @@ class AppActionsPrivate;
  */
 class AppActions : QObject
 {
+    Q_OBJECT
 public:
     /**
      *  IDs for all the application's actions.
