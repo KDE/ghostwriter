@@ -12,27 +12,27 @@ namespace ghostwriter
 {
 //~ singular %Ln word
 //~ plural %Ln words
-static QString wordCountText(int value) { return StatisticsIndicator::tr("%Ln word(s)", "", value); }
+static QString wordCountText(int value) { return StatisticsIndicator::tr("%Ln word", "%Ln words", value); }
 
 //~ singular %Ln character
 //~ plural %Ln characters
-static QString characterCountText(int value) { return StatisticsIndicator::tr("%Ln character(s)", "", value); }
+static QString characterCountText(int value) { return StatisticsIndicator::tr("%Ln character", "%Ln characters", value); }
 
 //~ singular %Ln sentence
 //~ plural %Ln sentences
-static QString sentenceCountText(int value) { return StatisticsIndicator::tr("%Ln sentence(s)", "", value); }
+static QString sentenceCountText(int value) { return StatisticsIndicator::tr("%Ln sentence", "%Ln sentences", value); }
 
 //~ singular %Ln paragraph
 //~ plural %Ln paragraphs
-static QString paragraphCountText(int value) { return StatisticsIndicator::tr("%Ln paragraph(s)", "", value); }
+static QString paragraphCountText(int value) { return StatisticsIndicator::tr("%Ln paragraph", "%Ln paragraphs", value); }
 
 //~ singular %Ln page
 //~ plural %Ln pages
-static QString pageCountText(int value) { return StatisticsIndicator::tr("%Ln page(s)", "", value); }
+static QString pageCountText(int value) { return StatisticsIndicator::tr("%Ln page", "%Ln pages", value); }
 
 //~ singular %Ln word added
 //~ plural %Ln words added
-static QString wordsAddedText(int value) { return StatisticsIndicator::tr("%Ln word(s) added", "", value); }
+static QString wordsAddedText(int value) { return StatisticsIndicator::tr("%Ln word added", "%Ln words added", value); }
 
 static QString wpmText(int value) { return StatisticsIndicator::tr("%1 wpm").arg(value); }
 static QString readTimeText(int minutes) { return StatisticsIndicator::tr("%1:%2 read time")

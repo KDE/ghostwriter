@@ -436,7 +436,7 @@ void FindReplace::replaceAll()
 
     //~ singular %Ln replacement
     //~ plural %Ln replacements
-    d->statusLabel->setText(tr("%Ln replacement(s)", "", count)); //~ singular
+    d->statusLabel->setText(tr("%Ln replacement", "%Ln replacements", count)); //~ singular
     d->editor->setFocus();
 }
 
