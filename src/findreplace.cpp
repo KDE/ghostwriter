@@ -535,7 +535,7 @@ void FindReplacePrivate::highlightMatches(bool enabled)
     this->editor->setExtraSelections(selections);
 
     if (!selections.isEmpty()) {
-        this->statusLabel->setText(FindReplace::tr("%1 matches").arg(selections.count()));
+        this->statusLabel->setText(FindReplace::tr("%1 match", "%1 matches", selections.count());
     }    
 }
 
