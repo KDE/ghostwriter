@@ -11,7 +11,6 @@
 #include <QList>
 #include <QMenu>
 #include <QStringList>
-#include <QStringRef>
 #include <QTextBlock>
 #include <QTextBoundaryFinder> 
 #include <QTextCharFormat>

@@ -7,8 +7,6 @@
 #ifndef MEMORY_ARENA_CPP
 #define MEMORY_ARENA_CPP
 
-#include <QLinkedListIterator>
-
 #include "memoryarena.h"
 
 namespace ghostwriter
