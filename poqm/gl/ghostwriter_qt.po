@@ -1387,22 +1387,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Amosar só os tipos de letra monoespazo."
 
-#: src/spelling/spellcheckdecorator.cpp:245
+#: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Comprobar a ortografía…"
 
-#: src/spelling/spellcheckdecorator.cpp:273
+#: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Ortografía"
 
-#: src/spelling/spellcheckdecorator.cpp:298
+#: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "Engadir a palabra ao corrector"
 
-#: src/spelling/spellcheckdecorator.cpp:338
+#: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "Non hai suxestións ortográficas"

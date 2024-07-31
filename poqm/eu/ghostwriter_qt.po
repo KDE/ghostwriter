@@ -1402,22 +1402,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Erakutsi soilik zabalera-finkoko letra-tipoak"
 
-#: src/spelling/spellcheckdecorator.cpp:245
+#: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Egiaztatu ortografia..."
 
-#: src/spelling/spellcheckdecorator.cpp:273
+#: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Ortografia"
 
-#: src/spelling/spellcheckdecorator.cpp:298
+#: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "Gehitu hitza hiztegira"
 
-#: src/spelling/spellcheckdecorator.cpp:338
+#: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "Ez du ortografia iradokizunik aurkitu"

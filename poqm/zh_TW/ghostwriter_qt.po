@@ -1364,22 +1364,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "僅顯示等寬字型"
 
-#: src/spelling/spellcheckdecorator.cpp:245
+#: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "檢查拼字…"
 
-#: src/spelling/spellcheckdecorator.cpp:273
+#: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "拼字"
 
-#: src/spelling/spellcheckdecorator.cpp:298
+#: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "將詞彙加到字典中"
 
-#: src/spelling/spellcheckdecorator.cpp:338
+#: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "沒有找到拼字建議"
