@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-07 11:11+0200\n"
+"PO-Revision-Date: 2024-08-10 12:20+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -487,9 +487,7 @@ msgstr "Editor de Markdown."
 #: src/appmain.cpp:103
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
-"Desenvolvemento de FocusWriter, cuxo código Qt serviu de aprendizaxe para "
-"ghostwriter."
+msgstr "Desenvolvemento de FocusWriter, cuxo código Qt serviu de aprendizaxe."
 
 #: src/appmain.cpp:108
 msgctxt "main|"
@@ -1625,7 +1623,7 @@ msgstr[1] "Engadíronse %Ln palabras"
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr "%1 ppm"
+msgstr "%1 palabras por minuto"
 
 #: src/statistics/statisticsindicator.cpp:38
 #, qt-format
