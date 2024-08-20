@@ -10,7 +10,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 24.05.2\n"
 
 #: src/appactions.cpp:74
@@ -866,6 +867,7 @@ msgid "Replace with:"
 msgstr "החלפה ב־:"
 
 #: src/findreplace.cpp:439
+#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
@@ -1564,6 +1566,7 @@ msgid "100%"
 msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
+#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
@@ -1571,6 +1574,7 @@ msgstr[0] "מילה"
 msgstr[1] "שתי מילים"
 
 #: src/statistics/statisticsindicator.cpp:19
+#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
@@ -1578,6 +1582,7 @@ msgstr[0] "תו"
 msgstr[1] "שני תווים"
 
 #: src/statistics/statisticsindicator.cpp:23
+#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
@@ -1585,6 +1590,7 @@ msgstr[0] "משפט"
 msgstr[1] "שני משפטים"
 
 #: src/statistics/statisticsindicator.cpp:27
+#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
@@ -1592,6 +1598,7 @@ msgstr[0] "פסקה"
 msgstr[1] "שתי פסקאות"
 
 #: src/statistics/statisticsindicator.cpp:31
+#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
@@ -1599,6 +1606,7 @@ msgstr[0] "עמוד"
 msgstr[1] "שני עמודים"
 
 #: src/statistics/statisticsindicator.cpp:35
+#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
