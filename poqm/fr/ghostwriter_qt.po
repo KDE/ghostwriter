@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2024-07-16 11:33+0200\n"
+"PO-Revision-Date: 2024-08-10 10:35+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -275,7 +275,7 @@ msgid ""
 "processors and is not part of CommonMark.</p>"
 msgstr ""
 "<p>Met en forme la ligne courante ou les lignes sélectionnées sous forme "
-"d'une liste  numérotée.</p><p>Exemple :</p><p>1) Article numéro un<br/>2) "
+"d'une liste numérotée.</p><p>Exemple :</p><p>1) Article numéro un<br/>2) "
 "Article numéro deux<br/>3) Article numéro trois<br/></p><p>Veuillez noter "
 "que ce format de numérotation n'est pas pris en charge par tous les "
 "processeurs Markdown et ne fait pas partie de CommonMark.</p>"
@@ -342,10 +342,10 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
-"<p>Basculer l’état de l’élément de tâche courante ou des éléments de tâche "
-"sélectionnés à partir d’une liste des tâches complète ou incomplète. </"
+"<p>Basculer l'état de l'élément de tâche courante ou des éléments de tâche "
+"sélectionnés à partir d'une liste des tâches complète ou incomplète. </"
 "p><p>L'application de cette action à un un élément de tâche incomplet dans "
-"une liste de tâches entraînera le placement d’un « x » entre ses crochets, "
+"une liste de tâches entraînera le placement d'un « x » entre ses crochets, "
 "comme ceci :</p><p>- [x] élément numéro un<br/></p><p>De même, l'application "
 "de cette action sur une tâche terminée dans une liste de tâches entraînera "
 "la suppression du « x » entre ses parenthèses, comme cela :</p><p>- [ ] "
@@ -486,7 +486,7 @@ msgstr "Thème..."
 #: src/appactions.cpp:256
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "Fonte..."
+msgstr "Police..."
 
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
@@ -527,7 +527,7 @@ msgstr ""
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
-"Développeur pour le logiciel « UberWriter » (Devenu aujourd’hui "
+"Développeur pour le logiciel « UberWriter » (Devenu aujourd'hui "
 "« Apostrophe »), qui m'a apporté de l'inspiration"
 
 #: src/appmain.cpp:122
@@ -1230,7 +1230,7 @@ msgstr "Afficher les espaces non &sécables"
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr "Style d’interface"
+msgstr "Style d'interface"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
@@ -1245,7 +1245,7 @@ msgstr "Enregistrement &automatique"
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr "Faire une sauve&garde du fichier à l’enregistrement"
+msgstr "Faire une sauve&garde du fichier à l'enregistrement"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
@@ -1310,7 +1310,7 @@ msgstr "Mode de focus"
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr "Largeur de l’éditeur"
+msgstr "Largeur de l'éditeur"
 
 #: src/settings/preferencesdialog.ui:277
 msgctxt "PreferencesDialog|"
@@ -1320,7 +1320,7 @@ msgstr "Style de citation"
 #: src/settings/preferencesdialog.ui:290
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Style d’emphase"
+msgstr "Style d'emphase"
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
