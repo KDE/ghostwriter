@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-12 22:23+0300\n"
+"PO-Revision-Date: 2024-08-23 07:15+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -867,12 +867,13 @@ msgid "Replace with:"
 msgstr "החלפה ב־:"
 
 #: src/findreplace.cpp:439
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
 msgstr[0] "החלפה"
 msgstr[1] "שתי החלפות"
+msgstr[2] "%Ln החלפות"
+msgstr[3] "%Ln החלפות"
 
 #: src/findreplace.cpp:489
 msgctxt "ghostwriter::FindReplace|"
@@ -1566,52 +1567,58 @@ msgid "100%"
 msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
-#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
 msgstr[0] "מילה"
 msgstr[1] "שתי מילים"
+msgstr[2] "%Ln מילים"
+msgstr[3] "%Ln מילים"
 
 #: src/statistics/statisticsindicator.cpp:19
-#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
 msgstr[0] "תו"
 msgstr[1] "שני תווים"
+msgstr[2] "%Ln תווים"
+msgstr[3] "%Ln תווים"
 
 #: src/statistics/statisticsindicator.cpp:23
-#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
 msgstr[0] "משפט"
 msgstr[1] "שני משפטים"
+msgstr[2] "%Ln משפטים"
+msgstr[3] "%Ln משפטים"
 
 #: src/statistics/statisticsindicator.cpp:27
-#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
 msgstr[0] "פסקה"
 msgstr[1] "שתי פסקאות"
+msgstr[2] "%Ln פסקאות"
+msgstr[3] "%Ln פסקאות"
 
 #: src/statistics/statisticsindicator.cpp:31
-#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
 msgstr[0] "עמוד"
 msgstr[1] "שני עמודים"
+msgstr[2] "%Ln עמודים"
+msgstr[3] "%Ln עמודים"
 
 #: src/statistics/statisticsindicator.cpp:35
-#, fuzzy
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
 msgstr[0] "נוספה מילה"
 msgstr[1] "נוספו שתי מילים"
+msgstr[2] "נוספו %Ln מילים"
+msgstr[3] "נוספו %Ln מילים"
 
 #: src/statistics/statisticsindicator.cpp:37
 #, qt-format
