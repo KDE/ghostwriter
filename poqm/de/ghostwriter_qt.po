@@ -2,7 +2,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: l 10n-support\n"
+"Project-Id-Version: ghostwriter_qt\n"
 "PO-Revision-Date: 2023-04-15 02:06+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
