@@ -128,13 +128,7 @@ void StyleSheetBuilder::clearCache()
 
 QString StyleSheetBuilder::widgetStyleSheet()
 {
-    QString styleSheet = compileStyleSheet(":/resources/widgets.qss");
-    QFile styleSheetFile("widgets.qss");
-    styleSheetFile.open(QIODevice::WriteOnly | QIODevice::Text);
-    QTextStream stream(&styleSheetFile);
-    stream << styleSheet;
-    styleSheetFile.close();
-    return styleSheet;
+    return compileStyleSheet(":/resources/widgets.qss");
 }
 
 QString StyleSheetBuilder::htmlPreviewStyleSheet()
