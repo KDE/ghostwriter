@@ -17,7 +17,7 @@
 #include <KAboutData>
 #include <KToolTipHelper>
 
-#include "logging.h"
+#include "framework/logging.h"
 #include "mainwindow.h"
 #include "settings/appsettings.h"
 

@@ -7,6 +7,8 @@
 #ifndef MEMORY_ARENA_H
 #define MEMORY_ARENA_H
 
+#include <cstddef>
+
 #include <QStack>
 #include <QVector>
 

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2023 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2022-2024 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -33,6 +33,7 @@ target_sources(ghostwriter PRIVATE
     export/exporter.cpp
     export/exporterfactory.cpp
     export/exportformat.cpp
+    framework/logging.cpp
     markdown/cmarkgfmapi.cpp
     markdown/markdownast.cpp
     markdown/markdownnode.cpp
@@ -67,7 +68,6 @@ target_sources(ghostwriter PRIVATE
     documentmanager.cpp
     findreplace.cpp
     library.cpp
-    logging.cpp
     mainwindow.cpp
     messageboxhelper.cpp
     outlinewidget.cpp
