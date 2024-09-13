@@ -93,10 +93,6 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Widgets
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
-endif()
-
 find_package(
     KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION}
     REQUIRED
@@ -136,10 +132,6 @@ target_link_libraries(ghostwriter PRIVATE
     KF${KF_MAJOR_VERSION}::SonnetUi
     KF${KF_MAJOR_VERSION}::XmlGui
     ${CMARK_LIBS}
-)
-
-target_link_libraries(ghostwriter PRIVATE
-    Qt::Core5Compat
 )
 
 set_target_properties(ghostwriter PROPERTIES
