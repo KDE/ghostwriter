@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Slovenian "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Uporabniški priročnik za ghostwriter</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>man priročnik ghostwriter.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>17-09.2022</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>urejevalnik besedila brez motenj za Markdown</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>DATOTEKA</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Opis</title>
+  <para
+><command
+>ghostwriter</command
+> je aplikacija za urejanje besedila Qt za Markdown, ki zagotavlja estetsko okolje za pisanje brez motenj. </para>
+  <para
+>Ustvarite lastne teme po meri, pišite v celozaslonskem načinu ali uporabite način ostrenja, da se osredotočite samo na eno ali več vrstic. </para>
+  <para
+>Predogled HTML v živo vam omogoča ogled končnega oblikovanja med tipkanjem. Možnosti predogleda in izvoza HTML zagotavlja vgrajen procesor Markdown, cmark-gfm; vendar lahko dodate več z namestitvijo procesorjev Pandoc, MultiMarkdown ali cmark. Aplikacija bo samodejno zaznala njihovo namestitev, če so njihove lokacije v sistemski spremenljivki okolja PATH. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Možnosti</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>Onemogoči pospeševanje GPE.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Poročanje o napakah</title>
+  <para
+>Hrošče in zahteve po funkcijah lahko prijavite na <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>Poglejte tudi</title>
+<simplelist>
+<member
+>Podrobnejša uporabniška dokumentacija o markdownu je na voljo na <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2022 Megan Conkle</para>
+<para
+>Licenca: GNU General Public različica 3 ali novejša &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0 .html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
