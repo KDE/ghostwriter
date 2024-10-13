@@ -65,6 +65,7 @@ public:
     static AppSettings *instance;
 
     AppSettingsPrivate()
+        : currentHtmlExporter(nullptr)
     {
         ;
     }
@@ -677,6 +678,7 @@ void AppSettings::setShowUnbreakableSpaceEnabled(bool enabled)
     d->showUnbreakableSpaceEnabled = enabled;
     emit showUnbreakableSpaceEnabledChanged(d->showUnbreakableSpaceEnabled);
 }
+
 AppSettings::AppSettings()
     : d_ptr(new AppSettingsPrivate())
 {
@@ -843,17 +845,21 @@ AppSettings::AppSettings()
 
     QString exporterName = appSettings.value(constants::GW_LAST_USED_EXPORTER_KEY).toString();
 
+    d->currentHtmlExporter = nullptr;
+
     if (!exporterName.isEmpty()) {
         d->currentHtmlExporter = ExporterFactory::instance()->exporterByName(exporterName);
+
+        if (d->currentHtmlExporter) {
+            auto lastExportOptions = appSettings.value(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY).toString();
+
+            if (!lastExportOptions.isEmpty()) {
+                d->currentHtmlExporter->setOptions(lastExportOptions);
+            }
+        }
     }
 
-    if (d->currentHtmlExporter) {
-        auto lastExportOptions = appSettings.value(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY).toString();
-
-        if (!lastExportOptions.isEmpty()) {
-            d->currentHtmlExporter->setOptions(lastExportOptions);
-        }
-    } else {
+    if (!d->currentHtmlExporter) {
         d->currentHtmlExporter = ExporterFactory::instance()->htmlExporters().first();
     }
 }

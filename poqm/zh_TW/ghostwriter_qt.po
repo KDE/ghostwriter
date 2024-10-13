@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-09 06:30+0900\n"
+"PO-Revision-Date: 2024-07-12 04:12+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -14,38 +14,26 @@ msgstr ""
 "X-Generator: Lokalize 24.04.70\n"
 
 #: src/appactions.cpp:74
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Reopen Closed File"
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "重新開啟已關閉的檔案"
+msgstr "重新開啟上次關閉的檔案"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Shift+T"
 
 #: src/appactions.cpp:87
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "* 無序清單"
+msgstr "清除清單"
 
 #: src/appactions.cpp:91
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Re&load from Disk..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
 msgstr "從硬碟上重新載入(&L)…"
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
 msgstr "匯出"
@@ -53,12 +41,9 @@ msgstr "匯出"
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "CTRL+E"
 
 #: src/appactions.cpp:102
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Copy &HTML"
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
 msgstr "複製 &HTML"
@@ -66,12 +51,9 @@ msgstr "複製 &HTML"
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "SHIFT+CTRL+C"
 
 #: src/appactions.cpp:105
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Insert Image..."
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
 msgstr "插入影像(&I)…"
@@ -79,72 +61,54 @@ msgstr "插入影像(&I)…"
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "重要"
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
 msgstr "強調"
 
 #: src/appactions.cpp:116
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Stri&kethrough"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "刪除線(&K)"
+msgstr "刪除線"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&HTML Comment"
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr "&HTML 註解"
+msgstr "HTML 註解"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "縮排(&N)"
+msgstr "縮排"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "取消縮排(&U)"
+msgstr "取消縮排"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "SHIFT+Tab"
 
 #: src/appactions.cpp:120
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Code Fences"
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
 msgstr "程式碼區塊(&C)"
@@ -152,25 +116,22 @@ msgstr "程式碼區塊(&C)"
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "區塊引言(&Q)"
+msgstr "區塊引言"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "CTRL+SHIFT+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr ""
+msgstr "將目前行數或是選取行數改為區塊引言格式。"
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -178,24 +139,23 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"將目前行數或是選取行數改為區塊引言格式；若它已經是區塊引言了，將它轉為區塊引"
+"言中的區塊引言。"
 
 #: src/appactions.cpp:128
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Strip Block Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "解除區塊引言(&S)"
+msgstr "解除區塊引言"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "CTRL+SHIFT+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
-msgstr ""
+msgstr "從目前行數或選取行數移除區塊引言格式。"
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -204,11 +164,10 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"從目前行數或選取行數移除區塊引言格式。如果該引言區塊不只一層，只有最上層的區"
+"塊引言格式會被移除。"
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
 msgstr "* 無序清單"
@@ -216,19 +175,16 @@ msgstr "* 無序清單"
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
-msgstr ""
+msgstr "將目前行數或是選取行數改為使用星號 (*) 的無序清單格式。"
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
 msgstr "- 無序清單"
@@ -236,19 +192,16 @@ msgstr "- 無序清單"
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
-msgstr ""
+msgstr "將目前行數或是選取行數改為使用減號 (-) 的無序清單格式。"
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
 msgstr "+ 無序清單"
@@ -256,19 +209,16 @@ msgstr "+ 無序清單"
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
-msgstr ""
+msgstr "將目前行數或是選取行數改為使用加號 (+) 的無序清單格式。"
 
 #: src/appactions.cpp:150
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1. Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
 msgstr "1. 有序清單"
@@ -276,12 +226,12 @@ msgstr "1. 有序清單"
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr ""
+msgstr "將目前行數或是選取行數改為有序清單格式。"
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -289,19 +239,18 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>將目前行數或是選取行數改為有序清單格式。</p><p>範例：</p><p>1. 項目一<br/"
+">2. 項目二<br/>3. 項目三<br/></p>"
 
 #: src/appactions.cpp:163
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1&) Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "1&) 有序清單"
+msgstr "1) 有序清單"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -311,24 +260,24 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>將目前行數或是選取行數改為有序清單格式。</p><p>範例：</p><p>1) 項目一<br/"
+">2) 項目二<br/>3) 項目三<br/></p><p>請注意，不是所有 Markdown 處理工具都支援"
+"這個有序清單格式，而且這個格式不是 CommonMark 的一部分。</p>"
 
 #: src/appactions.cpp:178
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Task List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "工作清單(&T)"
+msgstr "工作清單"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr ""
+msgstr "將目前行數或是選取行數改為工作清單格式。"
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -338,26 +287,26 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>將目前行數或是選取行數改為工作清單格式。</p><p>範例：</p><p>- [ ] 項目一"
+"<br/>- [ ] 項目二<br/>- [ ] 項目三<br/></p><p>請注意，不是所有 Markdown 處理"
+"工具都支援工作清單，而且它不是 CommonMark 的一部分。</p>"
 
 #: src/appactions.cpp:191
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Task(s) &Complete"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "切換工作完成(&C)"
+msgstr "切換工作完成狀態"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "CTRL+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
-msgstr ""
+msgstr "切換目前工作項目或是所選工作項目為已完成還是未完成。"
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -371,53 +320,46 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>切換目前工作項目或是所選工作項目為已完成還是未完成。。</p><p>在工作清單中"
+"未完成的工作項目上套用此動作時，會在它的中括號之間插入 'x'，像這樣：</p><p>- "
+"[x] 項目一<br/></p><p>在工作清單中已完成的工作項目上套用此動作時則會移除括號"
+"間的 'x'，像這樣：</p><p>- [ ] 項目一<br/></p><p>請注意，不是所有 Markdown 處"
+"理工具都支援工作清單，而且它不是 CommonMark 的一部分。</p>"
 
 #: src/appactions.cpp:216
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle distraction free mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "切換專注模式"
+msgstr "專注模式"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "SHIFT+F11"
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "預覽"
+msgstr "即時預覽"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "切換海明威模式"
+msgstr "海明威模式"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "SHIFT+Backspace"
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "切換海明威模式"
+msgstr "切換海明威模式。"
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -425,11 +367,10 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"海明威模式會停用 Backspace 與刪除鍵，來幫助您不分心進行已撰寫部分的編輯，而維"
+"持專注在寫作上。"
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
 msgstr "暗色模式"
@@ -437,7 +378,7 @@ msgstr "暗色模式"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "啟用或停用目前主題的暗色配色方案。"
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -446,11 +387,10 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>啟用或停用目前主題的暗色配色方案。</p><p>如果目前的主題不支援暗色配色方"
+"案，則這個選項不會有效果。</p>"
 
 #: src/appactions.cpp:233
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Show Sidebar"
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
 msgstr "顯示側邊欄"
@@ -458,12 +398,9 @@ msgstr "顯示側邊欄"
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "CTRL+空白鍵"
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
 msgstr "大綱"
@@ -471,12 +408,12 @@ msgstr "大綱"
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "顯示文件大綱。"
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -486,27 +423,20 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>顯示文件大綱</p><p>在文件中的標題上移動滑鼠點擊左鍵，或是以上下方向鍵移動"
+"並按下 Enter 鍵，來跳到目前文件中的不同位置。</p>"
 
 #: src/appactions.cpp:243
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Session Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
 msgstr "工作階段統計資料"
 
 #: src/appactions.cpp:245
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Document Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
 msgstr "文件統計資料"
 
 #: src/appactions.cpp:247
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Cheat Sheet"
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
 msgstr "小抄"
@@ -514,28 +444,19 @@ msgstr "小抄"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "在側邊欄中顯示 Markdown 的快速參考。"
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
 msgstr "主題…"
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
 msgstr "字型…"
 
 #: src/appactions.cpp:258
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preview Options..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
 msgstr "預覽選項…"
@@ -758,26 +679,21 @@ msgid "File backup failed"
 msgstr "檔案備份失敗"
 
 #: src/documentmanager.cpp:925
-#, fuzzy
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "建立備份位置時發生錯誤！"
+msgstr "建立備份位置時發生錯誤：%d"
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "檔案備份失敗"
+msgstr "檔案備份失敗：無法取代 %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr ""
+msgstr "檔案備份失敗：無法將 %1 複製到 %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -794,7 +710,7 @@ msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "插入影像"
 
-#: src/editor/markdowneditor.cpp:2461
+#: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -899,9 +815,6 @@ msgid "Highlight matches"
 msgstr "突顯相符項目"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
 msgstr "尋找上一個(&P)"
@@ -912,9 +825,6 @@ msgid "Find previous"
 msgstr "尋找上一個"
 
 #: src/findreplace.cpp:123
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Next"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
 msgstr "尋找下一個(&N)"
@@ -937,7 +847,7 @@ msgstr "全部取代"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
@@ -1454,22 +1364,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "僅顯示等寬字型"
 
-#: src/spelling/spellcheckdecorator.cpp:245
+#: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "檢查拼字…"
 
-#: src/spelling/spellcheckdecorator.cpp:273
+#: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "拼字"
 
-#: src/spelling/spellcheckdecorator.cpp:298
+#: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "將詞彙加到字典中"
 
-#: src/spelling/spellcheckdecorator.cpp:338
+#: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "沒有找到拼字建議"

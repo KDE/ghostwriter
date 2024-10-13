@@ -13,7 +13,6 @@
 #include <QRegularExpression>
 #include <QStaticText>
 #include <QString>
-#include <QStringRef>
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
 #include <QTextDocument>

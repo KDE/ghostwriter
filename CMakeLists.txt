@@ -32,7 +32,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # KDE Application Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "24")
-set(RELEASE_SERVICE_VERSION_MINOR "07")
+set(RELEASE_SERVICE_VERSION_MINOR "11")
 set(RELEASE_SERVICE_VERSION_MICRO "70")
 set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
@@ -53,6 +53,7 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
+include(ECMAddTests)
 include(ECMPoQmTools)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
@@ -124,7 +125,6 @@ if(APPLE)
 endif()
 
 install(TARGETS ghostwriter ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES ghostwriterui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/ghostwriter)
 
 ecm_install_icons(
     ICONS ${ICON_FILES}

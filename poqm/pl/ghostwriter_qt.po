@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-02-24 17:17+0100\n"
+"PO-Revision-Date: 2024-07-13 09:16+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -11,41 +11,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Reopen Closed File"
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "Otwórz ponownie zamknięty plik"
+msgstr "Otwórz ostatnio zamknięty plik"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Shift+T"
 
 #: src/appactions.cpp:87
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "* Wypunktowanie"
+msgstr "Wyczyść listę"
 
 #: src/appactions.cpp:91
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Re&load from Disk..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "Wczy&taj ponownie z dysku..."
+msgstr "Wczytaj ponownie z dysku..."
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
 msgstr "Wyeksportuj"
@@ -53,12 +42,9 @@ msgstr "Wyeksportuj"
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "CTRL+E"
 
 #: src/appactions.cpp:102
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Copy &HTML"
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
 msgstr "Skopiuj &HTML"
@@ -66,12 +52,9 @@ msgstr "Skopiuj &HTML"
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "SHIFT+CTRL+C"
 
 #: src/appactions.cpp:105
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Insert Image..."
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
 msgstr "&Wstaw obraz..."
@@ -79,72 +62,54 @@ msgstr "&Wstaw obraz..."
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "Z naciskiem"
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
 msgstr "Nacisk"
 
 #: src/appactions.cpp:116
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Stri&kethrough"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "Prze&kreślenie"
+msgstr "Przekreślenie"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&HTML Comment"
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr "Uwaga &HTML"
+msgstr "Uwaga HTML"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "Wet&nij"
+msgstr "Wcięcie"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "&Usuń wcięcie"
+msgstr "Usuń wcięcie"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "SHIFT+Tab"
 
 #: src/appactions.cpp:120
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Code Fences"
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
 msgstr "Siatki &kodu"
@@ -152,25 +117,22 @@ msgstr "Siatki &kodu"
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "&Cytowanie bloku"
+msgstr "Cytowanie bloku"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "CTRL+SHIFT+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr ""
+msgstr "Formatuje bieżący wiersz lub zaznaczone wiersze jako blok cytowania."
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -178,24 +140,23 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"Formatuje bieżący wiersz lub zaznaczone wiersze jako blok cytowania lub "
+"jeśli już jest blokiem cytowania, to jako zagnieżdżony blok cytowania."
 
 #: src/appactions.cpp:128
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Strip Block Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "&Usuń cytat bloku"
+msgstr "Usuń cytat bloku"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "CTRL+SHIFT+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
-msgstr ""
+msgstr "Usuwa z bieżącego wiersza, lub zaznaczonych wierszy bloku, cytowanie."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -204,11 +165,10 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Usuwa z bieżącego wiersza, lub zaznaczonych wierszy bloku, cytowanie. Jeśli "
+"blok jest zagnieżdżony, to cytowanie zostanie usunięte tylko z tego najwyżej."
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
 msgstr "* Wypunktowanie"
@@ -216,7 +176,7 @@ msgstr "* Wypunktowanie"
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
@@ -224,11 +184,10 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
+"Formatuje bieżący wiersz lub zaznaczone wiersze jako listę wypunktowaną przy "
+"użyciu znaku (*)."
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
 msgstr "- Wypunktowanie"
@@ -236,7 +195,7 @@ msgstr "- Wypunktowanie"
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -244,11 +203,10 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Formatuje bieżący wiersz lub zaznaczone wiersze jako listę wypunktowaną przy "
+"użyciu znaku (-)."
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
 msgstr "+ Wypunktowanie"
@@ -256,7 +214,7 @@ msgstr "+ Wypunktowanie"
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -264,11 +222,10 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Formatuje bieżący wiersz lub zaznaczone wiersze jako listę wypunktowaną przy "
+"użyciu znaku (+)."
 
 #: src/appactions.cpp:150
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1. Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
 msgstr "1. Lista numerowana"
@@ -276,12 +233,12 @@ msgstr "1. Lista numerowana"
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr ""
+msgstr "Formatuje bieżący wiersz lub zaznaczone wiersze jako listę numerowaną."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -289,19 +246,19 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Formatuje bieżący wiersz lub zaznaczone wiersze jako listę numerowaną.</"
+"p><p>Przykład:</p><p>1. rzecz pierwsza<br/>2. rzecz druga<br/>3. rzecz "
+"trzecia<br/></p>"
 
 #: src/appactions.cpp:163
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1&) Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "1&) Lista numerowana"
+msgstr "1) Lista numerowana"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -311,24 +268,25 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Formatuje bieżący wiersz lub zaznaczone wiersze jako listę numerowaną.</"
+"p><p>Przykład:</p><p>1) rzecz pierwsza<br/>2) rzecz druga<br/>3) rzecz "
+"trzecia<br/></p><p>Pamiętaj, że listy zadań nie są obsługiwane przez "
+"wszystkie programy do pisania w Markdown i nie są częścią CommonMark.</p>"
 
 #: src/appactions.cpp:178
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Task List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "Lis&ta zadań"
+msgstr "Lista zadań"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr ""
+msgstr "Formatuje bieżący wiersz lub zaznaczone wiersze jako listę zadań."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -338,19 +296,20 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Formatuje bieżący wiersz lub zaznaczone wiersze jako listę zadań.</"
+"p><p>Przykład:</p><p>- [] rzecz pierwsza<br/>- [] rzecz druga<br/>- [] rzecz "
+"trzecia<br/></p><p>Pamiętaj, że listy zadań nie są obsługiwane przez "
+"wszystkie programy do pisania w Markdown i nie są częścią CommonMark.</p>"
 
 #: src/appactions.cpp:191
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Task(s) &Complete"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "Przestaw ukoń&czenie zadania"
+msgstr "Przestaw ukończenie zadania"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "CTRL+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
@@ -358,6 +317,7 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Przestawia bieżące zadanie lub zaznaczone zadania jako ukończone lub nie."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -371,53 +331,50 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Przestaw stan bieżącego zadania lub zaznaczonych zadań na ich liście jako "
+"ukończone lub nieukończone.</p><p>Zastosowanie tego działania na "
+"nieukończonym zadaniu na liście zadań poskutkuje umieszczeniem 'x' pomiędzy "
+"jego nawiasami w następujący sposób:</p><p>- [x] rzecz pierwsza<br/></"
+"p><p>Podobnie, zastosowanie tego działania na ukończonym zadaniu na liście "
+"zadań poskutkuje usunięciem 'x' pomiędzy jego nawiasami w następujący sposób:"
+"</p><p>- [ ] rzecz pierwsza<br/></p><p>Pamiętaj, że listy zadań nie są "
+"obsługiwane przez wszystkie programy do pisania w Markdown i nie są częścią "
+"CommonMark.</p>"
 
 #: src/appactions.cpp:216
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle distraction free mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "Przestaw tryb bez rozpraszania"
+msgstr "Tryb bez rozpraszania"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "SHIFT+F11"
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Podgląd"
+msgstr "Podgląd na żywo"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "Przestaw tryb Hemingway'a"
+msgstr "Tryb Hemingway'a"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "SHIFT+Backspace"
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Przestaw tryb Hemingway'a"
+msgstr "Przestaw tryb Hemingway'a."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -425,11 +382,10 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"Tryb Hemingway'a wyłącza klawisze backspace oraz delete, aby odwieść cię od "
+"cofania się i poprawiania w dokumencie podczas pisania."
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
 msgstr "Tryb ciemny"
@@ -437,7 +393,7 @@ msgstr "Tryb ciemny"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Włącza/wyłącza tryb ciemny dla bieżącego wyglądu."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -446,11 +402,10 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Włącza/wyłącza tryb ciemny dla bieżącego wyglądu.</p><p>Jeśli bieżący "
+"wygląd nie obsługuje tego, to ustawienie to nie wpłynie na nic.</p>"
 
 #: src/appactions.cpp:233
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Show Sidebar"
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
 msgstr "Pokaż pasek boczny"
@@ -458,12 +413,9 @@ msgstr "Pokaż pasek boczny"
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "CTRL+Spacja"
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
 msgstr "Zarys"
@@ -471,12 +423,12 @@ msgstr "Zarys"
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Pokazuje zarys dokumentu."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -486,27 +438,21 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Pokazuje zarys dokumentu.</p><p>Najedź myszą i naciśnij jej lewy klawisz "
+"na nagłówku dokumentu lub strzałkami góra/dół na klawiaturze plus klawisz "
+"ENTER, aby przeskakiwać pomiędzy różnymi miejscami w bieżącym dokumencie.</p>"
 
 #: src/appactions.cpp:243
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Session Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
 msgstr "Statystyki posiedzenia"
 
 #: src/appactions.cpp:245
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Document Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
 msgstr "Statystyki dokumentu"
 
 #: src/appactions.cpp:247
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Cheat Sheet"
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
 msgstr "Ściąga"
@@ -514,28 +460,19 @@ msgstr "Ściąga"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "Pokazuje szybki przewodnik po Markdown na pasku bocznym."
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Wyglądy..."
+msgstr "Wygląd..."
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
 msgstr "Czcionka..."
 
 #: src/appactions.cpp:258
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preview Options..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
 msgstr "Ustawienia podglądu..."
@@ -762,26 +699,21 @@ msgid "File backup failed"
 msgstr "Nie udało się utworzyć kopii zapasowej"
 
 #: src/documentmanager.cpp:925
-#, fuzzy
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "Nie udało się utworzyć miejsca kopii zapasowej!"
+msgstr "Nie udało się utworzyć miejsca kopii zapasowej: %d"
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "Nie udało się utworzyć kopii zapasowej"
+msgstr "Nie udało się utworzyć kopii zapasowej: Nie można zastąpić %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr ""
+msgstr "Nie udało się utworzyć kopii zapasowej: Nie można skopiować %1 do %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -798,7 +730,7 @@ msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Wstaw obraz"
 
-#: src/editor/markdowneditor.cpp:2461
+#: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -904,12 +836,9 @@ msgid "Highlight matches"
 msgstr "Podświetl odpowiadające"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "Znajdź &poprzednie"
+msgstr "Znajdź poprzednie"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
@@ -917,12 +846,9 @@ msgid "Find previous"
 msgstr "Znajdź poprzednie"
 
 #: src/findreplace.cpp:123
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Next"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr "Znajdź &następne"
+msgstr "Znajdź następne"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
@@ -942,7 +868,7 @@ msgstr "Zastąp wszystkie"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
@@ -1462,22 +1388,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Pokaż czcionki tylko o stałej szerokości"
 
-#: src/spelling/spellcheckdecorator.cpp:245
+#: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Sprawdź pisownię..."
 
-#: src/spelling/spellcheckdecorator.cpp:273
+#: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Pisownia"
 
-#: src/spelling/spellcheckdecorator.cpp:298
+#: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr "Dodaj słowo do słownika"
 
-#: src/spelling/spellcheckdecorator.cpp:338
+#: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr "Nie znaleziono żadnych podpowiedzi do pisowni"

@@ -2,47 +2,38 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-05 09:13+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2024-07-09 16:26+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr ""
+msgstr "Otevřít naposledy zavřený soubor"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Shift+T"
 
 #: src/appactions.cpp:87
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "* Seznam s odrážkami"
+msgstr "Smazat seznam"
 
 #: src/appactions.cpp:91
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Re&load from Disk..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "Znovu načíst z dis&ku..."
+msgstr "Znovu načíst z disku..."
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
 msgstr "Exportovat"
@@ -50,22 +41,19 @@ msgstr "Exportovat"
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "Ctrl+E"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "Kopírovat &HTML"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "SHIFT+CTRL+C"
 
 #: src/appactions.cpp:105
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Insert Image..."
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
 msgstr "Vlož&it obrázek..."
@@ -73,64 +61,52 @@ msgstr "Vlož&it obrázek..."
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "Silné"
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
 msgstr "Důraz"
 
 #: src/appactions.cpp:116
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Stri&kethrough"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "Přeš&krtnuté"
+msgstr "Přeškrtnutí"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr ""
+msgstr "Komentář HTML"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "Odsa&dit"
+msgstr "Odsadit"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Tabulátor"
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "Zr&ušit odsazení"
+msgstr "Zpětné odsazení"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "SHIFT+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -140,7 +116,7 @@ msgstr ""
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
@@ -150,7 +126,7 @@ msgstr ""
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "CTRL+SHIFT+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
@@ -172,7 +148,7 @@ msgstr ""
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "CTRL+SHIFT+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
@@ -188,9 +164,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
 msgstr "* Seznam s odrážkami"
@@ -198,7 +171,7 @@ msgstr "* Seznam s odrážkami"
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
@@ -208,9 +181,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
 msgstr "- Seznam s odrážkami"
@@ -218,7 +188,7 @@ msgstr "- Seznam s odrážkami"
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -228,9 +198,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
 msgstr "+ Seznam s odrážkami"
@@ -238,7 +205,7 @@ msgstr "+ Seznam s odrážkami"
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -250,12 +217,12 @@ msgstr ""
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
-msgstr ""
+msgstr "1. Číslovaný seznam"
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
@@ -272,12 +239,12 @@ msgstr ""
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr ""
+msgstr "1) Číslovaný seznam"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -291,12 +258,12 @@ msgstr ""
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr ""
+msgstr "Seznam úkolů"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
@@ -320,7 +287,7 @@ msgstr ""
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "Ctrl+"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
@@ -350,20 +317,17 @@ msgstr ""
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "SHIFT+F11"
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Náhled"
+msgstr "Živý náhled"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
@@ -373,15 +337,12 @@ msgstr ""
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "SHIFT+Backspace"
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Přepnout na celou obrazovku"
+msgstr ""
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -391,9 +352,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
 msgstr "Tmavý režim"
@@ -412,9 +370,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:233
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Show Sidebar"
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
 msgstr "Zobrazit postranní lištu"
@@ -422,20 +377,17 @@ msgstr "Zobrazit postranní lištu"
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "CTRL+mezerník"
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr "Obrys"
+msgstr ""
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
@@ -454,17 +406,17 @@ msgstr ""
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "Statistika sezení"
 
 #: src/appactions.cpp:245
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "Statistika dokumentu"
 
 #: src/appactions.cpp:247
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr ""
+msgstr "Nápověda syntaxe"
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
@@ -472,25 +424,16 @@ msgid "Shows a quick reference guide for Markdown in the sidebar."
 msgstr ""
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Motivy..."
+msgstr "Motiv..."
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
 msgstr "Písmo..."
 
 #: src/appactions.cpp:258
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preview Options..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
 msgstr "Možnosti náhledů..."
@@ -713,12 +656,9 @@ msgid "File backup failed"
 msgstr ""
 
 #: src/documentmanager.cpp:925
-#, fuzzy
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "Chyba při vytváření záložního místa."
+msgstr ""
 
 #: src/documentmanager.cpp:934
 #, qt-format
@@ -747,7 +687,7 @@ msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
 msgstr "Vložit obrázek"
 
-#: src/editor/markdowneditor.cpp:2461
+#: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
@@ -852,12 +792,9 @@ msgid "Highlight matches"
 msgstr "Zvýraznit odpovídající"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "Najít &předchozí"
+msgstr "Najít předchozí"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
@@ -865,12 +802,9 @@ msgid "Find previous"
 msgstr "Najít předchozí"
 
 #: src/findreplace.cpp:123
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Next"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr "Najít &následující"
+msgstr "Najít následující"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
@@ -890,7 +824,7 @@ msgstr "Nahradit vše"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
@@ -1407,22 +1341,22 @@ msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
 msgstr "Zobrazit pouze písma s pevnou šířkou"
 
-#: src/spelling/spellcheckdecorator.cpp:245
+#: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Zkontrolovat pravopis..."
 
-#: src/spelling/spellcheckdecorator.cpp:273
+#: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
 msgstr "Pravopis"
 
-#: src/spelling/spellcheckdecorator.cpp:298
+#: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
 msgstr ""
 
-#: src/spelling/spellcheckdecorator.cpp:338
+#: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
 msgstr ""
@@ -1857,119 +1791,3 @@ msgstr ""
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&New"
-#~ msgstr "&Nový"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Open"
-#~ msgstr "&Otevřít"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Open &Recent..."
-#~ msgstr "Otevřít ne&dávné..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Save"
-#~ msgstr "&Uložit"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Save &As..."
-#~ msgstr "Uložit j&ako..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "R&ename..."
-#~ msgstr "Př&ejmenovat..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Export"
-#~ msgstr "&Exportovat"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Quit"
-#~ msgstr "U&končit"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Undo"
-#~ msgstr "&Zpět"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Redo"
-#~ msgstr "&Vpřed"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Cu&t"
-#~ msgstr "Vyjmou&t"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Copy"
-#~ msgstr "&Kopírovat"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Paste"
-#~ msgstr "V&ložit"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Find"
-#~ msgstr "Na&jít"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Rep&lace"
-#~ msgstr "Na&hradit"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Spell check"
-#~ msgstr "Kontrola pravopi&su"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "For&mat"
-#~ msgstr "For&mát"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Bold"
-#~ msgstr "T&učné"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Italic"
-#~ msgstr "K&urzíva"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&* Bullet List"
-#~ msgstr "&* Seznam s odrážkami"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&- Bullet List"
-#~ msgstr "&- Seznam s odrážkami"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&+ Bullet List"
-#~ msgstr "&+ Seznam s odrážkami"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Full Screen"
-#~ msgstr "Na &celou obrazovku"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Outline"
-#~ msgstr "&Obrys"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Increase Font Size"
-#~ msgstr "Zvětšit velikost písma"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Decrease Font Size"
-#~ msgstr "Zmenšit velikost písma"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Preferences..."
-#~ msgstr "Předvolby..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Wiki"
-#~ msgstr "Wiki"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle sidebar"
-#~ msgstr "Přepnout postranní panel"

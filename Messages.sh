@@ -1,4 +1,4 @@
-﻿#! /usr/bin/env bash
+#! /usr/bin/env bash
 
 # SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
 #
