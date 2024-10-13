@@ -1,5 +1,5 @@
-/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+﻿/*
+ * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -38,7 +38,7 @@ public:
     HtmlPreviewPrivate(HtmlPreview *q_ptr)
         : q_ptr(q_ptr)
     {
-        ;
+        proxy = new PreviewProxy(q_ptr);
     }
 
     ~HtmlPreviewPrivate()
@@ -51,7 +51,7 @@ public:
     MarkdownDocument *document;
     bool updateInProgress;
     bool updateAgain;
-    PreviewProxy proxy;
+    PreviewProxy *proxy;
     QString baseUrl;
     QRegularExpression headingTagExp;
     Exporter *exporter;
@@ -91,7 +91,7 @@ HtmlPreview::HtmlPreview
     d->updateInProgress = false;
     d->updateAgain = false;
     d->exporter = exporter;
-    d->proxy.setMathEnabled(d->exporter->supportsMath());
+    d->proxy->setMathEnabled(d->exporter->supportsMath());
 
     d->baseUrl = "";
 
@@ -153,7 +153,7 @@ HtmlPreview::HtmlPreview
     this->setZoomFactor((horizontalDpi / 96.0));
 
     QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QStringLiteral("previewProxy"), &d->proxy);
+    channel->registerObject(QStringLiteral("previewProxy"), d->proxy);
     this->page()->setWebChannel(channel);
 
     QFile wrapperHtmlFile(":/resources/preview.html");
@@ -240,22 +240,22 @@ void HtmlPreview::setHtmlExporter(Exporter *exporter)
     
     d->exporter = exporter;
     d->setHtmlContent("");
-    d->proxy.setMathEnabled(d->exporter->supportsMath());
+    d->proxy->setMathEnabled(d->exporter->supportsMath());
     updatePreview();
 }
 
 void HtmlPreview::setStyleSheet(const QString &css)
 {
     Q_D(HtmlPreview);
-    
-    d->proxy.setStyleSheet(css);
+
+    d->proxy->setStyleSheet(css);
 }
 
 void HtmlPreview::setMathEnabled(bool enabled)
 {
     Q_D(HtmlPreview);
-    
-    d->proxy.setMathEnabled(enabled);
+
+    d->proxy->setMathEnabled(enabled);
 }
 
 void HtmlPreviewPrivate::onHtmlReady()
@@ -312,7 +312,7 @@ void HtmlPreview::closeEvent(QCloseEvent *event)
 
 void HtmlPreviewPrivate::setHtmlContent(const QString &html)
 {
-    this->proxy.setHtmlContent(html);
+    this->proxy->setHtmlContent(html);
 }
 
 QString HtmlPreviewPrivate::exportToHtml
