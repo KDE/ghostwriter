@@ -3,12 +3,12 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2024-07-09 11:55+0200\n"
+"PO-Revision-Date: 2024-10-14 20:23+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -196,7 +196,7 @@ msgid ""
 "asterisk (*)."
 msgstr ""
 "Dona format a la línia actual o les línies seleccionades com una llista de "
-"pics amb un asteric (*)."
+"pics amb un asterisc (*)."
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
@@ -459,7 +459,7 @@ msgid ""
 msgstr ""
 "<p>Mostra l'esquema del document.</p><p>Utilitzeu el ratolí i el clic "
 "esquerre del ratolí sobre una capçalera del document, o bé les fletxes amunt "
-"i avall del teclat i la tecla «Retorn», per saltar fins a ubicacions "
+"i avall del teclat i la tecla «Retorn», per a saltar fins a ubicacions "
 "diferents dins del document actual.</p>"
 
 #: src/appactions.cpp:243
