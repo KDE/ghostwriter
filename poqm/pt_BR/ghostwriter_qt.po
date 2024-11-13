@@ -1,10 +1,10 @@
-# Geraldo Simiao <geraldosimiao@fedoraproject.org>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-14 11:45-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"PO-Revision-Date: 2024-11-12 17:18-0300\n"
+"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/appactions.cpp:74
 #, fuzzy
@@ -44,9 +44,6 @@ msgid "Reload from Disk..."
 msgstr "Recarre&gar do disco..."
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
 msgstr "Exportar"
@@ -83,9 +80,6 @@ msgid "Strong"
 msgstr ""
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
 msgstr "Ênfase"
@@ -117,12 +111,9 @@ msgid "CTRL+/"
 msgstr ""
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "&Recuar"
+msgstr "Recuar"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
@@ -130,12 +121,9 @@ msgid "Tab"
 msgstr ""
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "&Desindentar"
+msgstr "Desindentar"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
@@ -143,12 +131,9 @@ msgid "SHIFT+Tab"
 msgstr ""
 
 #: src/appactions.cpp:120
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Code Fences"
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr "&Cercas de código"
+msgstr "Cercas de código"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -156,12 +141,9 @@ msgid "CTRL+G"
 msgstr ""
 
 #: src/appactions.cpp:122
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "Bloquear &citação"
+msgstr "Bloquear citação"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
@@ -181,12 +163,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:128
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Strip Block Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "&Faixa do bloco de código"
+msgstr "Faixa do bloco de código"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
@@ -207,9 +186,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
 msgstr "Lista com marcadores *"
@@ -227,9 +203,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
 msgstr "Lista com marcadores -"
@@ -247,9 +220,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
 msgstr "Lista com marcadores +"
@@ -267,9 +237,6 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:150
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1. Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
 msgstr "Lista numerada 1."
@@ -292,12 +259,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:163
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1&) Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "Lista numerada 1&)"
+msgstr "Lista numerada 1)"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
@@ -314,12 +278,9 @@ msgid ""
 msgstr ""
 
 #: src/appactions.cpp:178
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Task List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "Lista de &tarefas"
+msgstr "Lista de tarefas"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
@@ -387,12 +348,9 @@ msgid "SHIFT+F11"
 msgstr ""
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Visualizar"
+msgstr "Visualizar lista"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
@@ -462,9 +420,6 @@ msgid "CTRL+Space"
 msgstr ""
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
 msgstr "Contorno"
@@ -518,17 +473,11 @@ msgid "Shows a quick reference guide for Markdown in the sidebar."
 msgstr ""
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Temas"
+msgstr "Tema..."
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
 msgstr "Fonte..."
@@ -764,12 +713,9 @@ msgid "File backup failed"
 msgstr "Falha no backup do arquivo"
 
 #: src/documentmanager.cpp:925
-#, fuzzy
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "Erro ao criar o local de backup!"
+msgstr "Erro ao criar o local de backup: %d"
 
 #: src/documentmanager.cpp:934
 #, fuzzy, qt-format
@@ -943,7 +889,7 @@ msgstr "Substituir todos"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
@@ -1260,7 +1206,7 @@ msgstr "Preferencias..."
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: src/settings/preferencesdialog.ui:30
 msgctxt "PreferencesDialog|"
@@ -1316,7 +1262,7 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
 #, fuzzy
@@ -1329,7 +1275,7 @@ msgstr "Selecionar pasta de backup"
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
 msgid "Session"
-msgstr ""
+msgstr "Sessão"
 
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
