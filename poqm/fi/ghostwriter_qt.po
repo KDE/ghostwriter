@@ -1,8 +1,8 @@
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-03-11 15:14+0200\n"
+"PO-Revision-Date: 2024-10-19 11:14+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,13 +10,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Reopen Closed File"
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
 msgstr "Avaa suljettu tiedosto uudelleen"
@@ -24,28 +21,19 @@ msgstr "Avaa suljettu tiedosto uudelleen"
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Vaihto+T"
 
 #: src/appactions.cpp:87
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "* Luetelma"
+msgstr "Tyhjennä luettelo"
 
 #: src/appactions.cpp:91
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Re&load from Disk..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "Lataa l&evyltä uudelleen…"
+msgstr "Lataa levyltä uudelleen…"
 
 #: src/appactions.cpp:92
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
 msgstr "Vie"
@@ -53,12 +41,9 @@ msgstr "Vie"
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "CTRL+E"
 
 #: src/appactions.cpp:102
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Copy &HTML"
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
 msgstr "Kopioi &HTML:ksi"
@@ -66,12 +51,9 @@ msgstr "Kopioi &HTML:ksi"
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "VAIHTO+CTRL+C"
 
 #: src/appactions.cpp:105
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Insert Image..."
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
 msgstr "L&isää kuva…"
@@ -79,99 +61,78 @@ msgstr "L&isää kuva…"
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "Vahvenna"
 
 #: src/appactions.cpp:115
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Emphasis"
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
-msgstr "Tehoste"
+msgstr "Painota"
 
 #: src/appactions.cpp:116
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Stri&kethrough"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "&Yliviivaus"
+msgstr "Yliviivaa"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&HTML Comment"
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr "&HTML-kommentti"
+msgstr "HTML-kommentoi"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "I&ndent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "&Sisennä"
+msgstr "Sisennä"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Sarkain"
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "&Poista sisennys"
+msgstr "Poista sisennys"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "VAIHTO+Sarkain"
 
 # Ei ole aavistustakaan, mitä tämä on! Guuglaamallakin löytyy vain joitakin tekstimuokkaimia.
 #: src/appactions.cpp:120
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Code Fences"
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr "Koodi&aidat:"
+msgstr "Koodiaidat"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Block &Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "Lainauslo&hko"
+msgstr "Lainauslohko"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "CTRL+VAIHTO+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr ""
+msgstr "Muotoilee nykyisen rivin tai valitut rivit lainauslohkoksi."
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -179,24 +140,24 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"Muotoilee nykyisen rivin tai valitut rivit lainauslohkoksi, tai jos se jo on "
+"sellainen, sisäkkäiseksi lainauslohkoksi."
 
 #: src/appactions.cpp:128
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Strip Block Quote"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "&Poista lainauslohko"
+msgstr "Poista lainauslohko"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "CTRL+VAIHTO+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
 msgstr ""
+"Poistaa lainauslohkomuotoilun nykyiseltä riviltä tai valituilta riveiltä."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -205,11 +166,10 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Poistaa lainauslohkomuotoilun nykyiseltä riviltä tai valituilta riveiltä. "
+"Jos lainauslohko on sisäkkäinen, vain uloin muotoilu poistetaan"
 
 #: src/appactions.cpp:135
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "* Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
 msgstr "* Luetelma"
@@ -217,19 +177,16 @@ msgstr "* Luetelma"
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
-msgstr ""
+msgstr "Muotoilee nykyisen rivin tai valitut rivit luetelmaksi tähdellä (*)."
 
 #: src/appactions.cpp:140
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "- Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
 msgstr "- Luetelma"
@@ -237,7 +194,7 @@ msgstr "- Luetelma"
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -245,11 +202,9 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Muotoilee nykyisen rivin tai valitut rivit luetelmaksi yhdysmerkillä (-)."
 
 #: src/appactions.cpp:145
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "+ Bullet List"
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
 msgstr "+ Luetelma"
@@ -257,7 +212,7 @@ msgstr "+ Luetelma"
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -265,11 +220,9 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Muotoilee nykyisen rivin tai valitut rivit luetelmaksi plusmerkillä (+)."
 
 #: src/appactions.cpp:150
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1. Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
 msgstr "1. Numeroitu luettelo"
@@ -277,12 +230,12 @@ msgstr "1. Numeroitu luettelo"
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr ""
+msgstr "Muotoilee nykyisen rivin tai valitut rivit numeroiduksi luetteloksi."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -290,19 +243,19 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Muotoilee nykyisen rivin tai valitut rivit numeroiduksi luetteloksi.</"
+"p><p>Esimerkki:</p><p>1. ensimmäinen kohta<br/>2. toinen kohta<br/>3. kolmas "
+"kohta<br/></p>"
 
 #: src/appactions.cpp:163
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "1&) Numbered List"
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "Numeroitu luettelo (1&))"
+msgstr "1) Numeroitu luettelo"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -312,24 +265,25 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Muotoilee nykyisen rivin tai valitut rivit numeroiduksi luetteloksi.</"
+"p><p>Esimerkki:</p><p>1) ensimmäinen kohta<br/>2) toinen kohta<br/>3) kolmas "
+"kohta<br/></p><p>Huomaa, etteivät kaikki Markdown-ohjelmat tue tätä "
+"numeroidun luettelon muotoa eikä se kuulu CommonMarkiin.</p>"
 
 #: src/appactions.cpp:178
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Task List"
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "&Tehtäväluettelo"
+msgstr "Tehtäväluettelo"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr ""
+msgstr "Muotoilee nykyisen rivin tai valitut rivit tehtäväluetteloksi."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -339,19 +293,20 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Muotoilee nykyisen rivin tai valitut rivit tehtäväluetteloksi.</"
+"p><p>Esimerkki:</p><p>- [ ] ensimmäinen kohta<br/>- [ ] toinen kohta<br/>- "
+"[ ] kolmas kohta<br/></p><p><p>Huomaa, etteivät kaikki Markdown-ohjelmat tue "
+"tehtäväluetteloa eikä se kuulu CommonMarkiin.</p>"
 
 #: src/appactions.cpp:191
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Task(s) &Complete"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "Merkitse tehtävät tehdyiksi/keskeneräisiksi"
+msgstr "Käännä tehtävien tila"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "CTRL+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
@@ -359,6 +314,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Kääntää nykyisen tehtävän tai valittujen tehtävien tilaa valmiin tai "
+"keskeneräisen välillä."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -372,53 +329,48 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Kääntää nykyisen tehtävän tai valittujen tehtävien tilaa valmiin tai "
+"keskeneräisen välillä.</p><p>Käytettäessä toimintoa keskeneräiseen "
+"tehtäväkohtaan, sen hakasulkeiden väliin merkitään ”x”:</p><p>- [x] "
+"ensimmäinen kohta<br/></p><p>Vastaavasti jos toimintoa käyttää valmiiseen "
+"tehtäväkohtaan, sen hakasulkeissa oleva ”x” poistetaan:</p><p>- [ ] "
+"ensimmäinen kohta<br/></p><p>Huomaa, etteivät kaikki Markdown-ohjelmat tue "
+"tehtäväluetteloa eikä se kuulu ComonMarkiin.</p>"
 
 #: src/appactions.cpp:216
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle distraction free mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "Vaihda tavallisen ja häiriöttömän tilan välillä"
+msgstr "Häiriötön tila"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "Vaihto+F11"
 
 #: src/appactions.cpp:218
-#, fuzzy
-#| msgctxt "ghostwriter::SimpleFontDialog|"
-#| msgid "Preview"
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Esikatselu"
+msgstr "Päivittyvä esikatselu"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "Vaihda tavallisen ja Hemingway-tilan välillä"
+msgstr "Hemingway-tila"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "VAIHTO+Askelpalautin"
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Vaihda tavallisen ja Hemingway-tilan välillä"
+msgstr "Vaihtaa tavallisen ja Hemingway-tilan välillä."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -426,11 +378,10 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"Hemingway-tilassa poistetaan askelpalautin ja Del käytöstä, jotta välttyy "
+"kiusaukselta muokata kirjoittaessaan."
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
 msgstr "Tumma tila"
@@ -438,7 +389,7 @@ msgstr "Tumma tila"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Ottaa käyttöön nykyisen tumman värimallin tai poistaa sen käytöstä."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -447,11 +398,11 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Ottaa käyttöön nykyisen tumman värimallin tai poistaa sen käytöstä.</"
+"p><p>Ellei nykyinen teema tue tummaa värimallia, asetuksella ei ole mitään "
+"vaikutusta.</p>"
 
 #: src/appactions.cpp:233
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Show Sidebar"
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
 msgstr "Näytä sivupaneeli"
@@ -459,12 +410,9 @@ msgstr "Näytä sivupaneeli"
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "CTRL+Välilyönti"
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
 msgstr "Jäsennys"
@@ -472,12 +420,12 @@ msgstr "Jäsennys"
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Näyttää asiakirjan jäsennyksen."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -487,27 +435,21 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Näyttää asiakirjan jäsennyksen.</p><p>Tiedostossa voi liikkua "
+"napsauttamalla otsaketta hiiren vasemmalla painikkeella tai näppäimistöä "
+"käyttäen ylä- ja alanuolin sekä ENTER-painalluksin.</p>"
 
 #: src/appactions.cpp:243
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Session Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
 msgstr "Istuntotilastot"
 
 #: src/appactions.cpp:245
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Document Statistics"
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
-msgstr "Tiedostotilastot"
+msgstr "Asiakirjan tilastot"
 
 #: src/appactions.cpp:247
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Cheat Sheet"
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
 msgstr "Lunttilappu"
@@ -515,28 +457,19 @@ msgstr "Lunttilappu"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "Näyttää sivupaneelissa pienen Markdown-pikaoppaan."
 
 #: src/appactions.cpp:255
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Themes..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Teemat…"
+msgstr "Teema…"
 
 #: src/appactions.cpp:256
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Font..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
 msgstr "Fontti…"
 
 #: src/appactions.cpp:258
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Preview Options..."
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
 msgstr "Esikatseluvalinnat…"
@@ -764,26 +697,23 @@ msgid "File backup failed"
 msgstr "Tiedoston varmuuskopiointi epäonnistui"
 
 #: src/documentmanager.cpp:925
-#, fuzzy
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Error creating backup location!"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "Virhe luotaessa varmuuskopion sijaintia!"
+msgstr "Virhe luotaessa varmuuskopion sijaintia: %d"
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "Tiedoston varmuuskopiointi epäonnistui"
+msgstr "Tiedoston varmuuskopiointi epäonnistui: ei voitu korvata tiedostoa %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
 msgstr ""
+"Tiedoston varmuuskopiointi epäonnistui: Ei voitu kopioida tiedostoa %1 "
+"tiedostoksi %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -905,12 +835,9 @@ msgid "Highlight matches"
 msgstr "Korosta osumat"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "Etsi e&dellinen"
+msgstr "Etsi edellinen"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
@@ -918,12 +845,9 @@ msgid "Find previous"
 msgstr "Etsi edellinen"
 
 #: src/findreplace.cpp:123
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Next"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr "Etsi &seuraava"
+msgstr "Etsi seuraava"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
@@ -943,7 +867,7 @@ msgstr "Korvaa kaikki"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
