@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-10 12:20+0200\n"
+"PO-Revision-Date: 2024-12-08 13:57+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -492,8 +492,10 @@ msgstr "Desenvolvemento de FocusWriter, cuxo código Qt serviu de aprendizaxe."
 #: src/appmain.cpp:108
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr "Desenvolvemento de ReText, cuxos algoritmos resultaron de gran axuda."
+msgstr ""
+"Desenvolvemento de ReText, cuxos algoritmos resultaron de grande axuda."
 
+# skip-rule: rag-en-application
 #: src/appmain.cpp:113
 msgctxt "main|"
 msgid ""
@@ -1822,6 +1824,7 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
 msgstr "Non é posíbel eliminar o tema."
 
+# skip-rule: rag-gl-aplicación
 #: src/theme/themeselectiondialog.cpp:376
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
@@ -1843,6 +1846,7 @@ msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
 msgstr "Non é posíbel editar o tema."
 
+# skip-rule: rag-gl-aplicación
 #: src/theme/themeselectiondialog.cpp:429
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
