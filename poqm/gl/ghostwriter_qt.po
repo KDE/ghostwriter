@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-08 13:57+0100\n"
+"PO-Revision-Date: 2024-12-13 23:05+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -133,6 +133,7 @@ msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
 msgstr "Formata a liña actual ou as seleccionadas como bloque de cita."
 
+# skip-rule: trasno-sound_reverse
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
 msgid ""
@@ -301,7 +302,7 @@ msgstr ""
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "Conmutar a marca das tarefas"
+msgstr "Conmutar a completación das tarefas"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
@@ -1764,7 +1765,7 @@ msgid ""
 "Could not delete theme at %1. Please try setting the file permissions to be "
 "writeable."
 msgstr ""
-"Non foi posíbel eliminar o tema de %1. Probe a cambiar os permisos do "
+"Non foi posíbel eliminar o tema de %1. Probe a configurar os permisos do "
 "ficheiro para permitir a escritura."
 
 #: src/theme/themerepository.cpp:228
