@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-13 23:05+0100\n"
+"PO-Revision-Date: 2024-12-14 10:46+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1756,7 +1756,7 @@ msgid ""
 "problem persists, please file a bug report."
 msgstr ""
 "O tema indicado non está dispoñíbel. Intente reiniciar a aplicación. Se o "
-"problema continúa, remita un informe de fallo."
+"problema continúa, envíe un informe de fallo."
 
 #: src/theme/themerepository.cpp:208
 #, qt-format
