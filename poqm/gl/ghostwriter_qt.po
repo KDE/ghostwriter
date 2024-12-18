@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-14 10:46+0100\n"
+"PO-Revision-Date: 2024-12-17 22:40+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -309,6 +309,7 @@ msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
 msgstr "Ctrl+D"
 
+# skip-rule: trasno-item
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
 msgid ""
@@ -506,6 +507,7 @@ msgstr ""
 "Desenvolvemento de StretchPlayer, de onde se aprendeu a crear xanelas sen "
 "marco en Qt."
 
+# skip-rule: trasno-provide
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
