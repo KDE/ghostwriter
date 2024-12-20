@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"PO-Revision-Date: 2024-12-19 21:41+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -737,7 +737,7 @@ msgstr "निर्यातः विफलः अभवत्"
 #: src/export/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr "निर्यातः विफलः अभवत् : १. "
+msgstr "निर्यातः विफलः अभवत् : "
 
 #: src/export/commandlineexporter.cpp:167
 #, qt-format
