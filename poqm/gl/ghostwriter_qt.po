@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-17 22:40+0100\n"
+"PO-Revision-Date: 2024-12-19 23:12+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -507,7 +507,7 @@ msgstr ""
 "Desenvolvemento de StretchPlayer, de onde se aprendeu a crear xanelas sen "
 "marco en Qt."
 
-# skip-rule: trasno-provide
+# skip-rule: trasno-provide, trasno-rename_reverse
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
