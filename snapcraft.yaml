@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Scarlett Moore <sgmoore@kde.org>
+# SPDX-FileCopyrightText: 2023-2025 Scarlett Moore <sgmoore@kde.org>
 #
 # SPDX-License-Identifier: CC0-1.0
 ---
 name: ghostwriter
 confinement: strict
 grade: stable
-base: core22
+base: core24
 adopt-info: ghostwriter
 icon: $CRAFT_PROJECT_DIR/resources/icons/128-apps-ghostwriter.png
 apps:
@@ -22,12 +22,13 @@ apps:
     environment:
       DICPATH: "$SNAP/usr/share/hunspell"
       QT_LIBRARY_DATA: $SNAP/kf6/usr/share/qt6/resources
+      QTWEBENGINE_DISABLE_SANDBOX: 1
 plugs:
   hunspell-dictionaries:
     content: hunspell-dictionaries
     interface: content
     target: "$SNAP/usr/share/hunspell"
-    default-provider: hunspell-dictionaries:hunspell-dictionaries
+    default-provider: hunspell-dictionaries
 slots:
   session-dbus-interface:
     interface: dbus
@@ -38,7 +39,7 @@ package-repositories:
     components:
       - main
     suites:
-      - jammy
+      - noble
     key-id: 444DABCF3667D0283F894EDDE6D4736255751E5D
     url: http://origin.archive.neon.kde.org/user
     key-server: keyserver.ubuntu.com
@@ -49,12 +50,15 @@ parts:
     plugin: cmake
     source: .
     source-type: local
+    build-snaps:
+      - hunspell-dictionaries
     build-packages:
       - libhunspell-dev
     stage-packages:
       - pandoc
       - cmark
       - libtext-multimarkdown-perl
+      - cups-client
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -72,6 +76,9 @@ parts:
       - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR
       - --log-level=STATUS
       - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR
+    build-environment:
+      - LD_LIBRARY_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/ffmpeg-2404-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:${LD_LIBRARY_PATH}"
+      - DICPATH: "$SNAP/usr/share/hunspell"
     prime:
       - -usr/lib/*/cmake/*
       - -usr/include/*
@@ -86,12 +93,11 @@ parts:
       - ghostwriter
     plugin: nil
     build-snaps:
-      - core22
-      - kf6-core22
-      - qt-common-themes
+      - core24
+      - kf6-core24
     override-prime: |
       set -eux
-      for snap in "core22" "kf6-core22" "qt-common-themes"; do
+      for snap in "core24" "kf6-core24"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
       done
 
