@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-08 10:58-0300\n"
+"PO-Revision-Date: 2025-02-15 10:34-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -226,6 +226,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Formata a linha atual ou as linhas selecionadas como uma lista de marcadores "
+"com um sinal de mais (+)."
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
@@ -241,6 +243,7 @@ msgstr "CTRL+1"
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
 msgstr ""
+"Formata a linha atual ou as linhas selecionadas como uma lista numerada."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -248,6 +251,8 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Formata a linha atual ou as linhas selecionadas como uma lista numerada.</"
+"p><p>Exemplo:</p><p>1. item um<br/>2. item dois<br/>3. item três<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
@@ -267,6 +272,10 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Formata a linha atual ou as linhas selecionadas como uma lista numerada.</"
+"p><p>Exemplo:</p><p>1) item um<br/>2) item dois<br/>3) item três<br/></"
+"p><p>Observe que esse formato de numeração não é suportado por todos os "
+"processadores Markdown e não faz parte do CommonMark.</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
@@ -282,6 +291,7 @@ msgstr "CTRL+T"
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
 msgstr ""
+"Formata a linha atual ou as linhas selecionadas como uma lista de tarefas."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -291,6 +301,10 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Formata a linha atual ou as linhas selecionadas como uma lista de tarefas."
+"</p><p>Exemplo:</p><p>- [ ] item um<br/>- [ ] item dois<br/>- [ ] item "
+"três<br/></p><p>Observe que as listas de tarefas não são suportadas por "
+"todos os processadores Markdown e não fazem parte do CommonMark.</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
@@ -308,6 +322,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Alterna o item de tarefa atual ou os itens de tarefa selecionados como "
+"concluídos ou incompletos."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -321,6 +337,15 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Alterna o estado do item de tarefa atual ou itens de tarefa selecionados "
+"de uma lista de tarefas como completo ou incompleto.</p><p>Aplicar esta ação "
+"a um item de tarefa incompleto em uma lista de tarefas resultará na "
+"colocação de um 'x' entre seus colchetes, como:</p><p>- [x] item um<br/></"
+"p><p>Da mesma forma, aplicar esta ação a um item de tarefa concluído em uma "
+"lista de tarefas resultará na remoção de seu 'x' entre seus colchetes, como:"
+"</p><p>- [ ] item um<br/></p><p>Observe que as listas de tarefas não são "
+"suportadas por todos os processadores Markdown e não fazem parte do "
+"CommonMark.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
@@ -343,12 +368,9 @@ msgid "CTRL+P"
 msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "Alternar modo Hemingway"
+msgstr "Modo Hemingway"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
@@ -356,12 +378,9 @@ msgid "SHIFT+Backspace"
 msgstr "SHIFT+Backspace"
 
 #: src/appactions.cpp:221
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle Hemingway mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Alternar modo Hemingway"
+msgstr "Alternar modo Hemingway."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -369,6 +388,8 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"O modo Hemingway desativa as teclas backspace e delete para ajudar você a "
+"resistir à tentação de editar seu documento enquanto escreve."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
@@ -378,7 +399,7 @@ msgstr "Modo escuro"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Habilita/desabilita o esquema de cores escuras do tema atual."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -387,6 +408,9 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Ativa/desativa o esquema de cores escuras do tema atual.</p><p>Se o tema "
+"atual não suportar um esquema de cores escuras, esta opção não terá efeito.</"
+"p>"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
@@ -411,7 +435,7 @@ msgstr "CTRL+J"
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Mostra o esboço do documento."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -421,6 +445,10 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Mostra o esboço do documento.</p><p>Use o mouse e clique com o botão "
+"esquerdo em um título no documento, ou então as setas para cima e para baixo "
+"no teclado, além da tecla ENTER, para pular para diferentes locais dentro do "
+"documento atual.</p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
@@ -440,7 +468,7 @@ msgstr "Folha de dicas"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "Mostra um guia de referência rápida para Markdown na barra lateral."
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
@@ -685,18 +713,16 @@ msgid "Error creating backup location: %d"
 msgstr "Erro ao criar o local de backup: %d"
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "Falha no backup do arquivo"
+msgstr "Falha no backup do arquivo: Não foi possível substituir %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr ""
+msgstr "Falha no backup do arquivo: Não foi possível copiar %1 para %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -1172,25 +1198,19 @@ msgid "Display"
 msgstr "Exibir"
 
 #: src/settings/preferencesdialog.ui:36
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Alternar modo de tela cheia"
+msgstr "&Mostrar hora atual em modo de tela cheia"
 
 #: src/settings/preferencesdialog.ui:43
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Toggle full screen mode"
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Alternar modo de tela cheia"
+msgstr "&Ocultar barra de menu no modo de tela cheia"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Exibir espaço &inquebrável"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
@@ -1210,12 +1230,12 @@ msgstr "&Salvamento automático"
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "&Backup ao salvar arquivo"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr ""
+msgstr "Ver &rascunhos sem título…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
@@ -1223,12 +1243,9 @@ msgid "&"
 msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialogPrivate|"
-#| msgid "Select Backup Directory"
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "Selecionar pasta de backup"
+msgstr "&Selecione o local da pasta de backup…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1238,12 +1255,12 @@ msgstr "Sessão"
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "&Lembrar arquivos recentes"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr ""
+msgstr "&Abrir último arquivo na inicialização"
 
 #: src/settings/preferencesdialog.ui:184
 msgctxt "PreferencesDialog|"
@@ -1258,7 +1275,7 @@ msgstr "Tabulação"
 #: src/settings/preferencesdialog.ui:196
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr ""
+msgstr "&Inserir espaços para tabulações"
 
 #: src/settings/preferencesdialog.ui:205
 msgctxt "PreferencesDialog|"
@@ -1278,7 +1295,7 @@ msgstr "Modo de foco"
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "Largura do editor"
 
 #: src/settings/preferencesdialog.ui:277
 msgctxt "PreferencesDialog|"
@@ -1293,7 +1310,7 @@ msgstr "Estilo da ênfase"
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr ""
+msgstr "&Usar títulos grandes"
 
 #: src/settings/preferencesdialog.ui:328
 msgctxt "PreferencesDialog|"
@@ -1303,20 +1320,17 @@ msgstr "Digitando"
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr ""
+msgstr "Al&ternar entre marcadores"
 
 #: src/settings/preferencesdialog.ui:341
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr ""
+msgstr "&Corresponder caracteres automaticamente"
 
 #: src/settings/preferencesdialog.ui:348
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Matched Characters"
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Caracteres combinados"
+msgstr "Personalizar caracteres &combinados…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1803,12 +1817,9 @@ msgid "Themes"
 msgstr "Temas"
 
 #: src/theme/themeselectiondialog.cpp:132
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Preview in HTML"
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "&Visualizar em HTML"
+msgstr "Visualizar em modo escuro"
 
 #: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
