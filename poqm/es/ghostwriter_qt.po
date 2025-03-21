@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2024-07-07 12:38+0200\n"
+"PO-Revision-Date: 2025-03-19 14:27+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -1520,7 +1520,7 @@ msgstr "Palabras complejas:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr "0%"
+msgstr "0 %"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1590,7 +1590,7 @@ msgstr "Tiempo inactivo:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1863,289 +1863,3 @@ msgstr "No se puede editar el tema."
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr "Lo sentimos: este tema está integrado y no se puede editar."
-
-#~ msgctxt "main|"
-#~ msgid "Font Awesome support for Qt applications"
-#~ msgstr "Uso de Font Awesome en aplicaciones Qt"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&New"
-#~ msgstr "&Nuevo"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Open"
-#~ msgstr "&Abrir"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Open &Recent..."
-#~ msgstr "Abrir &reciente..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Clear Menu"
-#~ msgstr "Borrar el menú"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Save"
-#~ msgstr "&Guardar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Save &As..."
-#~ msgstr "Guardar &como..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "R&ename..."
-#~ msgstr "Cam&biar nombre..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Export"
-#~ msgstr "&Exportar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Quit"
-#~ msgstr "&Salir"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Undo"
-#~ msgstr "&Deshacer"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Redo"
-#~ msgstr "&Rehacer"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Cu&t"
-#~ msgstr "Cor&tar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Copy"
-#~ msgstr "&Copiar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Paste"
-#~ msgstr "&Pegar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Find"
-#~ msgstr "&Buscar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Rep&lace"
-#~ msgstr "S&ustituir"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Spell check"
-#~ msgstr "Comprobación &ortográfica"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "For&mat"
-#~ msgstr "&Formato"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Bold"
-#~ msgstr "&Negrita"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Italic"
-#~ msgstr "&Cursiva"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&* Bullet List"
-#~ msgstr "&* Lista de viñetas"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&- Bullet List"
-#~ msgstr "&- Lista de viñetas"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&+ Bullet List"
-#~ msgstr "&+ Lista de viñetas"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "1&. Numbered List"
-#~ msgstr "1&. Lista numerada"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Full Screen"
-#~ msgstr "&Pantalla completa"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Preview in HTML"
-#~ msgstr "&Vista previa en HTML"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Outline"
-#~ msgstr "&Esquema"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Session Statistics"
-#~ msgstr "Estadísticas de la &sesión"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Document Statistics"
-#~ msgstr "Estadísticas del &documento"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Cheat Sheet"
-#~ msgstr "&Hoja de referencia"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Increase Font Size"
-#~ msgstr "Aumentar el tamaño del texto"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Decrease Font Size"
-#~ msgstr "Disminuir el tamaño del texto"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Application Language..."
-#~ msgstr "Idioma de la aplicación..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Preferences..."
-#~ msgstr "Preferencias..."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Quick &Reference Guide"
-#~ msgstr "Guía de &referencia rápida"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Wiki"
-#~ msgstr "Wiki"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle sidebar"
-#~ msgstr "Conmutar la barra lateral"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle dark mode"
-#~ msgstr "Conmutar el modo oscuro"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle Live HTML Preview"
-#~ msgstr "Conmutar la vista previa en HTML en vivo"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle full screen mode"
-#~ msgstr "Conmutar el modo a pantalla completa"
-
-#~| msgctxt "ghostwriter::MainWindow|"
-#~| msgid "Images"
-#~ msgctxt "ghostwriter::MarkdownEditor|"
-#~ msgid "Images"
-#~ msgstr "Imágenes"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "All Files"
-#~ msgstr "Todos los archivos"
-
-#~ msgctxt "ghostwriter::LocaleDialog|"
-#~ msgid "The translations folder is missing."
-#~ msgstr "Falta la carpeta de las traducciones."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>You may use and "
-#~ "redistribute this software under the terms of the <a href=\"http://www."
-#~ "gnu.org/licenses/gpl.html\">GNU General Public License Version 3</a>.</"
-#~ "p><p>Visit the official website at <a href=\"http://github.com/wereturtle/"
-#~ "ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</p><p>Special "
-#~ "thanks and credit for reused code goes to</p><p><a href=\"mailto:"
-#~ "graeme@gottcode.org\">Graeme Gott</a>, author of <a href=\"http://"
-#~ "gottcode.org/focuswriter/\">FocusWriter</a><br/>Dmitry Shachnev, author "
-#~ "of <a href=\"http://sourceforge.net/p/retext/home/ReText/\">Retext</a><br/"
-#~ "><a href=\"mailto:gabriel@teuton.org\">Gabriel M. Beddingfield</a>, "
-#~ "author of <a href=\"http://www.teuton.org/~gabriel/stretchplayer/"
-#~ "\">StretchPlayer</a><br/><p>I am also deeply indebted to <a href=\"mailto:"
-#~ "w.vollprecht@gmail.com\">Wolf Vollprecht</a>, the author of <a href="
-#~ "\"http://uberwriter.wolfvollprecht.de/\">UberWriter</a>, for the "
-#~ "inspiration he provided in creating such a beautiful Markdown editing "
-#~ "tool.</p>"
-#~ msgstr ""
-#~ "<p>Copyright &copy; 2014-2022 wereturtle</b><p>Puede usar y redistribuir "
-#~ "este software bajo las condiciones de la <a href=\"http://www.gnu.org/"
-#~ "licenses/gpl.html\">licencia pública general de GNU versión 3</a>.</"
-#~ "p><p>Visite el sitio web oficial en <a href=\"http://github.com/"
-#~ "wereturtle/ghostwriter\">http://github.com/wereturtle/ghostwriter</a>.</"
-#~ "p><p>Un agradecimiento especial y el crédito por el código reutilizado "
-#~ "para</p><p><a href=\"mailto:graeme@gottcode.org\">Graeme Gott</a>, autor "
-#~ "de <a href=\"http://gottcode.org/focuswriter/\">FocusWriter</a><br/"
-#~ ">Dmitry Shachnev, autor de <a href=\"http://sourceforge.net/p/retext/home/"
-#~ "ReText/\">Retext</a><br/><a href=\"mailto:gabriel@teuton.org\">Gabriel M. "
-#~ "Beddingfield</a>, autor de <a href=\"http://www.teuton.org/~gabriel/"
-#~ "stretchplayer/\">StretchPlayer</a><br/><p>También estoy profundamente en "
-#~ "deuda con <a href=\"mailto:w.vollprecht@gmail.com\">Wolf Vollprecht</a>, "
-#~ "el autor de <a href=\"http://uberwriter.wolfvollprecht.de/\">UberWriter</"
-#~ "a>, por la inspiración que me ha proporcionado al crear una excelente "
-#~ "herramienta de edición en Markdown.</p>"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About %1"
-#~ msgstr "Acerca de %1"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&About"
-#~ msgstr "&Acerca de"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "About &Qt"
-#~ msgstr "Acerca de &Qt"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Live spellcheck enabled"
-#~ msgstr "Comprobación ortográfica en vivo activada"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Language"
-#~ msgstr "Idioma"
-
-#~ msgctxt "ghostwriter::PreferencesDialog|"
-#~ msgid "Dictionary"
-#~ msgstr "Diccionario"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Check Spelling"
-#~ msgstr "Comprobar la ortografía"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Add"
-#~ msgstr "&Añadir"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Ignore"
-#~ msgstr "&Ignorar"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "I&gnore All"
-#~ msgstr "I&gnorar todo"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "&Change"
-#~ msgstr "&Cambiar"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "C&hange All"
-#~ msgstr "Ca&mbiar todo"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Not in dictionary:"
-#~ msgstr "No está en el diccionario:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Change to:"
-#~ msgstr "Cambiar a:"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Checking spelling..."
-#~ msgstr "Comprobando la ortografía..."
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Please wait"
-#~ msgstr "Espere, por favor"
-
-#~ msgctxt "ghostwriter::SpellChecker|"
-#~ msgid "Continue checking at beginning of file?"
-#~ msgstr "¿Continuar la comprobación al inicio del archivo?"
