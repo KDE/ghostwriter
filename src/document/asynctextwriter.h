@@ -7,10 +7,10 @@
 #ifndef ASYNCTEXTWRITER_H
 #define ASYNCTEXTWRITER_H
 
-#include <QtGlobal>
 #include <QObject>
 #include <QScopedPointer>
 #include <QString>
+#include <QtGlobal>
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QTextCodec>
@@ -30,19 +30,12 @@ class AsyncTextWriter : public QObject
     Q_DECLARE_PRIVATE(AsyncTextWriter)
 
 public:
-    // typedef encoding/codec to simplify transition to Qt 6 while still
-    // maintaining backward compatibility with Qt 5.
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    typedef QTextCodec* Encoding;
-#else
     typedef QStringConverter::Encoding Encoding;
-#endif
 
     /**
      * Constructor with file path to which text will be written.
      */
-    AsyncTextWriter(const QString &fileName,
-        QObject *parent = nullptr);
+    AsyncTextWriter(const QString &fileName, QObject *parent = nullptr);
 
     /**
      * Destructor.
@@ -102,6 +95,6 @@ signals:
 private:
     QScopedPointer<AsyncTextWriterPrivate> d_ptr;
 };
-} //namespace ghostwriter
+} // namespace ghostwriter
 
 #endif // ASYNCTEXTWRITER_H

@@ -13,7 +13,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 if (NOT BUILD_TESTING)
-    set (BUILD_TESTING OFF)
+    set (BUILD_TESTING ON)
 endif()
 
 message("Generating makefile for ${CMAKE_BUILD_TYPE} build...")
@@ -77,6 +77,8 @@ set(CMARK_TESTS OFF)
 add_subdirectory(3rdparty/cmark-gfm EXCLUDE_FROM_ALL)
 add_subdirectory(src)
 
+target_include_directories(ghostwriter PRIVATE src/kismet)
+
 if(KF${QT_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
@@ -96,7 +98,6 @@ set(ICON_FILES
 )
 
 ecm_add_app_icon(ICONS_SOURCES ICONS ${ICON_FILES})
-target_sources(ghostwriter PRIVATE ${ICONS_SOURCES})
 
 if(BUILD_TESTING)
    add_subdirectory(autotest)

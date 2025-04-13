@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include <QApplication>
 #include <QBrush>
 #include <QColor>
 #include <QDebug>
@@ -11,18 +12,17 @@
 #include <QObject>
 #include <QPainter>
 #include <QRegularExpression>
+#include <QStack>
 #include <QStaticText>
 #include <QString>
-#include <QSyntaxHighlighter>
-#include <QTextCharFormat>
-#include <QTextDocument>
-#include <QTextCursor>
-#include <QTextBlockFormat>
 #include <QStyle>
-#include <QApplication>
-#include <Qt>
+#include <QSyntaxHighlighter>
+#include <QTextBlockFormat>
+#include <QTextCharFormat>
+#include <QTextCursor>
+#include <QTextDocument>
 #include <QTextLayout>
-#include <QStack>
+#include <Qt>
 
 #include "markdownhighlighter.h"
 #include "markdownstates.h"
@@ -36,10 +36,10 @@ class MarkdownHighlighterPrivate
     Q_DECLARE_PUBLIC(MarkdownHighlighter)
 
 public:
-    MarkdownHighlighterPrivate(MarkdownHighlighter *highlighter) :
-        q_ptr(highlighter),
-        inBlockquote(false),
-        useUnderlineForEmphasis(false)
+    MarkdownHighlighterPrivate(MarkdownHighlighter *highlighter)
+        : q_ptr(highlighter)
+        , inBlockquote(false)
+        , useUnderlineForEmphasis(false)
     {
         ;
     }
@@ -79,12 +79,9 @@ public:
                           int length) const;
 };
 
-MarkdownHighlighter::MarkdownHighlighter
-(
-    MarkdownEditor *editor,
-    const ColorScheme &colors
-) : QSyntaxHighlighter(editor),
-    d_ptr(new MarkdownHighlighterPrivate(this))
+MarkdownHighlighter::MarkdownHighlighter(MarkdownEditor *editor, const ColorScheme &colors)
+    : QSyntaxHighlighter(editor)
+    , d_ptr(new MarkdownHighlighterPrivate(this))
 {
     Q_D(MarkdownHighlighter);
 
@@ -98,14 +95,7 @@ MarkdownHighlighter::MarkdownHighlighter
     d->referenceDefinitionRegex.setPattern("^\\s*\\[(.+?)[^\\\\]\\]:");
     d->inlineHtmlCommentRegex.setPattern("^\\s*<\\!--.*-->\\s*$");
 
-    connect
-    (
-        this,
-        SIGNAL(highlightBlockAtPosition(int)),
-        this,
-        SLOT(onHighlightBlockAtPosition(int)),
-        Qt::QueuedConnection
-    );
+    connect(this, SIGNAL(highlightBlockAtPosition(int)), this, SLOT(onHighlightBlockAtPosition(int)), Qt::QueuedConnection);
 
     QFont font;
     font.setFamily("Monospace");
@@ -144,7 +134,7 @@ void MarkdownHighlighter::highlightBlock(const QString &text)
     int line = currentBlock().blockNumber() + 1;
     int oldState = currentBlock().userState();
 
-    MarkdownAST *ast = ((MarkdownDocument *) this->document())->markdownAST();
+    MarkdownAST *ast = ((MarkdownDocument *)this->document())->markdownAST();
     MarkdownNode *node = nullptr;
 
     if (nullptr != ast) {
@@ -177,24 +167,21 @@ void MarkdownHighlighter::highlightBlock(const QString &text)
         }
     }
 
-    if (d->isSetextHeadingState(oldState) 
-            && !d->isSetextHeadingState(currentBlockState())) {
+    if (d->isSetextHeadingState(oldState) && !d->isSetextHeadingState(currentBlockState())) {
         QTextBlock block = currentBlock();
 
-        while (block.previous().isValid()
-                && (d->isSetextHeadingState(block.previous().userState()))) {
+        while (block.previous().isValid() && (d->isSetextHeadingState(block.previous().userState()))) {
             block = block.previous();
         }
 
         if (currentBlock() != block) {
             emit highlightBlockAtPosition(block.position());
         }
-    }
-    else if (currentBlock().previous().isValid()
-            && (((MarkdownStatePipeTableDivider == (oldState & MarkdownStateMask))
+    } else if (currentBlock().previous().isValid()
+               && (((MarkdownStatePipeTableDivider == (oldState & MarkdownStateMask))
                     && (MarkdownStatePipeTableDivider != (currentBlockState() & MarkdownStateMask)))
-                || ((MarkdownStatePipeTableDivider != (oldState & MarkdownStateMask))
-                    && (MarkdownStatePipeTableDivider == (currentBlockState() & MarkdownStateMask))))) {
+                   || ((MarkdownStatePipeTableDivider != (oldState & MarkdownStateMask))
+                       && (MarkdownStatePipeTableDivider == (currentBlockState() & MarkdownStateMask))))) {
         emit highlightBlockAtPosition(currentBlock().previous().position());
     }
 }
@@ -210,7 +197,7 @@ void MarkdownHighlighter::increaseFontSize()
 void MarkdownHighlighter::decreaseFontSize()
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->defaultFormat.setFontPointSize(d->defaultFormat.fontPointSize() - 1.0);
     rehighlight();
 }
@@ -218,7 +205,7 @@ void MarkdownHighlighter::decreaseFontSize()
 void MarkdownHighlighter::setColorScheme(const ColorScheme &colors)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->colors = colors;
     d->defaultFormat.setForeground(QBrush(colors.foreground));
     rehighlight();
@@ -227,7 +214,7 @@ void MarkdownHighlighter::setColorScheme(const ColorScheme &colors)
 void MarkdownHighlighter::setEnableLargeHeadingSizes(const bool enable)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->useLargeHeadings = enable;
     rehighlight();
 }
@@ -235,7 +222,7 @@ void MarkdownHighlighter::setEnableLargeHeadingSizes(const bool enable)
 void MarkdownHighlighter::setUseUnderlineForEmphasis(const bool enable)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->useUnderlineForEmphasis = enable;
     rehighlight();
 }
@@ -243,7 +230,7 @@ void MarkdownHighlighter::setUseUnderlineForEmphasis(const bool enable)
 void MarkdownHighlighter::setItalicizeBlockquotes(const bool enable)
 {
     Q_D(MarkdownHighlighter);
-    
+
     d->italicizeBlockquotes = enable;
     rehighlight();
 }
@@ -251,7 +238,7 @@ void MarkdownHighlighter::setItalicizeBlockquotes(const bool enable)
 void MarkdownHighlighter::setFont(const QString &fontFamily, const double fontSize)
 {
     Q_D(MarkdownHighlighter);
-    
+
     QFont font;
     font.setFamily(fontFamily);
     font.setWeight(QFont::Normal);
@@ -263,7 +250,7 @@ void MarkdownHighlighter::setFont(const QString &fontFamily, const double fontSi
 }
 
 void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
-{    
+{
     QTextBlock block = document()->findBlock(position);
     rehighlightBlock(block);
 }
@@ -271,7 +258,7 @@ void MarkdownHighlighter::onHighlightBlockAtPosition(int position)
 void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *const node)
 {
     Q_Q(MarkdownHighlighter);
-    
+
     MarkdownNode::NodeType type = node->type();
 
     int pos = asciiToUtf8Pos(node->position());
@@ -298,17 +285,13 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
         baseFormat.setForeground(colors.blockquoteMarkup);
         baseFormat.setFontItalic(italicizeBlockquotes);
 
-        q->setFormat(
-            0,
-            q->currentBlock().length(),
-            baseFormat
-        );
+        q->setFormat(0, q->currentBlock().length(), baseFormat);
 
         baseFormat.setForeground(colors.blockquoteText);
     }
 
     // Clear out any markup ranges from the block user data.
-    TextBlockData *blockData = (TextBlockData *) q->currentBlock().userData();
+    TextBlockData *blockData = (TextBlockData *)q->currentBlock().userData();
 
     if (nullptr == blockData) {
         blockData = new TextBlockData();
@@ -326,7 +309,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
     while (!nodes.isEmpty()) {
         const MarkdownNode *current = nodes.pop();
         QTextCharFormat contextFormat;
-        
+
         contextFormat = nodeFormats.pop();
 
         MarkdownNode::NodeType parentType = MarkdownNode::Invalid;
@@ -340,8 +323,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
         type = current->type();
 
         if (lineMatchesNode(currentLine, current)) {
-            if ((MarkdownNode::FootnoteDefinition == parentType)
-                    || (MarkdownNode::FootnoteReference == parentType)) {
+            if ((MarkdownNode::FootnoteDefinition == parentType) || (MarkdownNode::FootnoteReference == parentType)) {
                 type = parentType;
             }
 
@@ -354,8 +336,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 contextFormat.setFontWeight(QFont::Bold);
 
                 if (useLargeHeadings) {
-                    format.setFontPointSize(format.fontPointSize()
-                                            + (qreal)(7 - current->headingLevel()));
+                    format.setFontPointSize(format.fontPointSize() + (qreal)(7 - current->headingLevel()));
                     contextFormat.setFontPointSize(format.fontPointSize());
                 }
 
@@ -430,12 +411,10 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 break;
             case MarkdownNode::CodeBlock:
                 if (current->isFencedCodeBlock()
-                        && (((q->currentBlock().blockNumber() + 1) == current->startLine())
-                            || ((q->currentBlock().blockNumber() + 1) == current->endLine()))) {
+                    && (((q->currentBlock().blockNumber() + 1) == current->startLine()) || ((q->currentBlock().blockNumber() + 1) == current->endLine()))) {
                     format.setForeground(colors.codeMarkup);
                     state = MarkdownStateCodeBlock;
-                } else if (((q->currentBlock().blockNumber() + 1) == current->endLine())
-                        && (current->length() <= 0)) {
+                } else if (((q->currentBlock().blockNumber() + 1) == current->endLine()) && (current->length() <= 0)) {
                     state = MarkdownStateParagraphBreak;
                 } else {
                     format.setForeground(colors.codeText);
@@ -492,11 +471,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 }
 
                 format.setForeground(colors.codeMarkup);
-                q->setFormat(
-                    pos - backticks,
-                    length + (2 * backticks),
-                    format
-                );
+                q->setFormat(pos - backticks, length + (2 * backticks), format);
                 format.setForeground(colors.codeText);
                 break;
             }
@@ -541,9 +516,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
             case MarkdownNode::TableCell:
                 format = contextFormat;
 
-                if ((nullptr != current->parent())
-                        && (MarkdownNode::TableHeading
-                            == current->parent()->type())) {
+                if ((nullptr != current->parent()) && (MarkdownNode::TableHeading == current->parent()->type())) {
                     format.setFontWeight(QFont::Bold);
                 }
                 break;
@@ -574,11 +547,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 length = q->currentBlock().length();
             }
 
-            q->setFormat(
-                pos,
-                length,
-                format
-            );
+            q->setFormat(pos, length, format);
 
             if (MarkdownNode::TaskListItem == type) {
                 format = contextFormat;
@@ -587,11 +556,7 @@ void MarkdownHighlighterPrivate::applyFormattingForNode(const MarkdownNode *cons
                 int checkboxStart = text.indexOf('[');
                 int checkboxEnd = text.indexOf(']');
 
-                q->setFormat(
-                    checkboxStart,
-                    checkboxEnd - checkboxStart + 1,
-                    format
-                );
+                q->setFormat(checkboxStart, checkboxEnd - checkboxStart + 1, format);
             }
         }
 
@@ -671,13 +636,8 @@ int MarkdownHighlighterPrivate::asciiLenToUtf8Len(int start, int length) const
 
 bool MarkdownHighlighterPrivate::lineMatchesNode(const int line, const MarkdownNode *const node) const
 {
-    return ((node->isBlockType()
-                && (line >= node->startLine())
-                && ((line <= node->endLine()) || (0 == node->endLine())))
-            || (node->isInlineType()
-                && ((line == node->startLine())
-                    || (line == node->endLine())
-                    || (0 == node->endLine()))));
+    return ((node->isBlockType() && (line >= node->startLine()) && ((line <= node->endLine()) || (0 == node->endLine())))
+            || (node->isInlineType() && ((line == node->startLine()) || (line == node->endLine()) || (0 == node->endLine()))));
 }
 
 bool MarkdownHighlighterPrivate::isSetextHeadingState(const int state)

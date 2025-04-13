@@ -13,7 +13,7 @@
 #include <QTextStream>
 #include <QString>
 
-#include "../../src/editor/asynctextwriter.h"
+#include "../../src/document/asynctextwriter.h"
 
 using namespace ghostwriter;
 

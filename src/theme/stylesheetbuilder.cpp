@@ -8,14 +8,13 @@
 
 #include <QApplication>
 #include <QColor>
+#include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QPalette>
 #include <QRegularExpression>
-#include <QTextStream>
-#include <QDebug>
-#include <QRegularExpression>
 #include <QTemporaryFile>
+#include <QTextStream>
 #include <QVariant>
 
 #include "chromecolors.h"
@@ -136,24 +135,24 @@ QString StyleSheetBuilder::htmlPreviewStyleSheet()
     return compileStyleSheet(":/resources/preview.css");
 }
 
-QString StyleSheetBuilder::stringValueOf(const QString &variableName) const {
+QString StyleSheetBuilder::stringValueOf(const QString &variableName) const
+{
     QVariant value = m_styleSheetVariables.value(variableName);
 
     if (!value.isValid()) {
-        qCritical() << "Undefined variable"
-                    << variableName << "in style sheet";
+        qCritical() << "Undefined variable" << variableName << "in style sheet";
         return QString();
     }
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    if (QMetaType::QString == (QMetaType::Type) value.type()) {
+    if (QMetaType::QString == (QMetaType::Type)value.type()) {
 #else
     if (QMetaType::QString == value.typeId()) {
 #endif
         return value.toString();
     }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    else if (QMetaType::QColor == (QMetaType::Type) value.type()) {
+    else if (QMetaType::QColor == (QMetaType::Type)value.type()) {
 #else
     else if (QMetaType::QColor == value.typeId()) {
 #endif
@@ -164,8 +163,7 @@ QString StyleSheetBuilder::stringValueOf(const QString &variableName) const {
         } else {
             return color.name(QColor::HexRgb);
         }
-    }
-    else {
+    } else {
         qCritical() << "Invalid variable type used for" << variableName;
         return QString();
     }
@@ -192,12 +190,10 @@ QString StyleSheetBuilder::compileStyleSheet(const QString &path) const
 
         if (variable.isNull() && ('$' == ch)) {
             variable = ch;
-        }
-        else if (!variable.isNull()) {
+        } else if (!variable.isNull()) {
             if (ch.isLetterOrNumber() || ('-' == ch) || ('_' == ch)) {
                 variable += ch;
-            }
-            else {
+            } else {
                 QString value = stringValueOf(variable);
 
                 if (value.isNull()) {
@@ -208,8 +204,7 @@ QString StyleSheetBuilder::compileStyleSheet(const QString &path) const
                 out << ch;
                 variable = QString();
             }
-        }
-        else {
+        } else {
             out << ch;
         }
     }

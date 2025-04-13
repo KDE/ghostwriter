@@ -45,6 +45,12 @@ public:
     QSyntaxHighlighter *highlighter() const;
 
     /**
+     * Returns the Markdown AST tree associated with this document, or null
+     * if not set.
+     */
+    MarkdownAST *markdownAST() const;
+
+    /**
      * Draws the block quote and code block backgrounds.
      *
      * Also draws the text cursor.  This has to be done as of Qt 5.8, since

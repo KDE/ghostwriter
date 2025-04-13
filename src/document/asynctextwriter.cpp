@@ -9,8 +9,8 @@
 #include <QFuture>
 #include <QFutureWatcher>
 #include <QSaveFile>
-#include <QtConcurrentRun>
 #include <QTextStream>
+#include <QtConcurrentRun>
 
 #include "asynctextwriter.h"
 
@@ -27,9 +27,13 @@ class AsyncTextWriterPrivate
     Q_DECLARE_PUBLIC(AsyncTextWriter)
 
 public:
-    AsyncTextWriterPrivate(AsyncTextWriter *q_ptr) :
-        q_ptr(q_ptr) { }
-    ~AsyncTextWriterPrivate() { }
+    AsyncTextWriterPrivate(AsyncTextWriter *q_ptr)
+        : q_ptr(q_ptr)
+    {
+    }
+    ~AsyncTextWriterPrivate()
+    {
+    }
 
     AsyncTextWriter *q_ptr;
     QString fileName;
@@ -40,25 +44,22 @@ public:
     void initialize(const QString &fileName);
 
     /*
-    * Writes the given text to the given file path, returning a null
-    * string if successful, otherwise an error message.  Note that this
-    * method is intended to be run in a separate thread from the main
-    * Qt event loop, and should thus never interact with any widgets.
-    */
-    static QString writeToDisk(const QString &text,
-        const QString &fileName,
-        AsyncTextWriter::Encoding encoding);
+     * Writes the given text to the given file path, returning a null
+     * string if successful, otherwise an error message.  Note that this
+     * method is intended to be run in a separate thread from the main
+     * Qt event loop, and should thus never interact with any widgets.
+     */
+    static QString writeToDisk(const QString &text, const QString &fileName, AsyncTextWriter::Encoding encoding);
 
     /*
-    * Handles any errors or tidying up after an asynchronous save operation.
-    */
+     * Handles any errors or tidying up after an asynchronous save operation.
+     */
     void onWriteCompleted();
 };
 
-AsyncTextWriter::AsyncTextWriter(const QString &fileName,
-    QObject *parent) :
-        QObject(parent),
-        d_ptr(new AsyncTextWriterPrivate(this))
+AsyncTextWriter::AsyncTextWriter(const QString &fileName, QObject *parent)
+    : QObject(parent)
+    , d_ptr(new AsyncTextWriterPrivate(this))
 {
     Q_D(AsyncTextWriter);
 
@@ -67,7 +68,7 @@ AsyncTextWriter::AsyncTextWriter(const QString &fileName,
 
 AsyncTextWriter::~AsyncTextWriter()
 {
-    ;
+    waitForFinished();
 }
 
 QString AsyncTextWriter::fileName() const
@@ -131,21 +132,13 @@ bool AsyncTextWriter::write(const QString &text)
         return false;
     }
 
-    if (d->writeFutureWatcher->isRunning()
-            || d->writeFutureWatcher->isStarted()) {
+    if (d->writeFutureWatcher->isRunning() || d->writeFutureWatcher->isStarted()) {
         d->writeFutureWatcher->waitForFinished();
     }
 
     d->writeInProgress = true;
 
-    QFuture<QString> future =
-        QtConcurrent::run
-        (
-            &AsyncTextWriterPrivate::writeToDisk,
-            text,
-            d->fileName,
-            d->encoding
-        );
+    QFuture<QString> future = QtConcurrent::run(&AsyncTextWriterPrivate::writeToDisk, text, d->fileName, d->encoding);
 
     d->writeFutureWatcher->setFuture(future);
 
@@ -164,17 +157,12 @@ void AsyncTextWriterPrivate::initialize(const QString &fileName)
     this->encoding = DEFAULT_STREAM_CODEC;
     this->writeFutureWatcher = new QFutureWatcher<QString>(q);
 
-    q->connect(this->writeFutureWatcher,
-        &QFutureWatcher<QString>::finished,
-        [this]() {
-            this->onWriteCompleted();
-        }
-    );
+    q->connect(this->writeFutureWatcher, &QFutureWatcher<QString>::finished, [this]() {
+        this->onWriteCompleted();
+    });
 }
 
-QString AsyncTextWriterPrivate::writeToDisk(const QString &text,
-    const QString &fileName,
-    AsyncTextWriter::Encoding encoding)
+QString AsyncTextWriterPrivate::writeToDisk(const QString &text, const QString &fileName, AsyncTextWriter::Encoding encoding)
 {
     QSaveFile file(fileName);
     file.setDirectWriteFallback(true);
@@ -186,12 +174,7 @@ QString AsyncTextWriterPrivate::writeToDisk(const QString &text,
     // Write contents to disk.
     QTextStream stream(&file);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    stream.setCodec(encoding);
-#else
     stream.setEncoding(encoding);
-#endif
-
     stream << text;
 
     if (QFile::NoError != file.error()) {
@@ -220,4 +203,4 @@ void AsyncTextWriterPrivate::onWriteCompleted()
     emit q->writeComplete();
 }
 
-} //namespace ghostwriter
+} // namespace ghostwriter

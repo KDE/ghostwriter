@@ -21,19 +21,19 @@ target_include_directories(ghostwriter PUBLIC
 ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 
 target_sources(ghostwriter PRIVATE
+    util/logging.cpp
     editor/actions/inlinemarkuptoggle.cpp
-    editor/asynctextwriter.cpp
-    editor/markdowndocument.cpp
     editor/markdowneditor.cpp
-    editor/markdownhighlighter.cpp
-    editor/textblockdata.h
+    document/asynctextwriter.cpp
+    document/textdocument.cpp
+    document/textblockdata.h
+    highlighter/markdownhighlighter.cpp
     export/cmarkgfmexporter.cpp
     export/commandlineexporter.cpp
     export/exportdialog.cpp
     export/exporter.cpp
     export/exporterfactory.cpp
     export/exportformat.cpp
-    framework/logging.cpp
     markdown/cmarkgfmapi.cpp
     markdown/markdownast.cpp
     markdown/markdownnode.cpp
@@ -76,7 +76,6 @@ target_sources(ghostwriter PRIVATE
     ${ghostwriter_QM_LOADER}
 )
 
-
 if (UNIX)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(Hunspell REQUIRED IMPORTED_TARGET hunspell)
@@ -99,6 +98,7 @@ find_package(
     COMPONENTS
     ConfigWidgets
     CoreAddons
+    KIO
     Sonnet
     WidgetsAddons
     XmlGui
@@ -128,6 +128,9 @@ target_link_libraries(ghostwriter PRIVATE
     KF${KF_MAJOR_VERSION}::ConfigCore
     KF${KF_MAJOR_VERSION}::ConfigWidgets
     KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOFileWidgets
+    KF${KF_MAJOR_VERSION}::KIOWidgets
     KF${KF_MAJOR_VERSION}::SonnetCore
     KF${KF_MAJOR_VERSION}::SonnetUi
     KF${KF_MAJOR_VERSION}::XmlGui

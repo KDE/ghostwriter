@@ -23,9 +23,7 @@ namespace ghostwriter
 class TextBlockData : public QTextBlockUserData
 {
 public:
-
-    typedef struct MarkupRange
-    {
+    typedef struct MarkupRange {
         int start;
         int end;
         MarkdownNode::NodeType type;

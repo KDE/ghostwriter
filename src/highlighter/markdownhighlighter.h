@@ -30,11 +30,7 @@ public:
      * Constructor.  Takes as a parameter the Markdown editor whose
      * MarkdownDocument is to be highlighted.
      */
-    MarkdownHighlighter
-    (
-        MarkdownEditor *editor,
-        const ColorScheme &colors
-    );
+    MarkdownHighlighter(MarkdownEditor *editor, const ColorScheme &colors);
 
     /**
      * Destructor.
@@ -99,9 +95,9 @@ signals:
 
 private slots:
     /*
-    * Highlights the text block at the given cursor position of the
-    * document.  See explanation for highlightBlockAtPosition().
-    */
+     * Highlights the text block at the given cursor position of the
+     * document.  See explanation for highlightBlockAtPosition().
+     */
     void onHighlightBlockAtPosition(int position);
 
 private:

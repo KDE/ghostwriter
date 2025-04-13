@@ -8,6 +8,7 @@ project(unittest VERSION 1.0.0 LANGUAGES CXX)
 
 add_subdirectory(asynctextwriter)
 add_subdirectory(bookmark)
+add_subdirectory(kresulttest)
 add_subdirectory(library)
 
 enable_testing(true)
