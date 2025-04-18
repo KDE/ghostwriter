@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2025 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -579,7 +579,7 @@ void MainWindow::copyHtml()
 
 void MainWindow::showPreviewOptions()
 {
-    static PreviewOptionsDialog *dialog = new PreviewOptionsDialog(this);
+    PreviewOptionsDialog *dialog = new PreviewOptionsDialog(this);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setModal(false);
     dialog->show();
