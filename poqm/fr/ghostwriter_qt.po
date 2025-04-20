@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2025-01-24 13:39+0100\n"
+"PO-Revision-Date: 2025-04-18 16:07+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -254,7 +254,7 @@ msgid ""
 msgstr ""
 "<p>Met en forme la ligne courante ou les lignes sélectionnées sous forme "
 "d'une liste numérotée.</p><p>Exemple :</p><p>1. Élément numéro un<br/>2. "
-"Élément numérodeux<br/>3. Élément numéro trois<br/></p>"
+"Élément numéro deux<br/>3. Élément numéro trois<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
