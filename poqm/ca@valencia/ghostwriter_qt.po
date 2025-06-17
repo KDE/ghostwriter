@@ -27,7 +27,7 @@ msgstr "Torna a obrir l'últim fitxer tancat"
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr "Ctrl+Maj+T"
+msgstr "Ctrl+Majús+T"
 
 #: src/appactions.cpp:87
 msgctxt "ghostwriter::AppActions|"
@@ -57,7 +57,7 @@ msgstr "Copia l'&HTML"
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr "Maj+Ctrl+C"
+msgstr "Majús+Ctrl+C"
 
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
@@ -113,7 +113,7 @@ msgstr "Sense sagnar"
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr "«Maj+Tab»"
+msgstr "Majús+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -133,7 +133,7 @@ msgstr "Cita de bloc"
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr "Ctrl+Maj+."
+msgstr "Ctrl+Majús+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
@@ -159,7 +159,7 @@ msgstr "Elimina la cita de bloc"
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr "Ctrl+Maj+,"
+msgstr "Ctrl+Majús+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
@@ -367,7 +367,7 @@ msgstr "Mode lliure de distracció"
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr "Maj+F11"
+msgstr "Majús+F11"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
@@ -387,7 +387,7 @@ msgstr "Mode Hemingway"
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr "Maj+Retrocés"
+msgstr "Majús+Retrocés"
 
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
@@ -1448,7 +1448,7 @@ msgstr "La verificació ortogràfica ha finalitzat!"
 #: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
-msgstr "&lt; 1m"
+msgstr "&lt; 1 m"
 
 #: src/statistics/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -1469,13 +1469,13 @@ msgstr "<b>%L1%</b>"
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
-msgstr "%1h %2m"
+msgstr "%1 h %2 m"
 
 #: src/statistics/abstractstatisticswidget.cpp:55
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
-msgstr "%1m"
+msgstr "%1 m"
 
 #: src/statistics/documentstatisticswidget.cpp:19
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
