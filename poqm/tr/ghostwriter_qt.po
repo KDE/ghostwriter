@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-07 01:06+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2025-06-29 09:05+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -463,7 +463,7 @@ msgstr "Belge İstatistikleri"
 #: src/appactions.cpp:247
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr "Kopya Kağıdı"
+msgstr "Kopya Kâğıdı"
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
@@ -1053,7 +1053,7 @@ msgstr "Belge İstatistikleri"
 #: src/mainwindow.cpp:1325
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
-msgstr "Kopya Kağıdı"
+msgstr "Kopya Kâğıdı"
 
 #: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
