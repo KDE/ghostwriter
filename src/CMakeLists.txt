@@ -22,6 +22,7 @@ ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 
 target_sources(ghostwriter PRIVATE
     util/logging.cpp
+    util/kerrorcode.cpp
     editor/actions/inlinemarkuptoggle.cpp
     editor/markdowneditor.cpp
     document/asynctextwriter.cpp
