@@ -12,10 +12,6 @@ if(NOT CMAKE_BUILD_TYPE)
             "Default build type: Release" FORCE)
 endif()
 
-if (NOT BUILD_TESTING)
-    set (BUILD_TESTING ON)
-endif()
-
 message("Generating makefile for ${CMAKE_BUILD_TYPE} build...")
 
 # KF6 only

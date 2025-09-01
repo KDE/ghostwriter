@@ -5,6 +5,9 @@
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+# Add the util subdirectory to build ghostwriter_utils library
+add_subdirectory(util)
+
 set(UI_FILES settings/preferencesdialog.ui)
 
 add_executable(ghostwriter ../resources.qrc ../icons.qrc ${UI_FILES})
@@ -21,7 +24,6 @@ target_include_directories(ghostwriter PUBLIC
 ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 
 target_sources(ghostwriter PRIVATE
-    util/logging.cpp
     editor/actions/inlinemarkuptoggle.cpp
     editor/markdowneditor.cpp
     document/asynctextwriter.cpp
@@ -118,6 +120,7 @@ else()
 endif()
 
 target_link_libraries(ghostwriter PRIVATE
+    ghostwriter_utils
     Qt::Concurrent
     Qt::Core
     Qt::Gui

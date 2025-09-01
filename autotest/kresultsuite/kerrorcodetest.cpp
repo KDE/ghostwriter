@@ -1,4 +1,10 @@
-#include "../../src/util/kerrorcode.h"
+/*
+ * SPDX-FileCopyrightText: 2025 Megan Conkle <megan.conkle@kdemail.net>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+#include "util/kerrorcode.h"
 #include <QObject>
 #include <QtTest>
 

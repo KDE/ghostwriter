@@ -9,8 +9,8 @@
 #include <QString>
 #include <QTest>
 
-#include "../../src/util/kerrorcode.h"
-#include "../../src/util/kresult.h"
+#include "util/kerrorcode.h"
+#include "util/kresult.h"
 
 enum class TestErrorCode {
     SomewhatBadError,
