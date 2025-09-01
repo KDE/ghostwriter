@@ -400,8 +400,8 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
-"El mode Hemingway desactiva les tecles de retrocés i suprimir per a ajudar-"
-"vos a resistir la temptació d'editar el document mentre l'escriviu."
+"El mode Hemingway desactiva les tecles de retrocés i suprimir per ajudar-vos "
+"a resistir la temptació d'editar el document mentre l'escriviu."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
@@ -1140,7 +1140,7 @@ msgstr "Quadrat"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr "Seleccioneu el directori de còpies de seguretat"
+msgstr "Trieu el directori de còpies de seguretat"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1266,7 +1266,7 @@ msgstr "&"
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "&Selecciona la ubicació de la carpeta de còpies de seguretat…"
+msgstr "&Tria la ubicació de la carpeta de còpies de seguretat…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1367,7 +1367,7 @@ msgstr "Variant de Markdown"
 #: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
-msgstr "Seleccioneu…"
+msgstr "Tria…"
 
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1799,13 +1799,13 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr "«%1» ja existix. Seleccioneu un altre nom."
+msgstr "«%1» ja existix. Trieu un altre nom."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr "El tema «%1» ja existix. Seleccioneu un altre nom."
+msgstr "El tema «%1» ja existix. Trieu un altre nom."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
