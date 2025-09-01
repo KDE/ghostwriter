@@ -13,7 +13,6 @@ qt_standard_project_setup()
 ecm_add_test(
     kerrorcodetest.cpp
     ../../src/util/kerrorcode.h
-    ../../src/util/kerrorcode.cpp
     LINK_LIBRARIES
         PRIVATE
             Qt::Core

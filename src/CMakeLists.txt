@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2024 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2022-2025 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -22,7 +22,6 @@ ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 
 target_sources(ghostwriter PRIVATE
     util/logging.cpp
-    util/kerrorcode.cpp
     editor/actions/inlinemarkuptoggle.cpp
     editor/markdowneditor.cpp
     document/asynctextwriter.cpp

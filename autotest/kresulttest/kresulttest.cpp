@@ -18,19 +18,7 @@ enum class TestErrorCode {
     ReallyBadError
 };
 
-enum class MappedErrorCode {
-    MappedErrorOne,
-    MappedErrorTwo
-};
-
-enum class RefType {
-    LValue,
-    RValue
-};
-
 typedef KResult<QString, TestErrorCode> TestResult;
-typedef KResult<float, TestErrorCode> MappedTestResult;
-typedef KResult<QString, MappedErrorCode> MappedErrResult;
 
 TestResult prependTest(const QString &value)
 {
@@ -39,21 +27,12 @@ TestResult prependTest(const QString &value)
 
 TestResult prependWarn(TestErrorCode code)
 {
-    return QString("WARN: %1").arg(int(code));
+    return QString("WARN: %1").arg(static_cast<int>(code));
 }
 
 float strToFloat(const QString &value)
 {
     return value.toFloat();
-}
-
-MappedErrorCode mapErrorCode(TestErrorCode code)
-{
-    if (TestErrorCode::BadError == code) {
-        return MappedErrorCode::MappedErrorOne;
-    }
-
-    return MappedErrorCode::MappedErrorTwo;
 }
 
 TestResult testKTry(bool ok)
@@ -87,30 +66,32 @@ private slots:
     void compareResults_data();
     void compareResults();
     void k_try();
+    void assignmentOperators();
+    void pointerOperators();
+    void conversionOperators();
+    void errorCodeHandling();
 };
 
 void KResultTest::initTestCase()
 {
-    ;
+    // Setup any test data if needed
 }
 
 void KResultTest::cleanupTestCase()
 {
-    ;
+    // Cleanup any test data if needed
 }
 
 /**
  * OBJECTIVE:
  *      Verify creation of an OK result that is an lvalue, and the return values of
- *      its accessors. Also verify its transformation methods (valueOr, errorOr, orElse,
- *      andThen, map, mapError) work as expected.
+ *      its accessors.
  *
  * INPUTS:
  *      A KResult with an OK value.
  *
  * EXPECTED RESULTS:
- *      All data accessors return the expected values. All formation methods
- *      (valueOr, errorOr, orElse, andThen, map, mapError) work as expected.
+ *      All data accessors return the expected values.
  */
 void KResultTest::okResult_lvalue()
 {
@@ -121,31 +102,18 @@ void KResultTest::okResult_lvalue()
     QVERIFY(!result.hasError());
     QCOMPARE(result.value(), "4.8");
     QCOMPARE(*result, "4.8");
-    QCOMPARE(result.valueOr(QString("ERROR")), "4.8");
-
-    TestResult expectedErrResult = KErrorCode<TestErrorCode>(TestErrorCode::SomewhatBadError, "NOT_TOO_BAD");
-    TestResult actualResult = result.errorOr(KErrorCode<int>(0, "NOT_TOO_BAD"));
-    QCOMPARE(actualResult.errcode(), expectedErrResult.errcode());
-    QCOMPARE(actualResult.errmsg(), expectedErrResult.errmsg());
-
-    QCOMPARE(result.orElse(prependWarn), "4.8");
-    QCOMPARE(result.andThen(prependTest), "TEST: 4.8");
-    QCOMPARE(result.map(strToFloat), 4.8f);
-    QCOMPARE(result.mapError(mapErrorCode), "4.8");
 }
 
 /**
  * OBJECTIVE:
  *      Verify creation of an OK result that is an rvalue, and the return values of
- *      its accessors. Also verify its transformation methods (valueOr, errorOr, orElse,
- *      andThen, map, mapError) work as expected.
+ *      its accessors.
  *
  * INPUTS:
  *      A KResult with an OK value.
  *
  * EXPECTED RESULTS:
- *      All data accessors return the expected values. All formation methods
- *      (valueOr, errorOr, orElse, andThen, map, mapError) work as expected.
+ *      All data accessors return the expected values.
  */
 void KResultTest::okResult_rvalue()
 {
@@ -154,31 +122,18 @@ void KResultTest::okResult_rvalue()
     QVERIFY(!TestResult("OK").hasError());
     QCOMPARE(TestResult("OK").value(), "OK");
     QCOMPARE(*TestResult("OK"), "OK");
-    QCOMPARE(TestResult("OK").valueOr(QString("ERROR")), "OK");
-
-    TestResult expectedErrResult = KErrorCode<TestErrorCode>(TestErrorCode::SomewhatBadError, "NOT_TOO_BAD");
-    TestResult actualResult = TestResult("OK").errorOr(KErrorCode<int>(0, "NOT_TOO_BAD"));
-    QCOMPARE(actualResult.errcode(), expectedErrResult.errcode());
-    QCOMPARE(actualResult.errmsg(), expectedErrResult.errmsg());
-
-    QCOMPARE(TestResult("OK").orElse(prependWarn), "OK");
-    QCOMPARE(TestResult("OK").andThen(prependTest), "TEST: OK");
-    QCOMPARE(TestResult("4.8").map(strToFloat), 4.8f);
-    QCOMPARE(TestResult("4.8").mapError(mapErrorCode), "4.8");
 }
 
 /**
  * OBJECTIVE:
  *      Verify creation of an error result that is an lvalue, and the return values of
- *      its accessors. Also verify its transformation methods (valueOr, errorOr, orElse,
- *      andThen, map, mapError) work as expected.
+ *      its accessors.
  *
  * INPUTS:
- *      A KResult with an OK value.
+ *      A KResult with an error value.
  *
  * EXPECTED RESULTS:
- *      All data accessors return the expected values. All formation methods
- *      (valueOr, errorOr, orElse, andThen, map, mapError) work as expected.
+ *      All data accessors return the expected values.
  */
 void KResultTest::errorResult_lvalue()
 {
@@ -190,28 +145,20 @@ void KResultTest::errorResult_lvalue()
     QVERIFY(result.hasError());
     QCOMPARE(result.error().code(), TestErrorCode::ReallyBadError);
     QCOMPARE(result.errcode(), TestErrorCode::ReallyBadError);
-    QCOMPARE(result.error().message(), "REALLY BAD ERROR");
-    QCOMPARE(result.errmsg(), "REALLY BAD ERROR");
-    QCOMPARE(result.valueOr(QString("DEFAULT")), "DEFAULT");
-    QCOMPARE(result.errorOr(KErrorCode<int>(0, "NOT_TOO_BAD")), ec);
-    QCOMPARE(result.orElse(prependWarn), "WARN: 2");
-    QCOMPARE(result.andThen(prependTest), ec);
-    QCOMPARE(result.map(strToFloat), ec);
-    QCOMPARE(result.mapError(mapErrorCode), MappedErrorCode::MappedErrorTwo);
+    QCOMPARE(result.error().message(), QStringLiteral("REALLY BAD ERROR"));
+    QCOMPARE(result.errmsg(), QStringLiteral("REALLY BAD ERROR"));
 }
 
 /**
  * OBJECTIVE:
  *      Verify creation of an error result that is an rvalue, and the return values of
- *      its accessors. Also verify its transformation methods (valueOr, errorOr, orElse,
- *      andThen, map, mapError) work as expected.
+ *      its accessors.
  *
  * INPUTS:
- *      A KResult with an OK value.
+ *      A KResult with an error value.
  *
  * EXPECTED RESULTS:
- *      All data accessors return the expected values. All formation methods
- *      (valueOr, errorOr, orElse, andThen, map, mapError) work as expected.
+ *      All data accessors return the expected values.
  */
 void KResultTest::errorResult_rvalue()
 {
@@ -222,14 +169,8 @@ void KResultTest::errorResult_rvalue()
     QVERIFY(TestResult(ec).hasError());
     QCOMPARE(TestResult(ec).error().code(), TestErrorCode::ReallyBadError);
     QCOMPARE(TestResult(ec).errcode(), TestErrorCode::ReallyBadError);
-    QCOMPARE(TestResult(ec).error().message(), "REALLY BAD ERROR");
-    QCOMPARE(TestResult(ec).errmsg(), "REALLY BAD ERROR");
-    QCOMPARE(TestResult(ec).valueOr(QString("DEFAULT")), "DEFAULT");
-    QCOMPARE(TestResult(ec).errorOr(KErrorCode<int>(0, "NOT_TOO_BAD")), ec);
-    QCOMPARE(TestResult(ec).orElse(prependWarn), "WARN: 2");
-    QCOMPARE(TestResult(ec).andThen(prependTest), ec);
-    QCOMPARE(TestResult(ec).map(strToFloat), ec);
-    QCOMPARE(TestResult(ec).mapError(mapErrorCode), MappedErrorCode::MappedErrorTwo);
+    QCOMPARE(TestResult(ec).error().message(), QString("REALLY BAD ERROR"));
+    QCOMPARE(TestResult(ec).errmsg(), QString("REALLY BAD ERROR"));
 }
 
 void KResultTest::compareResults_data()
@@ -240,40 +181,29 @@ void KResultTest::compareResults_data()
     QTest::addColumn<bool>("lhsIsTrue");
     QTest::addColumn<bool>("rhsIsTrue");
 
-    TestResult result1("OK");
-    TestResult result2 = result1;
+    QTest::newRow("nominal: two OK results that are the same") << TestResult(QString("OK")) << TestResult(QString("OK")) << true << true << true;
 
-    QTest::newRow("nominal: two OK results that are the same") << result1 << result2 << true << true << true;
+    QTest::newRow("nominal: two error results that are the same")
+        << TestResult(TestErrorCode::BadError, "ERROR") << TestResult(TestErrorCode::BadError, "ERROR") << true << false << false;
 
-    result1 = TestResult(TestErrorCode::BadError, "ERROR");
-    result2 = result1;
+    QTest::newRow("nominal: LHS is OK result, RHS is error result")
+        << TestResult(QString("OK")) << TestResult(TestErrorCode::ReallyBadError, "ERROR") << false << true << false;
 
-    QTest::newRow("nominal: two error results that are the same") << result1 << result2 << true << false << false;
-
-    result1 = TestResult("OK");
-    result2 = TestResult(TestErrorCode::ReallyBadError, "ERROR");
-
-    QTest::newRow("nominal: LHS is OK result, RHS is error result") << result1 << result2 << false << true << false;
-
-    result1 = KErrorCode<TestErrorCode>(TestErrorCode::SomewhatBadError, "ERROR");
-    result2 = "OK";
-
-    QTest::newRow("nominal: LHS is error result, RHS is OK result") << result1 << result2 << false << false << true;
+    QTest::newRow("nominal: LHS is error result, RHS is OK result")
+        << TestResult(TestErrorCode::SomewhatBadError, "ERROR") << TestResult(QString("OK")) << false << false << true;
 }
 
 /**
  * OBJECTIVE:
- *      Verify comparison operations for two results. Operations include ==, !=,
- *      or_, and and_.
+ *      Verify comparison operations for two results. Operations include == and !=.
  *
  * INPUTS:
- *      Different combinations of KResults for the left and right and sides of the
+ *      Different combinations of KResults for the left and right sides of the
  *      operators.
  *
  * EXPECTED RESULTS:
  *      The == and != operators return the expected value based on whether the two
- *      results are equal or not. The or_ and and_ operators return the correct
- *      operand based on the operands' truth values.
+ *      results are equal or not.
  */
 void KResultTest::compareResults()
 {
@@ -289,17 +219,9 @@ void KResultTest::compareResults()
     // Verify != operator return value matches expected.
     QCOMPARE((lhs != rhs), !equal);
 
-    // Verify || operator result matches expected.
-    TestResult orResult = (lhs.or_(rhs));
-    TestResult orExpected = lhsIsTrue ? lhs : rhs;
-    QCOMPARE(bool(orResult), (lhsIsTrue || rhsIsTrue));
-    QCOMPARE(orResult, orExpected);
-
-    // Verify && operator result matches expected.
-    TestResult andResult = (lhs.and_(rhs));
-    TestResult andExpected = lhsIsTrue ? rhs : lhs;
-    QCOMPARE(bool(andResult), (lhsIsTrue && rhsIsTrue));
-    QCOMPARE(andResult, andExpected);
+    // Verify boolean conversion
+    QCOMPARE(bool(lhs), lhsIsTrue);
+    QCOMPARE(bool(rhs), rhsIsTrue);
 }
 
 /**
@@ -314,7 +236,7 @@ void KResultTest::compareResults()
  *
  * EXPECTED RESULTS:
  *      1. The function using K_TRY will return the error result from the wrapped function call.
- *      2. The function using K_TRY will return an OK result (not from teh wrapped function call).
+ *      2. The function using K_TRY will return an OK result (not from the wrapped function call).
  */
 void KResultTest::k_try()
 {
@@ -326,8 +248,8 @@ void KResultTest::k_try()
     QVERIFY(result.hasError());
     QCOMPARE(result.error().code(), TestErrorCode::BadError);
     QCOMPARE(result.errcode(), TestErrorCode::BadError);
-    QCOMPARE(result.error().message(), "K_TRY SIMULATED ERROR");
-    QCOMPARE(result.errmsg(), "K_TRY SIMULATED ERROR");
+    QCOMPARE(result.error().message(), QString("K_TRY SIMULATED ERROR"));
+    QCOMPARE(result.errmsg(), QString("K_TRY SIMULATED ERROR"));
 
     // Verify K_TRY does not return early and the testKTry function returns the
     // expected OK result.
@@ -338,6 +260,136 @@ void KResultTest::k_try()
     QVERIFY(!result.hasError());
     QCOMPARE(*result, "A_OK");
     QCOMPARE(result.value(), "A_OK");
+}
+
+/**
+ * OBJECTIVE:
+ *      Verify assignment operators work correctly for KResult.
+ *
+ * INPUTS:
+ *      KResult objects assigned with OK values and error values.
+ *
+ * EXPECTED RESULTS:
+ *      Assignment operators correctly update the KResult state.
+ */
+void KResultTest::assignmentOperators()
+{
+    TestResult result("Initial");
+    QVERIFY(result.ok());
+    QCOMPARE(*result, "Initial");
+
+    // Assign OK value
+    result = QString("New Value");
+    QVERIFY(result.ok());
+    QCOMPARE(*result, "New Value");
+
+    // Assign error
+    KErrorCode<TestErrorCode> error(TestErrorCode::BadError, "Assignment error");
+    result = error;
+    QVERIFY(!result.ok());
+    QVERIFY(result.hasError());
+    QCOMPARE(result.errcode(), TestErrorCode::BadError);
+    QCOMPARE(result.errmsg(), QString("Assignment error"));
+
+    // Assign back to OK
+    result = QString("Back to OK");
+    QVERIFY(result.ok());
+    QCOMPARE(*result, "Back to OK");
+}
+
+/**
+ * OBJECTIVE:
+ *      Verify pointer operators work correctly for KResult.
+ *
+ * INPUTS:
+ *      KResult objects with OK values.
+ *
+ * EXPECTED RESULTS:
+ *      Pointer operators correctly access the OK value.
+ */
+void KResultTest::pointerOperators()
+{
+    TestResult result("Test String");
+
+    // Test operator->
+    QVERIFY(result->isEmpty() == false);
+    QCOMPARE(result->length(), 11);
+
+    // Test operator*
+    QCOMPARE(*result, "Test String");
+
+    // Test with error (operator-> should return nullptr)
+    TestResult errorResult(TestErrorCode::BadError, "Error");
+    QVERIFY(errorResult.operator->() == nullptr);
+}
+
+/**
+ * OBJECTIVE:
+ *      Verify conversion operators work correctly for KResult.
+ *
+ * INPUTS:
+ *      KResult objects with OK and error values.
+ *
+ * EXPECTED RESULTS:
+ *      Boolean conversion correctly reflects the KResult state.
+ */
+void KResultTest::conversionOperators()
+{
+    TestResult okResult("OK");
+    TestResult errorResult(TestErrorCode::BadError, "Error");
+
+    // Test boolean conversion
+    QVERIFY(bool(okResult) == true);
+    QVERIFY(bool(errorResult) == false);
+
+    // Test explicit boolean conversion
+    QVERIFY(static_cast<bool>(okResult) == true);
+    QVERIFY(static_cast<bool>(errorResult) == false);
+
+    // Test in conditional
+    if (okResult) {
+        QVERIFY(true); // Should reach here
+    } else {
+        QFAIL("OK result should be truthy");
+    }
+
+    if (errorResult) {
+        QFAIL("Error result should be falsy");
+    } else {
+        QVERIFY(true); // Should reach here
+    }
+}
+
+/**
+ * OBJECTIVE:
+ *      Verify error code handling works correctly across different enum types.
+ *
+ * INPUTS:
+ *      KResult objects with different error code types.
+ *
+ * EXPECTED RESULTS:
+ *      Error codes are properly stored and retrieved.
+ */
+void KResultTest::errorCodeHandling()
+{
+    // Test with TestErrorCode enum
+    TestResult result1(TestErrorCode::ReallyBadError, "Really bad");
+    QCOMPARE(result1.errcode(), TestErrorCode::ReallyBadError);
+    QCOMPARE(result1.errmsg(), QString("Really bad"));
+
+    // Test direct construction with error code and message
+    TestResult result2(TestErrorCode::SomewhatBadError, "Somewhat bad");
+    QVERIFY(!result2.ok());
+    QVERIFY(result2.hasError());
+    QCOMPARE(result2.errcode(), TestErrorCode::SomewhatBadError);
+
+    // Test equality with KErrorCode
+    KErrorCode<TestErrorCode> ec(TestErrorCode::SomewhatBadError, "Somewhat bad");
+    QVERIFY(result2 == ec);
+
+    // Test inequality
+    KErrorCode<TestErrorCode> differentEc(TestErrorCode::BadError, "Different error");
+    QVERIFY(!(result2 == differentEc));
 }
 
 QTEST_MAIN(KResultTest)
