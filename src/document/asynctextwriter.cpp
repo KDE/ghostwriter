@@ -12,6 +12,11 @@
 #include <QTextStream>
 #include <QtConcurrentRun>
 
+#ifdef Q_OS_LINUX
+#include <KIO/StoredTransferJob>
+#include <QUrl>
+#endif
+
 #include "asynctextwriter.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -36,12 +41,12 @@ public:
     }
 
     AsyncTextWriter *q_ptr;
-    QString fileName;
+    QUrl fileName;
     AsyncTextWriter::Encoding encoding;
     QFutureWatcher<QString> *writeFutureWatcher = nullptr;
     bool writeInProgress = false;
 
-    void initialize(const QString &fileName);
+    void initialize(const QUrl &fileName);
 
     /*
      * Writes the given text to the given file path, returning a null
@@ -49,7 +54,7 @@ public:
      * method is intended to be run in a separate thread from the main
      * Qt event loop, and should thus never interact with any widgets.
      */
-    static QString writeToDisk(const QString &text, const QString &fileName, AsyncTextWriter::Encoding encoding);
+    static QString writeToDisk(const QString &text, const QUrl &fileName, AsyncTextWriter::Encoding encoding);
 
     /*
      * Handles any errors or tidying up after an asynchronous save operation.
@@ -57,7 +62,7 @@ public:
     void onWriteCompleted();
 };
 
-AsyncTextWriter::AsyncTextWriter(const QString &fileName, QObject *parent)
+AsyncTextWriter::AsyncTextWriter(const QUrl &fileName, QObject *parent)
     : QObject(parent)
     , d_ptr(new AsyncTextWriterPrivate(this))
 {
@@ -78,23 +83,16 @@ QString AsyncTextWriter::fileName() const
     return d->fileName;
 }
 
-void AsyncTextWriter::setFileName(const QString &fileName)
+void AsyncTextWriter::setFileName(const QUrl &fileName)
 {
     Q_D(AsyncTextWriter);
 
-    d->fileName = QFileInfo(fileName).absoluteFilePath();
+    d->fileName = fileName;
 }
 
 void AsyncTextWriter::setEncoding(AsyncTextWriter::Encoding encoding)
 {
     Q_D(AsyncTextWriter);
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    if (nullptr == encoding) {
-        d->encoding = DEFAULT_STREAM_CODEC;
-        return;
-    }
-#endif
 
     d->encoding = encoding;
 }
@@ -113,7 +111,7 @@ bool AsyncTextWriter::writeInProgress() const
     return d->writeInProgress;
 }
 
-void AsyncTextWriter::waitForFinished()
+void AsyncTextWriter::waitForFinished() const
 {
     Q_D(const AsyncTextWriter);
 
@@ -149,42 +147,80 @@ bool AsyncTextWriter::write(const QString &text)
     return true;
 }
 
-void AsyncTextWriterPrivate::initialize(const QString &fileName)
+void AsyncTextWriterPrivate::initialize(const QUrl &fileName)
 {
     Q_Q(AsyncTextWriter);
 
-    this->fileName = QFileInfo(fileName).absoluteFilePath();
-    this->encoding = DEFAULT_STREAM_CODEC;
-    this->writeFutureWatcher = new QFutureWatcher<QString>(q);
+    this->fileName = fileName;
+    encoding = DEFAULT_STREAM_CODEC;
+    writeFutureWatcher = new QFutureWatcher<QString>(q);
 
-    q->connect(this->writeFutureWatcher, &QFutureWatcher<QString>::finished, [this]() {
-        this->onWriteCompleted();
+    q->connect(writeFutureWatcher, &QFutureWatcher<QString>::finished, [this]() {
+        onWriteCompleted();
     });
 }
 
-QString AsyncTextWriterPrivate::writeToDisk(const QString &text, const QString &fileName, AsyncTextWriter::Encoding encoding)
+QString AsyncTextWriterPrivate::writeToDisk(const QString &text, const QUrl &fileName, AsyncTextWriter::Encoding encoding)
 {
-    QSaveFile file(fileName);
-    file.setDirectWriteFallback(true);
+#ifdef Q_OS_LINUX
+    // Check if this is a network URL (WebDAV, FTP, etc.) - use KIO on Linux
+    if (!fileName.isLocalFile()
+        && ((fileName.scheme() == "http") || (fileName.scheme() == "https") || (fileName.scheme() == "webdav") || (fileName.scheme() == "davs")
+            || (fileName.scheme() == "ftp") || (fileName.scheme() == "sftp"))) {
+        QByteArray data;
+        QTextStream stream(&data);
+        stream.setEncoding(encoding);
+        stream << text;
 
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
-        return file.errorString();
+        auto job = KIO::storedPut(data, fileName, -1);
+        job->setUiDelegate(nullptr); // No UI for async operation
+
+        if (!job->exec()) {
+            return job->errorString();
+        }
+
+        return QString();
+    }
+#endif
+    QString localFilePath = fileName.toLocalFile();
+    if (localFilePath.isEmpty()) {
+        return QStringLiteral("Invalid local file path.");
     }
 
-    // Write contents to disk.
-    QTextStream stream(&file);
+    // First try QSaveFile (atomic write) for local files and non-Linux systems
+    QSaveFile localAtomicFile(localFilePath);
+    localAtomicFile.setDirectWriteFallback(true);
 
-    stream.setEncoding(encoding);
-    stream << text;
+    if (localAtomicFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+        QTextStream stream(&localAtomicFile);
+        stream.setEncoding(encoding);
+        stream << text;
 
-    if (QFile::NoError != file.error()) {
-        file.cancelWriting();
-        return file.errorString();
+        if (QFile::NoError == localAtomicFile.error()) {
+            if (localAtomicFile.commit()) {
+                return QString(); // Success with QSaveFile
+            }
+        } else {
+            localAtomicFile.cancelWriting();
+        }
     }
 
-    // Commit changes (and close the file).  All done!
-    file.commit();
-    return QString();
+    // If QSaveFile fails (common with WebDAV on Windows), fallback to direct QFile write
+    QFile directFile(localFilePath);
+    if (!directFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+        return directFile.errorString();
+    }
+
+    QTextStream directStream(&directFile);
+    directStream.setEncoding(encoding);
+    directStream << text;
+
+    if (QFile::NoError != directFile.error()) {
+        return directFile.errorString();
+    }
+
+    directFile.close();
+    return QString(); // Success with direct write
 }
 
 void AsyncTextWriterPrivate::onWriteCompleted()

@@ -5,8 +5,9 @@
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# Add the util subdirectory to build ghostwriter_utils library
+# Add the library subdirectories to build
 add_subdirectory(util)
+add_subdirectory(io)
 
 set(UI_FILES settings/preferencesdialog.ui)
 
@@ -121,6 +122,7 @@ endif()
 
 target_link_libraries(ghostwriter PRIVATE
     ghostwriter_utils
+    ghostwriter_io
     Qt::Concurrent
     Qt::Core
     Qt::Gui

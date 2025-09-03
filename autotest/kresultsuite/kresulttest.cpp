@@ -74,7 +74,7 @@ private slots:
 
 void KResultTest::initTestCase()
 {
-    // Setup any test data if needed
+    // Initialize any test data if needed
 }
 
 void KResultTest::cleanupTestCase()
@@ -175,22 +175,33 @@ void KResultTest::errorResult_rvalue()
 
 void KResultTest::compareResults_data()
 {
-    QTest::addColumn<TestResult>("lhs");
-    QTest::addColumn<TestResult>("rhs");
     QTest::addColumn<bool>("equal");
-    QTest::addColumn<bool>("lhsIsTrue");
-    QTest::addColumn<bool>("rhsIsTrue");
+    QTest::addColumn<bool>("lhsIsOk");
+    QTest::addColumn<QString>("lhsValue");
+    QTest::addColumn<int>("lhsErrorCode");
+    QTest::addColumn<QString>("lhsErrorMsg");
+    QTest::addColumn<bool>("rhsIsOk");
+    QTest::addColumn<QString>("rhsValue");
+    QTest::addColumn<int>("rhsErrorCode");
+    QTest::addColumn<QString>("rhsErrorMsg");
 
-    QTest::newRow("nominal: two OK results that are the same") << TestResult(QString("OK")) << TestResult(QString("OK")) << true << true << true;
+    QTest::newRow("nominal: two OK results that are the same") << true << true << QString("OK") << 0 << QString() << true << QString("OK") << 0 << QString();
 
-    QTest::newRow("nominal: two error results that are the same")
-        << TestResult(TestErrorCode::BadError, "ERROR") << TestResult(TestErrorCode::BadError, "ERROR") << true << false << false;
+    QTest::newRow("nominal: two error results that are the same") << true << false << QString() << static_cast<int>(TestErrorCode::BadError) << QString("ERROR")
+                                                                  << false << QString() << static_cast<int>(TestErrorCode::BadError) << QString("ERROR");
 
     QTest::newRow("nominal: LHS is OK result, RHS is error result")
-        << TestResult(QString("OK")) << TestResult(TestErrorCode::ReallyBadError, "ERROR") << false << true << false;
+        << false << true << QString("OK") << 0 << QString() << false << QString() << static_cast<int>(TestErrorCode::ReallyBadError) << QString("ERROR");
 
     QTest::newRow("nominal: LHS is error result, RHS is OK result")
-        << TestResult(TestErrorCode::SomewhatBadError, "ERROR") << TestResult(QString("OK")) << false << false << true;
+        << false << false << QString() << static_cast<int>(TestErrorCode::SomewhatBadError) << QString("ERROR") << true << QString("OK") << 0 << QString();
+
+    QTest::newRow("robustness: two OK results that are different")
+        << false << true << QString("OK") << 0 << QString() << true << QString("Still OK") << 0 << QString();
+
+    QTest::newRow("robustness: two error results that are different")
+        << false << false << QString() << static_cast<int>(TestErrorCode::BadError) << QString("ERROR") << false << QString()
+        << static_cast<int>(TestErrorCode::ReallyBadError) << QString("REALLY BAD ERROR");
 }
 
 /**
@@ -207,11 +218,31 @@ void KResultTest::compareResults_data()
  */
 void KResultTest::compareResults()
 {
-    QFETCH(TestResult, lhs);
-    QFETCH(TestResult, rhs);
     QFETCH(bool, equal);
-    QFETCH(bool, lhsIsTrue);
-    QFETCH(bool, rhsIsTrue);
+    QFETCH(bool, lhsIsOk);
+    QFETCH(QString, lhsValue);
+    QFETCH(int, lhsErrorCode);
+    QFETCH(QString, lhsErrorMsg);
+    QFETCH(bool, rhsIsOk);
+    QFETCH(QString, rhsValue);
+    QFETCH(int, rhsErrorCode);
+    QFETCH(QString, rhsErrorMsg);
+
+    // Construct LHS with explicit if/else
+    TestResult lhs("dummy"); // Initialize with something first
+    if (lhsIsOk) {
+        lhs = TestResult(lhsValue);
+    } else {
+        lhs = TestResult(static_cast<TestErrorCode>(lhsErrorCode), lhsErrorMsg);
+    }
+
+    // Construct RHS with explicit if/else
+    TestResult rhs("dummy"); // Initialize with something first
+    if (rhsIsOk) {
+        rhs = TestResult(rhsValue);
+    } else {
+        rhs = TestResult(static_cast<TestErrorCode>(rhsErrorCode), rhsErrorMsg);
+    }
 
     // Verify == operator return value matches expected.
     QCOMPARE((lhs == rhs), equal);
@@ -220,8 +251,8 @@ void KResultTest::compareResults()
     QCOMPARE((lhs != rhs), !equal);
 
     // Verify boolean conversion
-    QCOMPARE(bool(lhs), lhsIsTrue);
-    QCOMPARE(bool(rhs), rhsIsTrue);
+    QCOMPARE(bool(lhs), lhsIsOk);
+    QCOMPARE(bool(rhs), rhsIsOk);
 }
 
 /**

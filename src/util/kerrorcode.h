@@ -31,7 +31,23 @@ public:
      * @param code An error code. The value of this code is implementation-defined, but it should be unique to the error domain.
      * @param message The error message. This should be a human-readable string that describes the error.
      */
-    KErrorCode(const E code, const char *message) noexcept;
+    KErrorCode(const E code, const QString &message) noexcept
+        : m_code(code)
+        , m_message(message)
+    {
+    }
+
+    /**
+     * @brief Construct a new KErrorCode object (R-value reference).
+     *
+     * @param code An error code. The value of this code is implementation-defined, but it should be unique to the error domain.
+     * @param message The error message. This should be a human-readable string that describes the error.
+     */
+    KErrorCode(const E code, const QString &&message) noexcept
+        : m_code(code)
+        , m_message(std::move(message))
+    {
+    }
 
     /**
      * @brief Default copy constructor for KErrorCode.
@@ -94,7 +110,7 @@ public:
      * @return char* The error message.
      */
     [[nodiscard]]
-    constexpr const char *message() const & noexcept
+    constexpr QString message() const & noexcept
     {
         return m_message;
     }
@@ -105,7 +121,7 @@ public:
      * @return char* The error message.
      */
     [[nodiscard]]
-    constexpr const char *&&message() && noexcept
+    constexpr QString &&message() && noexcept
     {
         return std::move(m_message);
     }
@@ -127,7 +143,7 @@ public:
      */
     friend inline bool operator==(const KErrorCode &lhs, const KErrorCode &rhs) noexcept
     {
-        return (lhs.m_code == rhs.m_code && lhs.m_message == rhs.m_message);
+        return (lhs.m_code == rhs.m_code);
     }
 
     /**
@@ -160,29 +176,18 @@ private:
     E m_code;
 
     // The error message.
-    // This should be a pointer to a static const string that describes the error.
-    const char *m_message;
+    QString m_message;
 };
-
-// Implementation of constructor
-template<typename E>
-KErrorCode<E>::KErrorCode(const E code, const char *message) noexcept
-    : m_code(code)
-    , m_message(message)
-{
-}
 
 // Implementation of toString
 template<typename E>
 QString KErrorCode<E>::toString() const noexcept
 {
-    QString msgStr = m_message ? QObject::tr(m_message) : "";
-
     // If E is an enum, convert to underlying integral type for display
     if constexpr (std::is_enum_v<E>) {
-        return QStringLiteral("Error %1 (%2): %3").arg(static_cast<typename std::underlying_type<E>::type>(m_code)).arg((int)m_code).arg(msgStr);
+        return QStringLiteral("Error %1 (%2): %3").arg(static_cast<typename std::underlying_type<E>::type>(m_code)).arg((int)m_code).arg(m_message);
     } else {
-        return QStringLiteral("Error %1: %2").arg(m_code).arg(msgStr);
+        return QStringLiteral("Error %1: %2").arg(m_code).arg(m_message);
     }
 }
 

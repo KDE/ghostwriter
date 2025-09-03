@@ -444,7 +444,7 @@ void KErrorCodeTest::testCStringConstructor()
     QCOMPARE(error1.message(), QString("String literal"));
 
     // Test with const char* variable
-    const char *msg = "Variable message";
+    QString msg = "Variable message";
     KErrorCode<int> error2(200, msg);
     QCOMPARE(error2.message(), QString("Variable message"));
 

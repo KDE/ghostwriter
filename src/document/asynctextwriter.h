@@ -10,6 +10,7 @@
 #include <QObject>
 #include <QScopedPointer>
 #include <QString>
+#include <QUrl>
 #include <QtGlobal>
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -33,62 +34,84 @@ public:
     typedef QStringConverter::Encoding Encoding;
 
     /**
-     * Constructor with file path to which text will be written.
+     * @brief Constructor with file path to which text will be written.
+     *
+     * @param fileName The file path to which text will be written.
+     * @param parent The parent QObject. Defaults to nullptr (no parent).
      */
-    AsyncTextWriter(const QString &fileName, QObject *parent = nullptr);
+    AsyncTextWriter(const QUrl &fileName, QObject *parent = nullptr);
 
     /**
-     * Destructor.
+     * @brief Destructor.
      */
     ~AsyncTextWriter();
 
     /**
-     * Returns the file name.
+     * @brief Returns the file name.
+     *
+     * @return The file name.
      */
-    QString fileName() const;
+    QUrl fileName() const;
 
     /**
-     * Sets the file name.
+     * @brief Sets the file name.
+     *
+     * @param fileName The file name.
      */
-    void setFileName(const QString &fileName);
+    void setFileName(const QUrl &fileName);
 
     /**
-     * Returns the encoding.
+     * @brief Returns the encoding.
+     *
+     * @return The encoding.
      */
     Encoding encoding() const;
 
     /**
-     * Sets the encoding.  The default encoding if none is
-     * set with this method is UTF-8.
+     * @brief Sets the encoding.
+     *
+     * @param encoding The encoding to set.
+     *
+     * @note The default encoding if none is set with this method is UTF-8.
      */
     void setEncoding(Encoding encoding);
 
     /**
-     * Returns true if a write is currently in progress, false otherwise.
+     * @brief Returns whether a write operation on the file is currently in progress.
+     *
+     * @return true if a write is currently in progress.
+     * @return false otherwise.
      */
     bool writeInProgress() const;
 
     /**
-     * Waits for write to finish (if needed) before returning.
+     * @brief Waits for write to finish (if needed) before returning.
      */
-    void waitForFinished();
+    void waitForFinished() const;
 
     /**
-     * Writes the given text to the file.  Note: Previous contents of the file
-     * will be replaced.
+     * @brief Writes the given text to the file.
+     *
+     * @note Previous contents of the file will be replaced.
      */
     bool write(const QString &text);
 
 signals:
     /**
-     * Emitted when the write is complete.  Signal will not be emitted if
-     * an error occurs.  (See writeError signal instead.)
+     * @brief Emitted when the write is complete.
+     *
+     * @note Signal will not be emitted if an error occurs. (See writeError signal instead.)
+     *
+     * @see writeError
      */
     void writeComplete();
 
     /**
-     * Emitted when an error occurs while attempting to write to the file.
+     * @brief Emitted when an error occurs while attempting to write to the file.
+     *
      * The error description will be set in the errorString parameter.
+     *
+     * @param errorString The error description.
      */
     void writeError(const QString &errorString);
 

@@ -40,6 +40,29 @@
     } while (false);
 
 /**
+ * @brief A simple struct to represent success without any associated data.
+ *
+ * This can be used as the "OK" type in KResult when no data needs to be returned on success.
+ *
+ * @example
+ *
+ * @code {.language-idle="cpp"}
+ * KResult<KSuccess, int> write(const QString &text)
+ * {
+ *     // On success, return KSuccess{} or simply return {};
+ *     return {}; // Implicitly returns KSuccess{}
+ * }
+ * @endcode
+ */
+struct KSuccess {
+    constexpr KSuccess() = default;
+    constexpr bool operator==(const KSuccess &) const noexcept
+    {
+        return true;
+    }
+};
+
+/**
  * @brief A result class similar to Rust's Result or C++'s std::expected.
  *
  * The rationale for this class is that KDE and Qt are still on C++20, and std::expected
@@ -123,9 +146,20 @@ public:
      * @param code The error code value.
      * @param message The error message.
      */
-    KResult(const E code, const char *message) noexcept
+    KResult(const E code, const QString &message) noexcept
     {
         m_result.template emplace<1>(KErrorCode<E>(code, message));
+    }
+
+    /**
+     * @brief Construct a new KResult object from an error code and message (R-value reference).
+     *
+     * @param code The error code value.
+     * @param message The error message.
+     */
+    KResult(const E code, const QString &&message) noexcept
+    {
+        m_result.template emplace<1>(KErrorCode<E>(code, std::move(message)));
     }
 
     /**
@@ -403,13 +437,31 @@ public:
      *
      * If this KResult is "OK", it will terminate the program with an error message.
      *
-     * @return char * The error message.
+     * @return QString The error message.
      */
     [[nodiscard]]
-    constexpr const char *errmsg() const noexcept
+    constexpr QString errmsg() const & noexcept
     {
         if (!ok()) [[likely]] {
             return errorUnchecked().message();
+        }
+
+        std::cerr << "KResult::errmsg: Illegal access to error message!" << std::endl;
+        std::terminate();
+    }
+
+    /**
+     * @brief Returns the error message if this KResult has an error (R-value reference).
+     *
+     * If this KResult is "OK", it will terminate the program with an error message.
+     *
+     * @return QString&& The error message (R-value reference).
+     */
+    [[nodiscard]]
+    constexpr QString &&errmsg() && noexcept
+    {
+        if (!ok()) [[likely]] {
+            return std::move(*this).errorUnchecked().message();
         }
 
         std::cerr << "KResult::errmsg: Illegal access to error message!" << std::endl;
@@ -429,8 +481,13 @@ public:
     [[nodiscard]]
     friend constexpr bool operator==(const KResult<T, E> &lhs, const KResult<T, E> &rhs) noexcept
     {
-        return ((lhs.ok() == rhs.ok())
-                && (((0 == lhs.m_result.index()) && (lhs.value() == rhs.value())) || ((1 == lhs.m_result.index()) && (lhs.error() == rhs.error()))));
+        if (lhs.ok() && rhs.ok()) {
+            return (lhs.value() == rhs.value());
+        } else if (lhs.hasError() && rhs.hasError()) {
+            return (lhs.error() == rhs.error());
+        }
+
+        return false;
     }
 
     /**
