@@ -1,8 +1,13 @@
+# Spanish translations for ghostwriter_qt.po package.
+# Copyright (C) 2022-2025 This file is copyright:
+# This file is distributed under the same license as the ghostwriter package.
+#
 # SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2025-03-19 14:27+0100\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"PO-Revision-Date: 2025-09-20 16:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -31,7 +36,7 @@ msgstr "Borrar lista"
 #: src/appactions.cpp:91
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "Volver a cargar del disco..."
+msgstr "Volver a cargar del disco…"
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
@@ -56,7 +61,7 @@ msgstr "Mayúsculas+Ctrl+C"
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr "&Insertar imagen..."
+msgstr "&Insertar imagen…"
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
@@ -474,17 +479,17 @@ msgstr "Muestra una guía de referencia rápida de Markdown en la barra lateral.
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Tema..."
+msgstr "Tema…"
 
 #: src/appactions.cpp:256
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "Tipo de letra..."
+msgstr "Tipo de letra…"
 
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr "Opciones de vista previa..."
+msgstr "Opciones de vista previa…"
 
 #: src/appmain.cpp:92
 msgctxt "main|"
@@ -1241,7 +1246,7 @@ msgstr "&Hacer copia de seguridad del archivo al guardar"
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "&Ver borradores sin título..."
+msgstr "&Ver borradores sin título…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
@@ -1251,7 +1256,7 @@ msgstr "&"
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "&Seleccionar carpeta para las copias de seguridad..."
+msgstr "&Seleccionar carpeta para las copias de seguridad…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1336,7 +1341,7 @@ msgstr "Emparejar caracteres &automáticamente"
 #: src/settings/preferencesdialog.ui:348
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Personalizar caracteres e&mparejados..."
+msgstr "Personalizar caracteres e&mparejados…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1352,7 +1357,7 @@ msgstr "Sabor de Markdown"
 #: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
-msgstr "Escoger..."
+msgstr "Escoger…"
 
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1403,7 +1408,7 @@ msgstr "Mostrar solo tipos de letra de ancho fijo"
 #: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
-msgstr "Comprobar la ortografía..."
+msgstr "Comprobar la ortografía…"
 
 #: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
@@ -1448,7 +1453,7 @@ msgstr "250 palabras por página"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr "<b>%L1%</b>"
+msgstr "<b>%L1 %</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1831,7 +1836,7 @@ msgstr "Vista previa en modo oscuro"
 #: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
-msgstr "Editar..."
+msgstr "Editar…"
 
 #: src/theme/themeselectiondialog.cpp:375
 msgctxt "ghostwriter::ThemeSelectionDialog|"
