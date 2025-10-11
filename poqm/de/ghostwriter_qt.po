@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2022, 2023, 2024 Alois Spitzbart <spitz234@hotmail.com>
-# Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
