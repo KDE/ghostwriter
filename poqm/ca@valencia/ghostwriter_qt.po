@@ -4,7 +4,7 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
+# SPDX-FileCopyrightText: 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
