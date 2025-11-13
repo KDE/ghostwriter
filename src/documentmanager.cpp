@@ -427,8 +427,8 @@ void DocumentManager::reload()
                 MessageBoxHelper::question
                 (
                     d->editor,
-                    tr("The document has been modified."),
-                    tr("Discard changes?"),
+                    tr("The document in memory has been modified."),
+                    tr("Load from disk anyway?"),
                     QMessageBox::Yes | QMessageBox::No,
                     QMessageBox::No
                 );
@@ -441,7 +441,9 @@ void DocumentManager::reload()
         QString filePath = d->document->filePath();
         int pos = d->editor->textCursor().position();
 
-        close();
+        if (d->writer->writeInProgress()) {
+            d->writer->waitForFinished();
+        }
 
         if (d->loadFile(filePath)) {
             QTextCursor cursor = d->editor->textCursor();
