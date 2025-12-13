@@ -18,122 +18,122 @@ msgstr ""
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr ""
+msgstr "重新打开关闭的文件"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Shift+T"
 
 #: src/appactions.cpp:87
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr ""
+msgstr "清空列表"
 
 #: src/appactions.cpp:91
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr ""
+msgstr "重新加载"
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "CTRL+E"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "复制为 &HTML"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "SHIFT+CTRL+C"
 
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr ""
+msgstr "插入图片(&I)"
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "加粗"
 
 #: src/appactions.cpp:115
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
-msgstr ""
+msgstr "斜体"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr ""
+msgstr "删除线"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr ""
+msgstr "HTML 注释"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr ""
+msgstr "增加缩进"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr ""
+msgstr "减少缩进"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "SHIFT+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr ""
+msgstr "代码块(&C)"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr ""
+msgstr "块引用"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "CTRL+SHIFT+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr ""
+msgstr "将当前行或选中行格式化为块引用。"
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -141,21 +141,22 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"将当前行或选中行格式化为块引用，或如果已经是块引用，则将其作为嵌套块引用。"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr ""
+msgstr "删除块引用"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "CTRL+SHIFT+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
-msgstr ""
+msgstr "删除当前行或块引用格式的选定行。"
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -163,73 +164,73 @@ msgid ""
 "Strips the current line or selected lines of block quote formatting. If the "
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
-msgstr ""
+msgstr "删除当前行或选定行的块引用。如果块是嵌套的，只删除最外层块引用。"
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
-msgstr ""
+msgstr "* 无序列表"
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
-msgstr ""
+msgstr "将当前行或选中的行格式化为星号(*)无序列表。"
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
-msgstr ""
+msgstr "- 无序列表"
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
-msgstr ""
+msgstr "将当前行或选中的行格式化为减号(-)无序列表。"
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
-msgstr ""
+msgstr "+ 无序列表"
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
-msgstr ""
+msgstr "将当前行或选中的行格式化为加号(+)无序列表"
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
-msgstr ""
+msgstr "1. 有序列表"
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr ""
+msgstr "将当前行或选中行格式化为数字列表。"
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -237,16 +238,18 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>将当前行或选定行的格式设置为数字列表。</p><p>示例：</p><p>1.项目一<br/>2."
+"项目二<br/>3.项目三<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr ""
+msgstr "1) 有序列表"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -256,21 +259,24 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>将当前行或选定行的格式设置为数字列表。</p><p>示例：</p><p>(1) 项目一<br/"
+">(2) 项目二<br/>(3) 项目三<br/></p><p>注意，此编号格式不被所有Markdown程序支"
+"持，并且这不是通用标记的一部分。</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr ""
+msgstr "任务列表"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr ""
+msgstr "将当前行或选中行格式化为任务列表。"
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -280,23 +286,26 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>将当前行或选定行的格式设置为任务列表。</p><p>示例：</p><p>- [ ] 项目一<br/"
+">- [ ] 项目二<br/>- [ ] 项目三<br/></p><p>注意，此编号格式不被所有Markdown程"
+"序支持，并且这不是通用标记的一部分。</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr ""
+msgstr "切换任务完成状态"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "CTRL+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
-msgstr ""
+msgstr "切换当前任务项或所选任务项为完成或未完成。"
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -310,41 +319,46 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>切换当前任务项或从任务列表中选定的任务项的状态为完成或未完成。</p><p>将此"
+"操作应用于任务列表中未完成的任务项将导致在其括号中放置“x” 像这样：</p><p>- "
+"[x] 项目一<br/></p><p>同样的，将此操作应用于任务列表中已完成的任务项将导致删"
+"除其括号中的“x”， 像这样：</p><p>- [ ] 项目一<br/></p><p>注意，此格式不被所有"
+"Markdown程序支持，并且这不是通用标记的一部分。</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr ""
+msgstr "专注模式"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "SHIFT+F11"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr ""
+msgstr "实时预览"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr ""
+msgstr "海明威模式"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "SHIFT+Backspace"
 
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr ""
+msgstr "切换海明威模式"
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -352,16 +366,17 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"海明威模式禁用 Backspace 键和 Delete 键以帮助您抵制在写入文档时编辑的诱惑。"
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
-msgstr ""
+msgstr "深色模式"
 
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "启用/禁用当前主题的深色方案。"
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -370,31 +385,33 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>开/关当前主题的深色样式。</p><p>如果当前主题不支持深色样式，则此选项可能无"
+"效。</p>"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
-msgstr ""
+msgstr "显示侧边栏"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "CTRL+Space"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr ""
+msgstr "大纲"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "显示文档大纲"
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -404,41 +421,43 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>显示文档大纲。</p><p>使用鼠标左键单击文档中的一个标题，或者按键盘的上下箭"
+"头加上ENTER 键，跳转至当前文档中的不同位置。</p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "会话统计"
 
 #: src/appactions.cpp:245
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "文档统计"
 
 #: src/appactions.cpp:247
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr ""
+msgstr "备忘录"
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "在侧边栏中显示Markdown的快速参考指南。"
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr ""
+msgstr "主题..."
 
 #: src/appactions.cpp:256
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr ""
+msgstr "字体..."
 
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr ""
+msgstr "预览选项..."
 
 #: src/appmain.cpp:92
 msgctxt "main|"
@@ -660,19 +679,19 @@ msgstr "文件备份失败"
 #: src/documentmanager.cpp:925
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr ""
+msgstr "创建备份路径出错：%d"
 
 #: src/documentmanager.cpp:934
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr ""
+msgstr "文件备份失败：无法替代 %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr ""
+msgstr "文件备份失败：无法将 %1 复制到 %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -735,7 +754,7 @@ msgstr "智能图形"
 #: src/export/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr ""
+msgstr "导出时打开"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
@@ -796,7 +815,7 @@ msgstr "突出显示匹配文本"
 #: src/findreplace.cpp:118
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr ""
+msgstr "查找上一个"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
@@ -806,7 +825,7 @@ msgstr "查找上一个"
 #: src/findreplace.cpp:123
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr ""
+msgstr "查找下一个"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
@@ -826,7 +845,7 @@ msgstr "替换所有"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
@@ -878,12 +897,12 @@ msgstr "视图(&V)"
 #: src/mainwindow.cpp:1094
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
-msgstr "设置 (&S)"
+msgstr "设置(&S)"
 
 #: src/mainwindow.cpp:1103
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
-msgstr "帮助 (&H)"
+msgstr "帮助(&H)"
 
 #: src/mainwindow.cpp:1253
 msgctxt "ghostwriter::MainWindow|"
@@ -923,7 +942,7 @@ msgstr ""
 #: src/mainwindow.cpp:1260
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
-msgstr ""
+msgstr "**加粗** __加粗__"
 
 #: src/mainwindow.cpp:1261
 msgctxt "ghostwriter::MainWindow|"
@@ -983,7 +1002,7 @@ msgstr "![图像](./image.jpg \"标题\")"
 #: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
-msgstr ""
+msgstr "--- *** ___ 水平标尺"
 
 #: src/mainwindow.cpp:1322
 msgctxt "ghostwriter::MainWindow|"
@@ -1068,7 +1087,7 @@ msgstr "正方形"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "选择备份目录"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1134,152 +1153,152 @@ msgstr "下划线"
 #: src/settings/preferencesdialog.ui:14
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr ""
+msgstr "偏好设置"
 
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 #: src/settings/preferencesdialog.ui:30
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr ""
+msgstr "显示"
 
 #: src/settings/preferencesdialog.ui:36
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr ""
+msgstr "&在全屏模式下显示当前时间"
 
 #: src/settings/preferencesdialog.ui:43
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr ""
+msgstr "&在全屏模式下隐藏菜单栏"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "显示不间断空格"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "界面风格"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "文件保存"
 
 #: src/settings/preferencesdialog.ui:96
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr ""
+msgstr "&自动保存"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "&保存时备份文件"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr ""
+msgstr "&查看无标题草稿"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr ""
+msgstr "&选择备份文件路径"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
 msgid "Session"
-msgstr ""
+msgstr "会话"
 
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "&记住最近的文件"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr ""
+msgstr "&启动时打开最近文件"
 
 #: src/settings/preferencesdialog.ui:184
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr ""
+msgstr "编辑器"
 
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "制表符"
 
 #: src/settings/preferencesdialog.ui:196
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr ""
+msgstr "&插入空格作为制表符"
 
 #: src/settings/preferencesdialog.ui:205
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
-msgstr ""
+msgstr "制表符宽度"
 
 #: src/settings/preferencesdialog.ui:243
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr ""
+msgstr "样式"
 
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr ""
+msgstr "聚焦模式"
 
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "编辑器宽度"
 
 #: src/settings/preferencesdialog.ui:277
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr ""
+msgstr "块引用样式"
 
 #: src/settings/preferencesdialog.ui:290
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr ""
+msgstr "强调样式"
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr ""
+msgstr "&使用大标题"
 
 #: src/settings/preferencesdialog.ui:328
 msgctxt "PreferencesDialog|"
 msgid "Typing"
-msgstr ""
+msgstr "输入"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr ""
+msgstr "圆点标记"
 
 #: src/settings/preferencesdialog.ui:341
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr ""
+msgstr "&自动匹配字符"
 
 #: src/settings/preferencesdialog.ui:348
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr ""
+msgstr "自定义匹配的字符..."
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1331,7 +1350,7 @@ msgstr "字号"
 #: src/settings/simplefontdialog.cpp:111
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "AaBbCcXxYyZz"
-msgstr ""
+msgstr "AaBbCcXxYyZz"
 
 #: src/settings/simplefontdialog.cpp:115
 msgctxt "ghostwriter::SimpleFontDialog|"
@@ -1391,7 +1410,7 @@ msgstr "每页250个单词"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1463,7 +1482,7 @@ msgstr "复杂的单词："
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1533,7 +1552,7 @@ msgstr "空闲时长："
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1757,7 +1776,7 @@ msgstr "主题"
 #: src/theme/themeselectiondialog.cpp:132
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr ""
+msgstr "预览深色模式"
 
 #: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
