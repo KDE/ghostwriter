@@ -36,6 +36,7 @@
   <name xml:lang="sv">ghostwriter</name>
   <name xml:lang="tr">ghostwriter</name>
   <name xml:lang="uk">ghostwriter</name>
+  <name xml:lang="zh-CN">ghostwriter</name>
   <name xml:lang="zh-TW">ghostwriter</name>
   <summary>Distraction-free text editor for Markdown</summary>
   <summary xml:lang="ar">محرِّر نصوص خالٍ من المشتتات للغة ماركداون</summary>
@@ -180,6 +181,7 @@
   <developer_name xml:lang="sv">Megan Conkle</developer_name>
   <developer_name xml:lang="tr">Megan Conkle</developer_name>
   <developer_name xml:lang="uk">Megan Conkle</developer_name>
+  <developer_name xml:lang="zh-CN">Megan Conkle</developer_name>
   <developer_name xml:lang="zh-TW">Megan Conkle</developer_name>
   <provides>
     <binary>ghostwriter</binary>
