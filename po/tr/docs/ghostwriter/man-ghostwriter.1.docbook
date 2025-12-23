@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Turkish "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>ghostwriter Kullanıcı Kılavuzu</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>ghostwriter man sayfası.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>2022‒09‒17</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>ghostwriter</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>ghostwriter</refname>
+<refpurpose
+>Markdown için dikkat dağıtmayan metin düzenleyicisi</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>DOSYA</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Açıklama</title>
+  <para
+><command
+>ghostwriter</command
+>, Markdown için estetik ve dikkat dağıtmayan bir yazım ortamı sağlayan bir Qt metin düzenleyici uygulamasıdır. </para>
+  <para
+>Kendi özel temalarınızı yaratın, tam ekran olarak yazın veya odak kipinde kullanarak yalnızca bir veya birkaç satıra konsantre olun. </para>
+  <para
+>Canlı bir HTML önizlemesi, yazarken son biçimlendirmeyi görüntülemenize olanak tanır. HTML önizleme ve dışa aktarma seçenekleri yerleşik Markdown işleyicisi olan cmark-gfm tarafından sağlanır; ancak Pandoc, MultiMarkdown veya cmark işlemcilerini de kurarak daha fazla ekleyebilirsiniz. Uygulama, konumları sistemin PATH çevre değişkenindeyse kurulumları kendiliğinden algılayıp kullanmaya başlayacaktır. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Seçenekler</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>GPU ivmelendirmesini devre dışı bırakın.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>Hata Bildirme</title>
+  <para
+>Hataları ve özellik isteklerini <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+> adresinden bildirebilirsiniz.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Ayrıca Bakınız</title>
+<simplelist>
+<member
+>Markdown üzerine daha ayrıntılı kullanıcı belgelendirmesine <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> adresinden ulaşılabilir. </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Telif Hakkı</title>
+<para
+>Telif hakkı &copy; 2022 Megan Conkle</para>
+<para
+>Lisans: GNU Genel Kamu Lisansı sürüm 3 veya sonrası &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
