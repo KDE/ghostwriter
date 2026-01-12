@@ -610,7 +610,7 @@ msgstr "Tot"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr "S'ha produït un error en guardar %1"
+msgstr "S'ha produït un error mentre es guardava %1"
 
 #: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
@@ -727,7 +727,8 @@ msgstr "Ha fallat la còpia de seguretat del fitxer"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
 msgstr ""
-"S'ha produït un error en crear la ubicació de la còpia de seguretat: %d"
+"S'ha produït un error mentre es creava la ubicació de la còpia de seguretat: "
+"%d"
 
 #: src/documentmanager.cpp:934
 #, qt-format
@@ -789,7 +790,7 @@ msgstr "El format %1 no està suportat per este processador."
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr "No s'ha pogut executar l'ordre: "
+msgstr "Ha fallat mentre s'executava l'ordre: "
 
 #: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
 msgctxt "ghostwriter::ExportDialog|"
@@ -1085,7 +1086,7 @@ msgstr "Configuració"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr "S'ha produït un error en carregar «resources/preview.html»"
+msgstr "S'ha produït un error mentre es carregava «resources/preview.html»"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
@@ -1867,7 +1868,7 @@ msgstr "Segur que voleu suprimir permanentment el tema «%1»?"
 #: src/theme/themeselectiondialog.cpp:401
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr "No s'ha pogut suprimir el tema."
+msgstr "Ha fallat mentre se suprimia el tema."
 
 #: src/theme/themeselectiondialog.cpp:428
 msgctxt "ghostwriter::ThemeSelectionDialog|"
