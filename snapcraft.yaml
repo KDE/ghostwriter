@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2023-2025 Scarlett Moore <sgmoore@kde.org>
+# SPDX-FileCopyrightText: 2023-2026 Scarlett Moore <sgmoore@kde.org>
 #
 # SPDX-License-Identifier: CC0-1.0
 ---
@@ -34,15 +34,6 @@ slots:
     interface: dbus
     name: org.kde.ghostwriter
     bus: session
-package-repositories:
-  - type: apt
-    components:
-      - main
-    suites:
-      - noble
-    key-id: 444DABCF3667D0283F894EDDE6D4736255751E5D
-    url: http://origin.archive.neon.kde.org/user
-    key-server: keyserver.ubuntu.com
 parts:
   ghostwriter:
     parse-info:
@@ -51,8 +42,20 @@ parts:
     source: .
     source-type: local
     build-snaps:
+      - kde-qt6-core24-sdk/latest/beta
+      - kf6-core24-sdk/latest/beta
       - hunspell-dictionaries
     build-packages:
+      - libxml2-dev
+      - gettext
+      - doxygen
+      - graphviz
+      - libxml2-utils
+      - docbook-xml
+      - docbook-xsl
+      - libglx-dev
+      - libgl-dev
+      - libglvnd-dev
       - libhunspell-dev
     stage-packages:
       - pandoc
@@ -65,19 +68,7 @@ parts:
       - -DQT_MAJOR_VERSION=6
       - -DBUILD_WITH_QT6=ON
       - -DBUILD_TESTING=OFF
-      - -DCMAKE_INSTALL_SYSCONFDIR=/etc
-      - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
-      - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
-      - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
-      - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
-      - -DCMAKE_INSTALL_RUNSTATEDIR=/run
-      - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
-      - -DCMAKE_VERBOSE_MAKEFILE=ON
-      - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR
-      - --log-level=STATUS
-      - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR
     build-environment:
-      - LD_LIBRARY_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/ffmpeg-2404-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:${LD_LIBRARY_PATH}"
       - DICPATH: "$SNAP/usr/share/hunspell"
     prime:
       - -usr/lib/*/cmake/*
