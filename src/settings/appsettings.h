@@ -1,5 +1,6 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2026 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2026 Nate Peterson
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -110,6 +111,10 @@ public:
     bool fileHistoryEnabled() const;
     Q_SLOT void setFileHistoryEnabled(bool enabled);
     Q_SIGNAL void fileHistoryChanged(bool enabled);
+
+    bool folderViewShowAllFilesEnabled() const;
+    Q_SLOT void setFolderViewShowAllFilesEnabled(bool enabled);
+    Q_SIGNAL void folderViewShowAllFilesChanged(bool enabled);
 
     bool displayTimeInFullScreenEnabled();
     Q_SLOT void setDisplayTimeInFullScreenEnabled(bool enabled);

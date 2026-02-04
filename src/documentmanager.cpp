@@ -367,7 +367,7 @@ void DocumentManager::open()
     }
 }
 
-void DocumentManager::openFileAt(const Bookmark &location)
+void DocumentManager::openFileAt(const Bookmark &location, bool omitFromHistory)
 {
     Q_D(DocumentManager);
 
@@ -394,7 +394,7 @@ void DocumentManager::openFileAt(const Bookmark &location)
             }
 
             if (d->restoreSessionEnabled) {
-                Library().setLastOpened(location, d->fileHistoryEnabled);
+                Library().setLastOpened(location, d->fileHistoryEnabled && !omitFromHistory);
                 emit sessionHistoryChanged();
             }
         }

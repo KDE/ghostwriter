@@ -170,7 +170,7 @@ public slots:
     /**
      * Loads the document with the file contents at the given path.
      */
-    void openFileAt(const Bookmark &location);
+    void openFileAt(const Bookmark &location, bool omitFromHistory = false);
 
     /**
      * Creates an untitled document.

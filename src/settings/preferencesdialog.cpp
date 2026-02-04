@@ -1,5 +1,6 @@
 /*
- * SPDX-FileCopyrightText: 2016-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2016-2026 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2026 Nate Peterson
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -211,6 +212,9 @@ void PreferencesDialogPrivate::initializeGeneralTab()
 
     ui->restoreSessionCheckBox->setChecked(appSettings->restoreSessionEnabled());
     q->connect(ui->restoreSessionCheckBox, &QPushButton::toggled, appSettings, &AppSettings::setRestoreSessionEnabled);
+
+    ui->folderViewShowAllFilesCheckBox->setChecked(appSettings->folderViewShowAllFilesEnabled());
+    connect(ui->folderViewShowAllFilesCheckBox, &QCheckBox::toggled, appSettings, &AppSettings::setFolderViewShowAllFilesEnabled);
 }
 
 void PreferencesDialogPrivate::initializeEditorTab()

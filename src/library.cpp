@@ -15,6 +15,7 @@
 #define LAST_OPENED_FILE_KEY "LastOpenedFile"
 #define FILE_HISTORY_KEY "FileHistory"
 #define FILE_PATH_KEY "filePath"
+#define FOLDER_PATH_KEY "folderPath"
 #define CURSOR_POSITION_KEY "cursorPosition"
 
 namespace ghostwriter
@@ -27,6 +28,7 @@ public:
     ~LibraryPrivate() { }
 
     bool dirty;
+    QString lastLoadedFolderPath;
     Bookmark lastOpened;
     BookmarkList recentFiles;
 };
@@ -37,6 +39,7 @@ Library::Library()
     : d(new LibraryPrivate())
 {
     QString lastOpenedPath;
+    QString lastOpenedFolderPath;
     int lastOpenedPos;
 
     QSettings settings;
@@ -46,6 +49,7 @@ Library::Library()
 
     settings.beginGroup(LAST_OPENED_FILE_KEY);
     lastOpenedPath = settings.value(FILE_PATH_KEY, QString()).toString();
+    lastOpenedFolderPath = settings.value(FOLDER_PATH_KEY, QString()).toString();
     lastOpenedPos = settings.value(CURSOR_POSITION_KEY, 0).toInt();
     settings.endGroup();
 
@@ -60,6 +64,10 @@ Library::Library()
         if (!d->lastOpened.isValid()) {
             d->lastOpened = UNTITLED;
         }
+    }
+
+    if (!lastOpenedFolderPath.isEmpty()) {
+        d->lastLoadedFolderPath = lastOpenedFolderPath;
     }
 
     // Load the recent file history.
@@ -113,6 +121,23 @@ void Library::updateLastOpened(const Bookmark &bookmark)
         removeRecent(d->lastOpened);
         removeRecent(bookmark);
         d->lastOpened = bookmark;
+        d->dirty = true;
+    }
+}
+
+const QString &Library::lastLoadedFolderPath() const
+{
+    return d->lastLoadedFolderPath;
+}
+
+void Library::setLastLoadedFolder(const QString &folderPath)
+{
+    if (folderPath.isNull() || folderPath.isEmpty()) {
+        return;
+    }
+
+    if (d->lastLoadedFolderPath.compare(folderPath) != 0) {
+        d->lastLoadedFolderPath = folderPath;
         d->dirty = true;
     }
 }
@@ -192,6 +217,7 @@ void Library::sync()
     } else {
         settings.beginGroup(LAST_OPENED_FILE_KEY);
         settings.setValue(FILE_PATH_KEY, d->lastOpened.filePath());
+        settings.setValue(FOLDER_PATH_KEY, d->lastLoadedFolderPath);
         settings.setValue(CURSOR_POSITION_KEY, d->lastOpened.cursorPosition());
         settings.endGroup();
     }

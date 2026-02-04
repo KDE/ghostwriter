@@ -68,6 +68,20 @@ public:
     void updateLastOpened(const Bookmark &bookmark);
 
     /**
+     * Returns the last loaded folder path for the folder view.
+     * If there is no last loaded folder, a null QString is returned:
+     * isNull() and isEmpty() will return true.
+     */
+    const QString &lastLoadedFolderPath() const;
+
+    /**
+     * Sets the last loaded folder path for the folder view.
+     * This is used to restore the folder view to the last opened folder
+     * on launch, even if the last opened file was in a subdirectory.
+     */
+    void setLastLoadedFolder(const QString &folderPath);
+
+    /**
      * Finds the bookmark for the bookmark at the given file path, regardless
      * of cursor position. If none is found, this method returns a null bookmark
      * (i.e., the bookmark's isNull() method returns true).

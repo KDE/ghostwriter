@@ -1,7 +1,8 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2026 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2014 Aurélien Gâteau <agateau@kde.org>
  * SPDX-FileCopyrightText: 2015 Alex Merry <alex.merry@kde.org>
+ * SPDX-FileCopyrightText: 2026 Nate Peterson
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-License-Identifier: BSD-3-Clause
@@ -29,6 +30,7 @@ namespace constants
 constexpr auto GW_FAVORITE_STATISTIC_KEY{"Session/favoriteStatistic"};
 constexpr auto GW_RESTORE_SESSION_KEY{"Session/restoreSession"};
 constexpr auto GW_REMEMBER_FILE_HISTORY_KEY{"Session/rememberFileHistory"};
+constexpr auto GW_REMEMBER_FOLDER_VIEW_SHOW_ALL_FILES_KEY{"Sidebar/rememberFolderViewShowAllFiles"};
 constexpr auto GW_AUTOSAVE_KEY{"Save/autoSave"};
 constexpr auto GW_BACKUP_FILE_KEY{"Save/backupFile"};
 constexpr auto GW_EDITOR_FONT_KEY{"Style/editorFont"};
@@ -88,6 +90,7 @@ public:
     int favoriteStatistic;
     bool restoreSessionEnabled;
     bool fileHistoryEnabled;
+    bool folderViewShowAllFilesEnabled;
     bool hideMenuBarInFullScreenEnabled;
     bool htmlPreviewVisible;
     bool sidebarVisible;
@@ -159,6 +162,7 @@ void AppSettings::store()
     appSettings.setValue(constants::GW_RESTORE_SESSION_KEY, QVariant(d->restoreSessionEnabled));
     appSettings.setValue(constants::GW_FAVORITE_STATISTIC_KEY, QVariant(d->favoriteStatistic));
     appSettings.setValue(constants::GW_REMEMBER_FILE_HISTORY_KEY, QVariant(d->fileHistoryEnabled));
+    appSettings.setValue(constants::GW_REMEMBER_FOLDER_VIEW_SHOW_ALL_FILES_KEY, QVariant(d->folderViewShowAllFilesEnabled));
     appSettings.setValue(constants::GW_SPACES_FOR_TABS_KEY, QVariant(d->insertSpacesForTabsEnabled));
     appSettings.setValue(constants::GW_TAB_WIDTH_KEY, QVariant(d->tabWidth));
     appSettings.setValue(constants::GW_THEME_KEY, QVariant(d->themeName));
@@ -477,6 +481,21 @@ void AppSettings::setFileHistoryEnabled(bool enabled)
     
     d->fileHistoryEnabled = enabled;
     emit fileHistoryChanged(enabled);
+}
+
+bool AppSettings::folderViewShowAllFilesEnabled() const
+{
+    Q_D(const AppSettings);
+    
+    return d->folderViewShowAllFilesEnabled;
+}
+
+void AppSettings::setFolderViewShowAllFilesEnabled(bool enabled)
+{
+    Q_D(AppSettings);
+
+    d->folderViewShowAllFilesEnabled = enabled;
+    emit folderViewShowAllFilesChanged(enabled);
 }
 
 bool AppSettings::displayTimeInFullScreenEnabled()
@@ -821,6 +840,7 @@ AppSettings::AppSettings()
     d->favoriteStatistic = appSettings.value(constants::GW_FAVORITE_STATISTIC_KEY, QVariant(0)).toInt();
     d->restoreSessionEnabled = appSettings.value(constants::GW_RESTORE_SESSION_KEY, QVariant(true)).toBool();
     d->fileHistoryEnabled = appSettings.value(constants::GW_REMEMBER_FILE_HISTORY_KEY, QVariant(true)).toBool();
+    d->folderViewShowAllFilesEnabled = appSettings.value(constants::GW_REMEMBER_FOLDER_VIEW_SHOW_ALL_FILES_KEY, QVariant(false)).toBool();
     d->displayTimeInFullScreenEnabled = appSettings.value(constants::GW_DISPLAY_TIME_IN_FULL_SCREEN_KEY, QVariant(true)).toBool();
     d->themeName = appSettings.value(constants::GW_THEME_KEY, QVariant("Classic Light")).toString();
     d->darkModeEnabled = appSettings.value(constants::GW_DARK_MODE_KEY, QVariant(true)).toBool();

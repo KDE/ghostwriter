@@ -66,6 +66,7 @@ target_sources(ghostwriter PRIVATE
     bookmark.cpp
     documentmanager.cpp
     findreplace.cpp
+    folderviewwidget.cpp
     library.cpp
     logging.cpp
     mainwindow.cpp

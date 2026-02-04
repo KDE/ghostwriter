@@ -1,5 +1,6 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2026 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2026 Nate Peterson
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -37,6 +38,7 @@
 #include "bookmark.h"
 #include "documentmanager.h"
 #include "findreplace.h"
+#include "folderviewwidget.h"
 #include "outlinewidget.h"
 #include "sidebar.h"
 #include "timelabel.h"
@@ -71,6 +73,7 @@ private slots:
     void toggleFullScreen(bool checked);
     void toggleHideMenuBarInFullScreen(bool checked);
     void toggleFileHistoryEnabled(bool checked);
+    void toggleFolderViewShowAllFilesEnabled(bool checked);
     void toggleDisplayTimeInFullScreen(bool checked);
     void changeEditorWidth(EditorWidth editorWidth);
     void changeInterfaceStyle(InterfaceStyle style);
@@ -109,6 +112,7 @@ private:
     QLabel *statusIndicator;
     TimeLabel *timeIndicator;
     HtmlPreview *htmlPreview;
+    FolderViewWidget *folderViewWidget = nullptr;
     OutlineWidget *outlineWidget;
     DocumentStatistics *documentStats;
     DocumentStatisticsWidget *documentStatsWidget;

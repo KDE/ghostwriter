@@ -1,6 +1,7 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2025 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2026 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
+ * SPDX-FileCopyrightText: 2026 Nate Peterson
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -65,7 +66,8 @@ using namespace std::placeholders;
 
 enum SidebarTabIndex {
     FirstSidebarTab,
-    OutlineSidebarTab = FirstSidebarTab,
+    FolderViewSidebarTab = FirstSidebarTab,
+    OutlineSidebarTab,
     SessionStatsSidebarTab,
     DocumentStatsSidebarTab,
     CheatSheetSidebarTab,
@@ -93,11 +95,14 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     // create it.
     if (!fileToOpen.isValid() && !fileToOpen.isNull()) {
         QFile file(fileToOpen.filePath());
-        file.open(QIODevice::WriteOnly);
-        file.close();
-    }
-
-    if (appSettings->restoreSessionEnabled()) {
+        if (!file.open(QIODevice::WriteOnly)) {
+            // Trigger opening an untitled, new document instead.
+            fileToOpen = Bookmark();
+            MessageBoxHelper::critical(this, tr("Could not create file: %1").arg(filePath), file.errorString());
+        } else {
+            file.close();
+        }
+    } else if (appSettings->restoreSessionEnabled()) {
         if (!fileToOpen.isValid()) {
             Bookmark lastOpened = Library().lastOpened();
 
@@ -113,6 +118,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, &AppSettings::focusModeChanged, this, &MainWindow::changeFocusMode);
     connect(appSettings, &AppSettings::hideMenuBarInFullScreenChanged, this, &MainWindow::toggleHideMenuBarInFullScreen);
     connect(appSettings, &AppSettings::fileHistoryChanged, this, &MainWindow::toggleFileHistoryEnabled);
+    connect(appSettings, &AppSettings::folderViewShowAllFilesChanged, this, &MainWindow::toggleFolderViewShowAllFilesEnabled);
     connect(appSettings, &AppSettings::displayTimeInFullScreenChanged, this, &MainWindow::toggleDisplayTimeInFullScreen);
     connect(appSettings, &AppSettings::editorWidthChanged, this, &MainWindow::changeEditorWidth);
     connect(appSettings, &AppSettings::interfaceStyleChanged, this, &MainWindow::changeInterfaceStyle);
@@ -122,10 +128,16 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(documentManager, &DocumentManager::documentLoaded, documentManager, [this]() {
         sessionStats->startNewSession(documentStats->wordCount());
         refreshRecentFiles();
+
+        folderViewWidget->reloadFolderViewFromPath(documentManager->document()->filePath(), appSettings->folderViewShowAllFilesEnabled());
     });
 
     connect(documentManager, &DocumentManager::documentClosed, documentManager, [this]() {
         sessionStats->startNewSession(0);
+    });
+
+    connect(folderViewWidget, &FolderViewWidget::fileSelected, documentManager, [this](const QString &filePath) {
+        documentManager->openFileAt(Bookmark(filePath), true);
     });
 
     qApp->installEventFilter(this);
@@ -410,6 +422,13 @@ void MainWindow::toggleFileHistoryEnabled(bool checked)
     }
 
     documentManager->setFileHistoryEnabled(checked);
+}
+
+void MainWindow::toggleFolderViewShowAllFilesEnabled(bool checked)
+{
+    if (folderViewWidget != nullptr) {
+        folderViewWidget->setShowAllFiles(checked);
+    }
 }
 
 void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
@@ -1319,6 +1338,8 @@ void MainWindow::setupSidebar()
     sidebar->setMinimumWidth(0.1 * QGuiApplication::primaryScreen()->availableSize().width());
     sidebar->setMaximumWidth(0.5 * QGuiApplication::primaryScreen()->availableSize().width());
 
+    folderViewWidget = new FolderViewWidget(this);
+    sidebar->addTab(primaryIconTheme->icon("open-file"), folderViewWidget, tr("Folder View"));
     sidebar->addTab(primaryIconTheme->icon("outline"), outlineWidget, tr("Outline"));
     sidebar->addTab(primaryIconTheme->icon("session-statistics"), sessionStatsWidget, tr("Session Statistics"));
     sidebar->addTab(primaryIconTheme->icon("document-statistics"), documentStatsWidget, tr("Document Statistics"));
