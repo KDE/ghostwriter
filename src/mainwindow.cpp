@@ -1,4 +1,4 @@
-﻿/*
+/*
  * SPDX-FileCopyrightText: 2014-2025 Megan Conkle <megan.conkle@kdemail.net>
  * SPDX-FileCopyrightText: 2009-2014 Graeme Gott <graeme@gottcode.org>
  *
@@ -314,11 +314,35 @@ void MainWindow::openPreferencesDialog()
 
 void MainWindow::toggleHtmlPreview(bool checked)
 {
+    if (appAction(AppActions::PreviewOnly)->isChecked()) {
+        return;
+    }
     htmlPreview->setVisible(checked);
     htmlPreview->updatePreview();
     appSettings->setHtmlPreviewVisible(checked);
     this->update();
     adjustEditor();
+}
+
+void MainWindow::togglePreviewOnly(bool checked)
+{
+    if (checked) {
+        appAction(AppActions::Preview)->setChecked(true);
+        sidebar->setVisible(false);
+        editor->setVisible(false);
+        htmlPreview->setVisible(true);
+        htmlPreview->setMaximumWidth(16777215);
+        htmlPreview->updatePreview();
+        htmlPreview->setFocus();
+    } else {
+        sidebar->setVisible(appSettings->sidebarVisible());
+        editor->setVisible(true);
+        htmlPreview->setVisible(appSettings->htmlPreviewVisible());
+        appAction(AppActions::Preview)->setChecked(appSettings->htmlPreviewVisible());
+        adjustEditor();
+        editor->setFocus();
+    }
+    this->update();
 }
 
 void MainWindow::toggleHemingwayMode(bool checked)
@@ -802,6 +826,8 @@ void MainWindow::setupActions()
     m_actions->connect(AppActions::DistractionFreeMode, this, &MainWindow::toggleFocusMode);
     appAction(AppActions::Preview)->setChecked(appSettings->htmlPreviewVisible());
     m_actions->connect(AppActions::Preview, this, &MainWindow::toggleHtmlPreview);
+    appAction(AppActions::PreviewOnly)->setChecked(false);
+    m_actions->connect(AppActions::PreviewOnly, this, &MainWindow::togglePreviewOnly);
     m_actions->connect(AppActions::HemingwayMode, this, &MainWindow::toggleHemingwayMode);
     appAction(AppActions::DarkMode)->setChecked(appSettings->darkModeEnabled());
     m_actions->connect(AppActions::DarkMode, this, [this](bool enabled) {
@@ -1077,6 +1103,7 @@ void MainWindow::setupMenuBar()
     menu->addAction(appAction(AppActions::FullScreen));
     menu->addAction(appAction(AppActions::DistractionFreeMode));
     menu->addAction(appAction(AppActions::Preview));
+    menu->addAction(appAction(AppActions::PreviewOnly));
     menu->addAction(appAction(AppActions::HemingwayMode));
     menu->addAction(appAction(AppActions::DarkMode));
     menu->addSeparator();
@@ -1365,6 +1392,11 @@ void MainWindow::adjustEditor()
 {
     // Make sure editor size is updated.
     qApp->processEvents();
+
+    if (appAction(AppActions::PreviewOnly)->isChecked()) {
+        htmlPreview->setMaximumWidth(16777215);
+        return;
+    }
 
     int width = this->width();
     int sidebarWidth = 0;

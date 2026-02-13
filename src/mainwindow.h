@@ -1,4 +1,4 @@
-﻿/*
+/*
  * SPDX-FileCopyrightText: 2014-2024 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -66,6 +66,7 @@ private slots:
     void changeTheme();
     void openPreferencesDialog();
     void toggleHtmlPreview(bool checked);
+    void togglePreviewOnly(bool checked);
     void toggleHemingwayMode(bool checked);
     void toggleFocusMode(bool checked);
     void toggleFullScreen(bool checked);
