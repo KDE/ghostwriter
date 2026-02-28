@@ -3,12 +3,12 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2024.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2024-07-09 11:55+0200\n"
+"PO-Revision-Date: 2024-10-14 20:23+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -27,7 +27,7 @@ msgstr "Torna a obrir l'últim fitxer tancat"
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr "Ctrl+Maj+T"
+msgstr "Ctrl+Majús+T"
 
 #: src/appactions.cpp:87
 msgctxt "ghostwriter::AppActions|"
@@ -57,7 +57,7 @@ msgstr "Copia l'&HTML"
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr "Maj+Ctrl+C"
+msgstr "Majús+Ctrl+C"
 
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
@@ -113,7 +113,7 @@ msgstr "Sense sagnar"
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr "«Maj+Tab»"
+msgstr "Majús+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -133,7 +133,7 @@ msgstr "Cita de bloc"
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr "Ctrl+Maj+."
+msgstr "Ctrl+Majús+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
@@ -159,7 +159,7 @@ msgstr "Elimina la cita de bloc"
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr "Ctrl+Maj+,"
+msgstr "Ctrl+Majús+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
@@ -196,7 +196,7 @@ msgid ""
 "asterisk (*)."
 msgstr ""
 "Dona format a la línia actual o les línies seleccionades com una llista de "
-"pics amb un asteric (*)."
+"pics amb un asterisc (*)."
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
@@ -367,7 +367,7 @@ msgstr "Mode lliure de distracció"
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr "Maj+F11"
+msgstr "Majús+F11"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
@@ -387,7 +387,7 @@ msgstr "Mode Hemingway"
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr "Maj+Retrocés"
+msgstr "Majús+Retrocés"
 
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
@@ -400,8 +400,8 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
-"El mode Hemingway desactiva les tecles de retrocés i suprimir per a ajudar-"
-"vos a resistir la temptació d'editar el document mentre l'escriviu."
+"El mode Hemingway desactiva les tecles de retrocés i suprimir per ajudar-vos "
+"a resistir la temptació d'editar el document mentre l'escriviu."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
@@ -459,7 +459,7 @@ msgid ""
 msgstr ""
 "<p>Mostra l'esquema del document.</p><p>Utilitzeu el ratolí i el clic "
 "esquerre del ratolí sobre una capçalera del document, o bé les fletxes amunt "
-"i avall del teclat i la tecla «Retorn», per saltar fins a ubicacions "
+"i avall del teclat i la tecla «Retorn», per a saltar fins a ubicacions "
 "diferents dins del document actual.</p>"
 
 #: src/appactions.cpp:243
@@ -610,7 +610,7 @@ msgstr "Tot"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr "S'ha produït un error en guardar %1"
+msgstr "S'ha produït un error mentre es guardava %1"
 
 #: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
@@ -727,7 +727,8 @@ msgstr "Ha fallat la còpia de seguretat del fitxer"
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
 msgstr ""
-"S'ha produït un error en crear la ubicació de la còpia de seguretat: %d"
+"S'ha produït un error mentre es creava la ubicació de la còpia de seguretat: "
+"%d"
 
 #: src/documentmanager.cpp:934
 #, qt-format
@@ -789,7 +790,7 @@ msgstr "El format %1 no està suportat per este processador."
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr "No s'ha pogut executar l'ordre: "
+msgstr "Ha fallat mentre s'executava l'ordre: "
 
 #: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
 msgctxt "ghostwriter::ExportDialog|"
@@ -1085,7 +1086,7 @@ msgstr "Configuració"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr "S'ha produït un error en carregar «resources/preview.html»"
+msgstr "S'ha produït un error mentre es carregava «resources/preview.html»"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
@@ -1140,7 +1141,7 @@ msgstr "Quadrat"
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr "Seleccioneu el directori de còpies de seguretat"
+msgstr "Trieu el directori de còpies de seguretat"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1266,7 +1267,7 @@ msgstr "&"
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "&Selecciona la ubicació de la carpeta de còpies de seguretat…"
+msgstr "&Tria la ubicació de la carpeta de còpies de seguretat…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1367,7 +1368,7 @@ msgstr "Variant de Markdown"
 #: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
-msgstr "Seleccioneu…"
+msgstr "Tria…"
 
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1448,7 +1449,7 @@ msgstr "La verificació ortogràfica ha finalitzat!"
 #: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
-msgstr "&lt; 1m"
+msgstr "&lt; 1 m"
 
 #: src/statistics/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -1469,13 +1470,13 @@ msgstr "<b>%L1%</b>"
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
-msgstr "%1h %2m"
+msgstr "%1 h %2 m"
 
 #: src/statistics/abstractstatisticswidget.cpp:55
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
-msgstr "%1m"
+msgstr "%1 m"
 
 #: src/statistics/documentstatisticswidget.cpp:19
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1799,13 +1800,13 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr "«%1» ja existix. Seleccioneu un altre nom."
+msgstr "«%1» ja existix. Trieu un altre nom."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr "El tema «%1» ja existix. Seleccioneu un altre nom."
+msgstr "El tema «%1» ja existix. Trieu un altre nom."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1867,7 +1868,7 @@ msgstr "Segur que voleu suprimir permanentment el tema «%1»?"
 #: src/theme/themeselectiondialog.cpp:401
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr "No s'ha pogut suprimir el tema."
+msgstr "Ha fallat mentre se suprimia el tema."
 
 #: src/theme/themeselectiondialog.cpp:428
 msgctxt "ghostwriter::ThemeSelectionDialog|"

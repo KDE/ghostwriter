@@ -46,7 +46,7 @@ An installer is planned in the future and will be hosted at the [KDE binary fact
 
 ## Build
 
-If you wish to build from the source code, you will need Qt 5, available from <http://www.qt.io/> if you are on Windows, or in your Linux distribution's repository. If you are on MacOS you will need the latest Qt 5 from brew.
+If you wish to build from the source code, you will need Qt 6, available from <http://www.qt.io/> if you are on Windows, or in your Linux distribution's repository. If you are on MacOS you will need the latest Qt 6 from brew.
 
 This documentation assumes you already have the source code unzipped in a folder.
 
@@ -62,11 +62,11 @@ Obviously, the best option is to continue using Qt 5 on Windows for as long as p
 
 ### Linux
 
-Before proceeding, ensure that you have the necessary packages installed for Qt 5 and KDE Frameworks.
+Before proceeding, ensure that you have the necessary packages installed for Qt 6 and KDE Frameworks.
 
 For Debian or Ubuntu distributions:
 
-    $ sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev pkg-config libqt5concurrent5 qttools5-dev-tools qttools5-dev libkf5coreaddons-dev libkf5xmlgui-dev libkf5configwidgets-dev libkf5sonnet-dev libkf5doctools5 libkf5doctools-dev cmake extra-cmake-modules libhunspell-dev
+    $ sudo apt install g++ qtbase5-dev libqt5svg5-dev qtmultimedia5-dev qtwebengine5-dev libqt5concurrent5 qttools5-dev-tools qttools5-dev libkf5coreaddons-dev libkf5xmlgui-dev libkf5configwidgets-dev libkf5sonnet-dev libkf5doctools5 libkf5doctools-dev cmake extra-cmake-modules
 
 For Fedora:
 
@@ -95,10 +95,7 @@ Prerequisites
 
 Install the dependencies
 
-    sudo pkg inst hunspell en-hunspell pkgconf qt5-svg qt5-multimedia \
-    qt5-webengine qt5-concurrent qt5-buildtools qt5-qmake qt5-linguist
-
-You will also need to install QtWebEngine
+    sudo pkg install cmake ninja kf6-extra-cmake-modules kf6-kconfigwidgets kf6-kcoreaddons kf6-kdoctools kf6-kwidgetsaddons kf6-kxmlgui kf6-sonnet qt6-base qt6-svg qt6-tools qt6-webengine
 
 Get the sources
 

@@ -78,11 +78,6 @@ target_sources(ghostwriter PRIVATE
     ${ghostwriter_QM_LOADER}
 )
 
-if (UNIX)
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(Hunspell REQUIRED IMPORTED_TARGET hunspell)
-    target_link_libraries(ghostwriter PRIVATE PkgConfig::Hunspell)
-endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Concurrent

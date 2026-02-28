@@ -1,163 +1,163 @@
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-19 23:12+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
-"Language: gl\n"
+"PO-Revision-Date: 2025-04-04 20:03+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
 "X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "Reabrir o último ficheiro pechado"
+msgstr "Atkārtoti atvērt pēdējo aizvērto datni"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr "Ctrl+Maiús+T"
+msgstr "Ctrl+Shift+T"
 
 #: src/appactions.cpp:87
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "Baleirar a lista"
+msgstr "Notīrīt sarakstu"
 
 #: src/appactions.cpp:91
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "Recargar do disco…"
+msgstr "Pārlādēt no diska..."
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
-msgstr "Exportar"
+msgstr "Eksportēt"
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr "Ctrl+E"
+msgstr "CTRL+E"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
-msgstr "Copiar como &HTML"
+msgstr "Kopēt &HTML"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr "Maiús+Ctrl+C"
+msgstr "SHIFT+CTRL+C"
 
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr "&Inserir unha imaxe…"
+msgstr "&Ievietot attēlu..."
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr "Forte"
+msgstr "Stiprs"
 
 #: src/appactions.cpp:115
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
-msgstr "Énfase"
+msgstr "Uzsvars"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
-msgstr "Riscado"
+msgstr "Pārsvītrots"
 
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr "Ctrl+K"
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr "Comentario de HTML"
+msgstr "HTML komentārs"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr "Ctrl+/"
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
-msgstr "Sangrar"
+msgstr "Atkāpe"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr "Tab"
+msgstr "Tabulators"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "Reducir o sangrado"
+msgstr "Noņemt atkāpi"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr "Maiús+Tab"
+msgstr "SHIFT+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr "Bloques de &código"
+msgstr "&Koda ietvari"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr "Ctrl+G"
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr "Bloque de cita"
+msgstr "Bloka citāts"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr "Ctrl+Maiús+."
+msgstr "CTRL+SHIFT+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr "Formata a liña actual ou as seleccionadas como bloque de cita."
+msgstr "Formatē pašreizējo rindu vai atlasītās rindas kā citāta bloku."
 
-# skip-rule: trasno-sound_reverse
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
-"Formata a liña actual ou as seleccionadas como bloque de cita. Se xa son un "
-"bloque de cita, aníñase."
+"Formatē pašreizējo rindu vai atlasītās rindas kā citāta bloku. Ja rinda jau "
+"ir citāta bloks, tad kā apakšcitāta bloku."
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr "Retirar o bloque de cita"
+msgstr "Noņemt citāta bloku"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr "Ctrl+Maiús+,"
+msgstr "CTRL+SHIFT+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
 msgstr ""
-"Retira da liña actual ou das seleccionadas o formato de bloque de cita."
+"Pašreizējai rindai vai atlasītajām rindām noņem citāta bloka formatējumu."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -166,18 +166,18 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
-"Retira da liña actual ou das seleccionadas o formato de bloque de cita. Se o "
-"bloque está aniñado, só se retira do bloque máis interno."
+"Pašreizējai rindai vai atlasītajām rindām noņem citāta bloka formatējumu. Ja "
+"tas ir apakšbloks, noņem tikai pēdējo bloka līmeni."
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
-msgstr "* Lista"
+msgstr "* aizzīmju saraksts"
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr "Ctrl+8"
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
@@ -185,17 +185,18 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
-"Formata a liña actual ou as seleccionadas como lista cun asterisco (*)."
+"Formatē pašreizējo rindu vai atlasītās rindas kā aizzīmju sarakstu ar "
+"zvaigznītēm (*)."
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
-msgstr "- Lista"
+msgstr "- aizzīmju saraksts"
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr "Ctrl+-"
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -203,17 +204,18 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
-"Formata a liña actual ou as seleccionadas como lista cun guión curto (-)."
+"Formatē pašreizējo rindu vai atlasītās rindas kā aizzīmju sarakstu ar "
+"defisēm (-)."
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
-msgstr "+ Lista"
+msgstr "+ aizzīmju saraksts"
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr "Ctrl++"
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -221,22 +223,23 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
-"Formata a liña actual ou as seleccionadas como lista cun signo de sumar (+)."
+"Formatē pašreizējo rindu vai atlasītās rindas kā aizzīmju sarakstu ar plusa "
+"zīmēm (+)."
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
-msgstr "1. Lista numerada"
+msgstr "1. numurēts saraksts"
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr "Ctrl+1"
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr "Formata a liña actual ou as seleccionadas como lista numerada."
+msgstr "Formatē pašreizējo rindu vai atlasītās rindas kā numurētu sarakstu."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -244,19 +247,19 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
-"<p>Formata a liña actual ou as seleccionadas como lista numerada.</"
-"p><p>Exemplo:</p><p>1. Primeiro elemento<br/>2. Segundo elemento<br/>3. "
-"Terceiro elemento<br/></p>"
+"<p>Formatē pašreizējo rindu vai atlasītās rindas kā numurētu sarakstu.</"
+"p><p>Piemērs:</p><p>1. pirmais vienums<br/>2. otrais vienums<br/>3. trešais "
+"vienums<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr "1) Lista numerada"
+msgstr "1) numurēts saraksts"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr "Ctrl+0"
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -266,25 +269,25 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
-"<p>Formata a liña actual ou as seleccionadas como lista numerada.</"
-"p><p>Exemplo:</p><p>1) Primeiro elemento<br/>2) Segundo elemento<br/>3) "
-"Terceiro elemento<br/></p><p>Teña en conta que non todos os procesadores de "
-"Markdown permiten este formato de numeración; non é parte de CommonMark.</p>"
+"<p>Formatē pašreizējo rindu vai atlasītās rindas kā numurētu sarakstu.</"
+"p><p>Piemērs:</p><p>1) pirmais vienums<br/>2) otrais vienums<br/>3) trešais "
+"vienums<br/></p><p>Ievērojiet, ka šo numurēšanas formātu neatbalsta visas "
+"„Markdown“ tekstapstrādes programmas un tas nav daļa no „CommonMark“.</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr "Lista de tarefas"
+msgstr "Uzdevumu saraksts"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr "Ctrl+T"
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr "Formata a liña actual ou as seleccionadas como lista de tarefas."
+msgstr "Formatē pašreizējo rindu vai atlasītās rindas kā uzdevumu sarakstu."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -294,30 +297,29 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
-"<p>Formata a liña actual ou as seleccionadas como lista de tarefas.</"
-"p><p>Exemplo:</p><p>- [ ] Primeiro elemento<br/>- [ ] Segundo elemento<br/>- "
-"[ ] Terceiro elemento<br/></p><p>Teña en conta que non todos os procesadores "
-"de Markdown permiten listas de tarefas; non son parte de CommonMark.</p>"
+"<p>Formatē pašreizējo rindu vai atlasītās rindas kā uzdevumu sarakstu.</"
+"p><p>Piemērs:</p><p>- [ ] pirmais vienums<br/>- [ ] otrais vienums<br/>- [ ] "
+"trešais vienums<br/></p><p>Ievērojiet, ka uzdevumu sarakstu neatbalsta visas "
+"„Markdown“ tekstapstrādes programmas un tas nav daļa no „CommonMark“.</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "Conmutar a completación das tarefas"
+msgstr "Pārslēgt uzdevuma pabeigtību"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr "Ctrl+D"
+msgstr "CTRL+D"
 
-# skip-rule: trasno-item
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
 msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
-"Conmutar a tarefa actual ou as seleccionadas, como completadas ou como "
-"pendentes."
+"Pārslēgt pašreizējā uzdevuma vai atlasīto uzdevumu pabeigtības statusu "
+"(pabeigts vai nav pabeigts)."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -331,47 +333,49 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
-"<p>Conmutar o estado da tarefa actual ou as seleccionadas, como completadas "
-"ou como non pendentes.</p><p>Ao aplicar a acción a unha tarefa pendente, "
-"colocarase un «x» entre os corchetes:</p><p>- [x] Primeiro elemento<br/></"
-"p><p>Ao aplicara a unha tarefa completada, retirarase o «x»:</p><p>- [ ] "
-"Primeiro elemento<br/></p><p>Teña en conta que non todos os procesadores de "
-"Markdown permiten listas de tarefas; non son parte de CommonMark.</p>"
+"<p>Pārslēdz pašreizējā uzdevuma vienumu vai atlasīto uzdevumu vienumu "
+"pabeigtību (pabeigts vai nav pabeigts).</p><p>Šīs darbības pielietošana "
+"nepabeigtam uzdevuma vienumam pie tā starp iekavām pievienos „x“, piemēram:</"
+"p><p>- [x] pirmais vienums<br/></p><p>Attiecīgi, ja šis uzdevumu vienums jau "
+"ir atzīmēts kā pabeigts, tad šī darbība noņems starp iekavām esošo „x“, "
+"piemēram:</p><p>- [ ] pirmais vienums<br/></p><p>Ievērojiet, ka uzdevumu "
+"sarakstu neatbalsta visas „Markdown“ tekstapstrādes programmas un tas nav "
+"daļa no „CommonMark“.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "Modo sen distraccións"
+msgstr "Netraucēšanas režīms"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr "Maiús+F11"
+msgstr "SHIFT+F11"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Vista previa ao vivo"
+msgstr "Dzīvais priekšskatījums"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr "Ctrl+P"
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr "Modo de Hemingway"
+msgstr "Hemingveja režīms"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr "Maiús+Retroceso"
+msgstr "SHIFT+atkāpšanās taustiņš"
 
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Conmutar o modo de Hemingway."
+msgstr "Pārslēdz Hemingveja režīmu."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -379,18 +383,18 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
-"O modo de Hemingway desactiva as teclas Retroceso e Suprimir para axudarlle "
-"a evitar a tentación de editar o documento mentres escribe."
+"Hemingveja režīms izslēdz atkāpšanās un dzēšanas taustiņu, lai jūs atturētu "
+"no vēlmes rakstīšanas laikā rediģēt uzrakstīto."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
-msgstr "Modo escuro"
+msgstr "Tumšais režīms"
 
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr "Activa ou desactiva o esquema de cores escuro do tema actual."
+msgstr "Ieslēdz/izslēdz pašreizējo tumšā režīma krāsu shēmu."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -399,34 +403,33 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
-"<p>Activa ou desactiva o esquema de cores escuro do tema actual.</p><p>Se o "
-"tema actual non permite un esquema de cores escuro, a opción non terá efecto."
-"</p>"
+"<p>Ieslēdz/izslēdz pašreizējo tumšā režīma krāsu shēmu.</p><p>Ja "
+"pašreizējais motīvs neatbalsta tumšo shēmu, tad šī opcija neko nemainīs.</p>"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
-msgstr "Amosar a barra lateral"
+msgstr "Rādīt sānu joslu"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr "Ctrl+Espazador"
+msgstr "CTRL+Atstarpe"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr "Esquema"
+msgstr "Struktūra"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr "Ctrl+J"
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr "Amosar o esquema do documento."
+msgstr "Rāda dokumenta struktūru"
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -436,45 +439,45 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
-"<p>Amosa o esquema do documento.</p><p>Use o rato e un clic esquerdo nunha "
-"cabeceira do documento, ou senón as frechas de arriba e abaixo no teclado e "
-"a tecla Intro, para saltar a distintas localizacións dentro do documento "
-"actual.</p>"
+"<p>Rāda dokumenta struktūru.</p><p>Izmantojiet peli un veiciet kreiso "
+"klikšķi uz dokumenta virsraksta, vai arī spiediet augšup un lejup bultas uz "
+"tastatūras un ENTER taustiņu, lai pārvietotos uz citu vietu pašreizējā "
+"dokumentā.</p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
-msgstr "Estatísticas da sesión"
+msgstr "Sesijas statistika"
 
 #: src/appactions.cpp:245
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
-msgstr "Estatísticas do documento"
+msgstr "Dokumenta statistika"
 
 #: src/appactions.cpp:247
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr "Chuleta"
+msgstr "Atgādne"
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr "Amosa unha breve guía de referencia de Markdown na barra lateral."
+msgstr "Parāda īsu „Markdown“ rokasgrāmatu."
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Tema…"
+msgstr "Motīvs..."
 
 #: src/appactions.cpp:256
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "Fonte…"
+msgstr "Fonts..."
 
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr "Opcións de vista previa…"
+msgstr "Priekšskatījuma opcijas..."
 
 #: src/appmain.cpp:92
 msgctxt "main|"
@@ -484,41 +487,36 @@ msgstr "ghostwriter"
 #: src/appmain.cpp:96
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Editor de Markdown."
+msgstr "„Markdown“ redaktors"
 
 #: src/appmain.cpp:103
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr "Desenvolvemento de FocusWriter, cuxo código Qt serviu de aprendizaxe."
+msgstr "„FocusWriter“ izstrādātājs, kuras „Qt“ kods man palīdzēja"
 
 #: src/appmain.cpp:108
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
-"Desenvolvemento de ReText, cuxos algoritmos resultaron de grande axuda."
+msgstr "„ReText“ izstrādātājs, kura algoritmi man ārkārtīgi palīdzēja"
 
-# skip-rule: rag-en-application
 #: src/appmain.cpp:113
 msgctxt "main|"
 msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
-"Desenvolvemento de StretchPlayer, de onde se aprendeu a crear xanelas sen "
-"marco en Qt."
+"„StretchPlayer“ izstrādātājs, kura programma man parādīja, kā „Qt“ izveidot "
+"logus bez apmalēm"
 
-# skip-rule: trasno-provide, trasno-rename_reverse
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
-"Desenvolvemento de UberWriter, logo renomeado Apostrophe, que serviu de "
-"inspiración."
+msgstr "„UberWriter“ (tagad „Apostrophe“) izstrādātājs, kurš sniedz iedvesmu"
 
 #: src/appmain.cpp:122
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr "Outras contribucións"
+msgstr "Citi dalībnieki"
 
 #: src/appmain.cpp:123
 msgctxt "main|"
@@ -526,50 +524,49 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
-"Todas as persoas que durante anos forneceron traducións, documentacións, "
-"correccións de fallos, ou novas funcionalidades."
+"Visi tulkotāji, dokumentācijas veidotāji, kļūdu labotāji un jaunu iespēju "
+"izveidotāji šo gadu garumā"
 
 #: src/appmain.cpp:128
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
-"Unha versión estendida da implementación de referencia en C de CommonMark."
+msgstr "„CommonMark“ C atsauces implementācijas paplašināta versija"
 
 #: src/appmain.cpp:132
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr "Unha biblioteca de JavaScript para construír interfaces para persoas."
+msgstr "„JavaScript“ bibliotēka lietotāju saskarnes veidošanai"
 
 #: src/appmain.cpp:134
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr "Un motor de visualización de JavaScript para matemáticas."
+msgstr "„JavaScript“ matemātikas parādīšanas dzinis"
 
 #: src/appmain.cpp:139
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr "© 2014-%1 Equipo de ghostwriter"
+msgstr "Autortiesības 2014—%1 „ghostwriter“ komanda"
 
 #: src/appmain.cpp:157
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
-msgstr "Benvida a ghostwriter!"
+msgstr "Laipni lūgti „ghostwriter“!"
 
 #: src/appmain.cpp:160
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr "Ficheiro (opcional) que abrir."
+msgstr "(Pēc izvēles) Atveramā datne."
 
 #: src/appmain.cpp:163
 msgctxt "main|"
 msgid "Disables GPU acceleration."
-msgstr "Desactiva a aceleración por GPU."
+msgstr "Izslēdz GPU paātrinājumu."
 
 #: src/documentmanager.cpp:56
 msgctxt "ghostwriter::DocumentManager|"
 msgid "untitled"
-msgstr "sen título"
+msgstr "nenosaukts"
 
 #: src/documentmanager.cpp:168
 msgctxt "ghostwriter::DocumentManager|"
@@ -579,659 +576,661 @@ msgstr "Markdown"
 #: src/documentmanager.cpp:169
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Text"
-msgstr "Texto"
+msgstr "Teksts"
 
 #: src/documentmanager.cpp:170
 msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
-msgstr "Todo"
+msgstr "Viss"
 
 #: src/documentmanager.cpp:215 src/documentmanager.cpp:710
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr "Produciuse un erro ao gardar %1"
+msgstr "Kļūda, saglabājot „%1“"
 
 #: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
-msgstr "Abrir un ficheiro"
+msgstr "Atvērt datni"
 
 #: src/documentmanager.cpp:377
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
-msgstr "Non foi posíbel abrir %1"
+msgstr "Neizdevās atvērt %1"
 
 #: src/documentmanager.cpp:377
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Permission denied."
-msgstr "Permiso denegado."
+msgstr "Piekļuve ir liegta."
 
 #: src/documentmanager.cpp:430
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
-msgstr "Modificouse o documento."
+msgstr "Dokuments ir izmainīts."
 
 #: src/documentmanager.cpp:431
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
-msgstr "Quere descartar os cambios?"
+msgstr "Vai atmest izmaiņas?"
 
 #: src/documentmanager.cpp:462
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
-msgstr "Renomear o ficheiro"
+msgstr "Pārdēvēt datni"
 
 #: src/documentmanager.cpp:475 src/documentmanager.cpp:483
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr "Non foi posíbel renomear %1"
+msgstr "Neizdevās pārdēvē „%1“"
 
 #: src/documentmanager.cpp:535
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
-msgstr "Gardar o ficheiro"
+msgstr "Saglabāt datni"
 
 #: src/documentmanager.cpp:667
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
-msgstr "Outro programa modificou o documento."
+msgstr "Dokumentu ir izmainījusi cita programma."
 
 #: src/documentmanager.cpp:668
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
-msgstr "Quere recargar o documento?"
+msgstr "Vai vēlaties dokumentu pārlādēt?"
 
 #: src/documentmanager.cpp:711
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr "Non se indicou ningunha ruta de ficheiro."
+msgstr "Nav norādīts ceļš uz datni"
 
 #: src/documentmanager.cpp:725 src/documentmanager.cpp:758
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr "Non foi posíbel ler %1"
+msgstr "Neizdevās nolasīt „%1“"
 
 #: src/documentmanager.cpp:745
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
-msgstr "abrindo %1"
+msgstr "atver „%1“"
 
 #: src/documentmanager.cpp:833
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
-msgstr "Modificouse o ficheiro."
+msgstr "Datne ir izmainīta."
 
 #: src/documentmanager.cpp:835
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr "Modificouse %1."
+msgstr "„%1“ ir izmainīta."
 
 #: src/documentmanager.cpp:844
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
-msgstr "Queres gardar os teus cambios?"
+msgstr "Vai vēlaties saglabāt izmaiņas?"
 
 #: src/documentmanager.cpp:875
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr "%1 só permite lectura."
+msgstr "„%1“ ir tikai lasāma."
 
 #: src/documentmanager.cpp:876
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
-msgstr "Quere sobrescribir o ficheiro protexido?"
+msgstr "Vai pārrakstīt aizsargātu datni?"
 
 #: src/documentmanager.cpp:895
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
-msgstr "Non foi posíbel sobrescribir."
+msgstr "Pārrakstīšana neizdevās."
 
 #: src/documentmanager.cpp:896
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
-msgstr "Garde o ficheiro noutro lugar."
+msgstr "Saglabājiet datni citā vietā."
 
 #: src/documentmanager.cpp:924
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
-msgstr "A salvagarda do ficheiro fallou."
+msgstr "Neizdevās izveidot datnes rezerves kopiju"
 
 #: src/documentmanager.cpp:925
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr "Produciuse un erro ao crear o lugar de salvagarda: %d"
+msgstr "Kļūda, veidojot rezerves kopijas vietu: %d"
 
 #: src/documentmanager.cpp:934
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "A salvagarda do ficheiro fallou: Non foi posíbel substituír %1"
+msgstr "Datnes rezerves kopijas izveide neizdevās. Neizdodas aizvietot „%1“"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr "A salvagarda do ficheiro fallou: Non foi posíbel copiar %1 en %2."
+msgstr ""
+"Datnes rezerves kopijas izveide neizdevās: nevarēja nokopēt „%1“ uz „%2“"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
-msgstr "sen título"
+msgstr "nenosaukts"
 
 #: src/editor/markdowneditor.cpp:916
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr "Gardar a imaxe"
+msgstr "Saglabāt attēlu"
 
 #: src/editor/markdowneditor.cpp:1535
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
-msgstr "Inserir unha imaxe"
+msgstr "Ievietot attēlu"
 
 #: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr "Imaxes (%1)"
+msgstr "Attēli (%1)"
 
 #: src/export/cmarkgfmexporter.cpp:50
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr "O procesador cmark-gfm non permite o formato %1."
+msgstr "„%1“ formātu neatbalsta „cmark-gfm“ apstrādātājs."
 
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
 msgid "Export failed"
-msgstr "Fallou a exportación"
+msgstr "Eksportēšana neizdevās"
 
 #: src/export/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr "A exportación fallou: "
+msgstr "Eksportēšana neizdevās: "
 
 #: src/export/commandlineexporter.cpp:167
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
-msgstr "Este procesador non permite o formato %1."
+msgstr "Šis apstrādātājs „%1“ formātu neatbalsta."
 
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr "Non foi posíbel executar a orde: "
+msgstr "Komandas izpilde neizdevās: "
 
 #: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
-msgstr "Exportar"
+msgstr "Eksportēt"
 
 #: src/export/exportdialog.cpp:85
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
-msgstr "Tipografía intelixente"
+msgstr "Viedā tipogrāfija"
 
 #: src/export/exportdialog.cpp:89
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr "Abrir ao exportar"
+msgstr "Atvērt pēc eksportēšanas"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
-msgstr "Opcións de exportación"
+msgstr "Eksportēšanas opcijas"
 
 #: src/export/exportdialog.cpp:94
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
-msgstr "Conversor de Markdown"
+msgstr "„Markdown“ pārveidotājs"
 
 #: src/export/exportdialog.cpp:95
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
-msgstr "Formato de ficheiro"
+msgstr "Datnes formāts"
 
 #: src/export/exportdialog.cpp:113
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr "Opcións da liña de ordes:"
+msgstr "Komandrindas opcijas:"
 
 #: src/export/exportdialog.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
-msgstr "exportando a %1"
+msgstr "eksportē uz „%1“"
 
 #: src/export/exportdialog.cpp:201
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
-msgstr "A exportación fallou."
+msgstr "Eksportēšanas neizdevās."
 
 #: src/export/exporter.cpp:69
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
-msgstr "Este procesador non permite exportar a HTML."
+msgstr "Šis apstrādātājs neatbalsta eksportēšanu uz HTML."
 
 #: src/findreplace.cpp:95
 msgctxt "ghostwriter::FindReplace|"
 msgid "Match case"
-msgstr "Distinguir as maiúsculas."
+msgstr "Reģistrjutīgs"
 
 #: src/findreplace.cpp:100
 msgctxt "ghostwriter::FindReplace|"
 msgid "Whole word"
-msgstr "Palabra completa"
+msgstr "Pilns vārds"
 
 #: src/findreplace.cpp:106
 msgctxt "ghostwriter::FindReplace|"
 msgid "Regular expression"
-msgstr "Expresión regular."
+msgstr "Regulārā izteiksme"
 
 #: src/findreplace.cpp:111
 msgctxt "ghostwriter::FindReplace|"
 msgid "Highlight matches"
-msgstr "Realzar as aparicións."
+msgstr "Izcelt atbilstības"
 
 #: src/findreplace.cpp:118
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "Atopar a anterior"
+msgstr "Meklēt iepriekšējo"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find previous"
-msgstr "Atopar a anterior"
+msgstr "Meklēt iepriekšējo"
 
 #: src/findreplace.cpp:123
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr "Atopar a seguinte"
+msgstr "Meklet nākamo"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find next"
-msgstr "Atopar a seguinte"
+msgstr "Meklēt nākamo"
 
 #: src/findreplace.cpp:129
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace"
-msgstr "Substituír"
+msgstr "Aizvietot"
 
 #: src/findreplace.cpp:133
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace All"
-msgstr "Substituílo todo"
+msgstr "Aizvietot visus"
 
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr "Pechar"
+msgstr "Aizvērt"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find:"
-msgstr "Atopar:"
+msgstr "Meklēt:"
 
 #: src/findreplace.cpp:167
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
-msgstr "Substituír por:"
+msgstr "Aizvietot ar:"
 
 #: src/findreplace.cpp:439
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
-msgstr[0] "%Ln substitución"
-msgstr[1] "%Ln substitucións"
+msgstr[0] "%Ln aizvietojums"
+msgstr[1] "%Ln aizvietojumi"
+msgstr[2] "%Ln aizvietojumu"
 
 #: src/findreplace.cpp:489
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
-msgstr "Buscar ignorando saltos de liña"
+msgstr "Meklēšana sākas no sākuma"
 
 #: src/findreplace.cpp:496
 msgctxt "ghostwriter::FindReplace|"
 msgid "No results"
-msgstr "Non hai resultados."
+msgstr "Nekas nav atrasts"
 
 #: src/findreplace.cpp:538
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
-msgstr "%1 coincidencias"
+msgstr "%1 atbilstība"
 
 #: src/mainwindow.cpp:997
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
-msgstr "&Ficheiro"
+msgstr "&Datne"
 
 #: src/mainwindow.cpp:1027
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
-msgstr "&Editar"
+msgstr "&Rediģēt"
 
 #: src/mainwindow.cpp:1076
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
-msgstr "&Vista"
+msgstr "&Skatīt"
 
 #: src/mainwindow.cpp:1094
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
-msgstr "&Configuración"
+msgstr "&Iestatījumi"
 
 #: src/mainwindow.cpp:1103
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
-msgstr "&Axuda"
+msgstr "&Palīdzība"
 
 #: src/mainwindow.cpp:1253
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
-msgstr "# Cabeceira 1"
+msgstr "# 1. virsraksts"
 
 #: src/mainwindow.cpp:1254
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
-msgstr "## Cabeceira 2"
+msgstr "## 2. virsraksts"
 
 #: src/mainwindow.cpp:1255
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
-msgstr "### Cabeceira 3"
+msgstr "### 3. virsraksts"
 
 #: src/mainwindow.cpp:1256
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
-msgstr "#### Cabeceira 4"
+msgstr "#### 4. virsraksts"
 
 #: src/mainwindow.cpp:1257
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
-msgstr "##### Cabeceira 5"
+msgstr "##### 5. virsraksts"
 
 #: src/mainwindow.cpp:1258
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
-msgstr "###### Cabeceira 6"
+msgstr "###### 6. virsraksts"
 
 #: src/mainwindow.cpp:1259
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
-msgstr "*Énfase* _énfase_"
+msgstr "*Uzsvars* _Uzsvars_"
 
 #: src/mainwindow.cpp:1260
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
-msgstr "**Grosa** __grosa__"
+msgstr "**Trekns** __Trekns__"
 
 #: src/mainwindow.cpp:1261
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
-msgstr "1. Lista numerada"
+msgstr "1. numurēts saraksts"
 
 #: src/mainwindow.cpp:1262
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
-msgstr "* Lista"
+msgstr "* aizzīmju saraksts"
 
 #: src/mainwindow.cpp:1263
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
-msgstr "+ Lista"
+msgstr "+ aizzīmju saraksts"
 
 #: src/mainwindow.cpp:1264
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
-msgstr "- Lista"
+msgstr "- aizzīmju saraksts"
 
 #: src/mainwindow.cpp:1265
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
-msgstr "> Bloque de cita"
+msgstr "> Citāta bloks"
 
 #: src/mainwindow.cpp:1266
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
-msgstr "`Fragmento de código`"
+msgstr "`Koda fragments`"
 
 #: src/mainwindow.cpp:1267
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
-msgstr "``` Bloque de código"
+msgstr "``` Koda bloks"
 
 #: src/mainwindow.cpp:1268
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
-msgstr "[Ligazón](http://url.example \"Título\")"
+msgstr "[Saite](http://url.com \"Nosaukums\")"
 
 #: src/mainwindow.cpp:1269
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
-msgstr "[Ligazón de referencia][identificador]"
+msgstr "[Atsauces saite][ID]"
 
 #: src/mainwindow.cpp:1270
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
-msgstr "[identificador]: http://url.example \"Definición de referencia\""
+msgstr "[ID]: http://url.lv \"Atsauces definīcija\""
 
 #: src/mainwindow.cpp:1271
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
-msgstr "![Imaxe](./imaxe.jpg \"Título\")"
+msgstr "![Attēls](./attēls.jpg \"Nosaukums\")"
 
 #: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
-msgstr "--- *** ___ Liña horizontal"
+msgstr "--- *** ___ horizontāla līnija"
 
 #: src/mainwindow.cpp:1322
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
-msgstr "Esquema"
+msgstr "Struktūra"
 
 #: src/mainwindow.cpp:1323
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
-msgstr "Estatísticas da sesión"
+msgstr "Sesijas statistika"
 
 #: src/mainwindow.cpp:1324
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
-msgstr "Estatísticas do documento"
+msgstr "Dokumenta statistika"
 
 #: src/mainwindow.cpp:1325
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
-msgstr "Chuleta"
+msgstr "Atgādne"
 
 #: src/mainwindow.cpp:1335
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
-msgstr "Configuración"
+msgstr "Iestatījumi"
 
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr "Produciuse un erro ao cargar «resources/preview.html»."
+msgstr "Kļūda, ielādējot „resources/preview.html“"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
-msgstr "Definir o idioma da aplicación"
+msgstr "Iestatīt programmas valodu"
 
 #: src/settings/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr "Non hai traducións dispoñíbeis!"
+msgstr "Tulkojumi nav pieejami!"
 
 #: src/settings/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
-msgstr "Reinstale a aplicación para dispoñer de máis opcións de idiomas."
+msgstr "Pārinstalējiet programmu, ja vēlaties plašākas valodu opcijas."
 
 #: src/settings/localedialog.cpp:131
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr "Lamentámolo!"
+msgstr "Atvainojamies!"
 
 #: src/settings/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr "Non foi posíbel cargar a tradución."
+msgstr "Tulkojumu ielādēt neizdevās."
 
 #: src/settings/localedialog.cpp:138
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr "Reinicie a aplicación para que se apliquen os cambios."
+msgstr "Lai izmaiņas stātos spēkā, pārstartējiet programmu."
 
 #: src/settings/preferencesdialog.cpp:73
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
-msgstr "Corrección ortográfica"
+msgstr "Pareizrakstības pārbaude"
 
 #: src/settings/preferencesdialog.cpp:88
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr "Caracteres coincidentes"
+msgstr "Atbilstošās rakstzīmes"
 
 #: src/settings/preferencesdialog.cpp:177
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
-msgstr "Redondeadas"
+msgstr "Noapaļots"
 
 #: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
-msgstr "Cadrado"
+msgstr "Kvadrātains"
 
 #: src/settings/preferencesdialog.cpp:203
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr "Seleccionar un cartafol de salvagarda"
+msgstr "Norādīt mapi rezerves kopijām"
 
 #: src/settings/preferencesdialog.cpp:231
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
-msgstr "Frase"
+msgstr "Teikums"
 
 #: src/settings/preferencesdialog.cpp:232
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
-msgstr "Liña actual"
+msgstr "Pašreizējā rinda"
 
 #: src/settings/preferencesdialog.cpp:233
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
-msgstr "Tres liñas"
+msgstr "Trīs rindas"
 
 #: src/settings/preferencesdialog.cpp:234
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
-msgstr "Parágrafo"
+msgstr "Rindkopa"
 
 #: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
-msgstr "Escritura"
+msgstr "Rakstāmmašīna"
 
 #: src/settings/preferencesdialog.cpp:243
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
-msgstr "Estreita"
+msgstr "Šaurs"
 
 #: src/settings/preferencesdialog.cpp:244
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
-msgstr "Media"
+msgstr "Vidējs"
 
 #: src/settings/preferencesdialog.cpp:245
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
-msgstr "Ancha"
+msgstr "Plats"
 
 #: src/settings/preferencesdialog.cpp:246
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
-msgstr "Completa"
+msgstr "Pilns"
 
 #: src/settings/preferencesdialog.cpp:253
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
-msgstr "Simple"
+msgstr "Vienkāršs"
 
 #: src/settings/preferencesdialog.cpp:254
 #: src/settings/preferencesdialog.cpp:261
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Italic"
-msgstr "Cursiva"
+msgstr "Slīpraksts"
 
 #: src/settings/preferencesdialog.cpp:262
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Underline"
-msgstr "Subliñada"
+msgstr "Pasvītrots"
 
 #: src/settings/preferencesdialog.ui:14
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr "Configuración"
+msgstr "Iestatījumi"
 
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
 msgid "General"
-msgstr "Xeral"
+msgstr "Pamata"
 
 #: src/settings/preferencesdialog.ui:30
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr "Visualización"
+msgstr "Izskats"
 
 #: src/settings/preferencesdialog.ui:36
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr "Amo&sar a hora no modo a pantalla completa."
+msgstr "&Pilnekrāna režīmā rādīt laiku"
 
 #: src/settings/preferencesdialog.ui:43
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr "Agoc&har a barra do menú no modo a pantalla completa."
+msgstr "Pilnekrāna režīmā &slēpt izvēļņu joslu"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr "Amosar os espazos &irrompíbeis."
+msgstr "Rādīt &neatdalāmās atstarpes"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr "Estilo da interface"
+msgstr "Saskarnes stils"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr "Garda de ficheiros"
+msgstr "Datnes saglabāšana"
 
 #: src/settings/preferencesdialog.ui:96
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr "Gardar &automaticamente."
+msgstr "&Automātiska saglabāšana"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr "&Salvagardar o ficheiro ao gardar."
+msgstr "Saglabājot izveidot &rezerves kopiju"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "&Ver os borradores sen título…"
+msgstr "&Skatīt nenosauktus uzmetumus…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
@@ -1241,189 +1240,189 @@ msgstr "&"
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr "&Seleccionar a localización do cartafol de salvagarda…"
+msgstr "&Norādīt mapi rezerves kopijām…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
 msgid "Session"
-msgstr "Sesión"
+msgstr "Sesija"
 
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr "Lembra&r os ficheiros recentes."
+msgstr "&Atcerēties nesenās datnes"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr "Abrir &o último ficheiro no inicio."
+msgstr "&Ieslēdzoties atvērt pēdējo datni"
 
 #: src/settings/preferencesdialog.ui:184
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr "Editor"
+msgstr "Redaktors"
 
 #: src/settings/preferencesdialog.ui:190
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr "Tabulación"
+msgstr "Tabulācija"
 
 #: src/settings/preferencesdialog.ui:196
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr "&Inserir espazos para as tabulacións."
+msgstr "&Pēc tabulatora ievietot atstarpes"
 
 #: src/settings/preferencesdialog.ui:205
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
-msgstr "Anchura das tabulacións"
+msgstr "Tabulatora platums"
 
 #: src/settings/preferencesdialog.ui:243
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr "Estilo"
+msgstr "Stilizēšana"
 
 #: src/settings/preferencesdialog.ui:251
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr "Modo de enfoque"
+msgstr "Fokusēšanās režīms"
 
 #: src/settings/preferencesdialog.ui:264
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr "Anchura do editor"
+msgstr "Redaktora platums"
 
 #: src/settings/preferencesdialog.ui:277
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr "Estilo de bloque de cita"
+msgstr "Citāta bloka stils"
 
 #: src/settings/preferencesdialog.ui:290
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Estilo de énfase"
+msgstr "Uzsvara stils"
 
 #: src/settings/preferencesdialog.ui:305
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr "&Usar cabeceiras grandes."
+msgstr "&Lietot lielus virsrakstus"
 
 #: src/settings/preferencesdialog.ui:328
 msgctxt "PreferencesDialog|"
 msgid "Typing"
-msgstr "Escribindo"
+msgstr "Rakstīšana"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr "&Usar distintos marcadores de lista."
+msgstr "&Cikliski parādīt aizzīmju marķierus"
 
 #: src/settings/preferencesdialog.ui:341
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr "Buscar &automaticamente coincidencias de caracteres."
+msgstr "A&utomātiski meklēt rakstzīmju atbilsmes"
 
 #: src/settings/preferencesdialog.ui:348
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Personalizar os caracteres coi&ncidentes…"
+msgstr "Pielāgot &atbilstošās rakstzīmes…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
-msgstr "Opcións de previsualización"
+msgstr "Priekšskatījuma opcijas"
 
 #: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr "Subtipo de Markdown"
+msgstr "„Markdown“ veids"
 
 #: src/settings/previewoptionsdialog.cpp:99
 #: src/settings/previewoptionsdialog.cpp:125
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
-msgstr "Escoller…"
+msgstr "Izvēlēties..."
 
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr "Fonte do texto:"
+msgstr "Teksta fonts:"
 
 #: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr "Fonte do código:"
+msgstr "Koda fonts:"
 
 #: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr "Opcións da liña de ordes:"
+msgstr "Komandrindas opcijas:"
 
 #: src/settings/previewoptionsdialog.cpp:177
 #, qt-format
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "%1 %2pt"
-msgstr "%1, %2 puntos"
+msgstr "%1 %2 pt"
 
 #: src/settings/simplefontdialog.cpp:61
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Family"
-msgstr "Familia"
+msgstr "Saime"
 
 #: src/settings/simplefontdialog.cpp:108
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Size"
-msgstr "Tamaño"
+msgstr "Izmērs"
 
 #: src/settings/simplefontdialog.cpp:111
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "AaBbCcXxYyZz"
-msgstr "AaBbCcXxYyZz"
+msgstr "AaAāBbCcĢģZz"
 
 #: src/settings/simplefontdialog.cpp:115
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Preview"
-msgstr "Vista previa"
+msgstr "Priekšskatījums"
 
 #: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr "Amosar só os tipos de letra monoespazo."
+msgstr "Rādīt tikai vienplatuma fontus"
 
 #: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
-msgstr "Comprobar a ortografía…"
+msgstr "Pārbaudīt pareizrakstību..."
 
 #: src/spelling/spellcheckdecorator.cpp:272
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Spelling"
-msgstr "Ortografía"
+msgstr "Pareizrakstība"
 
 #: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
-msgstr "Engadir a palabra ao corrector"
+msgstr "Pievienot vārdu vārdnīcai"
 
 #: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
-msgstr "Non hai suxestións ortográficas"
+msgstr "Pareizrakstības ieteikumi nav atrasti"
 
 #: src/spelling/spellcheckdialog.cpp:53
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell Check"
-msgstr "Comprobación ortográfica"
+msgstr "Pareizrakstības pārbaude"
 
 #: src/spelling/spellcheckdialog.cpp:152
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
-msgstr "Completouse a comprobación ortográfica!"
+msgstr "Pareizrakstības pārbaude ir pabeigta!"
 
 #: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "&lt; 1m"
-msgstr "&lt; 1 m"
+msgstr "&lt; 1 min."
 
 #: src/statistics/abstractstatisticswidget.cpp:18
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -1433,323 +1432,329 @@ msgstr "&lt; 1"
 #: src/statistics/abstractstatisticswidget.cpp:19
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "250 words per page"
-msgstr "250 palabras por páxina"
+msgstr "250 vārdu lapā"
 
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr "<b>%L1%</b>"
+msgstr "<b>%L1 %</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1h %2m"
-msgstr "%1h %2m"
+msgstr "%1 st. %2 min."
 
 #: src/statistics/abstractstatisticswidget.cpp:55
 #, qt-format
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "%1m"
-msgstr "%1m"
+msgstr "%1 min."
 
 #: src/statistics/documentstatisticswidget.cpp:19
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Very Easy"
-msgstr "Moi fácil"
+msgstr "Ļoti viegli"
 
 #: src/statistics/documentstatisticswidget.cpp:20
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Easy"
-msgstr "Fácil"
+msgstr "Viegli"
 
 #: src/statistics/documentstatisticswidget.cpp:21
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Standard"
-msgstr "Estándar"
+msgstr "Standarta"
 
 #: src/statistics/documentstatisticswidget.cpp:22
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Difficult"
-msgstr "Difícil"
+msgstr "Sarežģīti"
 
 #: src/statistics/documentstatisticswidget.cpp:23
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Very Difficult"
-msgstr "Moi difícil"
+msgstr "Ļoti sarežģīti"
 
 #: src/statistics/documentstatisticswidget.cpp:60
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Words:"
-msgstr "Palabras:"
+msgstr "Vārdi:"
 
 #: src/statistics/documentstatisticswidget.cpp:61
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Characters:"
-msgstr "Caracteres:"
+msgstr "Rakstzīmes:"
 
 #: src/statistics/documentstatisticswidget.cpp:62
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Sentences:"
-msgstr "Frases:"
+msgstr "Teikumi:"
 
 #: src/statistics/documentstatisticswidget.cpp:63
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Paragraphs:"
-msgstr "Parágrafos:"
+msgstr "Rindkopas:"
 
 #: src/statistics/documentstatisticswidget.cpp:64
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Pages:"
-msgstr "Páxinas:"
+msgstr "Lapas:"
 
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
-msgstr "Palabras complexas:"
+msgstr "Sarežģīti vārdi:"
 
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr "0%"
+msgstr "0 %"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Time:"
-msgstr "Tempo de lectura:"
+msgstr "Lasīšanas laiks:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Ease:"
-msgstr "Facilidade de lectura:"
+msgstr "Lasīšanas sarežģītība:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "LIX Reading Ease"
-msgstr "Facilidade de lectura LIX"
+msgstr "LIX lasīšanas sarežģītība"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Grade Level:"
-msgstr "Nivel de nota:"
+msgstr "Līmenis:"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Coleman-Liau Readability Index (CLI)"
-msgstr "Índice de lexibilidade de Coleman-Liau (CLI)"
+msgstr "Coleman-Liau lasīšanas indekss (CLI)"
 
 #: src/statistics/documentstatisticswidget.cpp:149
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Kindergarten"
-msgstr "Gardaría"
+msgstr "Bērnudārza"
 
 #: src/statistics/documentstatisticswidget.cpp:152
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Rocket Science"
-msgstr "Enxeñaría aeroespacial"
+msgstr "Raķešu zinātne"
 
 #: src/statistics/documentstatisticswidget.cpp:154
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "College"
-msgstr "Universidade laboral"
+msgstr "Koledža"
 
 #: src/statistics/sessionstatisticswidget.cpp:37
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Words Written:"
-msgstr "Palabras escritas:"
+msgstr "Uzrakstītie vārdi:"
 
 #: src/statistics/sessionstatisticswidget.cpp:38
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Pages Written:"
-msgstr "Páxinas escritas:"
+msgstr "Uzrakstītās lapas:"
 
 #: src/statistics/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr "PPM medias:"
+msgstr "Vidēji vārdi minūtē:"
 
 #: src/statistics/sessionstatisticswidget.cpp:40
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Total Time:"
-msgstr "Tempo total:"
+msgstr "Laiks kopā:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr "Tempo de inactividade:"
+msgstr "Dīkstāves laiks:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
-msgstr[0] "%Ln palabra"
-msgstr[1] "%Ln palabras"
+msgstr[0] "%Ln vārds"
+msgstr[1] "%Ln vārdi"
+msgstr[2] "%Ln vārdu"
 
 #: src/statistics/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
-msgstr[0] "%Ln carácter"
-msgstr[1] "%Ln caracteres"
+msgstr[0] "%Ln rakstzīme"
+msgstr[1] "%Ln rakstzīmes"
+msgstr[2] "%Ln rakstzīmju"
 
 #: src/statistics/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
-msgstr[0] "%Ln sentencia"
-msgstr[1] "%Ln sentencias"
+msgstr[0] "%Ln teikums"
+msgstr[1] "%Ln teikumi"
+msgstr[2] "%Ln teikumu"
 
 #: src/statistics/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
-msgstr[0] "%Ln parágrafo"
-msgstr[1] "%Ln parágrafos"
+msgstr[0] "%Ln rindkopa"
+msgstr[1] "%Ln rindkopas"
+msgstr[2] "%Ln rindkopu"
 
 #: src/statistics/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
-msgstr[0] "%Ln páxina"
-msgstr[1] "%Ln páxinas"
+msgstr[0] "%Ln lapa"
+msgstr[1] "%Ln lapas"
+msgstr[2] "%Ln lapu"
 
 #: src/statistics/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
-msgstr[0] "Engadiuse %Ln palabra"
-msgstr[1] "Engadíronse %Ln palabras"
+msgstr[0] "%Ln pievienots vārds"
+msgstr[1] "%Ln pievienoti vārdi"
+msgstr[2] "%Ln pievienotu vārdu"
 
 #: src/statistics/statisticsindicator.cpp:37
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr "%1 palabras por minuto"
+msgstr "%1 v/min."
 
 #: src/statistics/statisticsindicator.cpp:38
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 read time"
-msgstr "Tempo de lectura: %1:%2"
+msgstr "%1:%2 lasīšanas laiks"
 
 #: src/statistics/statisticsindicator.cpp:41
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
-msgstr "Tempo de escritura: %1:%2"
+msgstr "%1:%2 rakstīšanas laiks"
 
 #: src/theme/themeeditordialog.cpp:81
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Edit Theme"
-msgstr "Editar o tema"
+msgstr "Rediģēt motīvu"
 
 #: src/theme/themeeditordialog.cpp:84
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
-msgstr "Nome do tema"
+msgstr "Motīva nosaukums"
 
 #: src/theme/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Element"
-msgstr "Elemento"
+msgstr "Elements"
 
 #: src/theme/themeeditordialog.cpp:169
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Light Mode"
-msgstr "Modo claro"
+msgstr "Gaišais režīms"
 
 #: src/theme/themeeditordialog.cpp:170
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Dark Mode"
-msgstr "Modo escuro"
+msgstr "Tumšais režīms"
 
 #: src/theme/themeeditordialog.cpp:172
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
-msgstr "Principal"
+msgstr "Priekšplāns"
 
 #: src/theme/themeeditordialog.cpp:173
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
-msgstr "Fondo"
+msgstr "Fons"
 
 #: src/theme/themeeditordialog.cpp:174
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Selection"
-msgstr "Selección"
+msgstr "Atlasīšana"
 
 #: src/theme/themeeditordialog.cpp:175
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Cursor"
-msgstr "Cursor"
+msgstr "Kursors"
 
 #: src/theme/themeeditordialog.cpp:176
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Markup"
-msgstr "Etiquetas"
+msgstr "Marķējums"
 
 #: src/theme/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
-msgstr "Acento"
+msgstr "Akcentēšana"
 
 #: src/theme/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Heading"
-msgstr "Cabeceira"
+msgstr "Virsraksts"
 
 #: src/theme/themeeditordialog.cpp:179
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
-msgstr "Énfase"
+msgstr "Uzsvars"
 
 #: src/theme/themeeditordialog.cpp:180
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
-msgstr "Texto de bloque"
+msgstr "Teksta bloks"
 
 #: src/theme/themeeditordialog.cpp:181
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Link"
-msgstr "Ligazón"
+msgstr "Saite"
 
 #: src/theme/themeeditordialog.cpp:182
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
-msgstr "Erro"
+msgstr "Kļūda"
 
 #: src/theme/themeeditordialog.cpp:215
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
-msgstr "Non é posíbel gardar o tema."
+msgstr "Motīvu saglabāt neizdodas."
 
 #: src/theme/themerepository.cpp:138
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
-msgstr "O tema indicado non existe no sistema de ficheiros: %1"
+msgstr "Norādītā tēma datņu sistēmā nepastāv: %1"
 
 #: src/theme/themerepository.cpp:146
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
-msgstr "Non foi posíbel abrir o ficheiro de tema para lelo: %1"
+msgstr "Neizdodas motīva datni atvērt lasīšanai: %1"
 
 #: src/theme/themerepository.cpp:156
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid theme format: %1"
-msgstr "O formato do tema non é válido: %1"
+msgstr "Nederīgs motīva formāts: %1"
 
 #: src/theme/themerepository.cpp:175 src/theme/themerepository.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid or missing value(s) in %1"
-msgstr "En %1 hai un ou varios valores non válidos ou que faltan."
+msgstr "„%1“ satur nederīgu vai trūkstošu vērtību(-as)"
 
 #: src/theme/themerepository.cpp:192
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1757,8 +1762,8 @@ msgid ""
 "The specified theme is not available.  Try restarting the application.  If "
 "problem persists, please file a bug report."
 msgstr ""
-"O tema indicado non está dispoñíbel. Intente reiniciar a aplicación. Se o "
-"problema continúa, envíe un informe de fallo."
+"Norādītais motīvs nav pieejams. Mēģiniet pārstartēt programmu. Ja problēma "
+"saglabājas, lūdzu, ziņojiet par kļūdu."
 
 #: src/theme/themerepository.cpp:208
 #, qt-format
@@ -1767,25 +1772,25 @@ msgid ""
 "Could not delete theme at %1. Please try setting the file permissions to be "
 "writeable."
 msgstr ""
-"Non foi posíbel eliminar o tema de %1. Probe a configurar os permisos do "
-"ficheiro para permitir a escritura."
+"Neizdevās dzēst motīvu, kas atrodas „%1“. Iespējams, datnes atļaujās ir "
+"jānorāda, ka tā ir rakstāma."
 
 #: src/theme/themerepository.cpp:228
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr "«%1» xa existe. Escolla outro nome."
+msgstr "„%1“ jau pastāv. Izdomājiet citu nosaukumu."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr "O tema «%1» xa existe. Escolla outro nome."
+msgstr "„%1“ motīvs jau pastāv. Izdomājiet citu nosaukumu."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
-msgstr "Non foi posíbel renomear o tema. Comprobe os permisos do ficheiro."
+msgstr "Motīvu pārdēvē neizdevās. Pārbaudiet datnes atļaujas."
 
 #: src/theme/themerepository.cpp:282
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1793,228 +1798,62 @@ msgid ""
 "Theme could not be saved to disk.  Please check file permissions or try "
 "renaming the theme."
 msgstr ""
-"Non foi posíbel gardar o tema no disco. Comprobe os permisos do ficheiro ou "
-"intente renomear o tema."
+"Motīvu neizdevās saglabāt. Pārbaudīt datnes atļaujas vai mēģiniet datni "
+"pārdēvēt."
 
 #: src/theme/themerepository.cpp:312
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled 1"
-msgstr "Sen título 1"
+msgstr "Nenosaukts 1"
 
 #: src/theme/themerepository.cpp:322
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled %1"
-msgstr "Sen título %1"
+msgstr "Nenosaukts %1"
 
 #: src/theme/themeselectiondialog.cpp:91
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
-msgstr "Temas"
+msgstr "Motīvi"
 
 #: src/theme/themeselectiondialog.cpp:132
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "Vista previa no modo escuro"
+msgstr "Priekšskatījums tumšajā režīmā"
 
 #: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
-msgstr "Editar…"
+msgstr "Rediģēt..."
 
 #: src/theme/themeselectiondialog.cpp:375
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
-msgstr "Non é posíbel eliminar o tema."
+msgstr "Neizdodas dzēst motīvu."
 
-# skip-rule: rag-gl-aplicación
 #: src/theme/themeselectiondialog.cpp:376
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
-msgstr "Este tema é parte da aplicación, non pode eliminarse."
+msgstr "Šis ir iebūvētais motīvs, kuru dzēst nav atļauts."
 
 #: src/theme/themeselectiondialog.cpp:386
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr "Seguro que quere eliminar permanentemente o tema «%1»?"
+msgstr "Vai tiešām vēlaties neatgriezeniski dzēst motīvu „%1“?"
 
 #: src/theme/themeselectiondialog.cpp:401
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr "Non foi posíbel eliminar o tema."
+msgstr "Motīva izdzēšana neizdevās."
 
 #: src/theme/themeselectiondialog.cpp:428
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
-msgstr "Non é posíbel editar o tema."
+msgstr "Motīva rediģēšana neizdevās."
 
-# skip-rule: rag-gl-aplicación
 #: src/theme/themeselectiondialog.cpp:429
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
-msgstr "Este tema é parte da aplicación, non pode editarse."
-
-#~ msgctxt "main|"
-#~ msgid "Font Awesome support for Qt applications"
-#~ msgstr "Compatibilidade de Font Awesome con aplicacións de Qt."
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&New"
-#~ msgstr "&Novo"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Open"
-#~ msgstr "&Abrir"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Open &Recent..."
-#~ msgstr "Abrir un &recente…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Clear Menu"
-#~ msgstr "Borrar o menú"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Save"
-#~ msgstr "&Gardar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Save &As..."
-#~ msgstr "G&ardar como…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "R&ename..."
-#~ msgstr "R&enomear…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Export"
-#~ msgstr "&Exportar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Quit"
-#~ msgstr "&Saír"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Undo"
-#~ msgstr "&Desfacer"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Redo"
-#~ msgstr "&Refacer"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Cu&t"
-#~ msgstr "Cor&tar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Copy"
-#~ msgstr "&Copiar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Paste"
-#~ msgstr "&Pegar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Find"
-#~ msgstr "&Atopar"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Rep&lace"
-#~ msgstr "&Substituír"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Spell check"
-#~ msgstr "&Corrección ortográfica"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "For&mat"
-#~ msgstr "For&mato"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Bold"
-#~ msgstr "&Grosa"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Italic"
-#~ msgstr "&Cursiva"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&* Bullet List"
-#~ msgstr "&* Lista"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&- Bullet List"
-#~ msgstr "&* Lista"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&+ Bullet List"
-#~ msgstr "&* Lista"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "1&. Numbered List"
-#~ msgstr "1&. Lista numerada"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Full Screen"
-#~ msgstr "&Pantalla completa"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Preview in HTML"
-#~ msgstr "Vista &previa en HTML"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Outline"
-#~ msgstr "&Esquema"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Session Statistics"
-#~ msgstr "Estatísticas da &sesión"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Document Statistics"
-#~ msgstr "Estatísticas do &documento"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "&Cheat Sheet"
-#~ msgstr "&Chuleta"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Increase Font Size"
-#~ msgstr "Ampliar o tamaño da letra"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Decrease Font Size"
-#~ msgstr "Reducir o tamaño da letra"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Application Language..."
-#~ msgstr "Idioma da aplicación…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Preferences..."
-#~ msgstr "Preferencias…"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Quick &Reference Guide"
-#~ msgstr "Guía rápida de &referencia"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Wiki"
-#~ msgstr "Wiki"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle sidebar"
-#~ msgstr "Conmutar a barra lateral"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle dark mode"
-#~ msgstr "Conmutar o modo escuro"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle Live HTML Preview"
-#~ msgstr "Conmutar a vista previa de HTML en directo"
-
-#~ msgctxt "ghostwriter::MainWindow|"
-#~ msgid "Toggle full screen mode"
-#~ msgstr "Conmutar o modo a pantalla completa"
+msgstr "Šis ir iebūvētais motīvs, ko nav atļauts rediģēt."
