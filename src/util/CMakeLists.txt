@@ -19,20 +19,20 @@ target_sources(ghostwriter_utils PRIVATE
 )
 
 # Generate convenience headers using KDE's pattern
-ecm_generate_headers(ghostwriterUtils_HEADERS
+ecm_generate_headers(ghostwriter_utils_HEADERS
     HEADER_NAMES
         KErrorCode
         KResult
     HEADER_EXTENSION h
-    OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/ghostwriterUtils
-    PREFIX ghostwriterUtils
+    OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/ghostwriter_utils
+    PREFIX ghostwriter_utils
 )
 
 # Set include directories
 target_include_directories(ghostwriter_utils PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/..                # For "util/header.h" includes (src/ as root)
-    ${CMAKE_CURRENT_BINARY_DIR}                   # For generated convenience headers
-    ${CMAKE_CURRENT_BINARY_DIR}/ghostwriterUtils  # For the specific subdirectory where ECM puts headers
+    ${CMAKE_CURRENT_SOURCE_DIR}/..                 # For "util/header.h" includes (src/ as root)
+    ${CMAKE_CURRENT_BINARY_DIR}                    # For generated convenience headers
+    ${CMAKE_CURRENT_BINARY_DIR}/ghostwriter_utils  # For the specific subdirectory where ECM puts headers
 )
 
 target_link_libraries(ghostwriter_utils PUBLIC
@@ -40,6 +40,6 @@ target_link_libraries(ghostwriter_utils PUBLIC
 )
 
 # Install the convenience headers
-install(FILES ${ghostwriterUtils_HEADERS}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ghostwriterUtils
+install(FILES ${ghostwriter_utils_HEADERS}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ghostwriter_utils
         COMPONENT Devel)

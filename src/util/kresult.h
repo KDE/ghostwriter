@@ -97,8 +97,12 @@ template<class T, typename E = int>
 class KResult
 {
 public:
-    // Delete the default constructor
-    KResult() = delete;
+    // Default constructor - only enabled when T is default constructible.
+    template<typename U = T, std::enable_if_t<std::is_default_constructible_v<U>, int> = 0>
+    constexpr KResult() noexcept
+        : m_result(std::in_place_index<0>)
+    {
+    }
 
     /**
      * @brief Construct a new KResult object from an "OK" value.

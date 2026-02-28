@@ -27,7 +27,6 @@ ecm_create_qm_loader(ghostwriter_QM_LOADER ghostwriter_qt)
 target_sources(ghostwriter PRIVATE
     editor/actions/inlinemarkuptoggle.cpp
     editor/markdowneditor.cpp
-    document/asynctextwriter.cpp
     document/textdocument.cpp
     document/textblockdata.h
     highlighter/markdownhighlighter.cpp
@@ -101,7 +100,6 @@ find_package(
     COMPONENTS
     ConfigWidgets
     CoreAddons
-    KIO
     Sonnet
     WidgetsAddons
     XmlGui
@@ -133,9 +131,6 @@ target_link_libraries(ghostwriter PRIVATE
     KF${KF_MAJOR_VERSION}::ConfigCore
     KF${KF_MAJOR_VERSION}::ConfigWidgets
     KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::KIOFileWidgets
-    KF${KF_MAJOR_VERSION}::KIOWidgets
     KF${KF_MAJOR_VERSION}::SonnetCore
     KF${KF_MAJOR_VERSION}::SonnetUi
     KF${KF_MAJOR_VERSION}::XmlGui

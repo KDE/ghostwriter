@@ -6,11 +6,17 @@
 #ifndef TEXTIO_H
 #define TEXTIO_H
 
-#include <KResult>
+#include <QFileDevice>
+#include <QFuture>
 #include <QString>
 #include <QStringConverter>
 #include <QUrl>
 
+#include "util/kerrorcode.h"
+#include "util/kresult.h"
+
+namespace ghostwriter
+{
 /**
  * @brief Error codes for TextIO operations.
  */
@@ -20,14 +26,29 @@ enum class TextIOError {
     AuthenticationError, ///< An authentication error occurred.
     PermissionDenied, ///< Permission to access the file was denied.
     FileNotFound, ///< The specified file was not found.
+    OpenError, ///< An error occurred while opening the file.
+    ReadError, ///< An error occurred while reading from the file.
+    WriteError, ///< An error occurred while writing to the file.
+    RemoveError, ///< An error occurred while removing the file.
+    RenameError, ///< An error occurred while renaming the file.
+    ResourceError, ///< A resource error occurred.
+    TimeoutError, ///< The operation timed out.
+    AbortError, ///< The operation was aborted.
+    FatalError, ///< A fatal error occurred.
     UnknownError ///< An unknown error occurred.
 };
 
 class TextIO
 {
 public:
-    typedef KResult<KSuccess, TextIOError> WriteResult;
-    typedef KResult<QString, TextIOError> ReadResult;
+    using WriteResult = KResult<KSuccess, TextIOError>;
+    using ReadResult = KResult<QString, TextIOError>;
+
+    static bool canHandle(const QUrl &fileUrl)
+    {
+        Q_UNUSED(fileUrl);
+        return false;
+    }
 
     /**
      * @brief Constructs a new TextIO object.
@@ -66,6 +87,21 @@ public:
     // Common functionality
 
     /**
+     * @brief Asynchronously writes the given text to the file.
+     *
+     * @param text Text to write to the file.
+     * @return QFuture<WriteResult> A future that will contain the result of the write operation.
+     */
+    QFuture<WriteResult> writeAsync(const QString &text);
+
+    /**
+     * @brief Asynchronously reads text from the file.
+     *
+     * @return QFuture<ReadResult> A future that will contain the result of the read operation.
+     */
+    QFuture<ReadResult> readAsync();
+
+    /**
      * @brief Returns the file path.
      *
      * @return QUrl The file path.
@@ -98,6 +134,9 @@ public:
 protected:
     QUrl m_fileUrl;
     QStringConverter::Encoding m_encoding;
+
+    TextIOError mapToTextIOError(QFileDevice::FileError fileError);
 };
+} // namespace ghostwriter
 
 #endif // TEXTIO_H

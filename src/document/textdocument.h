@@ -17,8 +17,9 @@
 #include <QTextBlock>
 #include <QTextDocument>
 
-#include "../util/kerrorcode.h"
-#include "../util/kresult.h"
+#include "io/textio.h"
+#include "util/kerrorcode.h"
+#include "util/kresult.h"
 
 namespace ghostwriter
 {
@@ -29,57 +30,14 @@ class TextDocument;
  * Text document.
  */
 class TextDocumentPrivate;
-class TextDocument : public QTextDocument
+class TextDocument final : public QTextDocument
 {
     Q_OBJECT
+    Q_DECLARE_PRIVATE(TextDocument)
 
 public:
-    enum IOError {
-        NoError = 0,
-        InvalidPathError,
-        DirectoryNotFoundError,
-        FileNotFoundError,
-        ReadError = 1,
-        WriteError = 2,
-        FatalError = 3,
-        ResourceError = 4,
-        OpenError = 5,
-        AbortError = 6,
-        TimeOutError = 7,
-        UnspecifiedError = 8,
-        RemoveError = 9,
-        RenameError = 10,
-        PositionError = 11,
-        ResizeError = 12,
-        PermissionsError = 13,
-        CopyError = 14
-    };
-
-    using Result = KResult<TextDocument *, IOError>;
-    using IOErrorCode = KErrorCode<IOError>;
-
-    /**
-     * Returns true if documents will automatically load changes made
-     * externally to their backing files, provided their internal texts buffers
-     * have not been modified with unsaved changes, false otherwise.
-     *
-     * @return @c true if automatically loading changes from disk is enabled
-     * @return @c false otherwise
-     */
-    constexpr static bool autoLoadEnabled();
-
-    /**
-     * Sets whether documents should automatically load changes made
-     * externally to their backing files, provided their internal text buffers
-     * have not been modified with unsaved changes.
-     *
-     * @param enabled true if automatically loading changes from disk is
-     *                to be enabled, false otherwise.
-     */
-    constexpr static void setAutoLoadEnabled(bool enabled);
-
-    constexpr static TextDocument::Result setDraftLocation(const QString &path);
-    constexpr static QString draftLocation();
+    using IOResult = KResult<KSuccess, TextIOError>;
+    using TextIOFactoryFunction = std::function<std::unique_ptr<TextIO>(const QUrl &, QStringConverter::Encoding)>;
 
     /**
      * Creates a new, untitled (draft) document with a backing file at the
@@ -91,12 +49,21 @@ public:
      * the document won't have a backing draft file on disk, and will be at risk of
      * data loss until a call to saveAs() can persist its contents.
      *
-     * @param draftName Untitled draft display name.
+     * @param draftName Name to use for the draft document's display name.
+     * @param draftUrl Untitled draft URL for use as temporary storage and display name.
+     * @param encoding Encoding to use when reading or writing the document.
      * @param parent Parent object, or nullptr for no parent.
+     * @param textIOFactory Function to create the TextIO instance to use with the draft URL.
+     *                      This parameter should not be used except for mocking in unit tests.
+     *                      Its default is already set to an internal standard production function.
      *
-     * @return Document object.
+     * @return TextDocument object if successful, TextIOError error code otherwise.
      */
-    static Result create(const QString &draftName, QObject *parent);
+    static KResult<TextDocument *, TextIOError> create(const QString &draftName,
+                                                       const QUrl &draftUrl,
+                                                       QStringConverter::Encoding encoding,
+                                                       QObject *parent = nullptr,
+                                                       TextIOFactoryFunction textIOFactory = defaultTextIOFactory);
 
     /**
      * Opens the file contents at the given file path.
@@ -104,11 +71,17 @@ public:
      * If unsuccessful, error() will return true, and errorString() will return a
      * description of the error.
      *
-     * @param path File path from which to load the document.
+     * @param url File URL to a local path from which to load the document.
+     * @param encoding Encoding to use when reading or writing the document.
+     * @param parent Parent object, or nullptr for no parent.
+     * @param textIOFactory Function to create the TextIO instance to use with the draft URL.
+     *                      This parameter should not be used except for mocking in unit tests.
+     *                      Its default is already set to an internal standard production function.
      *
-     * @return Document object if successful, nullptr otherwise.
+     * @return TextDocument object if successful, TextIOError error code otherwise.
      */
-    static Result open(const QString &path, QObject *parent = nullptr);
+    static KResult<TextDocument *, TextIOError>
+    open(const QUrl &url, QStringConverter::Encoding encoding, QObject *parent = nullptr, TextIOFactoryFunction textIOFactory = defaultTextIOFactory);
 
     /**
      * Opens an untitled draft backed by the given local file path.
@@ -116,16 +89,26 @@ public:
      * If unsuccessful, error() will return true, and errorString() will return a
      * description of the error.
      *
-     * @param path Local file path from which to load the draft document.
+     * @param draftName Name to use for the draft document's display name.
+     * @param url Local file URL from which to load the draft document.
+     * @param encoding Encoding to use when reading or writing the document.
+     * @param parent Parent object, or nullptr for no parent.
+     * @param textIOFactory Function to create the TextIO instance to use with the draft URL.
+     *                      This parameter should not be used except for mocking in unit tests.
+     *                      Its default is already set to an internal standard production function.
      *
-     * @return Document object if successful, nullptr otherwise.
+     * @return Document object if successful, TextIOError error code otherwise.
      */
-    static Result openDraft(const QString &draftName, const QString &path, QObject *parent = nullptr);
+    static KResult<TextDocument *, TextIOError> openDraft(const QString &draftName,
+                                                          const QUrl &url,
+                                                          QStringConverter::Encoding encoding,
+                                                          QObject *parent = nullptr,
+                                                          TextIOFactoryFunction textIOFactory = defaultTextIOFactory);
 
     /**
      * Destructor.
      */
-    virtual ~TextDocument();
+    ~TextDocument();
 
     /**
      * Closes the file, removing its contents from the buffer and completing any unsaved
@@ -134,14 +117,22 @@ public:
      * If unsuccessful, error() will return true, and errorString() will return a
      * description of the error.
      *
-     * @return true if successful, false otherwise (i.e., if a save error occurred).
+     * @return IOResult indicating success or failure.
      */
-    Result close();
-
-    constexpr QString fileName() const;
+    IOResult close();
 
     /**
-     * Returns the document file path.  If the document is a untitled with no draft
+     * Returns the document's URL.  If the document is a untitled with no draft
+     * file backing it, then QUrl's isValid() method will return false.
+     *
+     * @return URL to the document, or an invalid QUrl (QUrl.isValid() returns false) if
+     *         the document is an untitled draft that has not yet been saved and has
+     *         no backing file on disk.
+     */
+    constexpr QUrl url() const;
+
+    /**
+     * Returns the document's local file path.  If the document is a untitled with no draft
      * file backing it, then QString's isEmpty() method will return true.
      *
      * @return Path to the document, or an empty QString (QString.isEmpty() returns true) if
@@ -151,13 +142,22 @@ public:
     constexpr QString filePath() const;
 
     /**
-     * Returns the document's absolute file path.    If the document is a untitled
+     * Returns the document's absolute file path.  If the document is a untitled
      * with no draft file backing it, then QString's isEmpty() method will return true.
      *
      * @return Path to the document, or an empty QString (QString.isEmpty() returns true) if
      *         the document is an untitled draft that has not yet been saved.
      */
     constexpr QString absoluteFilePath() const;
+
+    /**
+     * Returns the document's canonical file path.  If the document is a untitled
+     * with no draft file backing it, then QString's isEmpty() method will return true.
+     *
+     * @return Path to the document, or an empty QString (QString.isEmpty() returns true) if
+     *         the document is an untitled draft that has not yet been saved.
+     */
+    constexpr QString canonicalFilePath() const;
 
     /**
      * Returns a name for the document suitable for display.
@@ -175,16 +175,6 @@ public:
     constexpr bool isDraft() const;
 
     /**
-     * Returns whether the draft document has a file on disk backing it.
-     *
-     * This method only applies to an untitled draft.
-     *
-     * @return @c true if the draft document has a file on disk backing it
-     * @return @c false otherwise
-     */
-    constexpr bool backed() const;
-
-    /**
      * Returns whether this document has been modified without having been
      * saved to disk.
      *
@@ -195,21 +185,23 @@ public:
     constexpr bool modified() const;
 
     /**
-     * Returns whether there is a conflict with the file contents in memory
-     * vs. the contents on disk. This method should be called to see if the file
-     * should be reloaded from disk or else overwritten by what is in memory.
+     * Returns whether the document is writable.
      *
-     * @return @c true if there is a conflict with the file contents in memory
-     *            vs. the contents on disk
-     * @return @c false otherwise
-     */
-    constexpr bool hasConflict() const;
-
-    /**
-     * Returns true if the document is writable (i.e., not having read only
-     * permissions), false otherwise.
+     * @return @c true if the document is writeable
+     * @return @c false if the document is read-only
      */
     constexpr bool isWritable() const;
+
+    /**
+     * Returns whether the contents of the document in memory is in conflict
+     * with the contents of the file on disk due to an external file IO operation.
+     *
+     * @return @c true the contents of the document in memory conflict with
+     *                 the contents of the file on disk
+     * @return false the document in memory and the file on disk are in sync
+     *               with no external file IO operation having created a conflict
+     */
+    constexpr bool hasConflict() const;
 
     /**
      * Gets the last modification time of the document, which is useful when
@@ -220,10 +212,9 @@ public:
     /**
      * Renames the file to the given name (without changing its directory).
      *
-     * @return @c true if rename operation was successful
-     * @return @c false otherwise
+     * @return IOResult indicating success or failure.
      */
-    Result rename(const QString &name) noexcept;
+    IOResult rename(const QString &name) noexcept;
 
     /**
      * Saves the document to disk.
@@ -232,7 +223,7 @@ public:
      * signal will be emitted. On success, modifiedChanged will be emitted
      * with a modified value of false.
      */
-    Result save();
+    IOResult save();
 
     /**
      * Saves the document to disk at the given location, changing the document's
@@ -242,9 +233,9 @@ public:
      * signal will be emitted. On success, modifiedChanged will be emitted
      * with a modified value of false.
      *
-     * @param path file path to which to save the file.
+     * @param url local file path url to which to save the file.
      */
-    Result saveAs(const QString &path);
+    IOResult saveAs(const QUrl &url);
 
     /**
      * Saves to the given location as a copy without changing the current file path
@@ -254,34 +245,40 @@ public:
      * signal will be emitted. On success, modifiedChanged will be emitted
      * with a modified value of false.
      *
-     * @param path file path to which to save a copy of the file.
+     * @param url local file path URL to which to save a copy of the file.
      */
-    Result saveCopyAs(const QString &path) const;
+    IOResult saveCopyAs(const QUrl &url) const;
 
     /**
      * Reverts the document's contents to the given backup file on disk that
      * was created as a snapshot of a prior version of the document.
      *
-     * @param snapshotPath Local file path of the backup file from which to restore
+     * @param snapshotURL Local file URL of the backup file from which to restore
      *                     a prior version of the document.
      */
-    Result revert(const QString &snapshotPath);
+    IOResult revert(const QUrl &snapshotURL);
 
     /**
-     * Reverts the document's contents to the given backup file on disk that
-     * was created as a snapshot of a prior version of the document.
+     * Reloads the document's contents to the contents on disk, provided the
+     * document has not been modified in memory with unsaved changes.
      */
-    Result reload();
+    IOResult reload();
+
+    /**
+     * Sets the encoding to use when reading or writing the document.
+     *
+     * @param encoding Encoding to use.
+     */
+    void setEncoding(QStringConverter::Encoding encoding);
+
+    /**
+     * @brief Returns the encoding used when reading or writing the document.
+     *
+     * @return QStringConverter::Encoding
+     */
+    QStringConverter::Encoding encoding() const;
 
 signals:
-    /**
-     * Emitted when a conflict with the contents on disk vs. in memory is
-     * detected. Upon receiving this signal, the recipient should
-     * generally prompt the user and inquire whether to overwrite the
-     * contents in memory with what is on disk.
-     */
-    void conflictDetected();
-
     /**
      * Emitted when the document has been modified since the last save,
      * or else saved since the last modification in memory.
@@ -292,59 +289,72 @@ signals:
     void modifiedChanged(bool modified);
 
     /**
+     * Emitted when the document's file permissions have changed.
+     *
+     * @param modified true if the document is writeable, false otherwise.
+     */
+    void permissionsChanged(bool writeable);
+
+    /**
+     * Emitted when the document's encoding has changed.
+     *
+     * @param encoding The new encoding of the document.
+     */
+    void encodingChanged(QStringConverter::Encoding encoding);
+
+    /**
+     * Emitted when a conflict is detected with the file contents loaded in memory
+     * versus the contents on disk.
+     */
+    void conflictDetected();
+
+    /**
      * Emitted when there is an error saving the document with the save()
      * operation to disk.
      *
-     * @param description A description of the error that occurred.
+     * @param err A TextIOError error code with its description.
      */
-    void saveError(const IOErrorCode &err);
+    void saveError(const KErrorCode<TextIOError> &err);
 
     /**
      * Emitted when there is an error saving the document under another name
      * with the saveAs() operation to disk.
      *
-     * @param description A description of the error that occurred.
+     * @param err A TextIOError error code with its description.
      */
-    void saveAsError(const IOErrorCode &err);
+    void saveAsError(const KErrorCode<TextIOError> &err);
 
     /**
      * Emitted when there is an error saving a copy of the document
      * with the saveCopyAs() operation.
      *
-     * @param description A description of the error that occurred.
+     * @param err A TextIOError error code with its description.
      */
-    void saveCopyAsError(const IOErrorCode &err);
+    void saveCopyAsError(const KErrorCode<TextIOError> &err);
 
     /**
-     * Emitted when document's file path changed during a saveAs() or rename()
+     * Emitted when document's file URL changed during a saveAs() or rename()
      * operation.
      *
-     * @param path The new path of the document.
+     * @param url The new URL of the document.
      */
-    void filePathChanged(const QString &path);
+    void fileUrlChanged(const QUrl &url);
 
     /**
      * Emitted when document's display name changed during a saveAs() or rename()
      * operation.
      */
-    void displayNameChanged();
+    void displayNameChanged(const QString &displayName);
 
 private:
     QScopedPointer<TextDocumentPrivate> d;
 
     /*
-     * Creates a new, untitled (draft) document with a backing file at the
-     * draft directory given by draftLocation().
-     *
-     * If unsuccessful in creating a backing file for the draft, error() will
-     * return true, and errorString() will return a description of the error.
-     * However, the object can still be used.  It simply won't have a backing
-     * draft file. As such, the document is at risk of data loss until a call
-     * to saveAs() can persist its contents to disk.
-     *
-     * @param parent Parent object, or nullptr for no parent.
+     * Creates a new TextDocument object.
      */
-    TextDocument(QObject *parent = nullptr);
+    TextDocument(QObject *parent);
+
+    static std::unique_ptr<TextIO> defaultTextIOFactory(const QUrl &url, QStringConverter::Encoding encoding);
 };
 
 } // namespace ghostwriter

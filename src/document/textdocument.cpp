@@ -24,104 +24,105 @@
 #include <KNetworkMounts>
 #include <KProtocolInfo>
 
-#include "asynctextwriter.h"
+#include "io/localtextio.h"
+#include "io/netsharetextio.h"
+#include "io/textio.h"
+
+#include "textdocument_p.h"
 
 namespace ghostwriter
 {
-using IOError = TextDocument::IOError;
-using IOErrorCode = TextDocument::IOErrorCode;
-using Result = TextDocument::Result;
-using LoadResult = TextDocument::Result;
-
 class TextDocumentPrivate
 {
 public:
-    static IOError mapFileError(QFileDevice::FileError &&err);
-
     TextDocumentPrivate(TextDocument *q);
     ~TextDocumentPrivate();
-    Result loadFile(const QString &path, bool draft, const QString &displayName = QString());
-    QString createDisplayName();
 
-    void createDraftBackingFile();
-    void initializeWriter(const QString &path);
+    TextDocument::IOResult
+    initialize(const QUrl &url, const QStringConverter::Encoding encoding, const QString &draftName, TextDocument::TextIOFactoryFunction textIOFactory);
+    TextDocument::IOResult loadFile(const QUrl &url);
+
+    TextDocument::IOResult createDraftBackingFile(const QUrl &draftUrl);
     void watchFile(const QString &path);
     void removeWatchedFile(const QString &path);
 
     /*
-     * Handles the event where a file as been modified externally on disk.
+     * Handles the event where a file has been modified externally on disk.
      */
     void onFileChangedExternally(const QString &path);
 
     static QFileSystemWatcher *s_fileWatcher;
-    static bool s_autoLoadEnabled;
-    static QString s_draftLocation;
 
     TextDocument *q;
 
-    bool m_valid;
     bool m_draft;
     QString m_displayName;
-    bool m_backed;
     bool m_modified;
     bool m_writable;
     bool m_saveInProgress;
-    QString m_filePath;
+    QUrl m_fileUrl;
     QDateTime m_lastModified;
-    QFileInfo m_info;
-    AsyncTextWriter *m_writer;
+    QStringConverter::Encoding m_encoding;
+    QFileInfo m_fileInfo;
+    std::unique_ptr<TextIO> m_textIO;
+    TextDocument::TextIOFactoryFunction m_textIOFactory;
 };
 
 QFileSystemWatcher *TextDocumentPrivate::s_fileWatcher = nullptr;
-bool TextDocumentPrivate::s_autoLoadEnabled = false;
-QString TextDocumentPrivate::s_draftLocation = QString();
 
-bool TextDocument::autoLoadEnabled()
-{
-    return TextDocumentPrivate::s_autoLoadEnabled;
-}
+// TextDocument::TextDocument(const QUrl &url, const QString &contents, const std::unique_ptr<TextIO> &textIO, const QString &draftName = QString(), QObject
+// *parent = nullptr)
+//     : QTextDocument(parent)
+//     , d(new TextDocumentPrivate(this))
+// {
+//     setDocumentLayout(new QPlainTextDocumentLayout(this));
+`
+    //     d->m_textIO = textIO;
+    //     setPlainText(contents);
+    //     d->m_filePath = url.toLocalFile();
+    //     d->m_draft = draftName.isEmpty() ? true : false;
+    //     d->m_displayName =  d->m_draft ? draftName : QFileInfo(d->m_filePath).baseName();
+    // }
 
-void TextDocument::setAutoLoadEnabled(bool enabled)
+    KResult<TextDocument *, TextIOError> TextDocument::create(const QString &draftName,
+                                                              const QUrl &draftUrl,
+                                                              QStringConverter::Encoding encoding,
+                                                              QObject *parent,
+                                                              TextIOFactoryFunction textIOFactory)
 {
-    TextDocumentPrivate::s_autoLoadEnabled = enabled;
-    // TODO: Check if file on disk is out of sync and should be reloaded.
-}
+    TextDocument *doc = new TextDocument(parent);
 
-TextDocument::Result TextDocument::setDraftLocation(const QString &path)
-{
-    if (path.isEmpty()) {
-        return IOErrorCode(TextDocument::InvalidPathError, tr("Cannot use empty directory path as the draft location."));
+    if (!doc) {
+        return {TextIOError::ResourceError, TextDocument::tr("Out of memory")};
     }
 
-    TextDocumentPrivate::s_draftLocation = path;
+    // TODO: handle logic for URL already existing (should error!)
+    // TODO: create emtpy temp draft document
+    doc->d->initialize(draftUrl, encoding, draftName, textIOFactory);
 }
 
-// QString draftLocation();
-
-TextDocument::TextDocument(QObject *parent = nullptr)
-    : QTextDocument(parent)
-    , d(new TextDocumentPrivate(this))
+KResult<TextDocument *, TextIOError>
+TextDocument::open(const QUrl &url, QStringConverter::Encoding encoding, QObject *parent, TextIOFactoryFunction textIOFactory)
 {
-    setDocumentLayout(new QPlainTextDocumentLayout(this));
+    TextDocument *doc = new TextDocument(parent);
+
+    if (!doc) {
+        return {TextIOError::ResourceError, TextDocument::tr("Out of memory")};
+    }
+
+    doc->d->initialize(url, encoding, QString(), textIOFactory);
 }
 
-TextDocument::Result TextDocument::create(const QString &draftName, QObject *parent)
+KResult<TextDocument *, TextIOError>
+TextDocument::openDraft(const QString &draftName, const QUrl &url, QStringConverter::Encoding encoding, QObject *parent, TextIOFactoryFunction textIOFactory)
 {
-    auto doc = new TextDocument(parent);
-    doc->d->m_displayName = draftName;
-    return doc;
-}
+    TextDocument *doc = new TextDocument(parent);
 
-TextDocument::Result TextDocument::open(const QString &path, QObject *parent)
-{
-    auto doc = new TextDocument(parent);
-    return doc->d->loadFile(path, false);
-}
+    if (!doc) {
+        return {TextIOError::ResourceError, TextDocument::tr("Out of memory")};
+    }
 
-TextDocument::Result TextDocument::openDraft(const QString &draftName, const QString &path, QObject *parent)
-{
-    auto doc = new TextDocument(parent);
-    return doc->d->loadFile(path, true, draftName);
+    doc->d->initialize(url, encoding, draftName, textIOFactory);
 }
 
 TextDocument::~TextDocument()
@@ -129,36 +130,29 @@ TextDocument::~TextDocument()
     ;
 }
 
-QString TextDocument::fileName() const
+QUrl TextDocument::url() const
 {
-    return QFileInfo(d->m_filePath).fileName();
+    return d->m_fileUrl;
 }
 
 QString TextDocument::filePath() const
 {
-    return d->m_filePath;
+    return d->m_fileInfo.filePath();
 }
 
 QString TextDocument::absoluteFilePath() const
 {
-    return QFileInfo(d->m_filePath).absoluteFilePath();
+    return d->m_fileInfo.absoluteFilePath();
 }
 
 QString TextDocument::displayName() const
 {
-    if (d->m_draft) {
-        return d->m_displayName;
-    }
+    return d->m_displayName;
 }
 
 bool TextDocument::isDraft() const
 {
     return d->m_draft;
-}
-
-bool TextDocument::backed() const
-{
-    return d->m_backed;
 }
 
 bool TextDocument::modified() const
@@ -206,22 +200,29 @@ TextDocument::TextDocument(QObject *parent)
     setDocumentLayout(new QPlainTextDocumentLayout(this));
 }
 
+std::unique_ptr<TextIO> TextDocument::defaultTextIOFactory(const QUrl &fileUrl, QStringConverter::Encoding encoding)
+{
+    if (NetShareTextIO::canHandle(fileUrl)) {
+        return std::make_unique<NetShareTextIO>(fileUrl, encoding);
+    } else if (LocalTextIO::canHandle(fileUrl)) {
+        return std::make_unique<LocalTextIO>(fileUrl, encoding);
+    }
+    // Add more handlers here as needed.
+    return nullptr;
+}
+
 TextDocumentPrivate::TextDocumentPrivate(TextDocument *q)
     : q(q)
-    , m_valid(true)
     , m_draft(true)
     , m_displayName(TextDocument::tr("untitled"))
-    , m_backed(false)
     , m_modified(false)
     , m_writable(true)
     , m_saveInProgress(false)
-    , m_filePath(QString())
+    , m_fileUrl(QUrl())
     , m_lastModified(QDateTime())
-    , m_writer(nullptr)
+    , m_textIO(nullptr)
 {
-    if (nullptr == s_fileWatcher) {
-        s_fileWatcher = new QFileSystemWatcher();
-    }
+    ;
 }
 
 TextDocumentPrivate::~TextDocumentPrivate()
@@ -229,6 +230,40 @@ TextDocumentPrivate::~TextDocumentPrivate()
     if (nullptr != m_writer) {
         delete m_writer;
         m_writer = nullptr;
+    }
+}
+
+TextDocument::IOResult TextDocumentPrivate::initialize(const QUrl &url,
+                                                       const QStringConverter::Encoding encoding,
+                                                       const QString &draftName,
+                                                       TextDocument::TextIOFactoryFunction textIOFactory)
+{
+    if (!url.isValid()) {
+        return {TextIOError::FileNotFound, TextDocument::tr("Invalid file path")};
+    }
+
+    m_fileUrl = url;
+    m_encoding = encoding;
+    m_draft = !draftName.isEmpty();
+    m_textIO = textIOFactory(url, encoding);
+
+    if (nullptr == m_textIO) {
+        return {TextIOError::FatalError, TextDocument::tr("Unsupported file system or URL")};
+    }
+
+    m_textIOFactory = textIOFactory;
+    m_fileInfo = QFileInfo(m_fileUrl.toLocalFile());
+    m_writable = m_fileInfo.isWritable();
+    m_lastModified = m_fileInfo.lastModified();
+
+    if (m_draft) {
+        m_displayName = draftName;
+    } else {
+        m_displayName = m_fileInfo.fileName();
+    }
+
+    if (nullptr == s_fileWatcher) {
+        s_fileWatcher = new QFileSystemWatcher();
     }
 }
 
@@ -409,53 +444,16 @@ void TextDocumentPrivate::initializeWriter(const QString &path)
     });
 }
 
-void TextDocumentPrivate::watchFile(const QString &path)
-{
-    if (nullptr == s_fileWatcher) {
-        s_fileWatcher = new QFileSystemWatcher();
-        q->connect(s_fileWatcher, &QFileSystemWatcher::fileChanged, [this](const QString &path) {
-            onFileChangedExternally(path);
-        });
-    }
+// void TextDocumentPrivate::watchFile(const QString &path)
+// {
+//     if (nullptr == s_fileWatcher) {
+//         s_fileWatcher = new QFileSystemWatcher();
+//         q->connect(s_fileWatcher, &QFileSystemWatcher::fileChanged, [this](const QString &path) {
+//             onFileChangedExternally(path);
+//         });
+//     }
 
-    s_fileWatcher->addPath(QFileInfo(path).absoluteFilePath());
-}
-
-static TextDocument::IOError mapFileError(QFileDevice::FileError &&err)
-{
-    switch ((int)err) {
-    case QFileDevice::NoError:
-        return TextDocument::NoError;
-    case QFileDevice::ReadError:
-        return TextDocument::ReadError;
-    case QFileDevice::WriteError:
-        return TextDocument::WriteError;
-    case QFileDevice::FatalError:
-        return TextDocument::FatalError;
-    case QFileDevice::ResourceError:
-        return TextDocument::ResourceError;
-    case QFileDevice::OpenError:
-        return TextDocument::OpenError;
-    case QFileDevice::AbortError:
-        return TextDocument::AbortError;
-    case QFileDevice::TimeOutError:
-        return TextDocument::TimeOutError;
-    case QFileDevice::UnspecifiedError:
-        return TextDocument::UnspecifiedError;
-    case QFileDevice::RemoveError:
-        return TextDocument::RemoveError;
-    case QFileDevice::RenameError:
-        return TextDocument::RenameError;
-    case QFileDevice::PositionError:
-        return TextDocument::PositionError;
-    case QFileDevice::ResizeError:
-        return TextDocument::ResizeError;
-    case QFileDevice::PermissionsError:
-        return TextDocument::PermissionsError;
-    case QFileDevice::CopyError:
-        return TextDocument::CopyError;
-    default:
-        return TextDocument::UnspecifiedError;
-    }
+//     s_fileWatcher->addPath(QFileInfo(path).absoluteFilePath());
+// }
 
 } // namespace ghostwriter

@@ -6,9 +6,9 @@ cmake_minimum_required(VERSION 3.16)
 
 project(unittest VERSION 1.0.0 LANGUAGES CXX)
 
-add_subdirectory(asynctextwriter)
 add_subdirectory(bookmark)
 add_subdirectory(kresultsuite)
+add_subdirectory(iosuite)
 add_subdirectory(library)
 
 enable_testing(true)
