@@ -345,6 +345,7 @@ void FindReplace::showFindView()
     d->findField->setFocus();
     d->setQueryFromSelection();
     d->setReplaceRowVisible(false);
+    d->findField->selectAll();
 
     if (d->highlightMatchesButton->isChecked()) {
         d->highlightMatches(true);
@@ -363,6 +364,7 @@ void FindReplace::showReplaceView()
     d->findField->setFocus();
     d->setQueryFromSelection();
     d->setReplaceRowVisible(true);
+    d->findField->selectAll();
 
     if (d->highlightMatchesButton->isChecked()) {
         d->highlightMatches(true);
