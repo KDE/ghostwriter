@@ -132,12 +132,12 @@ AppActions::AppActions(KActionCollection *collection, SvgIconTheme *iconTheme, Q
            "formatting. If the block is nested, only the outermost layer of "
            "block quote formatting will be stripped."));
 
-    d->addAction(BulletListAsterisk, "format_bullet_list_asterisk", tr("* Bullet List"), "unordered-list", tr("CTRL+8"));
+    action = d->addAction(BulletListAsterisk, "format_bullet_list_asterisk", tr("* Bullet List"), "unordered-list", tr("CTRL+8"));
     action->setToolTip(
         tr("Formats the current line or selected lines as a "
            "bullet point list with an asterisk (*)."));
 
-    d->addAction(BulletListMinus, "format_bullet_list_minus", tr("- Bullet List"), "unordered-list", tr("CTRL+-"));
+    action = d->addAction(BulletListMinus, "format_bullet_list_minus", tr("- Bullet List"), "unordered-list", tr("CTRL+-"));
     action->setToolTip(
         tr("Formats the current line or selected lines as a "
            "bullet point list with a minus sign (-)."));
@@ -147,7 +147,7 @@ AppActions::AppActions(KActionCollection *collection, SvgIconTheme *iconTheme, Q
         tr("Formats the current line or selected lines as a "
            "bullet point list with a plus sign (+)."));
 
-    d->addAction(NumberedListPeriod, "format_numbered_list_period", tr("1. Numbered List"), "ordered-list", tr("CTRL+1"));
+    action = d->addAction(NumberedListPeriod, "format_numbered_list_period", tr("1. Numbered List"), "ordered-list", tr("CTRL+1"));
     action->setToolTip(
         tr("Formats the current line or selected lines as a "
            "numbered list."));
