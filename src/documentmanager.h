@@ -10,7 +10,7 @@
 #include <QObject>
 #include <QScopedPointer>
 
-#include "editor/markdowndocument.h"
+#include "document/textdocument.h"
 #include "editor/markdowneditor.h"
 
 #include "bookmark.h"
@@ -48,7 +48,7 @@ public:
     /**
      * Gets the current document that is opened.
      */
-    MarkdownDocument *document() const;
+    TextDocument *document() const;
 
     /**
      * Gets whether auto-save is enabled.

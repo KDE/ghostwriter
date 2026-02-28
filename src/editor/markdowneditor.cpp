@@ -856,7 +856,7 @@ void MarkdownEditor::dropEvent(QDropEvent *e)
             (fileExtension == "tiff") ||
             (fileExtension == "svg")
         ) {
-            if (!d->textDocument->isNew()) {
+            if (!d->textDocument->isDraft()) {
                 QFileInfo docInfo(d->textDocument->filePath());
 
                 if (docInfo.exists()) {
@@ -902,7 +902,7 @@ void MarkdownEditor::insertFromMimeData(const QMimeData *source)
         QString imagePath, startingDirectory;
 
         QString documentName = QFileInfo(d->textDocument->filePath()).baseName();
-        if (!d->textDocument->isNew()) {
+        if (!d->textDocument->isDraft()) {
             startingDirectory = QFileInfo(d->textDocument->filePath()).dir().path();
             imagePath = startingDirectory + "/" + documentName + "_";
         } else {
@@ -935,7 +935,7 @@ void MarkdownEditor::insertFromMimeData(const QMimeData *source)
             bool isRelativePath = false;
 
             if (imgInfo.exists()) {
-                if (!d->textDocument->isNew()) {
+                if (!d->textDocument->isDraft()) {
                     QFileInfo docInfo(d->textDocument->filePath());
 
                     if (docInfo.exists()) {
@@ -1525,7 +1525,7 @@ void MarkdownEditor::insertImage()
     QString startingDirectory = QString();
     MarkdownDocument *document = (MarkdownDocument*) this->document();
 
-    if (!document->isNew()) {
+    if (!document->isDraft()) {
         startingDirectory = QFileInfo(document->filePath()).dir().path();
     }
 
@@ -1542,7 +1542,7 @@ void MarkdownEditor::insertImage()
         bool isRelativePath = false;
 
         if (imgInfo.exists()) {
-            if (!document->isNew()) {
+            if (!document->isDraft()) {
                 QFileInfo docInfo(document->filePath());
 
                 if (docInfo.exists()) {
