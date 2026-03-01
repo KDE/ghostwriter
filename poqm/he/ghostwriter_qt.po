@@ -867,7 +867,7 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
 msgstr "החלפה ב־:"
 
-#: src/findreplace.cpp:439
+#: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
@@ -876,17 +876,17 @@ msgstr[1] "שתי החלפות"
 msgstr[2] "%Ln החלפות"
 msgstr[3] "%Ln החלפות"
 
-#: src/findreplace.cpp:489
+#: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
 msgstr "החיפוש גלש"
 
-#: src/findreplace.cpp:496
+#: src/findreplace.cpp:498
 msgctxt "ghostwriter::FindReplace|"
 msgid "No results"
 msgstr "אין תוצאות"
 
-#: src/findreplace.cpp:538
+#: src/findreplace.cpp:540
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"

@@ -900,24 +900,24 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
 msgstr "Remplacer par :"
 
-#: src/findreplace.cpp:439
+#: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
 msgstr[0] "%Ln remplacement(s)"
 msgstr[1] "%Ln remplacement(s)"
 
-#: src/findreplace.cpp:489
+#: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
 msgstr "Rechercher les retours à la ligne"
 
-#: src/findreplace.cpp:496
+#: src/findreplace.cpp:498
 msgctxt "ghostwriter::FindReplace|"
 msgid "No results"
 msgstr "Aucun résultat"
 
-#: src/findreplace.cpp:538
+#: src/findreplace.cpp:540
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
