@@ -882,24 +882,24 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
 msgstr "ჩანაცვლება:"
 
-#: src/findreplace.cpp:439
+#: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
 msgstr[0] "%Ln ჩანაცვლება"
 msgstr[1] "%Ln ჩანაცვლება"
 
-#: src/findreplace.cpp:489
+#: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
 msgstr "გადატანილში ძებნა"
 
-#: src/findreplace.cpp:496
+#: src/findreplace.cpp:498
 msgctxt "ghostwriter::FindReplace|"
 msgid "No results"
 msgstr "შედეგების გარეშე"
 
-#: src/findreplace.cpp:538
+#: src/findreplace.cpp:540
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"

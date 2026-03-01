@@ -888,7 +888,7 @@ msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
 msgstr "Замінити на:"
 
-#: src/findreplace.cpp:439
+#: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
@@ -897,17 +897,17 @@ msgstr[1] "%Ln заміни"
 msgstr[2] "%Ln замін"
 msgstr[3] "%Ln заміна"
 
-#: src/findreplace.cpp:489
+#: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
 msgid "Search wrapped"
 msgstr "Циклічний пошук"
 
-#: src/findreplace.cpp:496
+#: src/findreplace.cpp:498
 msgctxt "ghostwriter::FindReplace|"
 msgid "No results"
 msgstr "Нічого не знайдено"
 
-#: src/findreplace.cpp:538
+#: src/findreplace.cpp:540
 #, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
