@@ -1,10 +1,10 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-06 09:33+0300\n"
+"PO-Revision-Date: 2026-03-02 08:40+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -914,12 +914,10 @@ msgid "%1 matches"
 msgstr "%1 відповідності"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Не вдалося прочитати %1"
+msgstr "Не вдалося створити файл: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1049,7 +1047,7 @@ msgstr "--- *** ___ Горизонтальна лінія"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Перегляд тек"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1280,17 +1278,14 @@ msgid "&Open last file on startup"
 msgstr "Від&кривати попередній файл під час запуску"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Показати бічну панель"
+msgstr "Бічна панель"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "&Показати усі файли на панелі перегляду тек"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"

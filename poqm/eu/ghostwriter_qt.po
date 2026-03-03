@@ -1,14 +1,14 @@
 # Translation for ghostwriter_qt.po to Euskara/Basque (eu).
-# Copyright (C) 2023-2024 This file is copyright:
+# Copyright (C) 2023-2026 This file is copyright:
 # This file is distributed under the same license as the ghostwriter package.
-# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiekaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2024, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2024-08-15 20:32+0200\n"
+"PO-Revision-Date: 2026-03-02 22:13+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -920,12 +920,10 @@ msgid "%1 matches"
 msgstr "%1 parekide"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Ezin izan du %1 irakurri"
+msgstr "Ezin izan da fitxategia sortu: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1055,7 +1053,7 @@ msgstr "--- *** ___ Zuzen horizontala"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Karpeta-ikuspegia"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1284,17 +1282,14 @@ msgid "&Open last file on startup"
 msgstr "&Ireki azken fitxategia abiatzean"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Erakutsi alboko-barra"
+msgstr "Alboko barra"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "Erakut&si fitxategi guztiak karpeta-ikuspegian"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"

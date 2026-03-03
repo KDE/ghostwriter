@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -906,12 +906,10 @@ msgid "%1 matches"
 msgstr "%1 ემთხვევა"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "%1-ის კითხვის შეცდომა"
+msgstr "შექმნის შეცდომა ფაილისთვის: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1041,7 +1039,7 @@ msgstr "--- *** ___ ჰორიზონტალური სახაზა�
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "საქაღალდის ხედი"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1270,17 +1268,14 @@ msgid "&Open last file on startup"
 msgstr "&ბოლო ფაილის გახსნა გაშვებისას"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "გვერდითი ზოლის ჩვენება"
+msgstr "გვერდითი პანელი"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "ყველა ფაილის ჩვენება &საქაღალდის ხედში"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"

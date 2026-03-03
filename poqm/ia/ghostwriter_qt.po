@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2024, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-11 14:52+0200\n"
+"PO-Revision-Date: 2026-03-02 12:36+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -867,12 +867,10 @@ msgid "%1 matches"
 msgstr "%1 coincidentias"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Il non pote leger %1"
+msgstr "Il non pote crear file '%1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1002,7 +1000,7 @@ msgstr ""
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Vista del Dossier"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1231,12 +1229,9 @@ msgid "&Open last file on startup"
 msgstr ""
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Monstra barra lateral"
+msgstr "Barra lateral"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"

@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-06 16:38+0200\n"
+"PO-Revision-Date: 2026-03-02 23:35+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -911,12 +911,10 @@ msgid "%1 matches"
 msgstr "%1 overeenkomsten"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Kon %1 niet lezen"
+msgstr "Kon bestand niet aanmaken: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1046,7 +1044,7 @@ msgstr "--- *** ___ Horizontale regel"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Mapweergave"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1275,17 +1273,14 @@ msgid "&Open last file on startup"
 msgstr "Laatste bestand bij opstarten &openen"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Zijbalk tonen"
+msgstr "Zijbalk"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "Alle bestanden in mapweergave &tonen"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"

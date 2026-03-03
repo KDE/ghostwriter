@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-07-06 07:00+0200\n"
+"PO-Revision-Date: 2026-03-02 06:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -375,7 +375,7 @@ msgstr "SHIFT+Backspace"
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Preklopi Hemingwayev način"
+msgstr "Preklopi Hemingwayev način."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -908,12 +908,10 @@ msgid "%1 matches"
 msgstr "%1 ujemanj"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Ni bilo mogoče brati %1"
+msgstr "Ni bilo mogoče ustvariti datoteke: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1043,7 +1041,7 @@ msgstr "--- *** ___ Vodoravna črta"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Pogled mape"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1244,7 +1242,7 @@ msgstr "Varovalna kopija ob shranjevanju"
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr "Poglej osnutke brez naslova..."
+msgstr "Poglej osnutke brez naslova…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
@@ -1272,17 +1270,14 @@ msgid "&Open last file on startup"
 msgstr "Odpri zadnjo datoteko ob zagonu"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Prikaži stransko letvico"
+msgstr "Stranska letvica"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "Prikaži datoteke v pogledu mape"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
