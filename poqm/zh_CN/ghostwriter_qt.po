@@ -880,12 +880,10 @@ msgid "%1 matches"
 msgstr "%1 个匹配项"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "无法读取 %1"
+msgstr ""
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1244,12 +1242,9 @@ msgid "&Open last file on startup"
 msgstr "&启动时打开最近文件"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "显示侧边栏"
+msgstr ""
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
