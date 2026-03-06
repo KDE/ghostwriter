@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter\n"
-"PO-Revision-Date: 2026-03-02 10:34+0100\n"
+"PO-Revision-Date: 2026-03-05 11:08+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -905,7 +905,7 @@ msgstr "Cerca:"
 #: src/findreplace.cpp:167
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
-msgstr "Substitueix amb:"
+msgstr "Substitueix per:"
 
 #: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
