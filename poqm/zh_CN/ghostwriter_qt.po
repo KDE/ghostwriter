@@ -1123,7 +1123,7 @@ msgstr "段落"
 #: src/settings/preferencesdialog.cpp:239
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
-msgstr "文字批注"
+msgstr "文本批注"
 
 #: src/settings/preferencesdialog.cpp:247
 msgctxt "ghostwriter::PreferencesDialog|"
