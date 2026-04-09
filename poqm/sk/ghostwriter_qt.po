@@ -19,27 +19,24 @@ msgstr ""
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr ""
+msgstr "Znovu otvoriť posledný zatvorený súbor"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Ctrl+Shift+T"
 
 #: src/appactions.cpp:87
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr "Zoznam odrážok"
+msgstr "Vymazať zoznam"
 
 #: src/appactions.cpp:91
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "Znovu načítať z disku"
+msgstr "Znovu načítať z disku..."
 
 #: src/appactions.cpp:92
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
 msgstr "Exportovať"
@@ -47,37 +44,34 @@ msgstr "Exportovať"
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "CTRL+E"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "Kopírovať &HTML"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "SHIFT+CTRL+C"
 
 #: src/appactions.cpp:105
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr "Vložiť obrázok"
+msgstr "&Vložiť obrázok..."
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
 msgid "Strong"
-msgstr ""
+msgstr "Tučné"
 
 #: src/appactions.cpp:115
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Emphasis"
 msgstr "Dôraz"
 
 #: src/appactions.cpp:116
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Strikethrough"
 msgstr "Prečiarknuté"
@@ -85,20 +79,19 @@ msgstr "Prečiarknuté"
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "CTRL+K"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr ""
+msgstr "HTML komentár"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "CTRL+/"
 
 #: src/appactions.cpp:118
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Indent"
 msgstr "Odsadenie"
@@ -106,45 +99,42 @@ msgstr "Odsadenie"
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: src/appactions.cpp:119
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "&Unindent"
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "Z&rušiť odsadenie"
+msgstr "Zrušiť odsadenie"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "SHIFT+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr ""
+msgstr "&Bloky kódu"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "CTRL+G"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr ""
+msgstr "Bloková citácia"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "CTRL+SHIFT+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr ""
+msgstr "Naformátuje aktuálny riadok alebo vybrané riadky ako blokovú citáciu."
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -152,21 +142,25 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"Naformátuje aktuálny riadok alebo vybrané riadky ako blokovú citáciu, alebo "
+"ak už je bloková citácia, ako vnorená bloková citácia."
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr ""
+msgstr "Odstrániť blokovú citáciu"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "CTRL+SHIFT+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
 msgstr ""
+"Odstráni formátovanie blokovej citácie z aktuálneho riadka alebo vybraných "
+"riadkov."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -175,17 +169,19 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Odstráni formátovanie blokového citátu z aktuálneho riadka alebo vybraných "
+"riadkov. Ak je blok vnorený, odstráni sa iba najvonkajšia vrstva "
+"formátovania blokového citátu."
 
 #: src/appactions.cpp:135
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
-msgstr "Zoznam odrážok"
+msgstr "* Zoznam odrážok"
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "CTRL+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
@@ -193,17 +189,18 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
+"Naformátuje aktuálny riadok alebo vybrané riadky ako odrážkový zoznam s "
+"hviezdičkou (*)."
 
 #: src/appactions.cpp:140
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
-msgstr "Zoznam odrážok"
+msgstr "- Zoznam odrážok"
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "CTRL+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -211,17 +208,18 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Naformátuje aktuálny riadok alebo vybrané riadky ako odrážkový zoznam so "
+"znamienkom mínus (-)."
 
 #: src/appactions.cpp:145
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
-msgstr "Zoznam odrážok"
+msgstr "+ Zoznam odrážok"
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "CTRL++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -229,21 +227,23 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Naformátuje aktuálny riadok alebo vybrané riadky ako odrážkový zoznam so "
+"znamienkom plus (+)."
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "1. Numbered List"
-msgstr ""
+msgstr "1. Číslovaný zoznam"
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "CTRL+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr ""
+msgstr "Naformátuje aktuálny riadok alebo vybrané riadky ako číslovaný zoznam."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -251,16 +251,19 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Naformátuje aktuálny riadok alebo vybrané riadky ako číslovaný zoznam.</"
+"p><p>Príklad:</p><p>1. položka jedna<br/>2. položka dva<br/>3. položka "
+"tri<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "1) Numbered List"
-msgstr ""
+msgstr "1) Číslovaný zoznam"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "CTRL+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -270,21 +273,25 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Naformátuje aktuálny riadok alebo vybrané riadky ako číslovaný zoznam.</"
+"p><p>Príklad:</p><p>1) položka jedna<br/>2) položka dva<br/>3) položka "
+"tri<br/></p><p>Tento formát číslovania nie je podporovaný všetkými "
+"procesormi Markdown a nie je súčasťou CommonMark.</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "Task List"
-msgstr ""
+msgstr "Zoznam úloh"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "CTRL+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr ""
+msgstr "Naformátuje aktuálny riadok alebo vybrané riadky ako zoznam úloh."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -294,16 +301,20 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Naformátuje aktuálny riadok alebo vybrané riadky ako zoznam úloh.</"
+"p><p>Príklad:</p><p>- [ ] položka jedna<br/>- [ ] položka dva<br/>- [ ] "
+"položka tri<br/></p><p>Zoznamy úloh nie sú podporované všetkými procesormi "
+"Markdown a nie sú súčasťou CommonMark.</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr ""
+msgstr "Prepnúť dokončenie úloh(y)"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "CTRL+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
@@ -311,6 +322,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Prepnúť aktuálnu položku úlohy alebo vybrané položky úloh ako dokončené "
+"alebo nedokončené."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -324,42 +337,49 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Prepne stav aktuálnej položky úlohy alebo vybraných položiek úloh zo "
+"zoznamu úloh ako dokončené alebo nedokončené.</p><p>Použitie tejto akcie na "
+"nedokončenú položku úlohy v zozname úloh spôsobí vloženie znaku 'x' medzi "
+"jej zátvorky, napríklad takto:</p><p>- [x] položka jedna<br/></p><p>Podobne, "
+"použitie tejto akcie na dokončenú položku úlohy v zozname úloh spôsobí "
+"odstránenie znaku 'x' medzi jej zátvorkami, napríklad takto:</p><p>- [ ] "
+"položka jedna<br/></p><p>Upozorňujeme, že zoznamy úloh nie sú podporované "
+"všetkými procesormi Markdown a nie sú súčasťou CommonMark.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr ""
+msgstr "Režim bez rozptyľovania"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "SHIFT+F11"
 
 #: src/appactions.cpp:218
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Náhľad"
+msgstr "Živý náhľad"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "CTRL+P"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr ""
+msgstr "Hemingwayov režim"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Backspace"
-msgstr ""
+msgstr "SHIFT+Backspace"
 
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr ""
+msgstr "Prepne Hemingwayov režim."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -367,11 +387,10 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"Hemingwayov režim deaktivuje klávesy Backspace a Delete, aby vám pomohol "
+"odolať pokušeniu upravovať dokument počas písania."
 
 #: src/appactions.cpp:226
-#, fuzzy
-#| msgctxt "ghostwriter::ThemeEditorDialog|"
-#| msgid "Dark Mode"
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
 msgstr "Tmavý režim"
@@ -379,7 +398,7 @@ msgstr "Tmavý režim"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Povolí/zakáže tmavú farebnú schému aktuálnej témy."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -388,9 +407,10 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Povolí/zakáže tmavú farebnú schému aktuálnej témy.</p><p>Ak aktuálna téma "
+"nepodporuje tmavú farebnú schému, táto voľba nebude mať žiadny účinok.</p>"
 
 #: src/appactions.cpp:233
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
 msgstr "Zobraziť bočný panel"
@@ -398,25 +418,22 @@ msgstr "Zobraziť bočný panel"
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "CTRL+Space"
 
 #: src/appactions.cpp:235
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Outline"
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr "Obrys"
+msgstr "Osnova"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "CTRL+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Zobrazí osnovu dokumentu."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -426,44 +443,44 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Zobrazí osnovu dokumentu.</p><p>Použite myš a ľavé kliknutie na nadpis v "
+"dokumente, alebo šípky nahor a nadol na klávesnici spolu s klávesom ENTER, "
+"na preskočenie na rôzne miesta v aktuálnom dokumente.</p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "Štatistiky relácie"
 
 #: src/appactions.cpp:245
 msgctxt "ghostwriter::AppActions|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "Štatistiky dokumentu"
 
 #: src/appactions.cpp:247
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr ""
+msgstr "Ťahák"
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "Zobrazí stručnú referenčnú príručku pre Markdown v bočnom paneli."
 
 #: src/appactions.cpp:255
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr "Témy"
+msgstr "Téma..."
 
 #: src/appactions.cpp:256
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "Písmo"
+msgstr "Písmo..."
 
 #: src/appactions.cpp:258
-#, fuzzy
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr "Možnosti náhľadu"
+msgstr "Možnosti náhľadu..."
 
 #: src/appmain.cpp:92
 msgctxt "main|"
@@ -473,17 +490,17 @@ msgstr "ghostwriter"
 #: src/appmain.cpp:96
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr ""
+msgstr "Editor Markdown"
 
 #: src/appmain.cpp:103
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Vývojár FocusWriter, ktorého kód v Qt ma viedol"
 
 #: src/appmain.cpp:108
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Vývojár ReText, ktorého algoritmy nesmierne pomohli"
 
 #: src/appmain.cpp:113
 msgctxt "main|"
@@ -491,16 +508,18 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Vývojár StretchPlayer, ktorého aplikácia mi ukázala, ako vytvárať okná bez "
+"rámov v Qt"
 
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "Vývojár UberWriter (teraz Apostrophe), za poskytnutie inšpirácie"
 
 #: src/appmain.cpp:122
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Ostatní prispievatelia"
 
 #: src/appmain.cpp:123
 msgctxt "main|"
@@ -508,45 +527,46 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Všetci, ktorí v priebehu rokov poskytli preklady, dokumentáciu, opravy chýb "
+"alebo nové funkcie"
 
 #: src/appmain.cpp:128
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "Rozšírená verzia referenčnej implementácie CommonMark v jazyku C"
 
 #: src/appmain.cpp:132
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Knižnica JavaScript na vytváranie používateľských rozhraní"
 
 #: src/appmain.cpp:134
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Zobrazovací nástroj JavaScript pre matematiku"
 
 #: src/appmain.cpp:139
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Autorské práva 2014-%1 Tím ghostwriter"
 
 #: src/appmain.cpp:157
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
-msgstr ""
+msgstr "Vitajte v ghostwriter!"
 
 #: src/appmain.cpp:160
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr ""
+msgstr "(Voliteľné) Súbor na otvorenie."
 
 #: src/appmain.cpp:163
 msgctxt "main|"
 msgid "Disables GPU acceleration."
-msgstr ""
+msgstr "Zakáže akceleráciu GPU."
 
 #: src/documentmanager.cpp:56
-#, fuzzy
 msgctxt "ghostwriter::DocumentManager|"
 msgid "untitled"
 msgstr "nepomenovaný"
@@ -557,13 +577,11 @@ msgid "Markdown"
 msgstr "Markdown"
 
 #: src/documentmanager.cpp:169
-#, fuzzy
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Text"
 msgstr "Text"
 
 #: src/documentmanager.cpp:170
-#, fuzzy
 msgctxt "ghostwriter::DocumentManager|"
 msgid "All"
 msgstr "Všetko"
@@ -572,7 +590,7 @@ msgstr "Všetko"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr ""
+msgstr "Chyba pri ukladaní %1"
 
 #: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
@@ -609,10 +627,9 @@ msgstr "Premenovať súbor"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr ""
+msgstr "Nepodarilo sa premenovať %1"
 
 #: src/documentmanager.cpp:535
-#, fuzzy
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
 msgstr "Uložiť súbor"
@@ -620,40 +637,40 @@ msgstr "Uložiť súbor"
 #: src/documentmanager.cpp:667
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
-msgstr ""
+msgstr "Dokument bol zmenený iným programom."
 
 #: src/documentmanager.cpp:668
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
-msgstr ""
+msgstr "Chcete znovu načítať dokument?"
 
 #: src/documentmanager.cpp:711
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr ""
+msgstr "Nie je zadaná cesta k súboru"
 
 #: src/documentmanager.cpp:725 src/documentmanager.cpp:758
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr "Nemôžem čítať <filename>%1</filename>."
+msgstr "Nepodarilo sa prečítať %1"
 
 #: src/documentmanager.cpp:745
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "opening %1"
-msgstr "Otvára sa"
+msgstr "otvára sa %1"
 
 #: src/documentmanager.cpp:833
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
-msgstr ""
+msgstr "Súbor bol zmenený."
 
 #: src/documentmanager.cpp:835
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr ""
+msgstr "%1 bol zmenený."
 
 #: src/documentmanager.cpp:844
 msgctxt "ghostwriter::DocumentManager|"
@@ -664,47 +681,46 @@ msgstr "Radi by ste uložili zmeny?"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr ""
+msgstr "%1 je len na čítanie."
 
 #: src/documentmanager.cpp:876
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
-msgstr ""
+msgstr "Prepísať chránený súbor?"
 
 #: src/documentmanager.cpp:895
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
-msgstr ""
+msgstr "Prepísanie zlyhalo."
 
 #: src/documentmanager.cpp:896
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
-msgstr ""
+msgstr "Uložte súbor na iné miesto."
 
 #: src/documentmanager.cpp:924
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
-msgstr ""
+msgstr "Zálohovanie súboru zlyhalo"
 
 #: src/documentmanager.cpp:925
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr ""
+msgstr "Chyba pri vytváraní umiestnenia zálohy: %d"
 
 #: src/documentmanager.cpp:934
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr ""
+msgstr "Zálohovanie súboru zlyhalo: Nepodarilo sa nahradiť %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr ""
+msgstr "Zálohovanie súboru zlyhalo: Nepodarilo sa skopírovať %1 do %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
-#, fuzzy
 msgctxt "ghostwriter::MarkdownDocument|"
 msgid "untitled"
 msgstr "nepomenovaný"
@@ -729,7 +745,7 @@ msgstr "Obrázky (%1)"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is unsupported by the cmark-gfm processor."
-msgstr ""
+msgstr "Formát %1 nie je podporovaný procesorom cmark-gfm."
 
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
@@ -737,25 +753,22 @@ msgid "Export failed"
 msgstr "Export zlyhal"
 
 #: src/export/commandlineexporter.cpp:147
-#, fuzzy
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr "Export zlyhal"
+msgstr "Export zlyhal: "
 
 #: src/export/commandlineexporter.cpp:167
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
-msgstr ""
+msgstr "Formát %1 nie je podporovaný týmto procesorom."
 
 #: src/export/commandlineexporter.cpp:191
-#, fuzzy
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr "Nepodarilo sa vykonať príkaz"
+msgstr "Nepodarilo sa vykonať príkaz: "
 
 #: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
-#, fuzzy
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
 msgstr "Exportovať"
@@ -763,13 +776,12 @@ msgstr "Exportovať"
 #: src/export/exportdialog.cpp:85
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Smart Typography"
-msgstr ""
+msgstr "Inteligentná typografia"
 
 #: src/export/exportdialog.cpp:89
-#, fuzzy
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr "Exportovať"
+msgstr "Otvoriť po exporte"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
@@ -779,10 +791,9 @@ msgstr "Exportovať nastavenia"
 #: src/export/exportdialog.cpp:94
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
-msgstr ""
+msgstr "Konvertor Markdown"
 
 #: src/export/exportdialog.cpp:95
-#, fuzzy
 msgctxt "ghostwriter::ExportDialog|"
 msgid "File Format"
 msgstr "Formát súboru"
@@ -790,24 +801,23 @@ msgstr "Formát súboru"
 #: src/export/exportdialog.cpp:113
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Možnosti príkazového riadka:"
 
 #: src/export/exportdialog.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ExportDialog|"
 msgid "exporting to %1"
-msgstr ""
+msgstr "exportovanie do %1"
 
 #: src/export/exportdialog.cpp:201
-#, fuzzy
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
-msgstr "Export zlyhal"
+msgstr "Export zlyhal."
 
 #: src/export/exporter.cpp:69
 msgctxt "QObject|"
 msgid "Export to HTML is not supported with this processor."
-msgstr ""
+msgstr "Export do HTML nie je podporovaný týmto procesorom."
 
 #: src/findreplace.cpp:95
 msgctxt "ghostwriter::FindReplace|"
@@ -825,39 +835,31 @@ msgid "Regular expression"
 msgstr "Regulárny výraz"
 
 #: src/findreplace.cpp:111
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Highlight matches"
 msgstr "Zvýrazniť zhody"
 
 #: src/findreplace.cpp:118
-#, fuzzy
-#| msgctxt "ghostwriter::MainWindow|"
-#| msgid "Find &Previous"
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr "Buscar &anterior"
+msgstr "Nájsť predchádzajúci"
 
 #: src/findreplace.cpp:119
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find previous"
 msgstr "Nájsť pre&dchádzajúci"
 
 #: src/findreplace.cpp:123
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
 msgstr "Nájsť nasledu&júci"
 
 #: src/findreplace.cpp:124
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find next"
 msgstr "Nájsť nasledujúci"
 
 #: src/findreplace.cpp:129
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace"
 msgstr "Nahradiť"
@@ -870,27 +872,25 @@ msgstr "Nahradiť všetko"
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: src/findreplace.cpp:161
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find:"
 msgstr "Nájsť:"
 
 #: src/findreplace.cpp:167
-#, fuzzy
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
-msgstr "Nahradiť s:"
+msgstr "Nahradiť čím:"
 
 #: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln nahradenie"
+msgstr[1] "%Ln nahradenia"
+msgstr[2] "%Ln nahradení"
 
 #: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
@@ -903,160 +903,146 @@ msgid "No results"
 msgstr "Žiadne výsledky"
 
 #: src/findreplace.cpp:540
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::FindReplace|"
 msgid "%1 matches"
-msgstr "%1 odpovedajúcich"
+msgstr "%1 zhôd"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Nemôžem čítať <filename>%1</filename>."
+msgstr "Nepodarilo sa vytvoriť súbor: %1"
 
 #: src/mainwindow.cpp:1016
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
 msgstr "&Súbor"
 
 #: src/mainwindow.cpp:1046
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
 msgstr "&Upraviť"
 
 #: src/mainwindow.cpp:1095
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
 msgstr "&Zobraziť"
 
 #: src/mainwindow.cpp:1113
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
 msgstr "&Nastavenia"
 
 #: src/mainwindow.cpp:1122
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
 msgstr "&Pomocník"
 
 #: src/mainwindow.cpp:1272
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
-msgstr "Nadpis 1"
+msgstr "# Nadpis 1"
 
 #: src/mainwindow.cpp:1273
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
-msgstr "Nadpis 1"
+msgstr "## Nadpis 2"
 
 #: src/mainwindow.cpp:1274
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
-msgstr "Nadpis 1"
+msgstr "### Nadpis 3"
 
 #: src/mainwindow.cpp:1275
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
-msgstr "Nadpis 1"
+msgstr "#### Nadpis 4"
 
 #: src/mainwindow.cpp:1276
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
-msgstr "Nadpis 1"
+msgstr "##### Nadpis 5"
 
 #: src/mainwindow.cpp:1277
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
-msgstr "Nadpis 1"
+msgstr "###### Nadpis 6"
 
 #: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
-msgstr ""
+msgstr "*Zvýraznenie* _Zvýraznenie_"
 
 #: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
 msgid "**Strong** __Strong__"
-msgstr ""
+msgstr "**Tučné** __Tučné__"
 
 #: src/mainwindow.cpp:1280
 msgctxt "ghostwriter::MainWindow|"
 msgid "1. Numbered List"
-msgstr ""
+msgstr "1. Číslovaný zoznam"
 
 #: src/mainwindow.cpp:1281
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
-msgstr "Zoznam odrážok"
+msgstr "* Zoznam s odrážkami"
 
 #: src/mainwindow.cpp:1282
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
-msgstr "Zoznam odrážok"
+msgstr "+ Zoznam s odrážkami"
 
 #: src/mainwindow.cpp:1283
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
-msgstr "Zoznam odrážok"
+msgstr "- Zoznam s odrážkami"
 
 #: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
 msgid "> Block Quote"
-msgstr ""
+msgstr "> Blokový citát"
 
 #: src/mainwindow.cpp:1285
 msgctxt "ghostwriter::MainWindow|"
 msgid "`Code Span`"
-msgstr ""
+msgstr "`Úsek kódu`"
 
 #: src/mainwindow.cpp:1286
 msgctxt "ghostwriter::MainWindow|"
 msgid "``` Code Block"
-msgstr ""
+msgstr "``` Blok kódu"
 
 #: src/mainwindow.cpp:1287
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
-msgstr ""
+msgstr "[Odkaz](http://url.com \"Názov\")"
 
 #: src/mainwindow.cpp:1288
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Reference Link][ID]"
-msgstr ""
+msgstr "[Referenčný odkaz][ID]"
 
 #: src/mainwindow.cpp:1289
 msgctxt "ghostwriter::MainWindow|"
 msgid "[ID]: http://url.com \"Reference Definition\""
-msgstr ""
+msgstr "[ID]: http://url.com \"Definícia referencie\""
 
 #: src/mainwindow.cpp:1290
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
-msgstr ""
+msgstr "![Obrázok](./image.jpg \"Názov\")"
 
 #: src/mainwindow.cpp:1291
 msgctxt "ghostwriter::MainWindow|"
 msgid "--- *** ___ Horizontal Rule"
-msgstr ""
+msgstr "--- *** ___ Vodorovná čiara"
 
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Zobrazenie priečinka"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1066,20 +1052,19 @@ msgstr "Obrys"
 #: src/mainwindow.cpp:1344
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "Štatistiky relácie"
 
 #: src/mainwindow.cpp:1345
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "Štatistiky dokumentu"
 
 #: src/mainwindow.cpp:1346
 msgctxt "ghostwriter::MainWindow|"
 msgid "Cheat Sheet"
-msgstr ""
+msgstr "Ťahák"
 
 #: src/mainwindow.cpp:1356
-#, fuzzy
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
 msgstr "Nastavenia"
@@ -1087,38 +1072,37 @@ msgstr "Nastavenia"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr ""
+msgstr "Chyba pri načítaní resources/preview.html"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
-msgstr ""
+msgstr "Nastaviť jazyk aplikácie"
 
 #: src/settings/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Nie sú dostupné žiadne preklady!"
 
 #: src/settings/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please reinstall this application for more language options."
-msgstr ""
+msgstr "Pre viac jazykových možností nainštalujte túto aplikáciu znova."
 
 #: src/settings/localedialog.cpp:131
-#, fuzzy
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Sorry!"
-msgstr "Ľutujeme"
+msgstr "Ľutujeme!"
 
 #: src/settings/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Nepodarilo sa načítať preklad."
 
 #: src/settings/localedialog.cpp:138
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr ""
+msgstr "Reštartujte aplikáciu, aby sa zmeny prejavili."
 
 #: src/settings/preferencesdialog.cpp:74
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1128,7 +1112,7 @@ msgstr "Kontrola pravopisu"
 #: src/settings/preferencesdialog.cpp:89
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr ""
+msgstr "Párované znaky"
 
 #: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1136,7 +1120,6 @@ msgid "Rounded"
 msgstr "Zaoblený"
 
 #: src/settings/preferencesdialog.cpp:179
-#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
 msgstr "Štvorec"
@@ -1144,7 +1127,7 @@ msgstr "Štvorec"
 #: src/settings/preferencesdialog.cpp:204
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Vyberte záložný adresár"
 
 #: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1159,10 +1142,9 @@ msgstr "Aktuálny riadok"
 #: src/settings/preferencesdialog.cpp:237
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
-msgstr ""
+msgstr "Tri riadky"
 
 #: src/settings/preferencesdialog.cpp:238
-#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
 msgstr "Odstavec"
@@ -1178,7 +1160,6 @@ msgid "Narrow"
 msgstr "Úzke"
 
 #: src/settings/preferencesdialog.cpp:248
-#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
 msgstr "Stredné"
@@ -1189,13 +1170,11 @@ msgid "Wide"
 msgstr "Široké"
 
 #: src/settings/preferencesdialog.cpp:250
-#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
 msgstr "Plné"
 
 #: src/settings/preferencesdialog.cpp:257
-#, fuzzy
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Plain"
 msgstr "Prostý"
@@ -1212,78 +1191,71 @@ msgid "Underline"
 msgstr "Podčiarknuté"
 
 #: src/settings/preferencesdialog.ui:14
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
 msgstr "Nastavenia"
 
 #: src/settings/preferencesdialog.ui:24
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "General"
 msgstr "Všeobecné"
 
 #: src/settings/preferencesdialog.ui:30
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr "Obrazovka"
+msgstr "Zobrazenie"
 
 #: src/settings/preferencesdialog.ui:36
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr ""
+msgstr "&Zobrazovať aktuálny čas v režime celej obrazovky"
 
 #: src/settings/preferencesdialog.ui:43
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr ""
+msgstr "&Skryť panel ponúk v režime celej obrazovky"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Zobrazovať &nezlomiteľné medzery"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "Štýl rozhrania"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "Ukladanie súborov"
 
 #: src/settings/preferencesdialog.ui:96
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr "Automatické ukladanie"
+msgstr "&Automatické ukladanie"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "&Zálohovať súbor pri uložení"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr ""
+msgstr "&Zobraziť nepomenované koncepty…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr ""
+msgstr "&Vybrať umiestnenie záložného priečinka…"
 
 #: src/settings/preferencesdialog.ui:147
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Session"
 msgctxt "PreferencesDialog|"
 msgid "Session"
 msgstr "Sedenie"
@@ -1291,31 +1263,24 @@ msgstr "Sedenie"
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "&Pamätať si nedávne súbory"
 
 #: src/settings/preferencesdialog.ui:160
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Open last file on startup"
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr "Otvoriť posledný súbor pri spustení"
+msgstr "&Otvoriť posledný súbor pri spustení"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Zobraziť bočný panel"
+msgstr "Bočný panel"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "&Zobrazovať všetky súbory v zobrazení priečinka"
 
 #: src/settings/preferencesdialog.ui:213
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor"
 msgctxt "PreferencesDialog|"
 msgid "Editor"
 msgstr "Editor"
@@ -1323,59 +1288,49 @@ msgstr "Editor"
 #: src/settings/preferencesdialog.ui:219
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "Tabulácia"
 
 #: src/settings/preferencesdialog.ui:225
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr ""
+msgstr "&Vkladať medzery namiesto tabulátorov"
 
 #: src/settings/preferencesdialog.ui:234
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
-msgstr ""
+msgstr "Šírka tabulácie"
 
 #: src/settings/preferencesdialog.ui:272
-#, fuzzy
-#| msgctxt "ghostwriter::SpellCheckDecorator|"
-#| msgid "Spelling"
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr "Pravopis"
+msgstr "Štýl"
 
 #: src/settings/preferencesdialog.ui:280
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr ""
+msgstr "Režim sústredenia"
 
 #: src/settings/preferencesdialog.ui:293
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Editor"
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr "Editor"
+msgstr "Šírka editora"
 
 #: src/settings/preferencesdialog.ui:306
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr ""
+msgstr "Štýl blokových citácií"
 
 #: src/settings/preferencesdialog.ui:319
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Dôraz"
+msgstr "Štýl zvýraznenia"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr ""
+msgstr "&Používať veľké nadpisy"
 
 #: src/settings/preferencesdialog.ui:357
-#, fuzzy
-#| msgctxt "ghostwriter::PreferencesDialog|"
-#| msgid "Typing"
 msgctxt "PreferencesDialog|"
 msgid "Typing"
 msgstr "Písanie"
@@ -1383,17 +1338,17 @@ msgstr "Písanie"
 #: src/settings/preferencesdialog.ui:363
 msgctxt "PreferencesDialog|"
 msgid "C&ycle bullet point markers"
-msgstr ""
+msgstr "S&triedať značky odrážok"
 
 #: src/settings/preferencesdialog.ui:370
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr ""
+msgstr "&Automaticky párovať znaky"
 
 #: src/settings/preferencesdialog.ui:377
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr ""
+msgstr "Prispôsobiť &zodpovedajúce znaky…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1403,17 +1358,15 @@ msgstr "Možnosti náhľadu"
 #: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr ""
+msgstr "Varianta Markdown"
 
 #: src/settings/previewoptionsdialog.cpp:99
 #: src/settings/previewoptionsdialog.cpp:125
-#, fuzzy
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Choose..."
 msgstr "Vybrať..."
 
 #: src/settings/previewoptionsdialog.cpp:117
-#, fuzzy
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
 msgstr "Písmo textu:"
@@ -1421,18 +1374,18 @@ msgstr "Písmo textu:"
 #: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Code Font:"
-msgstr ""
+msgstr "Písmo kódu:"
 
 #: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Možnosti príkazového riadka:"
 
 #: src/settings/previewoptionsdialog.cpp:177
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "%1 %2pt"
-msgstr " bd"
+msgstr "%1 %2pt"
 
 #: src/settings/simplefontdialog.cpp:61
 msgctxt "ghostwriter::SimpleFontDialog|"
@@ -1440,7 +1393,6 @@ msgid "Family"
 msgstr "Rodina"
 
 #: src/settings/simplefontdialog.cpp:108
-#, fuzzy
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Size"
 msgstr "Veľkosť"
@@ -1448,10 +1400,9 @@ msgstr "Veľkosť"
 #: src/settings/simplefontdialog.cpp:111
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "AaBbCcXxYyZz"
-msgstr ""
+msgstr "AaBbCcXxYyZz"
 
 #: src/settings/simplefontdialog.cpp:115
-#, fuzzy
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Preview"
 msgstr "Náhľad"
@@ -1459,10 +1410,9 @@ msgstr "Náhľad"
 #: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr ""
+msgstr "Zobraziť iba neproporcionálne písma"
 
 #: src/spelling/spellcheckdecorator.cpp:244
-#, fuzzy
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Check spelling..."
 msgstr "Kontrola pravopisu..."
@@ -1475,12 +1425,12 @@ msgstr "Pravopis"
 #: src/spelling/spellcheckdecorator.cpp:297
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "Add word to dictionary"
-msgstr ""
+msgstr "Pridať slovo do slovníka"
 
 #: src/spelling/spellcheckdecorator.cpp:337
 msgctxt "ghostwriter::SpellCheckDecorator|"
 msgid "No spelling suggestions found"
-msgstr ""
+msgstr "Neboli nájdené žiadne návrhy pravopisu"
 
 #: src/spelling/spellcheckdialog.cpp:53
 msgctxt "ghostwriter::SpellCheckDialog|"
@@ -1490,7 +1440,7 @@ msgstr "Kontrola pravopisu"
 #: src/spelling/spellcheckdialog.cpp:152
 msgctxt "ghostwriter::SpellCheckDialog|"
 msgid "Spell check is complete!"
-msgstr ""
+msgstr "Kontrola pravopisu je dokončená!"
 
 #: src/statistics/abstractstatisticswidget.cpp:17
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
@@ -1505,12 +1455,12 @@ msgstr "&lt; 1"
 #: src/statistics/abstractstatisticswidget.cpp:19
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "250 words per page"
-msgstr ""
+msgstr "250 slov na stranu"
 
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1530,13 +1480,11 @@ msgid "Very Easy"
 msgstr "Veľmi jednoduchá"
 
 #: src/statistics/documentstatisticswidget.cpp:20
-#, fuzzy
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Easy"
 msgstr "Jednoduchá"
 
 #: src/statistics/documentstatisticswidget.cpp:21
-#, fuzzy
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Standard"
 msgstr "Štandardné"
@@ -1544,15 +1492,14 @@ msgstr "Štandardné"
 #: src/statistics/documentstatisticswidget.cpp:22
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Difficult"
-msgstr ""
+msgstr "Ťažký"
 
 #: src/statistics/documentstatisticswidget.cpp:23
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Very Difficult"
-msgstr ""
+msgstr "Veľmi ťažký"
 
 #: src/statistics/documentstatisticswidget.cpp:60
-#, fuzzy
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Words:"
 msgstr "Slov:"
@@ -1580,37 +1527,37 @@ msgstr "Strany:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Complex Words:"
-msgstr ""
+msgstr "Zložité slová:"
 
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Time:"
-msgstr ""
+msgstr "Čas čítania:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Reading Ease:"
-msgstr ""
+msgstr "Ľahkosť čítania:"
 
 #: src/statistics/documentstatisticswidget.cpp:67
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "LIX Reading Ease"
-msgstr ""
+msgstr "Ľahkosť čítania LIX"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Grade Level:"
-msgstr ""
+msgstr "Úroveň obtiažnosti:"
 
 #: src/statistics/documentstatisticswidget.cpp:68
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Coleman-Liau Readability Index (CLI)"
-msgstr ""
+msgstr "Index čitateľnosti Coleman-Liau (CLI)"
 
 #: src/statistics/documentstatisticswidget.cpp:149
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1620,7 +1567,7 @@ msgstr "Materská škôlka"
 #: src/statistics/documentstatisticswidget.cpp:152
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "Rocket Science"
-msgstr ""
+msgstr "Raketová veda"
 
 #: src/statistics/documentstatisticswidget.cpp:154
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1630,100 +1577,98 @@ msgstr "Vysoká škola"
 #: src/statistics/sessionstatisticswidget.cpp:37
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Words Written:"
-msgstr ""
+msgstr "Napísané slová:"
 
 #: src/statistics/sessionstatisticswidget.cpp:38
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Pages Written:"
-msgstr ""
+msgstr "Napísané strany:"
 
 #: src/statistics/sessionstatisticswidget.cpp:39
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Average WPM:"
-msgstr ""
+msgstr "Priemerné WPM:"
 
 #: src/statistics/sessionstatisticswidget.cpp:40
-#, fuzzy
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Total Time:"
-msgstr "Celkový čas"
+msgstr "Celkový čas:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
-#, fuzzy
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "Idle Time:"
-msgstr "Čas nečinnosti"
+msgstr "Čas nečinnosti:"
 
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s)"
 msgid_plural "%Ln word(s)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln slovo"
+msgstr[1] "%Ln slová"
+msgstr[2] "%Ln slov"
 
 #: src/statistics/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln character(s)"
 msgid_plural "%Ln character(s)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln znak"
+msgstr[1] "%Ln znaky"
+msgstr[2] "%Ln znakov"
 
 #: src/statistics/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln sentence(s)"
 msgid_plural "%Ln sentence(s)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln veta"
+msgstr[1] "%Ln vety"
+msgstr[2] "%Ln viet"
 
 #: src/statistics/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln paragraph(s)"
 msgid_plural "%Ln paragraph(s)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln odsek"
+msgstr[1] "%Ln odseky"
+msgstr[2] "%Ln odsekov"
 
 #: src/statistics/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln page(s)"
 msgid_plural "%Ln page(s)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln strana"
+msgstr[1] "%Ln strany"
+msgstr[2] "%Ln strán"
 
 #: src/statistics/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%Ln word(s) added"
 msgid_plural "%Ln word(s) added"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%Ln slovo pridané"
+msgstr[1] "%Ln slová pridané"
+msgstr[2] "%Ln slov pridaných"
 
 #: src/statistics/statisticsindicator.cpp:37
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1 wpm"
-msgstr ""
+msgstr "%1 wpm"
 
 #: src/statistics/statisticsindicator.cpp:38
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 read time"
-msgstr ""
+msgstr "%1:%2 čas čítania"
 
 #: src/statistics/statisticsindicator.cpp:41
 #, qt-format
 msgctxt "ghostwriter::StatisticsIndicator|"
 msgid "%1:%2 write time"
-msgstr ""
+msgstr "%1:%2 čas písania"
 
 #: src/theme/themeeditordialog.cpp:81
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1731,10 +1676,9 @@ msgid "Edit Theme"
 msgstr "Upraviť tému"
 
 #: src/theme/themeeditordialog.cpp:84
-#, fuzzy
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Theme Name"
-msgstr "Názov témy:"
+msgstr "Názov témy"
 
 #: src/theme/themeeditordialog.cpp:168
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1752,13 +1696,11 @@ msgid "Dark Mode"
 msgstr "Tmavý režim"
 
 #: src/theme/themeeditordialog.cpp:172
-#, fuzzy
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Foreground"
 msgstr "Popredie"
 
 #: src/theme/themeeditordialog.cpp:173
-#, fuzzy
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Background"
 msgstr "Pozadie"
@@ -1781,7 +1723,7 @@ msgstr "Markup"
 #: src/theme/themeeditordialog.cpp:177
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Accent"
-msgstr ""
+msgstr "Akcent"
 
 #: src/theme/themeeditordialog.cpp:178
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1789,7 +1731,6 @@ msgid "Heading"
 msgstr "Nadpis"
 
 #: src/theme/themeeditordialog.cpp:179
-#, fuzzy
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Emphasis"
 msgstr "Dôraz"
@@ -1797,7 +1738,7 @@ msgstr "Dôraz"
 #: src/theme/themeeditordialog.cpp:180
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Block Text"
-msgstr ""
+msgstr "Blokový text"
 
 #: src/theme/themeeditordialog.cpp:181
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1805,7 +1746,6 @@ msgid "Link"
 msgstr "Odkaz"
 
 #: src/theme/themeeditordialog.cpp:182
-#, fuzzy
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
 msgstr "Chyba"
@@ -1813,31 +1753,31 @@ msgstr "Chyba"
 #: src/theme/themeeditordialog.cpp:215
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Unable to save theme."
-msgstr ""
+msgstr "Nepodarilo sa uložiť tému."
 
 #: src/theme/themerepository.cpp:138
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "The specified theme does not exist in the file system: %1"
-msgstr ""
+msgstr "Zadaná téma neexistuje v súborovom systéme: %1"
 
 #: src/theme/themerepository.cpp:146
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Could not open theme file for reading: %1"
-msgstr ""
+msgstr "Nepodarilo sa otvoriť súbor témy na čítanie: %1"
 
 #: src/theme/themerepository.cpp:156
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid theme format: %1"
-msgstr ""
+msgstr "Neplatný formát témy: %1"
 
 #: src/theme/themerepository.cpp:175 src/theme/themerepository.cpp:184
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Invalid or missing value(s) in %1"
-msgstr ""
+msgstr "Neplatná alebo chýbajúca hodnota (hodnoty) v %1"
 
 #: src/theme/themerepository.cpp:192
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1845,6 +1785,8 @@ msgid ""
 "The specified theme is not available.  Try restarting the application.  If "
 "problem persists, please file a bug report."
 msgstr ""
+"Zadaná téma nie je dostupná.  Skúste reštartovať aplikáciu.  Ak problém "
+"pretrváva, nahláste chybu."
 
 #: src/theme/themerepository.cpp:208
 #, qt-format
@@ -1853,23 +1795,25 @@ msgid ""
 "Could not delete theme at %1. Please try setting the file permissions to be "
 "writeable."
 msgstr ""
+"Nepodarilo sa odstrániť tému v %1. Skúste nastaviť oprávnenia súboru na "
+"zapisovateľné."
 
 #: src/theme/themerepository.cpp:228
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' already exists.  Please choose another name."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr ""
+msgstr "'%1' theme already exists.  Please choose another name."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Failed to rename theme.  Please check file permissions."
-msgstr ""
+msgstr "Nepodarilo sa premenovať tému.  Skontrolujte oprávnenia súboru."
 
 #: src/theme/themerepository.cpp:282
 msgctxt "ghostwriter::ThemeRepository|"
@@ -1877,12 +1821,13 @@ msgid ""
 "Theme could not be saved to disk.  Please check file permissions or try "
 "renaming the theme."
 msgstr ""
+"Tému sa nepodarilo uložiť na disk.  Skontrolujte oprávnenia súboru alebo "
+"skúste tému premenovať."
 
 #: src/theme/themerepository.cpp:312
-#, fuzzy
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "Untitled 1"
-msgstr "Bez názvu"
+msgstr "Bez názvu 1"
 
 #: src/theme/themerepository.cpp:322
 #, qt-format
@@ -1898,10 +1843,9 @@ msgstr "Témy"
 #: src/theme/themeselectiondialog.cpp:132
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr ""
+msgstr "Náhľad v tmavom režime"
 
 #: src/theme/themeselectiondialog.cpp:138
-#, fuzzy
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
 msgstr "Upraviť..."
@@ -1909,33 +1853,33 @@ msgstr "Upraviť..."
 #: src/theme/themeselectiondialog.cpp:375
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
-msgstr ""
+msgstr "Nie je možné odstrániť tému."
 
 #: src/theme/themeselectiondialog.cpp:376
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
-msgstr ""
+msgstr "Prepáčte, toto je vstavaná téma, ktorú nie je možné odstrániť."
 
 #: src/theme/themeselectiondialog.cpp:386
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr ""
+msgstr "Are you sure chcete to permanently delete the '%1' theme?"
 
 #: src/theme/themeselectiondialog.cpp:401
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr ""
+msgstr "Nepodarilo sa odstrániť tému."
 
 #: src/theme/themeselectiondialog.cpp:428
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
-msgstr ""
+msgstr "Nie je možné upraviť tému."
 
 #: src/theme/themeselectiondialog.cpp:429
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
-msgstr ""
+msgstr "Prepáčte, toto je vstavaná téma, ktorú nie je možné upraviť."
 
 #, fuzzy
 #~ msgctxt "ghostwriter::MainWindow|"
