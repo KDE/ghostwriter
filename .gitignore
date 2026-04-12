@@ -6,6 +6,9 @@
 icons_rc.py
 resources_rc.py
 
+# Claude AI
+CLAUDE.md
+
 # general
 build/
 /build*/

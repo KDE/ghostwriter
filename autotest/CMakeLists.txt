@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2025 Megan Conkle <megan.conkle@kdemail.net>
+# SPDX-FileCopyrightText: 2022-2026 Megan Conkle <megan.conkle@kdemail.net>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -10,5 +10,6 @@ add_subdirectory(bookmark)
 add_subdirectory(kresultsuite)
 add_subdirectory(iosuite)
 add_subdirectory(library)
+add_subdirectory(textdocument)
 
 enable_testing(true)

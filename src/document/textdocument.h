@@ -35,6 +35,7 @@ class TextDocumentPrivate;
 class TextDocument final : public QTextDocument
 {
     Q_OBJECT
+    friend class TextDocumentPrivate;
 
 public:
     using IOResult = KResult<KSuccess, TextIOError>;
@@ -150,11 +151,6 @@ public:
     bool modified() const;
 
     /**
-     * @brief Returns true when file permissions currently allow write access.
-     */
-    bool isWritable() const;
-
-    /**
      * @brief Returns true when the document is set to read-only mode.
      */
     bool isReadOnly() const;
@@ -168,16 +164,6 @@ public:
      * @brief Returns the last known in-memory save/load timestamp.
      */
     const QDateTime &lastModified() const;
-
-    /**
-     * @brief Returns the last known in-memory save/load timestamp.
-     */
-    const QDateTime &timestamp() const;
-
-    /**
-     * @brief Updates the last known in-memory save/load timestamp.
-     */
-    void setTimestamp(const QDateTime &timestamp);
 
     /**
      * @brief Renames the backing file inside its current directory.
@@ -211,7 +197,7 @@ public:
      *
      * @return IOResult indicating success or failure.
      */
-    IOResult saveCopyAs(const QUrl &url) const;
+    IOResult saveCopyAs(const QUrl &url);
 
     /**
      * @brief Reverts contents from snapshot URL and keeps the current file URL.
@@ -241,33 +227,7 @@ public:
      */
     QStringConverter::Encoding encoding() const;
 
-    /**
-     * @brief Sets document read-only mode.
-     *
-     * @param readOnly True to prevent save and edits from manager flows.
-     */
-    void setReadOnly(bool readOnly);
-
-    /**
-     * @brief Assigns a new local file path and updates file metadata.
-     *
-     * @param filePath Local file path.
-     */
-    void setFilePath(const QString &filePath);
-
-    /**
-     * @brief Clears undo/redo stacks for this document.
-     */
-    void clearUndoRedoStacks();
-
 signals:
-    /**
-     * @brief Emitted when modified state changes.
-     *
-     * @param modified True if unsaved modifications exist.
-     */
-    void modifiedChanged(bool modified);
-
     /**
      * @brief Emitted when effective writability changes.
      *

@@ -1,5 +1,5 @@
 ﻿/*
- * SPDX-FileCopyrightText: 2014-2023 Megan Conkle <megan.conkle@kdemail.net>
+ * SPDX-FileCopyrightText: 2014-2026 Megan Conkle <megan.conkle@kdemail.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -28,8 +28,6 @@
 #include "io/netsharetextio.h"
 #include "io/textio.h"
 
-#include "textdocument_p.h"
-
 #include <QFutureWatcher>
 
 #include "io/textiofactory.h"
@@ -44,248 +42,20 @@ public:
         SaveAs
     };
 
-    explicit TextDocumentPrivate(TextDocument *qptr)
-        : q(qptr)
-        , draft(true)
-        , closed(false)
-        , displayName(TextDocument::tr("untitled"))
-        , writable(true)
-        , readOnly(false)
-        , saveInProgress(false)
-        , conflict(false)
-        , fileUrl(QUrl())
-        , lastModified(QDateTime::currentDateTime())
-        , encoding(QStringConverter::Utf8)
-        , saveKind(SaveKind::Save)
-    {
-        saveWatcher = new QFutureWatcher<TextIO::WriteResult>(q);
-    }
-
-    ~TextDocumentPrivate() = default;
+    explicit TextDocumentPrivate(TextDocument *q);
+    ~TextDocumentPrivate();
 
     TextDocument::IOResult
-    initialize(const QUrl &url, QStringConverter::Encoding docEncoding, const QString &draftName, const TextDocument::TextIOFactoryFunction &factory)
-    {
-        if (!url.isValid()) {
-            return {TextIOError::FileNotFound, TextDocument::tr("Invalid file URL")};
-        }
+    initialize(const QUrl &url, QStringConverter::Encoding encoding, const QString &draftName, const TextDocument::TextIOFactoryFunction &factory);
 
-        textIOFactory = factory;
-        encoding = docEncoding;
-
-        const auto setUrlResult = setFileUrl(url, draftName, !draftName.isEmpty());
-
-        if (!setUrlResult) {
-            return setUrlResult;
-        }
-
-        ensureWatcherConnected();
-        return {};
-    }
-
-    TextDocument::IOResult setFileUrl(const QUrl &url, const QString &draftName, bool isDraft)
-    {
-        if (!url.isValid()) {
-            return {TextIOError::FileNotFound, TextDocument::tr("Invalid file URL")};
-        }
-
-        removeWatchedPath(fileUrl.toLocalFile());
-
-        auto io = textIOFactory ? textIOFactory(url, encoding) : nullptr;
-
-        if (!io) {
-            return {TextIOError::FatalError, TextDocument::tr("Unsupported file URL or file system")};
-        }
-
-        fileUrl = url;
-        textIO = std::move(io);
-        fileInfo = QFileInfo(fileUrl.toLocalFile());
-        draft = isDraft;
-
-        if (draft) {
-            displayName = draftName.isEmpty() ? TextDocument::tr("untitled") : draftName;
-        } else if (fileInfo.fileName().isEmpty()) {
-            displayName = TextDocument::tr("untitled");
-        } else {
-            displayName = fileInfo.fileName();
-        }
-
-        const bool oldWritable = writable;
-        writable = (!fileInfo.exists() || fileInfo.isWritable());
-        readOnly = !writable;
-
-        if (fileInfo.exists()) {
-            lastModified = fileInfo.lastModified();
-        }
-
-        watchPath(fileUrl.toLocalFile());
-
-        emit q->fileUrlChanged(fileUrl);
-        emit q->filePathChanged(filePath());
-        emit q->displayNameChanged(displayName);
-
-        if (oldWritable != writable) {
-            emit q->permissionsChanged(writable);
-        }
-
-        return {};
-    }
-
-    TextDocument::IOResult loadFromUrl(const QUrl &url, const QString &draftName)
-    {
-        if (closed) {
-            return {TextIOError::FatalError, TextDocument::tr("Document is closed")};
-        }
-
-        const bool draftMode = !draftName.isEmpty();
-        const auto setUrlResult = setFileUrl(url, draftName, draftMode);
-
-        if (!setUrlResult) {
-            return setUrlResult;
-        }
-
-        const auto readResult = textIO->read();
-
-        if (!readResult) {
-            return {readResult.errcode(), readResult.errmsg()};
-        }
-
-        q->setPlainText(readResult.value());
-        q->QTextDocument::setModified(false);
-        q->clearUndoRedoStacks();
-
-        conflict = false;
-
-        if (fileInfo.exists()) {
-            lastModified = fileInfo.lastModified();
-        } else {
-            lastModified = QDateTime::currentDateTime();
-        }
-
-        return {};
-    }
-
-    TextDocument::IOResult saveInternal(SaveKind kind)
-    {
-        if (closed) {
-            return {TextIOError::FatalError, TextDocument::tr("Document is closed")};
-        }
-
-        if (readOnly) {
-            return {TextIOError::PermissionDenied, TextDocument::tr("File is read only")};
-        }
-
-        if (!textIO) {
-            return {TextIOError::OpenError, TextDocument::tr("No file URL specified")};
-        }
-
-        if (saveInProgress) {
-            return {TextIOError::ResourceError, TextDocument::tr("Save operation already in progress")};
-        }
-
-        saveKind = kind;
-        saveInProgress = true;
-
-        saveWatcher->setFuture(textIO->writeAsync(q->toPlainText()));
-        return {};
-    }
-
-    void ensureWatcherConnected()
-    {
-        if (nullptr == s_fileWatcher) {
-            s_fileWatcher = new QFileSystemWatcher();
-        }
-
-        QObject::connect(s_fileWatcher, &QFileSystemWatcher::fileChanged, q, [this](const QString &path) {
-            onFileChangedExternally(path);
-        });
-
-        QObject::connect(saveWatcher, &QFutureWatcher<TextIO::WriteResult>::finished, q, [this]() {
-            const auto result = saveWatcher->result();
-            saveInProgress = false;
-
-            if (!result) {
-                const KErrorCode<TextIOError> err(result.errcode(), result.errmsg());
-
-                if (SaveKind::SaveAs == saveKind) {
-                    emit q->saveAsError(err);
-                } else {
-                    emit q->saveError(err);
-                }
-
-                return;
-            }
-
-            q->QTextDocument::setModified(false);
-            conflict = false;
-
-            fileInfo = QFileInfo(filePath());
-            writable = (!fileInfo.exists() || fileInfo.isWritable());
-            readOnly = !writable;
-            lastModified = QDateTime::currentDateTime();
-
-            watchPath(filePath());
-            emit q->permissionsChanged(writable);
-        });
-    }
-
-    void watchPath(const QString &path)
-    {
-        if (path.isEmpty() || (nullptr == s_fileWatcher)) {
-            return;
-        }
-
-        if (!s_fileWatcher->files().contains(path)) {
-            s_fileWatcher->addPath(path);
-        }
-    }
-
-    void removeWatchedPath(const QString &path)
-    {
-        if (path.isEmpty() || (nullptr == s_fileWatcher)) {
-            return;
-        }
-
-        if (s_fileWatcher->files().contains(path)) {
-            s_fileWatcher->removePath(path);
-        }
-    }
-
-    void onFileChangedExternally(const QString &path)
-    {
-        if (path != filePath()) {
-            return;
-        }
-
-        QFileInfo info(path);
-
-        if (!info.exists()) {
-            conflict = true;
-            q->QTextDocument::setModified(true);
-            emit q->conflictDetected();
-            return;
-        }
-
-        const bool wasWritable = writable;
-        writable = info.isWritable();
-        readOnly = !writable;
-
-        if (wasWritable != writable) {
-            emit q->permissionsChanged(writable);
-        }
-
-        if (!saveInProgress && (info.lastModified() > lastModified)) {
-            conflict = true;
-            emit q->conflictDetected();
-        }
-
-        watchPath(path);
-    }
-
-    QString filePath() const
-    {
-        return fileUrl.toLocalFile();
-    }
+    TextDocument::IOResult setFileUrl(const QUrl &url, const QString &draftName, bool isDraft);
+    TextDocument::IOResult loadFromUrl(const QUrl &url, const QString &draftName);
+    TextDocument::IOResult saveInternal(SaveKind kind);
+    void ensureWatcherConnected();
+    void watchPath(const QString &path);
+    void removeWatchedPath(const QString &path);
+    void onFileChangedExternally(const QString &path);
+    QString filePath() const;
 
     static QFileSystemWatcher *s_fileWatcher;
 
@@ -293,7 +63,6 @@ public:
     bool draft;
     bool closed;
     QString displayName;
-    bool writable;
     bool readOnly;
     bool saveInProgress;
     bool conflict;
@@ -314,10 +83,6 @@ TextDocument::TextDocument(QObject *parent)
     , d(new TextDocumentPrivate(this))
 {
     setDocumentLayout(new QPlainTextDocumentLayout(this));
-
-    connect(this, &QTextDocument::modificationChanged, this, [this](bool modified) {
-        emit modifiedChanged(modified);
-    });
 }
 
 TextDocument::~TextDocument() = default;
@@ -418,7 +183,6 @@ TextDocument::IOResult TextDocument::close()
     clearUndoRedoStacks();
 
     d->closed = true;
-    d->writable = false;
     d->readOnly = true;
     d->conflict = false;
     d->textIO.reset();
@@ -470,11 +234,6 @@ bool TextDocument::modified() const
     return QTextDocument::isModified();
 }
 
-bool TextDocument::isWritable() const
-{
-    return d->writable;
-}
-
 bool TextDocument::isReadOnly() const
 {
     return d->readOnly;
@@ -488,16 +247,6 @@ bool TextDocument::hasConflict() const
 const QDateTime &TextDocument::lastModified() const
 {
     return d->lastModified;
-}
-
-const QDateTime &TextDocument::timestamp() const
-{
-    return d->lastModified;
-}
-
-void TextDocument::setTimestamp(const QDateTime &timestamp)
-{
-    d->lastModified = timestamp;
 }
 
 TextDocument::IOResult TextDocument::rename(const QString &name) noexcept
@@ -553,7 +302,7 @@ TextDocument::IOResult TextDocument::saveAs(const QUrl &url)
     return {};
 }
 
-TextDocument::IOResult TextDocument::saveCopyAs(const QUrl &url) const
+TextDocument::IOResult TextDocument::saveCopyAs(const QUrl &url)
 {
     if (d->closed) {
         return {TextIOError::FatalError, tr("Document is closed")};
@@ -614,35 +363,249 @@ QStringConverter::Encoding TextDocument::encoding() const
     return d->encoding;
 }
 
-void TextDocument::setReadOnly(bool readOnly)
-{
-    if (d->readOnly == readOnly) {
-        return;
-    }
-
-    d->readOnly = readOnly;
-    d->writable = !readOnly;
-    emit permissionsChanged(d->writable);
-}
-
-void TextDocument::setFilePath(const QString &filePath)
-{
-    if (d->closed || filePath.isEmpty()) {
-        return;
-    }
-
-    d->setFileUrl(QUrl::fromLocalFile(filePath), QString(), false);
-}
-
-void TextDocument::clearUndoRedoStacks()
-{
-    QTextDocument::clearUndoRedoStacks();
-}
-
 std::unique_ptr<TextIO> TextDocument::defaultTextIOFactory(const QUrl &url, QStringConverter::Encoding encoding)
 {
     TextIOFactory factory;
     return factory.createTextIO(url, encoding);
+}
+
+/**********  TextDocumentPrivate **********/
+
+explicit TextDocumentPrivate::TextDocumentPrivate(TextDocument *q)
+    : q(q)
+    , draft(true)
+    , closed(false)
+    , displayName(TextDocument::tr("untitled"))
+    , readOnly(false)
+    , saveInProgress(false)
+    , conflict(false)
+    , fileUrl(QUrl())
+    , lastModified(QDateTime::currentDateTime())
+    , encoding(QStringConverter::Utf8)
+    , saveKind(SaveKind::Save)
+{
+    saveWatcher = new QFutureWatcher<TextIO::WriteResult>(q);
+}
+
+TextDocumentPrivate::~TextDocumentPrivate() = default;
+
+TextDocument::IOResult TextDocumentPrivate::initialize(const QUrl &url,
+                                                       QStringConverter::Encoding encoding,
+                                                       const QString &draftName,
+                                                       const TextDocument::TextIOFactoryFunction &factory)
+{
+    if (!url.isValid()) {
+        return {TextIOError::FileNotFound, TextDocument::tr("Invalid file URL")};
+    }
+
+    textIOFactory = factory;
+    this->encoding = encoding;
+
+    K_TRY(setFileUrl(url, draftName, !draftName.isEmpty()));
+    ensureWatcherConnected();
+    return {};
+}
+
+TextDocument::IOResult TextDocumentPrivate::setFileUrl(const QUrl &url, const QString &draftName, bool isDraft)
+{
+    if (!url.isValid()) {
+        return {TextIOError::FileNotFound, TextDocument::tr("Invalid file URL")};
+    }
+
+    removeWatchedPath(fileUrl.toLocalFile());
+
+    auto io = textIOFactory ? textIOFactory(url, encoding) : nullptr;
+
+    if (!io) {
+        return {TextIOError::FatalError, TextDocument::tr("Unsupported file URL or file system")};
+    }
+
+    fileUrl = url;
+    textIO = std::move(io);
+    fileInfo = QFileInfo(fileUrl.toLocalFile());
+    draft = isDraft;
+
+    if (draft) {
+        displayName = draftName.isEmpty() ? TextDocument::tr("untitled") : draftName;
+    } else if (fileInfo.fileName().isEmpty()) {
+        displayName = TextDocument::tr("untitled");
+    } else {
+        displayName = fileInfo.fileName();
+    }
+
+    const bool oldReadOnly = readOnly;
+    readOnly = (fileInfo.exists() && fileInfo.isWritable());
+
+    if (fileInfo.exists()) {
+        lastModified = fileInfo.lastModified();
+    }
+
+    watchPath(fileUrl.toLocalFile());
+
+    emit q->fileUrlChanged(fileUrl);
+    emit q->filePathChanged(filePath());
+    emit q->displayNameChanged(displayName);
+
+    if (oldReadOnly != readOnly) {
+        emit q->permissionsChanged(readOnly);
+    }
+
+    return {};
+}
+
+TextDocument::IOResult TextDocumentPrivate::loadFromUrl(const QUrl &url, const QString &draftName)
+{
+    if (closed) {
+        return {TextIOError::FatalError, TextDocument::tr("Document is closed")};
+    }
+
+    const bool draftMode = !draftName.isEmpty();
+    const auto setUrlResult = setFileUrl(url, draftName, draftMode);
+
+    if (!setUrlResult) {
+        return setUrlResult;
+    }
+
+    const auto readResult = textIO->read();
+
+    if (!readResult) {
+        return {readResult.errcode(), readResult.errmsg()};
+    }
+
+    q->setPlainText(readResult.value());
+    q->QTextDocument::setModified(false);
+    q->clearUndoRedoStacks();
+
+    conflict = false;
+
+    if (fileInfo.exists()) {
+        lastModified = fileInfo.lastModified();
+    } else {
+        lastModified = QDateTime::currentDateTime();
+    }
+
+    return {};
+}
+
+TextDocument::IOResult TextDocumentPrivate::saveInternal(SaveKind kind)
+{
+    if (closed) {
+        return {TextIOError::FatalError, TextDocument::tr("Document is closed")};
+    }
+
+    if (readOnly && (SaveKind::Save == kind)) {
+        return {TextIOError::PermissionDenied, TextDocument::tr("File is read only")};
+    }
+
+    if (!textIO) {
+        return {TextIOError::OpenError, TextDocument::tr("No file URL specified")};
+    }
+
+    if (saveInProgress) {
+        saveWatcher->waitForFinished();
+    }
+
+    saveKind = kind;
+    saveInProgress = true;
+
+    saveWatcher->setFuture(textIO->writeAsync(q->toPlainText()));
+    return {};
+}
+
+void TextDocumentPrivate::ensureWatcherConnected()
+{
+    if (nullptr == s_fileWatcher) {
+        s_fileWatcher = new QFileSystemWatcher();
+    }
+
+    QObject::connect(s_fileWatcher, &QFileSystemWatcher::fileChanged, q, [this](const QString &path) {
+        onFileChangedExternally(path);
+    });
+
+    QObject::connect(saveWatcher, &QFutureWatcher<TextIO::WriteResult>::finished, q, [this]() {
+        const auto result = saveWatcher->result();
+        saveInProgress = false;
+
+        if (!result) {
+            const KErrorCode<TextIOError> err(result.errcode(), result.errmsg());
+
+            if (SaveKind::SaveAs == saveKind) {
+                emit q->saveAsError(err);
+            } else {
+                emit q->saveError(err);
+            }
+
+            return;
+        }
+
+        q->QTextDocument::setModified(false);
+        conflict = false;
+
+        fileInfo = QFileInfo(filePath());
+        readOnly = (fileInfo.exists() && !fileInfo.isWritable());
+        lastModified = fileInfo.lastModified();
+
+        watchPath(filePath());
+        emit q->permissionsChanged(!readOnly);
+    });
+}
+
+void TextDocumentPrivate::watchPath(const QString &path)
+{
+    if (path.isEmpty() || (nullptr == s_fileWatcher)) {
+        return;
+    }
+
+    if (!s_fileWatcher->files().contains(path)) {
+        s_fileWatcher->addPath(path);
+    }
+}
+
+void TextDocumentPrivate::removeWatchedPath(const QString &path)
+{
+    if (path.isEmpty() || (nullptr == s_fileWatcher)) {
+        return;
+    }
+
+    if (s_fileWatcher->files().contains(path)) {
+        s_fileWatcher->removePath(path);
+    }
+}
+
+void TextDocumentPrivate::onFileChangedExternally(const QString &path)
+{
+    QFileInfo info(path);
+
+    const bool isReadOnly = !info.isWritable();
+
+    if (isReadOnly != readOnly) {
+        readOnly = isReadOnly;
+        emit q->permissionsChanged(readOnly);
+    }
+
+    // If the file path has changed since we last checked, or if we've already detected a conflict, don't do anything.
+    if (path != filePath() || conflict) {
+        return;
+    }
+
+    if (!info.exists()) {
+        conflict = true;
+        q->QTextDocument::setModified(true);
+        emit q->conflictDetected();
+        return;
+    }
+
+    if (!saveInProgress && (info.lastModified() > lastModified)) {
+        conflict = true;
+        emit q->conflictDetected();
+    }
+
+    watchPath(path);
+}
+
+QString TextDocumentPrivate::filePath() const
+{
+    return fileUrl.toLocalFile();
 }
 
 } // namespace ghostwriter
