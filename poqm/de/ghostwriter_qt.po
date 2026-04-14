@@ -1,23 +1,24 @@
 # SPDX-FileCopyrightText: 2022, 2023, 2024 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2026 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: ghostwriter_qt\n"
-"PO-Revision-Date: 2024-08-25 19:31+0200\n"
-"Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2026-04-12 12:19+0200\n"
+"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "Geschlossene Datei wieder öffnen"
+msgstr "Zuletzt geschlossene Datei wieder öffnen"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -133,6 +134,7 @@ msgstr "Strg+Umschalt+."
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als Blockzitat."
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -140,6 +142,8 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als Blockzitat "
+"oder – wenn es bereits ein Blockzitat ist – als verschachteltes Blockzitat."
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
@@ -155,6 +159,8 @@ msgstr "Strg+Umschalt+,"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
 msgstr ""
+"Entfernt die Blockzitat-Formatierung aus der aktuellen Zeile oder den "
+"ausgewählten Zeilen."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -163,11 +169,14 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Entfernt die Blockzitat-Formatierung aus der aktuellen Zeile oder den "
+"ausgewählten Zeilen. Wenn das Blockzitat verschachtelt ist, wird nur die "
+"äußerste Ebene entfernt."
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "* Bullet List"
-msgstr "* Aufzählungsliste"
+msgstr "* Ungeordnete Liste"
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
@@ -180,11 +189,13 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als ungeordnete "
+"Liste mit einem Sternchen (*)."
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "- Bullet List"
-msgstr "- Aufzählungsliste"
+msgstr "- Ungeordnete Liste"
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
@@ -197,11 +208,13 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als ungeordnete "
+"Liste mit einem Strich (-)."
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "+ Bullet List"
-msgstr "+ Aufzählungsliste"
+msgstr "+ Ungeordnete Liste"
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
@@ -214,6 +227,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als ungeordnete "
+"Liste mit einem Plus (+)."
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
@@ -229,6 +244,8 @@ msgstr "Strg+1"
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als nummerierte "
+"Liste."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -236,6 +253,9 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als "
+"nummerierte Liste.</p><p>Beispiel:</p><p>1. Punkt eins<br/>2. Punkt zwei<br/"
+">3. Punkt drei<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
@@ -255,6 +275,11 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als "
+"nummerierte Liste.</p><p>Beispiel:</p><p>1) Punkt eins<br/>2) Punkt zwei<br/"
+">3) Punkt drei<br/></p><p>Beachten Sie, dass dieses Nummerierungsformat "
+"nicht von allen Markdown-Systemen unterstützt wird und nicht Teil von "
+"CommonMark ist.</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
@@ -270,6 +295,7 @@ msgstr "Strg+T"
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
 msgstr ""
+"Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als Aufgabenliste."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -279,11 +305,16 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Formatiert die aktuelle Zeile oder die ausgewählten Zeilen als "
+"Aufgabenliste.</p><p>Beispiel:</p><p>- [ ] Punkt eins<br/>- [ ] Punkt "
+"zwei<br/>- [ ] Punkt drei<br/></p><p>Beachten Sie, dass Aufgabenlisten nicht "
+"von allen Markdown-Systemen unterstützt werden und nicht Teil von CommonMark "
+"sind.</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr "Aufgabe(n) als erledigt umschalten"
+msgstr "Erledigt-Status der Aufgabe(n) umschalten"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
@@ -296,6 +327,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Die aktuelle Aufgabe oder die ausgewählten Aufgaben als erledigt oder nicht "
+"erledigt markieren."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -309,11 +342,19 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Die aktuelle Aufgabe oder die ausgewählten Aufgaben als erledigt oder "
+"nicht erledigt markieren.</p><p>Das Anwenden dieser Aktion auf einen nicht "
+"erledigten Eintrag in einer Aufgabenliste setzt ein 'x' zwischen die "
+"Klammern:</p><p>- [x] Punkt eins<br/></p><p>Dementsprechend entfernt das "
+"Anwenden dieser Aktion auf einen erledigten Eintrag in einer Aufgabenliste "
+"das 'x' zwischen den Klammern:</p><p>- [ ] Punkt eins<br/></p><p>Beachten "
+"Sie, dass Aufgabenlisten nicht von allen Markdown-Systemen unterstützt "
+"werden und nicht Teil von CommonMark sind.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr "Ablenkungsfreien Modus umschalten"
+msgstr "Ablenkungsfreier Modus"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
@@ -343,7 +384,7 @@ msgstr "Umschalt+Rücktaste"
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "Hemingway-Modus umschalten"
+msgstr "Hemingway-Modus umschalten."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -351,6 +392,9 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"Der Hemingway-Modus deaktiviert die Rücktaste und die Entfernen-Taste, damit "
+"Sie besser der Versuchung widerstehen können, Ihr Dokument während des "
+"Schreibens anzupassen."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
@@ -361,6 +405,7 @@ msgstr "Dunkler Modus"
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
 msgstr ""
+"Aktiviert oder deaktiviert das dunkle Farbschema des aktuellen Designs."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -369,6 +414,9 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Aktiviert oder deaktiviert das dunkle Farbschema des aktuellen Designs.</"
+"p><p>Falls das aktuelle Design kein dunkles Schema unterstützt, hat diese "
+"Option keine Auswirkung.</p>"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
@@ -383,7 +431,7 @@ msgstr "Strg+Leertaste"
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr "Übersicht"
+msgstr "Gliederung"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
@@ -393,7 +441,7 @@ msgstr "Strg+J"
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Zeigt die Gliederung des Dokuments an."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -403,6 +451,10 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Zeigt die Gliederung des Dokuments an.</p><p>Verwenden Sie die Maus und "
+"Linksklick auf einer Überschrift im Dokument, oder die Pfeil-auf/ab-Tasten "
+"sowie die Eingabetaste, um an verschiedene Stellen im Dokument zu springen.</"
+"p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
@@ -422,7 +474,7 @@ msgstr "Kurzhilfe"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr ""
+msgstr "Zeigt eine Kurzanleitung für Markdown in der Seitenleiste an."
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
@@ -452,12 +504,12 @@ msgstr "Ein Markdown-Editor"
 #: src/appmain.cpp:103
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Entwickler von FocusWriter, dessen Qt-Quelltext mich angeleitet hat"
 
 #: src/appmain.cpp:108
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Entwickler von ReText, dessen Algorithmen mir enorm geholfen haben"
 
 #: src/appmain.cpp:113
 msgctxt "main|"
@@ -465,11 +517,13 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Entwickler von StretchPlayer, dessen Anwendung mir gezeigt hat, wie man "
+"rahmenlose Fenster in Qt erzeugt"
 
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "Entwickler von UberWriter (jetzt Apostrophe), der mich inspirierte"
 
 #: src/appmain.cpp:122
 msgctxt "main|"
@@ -482,21 +536,23 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Alle, die über die Jahre hinweg an Übersetzungen, Dokumentation, "
+"Fehlerbereinigungen oder neuen Funktionen mitgewirkt haben"
 
 #: src/appmain.cpp:128
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
-msgstr ""
+msgstr "Eine erweiterte Version der C-Referenzimplementierung von CommonMark"
 
 #: src/appmain.cpp:132
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Eine JavaScript-Bibliothek zur Erstellung von Benutzeroberflächen"
 
 #: src/appmain.cpp:134
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "Eine JavaScript-Bibliothek zur Darstellung mathematischer Ausdrücke"
 
 #: src/appmain.cpp:139
 #, qt-format
@@ -659,21 +715,19 @@ msgstr "Dateisicherung fehlgeschlagen"
 #: src/documentmanager.cpp:925
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error creating backup location: %d"
-msgstr ""
+msgstr "Fehler beim Anlegen des Sicherungsortes: %d"
 
 #: src/documentmanager.cpp:934
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "File backup failed"
+#, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "Dateisicherung fehlgeschlagen"
+msgstr "Dateisicherung fehlgeschlagen: %1 kann nicht ersetzt werden"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr ""
+msgstr "Dateisicherung fehlgeschlagen: %1 kann nicht nach %2 kopiert werden"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
@@ -716,7 +770,7 @@ msgstr "Exportieren fehlgeschlagen: "
 #, qt-format
 msgctxt "QObject|"
 msgid "%1 format is not supported by this processor."
-msgstr "Format %1 wird von der aktuellen Auswahl nicht unterstützt."
+msgstr "Formatierung %1 wird von diesem System nicht unterstützt."
 
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
@@ -734,12 +788,9 @@ msgid "Smart Typography"
 msgstr "Intelligente Typografie"
 
 #: src/export/exportdialog.cpp:89
-#, fuzzy
-#| msgctxt "ghostwriter::ExportDialog|"
-#| msgid "Export"
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Open on Export"
-msgstr "Exportieren"
+msgstr "Beim Exportieren öffnen"
 
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
@@ -848,7 +899,8 @@ msgstr "Ersetzen durch:"
 msgctxt "ghostwriter::FindReplace|"
 msgid "%Ln replacement(s)"
 msgid_plural "%Ln replacement(s)"
-msgstr[0] ""
+msgstr[0] "%Ln Ersetzung"
+msgstr[1] "%Ln Ersetzungen"
 
 #: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
@@ -867,12 +919,10 @@ msgid "%1 matches"
 msgstr "%1 Übereinstimmungen"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "%1 kann nicht gelesen werden"
+msgstr "Datei „%1“ kann nicht erstellt werden"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -947,17 +997,17 @@ msgstr "1. Nummerierte Liste"
 #: src/mainwindow.cpp:1281
 msgctxt "ghostwriter::MainWindow|"
 msgid "* Bullet List"
-msgstr "* Aufzählungsliste"
+msgstr "* Ungeordnete Liste"
 
 #: src/mainwindow.cpp:1282
 msgctxt "ghostwriter::MainWindow|"
 msgid "+ Bullet List"
-msgstr "+ Aufzählungsliste"
+msgstr "+ Ungeordnete Liste"
 
 #: src/mainwindow.cpp:1283
 msgctxt "ghostwriter::MainWindow|"
 msgid "- Bullet List"
-msgstr "- Aufzählungsliste"
+msgstr "- Ungeordnete Liste"
 
 #: src/mainwindow.cpp:1284
 msgctxt "ghostwriter::MainWindow|"
@@ -977,7 +1027,7 @@ msgstr "``` Quelltext-Block"
 #: src/mainwindow.cpp:1287
 msgctxt "ghostwriter::MainWindow|"
 msgid "[Link](http://url.com \"Title\")"
-msgstr ""
+msgstr "[Verknüpfung](http://url.com \"Titel\")"
 
 #: src/mainwindow.cpp:1288
 msgctxt "ghostwriter::MainWindow|"
@@ -992,7 +1042,7 @@ msgstr "[ID]: http://url.com \"Titel für Link\""
 #: src/mainwindow.cpp:1290
 msgctxt "ghostwriter::MainWindow|"
 msgid "![Image](./image.jpg \"Title\")"
-msgstr ""
+msgstr "![Bild](./Bild.jpg \"Titel\")"
 
 #: src/mainwindow.cpp:1291
 msgctxt "ghostwriter::MainWindow|"
@@ -1002,12 +1052,12 @@ msgstr "--- *** ___ Horizontaler Strich"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Ordneransicht"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
 msgid "Outline"
-msgstr "Übersicht"
+msgstr "Gliederung"
 
 #: src/mainwindow.cpp:1344
 msgctxt "ghostwriter::MainWindow|"
@@ -1032,7 +1082,7 @@ msgstr "Einstellungen"
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
 msgid "Error loading resources/preview.html"
-msgstr ""
+msgstr "Fehler beim Laden von resources/preview.html"
 
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
@@ -1089,7 +1139,7 @@ msgstr "Eckig"
 #: src/settings/preferencesdialog.cpp:204
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Sicherungsordner auswählen"
 
 #: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1180,7 +1230,7 @@ msgstr "&Menüleiste im Vollbildmodus ausblenden"
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Geschützte &Leerzeichen anzeigen"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
@@ -1210,12 +1260,12 @@ msgstr "&Unbenannte Entwürfe anzeigen ..."
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr ""
+msgstr "&Sicherungsorder auswählen …"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
@@ -1225,7 +1275,7 @@ msgstr "Sitzung"
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr "&Zuletzt geöffnete Dateien merken"
+msgstr "Zuletzt &geöffnete Dateien merken"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
@@ -1233,17 +1283,14 @@ msgid "&Open last file on startup"
 msgstr "Zuletzt geöffnete &Datei beim Starten öffnen"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Seitenleiste anzeigen"
+msgstr "Seitenleiste"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "Alle Dateien in &Ordneransicht anzeigen"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
@@ -1344,7 +1391,7 @@ msgstr "Schriftart für Quelltext:"
 #: src/settings/previewoptionsdialog.cpp:151
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Befehlszeilenoptionen:"
 
 #: src/settings/previewoptionsdialog.cpp:177
 #, qt-format
@@ -1425,7 +1472,7 @@ msgstr "250 Wörter pro Seite"
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1 %</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1497,7 +1544,7 @@ msgstr "Komplexe Wörter:"
 #: src/statistics/documentstatisticswidget.cpp:65
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
 msgid "0%"
-msgstr ""
+msgstr "0 %"
 
 #: src/statistics/documentstatisticswidget.cpp:66
 msgctxt "ghostwriter::DocumentStatisticsWidget|"
@@ -1567,7 +1614,7 @@ msgstr "Inaktivitätszeit:"
 #: src/statistics/sessionstatisticswidget.cpp:41
 msgctxt "ghostwriter::SessionStatisticsWidget|"
 msgid "100%"
-msgstr ""
+msgstr "100 %"
 
 #: src/statistics/statisticsindicator.cpp:15
 msgctxt "ghostwriter::StatisticsIndicator|"
