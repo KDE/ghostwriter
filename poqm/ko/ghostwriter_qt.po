@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2023, 2024, 2026 Shinjo Park <kde@peremen.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-24 23:09+0100\n"
+"PO-Revision-Date: 2026-04-26 21:47+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -892,12 +892,10 @@ msgid "%1 matches"
 msgstr "%1개 일치함"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "%1을(를) 읽을 수 없음"
+msgstr "파일을 생성할 수 없음: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1027,7 +1025,7 @@ msgstr "--- *** ___ 수평선"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "폴더 보기"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1256,17 +1254,14 @@ msgid "&Open last file on startup"
 msgstr "시작할 때 마지막으로 사용한 파일 열기(&O)"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "사이드바 표시"
+msgstr "사이드바"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "폴더 보기에 모든 파일 표시(&S)"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
