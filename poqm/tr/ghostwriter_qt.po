@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-02 11:14+0300\n"
+"PO-Revision-Date: 2026-05-02 18:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -140,7 +140,7 @@ msgid ""
 "block quote, as a nested block quote."
 msgstr ""
 "Geçerli satırı veya seçili satırları blok alıntı olarak biçimlendirir veya "
-"halihazırda böyle biçimlendirilmişse içe geçmiş blok alıntı yapar."
+"hâlihazırda böyle biçimlendirilmişse içe geçmiş blok alıntı yapar."
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
@@ -1798,13 +1798,13 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' already exists.  Please choose another name."
-msgstr "“%1” halihazırda var. Lütfen başka bir tema seçin."
+msgstr "“%1” hâlihazırda var. Lütfen başka bir tema seçin."
 
 #: src/theme/themerepository.cpp:237
 #, qt-format
 msgctxt "ghostwriter::ThemeRepository|"
 msgid "'%1' theme already exists.  Please choose another name."
-msgstr "“%1” teması halihazırda var. Lütfen başka bir ad seçin."
+msgstr "“%1” teması hâlihazırda var. Lütfen başka bir ad seçin."
 
 #: src/theme/themerepository.cpp:244
 msgctxt "ghostwriter::ThemeRepository|"
