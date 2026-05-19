@@ -1,16 +1,17 @@
 # SPDX-FileCopyrightText: 2023, 2024, 2026 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-17 10:18+0100\n"
-"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-05-18 22:38+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -111,7 +112,7 @@ msgstr "SHIFT+Tab"
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "&Code Fences"
-msgstr ""
+msgstr "&Kódové ohraničení"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -121,7 +122,7 @@ msgstr "CTRL+G"
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "Block Quote"
-msgstr ""
+msgstr "Bloková citace"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
@@ -131,7 +132,7 @@ msgstr "CTRL+SHIFT+."
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a block quote."
-msgstr ""
+msgstr "Naformátuje aktuální řádek nebo vybrané řádky jako blokovou citaci."
 
 #: src/appactions.cpp:125
 msgctxt "ghostwriter::AppActions|"
@@ -139,11 +140,13 @@ msgid ""
 "Formats the current line or selected lines as a block quote, or if already a "
 "block quote, as a nested block quote."
 msgstr ""
+"Naformátuje aktuální řádek nebo vybrané řádky jako blokovou citaci, nebo "
+"pokud se již jedná o blokovou citaci, jako vnořenou blokovou citaci."
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "Strip Block Quote"
-msgstr ""
+msgstr "Odstranit blokovou citaci"
 
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
@@ -154,6 +157,7 @@ msgstr "CTRL+SHIFT+,"
 msgctxt "ghostwriter::AppActions|"
 msgid "Strips the current line or selected lines of block quote formatting."
 msgstr ""
+"Odstraní formátování blokové citace z aktuálního řádku nebo vybraných řádků."
 
 #: src/appactions.cpp:131
 msgctxt "ghostwriter::AppActions|"
@@ -162,6 +166,9 @@ msgid ""
 "block is nested, only the outermost layer of block quote formatting will be "
 "stripped."
 msgstr ""
+"Odstraní formátování blokové citace z aktuálního řádku nebo vybraných řádků. "
+"Pokud je blok vnořený, odstraní se pouze formátování nejvyšší vrstvy blokové "
+"citace."
 
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
@@ -179,6 +186,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with an "
 "asterisk (*)."
 msgstr ""
+"Naformátuje aktuální řádek nebo vybrané řádky jako seznam s odrážkami "
+"označenými hvězdičkou (*)."
 
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
@@ -196,6 +205,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "minus sign (-)."
 msgstr ""
+"Naformátuje aktuální řádek nebo vybrané řádky jako seznam s odrážkami a "
+"znaménkem minus (-)."
 
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
@@ -213,6 +224,8 @@ msgid ""
 "Formats the current line or selected lines as a bullet point list with a "
 "plus sign (+)."
 msgstr ""
+"Naformátuje aktuální řádek nebo vybrané řádky jako seznam s odrážkami a "
+"znaménkem plus (+)."
 
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
@@ -227,7 +240,7 @@ msgstr "CTRL+1"
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a numbered list."
-msgstr ""
+msgstr "Naformátuje aktuální řádek nebo vybrané řádky jako číslovaný seznam."
 
 #: src/appactions.cpp:155
 msgctxt "ghostwriter::AppActions|"
@@ -235,6 +248,9 @@ msgid ""
 "<p>Formats the current line or selected lines as a numbered list.</"
 "p><p>Example:</p><p>1. item one<br/>2. item two<br/>3. item three<br/></p>"
 msgstr ""
+"<p>Naformátuje aktuální řádek nebo vybrané řádky jako číslovaný seznam.</"
+"p><p>Příklad:</p><p>1. položka jedna<br/>2. položka dvě<br/>3. položka "
+"tři<br/></p>"
 
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
@@ -254,6 +270,10 @@ msgid ""
 "p><p>Note that this numbering format is not supported by all Markdown "
 "processors and is not part of CommonMark.</p>"
 msgstr ""
+"<p>Naformátuje aktuální řádek nebo vybrané řádky jako číslovaný seznam.</"
+"p><p>Příklad:</p><p>1) položka jedna<br/>2) položka dvě<br/>3) položka "
+"tři<br/></p><p>Upozorňujeme, že tento formát číslování nepodporují všechny "
+"procesory Markdownu a není součástí standardu CommonMark.</p>"
 
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
@@ -268,7 +288,7 @@ msgstr "CTRL+T"
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
 msgid "Formats the current line or selected lines as a task list."
-msgstr ""
+msgstr "Naformátuje aktuální řádek nebo vybrané řádky jako seznam úkolů."
 
 #: src/appactions.cpp:181
 msgctxt "ghostwriter::AppActions|"
@@ -278,11 +298,15 @@ msgid ""
 "p><p>Note that task lists are not supported by all Markdown processors and "
 "are not part of CommonMark.</p>"
 msgstr ""
+"<p>Naformátuje aktuální řádek nebo vybrané řádky jako seznam úkolů.</"
+"p><p>Příklad:</p><p>- [ ] položka jedna<br/>- [ ] položka dvě<br/>- [ ] "
+"položka tři<br/></p><p>Upozorňujeme, že seznamy úkolů nepodporují všechny "
+"procesory Markdownu a nejsou součástí standardu CommonMark.</p>"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggle Task(s) Complete"
-msgstr ""
+msgstr "Přepnout zkompletování úkolu"
 
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
@@ -295,6 +319,8 @@ msgid ""
 "Toggle the current task item or selected task items as complete or "
 "incomplete."
 msgstr ""
+"Označí aktuální položku úkolu nebo vybrané položky úkolu jako splněné nebo "
+"nesplněné."
 
 #: src/appactions.cpp:196
 msgctxt "ghostwriter::AppActions|"
@@ -308,11 +334,19 @@ msgid ""
 "that task lists are not supported by all Markdown processors and are not "
 "part of CommonMark.</p>"
 msgstr ""
+"<p>Přepněte stav aktuální položky úkolu nebo vybraných položek úkolů v "
+"seznamu úkolů na splněno nebo nesplněno.</p><p>Použijete-li tuto akci na "
+"nesplněnou položku úkolu v seznamu úkolů, mezi závorky se zobrazí znak 'x', "
+"například takto:</p><p>- [x] položka jedna<br/></p><p>Stejně tak použití "
+"této akce na dokončenou položku úkolu v seznamu úkolů způsobí odstranění "
+"znaku 'x' mezi závorkami, například:</p><p>- [ ] položka jedna<br/></"
+"p><p>Upozorňujeme, že seznamy úkolů nejsou podporovány všemi procesory "
+"Markdown a nejsou součástí CommonMark.</p>"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "Distraction-Free Mode"
-msgstr ""
+msgstr "Režim bez rušivých vlivů"
 
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
@@ -332,7 +366,7 @@ msgstr "CTRL+P"
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
 msgid "Hemingway Mode"
-msgstr ""
+msgstr "Režim Hemingway"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
@@ -342,7 +376,7 @@ msgstr "SHIFT+Backspace"
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr ""
+msgstr "Zapne nebo vypne režim Hemingway."
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -350,6 +384,8 @@ msgid ""
 "Hemingway mode disables the backspace and delete keys to help you resist the "
 "temptation to edit your document as you write."
 msgstr ""
+"Režim Hemingwaye deaktivuje klávesy Backspace a Delete, aby vám pomohl "
+"odolat pokušení upravovat dokument během psaní."
 
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
@@ -359,7 +395,7 @@ msgstr "Tmavý režim"
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Zapne nebo vypne tmavé barevné schéma aktuálního motivu."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -368,6 +404,9 @@ msgid ""
 "current theme does not support a dark color scheme, then this option will "
 "have no effect.</p>"
 msgstr ""
+"<p>Zapne nebo vypne tmavé barevné schéma aktuálního motivu.</p><p>Pokud "
+"aktuální motiv tmavé barevné schéma nepodporuje, nebude mít tato volba žádný "
+"účinek.</p>"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
@@ -382,7 +421,7 @@ msgstr "CTRL+mezerník"
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "Outline"
-msgstr ""
+msgstr "Struktura"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
@@ -392,7 +431,7 @@ msgstr "CTRL+J"
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr ""
+msgstr "Zobrazí strukturu dokumentu."
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -402,6 +441,9 @@ msgid ""
 "the ENTER key, to jump to different locations within the current document.</"
 "p>"
 msgstr ""
+"<p>Zobrazí strukturu dokumentu.</p><p>Kliknutím levým tlačítkem myši na "
+"nadpis v dokumentu nebo pomocí šipek nahoru a dolů na klávesnici a klávesy "
+"ENTER můžete přeskakovat na různá místa v aktuálním dokumentu.</p>"
 
 #: src/appactions.cpp:243
 msgctxt "ghostwriter::AppActions|"
@@ -422,6 +464,7 @@ msgstr "Nápověda syntaxe"
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
 msgstr ""
+"V postranním panelu se zobrazí stručný přehled formátovacího jazyka Markdown."
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
@@ -451,12 +494,12 @@ msgstr "Editor Markdown"
 #: src/appmain.cpp:103
 msgctxt "main|"
 msgid "FocusWriter developer, whose Qt code mentored me"
-msgstr ""
+msgstr "Vývojář FocusWriteru, který mi pomáhal s kódem v Qt"
 
 #: src/appmain.cpp:108
 msgctxt "main|"
 msgid "ReText developer, whose algorithms helped immensely"
-msgstr ""
+msgstr "Vývojář ReTextu, jehož algoritmy byly nesmírně užitečné"
 
 #: src/appmain.cpp:113
 msgctxt "main|"
@@ -464,16 +507,20 @@ msgid ""
 "StretchPlayer developer, whose application showed me how to make frameless "
 "windows in Qt"
 msgstr ""
+"Vývojář aplikace StretchPlayer, jehož aplikace mi ukázala, jak v Qt vytvářet "
+"okna bez rámečku"
 
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
 msgstr ""
+"Vývojáři aplikace UberWriter (nyní Apostrophe) za to, že mi poskytli "
+"inspiraci"
 
 #: src/appmain.cpp:122
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Další přispěvatelé"
 
 #: src/appmain.cpp:123
 msgctxt "main|"
@@ -481,42 +528,45 @@ msgid ""
 "Everyone who provided translations, documentation, bug fixes, or new "
 "features over the years"
 msgstr ""
+"Všichni, kteří v průběhu let přispěli překlady, dokumentací, opravami chyb "
+"nebo novými funkcemi"
 
 #: src/appmain.cpp:128
 msgctxt "main|"
 msgid "An extended version of the C reference implementation of CommonMark"
 msgstr ""
+"Rozšířená verze referenční implementace standardu CommonMark v jazyce C"
 
 #: src/appmain.cpp:132
 msgctxt "main|"
 msgid "A JavaScript library for building user interfaces"
-msgstr ""
+msgstr "Knihovna JavaScriptu pro tvorbu uživatelských rozhraní"
 
 #: src/appmain.cpp:134
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr ""
+msgstr "JavaScriptový vykreslovací engine pro matematické výrazy"
 
 #: src/appmain.cpp:139
 #, qt-format
 msgctxt "main|"
 msgid "Copyright 2014-%1 The ghostwriter team"
-msgstr ""
+msgstr "Autorská práva 2014–%1 Tým ghostwriter"
 
 #: src/appmain.cpp:157
 msgctxt "main|"
 msgid "Welcome to ghostwriter!"
-msgstr ""
+msgstr "Vítejte v ghostwriteru!"
 
 #: src/appmain.cpp:160
 msgctxt "main|"
 msgid "(Optional) File to open."
-msgstr ""
+msgstr "(Volitelné) Soubor k otevření."
 
 #: src/appmain.cpp:163
 msgctxt "main|"
 msgid "Disables GPU acceleration."
-msgstr ""
+msgstr "Vypne akceleraci pomocí GPU."
 
 #: src/documentmanager.cpp:56
 msgctxt "ghostwriter::DocumentManager|"
