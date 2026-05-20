@@ -42,6 +42,7 @@
   <summary xml:lang="ar">محرِّر نصوص خالٍ من المشتتات للغة ماركداون</summary>
   <summary xml:lang="ca">Editor de text lliure de distraccions per al Markdown</summary>
   <summary xml:lang="ca-valencia">Editor de text lliure de distraccions per a Markdown</summary>
+  <summary xml:lang="cs">Textový editor pro Markdown bez rušivých prvků</summary>
   <summary xml:lang="de">Ablenkungsfreier Texteditor für Markdown</summary>
   <summary xml:lang="en-GB">Distraction-free text editor for Markdown</summary>
   <summary xml:lang="eo">Senpretenda tekstredaktilo por Markdown</summary>
@@ -81,6 +82,7 @@
     <p xml:lang="ar">الشبح هو محرِّر نصوص خالٍ من المشتتات للغة ماركداون يتميَّز بمعاينة آليّة للغة إتش تي إم إل أثناء الكتابة، وإنشاء نسق، ونمط التركيز، ونمط ملء الشاشة، وعدد الكلمات الآلي، والتنقل في المستند ضمن بيئة كتابة جمالية. يأتي مع معالج ماركداون cmark-gfm المضمن، ويستطيع التَّكامل مع معالجات Pandoc وMultiMarkdown وDiscount وcmark إذا اضبطها.</p>
     <p xml:lang="ca">El «ghostwriter» és un editor de text lliure de distraccions per al Markdown amb una vista prèvia HTML en viu mentre s'escriu, creació de temes, mode d'enfocament, mode de pantalla completa, recompte de paraules en directe i navegació de documents en un entorn d'escriptura estètica. Ve amb el processador «cmark-gfm» del Markdown integrat, i pot integrar-se amb els processadors Pandoc, MultiMarkdown, Discount i «cmark» si estan instal·lats.</p>
     <p xml:lang="ca-valencia">«ghostwriter» és un editor de text lliure de distraccions per a Markdown amb una vista prèvia HTML en viu mentre s'escriu, creació de temes, mode d'enfocament, mode de pantalla completa, recompte de paraules en directe i navegació de documents en un entorn d'escriptura estètica. Ve amb el processador «cmark-gfm» de Markdown integrat, i pot integrar-se amb els processadors Pandoc, MultiMarkdown, Discount i «cmark» si estan instal·lats.</p>
+    <p xml:lang="cs">ghostwriter je textový editor pro Markdown bez rušivých prvků, který nabízí živý náhled HTML během psaní, tvorbu motivů, režim soustředění, režim celé obrazovky, živé počítání slov a navigaci v dokumentu v estetickém prostředí pro psaní. Je vybaven vestavěným procesorem Markdownu cmark-gfm a lze jej integrovat s procesory Pandoc, MultiMarkdown, Discount a cmark, pokud jsou nainstalovány.</p>
     <p xml:lang="de">Ghostwriter ist ein ablenkungsfreier Texteditor für Markdown mit einer Echtzeit-HTML-Vorschau während der Eingabe, Themenerstellung, Fokusmodus, Vollbildmodus, Echtzeit-Wortzählung und Dokumentnavigation in einer ästhetischen Schreibumgebung. Er wird mit dem eingebauten Markdown-Prozessor cmark-gfm geliefert und kann mit den Prozessoren Pandoc, MultiMarkdown, Discount und cmark integriert werden, wenn diese installiert sind.</p>
     <p xml:lang="en-GB">ghostwriter is a distraction-free text editor for Markdown featuring a live HTML preview as you type, theme creation, focus mode, full-screen mode, live word count, and document navigation in an aesthetic writing environment. It comes with the cmark-gfm Markdown processor built in, and can integrate with Pandoc, MultiMarkdown, Discount, and cmark processors if they are installed.</p>
     <p xml:lang="eo">Ghostwriter estas sendistra tekstredaktilo por Markdown havanta vivan HTML-antaŭprezenton dum kiam vi tajpas, temokreadon, fokusan reĝimon, plenekranan reĝimon, realtempan vortkalkulon kaj dokumentnavigadon en estetika skribmedio. Ĝi venas kun la cmark-gfm Markdown procesoro enkonstruita, kaj povas integri kun Pandoc, MultiMarkdown, Discount, kaj cmark-procesoroj se ili estas instalitaj.</p>
@@ -118,6 +120,7 @@
       <caption xml:lang="ar">استمتع بتجربة كتابة خالية من المشتتات، تشمل نمط ملء الشاشة وواجهة نظيفة</caption>
       <caption xml:lang="ca">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
       <caption xml:lang="ca-valencia">Gaudiu d'una experiència d'escriptura lliure de distraccions, incloent-hi un mode de pantalla completa i una interfície neta</caption>
+      <caption xml:lang="cs">Užijte si psaní bez rušivých vlivů, včetně režimu celé obrazovky a přehledného rozhraní</caption>
       <caption xml:lang="de">Genießen Sie ablenkungsfreies Schreiben, einschließlich eines Vollbildmodus und einer übersichtlichen Benutzeroberfläche</caption>
       <caption xml:lang="en-GB">Enjoy a distraction-free writing experience, including a full-screen mode and a clean interface</caption>
       <caption xml:lang="eo">Ĝuu sendistran skribsperton, inkluzive de plenekrana reĝimo kaj pura interfaco</caption>
