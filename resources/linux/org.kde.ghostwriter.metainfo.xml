@@ -35,6 +35,7 @@
   <name xml:lang="sl">ghostwriter</name>
   <name xml:lang="sv">ghostwriter</name>
   <name xml:lang="tr">ghostwriter</name>
+  <name xml:lang="ug">ghostwriter</name>
   <name xml:lang="uk">ghostwriter</name>
   <name xml:lang="zh-CN">ghostwriter</name>
   <name xml:lang="zh-TW">ghostwriter</name>
@@ -69,6 +70,7 @@
   <summary xml:lang="sl">Urejevalnik besedil brez motenj za Markdown</summary>
   <summary xml:lang="sv">Störningsfri texteditor för Markdown</summary>
   <summary xml:lang="tr">Dikkat dağıtmayan bir Markdown metin düzenleyicisi</summary>
+  <summary xml:lang="ug">دىققەت چېچىشتىن خالىي Markdown تېكىست تەھرىرلىگۈچ</summary>
   <summary xml:lang="uk">Ненав'язливий текстовий редактор для Markdown</summary>
   <summary xml:lang="zh-CN">不受干扰的 Markdown 编辑器</summary>
   <summary xml:lang="zh-TW">不分散注意力的 Markdown 用文字編輯器</summary>
