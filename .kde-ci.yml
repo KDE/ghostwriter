@@ -11,4 +11,4 @@ Dependencies:
     'frameworks/kconfigwidgets': '@latest-kf6'
 
 Options:
-  require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]
+  require-passing-tests-on: ['@all']
