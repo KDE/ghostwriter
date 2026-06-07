@@ -1,5 +1,5 @@
 export declare namespace mhchemParser {
-  export function go(input: string, stateMachine: string): any[];
+  export function go(input: string, stateMachine: string): unknown[];
 }
 
 export declare namespace texify {
