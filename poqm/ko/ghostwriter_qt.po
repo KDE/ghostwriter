@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-26 21:47+0200\n"
+"PO-Revision-Date: 2026-05-26 21:25+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -479,7 +479,7 @@ msgstr "ghostwriter"
 #: src/appmain.cpp:96
 msgctxt "main|"
 msgid "A markdown editor"
-msgstr "Markdown 편집기"
+msgstr "마크다운 편집기"
 
 #: src/appmain.cpp:103
 msgctxt "main|"
@@ -559,7 +559,7 @@ msgstr "제목 없음"
 #: src/documentmanager.cpp:168
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Markdown"
-msgstr "Markdown"
+msgstr "마크다운"
 
 #: src/documentmanager.cpp:169
 msgctxt "ghostwriter::DocumentManager|"
@@ -776,7 +776,7 @@ msgstr "내보내기 옵션"
 #: src/export/exportdialog.cpp:94
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Markdown Converter"
-msgstr "Markdown 변환기"
+msgstr "마크다운 변환기"
 
 #: src/export/exportdialog.cpp:95
 msgctxt "ghostwriter::ExportDialog|"
@@ -1341,7 +1341,7 @@ msgstr "미리 보기 옵션"
 #: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Markdown Flavor"
-msgstr "Markdown 파생형"
+msgstr "마크다운 파생형"
 
 #: src/settings/previewoptionsdialog.cpp:99
 #: src/settings/previewoptionsdialog.cpp:125
