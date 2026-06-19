@@ -1,60 +1,63 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr ""
+msgstr "Iš naujo atverti paskiausiai užvertą failą"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Ctrl+Shift+T"
-msgstr ""
+msgstr "Vald+Lyg2+T"
 
 #: src/appactions.cpp:87
 msgctxt "ghostwriter::AppActions|"
 msgid "Clear List"
-msgstr ""
+msgstr "Išvalyti sąrašą"
 
 #: src/appactions.cpp:91
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr ""
+msgstr "Iš naujo įkelti iš disko..."
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "Export"
-msgstr ""
+msgstr "Eksportuoti"
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+E"
-msgstr ""
+msgstr "VALD+E"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "Copy &HTML"
-msgstr ""
+msgstr "Kopijuoti &HTML"
 
 #: src/appactions.cpp:102
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+CTRL+C"
-msgstr ""
+msgstr "LYG2+VALD+C"
 
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr ""
+msgstr "Į&terpti paveikslą..."
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
@@ -74,17 +77,17 @@ msgstr ""
 #: src/appactions.cpp:116
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+K"
-msgstr ""
+msgstr "VALD+K"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "HTML Comment"
-msgstr ""
+msgstr "HTML komentaras"
 
 #: src/appactions.cpp:117
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+/"
-msgstr ""
+msgstr "VALD+/"
 
 #: src/appactions.cpp:118
 msgctxt "ghostwriter::AppActions|"
@@ -104,7 +107,7 @@ msgstr ""
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+Tab"
-msgstr ""
+msgstr "LYG2+Tab"
 
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
@@ -114,7 +117,7 @@ msgstr ""
 #: src/appactions.cpp:120
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+G"
-msgstr ""
+msgstr "VALD+G"
 
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
@@ -124,7 +127,7 @@ msgstr ""
 #: src/appactions.cpp:122
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+."
-msgstr ""
+msgstr "VALD+LYG2+."
 
 #: src/appactions.cpp:123
 msgctxt "ghostwriter::AppActions|"
@@ -146,7 +149,7 @@ msgstr ""
 #: src/appactions.cpp:128
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+SHIFT+,"
-msgstr ""
+msgstr "VALD+LYG2+,"
 
 #: src/appactions.cpp:129
 msgctxt "ghostwriter::AppActions|"
@@ -169,7 +172,7 @@ msgstr ""
 #: src/appactions.cpp:135
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+8"
-msgstr ""
+msgstr "VALD+8"
 
 #: src/appactions.cpp:137
 msgctxt "ghostwriter::AppActions|"
@@ -186,7 +189,7 @@ msgstr ""
 #: src/appactions.cpp:140
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+-"
-msgstr ""
+msgstr "VALD+-"
 
 #: src/appactions.cpp:142
 msgctxt "ghostwriter::AppActions|"
@@ -203,7 +206,7 @@ msgstr ""
 #: src/appactions.cpp:145
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL++"
-msgstr ""
+msgstr "VALD++"
 
 #: src/appactions.cpp:147
 msgctxt "ghostwriter::AppActions|"
@@ -220,7 +223,7 @@ msgstr ""
 #: src/appactions.cpp:150
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+1"
-msgstr ""
+msgstr "VALD+1"
 
 #: src/appactions.cpp:152 src/appactions.cpp:165
 msgctxt "ghostwriter::AppActions|"
@@ -242,7 +245,7 @@ msgstr ""
 #: src/appactions.cpp:163
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+0"
-msgstr ""
+msgstr "VALD+0"
 
 #: src/appactions.cpp:168
 msgctxt "ghostwriter::AppActions|"
@@ -261,7 +264,7 @@ msgstr ""
 #: src/appactions.cpp:178
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+T"
-msgstr ""
+msgstr "VALD+T"
 
 #: src/appactions.cpp:179
 msgctxt "ghostwriter::AppActions|"
@@ -285,7 +288,7 @@ msgstr ""
 #: src/appactions.cpp:191
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+D"
-msgstr ""
+msgstr "VALD+D"
 
 #: src/appactions.cpp:193
 msgctxt "ghostwriter::AppActions|"
@@ -315,7 +318,7 @@ msgstr ""
 #: src/appactions.cpp:216
 msgctxt "ghostwriter::AppActions|"
 msgid "SHIFT+F11"
-msgstr ""
+msgstr "LYG2+F11"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
@@ -325,7 +328,7 @@ msgstr ""
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+P"
-msgstr ""
+msgstr "VALD+P"
 
 #: src/appactions.cpp:220
 msgctxt "ghostwriter::AppActions|"
@@ -352,12 +355,12 @@ msgstr ""
 #: src/appactions.cpp:226
 msgctxt "ghostwriter::AppActions|"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Tamsi veiksena"
 
 #: src/appactions.cpp:227
 msgctxt "ghostwriter::AppActions|"
 msgid "Enables/disables the current theme's dark color scheme."
-msgstr ""
+msgstr "Įjungia/išjungia dabartinio apipavidalinimo tamsių spalvų rinkinį."
 
 #: src/appactions.cpp:229
 msgctxt "ghostwriter::AppActions|"
@@ -370,12 +373,12 @@ msgstr ""
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "Show Sidebar"
-msgstr ""
+msgstr "Rodyti šoninę juostą"
 
 #: src/appactions.cpp:233
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+Space"
-msgstr ""
+msgstr "VALD+Tarpas"
 
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
@@ -385,7 +388,7 @@ msgstr ""
 #: src/appactions.cpp:235
 msgctxt "ghostwriter::AppActions|"
 msgid "CTRL+J"
-msgstr ""
+msgstr "VALD+J"
 
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
@@ -424,22 +427,22 @@ msgstr ""
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
 msgid "Theme..."
-msgstr ""
+msgstr "Apipavidalinimas..."
 
 #: src/appactions.cpp:256
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr ""
+msgstr "Šriftas..."
 
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr ""
+msgstr "Peržiūros parinktys..."
 
 #: src/appmain.cpp:92
 msgctxt "main|"
 msgid "ghostwriter"
-msgstr ""
+msgstr "ghostwriter"
 
 #: src/appmain.cpp:96
 msgctxt "main|"
@@ -466,12 +469,12 @@ msgstr ""
 #: src/appmain.cpp:118
 msgctxt "main|"
 msgid "UberWriter (now Apostrophe) developer, for providing inspiration"
-msgstr ""
+msgstr "UberWriter (dabar Apostrophe) plėtotojui už suteiktą įkvėpimą"
 
 #: src/appmain.cpp:122
 msgctxt "main|"
 msgid "Other Contributors"
-msgstr ""
+msgstr "Kiti talkininkai"
 
 #: src/appmain.cpp:123
 msgctxt "main|"
@@ -540,18 +543,18 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Error saving %1"
-msgstr ""
+msgstr "Klaida įrašant %1"
 
 #: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
-msgstr ""
+msgstr "Atverti failą"
 
 #: src/documentmanager.cpp:377
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not open %1"
-msgstr ""
+msgstr "Nepavyko atverti %1"
 
 #: src/documentmanager.cpp:377
 msgctxt "ghostwriter::DocumentManager|"
@@ -561,49 +564,49 @@ msgstr ""
 #: src/documentmanager.cpp:430
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified."
-msgstr ""
+msgstr "Dokumentas buvo modifikuotas."
 
 #: src/documentmanager.cpp:431
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
-msgstr ""
+msgstr "Atmesti pakeitimus"
 
 #: src/documentmanager.cpp:462
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Rename File"
-msgstr ""
+msgstr "Pervadinti failą"
 
 #: src/documentmanager.cpp:475 src/documentmanager.cpp:483
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Failed to rename %1"
-msgstr ""
+msgstr "Nepavyko pervadinti %1"
 
 #: src/documentmanager.cpp:535
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Save File"
-msgstr ""
+msgstr "Įrašyti failą"
 
 #: src/documentmanager.cpp:667
 msgctxt "ghostwriter::DocumentManager|"
 msgid "The document has been modified by another program."
-msgstr ""
+msgstr "Dokumentą modifikavo kita programa."
 
 #: src/documentmanager.cpp:668
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to reload the document?"
-msgstr ""
+msgstr "Ar norėtumėte įkelti dokumentą iš naujo?"
 
 #: src/documentmanager.cpp:711
 msgctxt "ghostwriter::DocumentManager|"
 msgid "No file path specified"
-msgstr ""
+msgstr "Nenurodytas joks kelias"
 
 #: src/documentmanager.cpp:725 src/documentmanager.cpp:758
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Could not read %1"
-msgstr ""
+msgstr "Nepavyko perskaityti %1"
 
 #: src/documentmanager.cpp:745
 #, qt-format
@@ -614,39 +617,39 @@ msgstr ""
 #: src/documentmanager.cpp:833
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File has been modified."
-msgstr ""
+msgstr "Failas modifikuotas."
 
 #: src/documentmanager.cpp:835
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 has been modified."
-msgstr ""
+msgstr "%1 buvo modifikuotas."
 
 #: src/documentmanager.cpp:844
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Would you like to save your changes?"
-msgstr ""
+msgstr "Ar norėtumėte įrašyti pakeitimus?"
 
 #: src/documentmanager.cpp:875
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "%1 is read only."
-msgstr ""
+msgstr "%1 yra tik skaitymui."
 
 #: src/documentmanager.cpp:876
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite protected file?"
-msgstr ""
+msgstr "Perrašyti apsaugotą failą?"
 
 #: src/documentmanager.cpp:895
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Overwrite failed."
-msgstr ""
+msgstr "Nepavyko perrašyti."
 
 #: src/documentmanager.cpp:896
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Please save file to another location."
-msgstr ""
+msgstr "Įrašykite failą kitoje vietoje."
 
 #: src/documentmanager.cpp:924
 msgctxt "ghostwriter::DocumentManager|"
@@ -678,18 +681,18 @@ msgstr ""
 #: src/editor/markdowneditor.cpp:916
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Save Image"
-msgstr ""
+msgstr "Įrašyti paveikslą"
 
 #: src/editor/markdowneditor.cpp:1535
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Insert Image"
-msgstr ""
+msgstr "Įterpti paveikslą"
 
 #: src/editor/markdowneditor.cpp:2456
 #, qt-format
 msgctxt "ghostwriter::MarkdownEditor|"
 msgid "Images (%1)"
-msgstr ""
+msgstr "Paveikslai (%1)"
 
 #: src/export/cmarkgfmexporter.cpp:50
 #, qt-format
@@ -700,12 +703,12 @@ msgstr ""
 #: src/export/cmarkgfmexporter.cpp:58
 msgctxt "QObject|"
 msgid "Export failed"
-msgstr ""
+msgstr "Nepavyko eksportuoti"
 
 #: src/export/commandlineexporter.cpp:147
 msgctxt "QObject|"
 msgid "Export failed: "
-msgstr ""
+msgstr "Nepavyko eksportuoti: "
 
 #: src/export/commandlineexporter.cpp:167
 #, qt-format
@@ -716,12 +719,12 @@ msgstr ""
 #: src/export/commandlineexporter.cpp:191
 msgctxt "QObject|"
 msgid "Failed to execute command: "
-msgstr ""
+msgstr "Nepavyko įvykdyti komandos: "
 
 #: src/export/exportdialog.cpp:46 src/export/exportdialog.cpp:105
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export"
-msgstr ""
+msgstr "Eksportuoti"
 
 #: src/export/exportdialog.cpp:85
 msgctxt "ghostwriter::ExportDialog|"
@@ -736,7 +739,7 @@ msgstr ""
 #: src/export/exportdialog.cpp:92
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export Options"
-msgstr ""
+msgstr "Eksportavimo parinktys"
 
 #: src/export/exportdialog.cpp:94
 msgctxt "ghostwriter::ExportDialog|"
@@ -751,7 +754,7 @@ msgstr ""
 #: src/export/exportdialog.cpp:113
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Command line options:"
-msgstr ""
+msgstr "Komandų eilutės parinktys:"
 
 #: src/export/exportdialog.cpp:184
 #, qt-format
@@ -762,7 +765,7 @@ msgstr ""
 #: src/export/exportdialog.cpp:201
 msgctxt "ghostwriter::ExportDialog|"
 msgid "Export failed."
-msgstr ""
+msgstr "Nepavyko eksportuoti."
 
 #: src/export/exporter.cpp:69
 msgctxt "QObject|"
@@ -772,7 +775,7 @@ msgstr ""
 #: src/findreplace.cpp:95
 msgctxt "ghostwriter::FindReplace|"
 msgid "Match case"
-msgstr ""
+msgstr "Skirti didžiąsias ir mažąsias raides"
 
 #: src/findreplace.cpp:100
 msgctxt "ghostwriter::FindReplace|"
@@ -782,57 +785,57 @@ msgstr ""
 #: src/findreplace.cpp:106
 msgctxt "ghostwriter::FindReplace|"
 msgid "Regular expression"
-msgstr ""
+msgstr "Reguliarusis reiškinys"
 
 #: src/findreplace.cpp:111
 msgctxt "ghostwriter::FindReplace|"
 msgid "Highlight matches"
-msgstr ""
+msgstr "Paryškinti atitiktis"
 
 #: src/findreplace.cpp:118
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Prev"
-msgstr ""
+msgstr "Rasti ankstesnę"
 
 #: src/findreplace.cpp:119
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find previous"
-msgstr ""
+msgstr "Rasti ankstesnę"
 
 #: src/findreplace.cpp:123
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find Next"
-msgstr ""
+msgstr "Rasti kitą"
 
 #: src/findreplace.cpp:124
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find next"
-msgstr ""
+msgstr "Rasti kitą"
 
 #: src/findreplace.cpp:129
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace"
-msgstr ""
+msgstr "Pakeisti"
 
 #: src/findreplace.cpp:133
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace All"
-msgstr ""
+msgstr "Pakeisti visas"
 
 #: src/findreplace.cpp:146 src/findreplace.cpp:147
 msgctxt "ghostwriter::FindReplace|"
 msgid "Close"
-msgstr ""
+msgstr "Užverti"
 
 #: src/findreplace.cpp:161
 msgctxt "ghostwriter::FindReplace|"
 msgid "Find:"
-msgstr ""
+msgstr "Rasti:"
 
 #: src/findreplace.cpp:167
 msgctxt "ghostwriter::FindReplace|"
 msgid "Replace with:"
-msgstr ""
+msgstr "Pakeisti į:"
 
 #: src/findreplace.cpp:441
 msgctxt "ghostwriter::FindReplace|"
@@ -841,6 +844,7 @@ msgid_plural "%Ln replacement(s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/findreplace.cpp:491
 msgctxt "ghostwriter::FindReplace|"
@@ -862,62 +866,62 @@ msgstr ""
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr ""
+msgstr "Nepavyko sukurti failo: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
 msgid "&File"
-msgstr ""
+msgstr "&Failas"
 
 #: src/mainwindow.cpp:1046
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Edit"
-msgstr ""
+msgstr "&Taisa"
 
 #: src/mainwindow.cpp:1095
 msgctxt "ghostwriter::MainWindow|"
 msgid "&View"
-msgstr ""
+msgstr "&Rodinys"
 
 #: src/mainwindow.cpp:1113
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Settings"
-msgstr ""
+msgstr "Nuo&statos"
 
 #: src/mainwindow.cpp:1122
 msgctxt "ghostwriter::MainWindow|"
 msgid "&Help"
-msgstr ""
+msgstr "&Pagalba"
 
 #: src/mainwindow.cpp:1272
 msgctxt "ghostwriter::MainWindow|"
 msgid "# Heading 1"
-msgstr ""
+msgstr "# Antraštė 1"
 
 #: src/mainwindow.cpp:1273
 msgctxt "ghostwriter::MainWindow|"
 msgid "## Heading 2"
-msgstr ""
+msgstr "## Antraštė 2"
 
 #: src/mainwindow.cpp:1274
 msgctxt "ghostwriter::MainWindow|"
 msgid "### Heading 3"
-msgstr ""
+msgstr "### Antraštė 3"
 
 #: src/mainwindow.cpp:1275
 msgctxt "ghostwriter::MainWindow|"
 msgid "#### Heading 4"
-msgstr ""
+msgstr "#### Antraštė 4"
 
 #: src/mainwindow.cpp:1276
 msgctxt "ghostwriter::MainWindow|"
 msgid "##### Heading 5"
-msgstr ""
+msgstr "##### Antraštė 5"
 
 #: src/mainwindow.cpp:1277
 msgctxt "ghostwriter::MainWindow|"
 msgid "###### Heading 6"
-msgstr ""
+msgstr "###### Antraštė 6"
 
 #: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
@@ -992,7 +996,7 @@ msgstr ""
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Aplankų rodinys"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1002,12 +1006,12 @@ msgstr ""
 #: src/mainwindow.cpp:1344
 msgctxt "ghostwriter::MainWindow|"
 msgid "Session Statistics"
-msgstr ""
+msgstr "Seanso statistika"
 
 #: src/mainwindow.cpp:1345
 msgctxt "ghostwriter::MainWindow|"
 msgid "Document Statistics"
-msgstr ""
+msgstr "Dokumento statistika"
 
 #: src/mainwindow.cpp:1346
 msgctxt "ghostwriter::MainWindow|"
@@ -1017,7 +1021,7 @@ msgstr ""
 #: src/mainwindow.cpp:1356
 msgctxt "ghostwriter::MainWindow|"
 msgid "Settings"
-msgstr ""
+msgstr "Nuostatos"
 
 #: src/preview/htmlpreview.cpp:162
 msgctxt "ghostwriter::HtmlPreview|"
@@ -1027,12 +1031,12 @@ msgstr ""
 #: src/settings/localedialog.cpp:36
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Set Application Language"
-msgstr ""
+msgstr "Nustatyti programos kalbą"
 
 #: src/settings/localedialog.cpp:56
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "No translations are available!"
-msgstr ""
+msgstr "Nėra prieinamų vertimų!"
 
 #: src/settings/localedialog.cpp:57
 msgctxt "ghostwriter::LocaleDialog|"
@@ -1047,17 +1051,17 @@ msgstr ""
 #: src/settings/localedialog.cpp:132
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Could not load translation."
-msgstr ""
+msgstr "Nepavyko įkelti vertimo."
 
 #: src/settings/localedialog.cpp:138
 msgctxt "ghostwriter::LocaleDialog|"
 msgid "Please restart the application for changes to take effect."
-msgstr ""
+msgstr "Paleiskite programą iš naujo, kad įsigaliotų pakeitimai."
 
 #: src/settings/preferencesdialog.cpp:74
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Spell Check"
-msgstr ""
+msgstr "Rašybos tikrinimas"
 
 #: src/settings/preferencesdialog.cpp:89
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1410,7 +1414,7 @@ msgstr ""
 #: src/statistics/abstractstatisticswidget.cpp:41
 msgctxt "ghostwriter::AbstractStatisticsWidget|"
 msgid "<b>%L1%</b>"
-msgstr ""
+msgstr "<b>%L1%</b>"
 
 #: src/statistics/abstractstatisticswidget.cpp:53
 #, qt-format
@@ -1561,6 +1565,7 @@ msgid_plural "%Ln word(s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/statistics/statisticsindicator.cpp:19
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1569,6 +1574,7 @@ msgid_plural "%Ln character(s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/statistics/statisticsindicator.cpp:23
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1577,6 +1583,7 @@ msgid_plural "%Ln sentence(s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/statistics/statisticsindicator.cpp:27
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1585,6 +1592,7 @@ msgid_plural "%Ln paragraph(s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/statistics/statisticsindicator.cpp:31
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1593,6 +1601,7 @@ msgid_plural "%Ln page(s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/statistics/statisticsindicator.cpp:35
 msgctxt "ghostwriter::StatisticsIndicator|"
@@ -1601,6 +1610,7 @@ msgid_plural "%Ln word(s) added"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #: src/statistics/statisticsindicator.cpp:37
 #, qt-format
@@ -1698,7 +1708,7 @@ msgstr ""
 #: src/theme/themeeditordialog.cpp:182
 msgctxt "ghostwriter::ThemeEditorDialog|"
 msgid "Error"
-msgstr ""
+msgstr "Klaida"
 
 #: src/theme/themeeditordialog.cpp:215
 msgctxt "ghostwriter::ThemeEditorDialog|"
@@ -1782,45 +1792,47 @@ msgstr ""
 #: src/theme/themeselectiondialog.cpp:91
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Themes"
-msgstr ""
+msgstr "Apipavidalinimai"
 
 #: src/theme/themeselectiondialog.cpp:132
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr ""
+msgstr "Peržiūra tamsioje veiksenoje"
 
 #: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Edit..."
-msgstr ""
+msgstr "Taisyti..."
 
 #: src/theme/themeselectiondialog.cpp:375
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot delete theme."
-msgstr ""
+msgstr "Negalima ištrinti apipavidalinimą."
 
 #: src/theme/themeselectiondialog.cpp:376
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be deleted."
 msgstr ""
+"Apgailestaujame, tai yra įtaisytas apipavidalinimas, kurio negalima ištrinti."
 
 #: src/theme/themeselectiondialog.cpp:386
 #, qt-format
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Are you sure you want to permanently delete the '%1' theme?"
-msgstr ""
+msgstr "Ar tikrai norite visam laikui ištrinti apipavidalinimą „%1“?"
 
 #: src/theme/themeselectiondialog.cpp:401
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Failed to delete theme."
-msgstr ""
+msgstr "Nepavyko ištrinti apipavidalinimo."
 
 #: src/theme/themeselectiondialog.cpp:428
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Cannot edit theme."
-msgstr ""
+msgstr "Negalima taisyti apipavidalinimą."
 
 #: src/theme/themeselectiondialog.cpp:429
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Sorry, this is a built-in theme that cannot be edited."
 msgstr ""
+"Apgailestaujame, tai yra įtaisytas apipavidalinimas, kurio negalima taisyti."
