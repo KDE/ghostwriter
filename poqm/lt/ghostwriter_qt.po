@@ -569,7 +569,7 @@ msgstr "Dokumentas buvo modifikuotas."
 #: src/documentmanager.cpp:431
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Discard changes?"
-msgstr "Atmesti pakeitimus"
+msgstr "Atmesti pakeitimus?"
 
 #: src/documentmanager.cpp:462
 msgctxt "ghostwriter::DocumentManager|"
@@ -1071,62 +1071,62 @@ msgstr ""
 #: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Rounded"
-msgstr ""
+msgstr "Apvalus"
 
 #: src/settings/preferencesdialog.cpp:179
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Square"
-msgstr ""
+msgstr "Kvadratinis"
 
 #: src/settings/preferencesdialog.cpp:204
 msgctxt "ghostwriter::PreferencesDialogPrivate|"
 msgid "Select Backup Directory"
-msgstr ""
+msgstr "Pasirinkti atsarginės kopijos katalogą"
 
 #: src/settings/preferencesdialog.cpp:235
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Sentence"
-msgstr ""
+msgstr "Sakinys"
 
 #: src/settings/preferencesdialog.cpp:236
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Current Line"
-msgstr ""
+msgstr "Dabartinė eilutė"
 
 #: src/settings/preferencesdialog.cpp:237
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Three Lines"
-msgstr ""
+msgstr "Trys eilutės"
 
 #: src/settings/preferencesdialog.cpp:238
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Paragraph"
-msgstr ""
+msgstr "Pastraipa"
 
 #: src/settings/preferencesdialog.cpp:239
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Typewriter"
-msgstr ""
+msgstr "Rašomoji mašinėlė"
 
 #: src/settings/preferencesdialog.cpp:247
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Narrow"
-msgstr ""
+msgstr "Siauras"
 
 #: src/settings/preferencesdialog.cpp:248
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Medium"
-msgstr ""
+msgstr "Vidutinis"
 
 #: src/settings/preferencesdialog.cpp:249
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Wide"
-msgstr ""
+msgstr "Platus"
 
 #: src/settings/preferencesdialog.cpp:250
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Full"
-msgstr ""
+msgstr "Visas"
 
 #: src/settings/preferencesdialog.cpp:257
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1147,127 +1147,127 @@ msgstr ""
 #: src/settings/preferencesdialog.ui:14
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr ""
+msgstr "Nuostatos"
 
 #: src/settings/preferencesdialog.ui:24
 msgctxt "PreferencesDialog|"
 msgid "General"
-msgstr ""
+msgstr "Bendros"
 
 #: src/settings/preferencesdialog.ui:30
 msgctxt "PreferencesDialog|"
 msgid "Display"
-msgstr ""
+msgstr "Atvaizdavimas"
 
 #: src/settings/preferencesdialog.ui:36
 msgctxt "PreferencesDialog|"
 msgid "&Show current time in full screen mode"
-msgstr ""
+msgstr "&Rodyti viso ekrano veiksenoje dabartinį laiką"
 
 #: src/settings/preferencesdialog.ui:43
 msgctxt "PreferencesDialog|"
 msgid "&Hide menu bar in full screen mode"
-msgstr ""
+msgstr "S&lėpti viso ekrano veiksenoje meniu juostą"
 
 #: src/settings/preferencesdialog.ui:50
 msgctxt "PreferencesDialog|"
 msgid "Show &Unbreakable Space"
-msgstr ""
+msgstr "Rodyti nela&užomus tarpus"
 
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr ""
+msgstr "Sąsajos stilius"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
 msgid "File Saving"
-msgstr ""
+msgstr "Failo įrašymas"
 
 #: src/settings/preferencesdialog.ui:96
 msgctxt "PreferencesDialog|"
 msgid "&Auto save"
-msgstr ""
+msgstr "&Automatinis įrašymas"
 
 #: src/settings/preferencesdialog.ui:103
 msgctxt "PreferencesDialog|"
 msgid "&Backup file on save"
-msgstr ""
+msgstr "Įrašant padaryti atsarginę failo kopiją"
 
 #: src/settings/preferencesdialog.ui:110
 msgctxt "PreferencesDialog|"
 msgid "&View untitled drafts…"
-msgstr ""
+msgstr "Ro&dyti juodraščius be pavadinimo…"
 
 #: src/settings/preferencesdialog.ui:117
 msgctxt "PreferencesDialog|"
 msgid "&"
-msgstr ""
+msgstr "&"
 
 #: src/settings/preferencesdialog.ui:124
 msgctxt "PreferencesDialog|"
 msgid "&Select Backup Folder Location…"
-msgstr ""
+msgstr "&Pasirinkti atsarginės kopijos aplanko vietą…"
 
 #: src/settings/preferencesdialog.ui:147
 msgctxt "PreferencesDialog|"
 msgid "Session"
-msgstr ""
+msgstr "Seansas"
 
 #: src/settings/preferencesdialog.ui:153
 msgctxt "PreferencesDialog|"
 msgid "&Remember recent files"
-msgstr ""
+msgstr "P&risiminti paskiausiai naudotus failus"
 
 #: src/settings/preferencesdialog.ui:160
 msgctxt "PreferencesDialog|"
 msgid "&Open last file on startup"
-msgstr ""
+msgstr "&Paleidžiant programą atverti paskiausiai naudotą failą"
 
 #: src/settings/preferencesdialog.ui:183
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr ""
+msgstr "Šoninė juosta"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "&Aplankų rodinyje rodyti visus failus"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
 msgid "Editor"
-msgstr ""
+msgstr "Redaktorius"
 
 #: src/settings/preferencesdialog.ui:219
 msgctxt "PreferencesDialog|"
 msgid "Tabulation"
-msgstr ""
+msgstr "Tabuliavimas"
 
 #: src/settings/preferencesdialog.ui:225
 msgctxt "PreferencesDialog|"
 msgid "&Insert spaces for tabs"
-msgstr ""
+msgstr "V&ietoj tabuliavimo įterpti tarpus"
 
 #: src/settings/preferencesdialog.ui:234
 msgctxt "PreferencesDialog|"
 msgid "Tabulation width"
-msgstr ""
+msgstr "Tabuliavimo plotis"
 
 #: src/settings/preferencesdialog.ui:272
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr ""
+msgstr "Stilius"
 
 #: src/settings/preferencesdialog.ui:280
 msgctxt "PreferencesDialog|"
 msgid "Focus mode"
-msgstr ""
+msgstr "Susikaupimo veiksena"
 
 #: src/settings/preferencesdialog.ui:293
 msgctxt "PreferencesDialog|"
 msgid "Editor width"
-msgstr ""
+msgstr "Redaktoriaus plotis"
 
 #: src/settings/preferencesdialog.ui:306
 msgctxt "PreferencesDialog|"
@@ -1364,7 +1364,7 @@ msgstr ""
 #: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr ""
+msgstr "Rodyti tik lygiapločius šriftus"
 
 #: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
