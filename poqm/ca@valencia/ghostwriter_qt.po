@@ -1353,7 +1353,7 @@ msgstr "Estil d'èmfasi"
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
 msgid "&Use large headings"
-msgstr "Utilit&za encapçalaments grans"
+msgstr "&Utilitza encapçalaments grans"
 
 #: src/settings/preferencesdialog.ui:357
 msgctxt "PreferencesDialog|"
