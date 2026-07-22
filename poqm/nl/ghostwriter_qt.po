@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2022-2024, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-02 23:35+0100\n"
+"PO-Revision-Date: 2026-07-21 17:47+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -461,7 +461,7 @@ msgstr "Statistieken van het document"
 #: src/appactions.cpp:247
 msgctxt "ghostwriter::AppActions|"
 msgid "Cheat Sheet"
-msgstr "Spiek briefje"
+msgstr "Spiekbriefje"
 
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
