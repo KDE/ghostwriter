@@ -574,7 +574,7 @@ msgstr "خطأ في حفظ %1"
 #: src/documentmanager.cpp:354
 msgctxt "ghostwriter::DocumentManager|"
 msgid "Open File"
-msgstr "افتح ملفاً"
+msgstr "افتح ملفًا"
 
 #: src/documentmanager.cpp:377
 #, qt-format
@@ -680,7 +680,7 @@ msgstr "رجاءً احفظ الملف في موقع آخر."
 #: src/documentmanager.cpp:924
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed"
-msgstr "فشل في نسخ الملف احتياطياً"
+msgstr "فشل في نسخ الملف احتياطيًا"
 
 #: src/documentmanager.cpp:925
 msgctxt "ghostwriter::DocumentManager|"
@@ -691,13 +691,13 @@ msgstr "خطأ في إنشاء موقع النسخ الاحتياطي: %d"
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not replace %1"
-msgstr "فشل في نسخ الملف احتياطياً: لا أستطيع استبدال %1"
+msgstr "فشل في نسخ الملف احتياطيًا: لا أستطيع استبدال %1"
 
 #: src/documentmanager.cpp:944
 #, qt-format
 msgctxt "ghostwriter::DocumentManager|"
 msgid "File backup failed: Could not copy %1 to %2"
-msgstr "فشل في نسخ الملف احتياطياً: لا أستطيع نسخ %1 إلى %2"
+msgstr "فشل في نسخ الملف احتياطيًا: لا أستطيع نسخ %1 إلى %2"
 
 #: src/editor/markdowndocument.cpp:92 src/editor/markdowndocument.cpp:168
 msgctxt "ghostwriter::MarkdownDocument|"
