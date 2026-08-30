@@ -1,23 +1,42 @@
 #ifndef WORKSPACE_H
 #define WORKSPACE_H
 
-#include "../document/markdowndocument.h"
+#include "../document/textdocument.h"
+#include "../editor/markdowneditor.h"
+#include "../settings/appsettings.h"
+#include <QMainWindow>
+#include <QObject>
+#include <QScopedPointer>
 
 namespace ghostwriter
 {
-class Workspace
+class WorkspacePrivate;
+class Workspace : QObject
 {
 public:
-    Workspace();
+    Workspace(QMainWindow *parent);
     ~Workspace();
 
     bool setSaveDraftsEnabled();
     bool setBackupsEnabled();
-
     bool setAutoReloadEnabled();
 
-    void open();
+private slots:
+    void onActiveDocumentChanged(int index);
+
+    void openDocument();
+    void openRecentDocument();
+    void saveActiveDocument();
+    void saveActiveDocumentAs();
     void saveAll();
+    void renameActiveDocument();
+    void closeActiveDocument();
+    void exportActiveDocument();
+    void revertActiveDocument();
+    void reloadActiveDocument();
+
+private:
+    QScopedPointer<WorkspacePrivate> d;
 };
 } // namespace ghostwriter
 

@@ -11,8 +11,8 @@
 #include <QPlainTextEdit>
 #include <QScopedPointer>
 
+#include "../document/textdocument.h"
 #include "colorscheme.h"
-#include "markdowndocument.h"
 #include "markdowneditortypes.h"
 
 namespace ghostwriter
@@ -30,12 +30,7 @@ public:
     /**
      * Constructor.
      */
-    MarkdownEditor
-    (
-        MarkdownDocument *textDocument,
-        const ColorScheme &colors,
-        QWidget *parent = nullptr
-    );
+    MarkdownEditor(TextDocument *textDocument, const ColorScheme &colors, QWidget *parent = nullptr);
 
     /**
      * Destructor.
