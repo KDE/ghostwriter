@@ -196,6 +196,7 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="26.08.1" date="2026-09-10"/>
     <release version="26.08.0" date="2026-08-20"/>
     <release version="26.04.3" date="2026-07-02"/>
     <release version="26.04.2" date="2026-06-04"/>
