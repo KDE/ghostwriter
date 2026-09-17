@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-05-19 21:22+0200\n"
+"PO-Revision-Date: 2026-09-16 11:37+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Poedit 3.9\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -1116,7 +1116,7 @@ msgstr "Kontrola pravopisu"
 #: src/settings/preferencesdialog.cpp:89
 msgctxt "ghostwriter::PreferencesDialog|"
 msgid "Matched Characters"
-msgstr "Odpovídající znaky"
+msgstr "Přiřazované znaky"
 
 #: src/settings/preferencesdialog.cpp:178
 msgctxt "ghostwriter::PreferencesDialog|"
@@ -1347,12 +1347,12 @@ msgstr "Označení odrážek v c&yklu"
 #: src/settings/preferencesdialog.ui:370
 msgctxt "PreferencesDialog|"
 msgid "&Automatically match characters"
-msgstr "&Automaticky přizpůsobit znaky"
+msgstr "&Automaticky přiřazovat znaky"
 
 #: src/settings/preferencesdialog.ui:377
 msgctxt "PreferencesDialog|"
 msgid "Customize &matched characters…"
-msgstr "Přizpůsobit o&dpovídající znaky…"
+msgstr "Přizpůsobit přiřa&zované znaky…"
 
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
