@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-09-16 11:37+0200\n"
+"PO-Revision-Date: 2026-09-17 23:31+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -102,7 +102,7 @@ msgstr "Tabulátor"
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
 msgid "Unindent"
-msgstr "Zpětné odsazení"
+msgstr "Zrušit odsazení"
 
 #: src/appactions.cpp:119
 msgctxt "ghostwriter::AppActions|"
