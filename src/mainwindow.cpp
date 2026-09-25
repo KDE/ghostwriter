@@ -673,7 +673,7 @@ QAction *MainWindow::appAction(AppActions::ActionType actionType) const
 {
     auto action = m_actions->get(actionType);
 
-    if (nullptr) {
+    if (nullptr == action) {
         qCritical() << "Unknown action type:" << actionType;
     }
 
