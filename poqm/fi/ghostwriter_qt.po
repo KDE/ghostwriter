@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2026 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-19 11:14+0300\n"
+"PO-Revision-Date: 2026-08-26 11:40+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/appactions.cpp:74
@@ -903,12 +903,10 @@ msgid "%1 matches"
 msgstr "%1 osumaa"
 
 #: src/mainwindow.cpp:101
-#, fuzzy, qt-format
-#| msgctxt "ghostwriter::DocumentManager|"
-#| msgid "Could not read %1"
+#, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr "Ei voitu lukea: %1"
+msgstr "Tiedostoa ei voitu luoda: %1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -1038,7 +1036,7 @@ msgstr "--- *** ___ Vaakaviiva"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "Kansionäkymä"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1267,17 +1265,14 @@ msgid "&Open last file on startup"
 msgstr "&Avaa käynnistettäessä viimeisin tiedosto"
 
 #: src/settings/preferencesdialog.ui:183
-#, fuzzy
-#| msgctxt "ghostwriter::AppActions|"
-#| msgid "Show Sidebar"
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr "Näytä sivupaneeli"
+msgstr "Sivupaneeli"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "&Näytä kansionäkymässä kaikki tiedostot"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
