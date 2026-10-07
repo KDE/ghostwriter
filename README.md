@@ -1,6 +1,6 @@
 # <img src="./resources/icons/sc-apps-ghostwriter.svg" align="left" width="32" style="padding-right:5px"> ghostwriter
 
-*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece be that next blog post, your school paper, or your NaNoWriMo novel.  For a tour of its features, please visit the [*ghostwriter* project site](https://ghostwriter.kde.org).
+*ghostwriter* is a Windows and Linux text editor for Markdown, which is a plain text markup format created by John Gruber. For more information about Markdown, please visit John Gruber’s website at <http://www.daringfireball.net>.  *ghostwriter* provides a relaxing, distraction-free writing environment, whether your masterpiece is that next blog post, your school paper, or your NaNoWriMo novel.  For a tour of its features, please visit the [*ghostwriter* project site](https://ghostwriter.kde.org).
 
 ## Screenshots
 
@@ -33,7 +33,7 @@ You may also find packages on the author's personal repository locations version
     $ sudo apt update
     $ sudo apt install ghostwriter
 
-Fedora users can install older version of *ghostwriter* from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
+Fedora users can install an older version of *ghostwriter* from [Copr](https://copr.fedorainfracloud.org/) by opening a terminal and entering the following commands:
 
     $ sudo dnf copr enable wereturtle/stable
     $ sudo dnf install ghostwriter
@@ -52,7 +52,7 @@ This documentation assumes you already have the source code unzipped in a folder
 
 ### Windows
 
-Building on Windows requires Visual Studio.  General instructions for building KDE applications in Windows are available [here](https://community.kde.org/Get_Involved/development/Windows).
+Building on Windows requires Visual Studio.  General instructions for building KDE applications on Windows are available [here](https://community.kde.org/Get_Involved/development/Windows).
 
 **IMPORTANT**: If compiling against Qt 6, note that having OpenGL components (in this case, QWebEngineView) will force the entire window to be rendered in OpenGL.  This triggers a bug in Windows in full screen mode where menus can no longer be displayed, such as the menu bar menus or popup menus.
 
