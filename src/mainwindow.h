@@ -68,6 +68,7 @@ private slots:
     void changeTheme();
     void openPreferencesDialog();
     void toggleHtmlPreview(bool checked);
+    void togglePurePreview(bool checked);
     void toggleHemingwayMode(bool checked);
     void toggleFocusMode(bool checked);
     void toggleFullScreen(bool checked);
@@ -122,6 +123,8 @@ private:
     bool menuBarMenuActivated;
     bool sidebarHiddenForResize;
     bool focusModeEnabled;
+    bool purePreviewModeEnabled;
+    QList<int> splitterSizesBeforePurePreview;
     SvgIconTheme *primaryIconTheme;
     SvgIconTheme *secondaryIconTheme;
 

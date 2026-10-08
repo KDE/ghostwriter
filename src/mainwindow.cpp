@@ -80,6 +80,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     Bookmark fileToOpen(filePath);
 
     focusModeEnabled = false;
+    purePreviewModeEnabled = false;
     appSettings = AppSettings::instance();
 
     loadTheme();
@@ -201,11 +202,10 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     else {
         this->sidebarHiddenForResize = false;
 
-        if (!this->focusModeEnabled && this->appSettings->sidebarVisible()) {
+        if (!this->focusModeEnabled && !this->purePreviewModeEnabled && this->appSettings->sidebarVisible()) {
             this->sidebar->setAutoHideEnabled(false);
             this->sidebar->setVisible(true);
-        }
-        else {
+        } else {
             this->sidebar->setAutoHideEnabled(true);
             this->sidebar->setVisible(false);
         }
@@ -252,6 +252,22 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
+    // Let the Escape key exit pure preview mode while the HTML preview
+    // widget has keyboard focus.
+    if (purePreviewModeEnabled && (QEvent::KeyPress == event->type())) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+
+        if (Qt::Key_Escape == keyEvent->key()) {
+            QWidget *widget = qobject_cast<QWidget *>(obj);
+
+            if (widget && !widget->isWindow() && ((widget == this->htmlPreview) || this->htmlPreview->isAncestorOf(widget))) {
+                appAction(AppActions::PurePreview)->setChecked(false);
+                togglePurePreview(false);
+                return true;
+            }
+        }
+    }
+
     if (this->isFullScreen() && appSettings->hideMenuBarInFullScreenEnabled()) {
         if ((this->menuBar() == obj) 
                 && (QEvent::Leave == event->type()) 
@@ -291,7 +307,13 @@ void MainWindow::quitApplication()
 
         windowSettings.setValue(GW_MAIN_WINDOW_GEOMETRY_KEY, saveGeometry());
         windowSettings.setValue(GW_MAIN_WINDOW_STATE_KEY, saveState());
-        windowSettings.setValue(GW_SPLITTER_GEOMETRY_KEY, splitter->saveState());
+
+        // Do not store the splitter state while in pure preview mode, where
+        // the editor pane is hidden and would be restored with zero width.
+        if (!purePreviewModeEnabled) {
+            windowSettings.setValue(GW_SPLITTER_GEOMETRY_KEY, splitter->saveState());
+        }
+
         windowSettings.sync();
 
         this->editor->document()->disconnect();
@@ -326,11 +348,62 @@ void MainWindow::openPreferencesDialog()
 
 void MainWindow::toggleHtmlPreview(bool checked)
 {
+    if (!checked && purePreviewModeEnabled) {
+        // Pure preview mode cannot work without the HTML preview.
+        appAction(AppActions::PurePreview)->setChecked(false);
+        togglePurePreview(false);
+    }
+
     htmlPreview->setVisible(checked);
     htmlPreview->updatePreview();
     appSettings->setHtmlPreviewVisible(checked);
     this->update();
     adjustEditor();
+}
+
+void MainWindow::togglePurePreview(bool checked)
+{
+    if (checked) {
+        purePreviewModeEnabled = true;
+        splitterSizesBeforePurePreview = splitter->sizes();
+
+        // Pure preview mode requires the HTML preview to be visible.
+        // Do not change the Live Preview setting itself; it is restored
+        // when pure preview mode is exited.
+        htmlPreview->setVisible(true);
+        appAction(AppActions::Preview)->setChecked(true);
+
+        editor->hide();
+        sidebar->setAutoHideEnabled(false);
+        sidebar->setVisible(false);
+    } else {
+        purePreviewModeEnabled = false;
+        editor->show();
+
+        if (!this->sidebarHiddenForResize && !this->focusModeEnabled && this->appSettings->sidebarVisible()) {
+            sidebar->setAutoHideEnabled(false);
+            sidebar->setVisible(true);
+        } else {
+            sidebar->setAutoHideEnabled(true);
+            sidebar->setVisible(false);
+        }
+
+        splitter->setSizes(splitterSizesBeforePurePreview);
+
+        bool previewVisible = appSettings->htmlPreviewVisible();
+        htmlPreview->setVisible(previewVisible);
+        appAction(AppActions::Preview)->setChecked(previewVisible);
+    }
+
+    this->update();
+    adjustEditor();
+
+    if (checked) {
+        htmlPreview->updatePreview();
+        htmlPreview->setFocus();
+    } else {
+        editor->setFocus();
+    }
 }
 
 void MainWindow::toggleHemingwayMode(bool checked)
@@ -353,7 +426,7 @@ void MainWindow::toggleFocusMode(bool checked)
     } else {
         editor->setFocusMode(FocusModeDisabled);
 
-        if (!this->sidebarHiddenForResize && this->appSettings->sidebarVisible()) {
+        if (!this->sidebarHiddenForResize && !this->purePreviewModeEnabled && this->appSettings->sidebarVisible()) {
             sidebar->setAutoHideEnabled(false);
             sidebar->setVisible(true);
         }
@@ -630,7 +703,17 @@ void MainWindow::onAboutToShowMenuBarMenu()
 void MainWindow::onSidebarVisibilityChanged(bool visible)
 {
     if (!visible) {
-        editor->setFocus();
+        if (editor->isVisible()) {
+            editor->setFocus();
+        }
+    } else if (purePreviewModeEnabled) {
+        // The sidebar must stay hidden in pure preview mode.  Showing it
+        // means the user wants to leave pure preview mode and keep it.
+        this->appSettings->setSidebarVisible(true);
+        appAction(AppActions::ShowSidebar)->setChecked(true);
+        appAction(AppActions::PurePreview)->setChecked(false);
+        togglePurePreview(false);
+        return;
     }
 
     this->adjustEditor();
@@ -821,6 +904,8 @@ void MainWindow::setupActions()
     m_actions->connect(AppActions::DistractionFreeMode, this, &MainWindow::toggleFocusMode);
     appAction(AppActions::Preview)->setChecked(appSettings->htmlPreviewVisible());
     m_actions->connect(AppActions::Preview, this, &MainWindow::toggleHtmlPreview);
+    appAction(AppActions::PurePreview)->setChecked(false);
+    m_actions->connect(AppActions::PurePreview, this, &MainWindow::togglePurePreview);
     m_actions->connect(AppActions::HemingwayMode, this, &MainWindow::toggleHemingwayMode);
     appAction(AppActions::DarkMode)->setChecked(appSettings->darkModeEnabled());
     m_actions->connect(AppActions::DarkMode, this, [this](bool enabled) {
@@ -1096,6 +1181,7 @@ void MainWindow::setupMenuBar()
     menu->addAction(appAction(AppActions::FullScreen));
     menu->addAction(appAction(AppActions::DistractionFreeMode));
     menu->addAction(appAction(AppActions::Preview));
+    menu->addAction(appAction(AppActions::PurePreview));
     menu->addAction(appAction(AppActions::HemingwayMode));
     menu->addAction(appAction(AppActions::DarkMode));
     menu->addSeparator();
@@ -1222,6 +1308,14 @@ void MainWindow::setupStatusBar()
     button = new QToolButton();
     button->setDefaultAction(appAction(AppActions::Preview));
     button->setIcon(secondaryIconTheme->icon("live-preview"));
+    button->setIconSize(QSize(16, 16));
+    button->setFocusPolicy(Qt::NoFocus);
+    rightLayout->addWidget(button, 0, Qt::AlignRight);
+    statusBarWidgets.append(button);
+
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::PurePreview));
+    button->setIcon(secondaryIconTheme->icon("pure-preview"));
     button->setIconSize(QSize(16, 16));
     button->setFocusPolicy(Qt::NoFocus);
     rightLayout->addWidget(button, 0, Qt::AlignRight);
@@ -1386,6 +1480,12 @@ void MainWindow::adjustEditor()
 {
     // Make sure editor size is updated.
     qApp->processEvents();
+
+    if (purePreviewModeEnabled) {
+        // Pure preview mode: let the preview fill the entire window.
+        htmlPreview->setMaximumWidth(QWIDGETSIZE_MAX);
+        return;
+    }
 
     int width = this->width();
     int sidebarWidth = 0;

@@ -217,6 +217,15 @@ AppActions::AppActions(KActionCollection *collection, SvgIconTheme *iconTheme, Q
 
     d->addCheckAction(Preview, "view_preview", tr("Live Preview"), "live-preview", tr("CTRL+P"));
 
+    action = d->addCheckAction(PurePreview, "view_pure_preview", tr("Pure Preview Mode"), "pure-preview", tr("CTRL+SHIFT+P"));
+    action->setToolTip(tr("Toggles pure preview mode."));
+    action->setWhatsThis(
+        tr("<p>Toggles pure preview mode.</p>"
+           "<p>Pure preview mode hides the editor and sidebar so that only "
+           "the HTML preview remains. The preview expands to fill the entire "
+           "window. Pressing the shortcut again, or the Escape key, returns "
+           "to the normal editing view.</p>"));
+
     action = d->addCheckAction(HemingwayMode, "view_hemingway_mode", tr("Hemingway Mode"), "hemingway-mode", tr("SHIFT+Backspace"));
     action->setToolTip(tr("Toggles Hemingway mode."));
     action->setWhatsThis(

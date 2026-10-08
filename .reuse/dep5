@@ -113,6 +113,10 @@ Files: icons/block-quote.svg
 Copyright: Fonticons, Inc. <https://fontawesome.com>
 License: OFL-1.1
 
+Files: icons/pure-preview.svg
+Copyright: 2026 Lin Xianglin
+License: GPL-3.0-or-later
+
 Files: icons/code-block.svg
        icons/deselect.svg
        icons/find-replace.svg

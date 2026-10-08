@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* Added pure preview mode (Ctrl+Shift+P), which hides the editor and sidebar
+  so that the HTML preview fills the entire window.
+
 ### Fixed
 
 * Issue #465799: Segmentation fault no longer occurs when .conf file is missing on first launch.
