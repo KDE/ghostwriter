@@ -542,7 +542,7 @@ msgstr "Библиотека JavaScript для построения интерф
 #: src/appmain.cpp:134
 msgctxt "main|"
 msgid "A JavaScript display engine for mathematics"
-msgstr "Движок показа JavaScript для формул"
+msgstr "Механизм показа формул на JavaScript"
 
 #: src/appmain.cpp:139
 #, qt-format
