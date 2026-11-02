@@ -148,6 +148,9 @@ public:
     bool htmlPreviewVisible() const;
     void setHtmlPreviewVisible(bool visible);
 
+    bool previewOnlyEnabled() const;
+    void setPreviewOnlyEnabled(bool enabled);
+
     bool sidebarVisible() const;
     void setSidebarVisible(bool visible);
 

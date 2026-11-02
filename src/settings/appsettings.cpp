@@ -54,6 +54,7 @@ constexpr auto GW_LOCALE_KEY{"Application/locale"};
 constexpr auto GW_LIVE_SPELL_CHECK_KEY{"Spelling/liveSpellCheck"};
 constexpr auto GW_SIDEBAR_OPEN_KEY{"Window/sidebarOpen"};
 constexpr auto GW_HTML_PREVIEW_OPEN_KEY{"Preview/htmlPreviewOpen"};
+constexpr auto GW_PREVIEW_ONLY_KEY{"Preview/previewOnly"};
 constexpr auto GW_LAST_USED_EXPORTER_KEY{"Preview/lastUsedExporter"};
 constexpr auto GW_LAST_USED_EXPORTER_PARAMS_KEY{"Preview/lastUsedExporterParams"};
 constexpr auto GW_PREVIEW_TEXT_FONT_KEY{"Preview/textFont"};
@@ -93,6 +94,7 @@ public:
     bool folderViewShowAllFilesEnabled;
     bool hideMenuBarInFullScreenEnabled;
     bool htmlPreviewVisible;
+    bool previewOnlyEnabled;
     bool sidebarVisible;
     bool insertSpacesForTabsEnabled;
     bool largeHeadingSizesEnabled;
@@ -155,6 +157,7 @@ void AppSettings::store()
     appSettings.setValue(constants::GW_LARGE_HEADINGS_KEY, QVariant(d->largeHeadingSizesEnabled));
     appSettings.setValue(constants::GW_SIDEBAR_OPEN_KEY, QVariant(d->sidebarVisible));
     appSettings.setValue(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(d->htmlPreviewVisible));
+    appSettings.setValue(constants::GW_PREVIEW_ONLY_KEY, QVariant(d->previewOnlyEnabled));
     appSettings.setValue(constants::GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
     appSettings.setValue(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY, QVariant(d->currentHtmlExporter->options()));
     appSettings.setValue(constants::GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
@@ -654,6 +657,20 @@ void AppSettings::setHtmlPreviewVisible(bool visible)
     d->htmlPreviewVisible = visible;
 }
 
+bool AppSettings::previewOnlyEnabled() const
+{
+    Q_D(const AppSettings);
+    
+    return d->previewOnlyEnabled;
+}
+
+void AppSettings::setPreviewOnlyEnabled(bool enabled)
+{
+    Q_D(AppSettings);
+    
+    d->previewOnlyEnabled = enabled;
+}
+
 bool AppSettings::sidebarVisible() const
 {
     Q_D(const AppSettings);
@@ -862,6 +879,7 @@ AppSettings::AppSettings()
 
     d->sidebarVisible = appSettings.value(constants::GW_SIDEBAR_OPEN_KEY, QVariant(true)).toBool();
     d->htmlPreviewVisible = appSettings.value(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
+    d->previewOnlyEnabled = d->htmlPreviewVisible && appSettings.value(constants::GW_PREVIEW_ONLY_KEY, QVariant(false)).toBool();
 
     QString exporterName = appSettings.value(constants::GW_LAST_USED_EXPORTER_KEY).toString();
 

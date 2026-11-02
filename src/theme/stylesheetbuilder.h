@@ -12,6 +12,7 @@
 
 #include "chromecolors.h"
 #include "svgicontheme.h"
+#include "editor/markdowneditortypes.h"
 
 namespace ghostwriter
 {
@@ -117,6 +118,8 @@ namespace ghostwriter
  *      HTML preview text body font point size
  * $code-font-size
  *      HTML preview code font point size
+ * $body-max-width
+ *      HTML preview text body maximum width, per the editor width setting
  *
  * Color States
  * ============
@@ -146,7 +149,8 @@ public:
                       const bool roundedCorners,
                       const QFont &editorFont,
                       const QFont &previewTextFont,
-                      const QFont &previewCodeFont);
+                      const QFont &previewCodeFont,
+                      const EditorWidth editorWidth);
 
     /**
      * Destructor.

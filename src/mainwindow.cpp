@@ -326,9 +326,31 @@ void MainWindow::openPreferencesDialog()
 
 void MainWindow::toggleHtmlPreview(bool checked)
 {
+    if (appAction(AppActions::PreviewOnly)->isChecked()) {
+        appAction(AppActions::PreviewOnly)->setChecked(false);
+        appSettings->setPreviewOnlyEnabled(false);
+        editor->setVisible(true);
+    }
+
     htmlPreview->setVisible(checked);
     htmlPreview->updatePreview();
     appSettings->setHtmlPreviewVisible(checked);
+    this->update();
+    adjustEditor();
+}
+
+void MainWindow::togglePreviewOnly(bool checked)
+{
+    appAction(AppActions::Preview)->setChecked(!checked);
+
+    if (checked) {
+        htmlPreview->setVisible(true);
+        htmlPreview->updatePreview();
+        appSettings->setHtmlPreviewVisible(true);
+    }
+
+    editor->setVisible(!checked);
+    appSettings->setPreviewOnlyEnabled(checked);
     this->update();
     adjustEditor();
 }
@@ -445,7 +467,7 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
 void MainWindow::changeEditorWidth(EditorWidth editorWidth)
 {
     editor->setEditorWidth(editorWidth);
-    adjustEditor();
+    applyTheme();
 }
 
 void MainWindow::changeInterfaceStyle(InterfaceStyle style)
@@ -819,8 +841,10 @@ void MainWindow::setupActions()
     m_actions->connect(AppActions::FullScreen, this, &MainWindow::toggleFullScreen);
     appAction(AppActions::DistractionFreeMode)->setChecked(false);
     m_actions->connect(AppActions::DistractionFreeMode, this, &MainWindow::toggleFocusMode);
-    appAction(AppActions::Preview)->setChecked(appSettings->htmlPreviewVisible());
+    appAction(AppActions::Preview)->setChecked(appSettings->htmlPreviewVisible() && !appSettings->previewOnlyEnabled());
     m_actions->connect(AppActions::Preview, this, &MainWindow::toggleHtmlPreview);
+    appAction(AppActions::PreviewOnly)->setChecked(appSettings->previewOnlyEnabled());
+    m_actions->connect(AppActions::PreviewOnly, this, &MainWindow::togglePreviewOnly);
     m_actions->connect(AppActions::HemingwayMode, this, &MainWindow::toggleHemingwayMode);
     appAction(AppActions::DarkMode)->setChecked(appSettings->darkModeEnabled());
     m_actions->connect(AppActions::DarkMode, this, [this](bool enabled) {
@@ -960,6 +984,7 @@ void MainWindow::setupGui()
     htmlPreview->setMinimumWidth(0.1 * qApp->primaryScreen()->size().width());
     htmlPreview->setObjectName("htmlpreview");
     htmlPreview->setVisible(appSettings->htmlPreviewVisible());
+    editor->setVisible(!appSettings->previewOnlyEnabled());
 
     // Set dimensions for the main window.  This is best done before
     // building the status bar, so that we can determine whether the full
@@ -1096,6 +1121,7 @@ void MainWindow::setupMenuBar()
     menu->addAction(appAction(AppActions::FullScreen));
     menu->addAction(appAction(AppActions::DistractionFreeMode));
     menu->addAction(appAction(AppActions::Preview));
+    menu->addAction(appAction(AppActions::PreviewOnly));
     menu->addAction(appAction(AppActions::HemingwayMode));
     menu->addAction(appAction(AppActions::DarkMode));
     menu->addSeparator();
@@ -1222,6 +1248,14 @@ void MainWindow::setupStatusBar()
     button = new QToolButton();
     button->setDefaultAction(appAction(AppActions::Preview));
     button->setIcon(secondaryIconTheme->icon("live-preview"));
+    button->setIconSize(QSize(16, 16));
+    button->setFocusPolicy(Qt::NoFocus);
+    rightLayout->addWidget(button, 0, Qt::AlignRight);
+    statusBarWidgets.append(button);
+
+    button = new QToolButton();
+    button->setDefaultAction(appAction(AppActions::PreviewOnly));
+    button->setIcon(secondaryIconTheme->icon("preview-only"));
     button->setIconSize(QSize(16, 16));
     button->setFocusPolicy(Qt::NoFocus);
     rightLayout->addWidget(button, 0, Qt::AlignRight);
@@ -1398,7 +1432,11 @@ void MainWindow::adjustEditor()
         sidebarWidth = sidebar->width();
     }
 
-    htmlPreview->setMaximumWidth((width - sidebarWidth) / 2);
+    if (editor->isVisible()) {
+        htmlPreview->setMaximumWidth((width - sidebarWidth) / 2);
+    } else {
+        htmlPreview->setMaximumWidth(QWIDGETSIZE_MAX);
+    }
 
     // Resize the editor's margins.
     editor->setupPaperMargins();
@@ -1436,7 +1474,8 @@ void MainWindow::applyTheme()
                              (InterfaceStyleRounded == appSettings->interfaceStyle()),
                              appSettings->editorFont(),
                              appSettings->previewTextFont(),
-                             appSettings->previewCodeFont());
+                             appSettings->previewCodeFont(),
+                             appSettings->editorWidth());
 
     editor->setColorScheme(colorScheme);
     spelling->setErrorColor(colorScheme.error);

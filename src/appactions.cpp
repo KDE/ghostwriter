@@ -217,6 +217,8 @@ AppActions::AppActions(KActionCollection *collection, SvgIconTheme *iconTheme, Q
 
     d->addCheckAction(Preview, "view_preview", tr("Live Preview"), "live-preview", tr("CTRL+P"));
 
+    d->addCheckAction(PreviewOnly, "view_preview_only", tr("Preview Only"), "preview-only", tr("CTRL+SHIFT+P"));
+
     action = d->addCheckAction(HemingwayMode, "view_hemingway_mode", tr("Hemingway Mode"), "hemingway-mode", tr("SHIFT+Backspace"));
     action->setToolTip(tr("Toggles Hemingway mode."));
     action->setWhatsThis(

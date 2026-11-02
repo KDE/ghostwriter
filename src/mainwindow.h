@@ -68,6 +68,7 @@ private slots:
     void changeTheme();
     void openPreferencesDialog();
     void toggleHtmlPreview(bool checked);
+    void togglePreviewOnly(bool checked);
     void toggleHemingwayMode(bool checked);
     void toggleFocusMode(bool checked);
     void toggleFullScreen(bool checked);

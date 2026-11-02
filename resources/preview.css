@@ -44,6 +44,7 @@
     position: fixed;
     overflow-x: scroll;
     overflow-y: scroll;
+    box-sizing: border-box;
     width: -webkit-calc(100% - 16px);
     height: inherit;
     left: 0px;
@@ -51,7 +52,7 @@
     bottom: 0px;
     background: $background-color;
     margin: 0;
-    padding: 5px;
+    padding: 5px max(5px, calc((100% - $body-max-width) / 2));
 }
 
 body {

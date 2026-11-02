@@ -41,7 +41,8 @@ StyleSheetBuilder::StyleSheetBuilder(const ChromeColors &colors,
                                      const bool roundedCorners,
                                      const QFont &editorFont,
                                      const QFont &previewTextFont,
-                                     const QFont &previewCodeFont)
+                                     const QFont &previewCodeFont,
+                                     const EditorWidth editorWidth)
 {
     QString styleSheet;
     QTextStream stream(&styleSheet);
@@ -52,6 +53,21 @@ StyleSheetBuilder::StyleSheetBuilder(const ChromeColors &colors,
     m_styleSheetVariables["$editor-font-size"] = QString("%1pt").arg(editorFont.pointSize());
     m_styleSheetVariables["$body-font-size"] = QString("%1pt").arg(previewTextFont.pointSize());
     m_styleSheetVariables["$code-font-size"] = QString("%1pt").arg(previewCodeFont.pointSize());
+
+    switch (editorWidth) {
+    case EditorWidthNarrow:
+        m_styleSheetVariables["$body-max-width"] = "60ch";
+        break;
+    case EditorWidthMedium:
+        m_styleSheetVariables["$body-max-width"] = "80ch";
+        break;
+    case EditorWidthWide:
+        m_styleSheetVariables["$body-max-width"] = "100ch";
+        break;
+    default:
+        m_styleSheetVariables["$body-max-width"] = "100%";
+        break;
+    }
 
     if (roundedCorners) {
         m_styleSheetVariables["$scrollbar-border-radius"] = "3px";
