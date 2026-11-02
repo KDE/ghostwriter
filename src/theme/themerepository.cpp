@@ -51,6 +51,8 @@ public:
 
     void loadClassicTheme();
     void loadPlainstractionTheme();
+    void loadGitHubTheme();
+    void loadCodebergTheme();
     bool loadColorsFromJsonObject(const QJsonObject &obj, ColorScheme &colors) const;
     bool loadColor(const QJsonObject &obj, const QString &key, QColor &color) const;
     bool isValidJsonObj(const QJsonValue &value) const;
@@ -86,6 +88,8 @@ ThemeRepository::ThemeRepository(const QString &path)
     // Set up built-in themes.
     d->loadClassicTheme();
     d->loadPlainstractionTheme();
+    d->loadGitHubTheme();
+    d->loadCodebergTheme();
 }
 
 ThemeRepository::~ThemeRepository()
@@ -437,6 +441,112 @@ void ThemeRepositoryPrivate::loadPlainstractionTheme()
         true
     );
 
+
+    builtInThemes.append(theme);
+}
+
+void ThemeRepositoryPrivate::loadGitHubTheme()
+{
+    ColorScheme lightColors;
+    lightColors.background = "#ffffff";
+    lightColors.foreground = "#1f2328";
+    lightColors.selection = "#b6e3ff";
+    lightColors.cursor = "#0969da";
+    lightColors.link = "#0969da";
+    lightColors.headingText = "#1f2328";
+    lightColors.headingMarkup = "#818b98";
+    lightColors.emphasisText = "#1f2328";
+    lightColors.emphasisMarkup = "#818b98";
+    lightColors.blockquoteText = "#59636e";
+    lightColors.blockquoteMarkup = "#818b98";
+    lightColors.codeText = "#0550ae";
+    lightColors.codeMarkup = "#818b98";
+    lightColors.image = "#0969da";
+    lightColors.listMarkup = "#818b98";
+    lightColors.inlineHtml = "#818b98";
+    lightColors.divider = "#d1d9e0";
+    lightColors.error = "#d1242f";
+
+    ColorScheme darkColors;
+    darkColors.background = "#0d1117";
+    darkColors.foreground = "#e6edf3";
+    darkColors.selection = "#1e4273";
+    darkColors.cursor = "#2f81f7";
+    darkColors.link = "#2f81f7";
+    darkColors.headingText = "#e6edf3";
+    darkColors.headingMarkup = "#6e7681";
+    darkColors.emphasisText = "#e6edf3";
+    darkColors.emphasisMarkup = "#6e7681";
+    darkColors.blockquoteText = "#8b949e";
+    darkColors.blockquoteMarkup = "#6e7681";
+    darkColors.codeText = "#79c0ff";
+    darkColors.codeMarkup = "#6e7681";
+    darkColors.image = "#2f81f7";
+    darkColors.listMarkup = "#6e7681";
+    darkColors.inlineHtml = "#6e7681";
+    darkColors.divider = "#30363d";
+    darkColors.error = "#f85149";
+
+    Theme theme
+    (
+        "GitHub",
+        lightColors,
+        darkColors,
+        true
+    );
+
+    builtInThemes.append(theme);
+}
+
+void ThemeRepositoryPrivate::loadCodebergTheme()
+{
+    ColorScheme lightColors;
+    lightColors.background = "#ffffff";
+    lightColors.foreground = "#212529";
+    lightColors.selection = "#b5ddff";
+    lightColors.cursor = "#2185d0";
+    lightColors.link = "#2185d0";
+    lightColors.headingText = "#425f72";
+    lightColors.headingMarkup = "#a9d5de";
+    lightColors.emphasisText = "#425f72";
+    lightColors.emphasisMarkup = "#a9d5de";
+    lightColors.blockquoteText = "#425f72";
+    lightColors.blockquoteMarkup = "#a9d5de";
+    lightColors.codeText = "#2185d0";
+    lightColors.codeMarkup = "#a9d5de";
+    lightColors.image = "#2185d0";
+    lightColors.listMarkup = "#2185d0";
+    lightColors.inlineHtml = "#a9d5de";
+    lightColors.divider = "#a9d5de";
+    lightColors.error = "#db2828";
+
+    ColorScheme darkColors;
+    darkColors.background = "#2e323e";
+    darkColors.foreground = "#dbe0e8";
+    darkColors.selection = "#294f71";
+    darkColors.cursor = "#4a9fe0";
+    darkColors.link = "#4a9fe0";
+    darkColors.headingText = "#a9d5de";
+    darkColors.headingMarkup = "#5c6472";
+    darkColors.emphasisText = "#a9d5de";
+    darkColors.emphasisMarkup = "#5c6472";
+    darkColors.blockquoteText = "#a9d5de";
+    darkColors.blockquoteMarkup = "#5c6472";
+    darkColors.codeText = "#4a9fe0";
+    darkColors.codeMarkup = "#5c6472";
+    darkColors.image = "#4a9fe0";
+    darkColors.listMarkup = "#4a9fe0";
+    darkColors.inlineHtml = "#5c6472";
+    darkColors.divider = "#5c6472";
+    darkColors.error = "#e05561";
+
+    Theme theme
+    (
+        "Codeberg",
+        lightColors,
+        darkColors,
+        true
+    );
 
     builtInThemes.append(theme);
 }
