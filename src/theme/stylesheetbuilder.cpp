@@ -42,7 +42,7 @@ StyleSheetBuilder::StyleSheetBuilder(const ChromeColors &colors,
                                      const QFont &editorFont,
                                      const QFont &previewTextFont,
                                      const QFont &previewCodeFont,
-                                     const EditorWidth editorWidth)
+                                     const PreviewWidth previewWidth)
 {
     QString styleSheet;
     QTextStream stream(&styleSheet);
@@ -54,14 +54,14 @@ StyleSheetBuilder::StyleSheetBuilder(const ChromeColors &colors,
     m_styleSheetVariables["$body-font-size"] = QString("%1pt").arg(previewTextFont.pointSize());
     m_styleSheetVariables["$code-font-size"] = QString("%1pt").arg(previewCodeFont.pointSize());
 
-    switch (editorWidth) {
-    case EditorWidthNarrow:
+    switch (previewWidth) {
+    case PreviewWidthNarrow:
         m_styleSheetVariables["$body-max-width"] = "60ch";
         break;
-    case EditorWidthMedium:
+    case PreviewWidthMedium:
         m_styleSheetVariables["$body-max-width"] = "80ch";
         break;
-    case EditorWidthWide:
+    case PreviewWidthWide:
         m_styleSheetVariables["$body-max-width"] = "100ch";
         break;
     default:

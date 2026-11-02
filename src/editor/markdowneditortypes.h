@@ -29,6 +29,15 @@ enum EditorWidth {
     EditorWidthLast = EditorWidthFull
 };
 
+enum PreviewWidth {
+    PreviewWidthFirst,
+    PreviewWidthNarrow = PreviewWidthFirst,
+    PreviewWidthMedium,
+    PreviewWidthWide,
+    PreviewWidthFull,
+    PreviewWidthLast = PreviewWidthFull
+};
+
 enum InterfaceStyle {
     InterfaceStyleFirst,
     InterfaceStyleRounded = InterfaceStyleFirst,

@@ -55,6 +55,7 @@ constexpr auto GW_LIVE_SPELL_CHECK_KEY{"Spelling/liveSpellCheck"};
 constexpr auto GW_SIDEBAR_OPEN_KEY{"Window/sidebarOpen"};
 constexpr auto GW_HTML_PREVIEW_OPEN_KEY{"Preview/htmlPreviewOpen"};
 constexpr auto GW_PREVIEW_ONLY_KEY{"Preview/previewOnly"};
+constexpr auto GW_PREVIEW_WIDTH_KEY{"Preview/previewWidth"};
 constexpr auto GW_LAST_USED_EXPORTER_KEY{"Preview/lastUsedExporter"};
 constexpr auto GW_LAST_USED_EXPORTER_PARAMS_KEY{"Preview/lastUsedExporterParams"};
 constexpr auto GW_PREVIEW_TEXT_FONT_KEY{"Preview/textFont"};
@@ -95,6 +96,7 @@ public:
     bool hideMenuBarInFullScreenEnabled;
     bool htmlPreviewVisible;
     bool previewOnlyEnabled;
+    PreviewWidth previewWidth;
     bool sidebarVisible;
     bool insertSpacesForTabsEnabled;
     bool largeHeadingSizesEnabled;
@@ -158,6 +160,7 @@ void AppSettings::store()
     appSettings.setValue(constants::GW_SIDEBAR_OPEN_KEY, QVariant(d->sidebarVisible));
     appSettings.setValue(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(d->htmlPreviewVisible));
     appSettings.setValue(constants::GW_PREVIEW_ONLY_KEY, QVariant(d->previewOnlyEnabled));
+    appSettings.setValue(constants::GW_PREVIEW_WIDTH_KEY, QVariant(d->previewWidth));
     appSettings.setValue(constants::GW_LAST_USED_EXPORTER_KEY, QVariant(d->currentHtmlExporter->name()));
     appSettings.setValue(constants::GW_LAST_USED_EXPORTER_PARAMS_KEY, QVariant(d->currentHtmlExporter->options()));
     appSettings.setValue(constants::GW_LIVE_SPELL_CHECK_KEY, QVariant(d->liveSpellCheckEnabled));
@@ -671,6 +674,23 @@ void AppSettings::setPreviewOnlyEnabled(bool enabled)
     d->previewOnlyEnabled = enabled;
 }
 
+PreviewWidth AppSettings::previewWidth() const
+{
+    Q_D(const AppSettings);
+    
+    return d->previewWidth;
+}
+
+void AppSettings::setPreviewWidth(PreviewWidth previewWidth)
+{
+    Q_D(AppSettings);
+    
+    if ((previewWidth >= PreviewWidthFirst) && (previewWidth <= PreviewWidthLast)) {
+        d->previewWidth = previewWidth;
+        emit previewWidthChanged(previewWidth);
+    }
+}
+
 bool AppSettings::sidebarVisible() const
 {
     Q_D(const AppSettings);
@@ -880,6 +900,11 @@ AppSettings::AppSettings()
     d->sidebarVisible = appSettings.value(constants::GW_SIDEBAR_OPEN_KEY, QVariant(true)).toBool();
     d->htmlPreviewVisible = appSettings.value(constants::GW_HTML_PREVIEW_OPEN_KEY, QVariant(true)).toBool();
     d->previewOnlyEnabled = d->htmlPreviewVisible && appSettings.value(constants::GW_PREVIEW_ONLY_KEY, QVariant(false)).toBool();
+    d->previewWidth = (PreviewWidth)appSettings.value(constants::GW_PREVIEW_WIDTH_KEY, QVariant(PreviewWidthMedium)).toInt();
+
+    if ((d->previewWidth < PreviewWidthFirst) || (d->previewWidth > PreviewWidthLast)) {
+        d->previewWidth = PreviewWidthMedium;
+    }
 
     QString exporterName = appSettings.value(constants::GW_LAST_USED_EXPORTER_KEY).toString();
 

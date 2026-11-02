@@ -151,6 +151,10 @@ public:
     bool previewOnlyEnabled() const;
     void setPreviewOnlyEnabled(bool enabled);
 
+    PreviewWidth previewWidth() const;
+    void setPreviewWidth(PreviewWidth previewWidth);
+    Q_SIGNAL void previewWidthChanged(PreviewWidth previewWidth);
+
     bool sidebarVisible() const;
     void setSidebarVisible(bool visible);
 

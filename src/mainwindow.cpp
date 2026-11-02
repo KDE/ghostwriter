@@ -124,6 +124,7 @@ MainWindow::MainWindow(const QString &filePath, QWidget *parent)
     connect(appSettings, &AppSettings::interfaceStyleChanged, this, &MainWindow::changeInterfaceStyle);
     connect(appSettings, &AppSettings::previewTextFontChanged, this, &MainWindow::applyTheme);
     connect(appSettings, &AppSettings::previewCodeFontChanged, this, &MainWindow::applyTheme);
+    connect(appSettings, &AppSettings::previewWidthChanged, this, &MainWindow::applyTheme);
 
     connect(documentManager, &DocumentManager::documentLoaded, documentManager, [this]() {
         sessionStats->startNewSession(documentStats->wordCount());
@@ -467,7 +468,7 @@ void MainWindow::toggleDisplayTimeInFullScreen(bool checked)
 void MainWindow::changeEditorWidth(EditorWidth editorWidth)
 {
     editor->setEditorWidth(editorWidth);
-    applyTheme();
+    adjustEditor();
 }
 
 void MainWindow::changeInterfaceStyle(InterfaceStyle style)
@@ -1475,7 +1476,7 @@ void MainWindow::applyTheme()
                              appSettings->editorFont(),
                              appSettings->previewTextFont(),
                              appSettings->previewCodeFont(),
-                             appSettings->editorWidth());
+                             appSettings->previewWidth());
 
     editor->setColorScheme(colorScheme);
     spelling->setErrorColor(colorScheme.error);

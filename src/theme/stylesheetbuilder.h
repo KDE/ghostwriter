@@ -119,7 +119,7 @@ namespace ghostwriter
  * $code-font-size
  *      HTML preview code font point size
  * $body-max-width
- *      HTML preview text body maximum width, per the editor width setting
+ *      HTML preview text body maximum width, per the preview width setting
  *
  * Color States
  * ============
@@ -150,7 +150,7 @@ public:
                       const QFont &editorFont,
                       const QFont &previewTextFont,
                       const QFont &previewCodeFont,
-                      const EditorWidth editorWidth);
+                      const PreviewWidth previewWidth);
 
     /**
      * Destructor.

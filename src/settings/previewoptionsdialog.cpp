@@ -39,6 +39,7 @@ public:
     AppSettings *appSettings;
     ExporterFactory *exporterFactory;
     QComboBox *previewerComboBox;
+    QComboBox *widthComboBox;
     QLineEdit *paramsLineEdit;
 };
 
@@ -89,6 +90,21 @@ PreviewOptionsDialog::PreviewOptionsDialog(QWidget *parent)
     );
 
     optionsLayout->addRow(tr("Markdown Flavor"), d->previewerComboBox);
+
+    d->widthComboBox = new QComboBox(this);
+    d->widthComboBox->addItem(tr("Narrow"), PreviewWidthNarrow);
+    d->widthComboBox->addItem(tr("Medium"), PreviewWidthMedium);
+    d->widthComboBox->addItem(tr("Wide"), PreviewWidthWide);
+    d->widthComboBox->addItem(tr("Full"), PreviewWidthFull);
+    d->widthComboBox->setCurrentIndex(d->appSettings->previewWidth());
+
+    connect(d->widthComboBox,
+        static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+        [d](int index) {
+            d->appSettings->setPreviewWidth(static_cast<PreviewWidth>(d->widthComboBox->itemData(index).toInt()));
+        });
+
+    optionsLayout->addRow(tr("Text Width"), d->widthComboBox);
 
     QHBoxLayout *fontLayout = new QHBoxLayout();
 
