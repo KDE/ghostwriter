@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-12 11:30+0300\n"
+"PO-Revision-Date: 2026-11-10 21:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -1225,7 +1225,7 @@ msgstr "&Kesilemez boşlukları göster"
 #: src/settings/preferencesdialog.ui:59
 msgctxt "PreferencesDialog|"
 msgid "Interface style"
-msgstr "Arayüz biçemi"
+msgstr "Arayüz stili"
 
 #: src/settings/preferencesdialog.ui:90
 msgctxt "PreferencesDialog|"
@@ -1305,7 +1305,7 @@ msgstr "Sekmelendirme genişliği"
 #: src/settings/preferencesdialog.ui:272
 msgctxt "PreferencesDialog|"
 msgid "Styling"
-msgstr "Biçemlendirme"
+msgstr "Stillendirme"
 
 #: src/settings/preferencesdialog.ui:280
 msgctxt "PreferencesDialog|"
@@ -1320,12 +1320,12 @@ msgstr "Düzenleyici genişliği"
 #: src/settings/preferencesdialog.ui:306
 msgctxt "PreferencesDialog|"
 msgid "Blockquote style"
-msgstr "Blok alıntı biçemi"
+msgstr "Blok alıntı stili"
 
 #: src/settings/preferencesdialog.ui:319
 msgctxt "PreferencesDialog|"
 msgid "Emphasis style"
-msgstr "Vurgu biçemi"
+msgstr "Vurgu stili"
 
 #: src/settings/preferencesdialog.ui:334
 msgctxt "PreferencesDialog|"
