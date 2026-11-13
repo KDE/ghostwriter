@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-FileCopyrightText: 2022 Megan Conkle <megan.conkle@kdemail.net>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>دليل مستخدم الشبح</title>
+<author
+><firstname
+>Megan</firstname
+><surname
+>Conkle</surname
+> <contrib
+>ghostwriter man page.</contrib
+> <email
+>megan.conkle@kdemail.net</email
+></author>
+<date
+>2022-09-17</date>
+<releaseinfo
+>2.2.0</releaseinfo>
+<productname
+>الشبح</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>ghostwriter</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>الشبح</refname>
+<refpurpose
+>محرر نصوص خالٍ من عوامل التشتيت لمارك داون</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>ghostwriter</command
+> <arg choice="opt"
+><replaceable
+>ملف</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>الوصف</title>
+  <para
+><command
+>ghostwriter</command
+> هو تطبيق تحرير نصوص كيوتي للغة ماركداون يوفر بيئة كتابة جمالية خالية من المشتتات. </para>
+  <para
+>أنشئ سماتك المخصصة، واكتب في وضع ملء الشاشة، أو استخدم وضع التركيز للتركيز على سطر واحد أو أكثر. </para>
+  <para
+>تتيح لك المعاينة المباشرة بتنسيق HTML رؤية التنسيق النهائي أثناء الكتابة. توفر خيارات معاينة وتصدير HTML بواسطة معالج ماركداون المدمج، cmark-gfm؛ ولكن يمكنك إضافة المزيد بتثبيت معالجات Pandoc أو MultiMarkdown أو cmark. سيكتشف التطبيق تثبيتها آليًا إذا كانت مواقعها في متغير بيئة PATH للنظام. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>خيارات</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--disable-gpu</option
+></term>
+  <listitem>
+<para
+>عطّل تسريع وحدة معالجة الرسومات.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+  <title
+>الإبلاغ عن العلل</title>
+  <para
+>يمكنك الإبلاغ عن الأخطاء وطلب الميزات في <ulink url="https://bugs.kde.org"
+>https://bugs.kde.org</ulink
+></para>
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+<simplelist>
+<member
+>وثائق المستخدم الأكثر تفصيلًا حول ماركداون متوفرة من <ulink url="https://ghostwriter.kde.org/documentation"
+>https://ghostwriter.kde.org/documentation</ulink
+> </member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>حقوق النسخ</title>
+<para
+>حقوق النشر &copy; 2022 ميغان كونكل</para>
+<para
+>الترخيص: رخصة جنو العمومية الإصدار 3 أو لاحق &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
