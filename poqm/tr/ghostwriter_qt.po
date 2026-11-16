@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-10 21:38+0300\n"
+"PO-Revision-Date: 2026-11-15 20:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -478,7 +478,7 @@ msgstr "Tema…"
 #: src/appactions.cpp:256
 msgctxt "ghostwriter::AppActions|"
 msgid "Font..."
-msgstr "Yazıtipi…"
+msgstr "Yazı Tipi…"
 
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
@@ -1371,7 +1371,7 @@ msgstr "Seç…"
 #: src/settings/previewoptionsdialog.cpp:117
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Text Font:"
-msgstr "Metin yazıtipi:"
+msgstr "Metin yazı tipi:"
 
 #: src/settings/previewoptionsdialog.cpp:143
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1412,7 +1412,7 @@ msgstr "Önizleme"
 #: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Show only monospaced fonts"
-msgstr "Yalnızca eş aralıklı yazıtiplerini göster"
+msgstr "Yalnızca eş aralıklı yazı tiplerini göster"
 
 #: src/spelling/spellcheckdecorator.cpp:244
 msgctxt "ghostwriter::SpellCheckDecorator|"
