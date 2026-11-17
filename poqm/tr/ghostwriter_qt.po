@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-15 20:05+0300\n"
+"PO-Revision-Date: 2026-11-16 19:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -361,7 +361,7 @@ msgstr "Üst Karakter+F11"
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
 msgid "Live Preview"
-msgstr "Canlı Önizleme"
+msgstr "Canlı Ön İzleme"
 
 #: src/appactions.cpp:218
 msgctxt "ghostwriter::AppActions|"
@@ -483,7 +483,7 @@ msgstr "Yazı Tipi…"
 #: src/appactions.cpp:258
 msgctxt "ghostwriter::AppActions|"
 msgid "Preview Options..."
-msgstr "Önizleme Seçenekleri…"
+msgstr "Ön İzleme Seçenekleri…"
 
 #: src/appmain.cpp:92
 msgctxt "main|"
@@ -1355,7 +1355,7 @@ msgstr "Eşleşen Ka&rakterleri Özelleştir…"
 #: src/settings/previewoptionsdialog.cpp:51
 msgctxt "ghostwriter::PreviewOptionsDialog|"
 msgid "Preview Options"
-msgstr "Önizleme Seçenekleri"
+msgstr "Ön İzleme Seçenekleri"
 
 #: src/settings/previewoptionsdialog.cpp:91
 msgctxt "ghostwriter::PreviewOptionsDialog|"
@@ -1407,7 +1407,7 @@ msgstr "AaBbCcVvYyZz"
 #: src/settings/simplefontdialog.cpp:115
 msgctxt "ghostwriter::SimpleFontDialog|"
 msgid "Preview"
-msgstr "Önizleme"
+msgstr "Ön İzleme"
 
 #: src/settings/simplefontdialog.cpp:118
 msgctxt "ghostwriter::SimpleFontDialog|"
@@ -1839,7 +1839,7 @@ msgstr "Temalar"
 #: src/theme/themeselectiondialog.cpp:132
 msgctxt "ghostwriter::ThemeSelectionDialog|"
 msgid "Preview in dark mode"
-msgstr "Koyu kipte önizle"
+msgstr "Koyu kipte ön izle"
 
 #: src/theme/themeselectiondialog.cpp:138
 msgctxt "ghostwriter::ThemeSelectionDialog|"
