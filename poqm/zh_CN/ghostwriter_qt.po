@@ -18,7 +18,7 @@ msgstr ""
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "重新打开关闭的文件"
+msgstr "重新打开上次关闭的文件"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -33,7 +33,7 @@ msgstr "清空列表"
 #: src/appactions.cpp:91
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "重新加载"
+msgstr "从磁盘重新加载..."
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
@@ -58,7 +58,7 @@ msgstr "SHIFT+CTRL+C"
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr "插入图片(&I)"
+msgstr "插入图片(&I)..."
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
@@ -358,7 +358,7 @@ msgstr "SHIFT+Backspace"
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "切换海明威模式"
+msgstr "切换海明威模式。"
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -411,7 +411,7 @@ msgstr "CTRL+J"
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr "显示文档大纲"
+msgstr "显示文档大纲。"
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -442,7 +442,7 @@ msgstr "备忘录"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr "在侧边栏中显示Markdown的快速参考指南。"
+msgstr "在侧边栏中显示 Markdown 的快速参考指南。"
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
