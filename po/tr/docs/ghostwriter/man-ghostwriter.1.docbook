@@ -68,7 +68,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   <para
 >Kendi özel temalarınızı yaratın, tam ekran olarak yazın veya odak kipinde kullanarak yalnızca bir veya birkaç satıra konsantre olun. </para>
   <para
->Canlı bir HTML önizlemesi, yazarken son biçimlendirmeyi görüntülemenize olanak tanır. HTML önizleme ve dışa aktarma seçenekleri yerleşik Markdown işleyicisi olan cmark-gfm tarafından sağlanır; ancak Pandoc, MultiMarkdown veya cmark işlemcilerini de kurarak daha fazla ekleyebilirsiniz. Uygulama, konumları sistemin PATH çevre değişkenindeyse kurulumları kendiliğinden algılayıp kullanmaya başlayacaktır. </para>
+>Canlı bir HTML ön izlemesi, yazarken son biçimlendirmeyi görüntülemenize olanak tanır. HTML ön izleme ve dışa aktarma seçenekleri yerleşik Markdown işleyicisi olan cmark-gfm tarafından sağlanır; ancak Pandoc, MultiMarkdown veya cmark işlemcilerini de kurarak daha fazla ekleyebilirsiniz. Uygulama, konumları sistemin PATH çevre değişkenindeyse kurulumları kendiliğinden algılayıp kullanmaya başlayacaktır. </para>
 </refsect1>
 
 <refsect1 id="options"
