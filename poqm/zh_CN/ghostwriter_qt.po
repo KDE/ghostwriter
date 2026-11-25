@@ -883,7 +883,7 @@ msgstr "%1 个匹配项"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr ""
+msgstr "无法创建文件：%1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -943,7 +943,7 @@ msgstr "###### 标题 6"
 #: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
-msgstr ""
+msgstr "*斜体* _斜体_"
 
 #: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
@@ -1013,7 +1013,7 @@ msgstr "--- *** ___ 水平标尺"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "文件夹视图"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1244,12 +1244,12 @@ msgstr "&启动时打开最近文件"
 #: src/settings/preferencesdialog.ui:183
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr ""
+msgstr "侧边栏"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "在文件夹视图中显示所有文件 (&S)"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
