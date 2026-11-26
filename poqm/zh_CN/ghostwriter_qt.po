@@ -12,13 +12,13 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ghostwriter/ghostwriter_qt.pot\n"
-"X-Crowdin-File-ID: 54424\n"
+"X-Crowdin-File: /kf6-stable/messages/ghostwriter/ghostwriter_qt.pot\n"
+"X-Crowdin-File-ID: 54746\n"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
 msgid "Reopen Last Closed File"
-msgstr "重新打开关闭的文件"
+msgstr "重新打开上次关闭的文件"
 
 #: src/appactions.cpp:74
 msgctxt "ghostwriter::AppActions|"
@@ -33,7 +33,7 @@ msgstr "清空列表"
 #: src/appactions.cpp:91
 msgctxt "ghostwriter::AppActions|"
 msgid "Reload from Disk..."
-msgstr "重新加载"
+msgstr "从磁盘重新加载..."
 
 #: src/appactions.cpp:92
 msgctxt "ghostwriter::AppActions|"
@@ -58,7 +58,7 @@ msgstr "SHIFT+CTRL+C"
 #: src/appactions.cpp:105
 msgctxt "ghostwriter::AppActions|"
 msgid "&Insert Image..."
-msgstr "插入图片(&I)"
+msgstr "插入图片(&I)..."
 
 #: src/appactions.cpp:114
 msgctxt "ghostwriter::AppActions|"
@@ -358,7 +358,7 @@ msgstr "SHIFT+Backspace"
 #: src/appactions.cpp:221
 msgctxt "ghostwriter::AppActions|"
 msgid "Toggles Hemingway mode."
-msgstr "切换海明威模式"
+msgstr "切换海明威模式。"
 
 #: src/appactions.cpp:223
 msgctxt "ghostwriter::AppActions|"
@@ -411,7 +411,7 @@ msgstr "CTRL+J"
 #: src/appactions.cpp:236
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows the document outline."
-msgstr "显示文档大纲"
+msgstr "显示文档大纲。"
 
 #: src/appactions.cpp:238
 msgctxt "ghostwriter::AppActions|"
@@ -442,7 +442,7 @@ msgstr "备忘录"
 #: src/appactions.cpp:248
 msgctxt "ghostwriter::AppActions|"
 msgid "Shows a quick reference guide for Markdown in the sidebar."
-msgstr "在侧边栏中显示Markdown的快速参考指南。"
+msgstr "在侧边栏中显示 Markdown 的快速参考指南。"
 
 #: src/appactions.cpp:255
 msgctxt "ghostwriter::AppActions|"
@@ -883,7 +883,7 @@ msgstr "%1 个匹配项"
 #, qt-format
 msgctxt "ghostwriter::MainWindow|"
 msgid "Could not create file: %1"
-msgstr ""
+msgstr "无法创建文件：%1"
 
 #: src/mainwindow.cpp:1016
 msgctxt "ghostwriter::MainWindow|"
@@ -943,7 +943,7 @@ msgstr "###### 标题 6"
 #: src/mainwindow.cpp:1278
 msgctxt "ghostwriter::MainWindow|"
 msgid "*Emphasis* _Emphasis_"
-msgstr ""
+msgstr "*斜体* _斜体_"
 
 #: src/mainwindow.cpp:1279
 msgctxt "ghostwriter::MainWindow|"
@@ -1013,7 +1013,7 @@ msgstr "--- *** ___ 水平标尺"
 #: src/mainwindow.cpp:1342
 msgctxt "ghostwriter::MainWindow|"
 msgid "Folder View"
-msgstr ""
+msgstr "文件夹视图"
 
 #: src/mainwindow.cpp:1343
 msgctxt "ghostwriter::MainWindow|"
@@ -1244,12 +1244,12 @@ msgstr "&启动时打开最近文件"
 #: src/settings/preferencesdialog.ui:183
 msgctxt "PreferencesDialog|"
 msgid "Sidebar"
-msgstr ""
+msgstr "侧边栏"
 
 #: src/settings/preferencesdialog.ui:189
 msgctxt "PreferencesDialog|"
 msgid "&Show all files in folder view"
-msgstr ""
+msgstr "在文件夹视图中显示所有文件 (&S)"
 
 #: src/settings/preferencesdialog.ui:213
 msgctxt "PreferencesDialog|"
